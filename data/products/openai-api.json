@@ -1,0 +1,107 @@
+{
+	"slug": "openai-api",
+	"name": "OpenAI API",
+	"domain": "openai.com",
+	"category": "ai-infrastructure",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "vLLM serves an OpenAI-compatible endpoint, so the client code doesn't change at all. Open weights now match GPT-4-class output on summarisation, extraction and classification. Frontier reasoning and long-horizon agentic work are still not close, and GPUs are not free.",
+		"fr": "vLLM expose un point d’accès compatible OpenAI : le code client ne change pas d’une ligne. Les poids ouverts égalent désormais le niveau GPT-4 sur le résumé, l’extraction et la classification. Le raisonnement de pointe et le travail agentique de longue haleine restent loin, et les GPU ne sont pas gratuits."
+	},
+	"whatYouLose": [
+		{
+			"en": "Frontier reasoning",
+			"fr": "Raisonnement de pointe"
+		},
+		{
+			"en": "Long-horizon agentic reliability",
+			"fr": "Fiabilité agentique sur la durée"
+		},
+		{
+			"en": "No GPU capacity to manage",
+			"fr": "Aucune capacité GPU à gérer"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "vLLM",
+			"source": {
+				"host": "github",
+				"path": "vllm-project/vllm",
+				"url": "https://github.com/vllm-project/vllm"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The production serving engine. PagedAttention gives you real throughput at batch — this is what the inference providers run.",
+				"fr": "Le moteur de service en production. PagedAttention offre un vrai débit en lot — c’est ce que font tourner les fournisseurs d’inférence."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "llama.cpp",
+			"source": {
+				"host": "github",
+				"path": "ggml-org/llama.cpp",
+				"url": "https://github.com/ggml-org/llama.cpp"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Runs quantised models on a laptop CPU or a Mac. Not for serving traffic, perfect for evaluating whether local is viable at all.",
+				"fr": "Fait tourner des modèles quantisés sur un CPU de portable ou un Mac. Pas pour servir du trafic, parfait pour évaluer si le local est envisageable."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LiteLLM",
+			"source": {
+				"host": "github",
+				"path": "BerriAI/litellm",
+				"url": "https://github.com/BerriAI/litellm"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "A proxy that speaks the OpenAI API and routes to a hundred backends with budgets and keys. Install it before you migrate anything.",
+				"fr": "Un proxy qui parle l’API OpenAI et route vers une centaine de backends avec budgets et clés. Installez-le avant de migrer quoi que ce soit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO past 5 users, SCIM, guardrails, audit logs",
+					"fr": "SSO au-delà de 5 utilisateurs, SCIM, garde-fous, audit"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "OpenRouter",
+			"url": "https://openrouter.ai/",
+			"priceMonthly": 0,
+			"note": {
+				"en": "One API key across every provider, with cheap open-weight models a routing rule away. You add a hop of latency and a second party to your data path.",
+				"fr": "Une seule clé d’API pour tous les fournisseurs, avec des modèles à poids ouverts bon marché à une règle de routage près. Vous ajoutez un saut de latence et un tiers dans le chemin de vos données."
+			}
+		}
+	],
+	"priority": 5
+}

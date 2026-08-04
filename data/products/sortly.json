@@ -1,0 +1,99 @@
+{
+	"slug": "sortly",
+	"name": "Sortly",
+	"domain": "sortly.com",
+	"category": "inventory-warehouse",
+	"priceMonthly": 49,
+	"pricing": {
+		"plan": "Advanced, list price (includes 2 users)",
+		"basis": "flat",
+		"url": "https://www.sortly.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Sortly is a photo-first item list with QR labels and a phone app. That is a small, well-understood piece of software, and Snipe-IT and InvenTree both do it for free with better audit trails. The only thing you genuinely give up is the polish of the mobile app.",
+		"fr": "Sortly est une liste d’objets avec photos, étiquettes QR et une app mobile. C’est un logiciel petit et bien compris, et Snipe-IT comme InvenTree le font gratuitement avec de meilleures pistes d’audit. La seule vraie perte, c’est le fini de l’application mobile."
+	},
+	"whatYouLose": [
+		{
+			"en": "Polished offline mobile app",
+			"fr": "App mobile hors ligne bien finie"
+		},
+		{
+			"en": "Zero setup",
+			"fr": "Absence totale d’installation"
+		},
+		{
+			"en": "Built-in label ordering",
+			"fr": "Commande d’étiquettes intégrée"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Snipe-IT",
+			"source": {
+				"host": "github",
+				"path": "grokability/snipe-it",
+				"url": "https://github.com/grokability/snipe-it"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Asset tracking done properly: check-in/check-out, custodians, audit history, SAML SSO in the free build. Note the repo moved to grokability/snipe-it.",
+				"fr": "Le suivi d’actifs fait sérieusement : sorties/retours, détenteurs, historique d’audit, SSO SAML dans la version open source. Le dépôt a migré vers grokability/snipe-it."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "InvenTree",
+			"source": {
+				"host": "github",
+				"path": "inventree/InvenTree",
+				"url": "https://github.com/inventree/InvenTree"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Better if the things you track are parts with quantities rather than assets with owners.",
+				"fr": "Préférable si vous suivez des pièces en quantité plutôt que des actifs avec un détenteur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "grocy",
+			"source": {
+				"host": "github",
+				"path": "grocy/grocy",
+				"url": "https://github.com/grocy/grocy"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Overkill-free option for small stockrooms: barcodes, locations, expiry dates, and it runs on a Raspberry Pi.",
+				"fr": "L’option sans excès pour un petit magasin : codes-barres, emplacements, dates de péremption, et ça tourne sur un Raspberry Pi."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

@@ -1,0 +1,103 @@
+{
+	"slug": "dropbox",
+	"name": "Dropbox",
+	"domain": "dropbox.com",
+	"category": "storage",
+	"priceMonthly": 12,
+	"pricing": {
+		"plan": "Business Standard (page geo-serves EUR 12/user/mo; USD page unreachable)",
+		"basis": "per-seat",
+		"url": "https://www.dropbox.com/business/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "low"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Sync is a solved problem. You provide the disk and the backup discipline.",
+		"fr": "La synchro est un problème résolu. À vous de fournir le disque et la discipline de sauvegarde."
+	},
+	"whatYouLose": [
+		{
+			"en": "Offsite backup by default",
+			"fr": "Sauvegarde hors site par défaut"
+		},
+		{
+			"en": "Sharing with people who use it",
+			"fr": "Partage avec ceux qui l’ont déjà"
+		},
+		{
+			"en": "Version history you don't manage",
+			"fr": "Historique de versions sans gestion"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Nextcloud",
+			"source": {
+				"host": "github",
+				"path": "nextcloud/server",
+				"url": "https://github.com/nextcloud/server"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Files plus a whole office suite.",
+				"fr": "Des fichiers et toute une suite bureautique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Seafile",
+			"source": {
+				"host": "github",
+				"path": "haiwen/seafile",
+				"url": "https://github.com/haiwen/seafile"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Fastest sync engine of the three.",
+				"fr": "Le moteur de synchro le plus rapide des trois."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Full-text search, SAML, S3 storage, audit logs",
+					"fr": "Recherche plein texte, SAML, stockage S3, audit"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Syncthing",
+			"source": {
+				"host": "github",
+				"path": "syncthing/syncthing",
+				"url": "https://github.com/syncthing/syncthing"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "No server at all — peer to peer.",
+				"fr": "Aucun serveur — de pair à pair."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

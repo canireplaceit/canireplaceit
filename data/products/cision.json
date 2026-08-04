@@ -1,0 +1,107 @@
+{
+	"slug": "cision",
+	"name": "Cision",
+	"domain": "cision.com",
+	"category": "marketing",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "Cision sells a journalist contact database and wire distribution. The database is licensed and maintained by humans calling newsrooms, and the wire is a commercial relationship with news outlets — you can self-host media monitoring, but the half that gets you published is not software at all.",
+		"fr": "Cision vend une base de contacts journalistes et une distribution par fil de presse. La base est sous licence et entretenue par des humains qui appellent les rédactions, et le fil est une relation commerciale avec des médias — vous pouvez auto-héberger la veille, mais la moitié qui vous fait publier n’est pas du logiciel."
+	},
+	"whatYouLose": [
+		{
+			"en": "The journalist contact database",
+			"fr": "La base de contacts journalistes"
+		},
+		{
+			"en": "Newswire distribution",
+			"fr": "Distribution par fil de presse"
+		},
+		{
+			"en": "Licensed print and broadcast monitoring",
+			"fr": "Veille presse et audiovisuel sous licence"
+		},
+		{
+			"en": "Audience reach estimates",
+			"fr": "Estimations de portée"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "changedetection.io",
+			"source": {
+				"host": "github",
+				"path": "dgtlmoon/changedetection.io",
+				"url": "https://github.com/dgtlmoon/changedetection.io"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Watches any page for changes with notifications — a surprisingly effective brand and competitor monitor once you point it at the right URLs.",
+				"fr": "Surveille les changements de n’importe quelle page avec notifications — une veille de marque et de concurrents étonnamment efficace une fois pointée sur les bonnes URL."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FreshRSS",
+			"source": {
+				"host": "github",
+				"path": "FreshRSS/FreshRSS",
+				"url": "https://github.com/FreshRSS/FreshRSS"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Feeds plus saved searches replaces the clipping half of a media monitoring contract, for the cost of a small VPS.",
+				"fr": "Des flux plus des recherches enregistrées remplacent la moitié « revue de presse » d’un contrat de veille, pour le prix d’un petit VPS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SearXNG",
+			"source": {
+				"host": "github",
+				"path": "searxng/searxng",
+				"url": "https://github.com/searxng/searxng"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Scheduled queries across news engines, which is what the expensive monitoring dashboards are doing underneath.",
+				"fr": "Des requêtes planifiées sur les moteurs d’actualités, ce que font en dessous les tableaux de bord de veille coûteux."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Prowly",
+			"url": "https://prowly.com",
+			"priceMonthly": 258,
+			"note": {
+				"en": "A real media database and pitching workflow at a fraction of a Cision contract. Smaller database, no newswire.",
+				"fr": "Une vraie base média et un flux de pitch pour une fraction d’un contrat Cision. Base plus petite, pas de fil de presse."
+			}
+		}
+	],
+	"priority": 3
+}

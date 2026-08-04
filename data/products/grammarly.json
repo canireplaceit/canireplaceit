@@ -1,0 +1,71 @@
+{
+	"slug": "grammarly",
+	"name": "Grammarly",
+	"domain": "grammarly.com",
+	"category": "language-localization",
+	"priceMonthly": 12,
+	"pricing": {
+		"plan": "Pro (EU page shows EUR 12/user/mo)",
+		"basis": "per-seat",
+		"url": "https://www.grammarly.com/plans",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "LanguageTool catches grammar and style errors well in dozens of languages and can run entirely on your machine, which matters if you paste confidential text into a browser extension. Grammarly's tone rewriting and its LLM suggestions are still better.",
+		"fr": "LanguageTool détecte bien les erreurs de grammaire et de style dans des dizaines de langues et peut tourner entièrement sur votre machine — ce qui compte si vous collez du texte confidentiel dans une extension de navigateur. La réécriture du ton et les suggestions par LLM de Grammarly restent supérieures."
+	},
+	"whatYouLose": [
+		{
+			"en": "Tone rewriting and LLM suggestions",
+			"fr": "Réécriture du ton et suggestions par LLM"
+		},
+		{
+			"en": "Smoother editor and email integrations",
+			"fr": "Intégrations plus fluides dans l’éditeur et l’e-mail"
+		},
+		{
+			"en": "Plagiarism checking",
+			"fr": "Détection de plagiat"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "LanguageTool",
+			"source": {
+				"host": "github",
+				"path": "languagetool-org/languagetool",
+				"url": "https://github.com/languagetool-org/languagetool"
+			},
+			"license": "LGPL-2.1",
+			"effort": "docker",
+			"note": {
+				"en": "Self-host the server and point the browser extension at it. Far better than Grammarly for non-English.",
+				"fr": "Auto-hébergez le serveur et faites-y pointer l’extension. Bien meilleur que Grammarly hors anglais."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "AI/ML rules, paraphrasing, style suggestions",
+					"fr": "Règles IA, paraphrase, suggestions de style"
+				},
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "ProWritingAid",
+			"url": "https://prowritingaid.com",
+			"priceMonthly": 10,
+			"note": {
+				"en": "Cheaper, with much deeper reports for long-form writing. Slower, and weaker as a real-time typing assistant.",
+				"fr": "Moins cher, avec des rapports bien plus fouillés pour les textes longs. Plus lent, et moins bon comme assistant de frappe en temps réel."
+			}
+		}
+	],
+	"priority": 5
+}

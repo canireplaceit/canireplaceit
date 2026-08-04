@@ -1,0 +1,88 @@
+{
+	"slug": "elevenlabs",
+	"name": "ElevenLabs",
+	"domain": "elevenlabs.io",
+	"category": "ai-infrastructure",
+	"priceMonthly": 22,
+	"pricing": {
+		"plan": "Creator",
+		"basis": "flat",
+		"url": "https://elevenlabs.io/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Open TTS has closed the gap on intelligibility but not on prosody — F5-TTS clones a voice from ten seconds and still sounds like a robot reading a script when the sentence gets emotional. For IVR prompts, open source is fine. For anything a customer listens to for more than a minute, it isn't.",
+		"fr": "La synthèse vocale ouverte a rattrapé l’intelligibilité, pas la prosodie — F5-TTS clone une voix à partir de dix secondes et sonne toujours comme un robot lisant un script dès que la phrase devient émotive. Pour des messages de serveur vocal, l’open source suffit. Pour ce qu’un client écoute plus d’une minute, non."
+	},
+	"whatYouLose": [
+		{
+			"en": "Natural prosody and emotion",
+			"fr": "Prosodie et émotion naturelles"
+		},
+		{
+			"en": "Instant voice cloning quality",
+			"fr": "Qualité du clonage vocal instantané"
+		},
+		{
+			"en": "Low-latency streaming",
+			"fr": "Diffusion à faible latence"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "F5-TTS",
+			"source": {
+				"host": "github",
+				"path": "SWivid/F5-TTS",
+				"url": "https://github.com/SWivid/F5-TTS"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Best open zero-shot voice cloning right now. Needs a GPU and it is not real-time on modest hardware.",
+				"fr": "Le meilleur clonage vocal zero-shot ouvert actuellement. Exige un GPU et n’est pas temps réel sur du matériel modeste."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Piper",
+			"source": {
+				"host": "github",
+				"path": "OHF-Voice/piper1-gpl",
+				"url": "https://github.com/OHF-Voice/piper1-gpl"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Runs fast on a Raspberry Pi. Fixed pretrained voices, no cloning — but it works offline, which nothing else here does.",
+				"fr": "Tourne vite sur un Raspberry Pi. Voix préentraînées fixes, pas de clonage — mais fonctionne hors ligne, ce qu’aucun autre ne fait ici."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "OpenAI TTS",
+			"url": "https://platform.openai.com/docs/guides/text-to-speech",
+			"priceMonthly": 0,
+			"note": {
+				"en": "Usage-based and roughly an order of magnitude below ElevenLabs per hour of audio. No voice cloning and a handful of fixed voices.",
+				"fr": "Facturé à l’usage, environ dix fois moins cher qu’ElevenLabs par heure d’audio. Pas de clonage vocal et une poignée de voix fixes."
+			}
+		}
+	],
+	"priority": 4
+}

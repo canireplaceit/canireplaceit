@@ -1,0 +1,130 @@
+{
+	"slug": "expressvpn",
+	"name": "ExpressVPN",
+	"domain": "expressvpn.com",
+	"category": "networking-vpn",
+	"priceMonthly": 13,
+	"pricing": {
+		"plan": "Monthly",
+		"basis": "per-seat",
+		"url": "https://www.expressvpn.com/order",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "ExpressVPN was bought by Kape Technologies, a company whose founders previously sold adware, which is a reason to look elsewhere rather than to self-host. Running Algo or wg-easy gives you a private tunnel to your own network — it does not give you an IP shared with strangers, which is the thing a commercial VPN actually sells.",
+		"fr": "ExpressVPN a été racheté par Kape Technologies, entreprise dont les fondateurs vendaient auparavant des adwares : c’est une raison de regarder ailleurs, pas d’auto-héberger. Faire tourner Algo ou wg-easy vous donne un tunnel privé vers votre propre réseau — pas une IP partagée avec des inconnus, qui est ce que vend réellement un VPN commercial."
+	},
+	"whatYouLose": [
+		{
+			"en": "A shared IP to blend into",
+			"fr": "Une IP partagée où se fondre"
+		},
+		{
+			"en": "Exit servers in ninety countries",
+			"fr": "Serveurs de sortie dans quatre-vingt-dix pays"
+		},
+		{
+			"en": "Streaming geo-unblocking",
+			"fr": "Déblocage géographique du streaming"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Algo VPN",
+			"source": {
+				"host": "github",
+				"path": "trailofbits/algo",
+				"url": "https://github.com/trailofbits/algo"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Ansible scripts from Trail of Bits that stand up a hardened WireGuard server on a cloud VM in one command. Remember the exit IP is then yours alone: worse for anonymity, better for trust.",
+				"fr": "Des scripts Ansible de Trail of Bits qui montent un serveur WireGuard durci sur une VM cloud en une commande. Attention, l’IP de sortie est alors la vôtre seule : pire pour l’anonymat, meilleur pour la confiance."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "wg-easy",
+			"source": {
+				"host": "github",
+				"path": "wg-easy/wg-easy",
+				"url": "https://github.com/wg-easy/wg-easy"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "WireGuard plus a web UI with QR codes for phones. The five-minute version of the same idea.",
+				"fr": "WireGuard plus une interface web avec QR codes pour les téléphones. La version cinq minutes de la même idée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Outline Server",
+			"source": {
+				"host": "github",
+				"path": "OutlineFoundation/outline-server",
+				"url": "https://github.com/OutlineFoundation/outline-server"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Shadowsocks-based, built for censorship circumvention rather than ad-blocking. The project moved from Jigsaw-Code to the Outline Foundation.",
+				"fr": "Bâti sur Shadowsocks, conçu pour contourner la censure plutôt que pour bloquer la publicité. Le projet est passé de Jigsaw-Code à l’Outline Foundation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Headscale",
+			"source": {
+				"host": "github",
+				"path": "juanfont/headscale",
+				"url": "https://github.com/juanfont/headscale"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "An open control server for Tailscale's clients. You get the mesh without the coordination server being someone else's.",
+				"fr": "Un serveur de contrôle open source pour les clients Tailscale. Vous obtenez le maillage sans que le serveur de coordination appartienne à quelqu’un d’autre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Mullvad",
+			"url": "https://mullvad.net/en/pricing",
+			"priceMonthly": 6,
+			"note": {
+				"en": "Five euros flat, no account email, GPL-3.0 clients and repeatedly audited. Owned by the people who wrote it rather than by an ad-tech holding company.",
+				"fr": "Cinq euros fixes, sans e-mail de compte, clients en GPL-3.0 et audits répétés. Détenu par ceux qui l’ont écrit plutôt que par un holding publicitaire."
+			}
+		}
+	],
+	"priority": 3
+}

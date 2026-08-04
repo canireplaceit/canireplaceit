@@ -1,0 +1,113 @@
+{
+	"slug": "yotpo",
+	"name": "Yotpo",
+	"domain": "yotpo.com",
+	"category": "marketing",
+	"priceMonthly": 119,
+	"pricing": {
+		"plan": "Reviews Pro (Starter from $15/mo); higher tiers quote-only",
+		"basis": "flat",
+		"url": "https://apps.shopify.com/yotpo-social-reviews",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Unlike Trustpilot, Yotpo mostly renders reviews on your own store — and that part is a database table, a widget and correct schema.org markup. What you are really buying is the review request emails landing in inboxes and the Google rich-snippet integration not breaking.",
+		"fr": "Contrairement à Trustpilot, Yotpo affiche surtout les avis sur votre propre boutique — et cette partie, c’est une table, un widget et un balisage schema.org correct. Ce que vous achetez vraiment, ce sont des e-mails de demande d’avis qui arrivent en boîte de réception et une intégration rich snippet qui ne casse pas."
+	},
+	"whatYouLose": [
+		{
+			"en": "Review request deliverability",
+			"fr": "Délivrabilité des demandes d’avis"
+		},
+		{
+			"en": "Google Shopping review syndication",
+			"fr": "Syndication des avis vers Google Shopping"
+		},
+		{
+			"en": "Loyalty and referral modules",
+			"fr": "Modules fidélité et parrainage"
+		},
+		{
+			"en": "Moderation and photo hosting",
+			"fr": "Modération et hébergement des photos"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Medusa",
+			"source": {
+				"host": "github",
+				"path": "medusajs/medusa",
+				"url": "https://github.com/medusajs/medusa"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "If the store itself is Medusa, reviews are a small module against your own data rather than a monthly per-order fee.",
+				"fr": "Si la boutique est Medusa, les avis sont un petit module sur vos propres données plutôt qu’un abonnement à la commande."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Remark42",
+			"source": {
+				"host": "github",
+				"path": "umputun/remark42",
+				"url": "https://github.com/umputun/remark42"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Ratings and threaded comments with anonymous or social login, embeddable on any product page.",
+				"fr": "Notes et commentaires en fil avec connexion anonyme ou sociale, intégrables sur n’importe quelle fiche produit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Listmonk",
+			"source": {
+				"host": "github",
+				"path": "knadh/listmonk",
+				"url": "https://github.com/knadh/listmonk"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Sends the post-purchase review requests at essentially zero marginal cost. Deliverability is now your problem.",
+				"fr": "Envoie les demandes d’avis post-achat à coût marginal quasi nul. La délivrabilité devient votre problème."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Judge.me",
+			"url": "https://judge.me",
+			"priceMonthly": 15,
+			"note": {
+				"en": "Does the same job for a fifth of the price with unlimited review requests. Weaker analytics and no loyalty programme.",
+				"fr": "Fait le même travail pour un cinquième du prix avec des demandes d’avis illimitées. Analyses plus faibles et pas de programme de fidélité."
+			}
+		}
+	],
+	"priority": 3
+}

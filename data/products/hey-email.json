@@ -1,0 +1,134 @@
+{
+	"slug": "hey-email",
+	"name": "HEY",
+	"domain": "hey.com",
+	"category": "email-clients",
+	"priceMonthly": 8.25,
+	"pricing": {
+		"plan": "HEY for You, billed annually ($99/yr); HEY for Domains is $12/user/mo",
+		"basis": "per-seat",
+		"url": "https://www.hey.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "HEY's real product is opinions — the Screener, the Feed, the Paper Trail — welded to a mailbox you cannot move to another provider. Self-hosting gives you the mailbox and the address forever, but nobody has rebuilt the opinions, and rebuilding them in sieve rules is not the same thing.",
+		"fr": "Le vrai produit de HEY, ce sont des convictions — le Screener, le Feed, le Paper Trail — soudées à une boîte que vous ne pouvez pas déplacer chez un autre fournisseur. L’auto-hébergement vous donne la boîte et l’adresse pour toujours, mais personne n’a reconstruit les convictions, et les refaire en règles sieve n’est pas la même chose."
+	},
+	"whatYouLose": [
+		{
+			"en": "The Screener and Imbox workflow",
+			"fr": "Le flux Screener et Imbox"
+		},
+		{
+			"en": "Spy-pixel blocking by default",
+			"fr": "Blocage des pixels espions par défaut"
+		},
+		{
+			"en": "Someone else fighting the blocklists",
+			"fr": "Quelqu’un d’autre qui se bat contre les listes noires"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "mailcow",
+			"source": {
+				"host": "github",
+				"path": "mailcow/mailcow-dockerized",
+				"url": "https://github.com/mailcow/mailcow-dockerized"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The pragmatic full mail stack: Postfix, Dovecot, Rspamd, SOGo and a real admin UI in one compose file. Keeping the IP off blocklists is still your job.",
+				"fr": "La pile mail complète et pragmatique : Postfix, Dovecot, Rspamd, SOGo et une vraie interface d’administration dans un seul fichier compose. Garder l’IP hors des listes noires reste votre travail."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Stalwart",
+			"source": {
+				"host": "github",
+				"path": "stalwartlabs/stalwart",
+				"url": "https://github.com/stalwartlabs/stalwart"
+			},
+			"license": "AGPL-3.0 + Stalwart Enterprise Licence",
+			"effort": "docker",
+			"note": {
+				"en": "One Rust binary doing JMAP, IMAP, SMTP and spam filtering — by far the least painful mail server to stand up in 2026. Dual-licensed: the repo ships an AGPL-3.0 licence next to a proprietary Enterprise one.",
+				"fr": "Un seul binaire Rust qui fait JMAP, IMAP, SMTP et antispam : de loin le serveur mail le moins pénible à monter en 2026. Double licence, le dépôt contient une AGPL-3.0 à côté d’une licence Enterprise propriétaire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Clustering, multi-tenancy and the Enterprise admin features",
+					"fr": "Le clustering, la multi-location et les fonctions d’administration Enterprise"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "docker-mailserver",
+			"source": {
+				"host": "github",
+				"path": "docker-mailserver/docker-mailserver",
+				"url": "https://github.com/docker-mailserver/docker-mailserver"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "No database, no web UI, configuration as files. If you want a mail server you can read end to end, this is it.",
+				"fr": "Pas de base de données, pas d’interface web, la configuration en fichiers. Si vous voulez un serveur mail que vous pouvez lire de bout en bout, c’est celui-là."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SnappyMail",
+			"source": {
+				"host": "github",
+				"path": "the-djmaze/snappymail",
+				"url": "https://github.com/the-djmaze/snappymail"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "A leaner, actively maintained fork of RainLoop. Drops into any PHP host and talks to any IMAP server.",
+				"fr": "Un fork plus léger et activement maintenu de RainLoop. S’installe sur n’importe quel hébergement PHP et parle à n’importe quel IMAP."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Fastmail",
+			"url": "https://www.fastmail.com/pricing/",
+			"priceMonthly": 5,
+			"note": {
+				"en": "A third of the price, JMAP, real IMAP export and no lock-in on your own domain. You do not get HEY's opinions, which for many people was the point.",
+				"fr": "Un tiers du prix, JMAP, un vrai export IMAP et aucun verrouillage sur votre propre domaine. Vous n’avez pas les convictions de HEY, ce qui pour beaucoup était l’intérêt."
+			}
+		}
+	],
+	"priority": 3
+}

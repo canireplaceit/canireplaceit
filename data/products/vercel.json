@@ -1,0 +1,103 @@
+{
+	"slug": "vercel",
+	"name": "Vercel",
+	"domain": "vercel.com",
+	"category": "dev-tools",
+	"priceMonthly": 20,
+	"pricing": {
+		"plan": "Pro",
+		"basis": "per-seat",
+		"url": "https://vercel.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Deploys and previews port cleanly. Their edge network and zero-config Next.js integration do not.",
+		"fr": "Les déploiements et les previews se transposent bien. Leur réseau edge et l’intégration Next.js sans configuration, non."
+	},
+	"whatYouLose": [
+		{
+			"en": "Global edge network",
+			"fr": "Réseau edge mondial"
+		},
+		{
+			"en": "Zero-config Next.js",
+			"fr": "Next.js sans configuration"
+		},
+		{
+			"en": "Preview deploys out of the box",
+			"fr": "Previews clés en main"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Coolify",
+			"source": {
+				"host": "github",
+				"path": "coollabsio/coolify",
+				"url": "https://github.com/coollabsio/coolify"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Git-push deploys on your own VPS.",
+				"fr": "Déploiement par git push sur votre propre VPS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dokploy",
+			"source": {
+				"host": "github",
+				"path": "Dokploy/dokploy",
+				"url": "https://github.com/Dokploy/dokploy"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Lighter Coolify, nice UI.",
+				"fr": "Un Coolify plus léger, jolie interface."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO/SAML, fine-grained RBAC, audit logs",
+					"fr": "SSO/SAML, RBAC granulaire, journaux d’audit"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CapRover",
+			"source": {
+				"host": "github",
+				"path": "caprover/caprover",
+				"url": "https://github.com/caprover/caprover"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Oldest and most boring. A compliment.",
+				"fr": "Le plus ancien et le plus ennuyeux. C’est un compliment."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

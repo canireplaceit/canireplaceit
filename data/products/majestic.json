@@ -1,0 +1,109 @@
+{
+	"slug": "majestic",
+	"name": "Majestic",
+	"domain": "majestic.com",
+	"category": "seo-rank-tracking",
+	"priceMonthly": 47,
+	"pricing": {
+		"plan": "Lite ($46.99/mo)",
+		"basis": "flat",
+		"url": "https://majestic.com/plans-pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "not-yet",
+	"why": {
+		"en": "Trust Flow and Citation Flow are computed over Majestic's own crawl of the web, running since 2011. There is no open source link index and there is not going to be one — crawling the web is a capital expense, not a codebase.",
+		"fr": "Trust Flow et Citation Flow sont calculés sur le crawl du web propre à Majestic, qui tourne depuis 2011. Il n’existe pas d’index de liens open source et il n’y en aura pas — crawler le web est une dépense d’infrastructure, pas une base de code."
+	},
+	"whatYouLose": [
+		{
+			"en": "The historic link index",
+			"fr": "L’index de liens historique"
+		},
+		{
+			"en": "Trust Flow and Citation Flow",
+			"fr": "Trust Flow et Citation Flow"
+		},
+		{
+			"en": "Topical trust categories",
+			"fr": "Catégories de confiance thématiques"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Common Crawl + cc-pyspark",
+			"source": {
+				"host": "github",
+				"path": "commoncrawl/cc-pyspark",
+				"url": "https://github.com/commoncrawl/cc-pyspark"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "The only honest open path to a link graph. Common Crawl is a sample of the web, not the web, and processing it is a real infrastructure project.",
+				"fr": "Le seul chemin ouvert honnête vers un graphe de liens. Common Crawl est un échantillon du web, pas le web, et le traiter est un vrai projet d’infrastructure."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache Nutch",
+			"source": {
+				"host": "github",
+				"path": "apache/nutch",
+				"url": "https://github.com/apache/nutch"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Crawl the web yourself. People do this; it costs more than a Majestic subscription within the first month.",
+				"fr": "Crawler le web vous-même. Certains le font ; ça coûte plus cher qu’un abonnement Majestic dès le premier mois."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SEOnaut",
+			"source": {
+				"host": "github",
+				"path": "StJudeWasHere/seonaut",
+				"url": "https://github.com/StJudeWasHere/seonaut"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Covers internal linking, which is the part of link analysis you can actually own.",
+				"fr": "Couvre le maillage interne, la seule partie de l’analyse de liens que vous pouvez réellement posséder."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Ahrefs Webmaster Tools",
+			"url": "https://ahrefs.com/webmaster-tools",
+			"priceMonthly": 0,
+			"note": {
+				"en": "Free, and a far better backlink report than Majestic — but only for domains you can verify. Useless for competitor research, which is the point of Majestic.",
+				"fr": "Gratuit, et un bien meilleur rapport de backlinks que Majestic — mais seulement pour les domaines que vous pouvez vérifier. Inutile pour analyser les concurrents, ce qui est tout l’intérêt de Majestic."
+			}
+		}
+	],
+	"priority": 2
+}

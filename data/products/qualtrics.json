@@ -1,0 +1,105 @@
+{
+	"slug": "qualtrics",
+	"name": "Qualtrics",
+	"domain": "qualtrics.com",
+	"category": "forms",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "For an academic survey — branching, randomisation, quotas, anonymous links, an export your stats package reads — LimeSurvey has been sufficient for fifteen years and keeps the responses on your own server, which matters when ethics approval names a jurisdiction. Qualtrics' panel access and enterprise XM analytics are the part you cannot self-host.",
+		"fr": "Pour une enquête académique — branchements, randomisation, quotas, liens anonymes, export lisible par votre logiciel de stats — LimeSurvey suffit depuis quinze ans et garde les réponses sur votre serveur, ce qui compte quand l’accord éthique nomme une juridiction. L’accès aux panels et l’analytique XM entreprise sont ce que vous ne pouvez pas auto-héberger."
+	},
+	"whatYouLose": [
+		{
+			"en": "Access to respondent panels",
+			"fr": "Accès aux panels de répondants"
+		},
+		{
+			"en": "Enterprise XM dashboards",
+			"fr": "Tableaux de bord XM entreprise"
+		},
+		{
+			"en": "Campus-wide licence and support",
+			"fr": "Licence et support à l’échelle du campus"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "LimeSurvey",
+			"source": {
+				"host": "github",
+				"path": "LimeSurvey/LimeSurvey",
+				"url": "https://github.com/LimeSurvey/LimeSurvey"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The community edition is the full engine — 80+ question types, quotas, panel integration, SPSS and R export. Only hosting is paid.",
+				"fr": "L’édition communautaire, c’est le moteur complet — plus de 80 types de questions, quotas, intégration de panels, export SPSS et R. Seul l’hébergement est payant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "LimeSurvey Cloud hosting and support",
+					"fr": "L’hébergement LimeSurvey Cloud et le support"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Formbricks",
+			"source": {
+				"host": "github",
+				"path": "formbricks/formbricks",
+				"url": "https://github.com/formbricks/formbricks"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Much nicer to look at than LimeSurvey, but read the licence: everything under apps/web/modules/ee is commercial, and SSO sits in there.",
+				"fr": "Bien plus agréable à l’œil que LimeSurvey, mais lisez la licence : tout ce qui est sous apps/web/modules/ee est commercial, et le SSO s’y trouve."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "SSO, multi-language surveys and team roles (ee/ directory)",
+					"fr": "SSO, enquêtes multilingues et rôles d’équipe (répertoire ee/)"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SurveyJS",
+			"source": {
+				"host": "github",
+				"path": "surveyjs/survey-library",
+				"url": "https://github.com/surveyjs/survey-library"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The runtime library is MIT and embeds in your own app. The visual Creator that makes it usable by a non-developer is a paid commercial licence.",
+				"fr": "La bibliothèque d’exécution est en MIT et s’intègre à votre application. Le Creator visuel qui la rend utilisable par un non-développeur est sous licence commerciale payante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "The Survey Creator visual designer licence",
+					"fr": "La licence du concepteur visuel Survey Creator"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

@@ -1,0 +1,107 @@
+{
+	"slug": "ably",
+	"name": "Ably",
+	"domain": "ably.com",
+	"category": "backend",
+	"priceMonthly": 29,
+	"pricing": {
+		"plan": "Standard, $29/mo base + usage",
+		"basis": "usage",
+		"url": "https://ably.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Ably sells guarantees, not sockets: exactly-once ordering, message continuity across a reconnect, and a latency SLA from a global edge. Centrifugo and NATS give you the delivery; the mathematical promises about what happens when a client's train enters a tunnel are the part you would be rebuilding.",
+		"fr": "Ably vend des garanties, pas des sockets : ordre exactement-une-fois, continuité des messages à la reconnexion et un SLA de latence depuis un edge mondial. Centrifugo et NATS assurent la livraison ; les promesses mathématiques sur ce qui se passe quand le train d’un client entre dans un tunnel, voilà ce que vous devriez reconstruire."
+	},
+	"whatYouLose": [
+		{
+			"en": "Global edge and latency SLA",
+			"fr": "Edge mondial et SLA de latence"
+		},
+		{
+			"en": "Guaranteed ordering and continuity",
+			"fr": "Ordre et continuité garantis"
+		},
+		{
+			"en": "Dozens of maintained SDKs",
+			"fr": "Des dizaines de SDK maintenus"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "NATS",
+			"source": {
+				"host": "github",
+				"path": "nats-io/nats-server",
+				"url": "https://github.com/nats-io/nats-server"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "JetStream gives you persistence, replay and at-least-once delivery with clustering that actually works across regions. A messaging system, not a browser SDK — you write the WebSocket edge.",
+				"fr": "JetStream apporte persistance, rejeu et livraison au moins une fois, avec un clustering qui fonctionne réellement entre régions. Un système de messagerie, pas un SDK navigateur — le edge WebSocket, c’est vous."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Centrifugo",
+			"source": {
+				"host": "github",
+				"path": "centrifugal/centrifugo",
+				"url": "https://github.com/centrifugal/centrifugo"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Closest to Ably's developer experience: channels, presence, history, recovery after reconnect, and SDKs for the browser and mobile.",
+				"fr": "Le plus proche de l’expérience développeur d’Ably : canaux, présence, historique, récupération après reconnexion, et SDK pour navigateur et mobile."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "PRO adds analytics, tracing, rate limits, push notifications and admin SSO.",
+					"fr": "La version PRO ajoute analytique, traçage, limites de débit, notifications push et SSO d’admin."
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mercure",
+			"source": {
+				"host": "github",
+				"path": "dunglas/mercure",
+				"url": "https://github.com/dunglas/mercure"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The simplest thing that can work for live updates in a web app, with reconnection and event replay built into the SSE spec itself.",
+				"fr": "La chose la plus simple qui puisse marcher pour des mises à jour en direct dans une application web, avec reconnexion et rejeu d’événements intégrés à la spécification SSE."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "High availability and clustering are the Enterprise on-premise build.",
+					"fr": "La haute disponibilité et le clustering sont la build Enterprise sur site."
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

@@ -1,0 +1,99 @@
+{
+	"slug": "agriwebb",
+	"name": "AgriWebb",
+	"domain": "agriwebb.com",
+	"category": "agriculture",
+	"priceMonthly": null,
+	"pricing": {
+		"plan": "Priced per head via an on-page calculator, so no single fixed figure. Australian entry pricing at the calculator's default herd size: Essentials A$34/mo or A$340/yr (~US$22/mo), Compliance A$48/mo or A$476/yr, Performance A$61/mo or A$612/yr. Add-ons: Movement Planning A$300/yr, Grazing Planning A$300/yr, Cibo Labs PastureKey from A$1,000/yr",
+		"basis": "usage",
+		"url": "https://www.agriwebb.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Livestock records — mob movements, weights, treatments, withholding periods — are exactly the kind of structured logging farmOS was designed for, and there is a livestock module. What AgriWebb adds is a phone app that works in a paddock with no signal and compliance templates for your specific national scheme.",
+		"fr": "Les enregistrements d’élevage — mouvements de lots, pesées, traitements, délais d’attente — sont précisément le type de journalisation structurée pour laquelle farmOS a été conçu, et il existe un module élevage. Ce qu’AgriWebb ajoute, c’est une application mobile utilisable dans un pré sans réseau et des modèles de conformité pour votre dispositif national."
+	},
+	"whatYouLose": [
+		{
+			"en": "Offline paddock-side mobile app",
+			"fr": "App mobile utilisable au pré, hors ligne"
+		},
+		{
+			"en": "National livestock scheme compliance",
+			"fr": "Conformité au dispositif national d’identification"
+		},
+		{
+			"en": "Built-in benchmarking against peers",
+			"fr": "Parangonnage intégré avec d’autres élevages"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "farmOS",
+			"source": {
+				"host": "github",
+				"path": "farmOS/farmOS",
+				"url": "https://github.com/farmOS/farmOS"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Animals, groups, movements, treatments and withholding, with a proper API and a QR/RFID-friendly log model.",
+				"fr": "Animaux, lots, mouvements, traitements et délais d’attente, avec une vraie API et un modèle de journal adapté au QR et à la RFID."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LiteFarm",
+			"source": {
+				"host": "github",
+				"path": "LiteFarmOrg/LiteFarm",
+				"url": "https://github.com/LiteFarmOrg/LiteFarm"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Built with farmers for mixed and organic operations: tasks, crops, animals, certification records. GPL-3.0, no paid edition.",
+				"fr": "Construit avec des agriculteurs pour les exploitations mixtes et biologiques : tâches, cultures, animaux, dossiers de certification. GPL-3.0, sans édition payante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "QGIS",
+			"source": {
+				"host": "github",
+				"path": "qgis/QGIS",
+				"url": "https://github.com/qgis/QGIS"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Paddock mapping, stocking-rate calculation and grazing rotation planning without a subscription.",
+				"fr": "Cartographie des parcelles, calcul du chargement et planification des rotations de pâturage, sans abonnement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

@@ -1,0 +1,111 @@
+{
+	"slug": "7shifts",
+	"name": "7shifts",
+	"domain": "7shifts.com",
+	"category": "scheduling",
+	"priceMonthly": 34.99,
+	"pricing": {
+		"plan": "Entrée, per location (JS-rendered pricing page; figure from secondary sources)",
+		"basis": "flat",
+		"url": "https://www.7shifts.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "7shifts is a shift board with labour-cost forecasting and a POS feed telling it how busy you were. The rota itself is easy; the reason restaurants pay is the sales-per-labour-hour number that appears while you are still building next week's schedule. Nothing open source computes that for you.",
+		"fr": "7shifts est un tableau de service avec prévision du coût de main-d’œuvre et un flux de la caisse qui indique l’affluence. La grille elle-même est facile ; ce que paient les restaurants, c’est le ratio ventes par heure travaillée qui s’affiche pendant que vous construisez le planning de la semaine suivante. Aucun logiciel libre ne le calcule pour vous."
+	},
+	"whatYouLose": [
+		{
+			"en": "Labour cost vs sales forecasting",
+			"fr": "Prévision coût de main-d’œuvre / ventes"
+		},
+		{
+			"en": "POS integration for real sales data",
+			"fr": "Intégration caisse pour les ventes réelles"
+		},
+		{
+			"en": "Shift swaps from a phone",
+			"fr": "Échanges de service depuis le téléphone"
+		},
+		{
+			"en": "Tip pooling calculations",
+			"fr": "Calcul de la répartition des pourboires"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Frappe HR",
+			"source": {
+				"host": "github",
+				"path": "frappe/hrms",
+				"url": "https://github.com/frappe/hrms"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Shift types, rosters, attendance, leave and a mobile PWA, on the same platform as ERPNext so sales data is one query away. GPL-3.0, no paid edition.",
+				"fr": "Types de service, plannings, présences, congés et une PWA mobile, sur la même plateforme qu’ERPNext donc les ventes sont à une requête. GPL-3.0, sans édition payante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kimai",
+			"source": {
+				"host": "github",
+				"path": "kimai/kimai",
+				"url": "https://github.com/kimai/kimai"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "If what you need is accurate hours for payroll rather than publishing a rota. Some official plugins are sold separately.",
+				"fr": "Si votre besoin est des heures exactes pour la paie plutôt que la publication d’un planning. Certains plugins officiels sont vendus à part."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Some official plugins (approvals, expenses) are sold separately",
+					"fr": "Certains plugins officiels (validations, notes de frais) sont vendus à part"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Timefold Solver",
+			"source": {
+				"host": "github",
+				"path": "TimefoldAI/timefold-solver",
+				"url": "https://github.com/TimefoldAI/timefold-solver"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The rota itself is a constraint problem — fairness, availability, legal rest — and this solves it properly. Multithreaded solving is Enterprise-only.",
+				"fr": "Le planning est un problème de contraintes — équité, disponibilités, repos légal — et il le résout correctement. Le solveur multithread est réservé à l’Enterprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Multithreaded and partitioned solving are Enterprise Edition only",
+					"fr": "Le solveur multithread et la recherche partitionnée sont réservés à l’Enterprise Edition"
+				},
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

@@ -1,0 +1,97 @@
+{
+	"slug": "dnanexus",
+	"name": "DNAnexus",
+	"domain": "dnanexus.com",
+	"category": "research-science",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "The workflow engine is the easy part — Nextflow and Galaxy run the same nf-core pipelines DNAnexus does. What you are actually paying for is a CLIA/CAP and FedRAMP-audited environment for patient genomes, and rebuilding that compliance posture in-house costs far more than the platform fee.",
+		"fr": "Le moteur de workflow est la partie facile — Nextflow et Galaxy exécutent les mêmes pipelines nf-core que DNAnexus. Ce que vous payez en réalité, c’est un environnement audité CLIA/CAP et FedRAMP pour des génomes de patients, et reconstruire cette conformité en interne coûte bien plus cher que la plateforme."
+	},
+	"whatYouLose": [
+		{
+			"en": "CLIA/CAP and FedRAMP posture",
+			"fr": "Conformité CLIA/CAP et FedRAMP"
+		},
+		{
+			"en": "Elastic compute without a cluster",
+			"fr": "Calcul élastique sans cluster"
+		},
+		{
+			"en": "Regulatory audit support",
+			"fr": "Support d’audit réglementaire"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Galaxy",
+			"source": {
+				"host": "github",
+				"path": "galaxyproject/galaxy",
+				"url": "https://github.com/galaxyproject/galaxy"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Relicensed to MIT in 2026. A full web platform with thousands of wrapped tools, and public instances in the EU and US you can use for free before committing to a server.",
+				"fr": "Passé sous licence MIT en 2026. Une plateforme web complète avec des milliers d’outils encapsulés, et des instances publiques en Europe et aux États-Unis utilisables gratuitement avant d’engager un serveur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nextflow",
+			"source": {
+				"host": "github",
+				"path": "nextflow-io/nextflow",
+				"url": "https://github.com/nextflow-io/nextflow"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The pipeline language most genomics now writes in, with nf-core supplying peer-reviewed pipelines. Run monitoring lives in Seqera's paid platform.",
+				"fr": "Le langage de pipeline dans lequel la génomique écrit désormais, avec nf-core qui fournit des pipelines relus par les pairs. Le suivi d’exécution est dans la plateforme payante de Seqera."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Seqera Platform monitoring, launchpad and data explorer",
+					"fr": "Le suivi, le launchpad et l’explorateur de données de Seqera Platform"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Cromwell",
+			"source": {
+				"host": "github",
+				"path": "broadinstitute/cromwell",
+				"url": "https://github.com/broadinstitute/cromwell"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "ops",
+			"note": {
+				"en": "The Broad's WDL engine — what GATK best-practice pipelines are written against. Less pleasant to operate than Nextflow, but it is the reference implementation.",
+				"fr": "Le moteur WDL du Broad — la cible des pipelines GATK best-practice. Moins agréable à exploiter que Nextflow, mais c’est l’implémentation de référence."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

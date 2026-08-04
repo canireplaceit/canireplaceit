@@ -1,0 +1,103 @@
+{
+	"slug": "harness",
+	"name": "Harness",
+	"domain": "harness.io",
+	"category": "build-delivery",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "Continuous delivery for Kubernetes converged on GitOps, and the two reference implementations are free CNCF projects. What Harness adds is approval workflows, audit trails and deployment analytics — real, but not $100-a-seat real for most teams.",
+		"fr": "La livraison continue vers Kubernetes a convergé vers le GitOps, et les deux implémentations de référence sont des projets CNCF gratuits. Harness ajoute les circuits d’approbation, les pistes d’audit et l’analyse de déploiement — utile, mais rarement à 100 $ par utilisateur."
+	},
+	"whatYouLose": [
+		{
+			"en": "Approval workflows",
+			"fr": "Circuits d’approbation"
+		},
+		{
+			"en": "Deployment analytics",
+			"fr": "Analyse de déploiement"
+		},
+		{
+			"en": "Audit trails",
+			"fr": "Pistes d’audit"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Argo CD",
+			"source": {
+				"host": "github",
+				"path": "argoproj/argo-cd",
+				"url": "https://github.com/argoproj/argo-cd"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The default. The UI showing drift between git and cluster is what sells it to sceptics.",
+				"fr": "Le choix par défaut. L’interface qui montre l’écart entre git et le cluster est ce qui convainc les sceptiques."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Flux",
+			"source": {
+				"host": "github",
+				"path": "fluxcd/flux2",
+				"url": "https://github.com/fluxcd/flux2"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "No UI, just controllers. Composes better and is much lighter if you don't need people clicking things.",
+				"fr": "Pas d’interface, uniquement des contrôleurs. Se compose mieux et pèse bien moins si personne n’a besoin de cliquer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Spinnaker",
+			"source": {
+				"host": "github",
+				"path": "spinnaker/spinnaker",
+				"url": "https://github.com/spinnaker/spinnaker"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Multi-cloud pipelines with real canary analysis. Enormous to run — only worth it at Netflix-shaped scale.",
+				"fr": "Pipelines multi-cloud avec véritable analyse canari. Énorme à exploiter — pertinent seulement à l’échelle d’un Netflix."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Codefresh",
+			"url": "https://codefresh.io/pricing/",
+			"priceMonthly": 0,
+			"note": {
+				"en": "Argo CD with a commercial control plane on top, free for small teams. You are still adopting Argo, so the lock-in is thin — which is the point.",
+				"fr": "Argo CD avec un plan de contrôle commercial par-dessus, gratuit pour les petites équipes. Vous adoptez quand même Argo, donc le verrouillage est faible — c’est justement l’intérêt."
+			}
+		}
+	],
+	"priority": 2
+}

@@ -1,0 +1,111 @@
+{
+	"slug": "typeform",
+	"name": "Typeform",
+	"domain": "typeform.com",
+	"category": "forms",
+	"priceMonthly": 28,
+	"pricing": {
+		"plan": "Basic, billed monthly ($25/mo billed annually)",
+		"basis": "flat",
+		"url": "https://www.typeform.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "One-question-at-a-time forms. Pretty, but not defensible.",
+		"fr": "Des formulaires une question à la fois. C’est joli, mais ça ne se défend pas."
+	},
+	"whatYouLose": [
+		{
+			"en": "Polished one-question-at-a-time UX",
+			"fr": "UX question par question soignée"
+		},
+		{
+			"en": "Integration catalog",
+			"fr": "Catalogue d’intégrations"
+		},
+		{
+			"en": "Hosted forms, no setup",
+			"fr": "Formulaires hébergés, zéro installation"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Formbricks",
+			"source": {
+				"host": "github",
+				"path": "formbricks/formbricks",
+				"url": "https://github.com/formbricks/formbricks"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Surveys plus in-product targeting.",
+				"fr": "Enquêtes et ciblage in-app."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO, teams/roles, contacts, audit logs, whitelabel",
+					"fr": "SSO, équipes/rôles, contacts, audit, marque blanche"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpnForm",
+			"source": {
+				"host": "github",
+				"path": "JhumanJ/OpnForm",
+				"url": "https://github.com/JhumanJ/OpnForm"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Closest Typeform look.",
+				"fr": "Le look le plus proche de Typeform."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "More than 2 users, advanced workspace features",
+					"fr": "Plus de 2 utilisateurs, fonctions d’espace avancées"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Formio",
+			"source": {
+				"host": "github",
+				"path": "formio/formio",
+				"url": "https://github.com/formio/formio"
+			},
+			"license": "OSL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Form engine for embedding in apps.",
+				"fr": "Moteur de formulaires à embarquer dans vos apps."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Portal, teams, PDF, premium components, OAuth/SAML",
+					"fr": "Portail, équipes, PDF, composants premium, OAuth/SAML"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

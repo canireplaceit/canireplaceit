@@ -1,0 +1,109 @@
+{
+	"slug": "no-ip",
+	"name": "No-IP",
+	"domain": "noip.com",
+	"category": "networking-vpn",
+	"priceMonthly": 2.99,
+	"pricing": {
+		"plan": "Enhanced Dynamic DNS, 3 hostnames",
+		"basis": "flat",
+		"url": "https://www.noip.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "This is a cron job that PUTs your current IP into a DNS API. If you own a domain at any registrar with an API — Cloudflare's is free — a ten-megabyte container replaces the subscription and the monthly 'confirm your hostname' email forever.",
+		"fr": "C’est une tâche cron qui envoie votre IP courante à une API DNS. Si vous possédez un domaine chez un registrar avec une API — celle de Cloudflare est gratuite — un conteneur de dix mégaoctets remplace l’abonnement et l’e-mail mensuel « confirmez votre nom d’hôte », définitivement."
+	},
+	"whatYouLose": [
+		{
+			"en": "A hostname without a domain",
+			"fr": "Un nom d’hôte sans domaine"
+		},
+		{
+			"en": "Router firmware presets",
+			"fr": "Préréglages dans les routeurs"
+		},
+		{
+			"en": "Port-forward-free options",
+			"fr": "Options sans redirection de port"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "ddns-updater",
+			"source": {
+				"host": "github",
+				"path": "qdm12/ddns-updater",
+				"url": "https://github.com/qdm12/ddns-updater"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "One container, ~40 DNS providers, a status web page and healthchecks. The modern default.",
+				"fr": "Un conteneur, une quarantaine de fournisseurs DNS, une page d’état et des healthchecks. Le choix moderne par défaut."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ddclient",
+			"source": {
+				"host": "github",
+				"path": "ddclient/ddclient",
+				"url": "https://github.com/ddclient/ddclient"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The Perl daemon already packaged in every distro and baked into most consumer routers. Ugly config, twenty years of working.",
+				"fr": "Le démon Perl déjà empaqueté dans toutes les distributions et intégré à la plupart des routeurs grand public. Configuration ingrate, vingt ans de bons et loyaux services."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "cloudflare-ddns",
+			"source": {
+				"host": "github",
+				"path": "favonia/cloudflare-ddns",
+				"url": "https://github.com/favonia/cloudflare-ddns"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Cloudflare only, but IPv6-first, unprivileged and about five megabytes. Set it and forget the whole category.",
+				"fr": "Cloudflare uniquement, mais IPv6 d’abord, non privilégié et environ cinq mégaoctets. Lancez-le et oubliez toute la catégorie."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "DuckDNS",
+			"url": "https://www.duckdns.org",
+			"priceMonthly": 0,
+			"note": {
+				"en": "Free subdomains under duckdns.org, donation funded. No custom domain and no SLA, which is exactly what a home lab needs.",
+				"fr": "Sous-domaines gratuits sous duckdns.org, financés par les dons. Pas de domaine personnalisé ni de SLA, ce qui suffit parfaitement à un home lab."
+			}
+		}
+	],
+	"priority": 2
+}

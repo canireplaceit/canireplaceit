@@ -1,0 +1,103 @@
+{
+	"slug": "cloudflare-access",
+	"name": "Cloudflare Access",
+	"domain": "cloudflare.com",
+	"category": "networking-vpn",
+	"priceMonthly": 7,
+	"pricing": {
+		"plan": "Zero Trust pay-as-you-go (free under 50 users)",
+		"basis": "per-seat",
+		"url": "https://www.cloudflare.com/plans/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Access is an authenticating reverse proxy in front of your apps. Three open source projects do exactly that, and putting the check in your own ingress means an internal tool stops being reachable from the public internet at all — which is stronger, not weaker.",
+		"fr": "Access est un proxy inverse authentifiant devant vos applications. Trois projets open source font exactement cela, et placer le contrôle dans votre propre ingress rend un outil interne totalement inaccessible depuis l’internet public — ce qui est plus fort, pas plus faible."
+	},
+	"whatYouLose": [
+		{
+			"en": "Global edge enforcement",
+			"fr": "Application au niveau du edge mondial"
+		},
+		{
+			"en": "Built-in DDoS shielding",
+			"fr": "Protection DDoS intégrée"
+		},
+		{
+			"en": "Device posture signals",
+			"fr": "Signaux de posture des appareils"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Authelia",
+			"source": {
+				"host": "github",
+				"path": "authelia/authelia",
+				"url": "https://github.com/authelia/authelia"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Forward-auth companion for nginx, Traefik or Caddy with 2FA, WebAuthn and per-path policy. Tiny memory footprint, everything in one YAML file.",
+				"fr": "Compagnon forward-auth pour nginx, Traefik ou Caddy, avec 2FA, WebAuthn et politiques par chemin. Empreinte mémoire minuscule, tout dans un seul fichier YAML."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "oauth2-proxy",
+			"source": {
+				"host": "github",
+				"path": "oauth2-proxy/oauth2-proxy",
+				"url": "https://github.com/oauth2-proxy/oauth2-proxy"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The boring, dependable option: sits in front of anything and demands an OIDC login. No policy language, no UI, no surprises.",
+				"fr": "L’option ennuyeuse et fiable : se place devant n’importe quoi et exige une connexion OIDC. Pas de langage de politiques, pas d’interface, pas de surprises."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pomerium",
+			"source": {
+				"host": "github",
+				"path": "pomerium/pomerium",
+				"url": "https://github.com/pomerium/pomerium"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The closest match feature-for-feature, including continuous per-request authorisation and TCP tunnelling for SSH and databases.",
+				"fr": "La correspondance la plus proche, fonction pour fonction, y compris l’autorisation continue par requête et le tunnel TCP pour SSH et bases de données."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Management console, audit logs and device management.",
+					"fr": "Console de gestion, journaux d’audit et gestion des appareils."
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 4
+}

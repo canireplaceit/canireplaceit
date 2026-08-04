@@ -1,0 +1,103 @@
+{
+	"slug": "mapbox",
+	"name": "Mapbox",
+	"domain": "mapbox.com",
+	"category": "maps-location",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "MapLibre is the community fork of Mapbox GL JS from the moment Mapbox went proprietary, and it is a genuine drop-in for the rendering layer. Pair it with PMTiles and you can serve a whole country's basemap from static object storage for a few dollars.",
+		"fr": "MapLibre est le fork communautaire de Mapbox GL JS, né au moment où Mapbox est passé en propriétaire, et c’est un remplacement réellement direct pour la couche de rendu. Associez-le à PMTiles et vous servez le fond de carte d’un pays entier depuis du stockage objet statique pour quelques euros."
+	},
+	"whatYouLose": [
+		{
+			"en": "Mapbox's global CDN and uptime",
+			"fr": "CDN mondial et disponibilité de Mapbox"
+		},
+		{
+			"en": "Managed navigation and traffic SDKs",
+			"fr": "SDK de navigation et de trafic gérés"
+		},
+		{
+			"en": "Ready-made cartographic styles",
+			"fr": "Styles cartographiques prêts à l’emploi"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "MapLibre GL JS",
+			"source": {
+				"host": "github",
+				"path": "maplibre/maplibre-gl-js",
+				"url": "https://github.com/maplibre/maplibre-gl-js"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Same API, same style spec. Swapping the import is often the entire migration.",
+				"fr": "Même API, même spécification de style. Changer l’import suffit souvent à faire toute la migration."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PMTiles",
+			"source": {
+				"host": "github",
+				"path": "protomaps/PMTiles",
+				"url": "https://github.com/protomaps/PMTiles"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "A single archive file on object storage, no tile server at all. The cheapest way to host maps.",
+				"fr": "Un seul fichier d’archive sur du stockage objet, sans aucun serveur de tuiles. La façon la moins chère d’héberger des cartes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "TileServer GL",
+			"source": {
+				"host": "github",
+				"path": "maptiler/tileserver-gl",
+				"url": "https://github.com/maptiler/tileserver-gl"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "If you need server-side raster rendering and static map images too.",
+				"fr": "Si vous avez aussi besoin de rendu raster côté serveur et d’images de carte statiques."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "MapTiler Cloud",
+			"url": "https://www.maptiler.com/cloud/",
+			"priceMonthly": 25,
+			"note": {
+				"en": "Half the price, OpenStreetMap data, and you can export the tiles and leave. Smaller global CDN footprint than Mapbox.",
+				"fr": "Deux fois moins cher, données OpenStreetMap, et vous pouvez exporter les tuiles pour partir. Empreinte CDN mondiale plus réduite que Mapbox."
+			}
+		}
+	],
+	"priority": 3
+}

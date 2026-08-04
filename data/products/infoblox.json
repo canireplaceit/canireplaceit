@@ -1,0 +1,101 @@
+{
+	"slug": "infoblox",
+	"name": "Infoblox NIOS",
+	"domain": "infoblox.com",
+	"category": "networking-vpn",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "DDI is three open source servers — BIND or PowerDNS, ISC Kea, and an IPAM — plus the glue that makes them one object. NetBox with Kea covers a competent enterprise. What Infoblox sells beyond that is the appliance HA pair, the audit trail and someone to call at 2am.",
+		"fr": "Le DDI, c’est trois serveurs open source — BIND ou PowerDNS, ISC Kea et un IPAM — plus la colle qui en fait un objet unique. NetBox avec Kea couvre une entreprise sérieuse. Ce qu’Infoblox vend en plus, c’est la paire d’appliances en haute disponibilité, la piste d’audit et quelqu’un à appeler à 2 h du matin."
+	},
+	"whatYouLose": [
+		{
+			"en": "Grid HA and appliance support",
+			"fr": "HA en grille et support d’appliance"
+		},
+		{
+			"en": "Unified DNS/DHCP/IPAM workflow",
+			"fr": "Flux DNS/DHCP/IPAM unifié"
+		},
+		{
+			"en": "Compliance-grade audit trail",
+			"fr": "Piste d’audit conforme aux audits"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "NetBox",
+			"source": {
+				"host": "github",
+				"path": "netbox-community/netbox",
+				"url": "https://github.com/netbox-community/netbox"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The de facto source of truth for prefixes, VLANs, devices and circuits, with a first-class API and SSO in the free build. NetBox Labs sells discovery and assurance products on top.",
+				"fr": "La source de vérité de fait pour préfixes, VLAN, équipements et circuits, avec une API de première classe et le SSO dans la build gratuite. NetBox Labs vend par-dessus des produits de découverte et d’assurance."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Automated discovery, assurance and the enterprise installer are NetBox Labs products.",
+					"fr": "La découverte automatisée, l’assurance et l’installeur entreprise sont des produits NetBox Labs."
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ISC Kea",
+			"source": {
+				"host": "gitlab",
+				"path": "isc-projects/kea",
+				"url": "https://gitlab.isc.org/isc-projects/kea"
+			},
+			"license": "MPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The modern DHCP server: REST control API, database-backed leases, real HA. Two hooks — role-based access control and the config backend — are subscription-only, which matters at enterprise scale.",
+				"fr": "Le serveur DHCP moderne : API de contrôle REST, baux en base, vraie haute disponibilité. Deux hooks — le contrôle d’accès par rôles et le backend de configuration — sont réservés aux abonnés, ce qui compte à l’échelle entreprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "The RBAC and Configuration Backend hook libraries need a paid subscription.",
+					"fr": "Les bibliothèques de hooks RBAC et Configuration Backend exigent un abonnement payant."
+				},
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "phpIPAM",
+			"source": {
+				"host": "github",
+				"path": "phpipam/phpipam",
+				"url": "https://github.com/phpipam/phpipam"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "If you only need address management with subnet scanning and a request workflow, this is far less machinery than NetBox.",
+				"fr": "Si vous n’avez besoin que de gestion d’adresses avec balayage de sous-réseaux et un flux de demandes, c’est beaucoup moins de machinerie que NetBox."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

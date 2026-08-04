@@ -1,0 +1,111 @@
+{
+	"slug": "salesloft",
+	"name": "Salesloft",
+	"domain": "salesloft.com",
+	"category": "sales-outreach-data",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "Same shape as Outreach: the cadence software is the visible part and the least valuable one. Salesloft is really selling call recording, conversation analytics and a manager dashboard that survives an audit — none of which has an open source equivalent that a sales org would accept.",
+		"fr": "Même forme qu’Outreach : le logiciel de cadences est la partie visible et la moins précieuse. Salesloft vend en réalité l’enregistrement des appels, l’analyse des conversations et un tableau de bord manager qui passe un audit — rien de tout cela n’a d’équivalent open source qu’une direction commerciale accepterait."
+	},
+	"whatYouLose": [
+		{
+			"en": "Conversation intelligence",
+			"fr": "Analyse des conversations"
+		},
+		{
+			"en": "Deliverability infrastructure",
+			"fr": "Infrastructure de délivrabilité"
+		},
+		{
+			"en": "Manager coaching dashboards",
+			"fr": "Tableaux de bord de coaching"
+		},
+		{
+			"en": "Salesforce sync that just works",
+			"fr": "Synchro Salesforce qui fonctionne"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Mautic",
+			"source": {
+				"host": "github",
+				"path": "mautic/mautic",
+				"url": "https://github.com/mautic/mautic"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Covers cadences and lead scoring without a per-seat bill. Nothing for calls.",
+				"fr": "Couvre cadences et scoring de leads sans facture par utilisateur. Rien pour les appels."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "EspoCRM",
+			"source": {
+				"host": "github",
+				"path": "espocrm/espocrm",
+				"url": "https://github.com/espocrm/espocrm"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "A credible CRM with campaigns for a small team. Paid extensions for the sales-heavy features.",
+				"fr": "Un CRM crédible avec campagnes pour une petite équipe. Extensions payantes pour les fonctions vraiment commerciales."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Advanced Pack, Sales Pack and the VoIP integrations are paid extensions",
+					"fr": "Advanced Pack, Sales Pack et les intégrations VoIP sont des extensions payantes"
+				},
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Whisper",
+			"source": {
+				"host": "github",
+				"path": "openai/whisper",
+				"url": "https://github.com/openai/whisper"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Transcription is genuinely solved and free now, which removes a real chunk of what Salesloft charges for. You still have to record the calls and build the search.",
+				"fr": "La transcription est réellement résolue et gratuite aujourd’hui, ce qui enlève une vraie part de ce que Salesloft facture. Reste à enregistrer les appels et à construire la recherche."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Instantly",
+			"url": "https://instantly.ai",
+			"priceMonthly": 37,
+			"note": {
+				"en": "Outbound sequencing and warmup for the price of a coffee round. No dialer and no manager tooling.",
+				"fr": "Séquences sortantes et préchauffage pour le prix d’une tournée de café. Pas de composeur ni d’outils pour les managers."
+			}
+		}
+	],
+	"priority": 3
+}

@@ -1,0 +1,78 @@
+{
+	"slug": "docsend",
+	"name": "DocSend",
+	"domain": "docsend.com",
+	"category": "legal-contracts-signing",
+	"priceMonthly": 45,
+	"pricing": {
+		"plan": "Standard, billed monthly (up to 40% off annually)",
+		"basis": "per-seat",
+		"url": "https://www.docsend.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "A link to a PDF that tracks who opened it and how long they spent on page 7. Papermark is a direct clone with the same page-level analytics and NDA gating. Genuinely a solved problem.",
+		"fr": "Un lien vers un PDF qui trace qui l’a ouvert et combien de temps il est resté sur la page 7. Papermark est un clone direct, avec les mêmes statistiques page par page et le même blocage par NDA. Un problème réellement résolu."
+	},
+	"whatYouLose": [
+		{
+			"en": "Dropbox-backed reliability",
+			"fr": "Fiabilité adossée à Dropbox"
+		},
+		{
+			"en": "A brand investors already recognise",
+			"fr": "Une marque que les investisseurs reconnaissent déjà"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Papermark",
+			"source": {
+				"host": "github",
+				"path": "papermark/papermark",
+				"url": "https://github.com/papermark/papermark"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Built explicitly as the DocSend alternative. Data rooms and custom domains included; some features live in a commercial directory.",
+				"fr": "Conçu explicitement comme l’alternative à DocSend. Data rooms et domaines personnalisés inclus ; certaines fonctions sont dans un répertoire commercial."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Data rooms, SAML SSO, commercial use",
+					"fr": "Data rooms, SSO SAML, usage commercial"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nextcloud",
+			"source": {
+				"host": "github",
+				"path": "nextcloud/server",
+				"url": "https://github.com/nextcloud/server"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Password-protected expiring share links if you only need control, not analytics.",
+				"fr": "Liens de partage protégés par mot de passe et expirants, si vous voulez du contrôle et pas des statistiques."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

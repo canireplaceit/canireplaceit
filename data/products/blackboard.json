@@ -1,0 +1,128 @@
+{
+	"slug": "blackboard",
+	"name": "Blackboard Learn",
+	"domain": "blackboard.com",
+	"category": "learning-teaching",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "Moodle has been eating this market for twenty years and entire national education systems run on it. The migration cost is staff retraining and student-information-system integration, not features — Blackboard has no technical moat left.",
+		"fr": "Moodle grignote ce marché depuis vingt ans et des systèmes éducatifs nationaux entiers tournent dessus. Le coût de migration, c’est la formation du personnel et l’intégration au SI scolaire, pas les fonctionnalités — Blackboard n’a plus aucun avantage technique."
+	},
+	"whatYouLose": [
+		{
+			"en": "Vendor-managed uptime during exam week",
+			"fr": "Disponibilité garantie en période d’examens"
+		},
+		{
+			"en": "Turnkey student-information-system integration",
+			"fr": "Intégration clé en main au SI scolaire"
+		},
+		{
+			"en": "A support line staff already call",
+			"fr": "Un support que le personnel appelle déjà"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Moodle",
+			"source": {
+				"host": "github",
+				"path": "moodle/moodle",
+				"url": "https://github.com/moodle/moodle"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "The default. Huge plugin catalogue, LTI everywhere, hosting partners in every country.",
+				"fr": "Le choix par défaut. Catalogue de plugins énorme, LTI partout, hébergeurs partenaires dans chaque pays."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Canvas LMS",
+			"source": {
+				"host": "github",
+				"path": "instructure/canvas-lms",
+				"url": "https://github.com/instructure/canvas-lms"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "The nicest UI in open education software. Self-hosting it is a genuine ops project.",
+				"fr": "La plus belle interface du logiciel éducatif open source. L’auto-héberger est un vrai projet d’exploitation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Some Instructure plugins, analytics and add-on products",
+					"fr": "Certains plugins Instructure, analytique et produits annexes"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Open edX",
+			"source": {
+				"host": "github",
+				"path": "openedx/openedx-platform",
+				"url": "https://github.com/openedx/openedx-platform"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Built for MOOC scale. Overkill unless you have thousands of learners.",
+				"fr": "Conçu pour l’échelle des MOOC. Excessif à moins d’avoir des milliers d’apprenants."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Chamilo",
+			"source": {
+				"host": "github",
+				"path": "chamilo/chamilo-lms",
+				"url": "https://github.com/chamilo/chamilo-lms"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Much lighter than Moodle and easier for non-technical staff to administer.",
+				"fr": "Bien plus léger que Moodle et plus facile à administrer pour des équipes non techniques."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Google Classroom",
+			"url": "https://edu.google.com/workspace-for-education/classroom/",
+			"priceMonthly": 0,
+			"note": {
+				"en": "Free with Workspace for Education and teachers already know it. It is assignment distribution, not a real LMS — no gradebook depth, no SCORM.",
+				"fr": "Gratuit avec Workspace for Education et les enseignants le connaissent déjà. C’est de la distribution de devoirs, pas un vrai LMS — carnet de notes limité, pas de SCORM."
+			}
+		}
+	],
+	"priority": 3
+}

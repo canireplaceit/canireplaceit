@@ -1,0 +1,113 @@
+{
+	"slug": "autocad",
+	"name": "AutoCAD",
+	"domain": "autodesk.com",
+	"category": "3d-cad",
+	"priceMonthly": 163,
+	"pricing": {
+		"plan": "AutoCAD, annual billed monthly (autodesk.com renders all prices client-side; not readable by fetch)",
+		"basis": "per-seat",
+		"url": "https://www.autodesk.com/products/autocad/subscribe",
+		"checkedOn": "2026-08-02",
+		"confidence": "low"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "For 2D drafting the open tools are fine — LibreCAD and QCAD draw and dimension perfectly well. The blocker is DWG: it is Autodesk's format, the open readers lag a version or two, and every consultant you exchange with sends DWG.",
+		"fr": "Pour le dessin 2D, les outils open source suffisent — LibreCAD et QCAD tracent et cotent très bien. Le blocage, c’est le DWG : c’est le format d’Autodesk, les lecteurs open source ont une ou deux versions de retard, et tous vos prestataires envoient du DWG."
+	},
+	"whatYouLose": [
+		{
+			"en": "Round-trip DWG fidelity",
+			"fr": "Fidélité des allers-retours DWG"
+		},
+		{
+			"en": "Dynamic blocks and LISP add-ons",
+			"fr": "Blocs dynamiques et extensions LISP"
+		},
+		{
+			"en": "Industry vertical toolsets",
+			"fr": "Jeux d’outils métiers"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "LibreCAD",
+			"source": {
+				"host": "github",
+				"path": "LibreCAD/LibreCAD",
+				"url": "https://github.com/LibreCAD/LibreCAD"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A clean 2D drafting board that reads DXF reliably. DWG support depends on a bundled converter and is the weak point.",
+				"fr": "Une planche à dessin 2D propre qui lit le DXF de façon fiable. Le support DWG dépend d’un convertisseur embarqué et reste le point faible."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "QCAD",
+			"source": {
+				"host": "github",
+				"path": "qcad/qcad",
+				"url": "https://github.com/qcad/qcad"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The GPL community edition is a complete 2D CAD. QCAD Professional — DWG support, the good tools, the scripting — is a paid proprietary add-on from the same vendor.",
+				"fr": "L’édition communautaire GPL est un CAO 2D complet. QCAD Professional — support DWG, les bons outils, les scripts — est un module propriétaire payant du même éditeur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "DWG import/export, most professional drafting tools, scripting",
+					"fr": "L’import/export DWG, la plupart des outils de dessin professionnels, les scripts"
+				},
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FreeCAD",
+			"source": {
+				"host": "github",
+				"path": "FreeCAD/FreeCAD",
+				"url": "https://github.com/FreeCAD/FreeCAD"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "Its Draft and TechDraw workbenches cover 2D output if you are already modelling in 3D.",
+				"fr": "Ses ateliers Draft et TechDraw couvrent la sortie 2D si vous modélisez déjà en 3D."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "BricsCAD Pro",
+			"url": "https://www.bricsys.com/en-eu/bricscad",
+			"priceMonthly": 0,
+			"note": {
+				"en": "A perpetual licence around $1,000 and the best DWG compatibility outside Autodesk. Runs most LISP routines unchanged.",
+				"fr": "Licence perpétuelle autour de 1 000 $ et la meilleure compatibilité DWG en dehors d’Autodesk. Exécute la plupart des routines LISP telles quelles."
+			}
+		}
+	],
+	"priority": 3
+}

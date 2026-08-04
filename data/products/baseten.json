@@ -1,0 +1,99 @@
+{
+	"slug": "baseten",
+	"name": "Baseten",
+	"domain": "baseten.co",
+	"category": "ai-infrastructure",
+	"priceMonthly": null,
+	"pricing": {
+		"plan": "Basic: $0/month, pay-as-you-go. GPU compute per minute: T4 $0.01052, L4 $0.01414, A100 80GB $0.06667, H100 80GB $0.10833, B200 $0.16633. CPU from $0.00058/min (1vCPU/2GB). Model APIs billed per 1M tokens (e.g. DeepSeek-V4-Flash $0.13 in / $0.26 out). Pro and Enterprise are volume-discount/quote.",
+		"basis": "usage",
+		"url": "https://www.baseten.co/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Like Replicate, Baseten publishes its packaging layer: Truss is MIT and produces the same artefact their platform serves. The paid part is multi-region GPU capacity and the autoscaler, and if you have not negotiated GPU quota yourself you will feel that.",
+		"fr": "Comme Replicate, Baseten publie sa couche d’empaquetage : Truss est en MIT et produit le même artefact que sert leur plateforme. La partie payante, c’est la capacité GPU multi-région et l’autoscaler, et si vous n’avez pas négocié vous-même votre quota GPU, vous le sentirez passer."
+	},
+	"whatYouLose": [
+		{
+			"en": "Multi-region GPU capacity",
+			"fr": "Capacité GPU multi-région"
+		},
+		{
+			"en": "Cold-start optimised autoscaling",
+			"fr": "Autoscaling optimisé pour les démarrages à froid"
+		},
+		{
+			"en": "Managed observability",
+			"fr": "Observabilité managée"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Truss",
+			"source": {
+				"host": "github",
+				"path": "basetenlabs/truss",
+				"url": "https://github.com/basetenlabs/truss"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Baseten's own MIT packaging tool. Defines the model server they run; nothing stops you running it yourself.",
+				"fr": "L’outil d’empaquetage MIT de Baseten. Il définit le serveur de modèles qu’ils exécutent ; rien ne vous empêche de l’exécuter vous-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "KServe",
+			"source": {
+				"host": "github",
+				"path": "kserve/kserve",
+				"url": "https://github.com/kserve/kserve"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The Kubernetes-native way to do the same thing, with canary rollouts and scale-to-zero via Knative. Real ops weight.",
+				"fr": "La façon native Kubernetes de faire la même chose, avec déploiements canari et mise à l’échelle à zéro via Knative. Charge d’exploitation réelle."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "vLLM",
+			"source": {
+				"host": "github",
+				"path": "vllm-project/vllm",
+				"url": "https://github.com/vllm-project/vllm"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The serving engine the field standardised on after Hugging Face archived TGI in 2026. OpenAI-compatible API, continuous batching, paged attention.",
+				"fr": "Le moteur de service sur lequel le domaine s’est standardisé après l’archivage de TGI par Hugging Face en 2026. API compatible OpenAI, batching continu, paged attention."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

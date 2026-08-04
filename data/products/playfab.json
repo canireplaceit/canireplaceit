@@ -1,0 +1,103 @@
+{
+	"slug": "playfab",
+	"name": "Azure PlayFab",
+	"domain": "playfab.com",
+	"category": "game-development",
+	"priceMonthly": 99,
+	"pricing": {
+		"plan": "Standard, USD 99/mo plus usage meters",
+		"basis": "flat",
+		"url": "https://developer.microsoft.com/en-us/games/products/playfab/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "PlayFab is accounts, inventory, leaderboards, economy and LiveOps in one metered bundle. Nakama covers most of it in a single container and you own the Postgres underneath, which matters when a publisher asks where player data lives. What you rebuild yourself is the LiveOps surface: segments, A/B tests, scheduled events and the dashboards a live-service producer expects.",
+		"fr": "PlayFab, ce sont les comptes, l’inventaire, les classements, l’économie et le LiveOps dans un forfait à la consommation. Nakama en couvre l’essentiel dans un seul conteneur et vous possédez le Postgres derrière, ce qui compte quand un éditeur demande où vivent les données joueurs. Ce que vous reconstruisez, c’est la couche LiveOps : segments, tests A/B, événements planifiés et les tableaux de bord qu’attend un producteur de jeu live."
+	},
+	"whatYouLose": [
+		{
+			"en": "LiveOps dashboards and segments",
+			"fr": "Tableaux de bord et segments LiveOps"
+		},
+		{
+			"en": "Managed scaling",
+			"fr": "Montée en charge gérée"
+		},
+		{
+			"en": "Store and receipt validation built in",
+			"fr": "Boutique et validation des reçus intégrées"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Nakama",
+			"source": {
+				"host": "github",
+				"path": "heroiclabs/nakama",
+				"url": "https://github.com/heroiclabs/nakama"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The closest open equivalent: accounts, friends, groups, storage, leaderboards, in-app purchase validation and server-side Lua/Go/TS logic. Clustering is the enterprise edition.",
+				"fr": "L’équivalent ouvert le plus proche : comptes, amis, groupes, stockage, classements, validation d’achats intégrés et logique serveur en Lua/Go/TS. Le clustering est dans l’édition entreprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Multi-node clustering, and the Heroic Cloud managed service, are not in the Apache-2.0 build.",
+					"fr": "Le clustering multi-nœuds et le service géré Heroic Cloud ne figurent pas dans la version Apache-2.0."
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Colyseus",
+			"source": {
+				"host": "github",
+				"path": "colyseus/colyseus",
+				"url": "https://github.com/colyseus/colyseus"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Only solves the realtime room half, but solves it cleanly and in a language your web team already reads.",
+				"fr": "Ne résout que la partie salles temps réel, mais proprement et dans un langage que votre équipe web lit déjà."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Rivet",
+			"source": {
+				"host": "github",
+				"path": "rivet-dev/rivet",
+				"url": "https://github.com/rivet-dev/rivet"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Actor-style backend with a self-host path for game servers and stateful logic. Younger and has changed direction more than once — read the changelog before betting a launch on it.",
+				"fr": "Backend en acteurs avec un chemin d’auto-hébergement pour serveurs de jeu et logique à état. Plus jeune et a changé de cap plus d’une fois — lisez le changelog avant de miser un lancement dessus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

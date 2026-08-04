@@ -1,0 +1,111 @@
+{
+	"slug": "postman",
+	"name": "Postman",
+	"domain": "postman.com",
+	"category": "dev-tools",
+	"priceMonthly": 19,
+	"pricing": {
+		"plan": "Team, annual billed monthly",
+		"basis": "per-seat",
+		"url": "https://www.postman.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Requiring a login to send an HTTP request created an entire replacement market overnight.",
+		"fr": "Exiger un compte pour envoyer une requête HTTP a fait naître un marché de remplaçants du jour au lendemain."
+	},
+	"whatYouLose": [
+		{
+			"en": "Team collection sync",
+			"fr": "Synchro des collections d’équipe"
+		},
+		{
+			"en": "Mock servers and monitors",
+			"fr": "Serveurs de mock et monitors"
+		},
+		{
+			"en": "Everyone already knows it",
+			"fr": "Tout le monde le connaît déjà"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Bruno",
+			"source": {
+				"host": "github",
+				"path": "usebruno/bruno",
+				"url": "https://github.com/usebruno/bruno"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Collections as files in your git repo.",
+				"fr": "Les collections sont des fichiers dans votre dépôt git."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Golden Edition extras and enterprise SSO",
+					"fr": "Extras Golden Edition et SSO entreprise"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Hoppscotch",
+			"source": {
+				"host": "github",
+				"path": "hoppscotch/hoppscotch",
+				"url": "https://github.com/hoppscotch/hoppscotch"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Browser-based, self-hostable.",
+				"fr": "Dans le navigateur, auto-hébergeable."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SAML/OIDC SSO, audit logs, license management",
+					"fr": "SSO SAML/OIDC, journaux d’audit, gestion des licences"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Insomnia",
+			"source": {
+				"host": "github",
+				"path": "Kong/insomnia",
+				"url": "https://github.com/Kong/insomnia"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Apache-2.0 desktop client you run yourself, and Local Vault or Git Sync keep collections off Kong's cloud entirely. The catch is the account: past the Scratch Pad, everything needs one.",
+				"fr": "Client de bureau Apache-2.0 que vous exécutez vous-même ; le Local Vault ou la synchro Git gardent les collections hors du cloud de Kong. Le hic, c'est le compte : au-delà du Scratch Pad, tout en exige un."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Anything past Scratch Pad needs a Kong account",
+					"fr": "Au-delà du Scratch Pad, un compte Kong requis"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

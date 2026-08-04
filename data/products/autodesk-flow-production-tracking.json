@@ -1,0 +1,92 @@
+{
+	"slug": "autodesk-flow-production-tracking",
+	"name": "Autodesk Flow Production Tracking (ShotGrid)",
+	"domain": "autodesk.com",
+	"category": "3d-cad",
+	"priceMonthly": 50,
+	"pricing": {
+		"plan": "Flow Production Tracking, per user (autodesk.com renders all prices client-side; not readable by fetch)",
+		"basis": "per-seat",
+		"url": "https://www.autodesk.com/products/flow-production-tracking/overview",
+		"checkedOn": "2026-08-02",
+		"confidence": "low"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Kitsu is the rare case where the open tool is what small and mid-size studios actually prefer. Shot tracking, review with annotations, playlists and a proper API — self-hosted, AGPL, and CGWire sells hosting rather than features.",
+		"fr": "Kitsu est le cas rare où l’outil open source est celui que les petits et moyens studios préfèrent réellement. Suivi de plans, revue annotée, playlists et une vraie API — auto-hébergé, en AGPL, et CGWire vend de l’hébergement plutôt que des fonctionnalités."
+	},
+	"whatYouLose": [
+		{
+			"en": "Deep Maya and Nuke integrations",
+			"fr": "Intégrations profondes Maya et Nuke"
+		},
+		{
+			"en": "RV review sessions",
+			"fr": "Sessions de revue RV"
+		},
+		{
+			"en": "Vendors who already have accounts",
+			"fr": "Prestataires qui ont déjà des comptes"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Kitsu",
+			"source": {
+				"host": "github",
+				"path": "cgwire/kitsu",
+				"url": "https://github.com/cgwire/kitsu"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Production tracking and review built for animation and VFX. The API half is the separate cgwire/zou repo; a docker-compose gets both up.",
+				"fr": "Suivi de production et revue conçus pour l’animation et les VFX. La partie API est le dépôt distinct cgwire/zou ; un docker-compose lance les deux."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "AYON",
+			"source": {
+				"host": "github",
+				"path": "ynput/ayon-backend",
+				"url": "https://github.com/ynput/ayon-backend"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The successor to OpenPype (now archived) — pipeline plus tracking, with real DCC integrations. Heavier to run than Kitsu.",
+				"fr": "Le successeur d’OpenPype (désormais archivé) — pipeline et suivi, avec de vraies intégrations logicielles. Plus lourd à exploiter que Kitsu."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Ynput's hosted service and commercial support",
+					"fr": "Le service hébergé et le support commercial de Ynput"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "ftrack Studio",
+			"url": "https://www.ftrack.com/en/pricing",
+			"priceMonthly": 25,
+			"note": {
+				"en": "Half the price, strong review tooling, and a real alternative if you want it hosted. Still a per-seat subscription.",
+				"fr": "Deux fois moins cher, de bons outils de revue, et une vraie alternative si vous le voulez hébergé. Cela reste un abonnement par utilisateur."
+			}
+		}
+	],
+	"priority": 2
+}

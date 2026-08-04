@@ -1,0 +1,132 @@
+{
+	"slug": "notion",
+	"name": "Notion",
+	"domain": "notion.com",
+	"category": "notes-docs",
+	"priceMonthly": 10,
+	"pricing": {
+		"plan": "Plus, annual billed monthly (vendor page served EUR 9.50)",
+		"basis": "per-seat",
+		"url": "https://www.notion.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Databases and relations are the moat. Editing and wikis port fine; the 'Notion as an app platform' part does not.",
+		"fr": "Les bases de données et les relations sont le vrai fossé. L’édition et le wiki se transposent bien ; le « Notion comme plateforme applicative », non."
+	},
+	"whatYouLose": [
+		{
+			"en": "Databases and relations",
+			"fr": "Bases de données et relations"
+		},
+		{
+			"en": "Templates and community",
+			"fr": "Modèles et communauté"
+		},
+		{
+			"en": "Polished mobile apps",
+			"fr": "Applis mobiles soignées"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "AppFlowy",
+			"source": {
+				"host": "github",
+				"path": "AppFlowy-IO/AppFlowy",
+				"url": "https://github.com/AppFlowy-IO/AppFlowy"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Closest UX clone, local-first.",
+				"fr": "Le clone d’UX le plus proche, local-first."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "More than one member on self-hosted",
+					"fr": "Plus d’un membre en auto-hébergement"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Affine",
+			"source": {
+				"host": "github",
+				"path": "toeverything/AFFiNE",
+				"url": "https://github.com/toeverything/AFFiNE"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Docs + whiteboard in one canvas.",
+				"fr": "Docs et tableau blanc sur un même canvas."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Team workspaces beyond 10 seats",
+					"fr": "Espaces d’équipe au-delà de 10 utilisateurs"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Outline",
+			"source": {
+				"host": "github",
+				"path": "outline/outline",
+				"url": "https://github.com/outline/outline"
+			},
+			"license": "BSL",
+			"effort": "docker",
+			"note": {
+				"en": "Best if you only need a team wiki.",
+				"fr": "Idéal si vous ne voulez qu’un wiki d’équipe."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Docmost",
+			"source": {
+				"host": "github",
+				"path": "docmost/docmost",
+				"url": "https://github.com/docmost/docmost"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Confluence-shaped, simple to run.",
+				"fr": "Façon Confluence, simple à exploiter."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO, granular permissions, audit logs",
+					"fr": "SSO, permissions granulaires, journaux d’audit"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

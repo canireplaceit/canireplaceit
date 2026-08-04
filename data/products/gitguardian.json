@@ -1,0 +1,72 @@
+{
+	"slug": "gitguardian",
+	"name": "GitGuardian",
+	"domain": "gitguardian.com",
+	"category": "application-security",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "Regex and entropy checks against your git history, plus a dashboard. Gitleaks in a pre-commit hook catches the leak before it exists, which is strictly better than catching it after. The paid value is public-GitHub monitoring for your leaked keys.",
+		"fr": "Des regex et des tests d’entropie sur votre historique git, plus un tableau de bord. Gitleaks en hook de pré-commit attrape la fuite avant qu’elle existe, ce qui vaut strictement mieux que de l’attraper après. La valeur payante, c’est la surveillance de GitHub public pour vos clés fuitées."
+	},
+	"whatYouLose": [
+		{
+			"en": "Public GitHub monitoring",
+			"fr": "Surveillance de GitHub public"
+		},
+		{
+			"en": "Incident triage workflow",
+			"fr": "Flux de triage des incidents"
+		},
+		{
+			"en": "Historical scanning at scale",
+			"fr": "Analyse historique à grande échelle"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Gitleaks",
+			"source": {
+				"host": "github",
+				"path": "gitleaks/gitleaks",
+				"url": "https://github.com/gitleaks/gitleaks"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Fast, single binary, works as a pre-commit hook or a CI step. The one to install today.",
+				"fr": "Rapide, binaire unique, fonctionne en hook de pré-commit ou en étape de CI. Celui à installer aujourd’hui."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "TruffleHog",
+			"source": {
+				"host": "github",
+				"path": "trufflesecurity/trufflehog",
+				"url": "https://github.com/trufflesecurity/trufflehog"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Actively verifies found credentials against the live provider, so you get almost no false positives. Slower.",
+				"fr": "Vérifie activement les identifiants trouvés auprès du fournisseur réel : quasiment aucun faux positif. Plus lent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

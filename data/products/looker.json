@@ -1,0 +1,101 @@
+{
+	"slug": "looker",
+	"name": "Looker / Tableau",
+	"domain": "looker.com",
+	"category": "analytics",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "BI seat licensing is the most resented line item in most companies. The open tools got good.",
+		"fr": "La licence à l’utilisateur en BI est la ligne budgétaire la plus détestée des entreprises. Et les outils ouverts sont devenus bons."
+	},
+	"whatYouLose": [
+		{
+			"en": "Governed semantic layer",
+			"fr": "Couche sémantique gouvernée"
+		},
+		{
+			"en": "Enterprise support",
+			"fr": "Support entreprise"
+		},
+		{
+			"en": "Exec-ready dashboards",
+			"fr": "Tableaux de bord pour la direction"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Metabase",
+			"source": {
+				"host": "github",
+				"path": "metabase/metabase",
+				"url": "https://github.com/metabase/metabase"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Non-technical users actually use it.",
+				"fr": "Les non-techniques l’utilisent vraiment."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SAML, data sandboxing, official embedding",
+					"fr": "SAML, cloisonnement des données, embarquement officiel"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache Superset",
+			"source": {
+				"host": "github",
+				"path": "apache/superset",
+				"url": "https://github.com/apache/superset"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "More powerful, steeper.",
+				"fr": "Plus puissant, plus raide."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Lightdash",
+			"source": {
+				"host": "github",
+				"path": "lightdash/lightdash",
+				"url": "https://github.com/lightdash/lightdash"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Built on dbt models — closest to Looker.",
+				"fr": "Bâti sur les modèles dbt — le plus proche de Looker."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Custom roles, SCIM, embedding, support SLA",
+					"fr": "Rôles personnalisés, SCIM, embarquement, SLA"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

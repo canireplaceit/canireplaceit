@@ -1,0 +1,101 @@
+{
+	"slug": "extensiv",
+	"name": "Extensiv 3PL Warehouse Manager",
+	"domain": "extensiv.com",
+	"category": "inventory-warehouse",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "Third-party logistics billing is the hard part and nobody has open-sourced it: storage by pallet-day, receiving by line, pick fees by unit, all invoiced per client and reconciled monthly. Open source WMS will run your racks and your picks; you will write the billing engine yourself.",
+		"fr": "La facturation logistique pour compte de tiers est la partie difficile et personne ne l’a libérée : stockage à la palette-jour, réception à la ligne, préparation à l’unité, le tout facturé par client et rapproché chaque mois. Un WMS open source gérera vos racks et vos préparations ; le moteur de facturation, vous l’écrirez."
+	},
+	"whatYouLose": [
+		{
+			"en": "3PL billing engine",
+			"fr": "Moteur de facturation 3PL"
+		},
+		{
+			"en": "Client-facing portals",
+			"fr": "Portails clients"
+		},
+		{
+			"en": "Cart and marketplace connectors",
+			"fr": "Connecteurs boutiques et marketplaces"
+		},
+		{
+			"en": "EDI for retail compliance",
+			"fr": "EDI de conformité grande distribution"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "OpenBoxes",
+			"source": {
+				"host": "github",
+				"path": "openboxes/openboxes",
+				"url": "https://github.com/openboxes/openboxes"
+			},
+			"license": "EPL-1.0",
+			"effort": "ops",
+			"note": {
+				"en": "A real warehouse system — receiving, putaway, picking, cycle counts — hardened in humanitarian supply chains. EPL-1.0, no paid edition. No 3PL billing.",
+				"fr": "Un vrai système d’entrepôt — réception, rangement, préparation, inventaires tournants — éprouvé dans la logistique humanitaire. EPL-1.0, sans édition payante. Aucune facturation 3PL."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ERPNext",
+			"source": {
+				"host": "github",
+				"path": "frappe/erpnext",
+				"url": "https://github.com/frappe/erpnext"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Multi-warehouse stock with serial and batch tracking, plus the invoicing engine you would extend for client billing.",
+				"fr": "Stock multi-entrepôts avec numéros de série et lots, plus le moteur de facturation que vous étendriez pour facturer vos clients."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Odoo Community",
+			"source": {
+				"host": "github",
+				"path": "odoo/odoo",
+				"url": "https://github.com/odoo/odoo"
+			},
+			"license": "LGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Strong picking and putaway strategies. Barcode scanning on the warehouse floor is Enterprise-only, which matters a lot here.",
+				"fr": "Stratégies de préparation et de rangement solides. La lecture de codes-barres en entrepôt est réservée à l’Enterprise, ce qui compte beaucoup ici."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Full accounting, Studio, Barcode, Shop Floor, Field Service and Planning are Enterprise-only",
+					"fr": "La comptabilité complète, Studio, Code-barres, Atelier, Services sur site et Planification sont réservés à l’Enterprise"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

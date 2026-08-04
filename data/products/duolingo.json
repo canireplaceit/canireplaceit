@@ -1,0 +1,88 @@
+{
+	"slug": "duolingo",
+	"name": "Duolingo",
+	"domain": "duolingo.com",
+	"category": "learning-teaching",
+	"priceMonthly": 13,
+	"pricing": {
+		"plan": "Super Duolingo (prices are client-rendered behind sign-in; figure not read off the page)",
+		"basis": "per-seat",
+		"url": "https://www.duolingo.com/super",
+		"checkedOn": "2026-08-02",
+		"confidence": "low"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "The app is trivial; the course content is not. Anki plus a good shared deck genuinely teaches a language — it beats Duolingo on retention and loses to it on getting you to open it. What no open project gives you is a decade of professionally built curricula across dozens of languages, or the streak psychology wrapped around them. LibreLingo tried and was archived in 2026.",
+		"fr": "L’appli est triviale ; le contenu des cours ne l’est pas. Anki avec un bon paquet partagé enseigne réellement une langue — meilleur que Duolingo sur la mémorisation, moins bon pour vous faire l’ouvrir. Ce qu’aucun projet libre ne fournit, c’est une décennie de cursus professionnels dans des dizaines de langues, ni la psychologie du streak construite autour. LibreLingo a essayé, puis a été archivé en 2026."
+	},
+	"whatYouLose": [
+		{
+			"en": "Professionally built courses in dozens of languages",
+			"fr": "Cours professionnels dans des dizaines de langues"
+		},
+		{
+			"en": "The streak mechanic that keeps you coming back",
+			"fr": "La mécanique de série qui vous fait revenir"
+		},
+		{
+			"en": "Speech recognition and pronunciation drills",
+			"fr": "Reconnaissance vocale et exercices de prononciation"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Anki",
+			"source": {
+				"host": "github",
+				"path": "ankitects/anki",
+				"url": "https://github.com/ankitects/anki"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Strictly better for retention, strictly worse at making you open it. Shared decks fill the content gap.",
+				"fr": "Nettement meilleur pour la mémorisation, nettement moins bon pour vous donner envie de l’ouvrir. Les paquets partagés comblent le manque de contenu."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kana Dojo",
+			"source": {
+				"host": "github",
+				"path": "lingdojo/kana-dojo",
+				"url": "https://github.com/lingdojo/kana-dojo"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Gamified and actively developed, but Japanese only. Proof the format works, not a general answer.",
+				"fr": "Ludifié et activement développé, mais uniquement pour le japonais. La preuve que le format marche, pas une réponse générale."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Busuu",
+			"url": "https://www.busuu.com",
+			"priceMonthly": 6,
+			"note": {
+				"en": "Half the price with corrections from native speakers, which Duolingo does not have. Fewer languages and a duller loop.",
+				"fr": "Deux fois moins cher, avec des corrections par des locuteurs natifs — ce que Duolingo n’offre pas. Moins de langues et une boucle moins accrocheuse."
+			}
+		}
+	],
+	"priority": 5
+}

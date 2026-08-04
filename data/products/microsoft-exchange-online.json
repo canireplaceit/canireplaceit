@@ -1,0 +1,103 @@
+{
+	"slug": "microsoft-exchange-online",
+	"name": "Microsoft Exchange Online",
+	"domain": "microsoft.com",
+	"category": "email-deliverability",
+	"priceMonthly": 4,
+	"pricing": {
+		"plan": "Exchange Online Plan 1, paid yearly",
+		"basis": "per-seat",
+		"url": "https://www.microsoft.com/en-us/microsoft-365/exchange/compare-microsoft-exchange-online-plans",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "grommunio genuinely speaks MAPI/HTTP and EWS, so Outlook connects natively and your users notice nothing — the one thing every other open source groupware fails at. What you keep paying Microsoft for is the ecosystem: Teams, compliance holds, and an Outlook that never gets tested against anything else.",
+		"fr": "grommunio parle réellement MAPI/HTTP et EWS : Outlook s’y connecte nativement et vos utilisateurs ne remarquent rien — la seule chose que tous les autres groupwares open source ratent. Ce que vous continuez à payer à Microsoft, c’est l’écosystème : Teams, les rétentions de conformité, et un Outlook qui n’est jamais testé contre autre chose."
+	},
+	"whatYouLose": [
+		{
+			"en": "Teams and the M365 suite",
+			"fr": "Teams et la suite M365"
+		},
+		{
+			"en": "eDiscovery and legal hold",
+			"fr": "eDiscovery et rétention légale"
+		},
+		{
+			"en": "Outlook tested against it",
+			"fr": "Outlook testé pour lui"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "grommunio (gromox)",
+			"source": {
+				"host": "github",
+				"path": "grommunio/gromox",
+				"url": "https://github.com/grommunio/gromox"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "The only serious native Exchange drop-in: MAPI/HTTP, EWS, ActiveSync and PST import. Community builds are free; the maintained update repository and support come with a subscription.",
+				"fr": "Le seul vrai remplaçant natif d’Exchange : MAPI/HTTP, EWS, ActiveSync et import PST. Les builds communautaires sont gratuites ; le dépôt de mises à jour maintenu et le support viennent avec un abonnement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "The maintained update repository, support and some managed apps.",
+					"fr": "Le dépôt de mises à jour maintenu, le support et certaines applications gérées."
+				},
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SOGo",
+			"source": {
+				"host": "github",
+				"path": "Alinto/sogo",
+				"url": "https://github.com/Alinto/sogo"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Groupware with ActiveSync, CalDAV/CardDAV and SAML2, on top of your existing Postfix and Dovecot. Outlook works via ActiveSync, not natively.",
+				"fr": "Groupware avec ActiveSync, CalDAV/CardDAV et SAML2, au-dessus de vos Postfix et Dovecot existants. Outlook fonctionne via ActiveSync, pas nativement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "mailcow",
+			"source": {
+				"host": "github",
+				"path": "mailcow/mailcow-dockerized",
+				"url": "https://github.com/mailcow/mailcow-dockerized"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Ships SOGo inside it, so you get shared calendars and contacts without assembling the stack yourself.",
+				"fr": "Embarque SOGo, donc vous obtenez agendas et contacts partagés sans assembler la pile vous-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

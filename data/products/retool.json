@@ -1,0 +1,111 @@
+{
+	"slug": "retool",
+	"name": "Retool",
+	"domain": "retool.com",
+	"category": "internal-tools",
+	"priceMonthly": 10,
+	"pricing": {
+		"plan": "Team, per builder (vendor page served EUR 9/builder)",
+		"basis": "per-seat",
+		"url": "https://retool.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Drag a table onto a query. The per-seat pricing on internal admin panels is what pushes teams out.",
+		"fr": "Glissez une table sur une requête. C’est la tarification à l’utilisateur sur des back-offices internes qui fait fuir les équipes."
+	},
+	"whatYouLose": [
+		{
+			"en": "Polished component library",
+			"fr": "Bibliothèque de composants soignée"
+		},
+		{
+			"en": "Dozens of native datasources",
+			"fr": "Des dizaines de sources de données natives"
+		},
+		{
+			"en": "Enterprise SSO and audit",
+			"fr": "SSO et audit entreprise"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Appsmith",
+			"source": {
+				"host": "github",
+				"path": "appsmithorg/appsmith",
+				"url": "https://github.com/appsmithorg/appsmith"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Closest Retool clone.",
+				"fr": "Le clone de Retool le plus proche."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SAML/OIDC SSO, granular RBAC, audit logs",
+					"fr": "SSO SAML/OIDC, RBAC granulaire, journaux d’audit"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ToolJet",
+			"source": {
+				"host": "github",
+				"path": "ToolJet/ToolJet",
+				"url": "https://github.com/ToolJet/ToolJet"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Nice builder, many datasources.",
+				"fr": "Bon constructeur, beaucoup de sources de données."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO, audit logs, granular RBAC, Git sync",
+					"fr": "SSO, journaux d’audit, RBAC fin, sync Git"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Budibase",
+			"source": {
+				"host": "github",
+				"path": "Budibase/budibase",
+				"url": "https://github.com/Budibase/budibase"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Includes its own internal DB.",
+				"fr": "Embarque sa propre base interne."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Audit logs, SCIM, log retention",
+					"fr": "Journaux d’audit, SCIM, rétention des logs"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

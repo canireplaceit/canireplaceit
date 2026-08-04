@@ -1,0 +1,99 @@
+{
+	"slug": "firebase",
+	"name": "Firebase",
+	"domain": "firebase.google.com",
+	"category": "backend",
+	"priceMonthly": null,
+	"pricing": {
+		"plan": "Blaze, pay-as-you-go (no fixed monthly fee)",
+		"basis": "usage",
+		"url": "https://firebase.google.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Auth + database + storage + functions, but Postgres instead of a proprietary document store. Usually a better deal.",
+		"fr": "Auth, base, stockage et fonctions, mais avec Postgres au lieu d’un magasin documentaire propriétaire. En général, une meilleure affaire."
+	},
+	"whatYouLose": [
+		{
+			"en": "Realtime sync out of the box",
+			"fr": "Synchro temps réel clés en main"
+		},
+		{
+			"en": "Push notifications (FCM)",
+			"fr": "Notifications push (FCM)"
+		},
+		{
+			"en": "Google-scale free tier",
+			"fr": "Palier gratuit à l’échelle Google"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Supabase",
+			"source": {
+				"host": "github",
+				"path": "supabase/supabase",
+				"url": "https://github.com/supabase/supabase"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hostable, but the hosted tier is the sane path.",
+				"fr": "Auto-hébergeable, mais l’offre hébergée reste la voie raisonnable."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Appwrite",
+			"source": {
+				"host": "github",
+				"path": "appwrite/appwrite",
+				"url": "https://github.com/appwrite/appwrite"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Closest 1:1 Firebase mapping.",
+				"fr": "La correspondance la plus fidèle avec Firebase."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PocketBase",
+			"source": {
+				"host": "github",
+				"path": "pocketbase/pocketbase",
+				"url": "https://github.com/pocketbase/pocketbase"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "One Go binary. Absurdly simple.",
+				"fr": "Un binaire Go. D’une simplicité absurde."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

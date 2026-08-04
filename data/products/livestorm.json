@@ -1,0 +1,103 @@
+{
+	"slug": "livestorm",
+	"name": "Livestorm",
+	"domain": "livestorm.co",
+	"category": "comms",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "Livestorm is a nice registration funnel wrapped around WebRTC. The funnel — landing page, emails, attendance tracking, CRM push — is the part that takes a month to rebuild, and the video part is the part that is already free.",
+		"fr": "Livestorm, c’est un joli tunnel d’inscription enroulé autour de WebRTC. Le tunnel — page d’inscription, e-mails, suivi de présence, envoi au CRM — est la partie qui demande un mois à reconstruire, et la vidéo est la partie déjà gratuite."
+	},
+	"whatYouLose": [
+		{
+			"en": "Registration funnel and email sequence",
+			"fr": "Tunnel d’inscription et séquence d’e-mails"
+		},
+		{
+			"en": "Browser-only attendance, no install",
+			"fr": "Accès navigateur sans installation"
+		},
+		{
+			"en": "Attendance analytics pushed to CRM",
+			"fr": "Statistiques de présence envoyées au CRM"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Jitsi Meet",
+			"source": {
+				"host": "github",
+				"path": "jitsi/jitsi-meet",
+				"url": "https://github.com/jitsi/jitsi-meet"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Browser-only and self-hosted in a compose file, which is exactly Livestorm's no-install pitch minus the funnel.",
+				"fr": "Navigateur uniquement et auto-hébergé avec un fichier compose, c’est exactement l’argument « sans installation » de Livestorm, sans le tunnel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "BigBlueButton",
+			"source": {
+				"host": "github",
+				"path": "bigbluebutton/bigbluebutton",
+				"url": "https://github.com/bigbluebutton/bigbluebutton"
+			},
+			"license": "LGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "More webinar features than Livestorm has, at the cost of running it yourself.",
+				"fr": "Plus de fonctions webinaire que Livestorm, au prix de l’exploiter vous-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Listmonk",
+			"source": {
+				"host": "github",
+				"path": "knadh/listmonk",
+				"url": "https://github.com/knadh/listmonk"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The registration reminder sequence, which is the half nobody remembers to rebuild.",
+				"fr": "La séquence de rappels d’inscription, la moitié que personne ne pense à reconstruire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "StreamYard",
+			"url": "https://streamyard.com",
+			"priceMonthly": 25,
+			"note": {
+				"en": "A quarter of the price for the broadcast half, streaming to YouTube or LinkedIn. No registration or attendance analytics.",
+				"fr": "Quatre fois moins cher pour la partie diffusion, vers YouTube ou LinkedIn. Pas d’inscription ni de statistiques de présence."
+			}
+		}
+	],
+	"priority": 2
+}

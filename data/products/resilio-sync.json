@@ -1,0 +1,124 @@
+{
+	"slug": "resilio-sync",
+	"name": "Resilio Sync",
+	"domain": "resilio.com",
+	"category": "storage",
+	"priceMonthly": 0,
+	"pricing": {
+		"plan": "Sync for personal use, now free",
+		"basis": "flat",
+		"url": "https://www.resilio.com/sync/download/",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Resilio is peer-to-peer sync with no cloud in the middle, sold as a licence — and Syncthing is exactly the same architecture, open source, and free. This is one of the cleanest one-for-one swaps on the whole site.",
+		"fr": "Resilio, c’est de la synchro pair-à-pair sans cloud au milieu, vendue sous licence — et Syncthing a exactement la même architecture, en open source et gratuit. C’est l’un des échanges un pour un les plus nets de tout le site."
+	},
+	"whatYouLose": [
+		{
+			"en": "Selective sync on mobile",
+			"fr": "Synchro sélective sur mobile"
+		},
+		{
+			"en": "Faster transfers on very large sets",
+			"fr": "Transferts plus rapides sur de très gros volumes"
+		},
+		{
+			"en": "Commercial support",
+			"fr": "Support commercial"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Syncthing",
+			"source": {
+				"host": "github",
+				"path": "syncthing/syncthing",
+				"url": "https://github.com/syncthing/syncthing"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Continuous peer-to-peer sync with no server and no account at all. The closest thing to magic on this list, and the least like a cloud drive.",
+				"fr": "Synchronisation continue en pair-à-pair, sans serveur ni compte. Ce qui se rapproche le plus de la magie dans cette liste, et le moins d’un disque cloud."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "rclone",
+			"source": {
+				"host": "github",
+				"path": "rclone/rclone",
+				"url": "https://github.com/rclone/rclone"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "rsync for every cloud that exists, with client-side encryption via crypt remotes. The plumbing under half the other options here.",
+				"fr": "rsync pour tous les clouds existants, avec chiffrement côté client via les remotes crypt. La tuyauterie sous la moitié des autres options ici."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ownCloud Infinite Scale",
+			"source": {
+				"host": "github",
+				"path": "owncloud/ocis",
+				"url": "https://github.com/owncloud/ocis"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The Go rewrite of ownCloud. Apache-2.0, far lighter than the old PHP stack, and it does not need a database.",
+				"fr": "La réécriture d’ownCloud en Go. Apache-2.0, bien plus légère que l’ancienne pile PHP, et sans base de données."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Enterprise add-ons and the support subscription",
+					"fr": "Les modules entreprise et l’abonnement de support"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "File Browser",
+			"source": {
+				"host": "github",
+				"path": "filebrowser/filebrowser",
+				"url": "https://github.com/filebrowser/filebrowser"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "A single binary that puts a web UI and sharing links over a directory. Not sync — just access.",
+				"fr": "Un binaire unique qui pose une interface web et des liens de partage sur un dossier. Pas de synchro, juste l’accès."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

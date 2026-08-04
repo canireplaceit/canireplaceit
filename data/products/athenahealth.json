@@ -1,0 +1,103 @@
+{
+	"slug": "athenahealth",
+	"name": "athenahealth",
+	"domain": "athenahealth.com",
+	"category": "health-care",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "OpenEMR is certified and used in real clinics, so the electronic health record itself is genuinely replaceable. What is not: athenahealth's clearinghouse relationships and the people who chase denied insurance claims for you. That revenue-cycle service is most of what you pay for.",
+		"fr": "OpenEMR est certifié et utilisé dans de vraies cliniques : le dossier patient est réellement remplaçable. Ce qui ne l’est pas : les liens d’athenahealth avec les chambres de compensation et les gens qui relancent vos remboursements refusés. Ce service de recouvrement, c’est l’essentiel de ce que vous payez."
+	},
+	"whatYouLose": [
+		{
+			"en": "Insurance claim chasing on your behalf",
+			"fr": "Suivi des remboursements à votre place"
+		},
+		{
+			"en": "Clearinghouse and payer connections",
+			"fr": "Connexions aux caisses et chambres de compensation"
+		},
+		{
+			"en": "Someone else carrying the compliance burden",
+			"fr": "Quelqu’un d’autre qui porte la charge de conformité"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "OpenEMR",
+			"source": {
+				"host": "github",
+				"path": "openemr/openemr",
+				"url": "https://github.com/openemr/openemr"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "The only open health record with real certification. Regulatory compliance is your responsibility, not the licence's.",
+				"fr": "Le seul dossier patient open source réellement certifié. La conformité réglementaire vous incombe, pas à la licence."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Medplum",
+			"source": {
+				"host": "github",
+				"path": "medplum/medplum",
+				"url": "https://github.com/medplum/medplum"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "FHIR-native platform to build on rather than a finished clinic app. Best pick for a digital-health product.",
+				"fr": "Plateforme nativement FHIR sur laquelle bâtir, pas une application clinique finie. Le meilleur choix pour un produit de santé numérique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenMRS",
+			"source": {
+				"host": "github",
+				"path": "openmrs/openmrs-core",
+				"url": "https://github.com/openmrs/openmrs-core"
+			},
+			"license": "MPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Deployed across low-resource health systems worldwide. Strong data model, weak US billing.",
+				"fr": "Déployé dans les systèmes de santé à faibles ressources du monde entier. Modèle de données solide, facturation américaine faible."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "CharmHealth",
+			"url": "https://www.charmhealth.com",
+			"priceMonthly": 25,
+			"note": {
+				"en": "Cloud health record at a fraction of athena's cost, and it's certified. Revenue-cycle management is an add-on you pay separately for.",
+				"fr": "Dossier patient cloud à une fraction du prix d’athena, et certifié. La gestion du recouvrement est une option facturée à part."
+			}
+		}
+	],
+	"priority": 3
+}

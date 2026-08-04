@@ -1,0 +1,117 @@
+{
+	"slug": "jobber",
+	"name": "Jobber",
+	"domain": "getjobber.com",
+	"category": "field-service-maintenance",
+	"priceMonthly": 139,
+	"pricing": {
+		"plan": "Connect, month-to-month",
+		"basis": "flat",
+		"url": "https://www.getjobber.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Jobber is quote, schedule, invoice, get paid — for a two-truck landscaping or cleaning business. Every one of those four is in Dolibarr, and the fifth thing Jobber sells, the client hub where customers approve quotes and pay, is a portal you can bolt on. The mobile app is what you will miss.",
+		"fr": "Jobber, c’est devis, planning, facture, encaissement — pour une entreprise de paysagisme ou de nettoyage à deux camionnettes. Ces quatre briques sont dans Dolibarr, et la cinquième que vend Jobber, l’espace client où l’on approuve les devis et paie, est un portail que l’on peut greffer. C’est l’app mobile qui vous manquera."
+	},
+	"whatYouLose": [
+		{
+			"en": "Field-ready mobile app",
+			"fr": "App mobile utilisable sur le terrain"
+		},
+		{
+			"en": "Client hub with online payment",
+			"fr": "Espace client avec paiement en ligne"
+		},
+		{
+			"en": "Automated reminder texts",
+			"fr": "SMS de rappel automatiques"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Dolibarr",
+			"source": {
+				"host": "github",
+				"path": "Dolibarr/dolibarr",
+				"url": "https://github.com/Dolibarr/dolibarr"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Quotes, interventions, invoices, recurring contracts and a customer portal, all in one PHP app you can run for the price of a VPS.",
+				"fr": "Devis, interventions, factures, contrats récurrents et portail client, dans une seule application PHP qui tourne pour le prix d’un VPS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "EspoCRM",
+			"source": {
+				"host": "github",
+				"path": "espocrm/espocrm",
+				"url": "https://github.com/espocrm/espocrm"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Better if the job is really scheduling appointments against a customer record. Portal and Advanced Pack are paid extensions.",
+				"fr": "Préférable si le travail consiste surtout à planifier des rendez-vous sur une fiche client. Le portail et l’Advanced Pack sont des extensions payantes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Advanced Pack, Sales Pack and the customer portal are paid extensions",
+					"fr": "Advanced Pack, Sales Pack et le portail client sont des extensions payantes"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kimai",
+			"source": {
+				"host": "github",
+				"path": "kimai/kimai",
+				"url": "https://github.com/kimai/kimai"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Covers the on-site time tracking and the invoice from it, if you already have a CRM you like.",
+				"fr": "Couvre le pointage sur site et la facture qui en découle, si vous avez déjà un CRM qui vous convient."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Some official plugins (approvals, expenses) are sold separately",
+					"fr": "Certains plugins officiels (validations, notes de frais) sont vendus à part"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Kickserv",
+			"url": "https://www.kickserv.com/pricing/",
+			"priceMonthly": 59,
+			"note": {
+				"en": "Same category, a third of the price, published tiers. Smaller integration list and a plainer mobile app.",
+				"fr": "Même catégorie, un tiers du prix, tarifs affichés. Moins d’intégrations et une app mobile plus rudimentaire."
+			}
+		}
+	],
+	"priority": 3
+}

@@ -1,0 +1,120 @@
+{
+	"slug": "instapaper",
+	"name": "Instapaper",
+	"domain": "instapaper.com",
+	"category": "personal-media-libraries",
+	"priceMonthly": 6,
+	"pricing": {
+		"plan": "Premium ($5.99/mo)",
+		"basis": "flat",
+		"url": "https://www.instapaper.com/premium",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "With Pocket shut down in 2025, read-later is a category where the open options are now simply better maintained than the commercial ones. wallabag does extraction, highlights, epub export and full-text search, and it will not be sold to an analytics company next year.",
+		"fr": "Pocket ayant fermé en 2025, la lecture différée est une catégorie où les options open source sont désormais tout simplement mieux entretenues que les commerciales. wallabag fait l’extraction, les surlignages, l’export epub et la recherche plein texte, et il ne sera pas revendu à une régie l’an prochain."
+	},
+	"whatYouLose": [
+		{
+			"en": "Text-to-speech on the mobile app",
+			"fr": "Synthèse vocale sur mobile"
+		},
+		{
+			"en": "Send-to-Kindle that just works",
+			"fr": "Envoi vers Kindle sans effort"
+		},
+		{
+			"en": "Extraction on hostile paywalled sites",
+			"fr": "Extraction sur les sites payants hostiles"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "wallabag",
+			"source": {
+				"host": "github",
+				"path": "wallabag/wallabag",
+				"url": "https://github.com/wallabag/wallabag"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Article extraction, tagging, full-text search and epub export. There is a cheap hosted instance if you do not want a server.",
+				"fr": "Extraction d’articles, étiquetage, recherche plein texte et export epub. Une instance hébergée bon marché existe si vous ne voulez pas de serveur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "eu-option"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Karakeep",
+			"source": {
+				"host": "github",
+				"path": "karakeep-app/karakeep",
+				"url": "https://github.com/karakeep-app/karakeep"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Bookmarks, highlights, full-page archiving and AI auto-tagging, pointed at your own model if you like. Formerly Hoarder.",
+				"fr": "Marque-pages, surlignages, archivage de pages complètes et étiquetage automatique par IA, pointé vers votre propre modèle si vous le souhaitez. Anciennement Hoarder."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Shiori",
+			"source": {
+				"host": "github",
+				"path": "go-shiori/shiori",
+				"url": "https://github.com/go-shiori/shiori"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "A single Go binary that saves pages with their content, CLI and web UI in one. The Pocket clone that fits on a Raspberry Pi.",
+				"fr": "Un binaire Go unique qui enregistre les pages avec leur contenu, CLI et interface web ensemble. Le clone de Pocket qui tient sur un Raspberry Pi."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ArchiveBox",
+			"source": {
+				"host": "github",
+				"path": "ArchiveBox/ArchiveBox",
+				"url": "https://github.com/ArchiveBox/ArchiveBox"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Not a reader, an archiver. It keeps HTML, PDF, screenshot and WARC of everything you save, so link rot stops mattering.",
+				"fr": "Pas un lecteur, un archiveur. Il conserve HTML, PDF, capture d’écran et WARC de tout ce que vous enregistrez, pour que la pourriture des liens cesse de compter."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

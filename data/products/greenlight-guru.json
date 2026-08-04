@@ -1,0 +1,101 @@
+{
+	"slug": "greenlight-guru",
+	"name": "Greenlight Guru",
+	"domain": "greenlight.guru",
+	"category": "manufacturing-quality",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "not-yet",
+	"why": {
+		"en": "Medical device QMS is the clearest case in this whole directory where self-hosting is blocked by certification rather than software. Your notified body audits the system, the supplier and the validation evidence. Building your own eQMS is legal and occasionally done — it is also the most expensive way to save a licence fee.",
+		"fr": "Le QMS pour dispositifs médicaux est le cas le plus net de tout ce répertoire où l’auto-hébergement est bloqué par la certification et non par le logiciel. Votre organisme notifié audite le système, le fournisseur et les preuves de validation. Construire son propre eQMS est légal et se fait parfois — c’est aussi la façon la plus coûteuse d’économiser une licence."
+	},
+	"whatYouLose": [
+		{
+			"en": "Design history file structure",
+			"fr": "Structure du dossier de conception"
+		},
+		{
+			"en": "Risk management tied to ISO 14971",
+			"fr": "Gestion des risques adossée à l’ISO 14971"
+		},
+		{
+			"en": "Supplier audit trail an auditor accepts",
+			"fr": "Piste d’audit fournisseur acceptée par l’auditeur"
+		},
+		{
+			"en": "Regulatory guidance from the vendor",
+			"fr": "Accompagnement réglementaire de l’éditeur"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Mayan EDMS",
+			"source": {
+				"host": "gitlab",
+				"path": "mayan-edms/mayan-edms",
+				"url": "https://gitlab.com/mayan-edms/mayan-edms"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The document control core of a QMS, self-hosted so the data residency question answers itself. Everything regulatory is on you.",
+				"fr": "Le cœur de gestion documentaire d’un QMS, auto-hébergé, ce qui règle d’office la question de la résidence des données. Tout le réglementaire vous incombe."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenProject",
+			"source": {
+				"host": "github",
+				"path": "opf/openproject",
+				"url": "https://github.com/opf/openproject"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Design controls and CAPA as work packages with a real audit history. Enterprise add-ons cover SSO and portfolio views.",
+				"fr": "Maîtrise de la conception et CAPA sous forme de lots de travaux avec historique d’audit. Les modules Enterprise couvrent le SSO et les vues portefeuille."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SAML/OIDC SSO, team planner, custom theming and portfolio views are Enterprise",
+					"fr": "SSO SAML/OIDC, planificateur d’équipe, thème personnalisé et vues portefeuille sont Enterprise"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Papermerge",
+			"source": {
+				"host": "github",
+				"path": "papermerge/papermerge-core",
+				"url": "https://github.com/papermerge/papermerge-core"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "A lighter document manager with OCR if you only need to keep and find controlled records, not run workflows over them.",
+				"fr": "Un gestionnaire documentaire plus léger avec OCR, si vous voulez seulement conserver et retrouver des enregistrements contrôlés sans y faire tourner de circuits."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

@@ -1,0 +1,92 @@
+{
+	"slug": "zeplin",
+	"name": "Zeplin",
+	"domain": "zeplin.io",
+	"category": "design",
+	"priceMonthly": 12,
+	"pricing": {
+		"plan": "Advanced, $12 per seat/month billed annually",
+		"basis": "per-seat",
+		"url": "https://zeplin.io/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Zeplin exists because Figma's handoff used to be bad. It is not any more, and if you have moved to Penpot the handoff view is built in and free. What Zeplin still does better is organising hundreds of screens for a large engineering team.",
+		"fr": "Zeplin existe parce que le handoff de Figma était mauvais. Il ne l’est plus, et si vous êtes passé à Penpot, la vue de transfert est intégrée et gratuite. Ce que Zeplin fait encore mieux : organiser des centaines d’écrans pour une grosse équipe d’ingénierie."
+	},
+	"whatYouLose": [
+		{
+			"en": "Screen organisation at scale",
+			"fr": "Organisation des écrans à grande échelle"
+		},
+		{
+			"en": "Jira and Storybook connectors",
+			"fr": "Connecteurs Jira et Storybook"
+		},
+		{
+			"en": "Versioned spec history",
+			"fr": "Historique versionné des spécifications"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Penpot",
+			"source": {
+				"host": "github",
+				"path": "penpot/penpot",
+				"url": "https://github.com/penpot/penpot"
+			},
+			"license": "MPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Inspect mode gives measurements, tokens and copy-paste CSS with no extra seat to buy. It only inspects Penpot files.",
+				"fr": "Le mode inspection donne mesures, jetons et CSS copiable sans utilisateur supplémentaire à acheter. Il n’inspecte que des fichiers Penpot."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Storybook",
+			"source": {
+				"host": "github",
+				"path": "storybookjs/storybook",
+				"url": "https://github.com/storybookjs/storybook"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Flips the problem: the components themselves become the spec, and designers review the real thing. It needs engineering effort to keep alive.",
+				"fr": "Inverse le problème : les composants eux-mêmes deviennent la spécification, et les designers examinent le vrai rendu. Il faut de l’effort côté ingénierie pour le maintenir."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Chromatic's hosted visual regression testing and review",
+					"fr": "Les tests de régression visuelle hébergés et la revue via Chromatic"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Figma Dev Mode",
+			"url": "https://www.figma.com/pricing/",
+			"priceMonthly": 12,
+			"note": {
+				"en": "If your designers are already in Figma, a dev seat is one tool fewer to pay for. Still per-seat and still Figma.",
+				"fr": "Si vos designers sont déjà sur Figma, une licence dev fait un outil de moins à payer. Toujours par utilisateur, et toujours Figma."
+			}
+		}
+	],
+	"priority": 2
+}

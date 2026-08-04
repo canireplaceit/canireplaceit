@@ -1,0 +1,98 @@
+{
+	"slug": "adobe-premiere-pro",
+	"name": "Adobe Premiere Pro",
+	"domain": "adobe.com",
+	"category": "creative-studio",
+	"priceMonthly": 23,
+	"pricing": {
+		"plan": "Premiere Pro single app, USD 22.99/mo billed annually",
+		"basis": "per-seat",
+		"url": "https://www.adobe.com/creativecloud/plans.html",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Kdenlive edits video perfectly well for most work. But the reason people stay is round-tripping — After Effects, Audition, review links, and a post house that expects your project file. Solo editors can leave today; facilities cannot.",
+		"fr": "Kdenlive monte très bien pour la majorité des travaux. Mais ce qui retient les gens, c’est l’aller-retour entre outils : After Effects, Audition, les liens de validation, et un prestataire de post-production qui attend votre fichier projet. Un monteur seul peut partir aujourd’hui ; un studio non."
+	},
+	"whatYouLose": [
+		{
+			"en": "Round-tripping with After Effects and Audition",
+			"fr": "Allers-retours avec After Effects et Audition"
+		},
+		{
+			"en": "Project files post houses accept",
+			"fr": "Fichiers projet acceptés par les studios de post-production"
+		},
+		{
+			"en": "Some professional codecs",
+			"fr": "Certains codecs professionnels"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Kdenlive",
+			"source": {
+				"host": "gitlab",
+				"path": "multimedia/kdenlive",
+				"url": "https://invent.kde.org/multimedia/kdenlive"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The most complete open video editor. Proxy workflow, multicam, effect stack — all there.",
+				"fr": "Le monteur open source le plus complet. Proxys, multicaméra, pile d’effets — tout y est."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Shotcut",
+			"source": {
+				"host": "github",
+				"path": "mltframework/shotcut",
+				"url": "https://github.com/mltframework/shotcut"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Same MLT engine, simpler interface. Better if you just need cuts and titles.",
+				"fr": "Même moteur MLT, interface plus simple. Préférable si vous ne voulez que des coupes et des titres."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "DaVinci Resolve",
+			"url": "https://www.blackmagicdesign.com/products/davinciresolve",
+			"priceMonthly": 0,
+			"note": {
+				"en": "The free version is a professional editor with the best colour grading in the industry. Not open source, and the free build lacks some codecs and noise reduction.",
+				"fr": "La version gratuite est un monteur professionnel avec le meilleur étalonnage du marché. Pas open source, et la version gratuite manque de certains codecs et du débruitage."
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "CapCut Pro",
+			"url": "https://www.capcut.com",
+			"priceMonthly": 8,
+			"note": {
+				"en": "A third of the price and faster for social-format work. Cloud-tied and not a professional finishing tool.",
+				"fr": "Trois fois moins cher et plus rapide pour les formats sociaux. Lié au cloud et pas un outil de finition professionnel."
+			}
+		}
+	],
+	"priority": 4
+}

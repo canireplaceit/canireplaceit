@@ -1,0 +1,103 @@
+{
+	"slug": "openvpn-cloud",
+	"name": "OpenVPN CloudConnexa",
+	"domain": "openvpn.net",
+	"category": "networking-vpn",
+	"priceMonthly": 7,
+	"pricing": {
+		"plan": "CloudConnexa Essential, annual billed monthly, 10-seat minimum",
+		"basis": "per-seat",
+		"url": "https://openvpn.net/cloud-vpn/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "CloudConnexa is a hosted control plane for a protocol whose reference implementation is GPL and thirty years old. You are paying to not run a config file. Watch out for Pritunl, which everyone recommends as the open source answer and which is not open source at all.",
+		"fr": "CloudConnexa est un plan de contrôle hébergé pour un protocole dont l’implémentation de référence est en GPL depuis trente ans. Vous payez pour ne pas gérer un fichier de configuration. Méfiez-vous de Pritunl, que tout le monde présente comme la réponse open source et qui ne l’est absolument pas."
+	},
+	"whatYouLose": [
+		{
+			"en": "Hosted gateways worldwide",
+			"fr": "Passerelles hébergées mondiales"
+		},
+		{
+			"en": "Click-through user management",
+			"fr": "Gestion des utilisateurs en clics"
+		},
+		{
+			"en": "SAML without a plugin",
+			"fr": "SAML sans greffon"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "OpenVPN Community",
+			"source": {
+				"host": "github",
+				"path": "OpenVPN/openvpn",
+				"url": "https://github.com/OpenVPN/openvpn"
+			},
+			"license": "GPL-2.0 (with linking exception)",
+			"effort": "ops",
+			"note": {
+				"en": "The same daemon their paid products wrap. SAML, LDAP sync and the web admin are Access Server features, not community ones — that is the whole upsell.",
+				"fr": "Le même démon que celui qu’emballent leurs produits payants. SAML, la synchro LDAP et l’admin web sont des fonctions d’Access Server, pas de la communauté — c’est tout l’argumentaire de vente."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Web admin, SAML/LDAP and user management are Access Server only.",
+					"fr": "Admin web, SAML/LDAP et gestion des utilisateurs : réservés à Access Server."
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "wg-easy",
+			"source": {
+				"host": "github",
+				"path": "wg-easy/wg-easy",
+				"url": "https://github.com/wg-easy/wg-easy"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "WireGuard with a web UI and QR-code enrolment in one container. Ten minutes to a working remote-access VPN for a small team; no policy engine.",
+				"fr": "WireGuard avec interface web et enrôlement par QR code dans un seul conteneur. Dix minutes pour un VPN d’accès distant pour une petite équipe ; pas de moteur de politiques."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenZiti",
+			"source": {
+				"host": "github",
+				"path": "openziti/ziti",
+				"url": "https://github.com/openziti/ziti"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Zero-trust overlay with per-service identity rather than per-subnet routes. Much more capable than a VPN and much more to learn.",
+				"fr": "Overlay zero-trust avec identité par service plutôt que routes par sous-réseau. Bien plus capable qu’un VPN, et bien plus à apprendre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

@@ -1,0 +1,124 @@
+{
+	"slug": "mintlify",
+	"name": "Mintlify",
+	"domain": "mintlify.com",
+	"category": "notes-docs",
+	"priceMonthly": 450,
+	"pricing": {
+		"plan": "Pro, annual billing ($450/mo shown on pricing page)",
+		"basis": "flat",
+		"url": "https://www.mintlify.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Beautiful defaults and an OpenAPI playground, priced like a platform. The playground is the only genuinely hard part and Scalar gives it away.",
+		"fr": "De superbes réglages par défaut et un bac à sable OpenAPI, facturés comme une plateforme. Le bac à sable est la seule partie vraiment difficile, et Scalar le donne gratuitement."
+	},
+	"whatYouLose": [
+		{
+			"en": "Polished default theme",
+			"fr": "Thème par défaut soigné"
+		},
+		{
+			"en": "AI docs assistant",
+			"fr": "Assistant IA de documentation"
+		},
+		{
+			"en": "Hosted preview deployments",
+			"fr": "Déploiements de prévisualisation hébergés"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Starlight",
+			"source": {
+				"host": "github",
+				"path": "withastro/starlight",
+				"url": "https://github.com/withastro/starlight"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Closest in look and speed, with a first-party OpenAPI plugin ecosystem. Deploy the static output anywhere free.",
+				"fr": "Le plus proche en apparence et en vitesse, avec un écosystème de plugins OpenAPI. Déployez la sortie statique gratuitement, où vous voulez."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Scalar",
+			"source": {
+				"host": "github",
+				"path": "scalar/scalar",
+				"url": "https://github.com/scalar/scalar"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The API reference and try-it playground, standalone. Drop it next to any docs site.",
+				"fr": "La référence d’API et le bac à sable « essayer », en autonome. À poser à côté de n’importe quel site de docs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "The hosted Scalar platform: managed API registry, collaboration and monitoring",
+					"fr": "La plateforme hébergée Scalar : registre d’API managé, collaboration et supervision"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nextra",
+			"source": {
+				"host": "github",
+				"path": "shuding/nextra",
+				"url": "https://github.com/shuding/nextra"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Next.js docs theme if your marketing site is already Next.js and you want one deploy.",
+				"fr": "Thème docs pour Next.js si votre site marketing est déjà en Next.js et que vous voulez un seul déploiement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "VitePress",
+			"source": {
+				"host": "github",
+				"path": "vuejs/vitepress",
+				"url": "https://github.com/vuejs/vitepress"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Minimal, fast, Vue-flavoured. The least ceremony of the four.",
+				"fr": "Minimal, rapide, saveur Vue. Le moins cérémonieux des quatre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

@@ -1,0 +1,109 @@
+{
+	"slug": "screen-studio",
+	"name": "Screen Studio",
+	"domain": "screen.studio",
+	"category": "video",
+	"priceMonthly": 20,
+	"pricing": {
+		"plan": "Screen Studio, billed monthly (USD 9/mo if billed yearly)",
+		"basis": "per-seat",
+		"url": "https://screen.studio/#pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "The automatic zoom-follows-cursor and smooth-motion export is genuinely a new thing, and no open tool reproduces it. Everything else — recording, cropping, background, export — OBS and Kdenlive already do.",
+		"fr": "Le zoom automatique qui suit le curseur et l’export au mouvement lissé sont réellement nouveaux, et aucun outil open source ne les reproduit. Tout le reste — enregistrement, recadrage, arrière-plan, export — OBS et Kdenlive le font déjà."
+	},
+	"whatYouLose": [
+		{
+			"en": "Automatic cursor-following zoom",
+			"fr": "Zoom automatique qui suit le curseur"
+		},
+		{
+			"en": "Motion smoothing and easing presets",
+			"fr": "Lissage de mouvement et préréglages d’accélération"
+		},
+		{
+			"en": "One-click polished output",
+			"fr": "Rendu soigné en un clic"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "OBS Studio",
+			"source": {
+				"host": "github",
+				"path": "obsproject/obs-studio",
+				"url": "https://github.com/obsproject/obs-studio"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Records anything, at any resolution, with hardware encoding and no time limit. You do the polish afterwards.",
+				"fr": "Enregistre n’importe quoi, à n’importe quelle résolution, avec encodage matériel et sans limite de durée. Le soin vient après."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Screenity",
+			"source": {
+				"host": "github",
+				"path": "alyssaxuu/screenity",
+				"url": "https://github.com/alyssaxuu/screenity"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "A browser extension that records, annotates live and exports locally — nothing leaves the machine. Tab and desktop capture only.",
+				"fr": "Une extension de navigateur qui enregistre, annote en direct et exporte localement — rien ne quitte la machine. Capture d’onglet et de bureau uniquement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kdenlive",
+			"source": {
+				"host": "gitlab",
+				"path": "multimedia/kdenlive",
+				"url": "https://invent.kde.org/multimedia/kdenlive"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Keyframed zooms give you the Screen Studio look manually. It is fiddly and it takes ten times longer.",
+				"fr": "Des zooms par images-clés donnent le rendu Screen Studio à la main. C’est fastidieux et dix fois plus long."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Screen Studio perpetual",
+			"url": "https://screen.studio/#pricing",
+			"priceMonthly": 0,
+			"note": {
+				"en": "There is a one-time licence with a year of updates, which removes the subscription objection entirely. macOS only.",
+				"fr": "Il existe une licence unique avec un an de mises à jour, ce qui supprime totalement l’objection de l’abonnement. macOS uniquement."
+			}
+		}
+	],
+	"priority": 2
+}

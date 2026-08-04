@@ -1,0 +1,72 @@
+{
+	"slug": "editorial-manager",
+	"name": "Editorial Manager",
+	"domain": "editorialmanager.com",
+	"category": "research-science",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "Peer-review workflow is submission forms, reviewer invitations and state transitions. Open Journal Systems runs over 30,000 journals on exactly that, is GPL, and PKP will host it for a fraction of what Aries charges.",
+		"fr": "Le flux d’évaluation par les pairs, ce sont des formulaires de soumission, des invitations de relecteurs et des transitions d’état. Open Journal Systems fait tourner plus de 30 000 revues là-dessus, est en GPL, et PKP l’héberge pour une fraction du tarif d’Aries."
+	},
+	"whatYouLose": [
+		{
+			"en": "Publisher-side integrations",
+			"fr": "Intégrations côté éditeur"
+		},
+		{
+			"en": "Reviewer database at scale",
+			"fr": "Base de relecteurs à grande échelle"
+		},
+		{
+			"en": "Production and typesetting handoff",
+			"fr": "Passage à la production et à la composition"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Open Journal Systems",
+			"source": {
+				"host": "github",
+				"path": "pkp/ojs",
+				"url": "https://github.com/pkp/ojs"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The default open source journal platform. Submissions, review rounds, issues, DOI deposit, OAI-PMH. PKP sells hosting if you would rather not run PHP.",
+				"fr": "La plateforme de revue open source par défaut. Soumissions, tours de relecture, numéros, dépôt de DOI, OAI-PMH. PKP vend l’hébergement si vous préférez ne pas gérer de PHP."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Janeway",
+			"source": {
+				"host": "github",
+				"path": "openlibhums/janeway",
+				"url": "https://github.com/openlibhums/janeway"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Built at Birkbeck and now maintained by Open Library of Humanities. Cleaner editor experience than OJS; smaller plugin ecosystem.",
+				"fr": "Développé à Birkbeck et maintenu aujourd’hui par l’Open Library of Humanities. Expérience éditoriale plus soignée qu’OJS ; écosystème d’extensions plus restreint."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

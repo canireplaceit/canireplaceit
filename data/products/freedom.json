@@ -1,0 +1,120 @@
+{
+	"slug": "freedom",
+	"name": "Freedom",
+	"domain": "freedom.to",
+	"category": "productivity",
+	"priceMonthly": 8.99,
+	"pricing": {
+		"plan": "Monthly ($3.33/mo billed yearly; $99.50 forever)",
+		"basis": "flat",
+		"url": "https://freedom.to/upgrade",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Freedom's real product is that it blocks on your phone as well as your laptop, and locked mode means you cannot talk yourself out of it. SelfControl gives you the unbreakable part on macOS for free; the phone remains a hole that no open source tool plugs.",
+		"fr": "Le vrai produit de Freedom, c’est qu’il bloque sur votre téléphone autant que sur votre portable, et le mode verrouillé fait qu’on ne peut pas se convaincre d’arrêter. SelfControl vous donne gratuitement la partie inviolable sur macOS ; le téléphone reste une faille qu’aucun outil open source ne bouche."
+	},
+	"whatYouLose": [
+		{
+			"en": "Blocking across phone and laptop",
+			"fr": "Blocage sur téléphone et ordinateur"
+		},
+		{
+			"en": "Sessions synced across devices",
+			"fr": "Sessions synchronisées entre appareils"
+		},
+		{
+			"en": "Scheduled recurring sessions",
+			"fr": "Sessions récurrentes programmées"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "SelfControl",
+			"source": {
+				"host": "github",
+				"path": "SelfControlApp/selfcontrol",
+				"url": "https://github.com/SelfControlApp/selfcontrol"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Blocks sites for a set time and, crucially, cannot be undone by deleting the app or rebooting. The whole point of paying for Freedom, for free.",
+				"fr": "Bloque des sites pendant une durée donnée et, c’est l’essentiel, ne peut être annulé en supprimant l’application ou en redémarrant. Tout l’intérêt de payer Freedom, gratuitement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LeechBlock NG",
+			"source": {
+				"host": "github",
+				"path": "proginosko/LeechBlockNG",
+				"url": "https://github.com/proginosko/LeechBlockNG"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Per-site time budgets and schedules in the browser, with a lockdown mode. Browser-only, so the phone remains a hole in the plan.",
+				"fr": "Budgets de temps et horaires par site dans le navigateur, avec un mode verrouillage. Uniquement dans le navigateur : le téléphone reste donc une faille."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pi-hole",
+			"source": {
+				"host": "github",
+				"path": "pi-hole/pi-hole",
+				"url": "https://github.com/pi-hole/pi-hole"
+			},
+			"license": "EUPL-1.2",
+			"effort": "docker",
+			"note": {
+				"en": "The default answer. Network-wide DNS blocking, per-client groups, and a query log that shows exactly how often your TV phones home.",
+				"fr": "La réponse par défaut. Blocage DNS pour tout le réseau, groupes par client, et un journal de requêtes qui montre exactement à quel point votre téléviseur appelle la maison."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "uBlock Origin",
+			"source": {
+				"host": "github",
+				"path": "gorhill/uBlock",
+				"url": "https://github.com/gorhill/uBlock"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Still the best content blocker ever written and it costs nothing. Chrome's Manifest V3 has crippled it there — that is an argument for changing browser, not for paying.",
+				"fr": "Toujours le meilleur bloqueur jamais écrit, et il ne coûte rien. Le Manifest V3 de Chrome l’a mutilé là-bas : c’est un argument pour changer de navigateur, pas pour payer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

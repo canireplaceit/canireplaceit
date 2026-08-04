@@ -1,0 +1,107 @@
+{
+	"slug": "hashicorp-vault",
+	"name": "HashiCorp Vault",
+	"domain": "hashicorp.com",
+	"category": "secrets-privileged-access",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "HashiCorp relicensed Vault to BSL, IBM bought them, and the Linux Foundation forked it as OpenBao. The fork is API-compatible, actively developed and already ahead on some features. This is the clearest migration on the whole list. Enterprise pricing is quote-only and scales with clusters and clients.",
+		"fr": "HashiCorp a fait passer Vault en BSL, IBM les a rachetés, et la Linux Foundation a forké sous le nom d’OpenBao. Le fork est compatible API, activement développé et déjà en avance sur certaines fonctions. C’est la migration la plus évidente de toute cette liste. La tarification entreprise est uniquement sur devis et croît avec le nombre de clusters et de clients."
+	},
+	"whatYouLose": [
+		{
+			"en": "Enterprise support",
+			"fr": "Support entreprise"
+		},
+		{
+			"en": "HSM and replication features",
+			"fr": "HSM et fonctions de réplication"
+		},
+		{
+			"en": "Compliance attestations",
+			"fr": "Attestations de conformité"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "OpenBao",
+			"source": {
+				"host": "github",
+				"path": "openbao/openbao",
+				"url": "https://github.com/openbao/openbao"
+			},
+			"license": "MPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The Linux Foundation fork of Vault 1.14, still MPL. Your existing policies, auth methods and API calls carry over.",
+				"fr": "Le fork Linux Foundation de Vault 1.14, toujours en MPL. Vos politiques, méthodes d’authentification et appels API existants sont conservés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Infisical",
+			"source": {
+				"host": "github",
+				"path": "Infisical/infisical",
+				"url": "https://github.com/Infisical/infisical"
+			},
+			"license": "MIT/Ent",
+			"effort": "docker",
+			"note": {
+				"en": "Far friendlier than Vault for the 90% case of app secrets and rotation. Not a general-purpose PKI or transit engine.",
+				"fr": "Bien plus accessible que Vault pour les 90 % de cas de secrets applicatifs et de rotation. Ce n’est pas une PKI générale ni un moteur transit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SAML/OIDC SSO, RBAC, audit logs, dynamic secrets",
+					"fr": "SSO SAML/OIDC, RBAC, journaux d’audit, secrets dynamiques"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SOPS",
+			"source": {
+				"host": "github",
+				"path": "getsops/sops",
+				"url": "https://github.com/getsops/sops"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "No server at all — encrypted secrets committed to git, decrypted with KMS or age. Ask whether you needed Vault in the first place.",
+				"fr": "Aucun serveur — des secrets chiffrés commités dans git, déchiffrés via KMS ou age. Demandez-vous si vous aviez vraiment besoin de Vault."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "AWS Secrets Manager",
+			"url": "https://aws.amazon.com/secrets-manager/",
+			"priceMonthly": 5,
+			"note": {
+				"en": "About $0.40 per secret per month with IAM and rotation built in. No transit encryption engine, no dynamic credentials for arbitrary backends, and it only works inside AWS.",
+				"fr": "Environ 0,40 $ par secret et par mois, avec IAM et rotation intégrés. Pas de moteur de chiffrement transit, pas d’identifiants dynamiques pour des backends arbitraires, et uniquement au sein d’AWS."
+			}
+		}
+	],
+	"priority": 4
+}

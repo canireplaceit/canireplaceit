@@ -1,0 +1,107 @@
+{
+	"slug": "bluebeam-revu",
+	"name": "Bluebeam Revu",
+	"domain": "bluebeam.com",
+	"category": "construction-tech",
+	"priceMonthly": 27.5,
+	"pricing": {
+		"plan": "Core, USD 330/user/year, billed annually",
+		"basis": "per-seat",
+		"url": "https://www.bluebeam.com/solutions/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Revu is a PDF editor that learned construction: takeoff measurement to scale, custom tool sets, and Studio Sessions where six people mark up the same sheet live. The markup and measurement you can approximate; the live multi-party session on a 300MB drawing set you cannot.",
+		"fr": "Revu est un éditeur PDF devenu outil de chantier : métré à l’échelle, palettes d’outils personnalisées, et des sessions Studio où six personnes annotent la même planche en direct. L’annotation et le métré s’approchent ; la session multi-intervenants en direct sur 300 Mo de plans, non."
+	},
+	"whatYouLose": [
+		{
+			"en": "Live multi-party markup sessions",
+			"fr": "Sessions d’annotation en direct à plusieurs"
+		},
+		{
+			"en": "Quantity takeoff to scale",
+			"fr": "Métré à l’échelle"
+		},
+		{
+			"en": "Custom construction tool sets",
+			"fr": "Palettes d’outils métier"
+		},
+		{
+			"en": "Handles huge drawing sets fast",
+			"fr": "Rapidité sur d’énormes jeux de plans"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Stirling PDF",
+			"source": {
+				"host": "github",
+				"path": "Stirling-Tools/Stirling-PDF",
+				"url": "https://github.com/Stirling-Tools/Stirling-PDF"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The self-hosted PDF workshop: annotate, compare revisions, overlay, split, redact, sign. Team features and SSO are the proprietary part.",
+				"fr": "L’atelier PDF auto-hébergé : annoter, comparer les révisions, superposer, découper, caviarder, signer. Les fonctions d’équipe et le SSO sont la partie propriétaire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO, audit logs and team management sit in app/proprietary",
+					"fr": "SSO, journaux d’audit et gestion d’équipe sont dans app/proprietary"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Xournal++",
+			"source": {
+				"host": "github",
+				"path": "xournalpp/xournalpp",
+				"url": "https://github.com/xournalpp/xournalpp"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Pen-first PDF annotation that is genuinely pleasant on a tablet. No measurement, no collaboration.",
+				"fr": "Annotation de PDF au stylet, réellement agréable sur tablette. Pas de métré, pas de collaboration."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "QGIS",
+			"source": {
+				"host": "github",
+				"path": "qgis/QGIS",
+				"url": "https://github.com/qgis/QGIS"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "An odd suggestion until you need real measurement and area takeoff from georeferenced site plans — then it is better than Revu.",
+				"fr": "Suggestion surprenante, jusqu’au moment où il faut un vrai métré de surfaces sur des plans géoréférencés — là il est meilleur que Revu."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

@@ -1,0 +1,111 @@
+{
+	"slug": "coupa",
+	"name": "Coupa",
+	"domain": "coupa.com",
+	"category": "procurement-suppliers",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "Coupa is quoted in the hundreds of thousands and its value is the supplier network — the fact that your suppliers are already on it and already send compliant invoices. Open source gives you requisitions, approvals and purchase orders perfectly well; it cannot give you a network you are not part of.",
+		"fr": "Coupa se chiffre en centaines de milliers et sa valeur tient au réseau fournisseurs — au fait que vos fournisseurs y sont déjà et envoient déjà des factures conformes. L’open source vous donne très bien les demandes d’achat, les validations et les commandes ; il ne peut pas vous donner un réseau dont vous ne faites pas partie."
+	},
+	"whatYouLose": [
+		{
+			"en": "The supplier network itself",
+			"fr": "Le réseau fournisseurs lui-même"
+		},
+		{
+			"en": "Spend analytics across categories",
+			"fr": "Analyse des dépenses par catégorie"
+		},
+		{
+			"en": "Invoice-to-PO matching at scale",
+			"fr": "Rapprochement facture-commande à grande échelle"
+		},
+		{
+			"en": "Contract compliance controls",
+			"fr": "Contrôles de conformité contractuelle"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Odoo Community",
+			"source": {
+				"host": "github",
+				"path": "odoo/odoo",
+				"url": "https://github.com/odoo/odoo"
+			},
+			"license": "LGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Purchase requisitions, multi-level approvals, RFQs to several vendors, vendor price lists. The Purchase app is fully in Community.",
+				"fr": "Demandes d’achat, validations à plusieurs niveaux, appels d’offres à plusieurs fournisseurs, tarifs fournisseurs. L’app Achats est entièrement en Community."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Full accounting, Studio, Barcode, Shop Floor, Field Service and Planning are Enterprise-only",
+					"fr": "La comptabilité complète, Studio, Code-barres, Atelier, Services sur site et Planification sont réservés à l’Enterprise"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ERPNext",
+			"source": {
+				"host": "github",
+				"path": "frappe/erpnext",
+				"url": "https://github.com/frappe/erpnext"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Material request to RFQ to supplier quotation to PO, with three-way matching against receipts and invoices. No paid edition above it.",
+				"fr": "De la demande de matériel à l’appel d’offres, au devis fournisseur, à la commande, avec rapprochement à trois voies réception/facture. Aucune édition payante au-dessus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dolibarr",
+			"source": {
+				"host": "github",
+				"path": "Dolibarr/dolibarr",
+				"url": "https://github.com/Dolibarr/dolibarr"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Lighter and quicker to stand up for a company that just needs approvals and a PO trail.",
+				"fr": "Plus léger et plus rapide à mettre en place pour une société qui veut simplement des validations et une trace des commandes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Precoro",
+			"url": "https://precoro.com/pricing",
+			"priceMonthly": 499,
+			"note": {
+				"en": "Published pricing, real approval workflows and PunchOut. No supplier network and no spend-analytics depth.",
+				"fr": "Tarifs affichés, vrais circuits de validation et PunchOut. Pas de réseau fournisseurs ni de profondeur analytique."
+			}
+		}
+	],
+	"priority": 2
+}

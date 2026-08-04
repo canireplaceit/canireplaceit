@@ -1,0 +1,115 @@
+{
+	"slug": "procore",
+	"name": "Procore",
+	"domain": "procore.com",
+	"category": "construction-tech",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "Procore is quoted as a percentage of construction volume, which is a remarkable way to charge for software. It is also the industry's shared filing cabinet: your architect, your subs and your insurer all expect the RFI and submittal log to be in it. That network position is the product, not the features.",
+		"fr": "Procore se facture en pourcentage du volume de travaux, une façon remarquable de vendre du logiciel. C’est aussi le classeur commun du secteur : votre architecte, vos sous-traitants et votre assureur s’attendent tous à y trouver le registre des demandes d’information et des soumissions. Cette position de réseau est le produit, pas les fonctions."
+	},
+	"whatYouLose": [
+		{
+			"en": "Everyone on the project already uses it",
+			"fr": "Tous les intervenants du chantier l’utilisent déjà"
+		},
+		{
+			"en": "RFI and submittal logs an insurer accepts",
+			"fr": "Registres RFI et soumissions acceptés par l’assureur"
+		},
+		{
+			"en": "Unlimited collaborator seats",
+			"fr": "Comptes collaborateurs illimités"
+		},
+		{
+			"en": "Drawing version control on site",
+			"fr": "Contrôle des versions de plans sur chantier"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "OpenProject",
+			"source": {
+				"host": "github",
+				"path": "opf/openproject",
+				"url": "https://github.com/opf/openproject"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Work packages, Gantt, cost reporting and document rooms — a credible project backbone. SSO, team planner and custom theming are Enterprise add-ons.",
+				"fr": "Lots de travaux, Gantt, suivi des coûts et espaces documentaires — une véritable colonne vertébrale de projet. SSO, planificateur d’équipe et thème personnalisé sont des modules Enterprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SAML/OIDC SSO, team planner, custom theming and portfolio views are Enterprise",
+					"fr": "SSO SAML/OIDC, planificateur d’équipe, thème personnalisé et vues portefeuille sont Enterprise"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "IfcOpenShell / Bonsai",
+			"source": {
+				"host": "github",
+				"path": "IfcOpenShell/IfcOpenShell",
+				"url": "https://github.com/IfcOpenShell/IfcOpenShell"
+			},
+			"license": "LGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The open BIM stack: read, write and check IFC models, with a Blender front-end. Genuinely the reference implementation.",
+				"fr": "La pile BIM ouverte : lire, écrire et vérifier des modèles IFC, avec une interface Blender. Réellement l’implémentation de référence."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Speckle",
+			"source": {
+				"host": "github",
+				"path": "specklesystems/speckle-server",
+				"url": "https://github.com/specklesystems/speckle-server"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Version control and coordination for geometry across Revit, Rhino and IFC. Workspaces, SSO and billing modules carry an Enterprise licence.",
+				"fr": "Gestion de versions et coordination géométrique entre Revit, Rhino et IFC. Les modules workspaces, SSO et facturation sont sous licence Enterprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Workspaces, SSO and billing modules carry an Enterprise licence",
+					"fr": "Les modules workspaces, SSO et facturation sont sous licence Enterprise"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Buildertrend",
+			"url": "https://buildertrend.com/pricing/",
+			"priceMonthly": 199,
+			"note": {
+				"en": "Published pricing and far cheaper for residential builders. Nowhere near Procore for commercial project controls.",
+				"fr": "Tarifs affichés et bien moins cher pour la construction résidentielle. Loin de Procore pour le pilotage de projets commerciaux."
+			}
+		}
+	],
+	"priority": 3
+}

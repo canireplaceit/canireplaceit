@@ -1,0 +1,92 @@
+{
+	"slug": "screencloud",
+	"name": "ScreenCloud",
+	"domain": "screencloud.com",
+	"category": "digital-signage",
+	"priceMonthly": 20,
+	"pricing": {
+		"plan": "Core, per screen",
+		"basis": "per-seat",
+		"url": "https://www.screencloud.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Signage priced per screen per month adds up fast: twenty displays in a warehouse is a real annual bill for showing a rota and a dashboard. Xibo has done layouts, scheduling, playlists and proof-of-play for over a decade. Budget for the players, though — the free path assumes a Raspberry Pi or a Windows box behind each screen, and Xibo's Android and smart-TV players are separately licensed.",
+		"fr": "L’affichage dynamique facturé à l’écran et au mois grimpe vite : vingt écrans dans un entrepôt, c’est une vraie facture annuelle pour afficher un planning et un tableau de bord. Xibo gère les mises en page, la programmation, les playlists et les preuves de diffusion depuis plus de dix ans. Prévoyez le budget lecteurs : la voie gratuite suppose un Raspberry Pi ou un PC Windows derrière chaque écran, et les lecteurs Android et TV connectées de Xibo sont sous licence séparée."
+	},
+	"whatYouLose": [
+		{
+			"en": "Zero-touch player provisioning",
+			"fr": "Déploiement des lecteurs sans intervention"
+		},
+		{
+			"en": "The app and dashboard marketplace",
+			"fr": "La place de marché d’applications et tableaux de bord"
+		},
+		{
+			"en": "Someone else's uptime problem",
+			"fr": "Disponibilité qui n’est pas votre problème"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Xibo",
+			"source": {
+				"host": "github",
+				"path": "xibosignage/xibo-cms",
+				"url": "https://github.com/xibosignage/xibo-cms"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The serious open signage CMS: regions, layouts, dayparting, proof-of-play reporting, campaign scheduling. The CMS is fully open; the players are where the money is.",
+				"fr": "Le CMS d’affichage ouvert sérieux : régions, mises en page, découpage horaire, rapports de diffusion, programmation de campagnes. Le CMS est entièrement ouvert ; c’est sur les lecteurs qu’on paie."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "The CMS is fully functional under AGPL-3.0, but the Android, webOS and Tizen players require a paid per-device licence from Xibo Signage; only the Windows player is free.",
+					"fr": "Le CMS est pleinement fonctionnel sous AGPL-3.0, mais les lecteurs Android, webOS et Tizen exigent une licence payante par appareil auprès de Xibo Signage ; seul le lecteur Windows est gratuit."
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Anthias",
+			"source": {
+				"host": "github",
+				"path": "Screenly/Anthias",
+				"url": "https://github.com/Screenly/Anthias"
+			},
+			"license": "GPL-2.0 (dual-licensed, commercial option available)",
+			"effort": "docker",
+			"note": {
+				"en": "Formerly Screenly OSE. Flash a Raspberry Pi, point it at a URL or a video, done. Single-screen thinking — no real fleet management.",
+				"fr": "Anciennement Screenly OSE. Flashez un Raspberry Pi, pointez-le vers une URL ou une vidéo, c’est fini. Pensé pour un écran — pas de vraie gestion de parc."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Yodeck",
+			"url": "https://www.yodeck.com",
+			"priceMonthly": 8,
+			"note": {
+				"en": "Managed signage at a third of the price, and free for a single screen forever. Still per-screen, still someone else's cloud.",
+				"fr": "Affichage géré à un tiers du prix, et gratuit à vie pour un seul écran. Toujours à l’écran, toujours le cloud d’un tiers."
+			}
+		}
+	],
+	"priority": 3
+}

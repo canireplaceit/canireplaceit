@@ -1,0 +1,88 @@
+{
+	"slug": "topaz-photo-ai",
+	"name": "Topaz Photo AI",
+	"domain": "topazlabs.com",
+	"category": "creative-studio",
+	"priceMonthly": 39,
+	"pricing": {
+		"plan": "Topaz Photo Personal, billed monthly ($199/yr annual); now subscription-only, no perpetual licence sold",
+		"basis": "per-seat",
+		"url": "https://www.topazlabs.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Upscaling and denoising are model problems, and the open models — Real-ESRGAN and its descendants — are the same class of thing Topaz ships. You run them locally, for nothing, without a yearly upgrade fee to keep getting new models.",
+		"fr": "L’agrandissement et le débruitage sont des problèmes de modèles, et les modèles open source — Real-ESRGAN et sa descendance — sont de la même famille que ceux que vend Topaz. Vous les exécutez localement, gratuitement, sans redevance annuelle pour continuer à recevoir de nouveaux modèles."
+	},
+	"whatYouLose": [
+		{
+			"en": "One-click autopilot tuning",
+			"fr": "Réglage automatique en un clic"
+		},
+		{
+			"en": "Face recovery quality",
+			"fr": "Qualité de restauration des visages"
+		},
+		{
+			"en": "Lightroom and Photoshop plugins",
+			"fr": "Plugins Lightroom et Photoshop"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Upscayl",
+			"source": {
+				"host": "github",
+				"path": "upscayl/upscayl",
+				"url": "https://github.com/upscayl/upscayl"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "A desktop wrapper around the open upscaling models — drop an image in, pick a model, done. Fully offline, no account.",
+				"fr": "Une application de bureau autour des modèles d’agrandissement open source — déposez une image, choisissez un modèle, terminé. Entièrement hors ligne, sans compte."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "chaiNNer",
+			"source": {
+				"host": "github",
+				"path": "chaiNNer-org/chaiNNer",
+				"url": "https://github.com/chaiNNer-org/chaiNNer"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "A node editor for image models: batch upscale, denoise and chain steps. More power, more setup.",
+				"fr": "Un éditeur de nœuds pour modèles d’image : agrandissement par lot, débruitage et enchaînement d’étapes. Plus de puissance, plus de configuration."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Luminar Neo",
+			"url": "https://skylum.com/luminar",
+			"priceMonthly": 8,
+			"note": {
+				"en": "Cheaper, and the AI masking is good. Subscription-flavoured pricing with a perpetual option that keeps changing.",
+				"fr": "Moins cher, avec un bon masquage par IA. Tarification à saveur d’abonnement avec une option perpétuelle qui change sans cesse."
+			}
+		}
+	],
+	"priority": 2
+}

@@ -1,0 +1,113 @@
+{
+	"slug": "sendgrid",
+	"name": "Twilio SendGrid",
+	"domain": "sendgrid.com",
+	"category": "email-deliverability",
+	"priceMonthly": 20,
+	"pricing": {
+		"plan": "Essentials 50k, from USD 19.95/mo",
+		"basis": "flat",
+		"url": "https://www.twilio.com/en-us/products/email-api/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Postal is a complete sending platform and it is free. Then you point it at a fresh VPS IP, Microsoft silently bins your mail for six weeks, and you learn that you were never paying for SMTP — you were paying for warmed IPs, feedback loops with Gmail and a team that gets you delisted.",
+		"fr": "Postal est une plateforme d’envoi complète et gratuite. Puis vous la branchez sur l’IP d’un VPS neuf, Microsoft jette silencieusement votre courrier pendant six semaines, et vous comprenez que vous ne payiez jamais pour du SMTP — vous payiez pour des IP chauffées, des boucles de retour avec Gmail et une équipe qui vous fait délister."
+	},
+	"whatYouLose": [
+		{
+			"en": "Warmed sending IPs",
+			"fr": "IP d’envoi chauffées"
+		},
+		{
+			"en": "Deliverability team",
+			"fr": "Équipe de délivrabilité"
+		},
+		{
+			"en": "ISP feedback loops",
+			"fr": "Boucles de retour avec les FAI"
+		},
+		{
+			"en": "Blocklist remediation",
+			"fr": "Sortie des listes noires"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Postal",
+			"source": {
+				"host": "github",
+				"path": "postalserver/postal",
+				"url": "https://github.com/postalserver/postal"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "A full mail platform: SMTP API, webhooks, bounce handling, click tracking, per-org message queues. The genuine like-for-like — everything except the reputation.",
+				"fr": "Une plateforme de messagerie complète : API SMTP, webhooks, gestion des rebonds, suivi des clics, files par organisation. Le véritable équivalent — tout sauf la réputation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Haraka",
+			"source": {
+				"host": "github",
+				"path": "haraka/Haraka",
+				"url": "https://github.com/haraka/Haraka"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "A plugin-first SMTP server in Node that will happily push tens of thousands of messages an hour. You write the routing logic; there is no UI at all.",
+				"fr": "Un serveur SMTP orienté greffons en Node qui pousse sans peine des dizaines de milliers de messages à l’heure. Vous écrivez la logique de routage ; il n’y a aucune interface."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "maddy",
+			"source": {
+				"host": "github",
+				"path": "foxcpp/maddy",
+				"url": "https://github.com/foxcpp/maddy"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "One Go binary replacing Postfix, Dovecot and the DKIM signer. Beautifully simple for a small sender, deliberately not a marketing platform.",
+				"fr": "Un seul binaire Go qui remplace Postfix, Dovecot et le signeur DKIM. Magnifiquement simple pour un petit expéditeur, délibérément pas une plateforme marketing."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Amazon SES",
+			"url": "https://aws.amazon.com/ses/pricing/",
+			"priceMonthly": 1,
+			"note": {
+				"en": "$0.10 per thousand emails on IPs that already have reputation. No templates worth the name, no support, and getting out of the sandbox takes a written request.",
+				"fr": "0,10 $ pour mille e-mails, sur des IP qui ont déjà une réputation. Pas de vrais modèles, pas de support, et sortir du bac à sable exige une demande écrite."
+			}
+		}
+	],
+	"priority": 4
+}

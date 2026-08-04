@@ -1,0 +1,126 @@
+{
+	"slug": "pendo",
+	"name": "Pendo",
+	"domain": "pendo.io",
+	"category": "analytics",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "Pendo is product analytics, in-app guides and NPS sold as one contract to a VP of Product. Each third has a strong open source answer; running three tools instead of one is the actual cost, and no open tool matches the retroactive, no-code event tagging.",
+		"fr": "Pendo, c’est de l’analytics produit, des guides in-app et du NPS vendus en un seul contrat à un directeur produit. Chacun des trois a une bonne réponse open source ; exploiter trois outils au lieu d’un est le vrai coût, et aucun outil ouvert n’égale le marquage d’événements rétroactif et sans code."
+	},
+	"whatYouLose": [
+		{
+			"en": "Retroactive no-code event tagging",
+			"fr": "Marquage d’événements rétroactif sans code"
+		},
+		{
+			"en": "Guides and analytics in one contract",
+			"fr": "Guides et analytics dans un seul contrat"
+		},
+		{
+			"en": "Roadmap and feedback modules",
+			"fr": "Modules feuille de route et retours"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "PostHog",
+			"source": {
+				"host": "github",
+				"path": "PostHog/posthog",
+				"url": "https://github.com/PostHog/posthog"
+			},
+			"license": "MIT core with an ee/ directory",
+			"effort": "docker",
+			"note": {
+				"en": "Product analytics, session replay, surveys and flags in one box — the closest single-vendor swap. SSO and project permissions are under ee/, and self-hosting is officially hobby-scale only.",
+				"fr": "Analytics produit, rejeu de session, enquêtes et flags dans une seule boîte — le remplacement mono-fournisseur le plus proche. SSO et permissions par projet sont sous ee/, et l’auto-hébergement n’est officiellement soutenu qu’à petite échelle."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO/SAML, project permissions and advanced roles live under ee/, and self-hosting is only supported at hobby scale",
+					"fr": "SSO/SAML, permissions par projet et rôles avancés vivent sous ee/, et l’auto-hébergement n’est soutenu qu’à petite échelle"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenReplay",
+			"source": {
+				"host": "github",
+				"path": "openreplay/openreplay",
+				"url": "https://github.com/openreplay/openreplay"
+			},
+			"license": "ELv2/MIT mix with an ee/ directory",
+			"effort": "ops",
+			"note": {
+				"en": "Session replay and DOM-level debugging you host yourself, which is the part of Pendo people screenshot in meetings.",
+				"fr": "Rejeu de session et débogage au niveau du DOM, auto-hébergés — la partie de Pendo dont on fait des captures en réunion."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO/SAML, RBAC and the audit trail are under ee/",
+					"fr": "SSO/SAML, RBAC et la piste d’audit sont sous ee/"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Formbricks",
+			"source": {
+				"host": "github",
+				"path": "formbricks/formbricks",
+				"url": "https://github.com/formbricks/formbricks"
+			},
+			"license": "AGPL-3.0 core with a large ee/ directory",
+			"effort": "docker",
+			"note": {
+				"en": "The in-app survey and NPS third. Note how much sits in ee/: SSO, teams, roles, audit logs and contact targeting.",
+				"fr": "Le tiers enquêtes in-app et NPS. Notez tout ce qui est dans ee/ : SSO, équipes, rôles, journaux d’audit et ciblage des contacts."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "SSO, teams and roles, audit logs, contact targeting and white-label are all in apps/web/modules/ee",
+					"fr": "SSO, équipes et rôles, journaux d’audit, ciblage des contacts et marque blanche sont tous dans apps/web/modules/ee"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "driver.js",
+			"source": {
+				"host": "github",
+				"path": "nilbuild/driver.js",
+				"url": "https://github.com/nilbuild/driver.js"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The guides third, in five kilobytes, if your engineers are willing to ship tours in code.",
+				"fr": "Le tiers guides, en cinq kilo-octets, si vos développeurs acceptent de livrer les tours dans le code."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 4
+}

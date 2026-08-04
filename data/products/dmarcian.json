@@ -1,0 +1,103 @@
+{
+	"slug": "dmarcian",
+	"name": "dmarcian",
+	"domain": "dmarcian.com",
+	"category": "email-deliverability",
+	"priceMonthly": 24,
+	"pricing": {
+		"plan": "Basic, monthly ($19.99/mo billed annually)",
+		"basis": "flat",
+		"url": "https://dmarcian.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "DMARC aggregate reports are gzipped XML sent to whatever address you put in the DNS record. parsedmarc turns them into an Elasticsearch or Splunk dashboard for the price of a small VM, and the analysis you actually need — which sender is failing alignment — is one bar chart.",
+		"fr": "Les rapports agrégés DMARC sont du XML gzippé envoyé à l’adresse que vous mettez dans l’enregistrement DNS. parsedmarc les transforme en tableau de bord Elasticsearch ou Splunk pour le prix d’une petite VM, et l’analyse dont vous avez réellement besoin — quel expéditeur échoue l’alignement — tient en un histogramme."
+	},
+	"whatYouLose": [
+		{
+			"en": "Guided path to p=reject",
+			"fr": "Accompagnement vers p=reject"
+		},
+		{
+			"en": "Sender identification database",
+			"fr": "Base d’identification des expéditeurs"
+		},
+		{
+			"en": "Hosted report inbox",
+			"fr": "Boîte de réception hébergée"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "parsedmarc",
+			"source": {
+				"host": "github",
+				"path": "domainaware/parsedmarc",
+				"url": "https://github.com/domainaware/parsedmarc"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Reads aggregate and forensic reports from IMAP or a folder and ships them to Elasticsearch, OpenSearch or Splunk with prebuilt dashboards. This is the whole product.",
+				"fr": "Lit les rapports agrégés et forensiques depuis IMAP ou un dossier et les envoie vers Elasticsearch, OpenSearch ou Splunk avec des tableaux de bord prêts. C’est tout le produit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Rspamd",
+			"source": {
+				"host": "github",
+				"path": "rspamd/rspamd",
+				"url": "https://github.com/rspamd/rspamd"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The enforcement side: applies DMARC policy on inbound and can emit your own aggregate reports. Pairs with parsedmarc rather than competing.",
+				"fr": "Le côté application : impose la politique DMARC en entrant et peut émettre vos propres rapports agrégés. Complémentaire de parsedmarc, pas concurrent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Stalwart",
+			"source": {
+				"host": "github",
+				"path": "stalwartlabs/stalwart",
+				"url": "https://github.com/stalwartlabs/stalwart"
+			},
+			"license": "AGPL-3.0 / LicenseRef-SEL",
+			"effort": "docker",
+			"note": {
+				"en": "Signs, validates and visualises DMARC, TLS-RPT and ARF reports in its own admin UI, so a small domain needs nothing else.",
+				"fr": "Signe, valide et visualise les rapports DMARC, TLS-RPT et ARF dans sa propre interface d’admin : un petit domaine n’a besoin de rien d’autre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Multi-tenancy, delivery history and metric alerts.",
+					"fr": "Multi-location, historique de livraison et alertes sur métriques."
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

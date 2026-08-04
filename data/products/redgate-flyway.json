@@ -1,0 +1,111 @@
+{
+	"slug": "redgate-flyway",
+	"name": "Redgate Flyway",
+	"domain": "red-gate.com",
+	"category": "databases-caches",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "Flyway Community is still Apache-2.0 and still does versioned migrations perfectly well. Undo migrations, dry runs and drift checks were moved into the paid editions and are not coming back.",
+		"fr": "Flyway Community reste en Apache-2.0 et fait toujours parfaitement les migrations versionnées. Les migrations d’annulation, les exécutions à blanc et la détection de dérive sont passées dans les éditions payantes et n’en reviendront pas."
+	},
+	"whatYouLose": [
+		{
+			"en": "Undo migrations",
+			"fr": "Migrations d’annulation"
+		},
+		{
+			"en": "Dry-run scripts",
+			"fr": "Scripts en exécution à blanc"
+		},
+		{
+			"en": "Drift and schema comparison",
+			"fr": "Comparaison de schémas et dérive"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Flyway Community",
+			"source": {
+				"host": "github",
+				"path": "flyway/flyway",
+				"url": "https://github.com/flyway/flyway"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The open edition, from the vendor. Versioned and repeatable migrations across 20+ databases; that is the 90% case.",
+				"fr": "L’édition ouverte, publiée par l’éditeur. Migrations versionnées et répétables sur plus de 20 bases ; c’est le cas d’usage à 90 %."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Undo migrations, dry runs, drift detection, schema comparison and cherry-pick deploys are Teams/Enterprise",
+					"fr": "Migrations d’annulation, exécutions à blanc, détection de dérive, comparaison de schémas et déploiements sélectifs relèvent de Teams/Enterprise"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Atlas",
+			"source": {
+				"host": "github",
+				"path": "ariga/atlas",
+				"url": "https://github.com/ariga/atlas"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Declarative alternative: describe the schema you want and let it plan the diff. Some commands want an Atlas Pro login.",
+				"fr": "Alternative déclarative : décrivez le schéma voulu et laissez-le planifier le diff. Certaines commandes réclament une connexion Atlas Pro."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Schema registry, drift detection and Pro-gated CLI commands",
+					"fr": "Registre de schémas, détection de dérive et commandes CLI réservées à Pro"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dbmate",
+			"source": {
+				"host": "github",
+				"path": "amacneil/dbmate",
+				"url": "https://github.com/amacneil/dbmate"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "If you only ever used Flyway to run numbered SQL files, this is that, in one binary, fully open.",
+				"fr": "Si vous n’utilisiez Flyway que pour exécuter des fichiers SQL numérotés, voici exactement ça, en un binaire, entièrement ouvert."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Liquibase OSS",
+			"url": "https://www.liquibase.com/pricing",
+			"priceMonthly": 0,
+			"note": {
+				"en": "The obvious rival, but note it relicensed to the Functional Source License — source-available, not open source, until each release ages into Apache-2.0.",
+				"fr": "Le rival évident, mais attention : il est passé sous Functional Source License — source-available, pas open source, jusqu’à ce que chaque version bascule en Apache-2.0."
+			}
+		}
+	],
+	"priority": 2
+}

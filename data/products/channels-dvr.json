@@ -1,0 +1,120 @@
+{
+	"slug": "channels-dvr",
+	"name": "Channels DVR",
+	"domain": "getchannels.com",
+	"category": "media-servers-tv",
+	"priceMonthly": 8,
+	"pricing": {
+		"plan": "Channels DVR subscription (USD 8/mo or USD 80/yr)",
+		"basis": "flat",
+		"url": "https://getchannels.com/get/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Tvheadend has recorded broadcast television reliably for over a decade and costs nothing; Jellyfin will happily play back what it records. The awkward truth is that Channels' value is the guide data and the apps — an EPG that is correct for your region is a licensing problem, not a software problem, and the free XMLTV grabbers vary from excellent to broken depending on where you live.",
+		"fr": "Tvheadend enregistre la télévision hertzienne de façon fiable depuis plus de dix ans et ne coûte rien ; Jellyfin lira sans problème ce qu’il enregistre. La vérité gênante, c’est que la valeur de Channels tient au guide et aux applications — un EPG correct pour votre région est un problème de licence, pas de logiciel, et les grabbers XMLTV gratuits vont de l’excellent au cassé selon le pays."
+	},
+	"whatYouLose": [
+		{
+			"en": "Reliable licensed guide data",
+			"fr": "Données de guide fiables sous licence"
+		},
+		{
+			"en": "Apps on every TV platform",
+			"fr": "Applications sur toutes les plateformes TV"
+		},
+		{
+			"en": "Automatic commercial detection",
+			"fr": "Détection automatique des publicités"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Tvheadend",
+			"source": {
+				"host": "github",
+				"path": "tvheadend/tvheadend",
+				"url": "https://github.com/tvheadend/tvheadend"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Tuner server and DVR for DVB, ATSC and IPTV, with timeshift and recording rules. The UI is from another era but it does not fall over.",
+				"fr": "Serveur de tuners et DVR pour DVB, ATSC et IPTV, avec timeshift et règles d’enregistrement. L’interface date d’une autre époque mais elle ne lâche pas."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Jellyfin",
+			"source": {
+				"host": "github",
+				"path": "jellyfin/jellyfin",
+				"url": "https://github.com/jellyfin/jellyfin"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Has its own live TV and DVR built in, and clients on most platforms. Point it at an HDHomeRun or at Tvheadend and you have the whole stack.",
+				"fr": "Intègre sa propre TV en direct et son DVR, avec des clients sur la plupart des plateformes. Pointez-le vers un HDHomeRun ou vers Tvheadend et la pile est complète."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ErsatzTV",
+			"source": {
+				"host": "github",
+				"path": "ErsatzTV/legacy",
+				"url": "https://github.com/ErsatzTV/legacy"
+			},
+			"license": "Zlib",
+			"effort": "docker",
+			"note": {
+				"en": "Builds live TV channels out of your own library, complete with a guide. Note the repo naming: the shipping version now lives in ErsatzTV/legacy while ErsatzTV/next is a rewrite in progress.",
+				"fr": "Fabrique des chaînes de télévision à partir de votre propre médiathèque, guide compris. Attention au nommage : la version diffusée est désormais dans ErsatzTV/legacy tandis qu’ErsatzTV/next est une réécriture en cours."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MythTV",
+			"source": {
+				"host": "github",
+				"path": "MythTV/mythtv",
+				"url": "https://github.com/MythTV/mythtv"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The original open source DVR, still maintained, still the most capable at multi-tuner scheduling. Setup is a project, not an evening.",
+				"fr": "Le DVR open source d’origine, toujours maintenu, toujours le plus solide sur la planification multi-tuners. L’installation est un projet, pas une soirée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

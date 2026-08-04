@@ -1,0 +1,82 @@
+{
+	"slug": "calendly",
+	"name": "Calendly",
+	"domain": "calendly.com",
+	"category": "scheduling",
+	"priceMonthly": 10,
+	"pricing": {
+		"plan": "Standard, billed annually",
+		"basis": "per-seat",
+		"url": "https://calendly.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Cal.com is a feature-for-feature open source replacement and says so on the homepage.",
+		"fr": "Cal.com est un remplaçant open source fonctionnalité pour fonctionnalité, et il l’annonce sur sa page d’accueil."
+	},
+	"whatYouLose": [
+		{
+			"en": "Zero setup",
+			"fr": "Zéro installation"
+		},
+		{
+			"en": "Calendar integrations that just work",
+			"fr": "Intégrations agenda qui marchent"
+		},
+		{
+			"en": "Someone else's uptime",
+			"fr": "Disponibilité assurée par un autre"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Cal.com",
+			"source": {
+				"host": "github",
+				"path": "calcom/cal.com",
+				"url": "https://github.com/calcom/cal.com"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Direct replacement, hosted tier too.",
+				"fr": "Remplaçant direct, avec une offre hébergée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SAML SSO, teams, insights, admin API",
+					"fr": "SSO SAML, équipes, statistiques, API admin"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Easy!Appointments",
+			"source": {
+				"host": "github",
+				"path": "alextselegidis/easyappointments",
+				"url": "https://github.com/alextselegidis/easyappointments"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "PHP, tiny, for service businesses.",
+				"fr": "PHP, minuscule, pour les métiers de service."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

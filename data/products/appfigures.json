@@ -1,0 +1,103 @@
+{
+	"slug": "appfigures",
+	"name": "Appfigures",
+	"domain": "appfigures.com",
+	"category": "mobile-development",
+	"priceMonthly": 44.99,
+	"pricing": {
+		"plan": "Monitor, monthly billing (USD 35.99/mo if billed annually)",
+		"basis": "flat",
+		"url": "https://appfigures.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "not-yet",
+	"why": {
+		"en": "App store optimisation is the one corner of developer tooling with essentially no open source. Keyword rank tracking needs continuous scraping of two stores across dozens of countries, and nobody maintains that for free.",
+		"fr": "L’optimisation pour les stores est le seul recoin de l’outillage développeur sans véritable open source. Le suivi des positions par mot-clé exige un scraping continu de deux stores dans des dizaines de pays, et personne ne maintient cela gratuitement."
+	},
+	"whatYouLose": [
+		{
+			"en": "Keyword rank tracking",
+			"fr": "Suivi des positions par mot-clé"
+		},
+		{
+			"en": "Competitor download estimates",
+			"fr": "Estimations de téléchargements concurrents"
+		},
+		{
+			"en": "Historical store data",
+			"fr": "Données historiques des stores"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "google-play-scraper",
+			"source": {
+				"host": "github",
+				"path": "facundoolano/google-play-scraper",
+				"url": "https://github.com/facundoolano/google-play-scraper"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Actively maintained scraper for listings, reviews, rankings and similar apps. Build the tracking yourself and store the history; the Apple-side sister project is much less active.",
+				"fr": "Scraper activement maintenu pour les fiches, avis, classements et applications similaires. À vous de bâtir le suivi et de stocker l’historique ; le projet frère côté Apple est bien moins actif."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Matomo",
+			"source": {
+				"host": "github",
+				"path": "matomo-org/matomo",
+				"url": "https://github.com/matomo-org/matomo"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Covers the install-attribution and campaign side once the user is in your funnel. Says nothing about store rankings.",
+				"fr": "Couvre l’attribution des installations et les campagnes une fois l’utilisateur dans votre entonnoir. Ne dit rien des classements dans les stores."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PostHog",
+			"source": {
+				"host": "github",
+				"path": "PostHog/posthog",
+				"url": "https://github.com/PostHog/posthog"
+			},
+			"license": "MIT outside the ee/ directory",
+			"effort": "ops",
+			"note": {
+				"en": "Product analytics and funnels for the in-app half. The ee/ directory is proprietary and holds the enterprise features.",
+				"fr": "Analytique produit et entonnoirs pour la partie intra-application. Le répertoire ee/ est propriétaire et contient les fonctions entreprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "SSO/SAML, role-based access, audit logs and advanced permissions are in ee/",
+					"fr": "SSO/SAML, accès par rôles, journaux d’audit et permissions avancées sont dans ee/"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

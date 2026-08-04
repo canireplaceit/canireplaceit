@@ -1,0 +1,92 @@
+{
+	"slug": "whimsical",
+	"name": "Whimsical",
+	"domain": "whimsical.com",
+	"category": "diagramming-whiteboards",
+	"priceMonthly": 10,
+	"pricing": {
+		"plan": "Pro, per editor",
+		"basis": "per-seat",
+		"url": "https://whimsical.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Whimsical's speed at wireframes and flowcharts comes from opinionated defaults, and Excalidraw has the same instinct with a different aesthetic. What it does not have is Whimsical's wireframe component kit or docs-plus-diagram in one document.",
+		"fr": "La vitesse de Whimsical sur les wireframes et les organigrammes vient de choix par défaut assumés, et Excalidraw a le même instinct avec une autre esthétique. Ce qui lui manque : le kit de composants de wireframe et le document mêlant texte et schéma."
+	},
+	"whatYouLose": [
+		{
+			"en": "Wireframe component kit",
+			"fr": "Kit de composants de wireframe"
+		},
+		{
+			"en": "Docs and diagrams in one file",
+			"fr": "Documents et schémas dans un même fichier"
+		},
+		{
+			"en": "Mind-map auto-layout",
+			"fr": "Mise en page automatique des cartes mentales"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Excalidraw",
+			"source": {
+				"host": "github",
+				"path": "excalidraw/excalidraw",
+				"url": "https://github.com/excalidraw/excalidraw"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The same fast, sketchy feel with a libraries ecosystem, and you can host it yourself in one container.",
+				"fr": "La même sensation rapide et griffonnée avec un écosystème de bibliothèques, et vous pouvez l’héberger vous-même en un conteneur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Persistent cloud workspaces, team libraries and SSO in Excalidraw+",
+					"fr": "Les espaces cloud persistants, les bibliothèques d’équipe et le SSO dans Excalidraw+"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "draw.io",
+			"source": {
+				"host": "github",
+				"path": "jgraph/drawio",
+				"url": "https://github.com/jgraph/drawio"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Covers the flowchart and wireframe stencils properly, if less prettily. Fully offline.",
+				"fr": "Couvre correctement les gabarits d’organigrammes et de wireframes, avec moins d’élégance. Entièrement hors ligne."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "tldraw",
+			"url": "https://tldraw.dev/#pricing",
+			"priceMonthly": 0,
+			"note": {
+				"en": "The whiteboard app is free to use and the code is public — but the tldraw licence is a bespoke source-available one, not open source. Commercial embedding requires a paid licence.",
+				"fr": "L’application de tableau blanc est gratuite et le code est public — mais la licence tldraw est une licence maison à code visible, pas de l’open source. L’intégration commerciale exige une licence payante."
+			}
+		}
+	],
+	"priority": 2
+}

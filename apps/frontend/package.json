@@ -1,0 +1,33 @@
+{
+	"name": "frontend",
+	"version": "0.1.0",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"dev": "rsbuild dev --host 0.0.0.0",
+		"build": "rsbuild build",
+		"preview": "rsbuild preview",
+		"check": "biome check --write",
+		"typecheck": "bun tsc --project tsconfig.json"
+	},
+	"dependencies": {
+		"@fontsource-variable/space-grotesk": "^5.3.0",
+		"@fontsource/ibm-plex-mono": "^5.3.0",
+		"@fontsource/ibm-plex-sans": "^5.3.0",
+		"core": "workspace:*",
+		"lucide-react": "1.24.0",
+		"react": "^19.2.8",
+		"react-dom": "^19.2.8",
+		"zod": "^4.4.3"
+	},
+	"devDependencies": {
+		"@rsbuild/core": "2.1.6",
+		"@rsbuild/plugin-react": "2.1.0",
+		"@tailwindcss/postcss": "4.3.2",
+		"@types/react": "^19.2.17",
+		"@types/react-dom": "^19.2.3",
+		"postcss": "8.5.18",
+		"tailwindcss": "4.3.2",
+		"typescript": "^7.0.2"
+	}
+}

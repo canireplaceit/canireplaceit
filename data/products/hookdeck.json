@@ -1,0 +1,107 @@
+{
+	"slug": "hookdeck",
+	"name": "Hookdeck",
+	"domain": "hookdeck.com",
+	"category": "api-development",
+	"priceMonthly": 39,
+	"pricing": {
+		"plan": "Team, from $39/mo",
+		"basis": "usage",
+		"url": "https://hookdeck.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Inbound webhook ingestion with a queue, filters and replay. Every part of that exists open, and Svix's own MIT server covers the outbound direction too.",
+		"fr": "Ingestion de webhooks entrants avec file, filtres et rejeu. Chaque brique existe en ouvert, et le serveur MIT de Svix couvre aussi le sens sortant."
+	},
+	"whatYouLose": [
+		{
+			"en": "Hosted ingestion endpoint",
+			"fr": "Point d’ingestion hébergé"
+		},
+		{
+			"en": "Visual filter and transform rules",
+			"fr": "Règles visuelles de filtrage et transformation"
+		},
+		{
+			"en": "Replay UI with full payload history",
+			"fr": "Interface de rejeu avec historique complet"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Svix",
+			"source": {
+				"host": "github",
+				"path": "svix/svix-webhooks",
+				"url": "https://github.com/svix/svix-webhooks"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The strongest open webhook infrastructure. Aimed at sending rather than receiving, but the queue, retry and portal machinery is the same.",
+				"fr": "La meilleure infrastructure ouverte de webhooks. Orientée envoi plutôt que réception, mais la mécanique de file, de retry et de portail est la même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "The hosted service and its SLAs",
+					"fr": "Le service hébergé et ses SLA"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Windmill",
+			"source": {
+				"host": "github",
+				"path": "windmill-labs/windmill",
+				"url": "https://github.com/windmill-labs/windmill"
+			},
+			"license": "Apache-2.0 / AGPL-3.0 with proprietary enterprise features",
+			"effort": "docker",
+			"note": {
+				"en": "Webhook-triggered scripts with retries and a run history. Covers the filter-and-transform job Hookdeck sells as a UI.",
+				"fr": "Scripts déclenchés par webhook, avec retries et historique d’exécutions. Couvre le travail de filtrage et transformation que Hookdeck vend sous forme d’interface."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "SSO/SAML, audit logs, autoscaling and multiplayer editing are enterprise",
+					"fr": "SSO/SAML, journaux d’audit, autoscaling et édition multijoueur sont réservés à l’entreprise"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "smee.io",
+			"source": {
+				"host": "github",
+				"path": "probot/smee.io",
+				"url": "https://github.com/probot/smee.io"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The minimal version: receive, forward, replay. Two hundred lines you can read.",
+				"fr": "La version minimale : recevoir, transmettre, rejouer. Deux cents lignes que vous pouvez lire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

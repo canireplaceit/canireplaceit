@@ -1,0 +1,78 @@
+{
+	"slug": "vimeo",
+	"name": "Vimeo",
+	"domain": "vimeo.com",
+	"category": "video",
+	"priceMonthly": 37,
+	"pricing": {
+		"plan": "Standard, annual billed monthly (page localised to PLN 140/mo, converted at 3.7558 PLN/USD)",
+		"basis": "flat",
+		"url": "https://vimeo.com/upgrade-plan",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Transcoding and CDN bandwidth are the cost. Software is free; delivery is not.",
+		"fr": "Le coût, c’est le transcodage et la bande passante CDN. Le logiciel est gratuit ; la diffusion, non."
+	},
+	"whatYouLose": [
+		{
+			"en": "Transcoding pipeline",
+			"fr": "Chaîne de transcodage"
+		},
+		{
+			"en": "CDN bandwidth",
+			"fr": "Bande passante CDN"
+		},
+		{
+			"en": "Polished player and embeds",
+			"fr": "Lecteur et des embeds soignés"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "PeerTube",
+			"source": {
+				"host": "github",
+				"path": "Chocobozzz/PeerTube",
+				"url": "https://github.com/Chocobozzz/PeerTube"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Federated, P2P offload for bandwidth.",
+				"fr": "Fédéré, délestage P2P pour la bande passante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Owncast",
+			"source": {
+				"host": "github",
+				"path": "owncast/owncast",
+				"url": "https://github.com/owncast/owncast"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Live streaming, single binary.",
+				"fr": "Streaming en direct, un seul binaire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

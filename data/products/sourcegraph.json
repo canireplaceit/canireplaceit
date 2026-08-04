@@ -1,0 +1,93 @@
+{
+	"slug": "sourcegraph",
+	"name": "Sourcegraph",
+	"domain": "sourcegraph.com",
+	"category": "developer-tooling",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "Sourcegraph took its main repository private in 2024, so there is no fork to fall back on. The good news is that Zoekt — the index Sourcegraph itself uses — is still Apache-2.0 and public. The bad news is you're assembling a product, not installing one.",
+		"fr": "Sourcegraph a rendu son dépôt principal privé en 2024 : il n’existe aucun fork de repli. La bonne nouvelle, c’est que Zoekt — l’index utilisé par Sourcegraph lui-même — reste public et en Apache-2.0. La mauvaise, c’est que vous assemblez un produit au lieu d’en installer un."
+	},
+	"whatYouLose": [
+		{
+			"en": "Batch changes across repos",
+			"fr": "Modifications en lot multi-dépôts"
+		},
+		{
+			"en": "Polished code navigation UI",
+			"fr": "Interface de navigation du code soignée"
+		},
+		{
+			"en": "Any fork to fall back on",
+			"fr": "Tout fork de repli"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Zoekt",
+			"source": {
+				"host": "github",
+				"path": "sourcegraph/zoekt",
+				"url": "https://github.com/sourcegraph/zoekt"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Trigram-indexed regex search over huge repos, still maintained in the open. No UI worth showing anyone — you build that.",
+				"fr": "Recherche regex indexée par trigrammes sur d’énormes dépôts, toujours maintenue publiquement. Aucune interface présentable — c’est à vous de la faire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenGrok",
+			"source": {
+				"host": "github",
+				"path": "oracle/opengrok",
+				"url": "https://github.com/oracle/opengrok"
+			},
+			"license": "CDDL-1.0",
+			"effort": "ops",
+			"note": {
+				"en": "Ancient, Java, ugly, and has cross-references and definition jumps that actually work across 20 languages.",
+				"fr": "Ancien, en Java, laid — et ses références croisées et sauts de définition fonctionnent réellement sur 20 langages."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Hound",
+			"source": {
+				"host": "github",
+				"path": "hound-search/hound",
+				"url": "https://github.com/hound-search/hound"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Dead simple: point it at repos, get fast regex search in a browser. No code intelligence at all.",
+				"fr": "D’une simplicité brutale : pointez-le sur des dépôts, obtenez une recherche regex rapide dans le navigateur. Aucune intelligence de code."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

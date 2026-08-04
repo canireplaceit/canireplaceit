@@ -1,0 +1,82 @@
+{
+	"slug": "readcube-papers",
+	"name": "ReadCube Papers",
+	"domain": "papersapp.com",
+	"category": "research-science",
+	"priceMonthly": 10,
+	"pricing": {
+		"plan": "Essentials",
+		"basis": "per-seat",
+		"url": "https://about.readcube.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Papers is a PDF library with a decent reader bolted to a reference manager. Zotero has had the same reader since v6 and annotates in the same place your citations live. There is very little left to buy.",
+		"fr": "Papers, c’est une bibliothèque de PDF avec un lecteur correct greffé sur un gestionnaire de références. Zotero a le même lecteur depuis la v6 et annote là où vivent vos citations. Il ne reste pas grand-chose à acheter."
+	},
+	"whatYouLose": [
+		{
+			"en": "Enhanced PDF metadata lookup",
+			"fr": "Enrichissement automatique des métadonnées PDF"
+		},
+		{
+			"en": "Polished mobile reader",
+			"fr": "Lecteur mobile soigné"
+		},
+		{
+			"en": "Shared team libraries",
+			"fr": "Bibliothèques d’équipe partagées"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Zotero",
+			"source": {
+				"host": "github",
+				"path": "zotero/zotero",
+				"url": "https://github.com/zotero/zotero"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The client is AGPL and does everything EndNote does, including the same CSL style repository. Sync above 300 MB is a paid Zotero service — or point it at your own WebDAV and pay nothing.",
+				"fr": "Le client est en AGPL et fait tout ce que fait EndNote, avec le même dépôt de styles CSL. La synchronisation au-delà de 300 Mo est un service Zotero payant — ou vous la branchez sur votre propre WebDAV et ne payez rien."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Zotero-hosted file storage above 300 MB",
+					"fr": "Le stockage de fichiers hébergé par Zotero au-delà de 300 Mo"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "JabRef",
+			"source": {
+				"host": "github",
+				"path": "JabRef/jabref",
+				"url": "https://github.com/JabRef/jabref"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A plain BibTeX file on disk, edited by a desktop app. No server, no account, no sync bill — and it survives your institution changing vendors.",
+				"fr": "Un simple fichier BibTeX sur disque, édité par une application de bureau. Pas de serveur, pas de compte, pas de facture de synchronisation — et il survit au changement de fournisseur de votre établissement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

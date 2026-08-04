@@ -1,0 +1,124 @@
+{
+	"slug": "testrail",
+	"name": "TestRail",
+	"domain": "testrail.com",
+	"category": "testing-qa",
+	"priceMonthly": 37,
+	"pricing": {
+		"plan": "Professional, billed monthly ($420/user/yr annual)",
+		"basis": "per-seat",
+		"url": "https://www.testrail.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Manual test case management is one of the last places where the open tools are visibly behind — Kiwi TCMS is real and maintained, and it looks it. If your tests are automated, you do not need any of this and a reporting tool is enough.",
+		"fr": "La gestion de cas de test manuels est l’un des derniers domaines où les outils ouverts sont visiblement en retard — Kiwi TCMS est réel et maintenu, et ça se voit. Si vos tests sont automatisés, rien de tout cela n’est nécessaire : un outil de rapports suffit."
+	},
+	"whatYouLose": [
+		{
+			"en": "Polished manual test runs",
+			"fr": "Exécutions de tests manuels soignées"
+		},
+		{
+			"en": "Requirement traceability reports",
+			"fr": "Rapports de traçabilité des exigences"
+		},
+		{
+			"en": "Jira-native integration",
+			"fr": "Intégration native à Jira"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Kiwi TCMS",
+			"source": {
+				"host": "github",
+				"path": "kiwitcms/Kiwi",
+				"url": "https://github.com/kiwitcms/Kiwi"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The only serious open test case management system. Plans, runs, cases, bug integration. The UI is functional rather than pleasant.",
+				"fr": "Le seul vrai système ouvert de gestion de cas de test. Plans, exécutions, cas, intégration des bugs. L’interface est fonctionnelle plutôt qu’agréable."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "The vendor's hosted private tenants and enterprise support; the Kiwi TCMS Enterprise add-on packages",
+					"fr": "Les instances privées hébergées par l’éditeur et le support entreprise ; les modules Kiwi TCMS Enterprise"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ReportPortal",
+			"source": {
+				"host": "github",
+				"path": "reportportal/reportportal",
+				"url": "https://github.com/reportportal/reportportal"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "AI-assisted triage of automated test results at scale, with failure clustering. Replaces the reporting half of TestRail, not the manual half. Real ops weight.",
+				"fr": "Triage assisté par IA des résultats de tests automatisés à grande échelle, avec regroupement des échecs. Remplace la moitié « rapports » de TestRail, pas la moitié « manuelle ». Coût d’exploitation réel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Allure Report",
+			"source": {
+				"host": "github",
+				"path": "allure-framework/allure2",
+				"url": "https://github.com/allure-framework/allure2"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Generates a browsable HTML report from almost any test framework's output. Free, static, and enough for most teams that thought they needed TestRail.",
+				"fr": "Génère un rapport HTML navigable à partir de la sortie de presque n’importe quel framework de test. Gratuit, statique, et suffisant pour la plupart des équipes qui se croyaient obligées de prendre TestRail."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Gauge",
+			"source": {
+				"host": "github",
+				"path": "getgauge/gauge",
+				"url": "https://github.com/getgauge/gauge"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Specification-as-markdown, so the test cases live in git next to the code and reviewers can read them.",
+				"fr": "Spécification en markdown : les cas de test vivent dans git à côté du code, et les relecteurs peuvent les lire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

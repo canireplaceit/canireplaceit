@@ -1,0 +1,107 @@
+{
+	"slug": "splunk",
+	"name": "Splunk",
+	"domain": "splunk.com",
+	"category": "observability-telemetry",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "Ingest-volume pricing is why nobody logs what they'd like to. The query languages are the sticking point: SPL is genuinely more expressive than anything open source, and every dashboard and detection rule you own is written in it.",
+		"fr": "La facturation au volume ingéré explique pourquoi personne ne journalise ce qu’il voudrait. Le point de blocage, ce sont les langages de requête : SPL est réellement plus expressif que tout ce qui existe en open source, et chacun de vos tableaux de bord et règles de détection est écrit dedans."
+	},
+	"whatYouLose": [
+		{
+			"en": "The SPL query language",
+			"fr": "Le langage de requête SPL"
+		},
+		{
+			"en": "Existing dashboards and rules",
+			"fr": "Tableaux de bord et règles existants"
+		},
+		{
+			"en": "Enterprise Security app",
+			"fr": "Application Enterprise Security"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Graylog",
+			"source": {
+				"host": "github",
+				"path": "Graylog2/graylog2-server",
+				"url": "https://github.com/Graylog2/graylog2-server"
+			},
+			"license": "SSPL-1.0",
+			"effort": "ops",
+			"note": {
+				"en": "The closest structural match: pipelines, streams, alerts, role-based dashboards. SSPL now, so read it.",
+				"fr": "Le plus proche structurellement : pipelines, flux, alertes, tableaux de bord par rôle. Désormais en SSPL, alors lisez-la."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO/SAML, archiving, reports, audit log",
+					"fr": "SSO/SAML, archivage, rapports, journal d’audit"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Quickwit",
+			"source": {
+				"host": "github",
+				"path": "quickwit-oss/quickwit",
+				"url": "https://github.com/quickwit-oss/quickwit"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Search directly on object storage, so retention costs collapse. Slower queries, drastically cheaper archive.",
+				"fr": "Recherche directement sur le stockage objet : les coûts de rétention s’effondrent. Requêtes plus lentes, archive nettement moins chère."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Wazuh",
+			"source": {
+				"host": "github",
+				"path": "wazuh/wazuh",
+				"url": "https://github.com/wazuh/wazuh"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "If you were using Splunk as a SIEM rather than a log tool, this is the actual replacement — agents, rules, compliance reports.",
+				"fr": "Si vous utilisiez Splunk comme SIEM plutôt que comme outil de logs, c’est le vrai remplaçant — agents, règles, rapports de conformité."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Axiom",
+			"url": "https://axiom.co/pricing",
+			"priceMonthly": 25,
+			"note": {
+				"en": "Object-storage-backed log platform with a generous free tier and no ingest cliff. No SIEM features and no SPL — you rewrite every query.",
+				"fr": "Plateforme de logs sur stockage objet, palier gratuit généreux et pas de mur d’ingestion. Aucune fonction SIEM ni SPL — vous réécrivez chaque requête."
+			}
+		}
+	],
+	"priority": 3
+}

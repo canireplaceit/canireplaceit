@@ -1,0 +1,138 @@
+{
+	"slug": "proton-mail",
+	"name": "Proton Mail",
+	"domain": "proton.me",
+	"category": "email-clients",
+	"priceMonthly": 4.99,
+	"pricing": {
+		"plan": "Mail Plus, billed monthly (vendor page served EUR 4.99)",
+		"basis": "per-seat",
+		"url": "https://proton.me/support/proton-plans",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Proton is the honest case on this list: the clients really are GPL-3.0 and audited, so the encryption claim is checkable. But the server is closed and Proton-hosted only, and no self-hosted stack reproduces zero-access encryption at rest with a usable web client. Replace it and you get control while losing the property it sells.",
+		"fr": "Proton est le cas honnête de cette liste : les clients sont réellement en GPL-3.0 et audités, la promesse de chiffrement est donc vérifiable. Mais le serveur est fermé et hébergé uniquement par Proton, et aucune pile auto-hébergée ne reproduit le chiffrement sans accès au repos avec un client web utilisable. En le remplaçant, vous gagnez le contrôle et perdez la propriété qu’il vend."
+	},
+	"whatYouLose": [
+		{
+			"en": "Zero-access encryption at rest",
+			"fr": "Chiffrement sans accès au repos"
+		},
+		{
+			"en": "Swiss jurisdiction and audits",
+			"fr": "Juridiction suisse et audits"
+		},
+		{
+			"en": "Bundled VPN, Drive and Pass",
+			"fr": "VPN, Drive et Pass inclus"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Proton WebClients",
+			"source": {
+				"host": "github",
+				"path": "ProtonMail/WebClients",
+				"url": "https://github.com/ProtonMail/WebClients"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Proton's own clients really are GPL-3.0 and independently audited — but the server is closed and hosted only by Proton, so this verifies the crypto rather than freeing the service.",
+				"fr": "Les clients de Proton sont bien en GPL-3.0 et audités indépendamment, mais le serveur est fermé et hébergé uniquement par Proton : cela vérifie la cryptographie plutôt que cela ne libère le service."
+			},
+			"facts": {
+				"selfHostable": false,
+				"openCore": "major",
+				"paywalled": {
+					"en": "The server, the storage and every paid tier — only the clients are open",
+					"fr": "Le serveur, le stockage et tous les paliers payants : seuls les clients sont ouverts"
+				},
+				"ssoInFree": null,
+				"dataResidency": "eu-option"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Stalwart",
+			"source": {
+				"host": "github",
+				"path": "stalwartlabs/stalwart",
+				"url": "https://github.com/stalwartlabs/stalwart"
+			},
+			"license": "AGPL-3.0 + Stalwart Enterprise Licence",
+			"effort": "docker",
+			"note": {
+				"en": "One Rust binary doing JMAP, IMAP, SMTP and spam filtering — by far the least painful mail server to stand up in 2026. Dual-licensed: the repo ships an AGPL-3.0 licence next to a proprietary Enterprise one.",
+				"fr": "Un seul binaire Rust qui fait JMAP, IMAP, SMTP et antispam : de loin le serveur mail le moins pénible à monter en 2026. Double licence, le dépôt contient une AGPL-3.0 à côté d’une licence Enterprise propriétaire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Clustering, multi-tenancy and the Enterprise admin features",
+					"fr": "Le clustering, la multi-location et les fonctions d’administration Enterprise"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "mailcow",
+			"source": {
+				"host": "github",
+				"path": "mailcow/mailcow-dockerized",
+				"url": "https://github.com/mailcow/mailcow-dockerized"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The pragmatic full mail stack: Postfix, Dovecot, Rspamd, SOGo and a real admin UI in one compose file. Keeping the IP off blocklists is still your job.",
+				"fr": "La pile mail complète et pragmatique : Postfix, Dovecot, Rspamd, SOGo et une vraie interface d’administration dans un seul fichier compose. Garder l’IP hors des listes noires reste votre travail."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SimpleLogin",
+			"source": {
+				"host": "github",
+				"path": "simple-login/app",
+				"url": "https://github.com/simple-login/app"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Unlimited email aliases on your own domain. Self-hosted there are no tier limits at all — the hosted version is the same code.",
+				"fr": "Alias e-mail illimités sur votre propre domaine. En auto-hébergé, aucune limite de palier : la version hébergée est le même code."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Tuta",
+			"url": "https://tuta.com/pricing",
+			"priceMonthly": 4,
+			"note": {
+				"en": "Cheaper, German, and it encrypts subject lines and the address book too, which Proton does not. Its non-standard protocol means no IMAP client will ever talk to it.",
+				"fr": "Moins cher, allemand, et il chiffre aussi les objets et le carnet d’adresses, ce que Proton ne fait pas. Son protocole non standard signifie qu’aucun client IMAP ne lui parlera jamais."
+			}
+		}
+	],
+	"priority": 4
+}

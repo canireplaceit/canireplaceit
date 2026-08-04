@@ -1,0 +1,111 @@
+{
+	"slug": "datadog",
+	"name": "Datadog",
+	"domain": "datadoghq.com",
+	"category": "observability",
+	"priceMonthly": 15,
+	"pricing": {
+		"plan": "Pro, per host, billed annually ($18 on-demand)",
+		"basis": "usage",
+		"url": "https://www.datadoghq.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "The single most common reason companies self-host anything. The bill grows faster than the company.",
+		"fr": "La raison numéro un pour laquelle les entreprises auto-hébergent quoi que ce soit. La facture grossit plus vite que la boîte."
+	},
+	"whatYouLose": [
+		{
+			"en": "One pane of glass",
+			"fr": "Tout au même endroit"
+		},
+		{
+			"en": "Turnkey integrations",
+			"fr": "Intégrations clés en main"
+		},
+		{
+			"en": "No storage to operate",
+			"fr": "Aucun stockage à exploiter"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Grafana + Loki + Tempo",
+			"source": {
+				"host": "github",
+				"path": "grafana/grafana",
+				"url": "https://github.com/grafana/grafana"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Metrics, logs, traces. The standard stack.",
+				"fr": "Métriques, logs, traces. La pile de référence."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SAML, reporting, fine-grained RBAC",
+					"fr": "SAML, rapports, RBAC fin"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SigNoz",
+			"source": {
+				"host": "github",
+				"path": "SigNoz/signoz",
+				"url": "https://github.com/SigNoz/signoz"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "One product, OpenTelemetry native.",
+				"fr": "Un seul produit, natif OpenTelemetry."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SAML/OIDC SSO, fine-grained RBAC",
+					"fr": "SSO SAML/OIDC, RBAC fin"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Uptrace",
+			"source": {
+				"host": "github",
+				"path": "uptrace/uptrace",
+				"url": "https://github.com/uptrace/uptrace"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Lighter, ClickHouse-backed.",
+				"fr": "Plus léger, adossé à ClickHouse."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Multi-user, RBAC, SSO, custom retention",
+					"fr": "Multi-utilisateur, RBAC, SSO, rétention personnalisée"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

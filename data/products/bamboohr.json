@@ -1,0 +1,113 @@
+{
+	"slug": "bamboohr",
+	"name": "BambooHR",
+	"domain": "bamboohr.com",
+	"category": "people-hiring",
+	"priceMonthly": 10,
+	"pricing": {
+		"plan": "Core, $10/employee/mo (flat from $250/mo under 25 employees)",
+		"basis": "per-seat",
+		"url": "https://www.bamboohr.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "An employee directory, time-off balances and a document vault — all straightforward. The gap is everything regulated: e-signed offer letters, right-to-work records, and being the system auditors point at. Open HRIS handles the data; you own the compliance.",
+		"fr": "Un annuaire du personnel, des soldes de congés, un coffre à documents : rien de sorcier. Le manque est du côté réglementaire : lettres d’embauche signées, dossiers d’autorisation de travail, et le fait d’être le système que l’auditeur regarde. Le SIRH ouvert gère les données ; la conformité reste sur vous."
+	},
+	"whatYouLose": [
+		{
+			"en": "Built-in e-signature for offer letters",
+			"fr": "Signature électronique des promesses d’embauche"
+		},
+		{
+			"en": "Compliance records auditors accept",
+			"fr": "Dossiers de conformité acceptés par l’auditeur"
+		},
+		{
+			"en": "Payroll and benefits integrations",
+			"fr": "Intégrations paie et avantages sociaux"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Frappe HR",
+			"source": {
+				"host": "github",
+				"path": "frappe/hrms",
+				"url": "https://github.com/frappe/hrms"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The most modern of the three, and it inherits ERPNext's permissions model.",
+				"fr": "Le plus moderne des trois, et il hérite du modèle de permissions d’ERPNext."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OrangeHRM",
+			"source": {
+				"host": "github",
+				"path": "orangehrm/orangehrm",
+				"url": "https://github.com/orangehrm/orangehrm"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Boring, ancient, works. Many features are held back for the paid edition.",
+				"fr": "Ennuyeux, ancien, fonctionnel. Beaucoup de fonctions sont réservées à l’édition payante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Rosters, surveys, discipline, advanced roles",
+					"fr": "Plannings, sondages, discipline, rôles avancés"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Horilla",
+			"source": {
+				"host": "github",
+				"path": "horilla/horilla-hr",
+				"url": "https://github.com/horilla/horilla-hr"
+			},
+			"license": "LGPL-2.1",
+			"effort": "docker",
+			"note": {
+				"en": "Django, fully free with no upsell tier. Younger and rougher.",
+				"fr": "En Django, entièrement gratuit sans palier payant. Plus jeune et moins poli."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Zoho People",
+			"url": "https://www.zoho.com/people/",
+			"priceMonthly": 2,
+			"note": {
+				"en": "A quarter of the price for the same directory and leave tracking. The UI is noticeably worse and onboarding flows are clunky.",
+				"fr": "Quatre fois moins cher pour le même annuaire et le même suivi des congés. L’interface est nettement moins agréable et l’onboarding est laborieux."
+			}
+		}
+	],
+	"priority": 4
+}

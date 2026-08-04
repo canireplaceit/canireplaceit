@@ -1,0 +1,126 @@
+{
+	"slug": "samsara",
+	"name": "Samsara",
+	"domain": "samsara.com",
+	"category": "shipping-logistics",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "Samsara is quoted per vehicle per month on a multi-year contract, and it is hardware as much as software: the AI dashcam, the gateway and the FMCSA-registered ELD. Traccar will track your vehicles beautifully, but an ELD has to be self-certified against a federal spec and no open project has done it.",
+		"fr": "Samsara se facture par véhicule et par mois sur un contrat pluriannuel, et c’est autant du matériel que du logiciel : la caméra embarquée à IA, la passerelle et l’ELD enregistré auprès de la FMCSA. Traccar suivra très bien vos véhicules, mais un ELD doit être auto-certifié contre une spécification fédérale et aucun projet open source ne l’a fait."
+	},
+	"whatYouLose": [
+		{
+			"en": "FMCSA-registered ELD compliance",
+			"fr": "Conformité ELD enregistrée FMCSA"
+		},
+		{
+			"en": "AI dashcams and driver coaching",
+			"fr": "Caméras à IA et coaching conducteur"
+		},
+		{
+			"en": "Hardware supply and warranty",
+			"fr": "Fourniture et garantie du matériel"
+		},
+		{
+			"en": "Cellular connectivity included",
+			"fr": "Connectivité cellulaire incluse"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Traccar",
+			"source": {
+				"host": "github",
+				"path": "traccar/traccar",
+				"url": "https://github.com/traccar/traccar"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The serious open telematics server: 200+ GPS tracker protocols, geofences, alerts, reports, OIDC login. Buy any cheap OBD tracker and point it at your own host.",
+				"fr": "Le vrai serveur télématique open source : plus de 200 protocoles de balises GPS, géorepérage, alertes, rapports, connexion OIDC. Achetez n’importe quel traceur OBD bon marché et pointez-le sur votre serveur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Fleetbase",
+			"source": {
+				"host": "github",
+				"path": "fleetbase/fleetbase",
+				"url": "https://github.com/fleetbase/fleetbase"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "A logistics platform on top of tracking — orders, drivers, dispatch, a driver app. AGPL, with some marketplace extensions paid.",
+				"fr": "Une plateforme logistique au-dessus du suivi — commandes, chauffeurs, répartition, app conducteur. AGPL, avec certaines extensions payantes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Some marketplace extensions and the hosted console are paid",
+					"fr": "Certaines extensions du marketplace et la console hébergée sont payantes"
+				},
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LubeLogger",
+			"source": {
+				"host": "github",
+				"path": "hargata/lubelog",
+				"url": "https://github.com/hargata/lubelog"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The maintenance half: service records, odometer, fuel and reminders per vehicle. MIT, OIDC included, no paid tier.",
+				"fr": "La partie entretien : carnet d’interventions, kilométrage, carburant et rappels par véhicule. MIT, OIDC inclus, sans palier payant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Frigate",
+			"source": {
+				"host": "github",
+				"path": "blakeblackshear/frigate",
+				"url": "https://github.com/blakeblackshear/frigate"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Not a dashcam, but if your vehicles come back to a yard it does the camera and detection side on your own hardware.",
+				"fr": "Ce n’est pas une caméra embarquée, mais si vos véhicules rentrent au dépôt, il gère la partie caméra et détection sur votre propre matériel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Frigate+ custom model training is a paid subscription",
+					"fr": "L’entraînement de modèles personnalisés Frigate+ est un abonnement payant"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

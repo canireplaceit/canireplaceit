@@ -1,0 +1,113 @@
+{
+	"slug": "mailgun",
+	"name": "Mailgun",
+	"domain": "mailgun.com",
+	"category": "email-deliverability",
+	"priceMonthly": 15,
+	"pricing": {
+		"plan": "Basic, 10k emails/month",
+		"basis": "flat",
+		"url": "https://www.mailgun.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Inbound routing, validation and a send API are all reproducible today. Reputation is not, and Mailgun's real product for developers — a receiving endpoint that parses MIME so you never have to — is worth more than the sending half.",
+		"fr": "Le routage entrant, la validation et une API d’envoi sont tous reproductibles aujourd’hui. La réputation ne l’est pas, et le vrai produit de Mailgun pour les développeurs — un point de réception qui analyse le MIME pour que vous n’ayez jamais à le faire — vaut plus que la moitié envoi."
+	},
+	"whatYouLose": [
+		{
+			"en": "Shared IP reputation",
+			"fr": "Réputation d’IP partagée"
+		},
+		{
+			"en": "Email validation API",
+			"fr": "API de validation d’adresses"
+		},
+		{
+			"en": "Logs retained for you",
+			"fr": "Journaux conservés pour vous"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Stalwart",
+			"source": {
+				"host": "github",
+				"path": "stalwartlabs/stalwart",
+				"url": "https://github.com/stalwartlabs/stalwart"
+			},
+			"license": "AGPL-3.0 / LicenseRef-SEL",
+			"effort": "docker",
+			"note": {
+				"en": "Modern Rust mail server: SMTP, IMAP, JMAP, DKIM/DMARC/ARC, spam filtering and OIDC login all in the free build. Enterprise adds multi-tenancy and telemetry, not the mail.",
+				"fr": "Serveur de messagerie moderne en Rust : SMTP, IMAP, JMAP, DKIM/DMARC/ARC, antispam et connexion OIDC, tout dans la build gratuite. L’édition Enterprise ajoute la multi-location et la télémétrie, pas le courrier."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Multi-tenancy, delivery history, live telemetry and metric alerts.",
+					"fr": "Multi-location, historique de livraison, télémétrie en direct et alertes sur métriques."
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Postal",
+			"source": {
+				"host": "github",
+				"path": "postalserver/postal",
+				"url": "https://github.com/postalserver/postal"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Handles inbound routes to HTTP endpoints as well as outbound, which is the Mailgun feature people actually miss.",
+				"fr": "Gère les routes entrantes vers des points HTTP autant que le sortant, la fonction Mailgun qui manque réellement aux gens."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Rspamd",
+			"source": {
+				"host": "github",
+				"path": "rspamd/rspamd",
+				"url": "https://github.com/rspamd/rspamd"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Not a sender — the filter that decides what you accept. Bolt it to any of these and inbound stops being a liability.",
+				"fr": "Pas un expéditeur — le filtre qui décide de ce que vous acceptez. Greffez-le à n’importe lequel de ces serveurs et l’entrant cesse d’être un risque."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "MailerSend",
+			"url": "https://www.mailersend.com/pricing",
+			"priceMonthly": 0,
+			"note": {
+				"en": "3,000 free emails a month then $1 per thousand, with templates and inbound routing. Younger IP pools, so watch your first sends.",
+				"fr": "3 000 e-mails gratuits par mois puis 1 $ pour mille, avec modèles et routage entrant. Pools d’IP plus jeunes : surveillez vos premiers envois."
+			}
+		}
+	],
+	"priority": 3
+}

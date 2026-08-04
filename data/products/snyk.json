@@ -1,0 +1,113 @@
+{
+	"slug": "snyk",
+	"name": "Snyk",
+	"domain": "snyk.io",
+	"category": "application-security",
+	"priceMonthly": 25,
+	"pricing": {
+		"plan": "Team",
+		"basis": "per-seat",
+		"url": "https://snyk.io/plans/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Dependency scanning reads a lockfile and diffs it against a public vulnerability database. Snyk's advantage was a better-curated database than the free ones; OSV and the GitHub advisory feed have largely closed that gap.",
+		"fr": "L’analyse de dépendances lit un fichier de verrouillage et le compare à une base publique de vulnérabilités. L’avantage de Snyk était une base mieux curée que les gratuites ; OSV et le flux d’avis de GitHub ont largement comblé cet écart."
+	},
+	"whatYouLose": [
+		{
+			"en": "Curated vulnerability database",
+			"fr": "Base de vulnérabilités curée"
+		},
+		{
+			"en": "Automated fix pull requests",
+			"fr": "PR de correction automatiques"
+		},
+		{
+			"en": "Licence compliance reporting",
+			"fr": "Rapports de conformité des licences"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Trivy",
+			"source": {
+				"host": "github",
+				"path": "aquasecurity/trivy",
+				"url": "https://github.com/aquasecurity/trivy"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "One binary that scans dependencies, container images, IaC and secrets. The default answer, and it runs in CI in seconds.",
+				"fr": "Un binaire qui analyse dépendances, images de conteneurs, IaC et secrets. La réponse par défaut, exécutable en CI en quelques secondes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Semgrep",
+			"source": {
+				"host": "github",
+				"path": "semgrep/semgrep",
+				"url": "https://github.com/semgrep/semgrep"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "SAST rather than SCA — it finds your bugs, not your dependencies'. Custom rules are easy to write, which matters.",
+				"fr": "SAST plutôt que SCA — il trouve vos bugs, pas ceux de vos dépendances. Les règles personnalisées sont faciles à écrire, ce qui compte."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Cross-file analysis, Pro rules, SCA, secrets",
+					"fr": "Analyse inter-fichiers, règles Pro, SCA, secrets"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OSV-Scanner",
+			"source": {
+				"host": "github",
+				"path": "google/osv-scanner",
+				"url": "https://github.com/google/osv-scanner"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Google's scanner against the OSV database. Fewer false positives than most, no fix suggestions.",
+				"fr": "Le scanner de Google sur la base OSV. Moins de faux positifs que la plupart, mais aucune suggestion de correction."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Aikido Security",
+			"url": "https://www.aikido.dev/pricing",
+			"priceMonthly": 300,
+			"note": {
+				"en": "Bundles SCA, SAST, secrets and cloud posture into one flat plan rather than Snyk's per-product per-seat stack. Less mature triage and a much smaller rule corpus.",
+				"fr": "Regroupe SCA, SAST, secrets et posture cloud dans un forfait unique, au lieu de l’empilement par produit et par utilisateur de Snyk. Triage moins mature et corpus de règles bien plus réduit."
+			}
+		}
+	],
+	"priority": 4
+}

@@ -1,0 +1,113 @@
+{
+	"slug": "doppler",
+	"name": "Doppler",
+	"domain": "doppler.com",
+	"category": "secrets-privileged-access",
+	"priceMonthly": 8,
+	"pricing": {
+		"plan": "Developer, per user beyond the first 3 (Team is $21)",
+		"basis": "per-seat",
+		"url": "https://www.doppler.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Doppler is a nicer UI over environment variables with sync integrations. That's a real product and it's also a weekend of work with SOPS if your team is small. Per-seat pricing on something every engineer must touch is the problem.",
+		"fr": "Doppler, c’est une interface agréable au-dessus de variables d’environnement, avec des intégrations de synchronisation. C’est un vrai produit, et c’est aussi un week-end de travail avec SOPS si votre équipe est petite. Le problème, c’est de facturer à l’utilisateur une chose que chaque ingénieur doit toucher."
+	},
+	"whatYouLose": [
+		{
+			"en": "Polished UI",
+			"fr": "Interface soignée"
+		},
+		{
+			"en": "Prebuilt platform syncs",
+			"fr": "Synchronisations de plateformes prêtes à l’emploi"
+		},
+		{
+			"en": "Zero infrastructure",
+			"fr": "Aucune infrastructure"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Infisical",
+			"source": {
+				"host": "github",
+				"path": "Infisical/infisical",
+				"url": "https://github.com/Infisical/infisical"
+			},
+			"license": "MIT/Ent",
+			"effort": "docker",
+			"note": {
+				"en": "The closest 1:1 — same mental model, same CLI-injects-env pattern, same platform sync integrations.",
+				"fr": "L’équivalent le plus direct — même modèle mental, même injection d’environnement par CLI, mêmes intégrations de synchronisation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SAML/OIDC SSO, RBAC, audit logs, dynamic secrets",
+					"fr": "SSO SAML/OIDC, RBAC, journaux d’audit, secrets dynamiques"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SOPS",
+			"source": {
+				"host": "github",
+				"path": "getsops/sops",
+				"url": "https://github.com/getsops/sops"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Secrets live in your repo, encrypted, reviewed in PRs. No service to run and no seats to count.",
+				"fr": "Les secrets vivent dans votre dépôt, chiffrés, revus en PR. Aucun service à exploiter, aucun utilisateur à compter."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenBao",
+			"source": {
+				"host": "github",
+				"path": "openbao/openbao",
+				"url": "https://github.com/openbao/openbao"
+			},
+			"license": "MPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Overkill for Doppler's job, but the right answer if you also need dynamic database credentials.",
+				"fr": "Surdimensionné pour le travail de Doppler, mais la bonne réponse si vous avez aussi besoin d’identifiants de base de données dynamiques."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Infisical Cloud",
+			"url": "https://infisical.com/pricing",
+			"priceMonthly": 6,
+			"note": {
+				"en": "The same open source product hosted by its authors, with a free tier that covers small teams entirely. Smaller company, fewer enterprise integrations.",
+				"fr": "Le même produit open source hébergé par ses auteurs, avec un palier gratuit qui couvre entièrement les petites équipes. Société plus petite, moins d’intégrations entreprise."
+			}
+		}
+	],
+	"priority": 3
+}

@@ -1,0 +1,99 @@
+{
+	"slug": "algolia",
+	"name": "Algolia",
+	"domain": "algolia.com",
+	"category": "search",
+	"priceMonthly": null,
+	"pricing": {
+		"plan": "Grow (pay-as-you-go, no fixed fee): 10K search requests + 100K records free each month, then $0.50 per additional 1K search requests and $0.40 per additional 1K records. Grow Plus $1.75 per additional 1K search requests. Elevate is custom/annual contract",
+		"basis": "usage",
+		"url": "https://www.algolia.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Typo-tolerant instant search in a single binary. Algolia's edge is scale you probably don't have.",
+		"fr": "De la recherche instantanée tolérante aux fautes, dans un seul binaire. L’avantage d’Algolia, c’est une échelle que vous n’avez probablement pas."
+	},
+	"whatYouLose": [
+		{
+			"en": "Global search edge network",
+			"fr": "Réseau edge de recherche mondial"
+		},
+		{
+			"en": "Ranking tuning UI",
+			"fr": "Interface de réglage du ranking"
+		},
+		{
+			"en": "Search analytics",
+			"fr": "Analytique de recherche"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Meilisearch",
+			"source": {
+				"host": "github",
+				"path": "meilisearch/meilisearch",
+				"url": "https://github.com/meilisearch/meilisearch"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Drop-in feel, InstantSearch compatible.",
+				"fr": "Sensation de drop-in, compatible InstantSearch."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Typesense",
+			"source": {
+				"host": "github",
+				"path": "typesense/typesense",
+				"url": "https://github.com/typesense/typesense"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Explicit Algolia alternative, very fast.",
+				"fr": "Alternative revendiquée à Algolia, très rapide."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenSearch",
+			"source": {
+				"host": "github",
+				"path": "opensearch-project/OpenSearch",
+				"url": "https://github.com/opensearch-project/OpenSearch"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "When you need real cluster search.",
+				"fr": "Quand il vous faut une vraie recherche en cluster."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

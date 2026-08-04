@@ -1,0 +1,107 @@
+{
+	"slug": "maintainx",
+	"name": "MaintainX",
+	"domain": "getmaintainx.com",
+	"category": "field-service-maintenance",
+	"priceMonthly": 20,
+	"pricing": {
+		"plan": "Essential, billed annually ($25 monthly)",
+		"basis": "per-seat",
+		"url": "https://www.getmaintainx.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "MaintainX won by being a messaging app that happens to do work orders — the shop floor actually uses it. That behavioural win is not something you get from self-hosting Atlas CMMS, even though the feature list matches. Try the free tier honestly before you build.",
+		"fr": "MaintainX a gagné en étant une messagerie qui fait accessoirement des ordres de travail — l’atelier s’en sert vraiment. Ce gain comportemental ne s’obtient pas en auto-hébergeant Atlas CMMS, même si la liste de fonctions correspond. Essayez honnêtement l’offre gratuite avant de construire."
+	},
+	"whatYouLose": [
+		{
+			"en": "Chat-first adoption by technicians",
+			"fr": "Adoption par les techniciens grâce au chat"
+		},
+		{
+			"en": "Generous free tier",
+			"fr": "Offre gratuite généreuse"
+		},
+		{
+			"en": "Procedure and inspection templates",
+			"fr": "Modèles de procédures et d’inspections"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Atlas CMMS",
+			"source": {
+				"host": "github",
+				"path": "Grashjs/cmms",
+				"url": "https://github.com/Grashjs/cmms"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Feature-for-feature the closest: requests, work orders, PMs, parts, meters, files, mobile. The adoption is on you.",
+				"fr": "Le plus proche fonctionnellement : demandes, ordres de travail, préventif, pièces, compteurs, fichiers, mobile. L’adoption, c’est votre problème."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "White-labelling and some advanced features need a paid licence key",
+					"fr": "Le marquage blanc et certaines fonctions avancées exigent une clé de licence payante"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Odoo Community",
+			"source": {
+				"host": "github",
+				"path": "odoo/odoo",
+				"url": "https://github.com/odoo/odoo"
+			},
+			"license": "LGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Maintenance requests raised from the machine's own record, if you already run Odoo for production.",
+				"fr": "Demandes de maintenance créées depuis la fiche machine elle-même, si vous utilisez déjà Odoo en production."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Full accounting, Studio, Barcode, Shop Floor, Field Service and Planning are Enterprise-only",
+					"fr": "La comptabilité complète, Studio, Code-barres, Atelier, Services sur site et Planification sont réservés à l’Enterprise"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Snipe-IT",
+			"source": {
+				"host": "github",
+				"path": "grokability/snipe-it",
+				"url": "https://github.com/grokability/snipe-it"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The asset register underneath, when you need custody and audit more than work scheduling.",
+				"fr": "Le registre d’actifs sous-jacent, quand la détention et l’audit comptent plus que la planification des travaux."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

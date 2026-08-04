@@ -1,0 +1,97 @@
+{
+	"slug": "nginx-plus",
+	"name": "F5 NGINX Plus",
+	"domain": "nginx.com",
+	"category": "networking-vpn",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "You are paying roughly $2,500 per instance per year for active health checks, sticky sessions, a status dashboard and support — bolted onto a server you can already download for free. HAProxy gives you all four in the open source build and beats it on load balancing besides.",
+		"fr": "Vous payez environ 2 500 $ par instance et par an pour des health checks actifs, des sessions persistantes, un tableau de bord d’état et du support — greffés sur un serveur que vous pouvez déjà télécharger gratuitement. HAProxy vous donne les quatre dans la build open source, et le surpasse en répartition de charge par-dessus le marché."
+	},
+	"whatYouLose": [
+		{
+			"en": "Vendor support contract",
+			"fr": "Contrat de support éditeur"
+		},
+		{
+			"en": "The NGINX Plus dashboard",
+			"fr": "Le tableau de bord NGINX Plus"
+		},
+		{
+			"en": "Dynamic config via API",
+			"fr": "Configuration dynamique par API"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "HAProxy",
+			"source": {
+				"host": "github",
+				"path": "haproxy/haproxy",
+				"url": "https://github.com/haproxy/haproxy"
+			},
+			"license": "GPL-2.0 (LGPL-2.1 for libs)",
+			"effort": "ops",
+			"note": {
+				"en": "Active health checks, stick tables, a runtime API and a stats page — all in the free build. HAProxy Enterprise sells extra modules and support, not the load balancer itself.",
+				"fr": "Health checks actifs, stick tables, API d’exécution et page de statistiques — tout dans la build gratuite. HAProxy Enterprise vend des modules supplémentaires et du support, pas le répartiteur lui-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Traefik Proxy",
+			"source": {
+				"host": "github",
+				"path": "traefik/traefik",
+				"url": "https://github.com/traefik/traefik"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Discovers backends from Docker or Kubernetes labels and issues its own certificates. Traefik Hub, the paid product, is API management layered on top.",
+				"fr": "Découvre les backends via les labels Docker ou Kubernetes et émet ses propres certificats. Traefik Hub, le produit payant, est une couche de gestion d’API par-dessus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Traefik Hub adds API management, a WAF and a portal.",
+					"fr": "Traefik Hub ajoute gestion d’API, WAF et portail."
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Caddy",
+			"source": {
+				"host": "github",
+				"path": "caddyserver/caddy",
+				"url": "https://github.com/caddyserver/caddy"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Automatic HTTPS with no cron job and a config file a human can read. Fewer knobs than nginx, which is usually the point.",
+				"fr": "HTTPS automatique sans tâche cron et un fichier de configuration lisible par un humain. Moins de réglages que nginx, ce qui est généralement l’objectif."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

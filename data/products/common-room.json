@@ -1,0 +1,103 @@
+{
+	"slug": "common-room",
+	"name": "Common Room",
+	"domain": "commonroom.io",
+	"category": "community-publishing",
+	"priceMonthly": 2500,
+	"pricing": {
+		"plan": "Essential, $2,500/mo billed annually, 5 seats included",
+		"basis": "flat",
+		"url": "https://commonroom.io/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "This is the rare go-to-market category with a genuine open equivalent: crowd.dev does the same identity graph across GitHub, Discord, Slack and forums, and it now lives under the Linux Foundation. What Common Room adds is the paid signal sources — job changes, buying intent — which are bought data again.",
+		"fr": "C’est la rare catégorie go-to-market avec un vrai équivalent ouvert : crowd.dev construit le même graphe d’identités sur GitHub, Discord, Slack et les forums, et il vit désormais sous l’égide de la Linux Foundation. Ce que Common Room ajoute, ce sont les sources de signaux payantes — changements de poste, intention d’achat — c’est-à-dire encore des données achetées."
+	},
+	"whatYouLose": [
+		{
+			"en": "Paid intent and job-change signals",
+			"fr": "Signaux payants d’intention et de mobilité"
+		},
+		{
+			"en": "Managed connectors that keep working",
+			"fr": "Connecteurs gérés qui continuent de fonctionner"
+		},
+		{
+			"en": "Identity resolution to work emails",
+			"fr": "Résolution d’identité vers les e-mails pro"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "crowd.dev",
+			"source": {
+				"host": "github",
+				"path": "linuxfoundation/crowd.dev",
+				"url": "https://github.com/linuxfoundation/crowd.dev"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "A near one-to-one replacement, Apache-2.0 with no enterprise directory, now under Linux Foundation stewardship. It is a heavy stack to run and connectors need attention.",
+				"fr": "Un remplacement quasi équivalent, en Apache-2.0 sans dossier entreprise, désormais sous la gouvernance de la Linux Foundation. C’est une pile lourde à exploiter et les connecteurs demandent de l’attention."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Twenty",
+			"source": {
+				"host": "github",
+				"path": "twentyhq/twenty",
+				"url": "https://github.com/twentyhq/twenty"
+			},
+			"license": "AGPL-3.0 with @license Enterprise files",
+			"effort": "docker",
+			"note": {
+				"en": "Where the resulting people and companies should land if you want to act on them. SSO and advanced permissions are enterprise-licensed files.",
+				"fr": "L’endroit où doivent atterrir les personnes et entreprises obtenues si vous voulez agir dessus. SSO et permissions avancées sont des fichiers sous licence entreprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO/SAML and advanced permissions are marked @license Enterprise",
+					"fr": "SSO/SAML et permissions avancées sont marqués @license Enterprise"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Discourse",
+			"source": {
+				"host": "github",
+				"path": "discourse/discourse",
+				"url": "https://github.com/discourse/discourse"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "If the goal is a community you can actually measure, owning the forum beats instrumenting someone else's Slack.",
+				"fr": "Si l’objectif est une communauté réellement mesurable, posséder le forum vaut mieux qu’instrumenter le Slack d’un autre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

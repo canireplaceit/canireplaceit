@@ -1,0 +1,109 @@
+{
+	"slug": "mux",
+	"name": "Mux",
+	"domain": "mux.com",
+	"category": "video",
+	"priceMonthly": 20,
+	"pricing": {
+		"plan": "Pre-pay Launch, $20/mo for $100 usage credit",
+		"basis": "usage",
+		"url": "https://www.mux.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Mux is FFmpeg, a packager and a CDN behind a clean API, and the API really is the good part. You can rebuild the pipeline with FFmpeg and Shaka Packager in an afternoon; what you cannot rebuild in an afternoon is per-title encoding, instant playback and delivery at a price per GB you can survive. Self-hosting moves the bill from Mux to your CDN, it does not delete it.",
+		"fr": "Mux, c’est FFmpeg, un empaqueteur et un CDN derrière une API propre, et l’API est vraiment la bonne partie. On reconstruit le pipeline avec FFmpeg et Shaka Packager en une après-midi ; ce qu’on ne reconstruit pas en une après-midi, c’est l’encodage par titre, la lecture immédiate et un coût au Go tenable. S’auto-héberger déplace la facture de Mux vers votre CDN, ça ne la supprime pas."
+	},
+	"whatYouLose": [
+		{
+			"en": "The whole CDN",
+			"fr": "Tout le CDN"
+		},
+		{
+			"en": "Per-title encoding ladders",
+			"fr": "Échelles d’encodage par titre"
+		},
+		{
+			"en": "Playback quality analytics",
+			"fr": "Analyses de qualité de lecture"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "FFmpeg",
+			"source": {
+				"host": "forgejo",
+				"path": "FFmpeg/FFmpeg",
+				"url": "https://code.ffmpeg.org/FFmpeg/FFmpeg"
+			},
+			"license": "LGPL-2.1 / GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Every commercial encoder is this with a UI on top. Licensing depends on which build flags you use — GPL if you enable x264.",
+				"fr": "Tout encodeur commercial, c’est ça avec une interface par-dessus. La licence dépend des options de compilation — GPL dès que vous activez x264."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Shaka Packager",
+			"source": {
+				"host": "github",
+				"path": "shaka-project/shaka-packager",
+				"url": "https://github.com/shaka-project/shaka-packager"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "ops",
+			"note": {
+				"en": "Google's DASH and HLS packager with CENC encryption. The piece people forget they need until DRM comes up.",
+				"fr": "L’empaqueteur DASH et HLS de Google avec chiffrement CENC. La pièce qu’on oublie jusqu’au jour où le DRM arrive."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Livepeer",
+			"source": {
+				"host": "github",
+				"path": "livepeer/go-livepeer",
+				"url": "https://github.com/livepeer/go-livepeer"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Decentralised transcoding network — genuinely cheaper per minute than cloud encoders. Paying for it involves crypto, which is a real operational cost of its own.",
+				"fr": "Réseau de transcodage décentralisé — réellement moins cher à la minute que les encodeurs cloud. Le paiement passe par la crypto, ce qui est un vrai coût opérationnel en soi."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Bunny Stream",
+			"url": "https://bunny.net/stream/",
+			"priceMonthly": 5,
+			"note": {
+				"en": "Encoding, storage, player and CDN at a fraction of Mux's per-minute rates. Thinner API, thinner analytics, smaller company.",
+				"fr": "Encodage, stockage, lecteur et CDN à une fraction des tarifs de Mux. API plus limitée, statistiques plus limitées, société plus petite."
+			}
+		}
+	],
+	"priority": 3
+}

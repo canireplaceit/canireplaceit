@@ -1,0 +1,111 @@
+{
+	"slug": "zoominfo",
+	"name": "ZoomInfo",
+	"domain": "zoominfo.com",
+	"category": "sales-outreach-data",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "not-yet",
+	"why": {
+		"en": "This is the purest example on the whole site of a product that is not software. ZoomInfo is a contact database plus intent signals bought from publisher networks, sold on a contract with real legal indemnity. There is no open source version and there cannot be one — scraping LinkedIn yourself is not a strategy, it is a lawsuit.",
+		"fr": "C’est l’exemple le plus pur de tout le site d’un produit qui n’est pas du logiciel. ZoomInfo, c’est une base de contacts plus des signaux d’intention achetés à des réseaux d’éditeurs, vendus sous contrat avec une vraie garantie juridique. Il n’existe pas de version open source et il ne peut pas y en avoir — scraper LinkedIn soi-même n’est pas une stratégie, c’est un procès."
+	},
+	"whatYouLose": [
+		{
+			"en": "Direct dials and verified mobiles",
+			"fr": "Lignes directes et mobiles vérifiés"
+		},
+		{
+			"en": "Org charts and firmographics",
+			"fr": "Organigrammes et données firmographiques"
+		},
+		{
+			"en": "Intent data",
+			"fr": "Données d’intention"
+		},
+		{
+			"en": "Contractual GDPR/CCPA cover",
+			"fr": "Couverture contractuelle RGPD/CCPA"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "SpiderFoot",
+			"source": {
+				"host": "github",
+				"path": "smicallef/spiderfoot",
+				"url": "https://github.com/smicallef/spiderfoot"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "OSINT automation over 200+ sources. It will find what is publicly published about a company; it will not hand you a verified mobile number for a VP of Engineering.",
+				"fr": "Automatisation OSINT sur plus de 200 sources. Il trouvera ce qui est publié publiquement sur une entreprise ; il ne vous donnera pas le mobile vérifié d’un directeur technique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "email-verifier",
+			"source": {
+				"host": "github",
+				"path": "AfterShip/email-verifier",
+				"url": "https://github.com/AfterShip/email-verifier"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Verifies addresses you already have — syntax, MX, disposable, catch-all. Verification is the one part of this category that is genuinely open.",
+				"fr": "Vérifie les adresses que vous avez déjà — syntaxe, MX, jetables, catch-all. La vérification est la seule partie réellement ouverte de cette catégorie."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "check-if-email-exists",
+			"source": {
+				"host": "github",
+				"path": "reacherhq/check-if-email-exists",
+				"url": "https://github.com/reacherhq/check-if-email-exists"
+			},
+			"license": "AGPL-3.0 or commercial",
+			"effort": "docker",
+			"note": {
+				"en": "SMTP-level verification without sending. Closed-source use needs the commercial licence, and you will need clean IPs to avoid being blocked.",
+				"fr": "Vérification au niveau SMTP sans envoyer. Un usage propriétaire exige la licence commerciale, et il vous faudra des IP propres pour ne pas être bloqué."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Closed-source use needs the commercial licence, and Reacher's clean IP pool is a paid service",
+					"fr": "Un usage propriétaire exige la licence commerciale, et le pool d’IP propres de Reacher est un service payant"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Apollo.io",
+			"url": "https://www.apollo.io",
+			"priceMonthly": 49,
+			"note": {
+				"en": "A tenth of a ZoomInfo contract for a database that is good enough for most mid-market prospecting. Weaker phone data, thinner intent, less legal cover.",
+				"fr": "Un dixième d’un contrat ZoomInfo pour une base suffisante pour la plupart des prospections mid-market. Données téléphoniques plus faibles, intention plus mince, moins de couverture juridique."
+			}
+		}
+	],
+	"priority": 5
+}

@@ -1,0 +1,107 @@
+{
+	"slug": "hubspot",
+	"name": "HubSpot",
+	"domain": "hubspot.com",
+	"category": "crm",
+	"priceMonthly": 20,
+	"pricing": {
+		"plan": "Marketing Hub Starter, per seat, annual commit (page also shows 'starts at $7/mo/seat' monthly promo)",
+		"basis": "per-seat",
+		"url": "https://www.hubspot.com/pricing/marketing/starter",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "CRM core is replaceable. The bundled marketing, sequences and reporting are where the price actually goes.",
+		"fr": "Le cœur CRM est remplaçable. Ce sont le marketing intégré, les séquences et les rapports qui justifient la facture."
+	},
+	"whatYouLose": [
+		{
+			"en": "Marketing automation",
+			"fr": "Automatisation marketing"
+		},
+		{
+			"en": "Email sequences",
+			"fr": "Séquences d’e-mails"
+		},
+		{
+			"en": "Out-of-the-box reporting",
+			"fr": "Rapports clés en main"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Twenty",
+			"source": {
+				"host": "github",
+				"path": "twentyhq/twenty",
+				"url": "https://github.com/twentyhq/twenty"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Modern, fast-moving, Notion-like feel.",
+				"fr": "Moderne, évolue vite, sensation à la Notion."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO/SAML and row-level permissions",
+					"fr": "SSO/SAML et permissions par ligne"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "EspoCRM",
+			"source": {
+				"host": "github",
+				"path": "espocrm/espocrm",
+				"url": "https://github.com/espocrm/espocrm"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Boring and complete.",
+				"fr": "Ennuyeux et complet."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Reports, workflows, sales and VoIP packs",
+					"fr": "Rapports, automatisation, packs ventes et VoIP"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SuiteCRM",
+			"source": {
+				"host": "github",
+				"path": "salesagility/SuiteCRM",
+				"url": "https://github.com/salesagility/SuiteCRM"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Salesforce-shaped, enterprise features.",
+				"fr": "Façon Salesforce, fonctionnalités entreprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

@@ -1,0 +1,124 @@
+{
+	"slug": "day-one",
+	"name": "Day One",
+	"domain": "dayoneapp.com",
+	"category": "notes-docs",
+	"priceMonthly": 4.17,
+	"pricing": {
+		"plan": "Silver, billed annually ($49.99/yr; no monthly option)",
+		"basis": "per-seat",
+		"url": "https://dayoneapp.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "A journal is the one kind of file you most want to still be able to open in thirty years, and Day One is now owned by Automattic and syncs through their servers. jrnl and Joplin keep the same entries in files you control — but neither will nudge you at 9pm, and a journal you do not write is worth nothing.",
+		"fr": "Un journal est précisément le type de fichier que vous voudrez encore pouvoir ouvrir dans trente ans, et Day One appartient désormais à Automattic et se synchronise via leurs serveurs. jrnl et Joplin gardent les mêmes entrées dans des fichiers que vous contrôlez — mais aucun ne vous relancera à 21 h, et un journal qu’on n’écrit pas ne vaut rien."
+	},
+	"whatYouLose": [
+		{
+			"en": "On This Day and reminders",
+			"fr": "Rappel « ce jour-là » et notifications"
+		},
+		{
+			"en": "Automatic location, weather and photos",
+			"fr": "Lieu, météo et photos automatiques"
+		},
+		{
+			"en": "Printed books from your entries",
+			"fr": "Livres imprimés depuis vos entrées"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "jrnl",
+			"source": {
+				"host": "github",
+				"path": "jrnl-org/jrnl",
+				"url": "https://github.com/jrnl-org/jrnl"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "A journal in a plain text file, encrypted if you want, driven from the terminal. It will still open in thirty years.",
+				"fr": "Un journal dans un fichier texte, chiffré si vous voulez, piloté depuis le terminal. Il s’ouvrira encore dans trente ans."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Joplin",
+			"source": {
+				"host": "github",
+				"path": "laurent22/joplin",
+				"url": "https://github.com/laurent22/joplin"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The important detail: sync is not a paid service. Point it at WebDAV, S3, Dropbox or a folder and cross-device sync costs nothing. Joplin Cloud exists but is optional.",
+				"fr": "Le détail important : la synchro n’est pas un service payant. Pointez-la vers WebDAV, S3, Dropbox ou un dossier et la synchro multi-appareils ne coûte rien. Joplin Cloud existe mais reste facultatif."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Memos",
+			"source": {
+				"host": "github",
+				"path": "usememos/memos",
+				"url": "https://github.com/usememos/memos"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "A self-hosted stream of short notes — the Twitter-shaped end of note-taking. One Go binary, MIT, no account anywhere else.",
+				"fr": "Un flux auto-hébergé de notes courtes, l’extrémité façon Twitter de la prise de notes. Un binaire Go, MIT, aucun compte ailleurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Standard Notes",
+			"source": {
+				"host": "github",
+				"path": "standardnotes/app",
+				"url": "https://github.com/standardnotes/app"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Encrypted sync across unlimited devices really is free, but editors, themes, attachments and version history are subscription features — and self-hosting the server still requires buying an offline subscription to unlock them.",
+				"fr": "La synchro chiffrée sur un nombre illimité d’appareils est bien gratuite, mais éditeurs, thèmes, pièces jointes et historique de versions sont des fonctions d’abonnement, et auto-héberger le serveur exige encore d’acheter un abonnement hors ligne pour les débloquer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Rich editors, themes, attachments and version history — even on your own server",
+					"fr": "Éditeurs riches, thèmes, pièces jointes et historique de versions, même sur votre propre serveur"
+				},
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

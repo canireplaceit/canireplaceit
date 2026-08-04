@@ -1,0 +1,101 @@
+{
+	"slug": "geotab",
+	"name": "Geotab",
+	"domain": "geotab.com",
+	"category": "shipping-logistics",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "Geotab sells a small OBD device, a data pipeline and a marketplace, priced per vehicle through resellers. Unlike the ELD-heavy vendors, plenty of fleets use it purely for location and engine data — and that part Traccar does as well, on hardware you buy outright.",
+		"fr": "Geotab vend un petit boîtier OBD, un pipeline de données et une place de marché, facturés par véhicule via des revendeurs. Contrairement aux fournisseurs centrés ELD, beaucoup de flottes s’en servent uniquement pour la position et les données moteur — et cette partie, Traccar la fait aussi, sur du matériel que vous achetez."
+	},
+	"whatYouLose": [
+		{
+			"en": "Engine fault-code decoding",
+			"fr": "Décodage des codes défaut moteur"
+		},
+		{
+			"en": "Marketplace of add-ons",
+			"fr": "Place de marché de modules"
+		},
+		{
+			"en": "Reseller support",
+			"fr": "Support par revendeur"
+		},
+		{
+			"en": "Compliance reporting packs",
+			"fr": "Packs de rapports réglementaires"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Traccar",
+			"source": {
+				"host": "github",
+				"path": "traccar/traccar",
+				"url": "https://github.com/traccar/traccar"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Apache-2.0, no paid edition, and it already parses most Chinese and Teltonika trackers. Reports and geofencing included.",
+				"fr": "Apache-2.0, sans édition payante, et il décode déjà la plupart des traceurs chinois et Teltonika. Rapports et géorepérage inclus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Fleetbase",
+			"source": {
+				"host": "github",
+				"path": "fleetbase/fleetbase",
+				"url": "https://github.com/fleetbase/fleetbase"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Adds dispatch, driver app and customer-facing tracking on top, if you move goods rather than just watch vans.",
+				"fr": "Ajoute par-dessus la répartition, l’app conducteur et le suivi client, si vous transportez des marchandises plutôt que de surveiller des camionnettes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Some marketplace extensions and the hosted console are paid",
+					"fr": "Certaines extensions du marketplace et la console hébergée sont payantes"
+				},
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LubeLogger",
+			"source": {
+				"host": "github",
+				"path": "hargata/lubelog",
+				"url": "https://github.com/hargata/lubelog"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Preventive maintenance scheduling per vehicle, which is the report fleets actually open every week.",
+				"fr": "Planification de l’entretien préventif par véhicule, c’est le rapport que les flottes ouvrent réellement chaque semaine."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

@@ -1,0 +1,109 @@
+{
+	"slug": "nextdns",
+	"name": "NextDNS",
+	"domain": "nextdns.io",
+	"category": "networking-vpn",
+	"priceMonthly": 1.99,
+	"pricing": {
+		"plan": "Pro",
+		"basis": "flat",
+		"url": "https://nextdns.io/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "NextDNS is hosted Pi-hole with anycast in front. Self-hosting the filtering is trivial and gives you better logs; what breaks is the phone that leaves the house, because a DoH endpoint on the public internet with your name on it is a very different security exercise.",
+		"fr": "NextDNS, c’est un Pi-hole hébergé avec de l’anycast devant. Auto-héberger le filtrage est trivial et vous donne de meilleurs journaux ; ce qui casse, c’est le téléphone qui quitte la maison, car un point de terminaison DoH exposé sur internet à votre nom est un tout autre exercice de sécurité."
+	},
+	"whatYouLose": [
+		{
+			"en": "Filtering off your network",
+			"fr": "Filtrage hors de votre réseau"
+		},
+		{
+			"en": "Anycast resolvers",
+			"fr": "Résolveurs anycast"
+		},
+		{
+			"en": "Curated blocklists, maintained",
+			"fr": "Listes de blocage entretenues"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "AdGuard Home",
+			"source": {
+				"host": "github",
+				"path": "AdguardTeam/AdGuardHome",
+				"url": "https://github.com/AdguardTeam/AdGuardHome"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The nearest match: DoH/DoT/DoQ server, per-client rules, parental filters and query log, in one Go binary. Ships everything NextDNS charges for.",
+				"fr": "La correspondance la plus proche : serveur DoH/DoT/DoQ, règles par client, filtres parentaux et journal des requêtes, dans un seul binaire Go. Fournit tout ce que NextDNS facture."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pi-hole",
+			"source": {
+				"host": "github",
+				"path": "pi-hole/pi-hole",
+				"url": "https://github.com/pi-hole/pi-hole"
+			},
+			"license": "EUPL-1.2",
+			"effort": "docker",
+			"note": {
+				"en": "The one everyone has heard of. Note the licence is the European Union Public Licence, not GPL — copyleft, but an unusual flavour to have in your stack.",
+				"fr": "Celui que tout le monde connaît. Notez que la licence est l’European Union Public Licence, pas la GPL — du copyleft, mais une variante inhabituelle à avoir dans sa pile."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "blocky",
+			"source": {
+				"host": "github",
+				"path": "0xERR0R/blocky",
+				"url": "https://github.com/0xERR0R/blocky"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Config-file DNS blocker with upstream failover and Prometheus metrics. No web UI by design, which is why it never breaks.",
+				"fr": "Bloqueur DNS piloté par fichier de configuration, avec bascule d’amont et métriques Prometheus. Pas d’interface web par choix, ce qui explique qu’il ne casse jamais."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Control D",
+			"url": "https://controld.com/pricing",
+			"priceMonthly": 2,
+			"note": {
+				"en": "Same shape as NextDNS with more granular per-device profiles. Still someone else seeing every domain you resolve.",
+				"fr": "Même forme que NextDNS avec des profils par appareil plus fins. Toujours quelqu’un d’autre qui voit chaque domaine que vous résolvez."
+			}
+		}
+	],
+	"priority": 3
+}

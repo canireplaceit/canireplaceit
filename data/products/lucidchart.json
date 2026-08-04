@@ -1,0 +1,92 @@
+{
+	"slug": "lucidchart",
+	"name": "Lucidchart",
+	"domain": "lucidchart.com",
+	"category": "diagramming-whiteboards",
+	"priceMonthly": 9,
+	"pricing": {
+		"plan": "Individual, monthly",
+		"basis": "per-seat",
+		"url": "https://lucid.app/pricing/lucidchart",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "draw.io is the same product without the seat count — it even reads and writes the same kinds of files, runs offline as a desktop app, and stores diagrams in your own Drive or Confluence. This is one of the cleanest swaps on the whole site.",
+		"fr": "draw.io est le même produit sans le décompte d’utilisateurs — il lit et écrit les mêmes types de fichiers, fonctionne hors ligne en application de bureau, et stocke les diagrammes dans votre propre Drive ou Confluence. C’est l’un des remplacements les plus nets de tout le site."
+	},
+	"whatYouLose": [
+		{
+			"en": "Real-time multi-cursor editing",
+			"fr": "Édition multi-curseur en temps réel"
+		},
+		{
+			"en": "Data-linked diagrams",
+			"fr": "Diagrammes liés à des données"
+		},
+		{
+			"en": "Enterprise admin and audit",
+			"fr": "Administration et audit d’entreprise"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "draw.io",
+			"source": {
+				"host": "github",
+				"path": "jgraph/drawio",
+				"url": "https://github.com/jgraph/drawio"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Apache-2.0 all the way through, with a desktop build, a Confluence plugin and no upsell inside the app. Collaboration is weaker than Lucid's.",
+				"fr": "Apache-2.0 de bout en bout, avec une version bureau, un plugin Confluence et aucune incitation à l’achat dans l’application. La collaboration est plus faible que chez Lucid."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Excalidraw",
+			"source": {
+				"host": "github",
+				"path": "excalidraw/excalidraw",
+				"url": "https://github.com/excalidraw/excalidraw"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Better for the sketchy architecture diagram you throw at a wall. Not a shape-library tool.",
+				"fr": "Meilleur pour le schéma d’architecture griffonné qu’on jette au mur. Ce n’est pas un outil à bibliothèques de formes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Persistent cloud workspaces, team libraries and SSO in Excalidraw+",
+					"fr": "Les espaces cloud persistants, les bibliothèques d’équipe et le SSO dans Excalidraw+"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Creately",
+			"url": "https://creately.com/pricing/",
+			"priceMonthly": 5,
+			"note": {
+				"en": "Roughly half the price with a comparable shape library and live collaboration. Smaller company, smaller ecosystem.",
+				"fr": "Environ deux fois moins cher avec une bibliothèque de formes comparable et de la collaboration en direct. Société plus petite, écosystème plus restreint."
+			}
+		}
+	],
+	"priority": 4
+}

@@ -1,0 +1,76 @@
+{
+	"slug": "posit-workbench",
+	"name": "Posit Workbench",
+	"domain": "posit.co",
+	"category": "scientific-computing",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "RStudio Server Open Source is the same IDE under AGPL. Workbench adds concurrent sessions per user, load balancing, admin controls and SSO — the SSO tax in its purest form, since a university will not deploy without SAML.",
+		"fr": "RStudio Server Open Source, c’est le même IDE sous AGPL. Workbench ajoute les sessions simultanées par utilisateur, la répartition de charge, l’administration et le SSO — la taxe SSO à l’état pur, puisqu’une université ne déploiera pas sans SAML."
+	},
+	"whatYouLose": [
+		{
+			"en": "SAML/OIDC single sign-on",
+			"fr": "Authentification unique SAML/OIDC"
+		},
+		{
+			"en": "Concurrent sessions and load balancing",
+			"fr": "Sessions simultanées et répartition de charge"
+		},
+		{
+			"en": "VS Code and Jupyter session types",
+			"fr": "Sessions VS Code et Jupyter"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "RStudio Server Open Source",
+			"source": {
+				"host": "github",
+				"path": "rstudio/rstudio",
+				"url": "https://github.com/rstudio/rstudio"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "The identical editor, one session per user, no SSO, no admin dashboard. Posit's own Positron IDE is not an escape hatch — it ships under a proprietary EULA, not an open source licence.",
+				"fr": "Le même éditeur, une session par utilisateur, pas de SSO, pas de tableau de bord d’administration. Positron, l’autre IDE de Posit, n’est pas une échappatoire : il est distribué sous un CLUF propriétaire, pas une licence open source."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "SSO, concurrent sessions, load balancing, admin tools",
+					"fr": "SSO, sessions simultanées, répartition de charge, outils d’administration"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "JupyterHub",
+			"source": {
+				"host": "github",
+				"path": "jupyterhub/jupyterhub",
+				"url": "https://github.com/jupyterhub/jupyterhub"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "ops",
+			"note": {
+				"en": "If the requirement is really 'multi-user sessions behind campus SSO', this does it for free and speaks R through IRkernel.",
+				"fr": "Si le besoin réel est « des sessions multi-utilisateurs derrière le SSO du campus », il le fait gratuitement et parle R via IRkernel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

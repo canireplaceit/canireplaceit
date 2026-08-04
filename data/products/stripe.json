@@ -1,0 +1,97 @@
+{
+	"slug": "stripe",
+	"name": "Stripe",
+	"domain": "stripe.com",
+	"category": "payments",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "not-yet",
+	"why": {
+		"en": "You cannot self-host a banking license. Nothing on this list is less replaceable.",
+		"fr": "On n’auto-héberge pas une licence bancaire. Rien sur cette liste n’est moins remplaçable."
+	},
+	"whatYouLose": [
+		{
+			"en": "Card processing",
+			"fr": "Traitement des cartes"
+		},
+		{
+			"en": "Fraud detection (Radar)",
+			"fr": "Détection de fraude (Radar)"
+		},
+		{
+			"en": "Global payouts and compliance",
+			"fr": "Versements et conformité à l’international"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "BTCPay Server",
+			"source": {
+				"host": "github",
+				"path": "btcpayserver/btcpayserver",
+				"url": "https://github.com/btcpayserver/btcpayserver"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Crypto only. Different business.",
+				"fr": "Crypto uniquement. Un autre métier."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Lago",
+			"source": {
+				"host": "github",
+				"path": "getlago/lago",
+				"url": "https://github.com/getlago/lago"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Replaces Stripe *Billing*, not the processing.",
+				"fr": "Remplace Stripe *Billing*, pas le traitement des paiements."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO, multi-entity, dunning, revenue analytics",
+					"fr": "SSO, multi-entité, relances, analytique des revenus"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Killbill",
+			"source": {
+				"host": "github",
+				"path": "killbill/killbill",
+				"url": "https://github.com/killbill/killbill"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Enterprise subscription billing engine.",
+				"fr": "Moteur de facturation par abonnement, niveau entreprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}
