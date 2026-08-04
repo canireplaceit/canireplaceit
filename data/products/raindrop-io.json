@@ -1,0 +1,120 @@
+{
+	"slug": "raindrop-io",
+	"name": "Raindrop.io",
+	"domain": "raindrop.io",
+	"category": "personal-media-libraries",
+	"priceMonthly": 3,
+	"pricing": {
+		"plan": "Pro, billed monthly",
+		"basis": "per-seat",
+		"url": "https://raindrop.io/pro/buy",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Raindrop Pro sells permanent copies, full-text search and nested collections over bookmarks. linkding does the collections and the search in one small container, and ArchiveBox does permanent copies far more thoroughly than Raindrop ever will.",
+		"fr": "Raindrop Pro vend des copies permanentes, la recherche plein texte et des collections imbriquées sur vos marque-pages. linkding fait les collections et la recherche dans un seul petit conteneur, et ArchiveBox fait des copies permanentes bien plus complètes que Raindrop n’en fera jamais."
+	},
+	"whatYouLose": [
+		{
+			"en": "A genuinely lovely visual grid",
+			"fr": "Une grille visuelle vraiment réussie"
+		},
+		{
+			"en": "Browser extensions on everything",
+			"fr": "Extensions sur tous les navigateurs"
+		},
+		{
+			"en": "Collaborative collections",
+			"fr": "Collections collaboratives"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "linkding",
+			"source": {
+				"host": "github",
+				"path": "sissbruecker/linkding",
+				"url": "https://github.com/sissbruecker/linkding"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "A deliberately minimal bookmark manager: fast, tag-based, one container, and it imports a Pocket or Raindrop export in seconds.",
+				"fr": "Un gestionnaire de marque-pages volontairement minimal : rapide, par étiquettes, un seul conteneur, et il importe un export Pocket ou Raindrop en quelques secondes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Karakeep",
+			"source": {
+				"host": "github",
+				"path": "karakeep-app/karakeep",
+				"url": "https://github.com/karakeep-app/karakeep"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Bookmarks, highlights, full-page archiving and AI auto-tagging, pointed at your own model if you like. Formerly Hoarder.",
+				"fr": "Marque-pages, surlignages, archivage de pages complètes et étiquetage automatique par IA, pointé vers votre propre modèle si vous le souhaitez. Anciennement Hoarder."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Shiori",
+			"source": {
+				"host": "github",
+				"path": "go-shiori/shiori",
+				"url": "https://github.com/go-shiori/shiori"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "A single Go binary that saves pages with their content, CLI and web UI in one. The Pocket clone that fits on a Raspberry Pi.",
+				"fr": "Un binaire Go unique qui enregistre les pages avec leur contenu, CLI et interface web ensemble. Le clone de Pocket qui tient sur un Raspberry Pi."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ArchiveBox",
+			"source": {
+				"host": "github",
+				"path": "ArchiveBox/ArchiveBox",
+				"url": "https://github.com/ArchiveBox/ArchiveBox"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Not a reader, an archiver. It keeps HTML, PDF, screenshot and WARC of everything you save, so link rot stops mattering.",
+				"fr": "Pas un lecteur, un archiveur. Il conserve HTML, PDF, capture d’écran et WARC de tout ce que vous enregistrez, pour que la pourriture des liens cesse de compter."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

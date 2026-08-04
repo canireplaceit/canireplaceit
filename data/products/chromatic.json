@@ -1,0 +1,124 @@
+{
+	"slug": "chromatic",
+	"name": "Chromatic",
+	"domain": "chromatic.com",
+	"category": "testing-qa",
+	"priceMonthly": 179,
+	"pricing": {
+		"plan": "Starter",
+		"basis": "flat",
+		"url": "https://www.chromatic.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Storybook hosting and screenshot diffing are easy; the snapshot baseline management and review-and-approve workflow across branches is the actual product, and the free tools make you build it.",
+		"fr": "Héberger Storybook et comparer des captures est facile ; la gestion des références et le flux d’approbation entre branches sont le vrai produit, et les outils gratuits vous laissent le construire."
+	},
+	"whatYouLose": [
+		{
+			"en": "Baseline review workflow",
+			"fr": "Flux de revue des références"
+		},
+		{
+			"en": "Cross-browser snapshot grid",
+			"fr": "Grille de captures multi-navigateurs"
+		},
+		{
+			"en": "Hosted Storybook per PR",
+			"fr": "Storybook hébergé par PR"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Argos",
+			"source": {
+				"host": "github",
+				"path": "argos-ci/argos",
+				"url": "https://github.com/argos-ci/argos"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The closest open equivalent: visual review with baselines and PR checks, self-hostable, with a hosted plan if you would rather not.",
+				"fr": "L’équivalent ouvert le plus proche : revue visuelle avec références et checks de PR, auto-hébergeable, avec une offre hébergée si vous préférez."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "The hosted argos-ci.com plan, its build quota and priority support",
+					"fr": "L’offre hébergée argos-ci.com, son quota de builds et le support prioritaire"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Playwright",
+			"source": {
+				"host": "github",
+				"path": "microsoft/playwright",
+				"url": "https://github.com/microsoft/playwright"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "toHaveScreenshot() with committed baselines gets you visual regression testing for free — the diffs just live in git instead of a UI.",
+				"fr": "toHaveScreenshot() avec des références commitées vous donne le test de régression visuelle gratuitement — les diffs vivent dans git au lieu d’une interface."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "jest-image-snapshot",
+			"source": {
+				"host": "github",
+				"path": "americanexpress/jest-image-snapshot",
+				"url": "https://github.com/americanexpress/jest-image-snapshot"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The Jest-side classic. Small, boring, still works.",
+				"fr": "Le classique côté Jest. Petit, ennuyeux, toujours efficace."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Storybook test-runner",
+			"source": {
+				"host": "github",
+				"path": "storybookjs/test-runner",
+				"url": "https://github.com/storybookjs/test-runner"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Runs every story as a Playwright test in CI. Covers interaction and accessibility checks, not pixel diffs.",
+				"fr": "Exécute chaque story comme un test Playwright en CI. Couvre les tests d’interaction et d’accessibilité, pas les diffs de pixels."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

@@ -1,0 +1,99 @@
+{
+	"slug": "spotify",
+	"name": "Spotify",
+	"domain": "spotify.com",
+	"category": "personal-media-libraries",
+	"priceMonthly": 13,
+	"pricing": {
+		"plan": "Premium Individual, $12.99/mo",
+		"basis": "flat",
+		"url": "https://www.spotify.com/us/premium/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Navidrome will serve your library beautifully to any Subsonic client. But you have to own the music first, and Spotify's real product is a hundred-million-track licence plus discovery that works. Self-hosting replaces the player, not the catalogue.",
+		"fr": "Navidrome sert magnifiquement votre bibliothèque à n’importe quel client Subsonic. Mais encore faut-il posséder la musique, et le vrai produit de Spotify, c’est une licence sur cent millions de titres plus une découverte qui fonctionne. L’auto-hébergement remplace le lecteur, pas le catalogue."
+	},
+	"whatYouLose": [
+		{
+			"en": "The licensed catalogue itself",
+			"fr": "Le catalogue sous licence lui-même"
+		},
+		{
+			"en": "Discovery and weekly recommendations",
+			"fr": "Découverte et recommandations hebdomadaires"
+		},
+		{
+			"en": "Offline sync on every device",
+			"fr": "Synchro hors ligne sur tous les appareils"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Navidrome",
+			"source": {
+				"host": "github",
+				"path": "navidrome/navidrome",
+				"url": "https://github.com/navidrome/navidrome"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "One Go binary, scrobbles to Last.fm, works with every Subsonic app on every platform.",
+				"fr": "Un binaire Go, scrobbling vers Last.fm, compatible avec toutes les applications Subsonic sur toutes les plateformes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Music Assistant",
+			"source": {
+				"host": "github",
+				"path": "music-assistant/server",
+				"url": "https://github.com/music-assistant/server"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Aggregates local files and streaming accounts, then pushes to speakers. Pairs with Home Assistant.",
+				"fr": "Agrège fichiers locaux et comptes de streaming, puis diffuse vers les enceintes. S’associe à Home Assistant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Jellyfin",
+			"source": {
+				"host": "github",
+				"path": "jellyfin/jellyfin",
+				"url": "https://github.com/jellyfin/jellyfin"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Handles music too if you already run it for video. Weaker music experience than Navidrome.",
+				"fr": "Gère aussi la musique si vous l’utilisez déjà pour la vidéo. Expérience musicale moins bonne que Navidrome."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 5
+}

@@ -1,0 +1,111 @@
+{
+	"slug": "opentable",
+	"name": "OpenTable",
+	"domain": "opentable.com",
+	"category": "bookings-property-events",
+	"priceMonthly": 149,
+	"pricing": {
+		"plan": "Basic, plus per-cover fees (vendor page unreachable; figure from 2026 secondary sources)",
+		"basis": "flat",
+		"url": "https://www.opentable.com/restaurant-solutions/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "The subscription is not the cost — the per-cover fee for diners OpenTable sends you is. And that is the whole point: you are renting demand, not a booking form. Self-hosting the form is trivial and saves you nothing if the reservations were coming from their marketplace.",
+		"fr": "L’abonnement n’est pas le coût — c’est la commission par couvert pour les clients qu’OpenTable vous envoie. Et c’est tout l’enjeu : vous louez de la demande, pas un formulaire de réservation. Auto-héberger le formulaire est trivial et ne vous fait rien économiser si les réservations venaient de leur place de marché."
+	},
+	"whatYouLose": [
+		{
+			"en": "Diners from the OpenTable marketplace",
+			"fr": "Clients issus de la place de marché OpenTable"
+		},
+		{
+			"en": "Table-turn and pacing algorithms",
+			"fr": "Algorithmes de rotation et de cadencement"
+		},
+		{
+			"en": "No-show deposits and reviews",
+			"fr": "Acomptes anti-défection et avis"
+		},
+		{
+			"en": "Google and TripAdvisor booking links",
+			"fr": "Liens de réservation Google et TripAdvisor"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Easy!Appointments",
+			"source": {
+				"host": "github",
+				"path": "alextselegidis/easyappointments",
+				"url": "https://github.com/alextselegidis/easyappointments"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "A booking form with providers, services and working hours that you can put on your own site in an afternoon. GPL-3.0, nothing withheld.",
+				"fr": "Un formulaire de réservation avec prestataires, services et horaires, installable sur votre site en une après-midi. GPL-3.0, rien de retenu."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Cal.com",
+			"source": {
+				"host": "github",
+				"path": "calcom/cal.diy",
+				"url": "https://github.com/calcom/cal.diy"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Better looking, has payments and reminders, and the repo now lives at calcom/cal.diy after the rename. MIT core; some platform features need a licence key.",
+				"fr": "Plus joli, avec paiements et rappels, et le dépôt s’appelle désormais calcom/cal.diy après le renommage. Cœur MIT ; certaines fonctions plateforme exigent une clé de licence."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Some platform and enterprise features need a paid licence key",
+					"fr": "Certaines fonctions plateforme et entreprise exigent une clé de licence payante"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Odoo Community",
+			"source": {
+				"host": "github",
+				"path": "odoo/odoo",
+				"url": "https://github.com/odoo/odoo"
+			},
+			"license": "LGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Odoo's Appointments app does exactly this — and it is Enterprise-only, so Community means building it from Calendar and Website.",
+				"fr": "L’app Rendez-vous d’Odoo fait exactement cela — et elle est réservée à l’Enterprise, donc en Community il faut la reconstruire depuis Calendrier et Site web."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Full accounting, Studio, Barcode, Shop Floor, Field Service and Planning are Enterprise-only",
+					"fr": "La comptabilité complète, Studio, Code-barres, Atelier, Services sur site et Planification sont réservés à l’Enterprise"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

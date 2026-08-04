@@ -1,0 +1,102 @@
+{
+	"slug": "gumroad",
+	"name": "Gumroad",
+	"domain": "gumroad.com",
+	"category": "commerce-payments-ops",
+	"priceMonthly": 0,
+	"pricing": {
+		"plan": "No monthly fee; 10% + $0.50 per sale (30% via marketplace)",
+		"basis": "usage",
+		"url": "https://gumroad.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Gumroad open-sourced itself under MIT, so the question is settled on the software side. What you inherit is the boring part: you now handle EU VAT and US sales tax yourself, which was the actual reason to pay the 10%.",
+		"fr": "Gumroad a publié son propre code sous licence MIT : côté logiciel, le débat est clos. Ce que vous héritez, c’est la partie ingrate : la TVA européenne et les taxes de vente américaines deviennent votre problème — et c’était la vraie raison de payer les 10 %."
+	},
+	"whatYouLose": [
+		{
+			"en": "Merchant-of-record VAT handling",
+			"fr": "Gestion de la TVA en tant que vendeur officiel"
+		},
+		{
+			"en": "Gumroad's discovery and affiliate network",
+			"fr": "Réseau de découverte et d’affiliation de Gumroad"
+		},
+		{
+			"en": "Zero-maintenance hosting",
+			"fr": "Hébergement sans maintenance"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Gumroad",
+			"source": {
+				"host": "github",
+				"path": "antiwork/gumroad",
+				"url": "https://github.com/antiwork/gumroad"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "The literal product, open sourced. Heavy Rails app, not a weekend deploy.",
+				"fr": "Le produit lui-même, publié en open source. Grosse application Rails, pas un déploiement de week-end."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Bagisto",
+			"source": {
+				"host": "github",
+				"path": "bagisto/bagisto",
+				"url": "https://github.com/bagisto/bagisto"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Full Laravel storefront if you're selling more than digital files.",
+				"fr": "Boutique Laravel complète si vous vendez autre chose que des fichiers."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Marketplace, POS and premium extensions",
+					"fr": "Marketplace, POS et extensions premium"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Payhip",
+			"url": "https://payhip.com",
+			"priceMonthly": 29,
+			"note": {
+				"en": "Flat monthly with 0% fees, and it acts as merchant of record so VAT stays their problem. Far less polished storefront.",
+				"fr": "Forfait mensuel à 0 % de commission, et il agit comme vendeur officiel : la TVA reste leur problème. Boutique bien moins soignée."
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Ko-fi",
+			"url": "https://ko-fi.com",
+			"priceMonthly": 6,
+			"note": {
+				"en": "0% fees on the paid tier. Built for creators taking tips, not for a real product catalogue.",
+				"fr": "0 % de commission sur l’offre payante. Pensé pour les pourboires aux créateurs, pas pour un vrai catalogue produit."
+			}
+		}
+	],
+	"priority": 4
+}

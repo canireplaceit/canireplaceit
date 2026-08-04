@@ -1,0 +1,103 @@
+{
+	"slug": "discord-nitro",
+	"name": "Discord Nitro",
+	"domain": "discord.com",
+	"category": "social-dating",
+	"priceMonthly": 9.99,
+	"pricing": {
+		"plan": "Nitro ($2.99 for Nitro Basic)",
+		"basis": "flat",
+		"url": "https://discord.com/nitro",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Nitro sells bigger uploads, better streaming and emoji — cosmetics on top of a free service whose actual value is that everyone you game with is already there. Matrix and Stoat rebuild every feature and none of the people; that is the whole problem with replacing a social network.",
+		"fr": "Nitro vend des envois plus gros, un meilleur streaming et des émojis — du cosmétique par-dessus un service gratuit dont la vraie valeur est que tous ceux avec qui vous jouez y sont déjà. Matrix et Stoat reconstruisent toutes les fonctions et aucune des personnes ; c’est tout le problème du remplacement d’un réseau social."
+	},
+	"whatYouLose": [
+		{
+			"en": "Everyone you already talk to",
+			"fr": "Tous ceux à qui vous parlez déjà"
+		},
+		{
+			"en": "Screen share at 1080p60",
+			"fr": "Partage d’écran en 1080p60"
+		},
+		{
+			"en": "Custom emoji everywhere",
+			"fr": "Émojis personnalisés partout"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Element",
+			"source": {
+				"host": "github",
+				"path": "element-hq/element-web",
+				"url": "https://github.com/element-hq/element-web"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Matrix: federated, end-to-end encrypted, with voice and video rooms. Nothing is cosmetically gated because there is nothing to sell you.",
+				"fr": "Matrix : fédéré, chiffré de bout en bout, avec salons audio et vidéo. Rien n’est bloqué pour des raisons esthétiques, parce qu’il n’y a rien à vous vendre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Element's hosted server tiers and the enterprise admin suite",
+					"fr": "Les paliers de serveur hébergé d’Element et la suite d’administration entreprise"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Stoat",
+			"source": {
+				"host": "github",
+				"path": "stoatchat/stoatchat",
+				"url": "https://github.com/stoatchat/stoatchat"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The Discord-shaped one, formerly Revolt: servers, channels, roles, the same muscle memory. The repo was renamed from revoltchat/backend.",
+				"fr": "Celui qui a la forme de Discord, anciennement Revolt : serveurs, salons, rôles, les mêmes réflexes. Le dépôt a été renommé depuis revoltchat/backend."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mumble",
+			"source": {
+				"host": "github",
+				"path": "mumble-voip/mumble",
+				"url": "https://github.com/mumble-voip/mumble"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Low-latency voice chat for gaming, from before Discord existed. Still the best audio quality per kilobit, and a server costs nothing to run.",
+				"fr": "Chat vocal à faible latence pour le jeu, antérieur à Discord. Toujours la meilleure qualité audio par kilobit, et un serveur ne coûte rien à faire tourner."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

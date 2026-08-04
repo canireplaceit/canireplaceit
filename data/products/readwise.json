@@ -1,0 +1,120 @@
+{
+	"slug": "readwise",
+	"name": "Readwise",
+	"domain": "readwise.io",
+	"category": "personal-media-libraries",
+	"priceMonthly": 9.99,
+	"pricing": {
+		"plan": "Full access, annual billed monthly",
+		"basis": "per-seat",
+		"url": "https://readwise.io/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Readwise's value is the ingest: it pulls highlights out of Kindle, Apple Books, Instapaper and Twitter and puts them somewhere. Karakeep captures highlights you make yourself, but nothing open source scrapes your Kindle library, and the spaced-repetition review has no equivalent at all.",
+		"fr": "La valeur de Readwise, c’est l’ingestion : il extrait vos surlignages de Kindle, Apple Books, Instapaper et Twitter et les rassemble. Karakeep capture les surlignages que vous faites vous-même, mais rien en open source ne moissonne votre bibliothèque Kindle, et la révision espacée n’a aucun équivalent."
+	},
+	"whatYouLose": [
+		{
+			"en": "Automatic Kindle highlight import",
+			"fr": "Import automatique des surlignages Kindle"
+		},
+		{
+			"en": "Daily spaced-repetition review",
+			"fr": "Révision espacée quotidienne"
+		},
+		{
+			"en": "Sync into Obsidian and Notion",
+			"fr": "Synchro vers Obsidian et Notion"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Karakeep",
+			"source": {
+				"host": "github",
+				"path": "karakeep-app/karakeep",
+				"url": "https://github.com/karakeep-app/karakeep"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Bookmarks, highlights, full-page archiving and AI auto-tagging, pointed at your own model if you like. Formerly Hoarder.",
+				"fr": "Marque-pages, surlignages, archivage de pages complètes et étiquetage automatique par IA, pointé vers votre propre modèle si vous le souhaitez. Anciennement Hoarder."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "wallabag",
+			"source": {
+				"host": "github",
+				"path": "wallabag/wallabag",
+				"url": "https://github.com/wallabag/wallabag"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Article extraction, tagging, full-text search and epub export. There is a cheap hosted instance if you do not want a server.",
+				"fr": "Extraction d’articles, étiquetage, recherche plein texte et export epub. Une instance hébergée bon marché existe si vous ne voulez pas de serveur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "eu-option"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ArchiveBox",
+			"source": {
+				"host": "github",
+				"path": "ArchiveBox/ArchiveBox",
+				"url": "https://github.com/ArchiveBox/ArchiveBox"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Not a reader, an archiver. It keeps HTML, PDF, screenshot and WARC of everything you save, so link rot stops mattering.",
+				"fr": "Pas un lecteur, un archiveur. Il conserve HTML, PDF, capture d’écran et WARC de tout ce que vous enregistrez, pour que la pourriture des liens cesse de compter."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Memos",
+			"source": {
+				"host": "github",
+				"path": "usememos/memos",
+				"url": "https://github.com/usememos/memos"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "A self-hosted stream of short notes — the Twitter-shaped end of note-taking. One Go binary, MIT, no account anywhere else.",
+				"fr": "Un flux auto-hébergé de notes courtes, l’extrémité façon Twitter de la prise de notes. Un binaire Go, MIT, aucun compte ailleurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

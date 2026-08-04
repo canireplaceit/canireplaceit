@@ -1,0 +1,101 @@
+{
+	"slug": "sap-ariba",
+	"name": "SAP Ariba",
+	"domain": "sap.com",
+	"category": "procurement-suppliers",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "not-yet",
+	"why": {
+		"en": "Ariba is not software you are buying, it is membership of a trading network your customers or suppliers already mandate. If a large buyer told you to be on Ariba, no open source project resolves that. If you chose it yourself, an open ERP will run your procurement for a rounding error of the fee.",
+		"fr": "Ariba n’est pas un logiciel que l’on achète, c’est l’adhésion à un réseau d’échanges que vos clients ou fournisseurs imposent déjà. Si un grand donneur d’ordres vous a demandé d’être sur Ariba, aucun projet open source ne résout cela. Si vous l’avez choisi vous-même, un ERP open source gérera vos achats pour une fraction négligeable du coût."
+	},
+	"whatYouLose": [
+		{
+			"en": "Mandated network membership",
+			"fr": "Adhésion imposée au réseau"
+		},
+		{
+			"en": "Catalogue PunchOut with big suppliers",
+			"fr": "PunchOut catalogue avec les grands fournisseurs"
+		},
+		{
+			"en": "Deep SAP ERP integration",
+			"fr": "Intégration profonde avec SAP ERP"
+		},
+		{
+			"en": "Global tax and e-invoicing compliance",
+			"fr": "Conformité fiscale et facturation électronique mondiale"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "ERPNext",
+			"source": {
+				"host": "github",
+				"path": "frappe/erpnext",
+				"url": "https://github.com/frappe/erpnext"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "A full procure-to-pay chain you own, including supplier scorecards and quality inspections on receipt.",
+				"fr": "Une chaîne achat-jusqu’au-paiement complète qui vous appartient, avec évaluation fournisseurs et contrôles qualité à réception."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Odoo Community",
+			"source": {
+				"host": "github",
+				"path": "odoo/odoo",
+				"url": "https://github.com/odoo/odoo"
+			},
+			"license": "LGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Same shape, plus vendor portals via the website module. Advanced accounting sits behind Enterprise.",
+				"fr": "Même forme, avec en plus des portails fournisseurs via le module site web. La comptabilité avancée est derrière l’Enterprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Full accounting, Studio, Barcode, Shop Floor, Field Service and Planning are Enterprise-only",
+					"fr": "La comptabilité complète, Studio, Code-barres, Atelier, Services sur site et Planification sont réservés à l’Enterprise"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tryton",
+			"source": {
+				"host": "gitlab",
+				"path": "tryton/tryton",
+				"url": "https://foss.heptapod.net/tryton/tryton"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "For companies whose procurement genuinely is complex and who want the data model to be exact. Upstream lives on the project's own Mercurial/GitLab.",
+				"fr": "Pour les entreprises dont les achats sont réellement complexes et qui veulent un modèle de données exact. Le dépôt principal est le Mercurial/GitLab du projet."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

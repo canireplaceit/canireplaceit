@@ -1,0 +1,113 @@
+{
+	"slug": "hunter-io",
+	"name": "Hunter",
+	"domain": "hunter.io",
+	"category": "sales-outreach-data",
+	"priceMonthly": 49,
+	"pricing": {
+		"plan": "Starter, month-to-month (EUR 49; $34/mo billed annually)",
+		"basis": "flat",
+		"url": "https://hunter.io/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Hunter guesses email patterns from a domain and verifies them over SMTP. Both halves are genuinely reproducible with open source — this is one of the few data-shaped products where the method matters more than the corpus.",
+		"fr": "Hunter devine les schémas d’adresses d’un domaine et les vérifie via SMTP. Les deux moitiés sont réellement reproductibles en open source — c’est l’un des rares produits « données » où la méthode compte plus que le corpus."
+	},
+	"whatYouLose": [
+		{
+			"en": "The pattern database per domain",
+			"fr": "La base de schémas par domaine"
+		},
+		{
+			"en": "Clean IPs for SMTP verification",
+			"fr": "IP propres pour la vérification SMTP"
+		},
+		{
+			"en": "Confidence scores you can trust",
+			"fr": "Scores de confiance fiables"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "email-verifier",
+			"source": {
+				"host": "github",
+				"path": "AfterShip/email-verifier",
+				"url": "https://github.com/AfterShip/email-verifier"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "MIT, small, and does the verification part properly: syntax, MX, disposable, role and catch-all detection.",
+				"fr": "MIT, petit, et fait correctement la partie vérification : syntaxe, MX, jetables, adresses de rôle et catch-all."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "check-if-email-exists",
+			"source": {
+				"host": "github",
+				"path": "reacherhq/check-if-email-exists",
+				"url": "https://github.com/reacherhq/check-if-email-exists"
+			},
+			"license": "AGPL-3.0 or commercial",
+			"effort": "docker",
+			"note": {
+				"en": "The most accurate open verifier, with a caveat: it is dual-licensed, so closed-source commercial use needs a paid licence, and Gmail will block a residential IP quickly.",
+				"fr": "Le vérificateur ouvert le plus précis, avec une réserve : double licence, donc un usage commercial propriétaire exige une licence payante, et Gmail bloquera vite une IP résidentielle."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Closed-source use needs the commercial licence, and Reacher's clean IP pool is a paid service",
+					"fr": "Un usage propriétaire exige la licence commerciale, et le pool d’IP propres de Reacher est un service payant"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SpiderFoot",
+			"source": {
+				"host": "github",
+				"path": "smicallef/spiderfoot",
+				"url": "https://github.com/smicallef/spiderfoot"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Harvests published addresses from the open web, which is how the pattern gets inferred in the first place.",
+				"fr": "Récolte les adresses publiées sur le web ouvert, ce qui est la façon dont le schéma est déduit au départ."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Snov.io",
+			"url": "https://snov.io",
+			"priceMonthly": 39,
+			"note": {
+				"en": "Same job, cheaper credits, and it bundles sending. Accuracy is a notch below Hunter on European domains.",
+				"fr": "Même travail, crédits moins chers, et l’envoi est inclus. Précision un cran en dessous de Hunter sur les domaines européens."
+			}
+		}
+	],
+	"priority": 3
+}

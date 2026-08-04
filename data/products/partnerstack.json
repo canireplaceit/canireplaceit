@@ -1,0 +1,90 @@
+{
+	"slug": "partnerstack",
+	"name": "PartnerStack",
+	"domain": "partnerstack.com",
+	"category": "advertising-affiliate",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "not-yet",
+	"why": {
+		"en": "PartnerStack's pitch is its B2B SaaS partner network — agencies and resellers already inside the platform looking for products to push. That is a two-sided marketplace, and you cannot self-host one side of a marketplace.",
+		"fr": "L’argument de PartnerStack, c’est son réseau de partenaires SaaS B2B — des agences et revendeurs déjà présents sur la plateforme, en quête de produits à pousser. C’est une place de marché à deux faces, et on n’auto-héberge pas un seul côté d’une place de marché."
+	},
+	"whatYouLose": [
+		{
+			"en": "The existing partner network",
+			"fr": "Le réseau de partenaires existant"
+		},
+		{
+			"en": "Automated commission payouts",
+			"fr": "Versement automatisé des commissions"
+		},
+		{
+			"en": "Partner onboarding portal",
+			"fr": "Portail d’accueil des partenaires"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Dub",
+			"source": {
+				"host": "github",
+				"path": "dubinc/dub",
+				"url": "https://github.com/dubinc/dub"
+			},
+			"license": "AGPL-3.0 core, partner program under a commercial ee licence",
+			"effort": "docker",
+			"note": {
+				"en": "The closest thing to a self-hosted partner portal, with the caveat that the partner program code is exactly the commercially licensed part.",
+				"fr": "Ce qui se rapproche le plus d’un portail partenaires auto-hébergé, à ceci près que le code du programme partenaires est justement la partie sous licence commerciale."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "The whole partner and affiliate program, the admin app and parts of analytics sit under the commercial (ee) licence",
+					"fr": "Tout le programme partenaires/affiliation, l’app admin et une partie des statistiques sont sous licence commerciale (ee)"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Affiliates for WordPress",
+			"source": {
+				"host": "github",
+				"path": "itthinx/affiliates",
+				"url": "https://github.com/itthinx/affiliates"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Enough to track and report commissions if your partners are few and you pay them by hand.",
+				"fr": "Suffisant pour suivre et déclarer des commissions si vos partenaires sont peu nombreux et payés à la main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Tiers, coupon tracking and the payment integrations are in the paid Affiliates Pro/Enterprise editions",
+					"fr": "Les paliers, le suivi des coupons et les intégrations de paiement sont dans les éditions payantes Affiliates Pro/Enterprise"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Tolt",
+			"url": "https://tolt.com",
+			"priceMonthly": 49,
+			"note": {
+				"en": "A flat monthly fee instead of a cut of partner revenue, which is the whole difference. No marketplace, B2B SaaS only.",
+				"fr": "Un forfait mensuel au lieu d’un pourcentage du revenu partenaire, c’est toute la différence. Pas de place de marché, uniquement du SaaS B2B."
+			}
+		}
+	],
+	"priority": 2
+}

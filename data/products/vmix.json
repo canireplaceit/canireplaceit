@@ -1,0 +1,89 @@
+{
+	"slug": "vmix",
+	"name": "vMix",
+	"domain": "vmix.com",
+	"category": "live-streaming-broadcast",
+	"priceMonthly": null,
+	"pricing": {
+		"plan": "HD lifetime licence, $350 one-time (4K $700, Pro $1200)",
+		"basis": "one-time",
+		"url": "https://www.vmix.com/purchase/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "vMix is a one-off Windows licence, not a subscription, and OBS covers most of what a small production needs for nothing. Where vMix still wins is the boring broadcast plumbing: instant replay with multiple angles, real SDI and NDI capture card support, and a switcher that has been hammered on in live events for years. OBS gets there with plugins and a prayer.",
+		"fr": "vMix est une licence Windows achetée une fois, pas un abonnement, et OBS couvre gratuitement l’essentiel des besoins d’une petite production. Là où vMix garde l’avantage, c’est la plomberie broadcast ingrate : le ralenti multi-angles, la vraie prise en charge des cartes SDI et NDI, et une régie éprouvée en événementiel depuis des années. OBS y arrive à coups de plugins et de chance."
+	},
+	"whatYouLose": [
+		{
+			"en": "Instant replay",
+			"fr": "Ralenti instantané"
+		},
+		{
+			"en": "Deep SDI and NDI card support",
+			"fr": "Prise en charge poussée des cartes SDI et NDI"
+		},
+		{
+			"en": "A vendor to call mid-event",
+			"fr": "Un éditeur à appeler en plein direct"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "OBS Studio",
+			"source": {
+				"host": "github",
+				"path": "obsproject/obs-studio",
+				"url": "https://github.com/obsproject/obs-studio"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Free, cross-platform, and the plugin ecosystem covers NDI, replay buffers and Stream Deck control. Less predictable under live pressure.",
+				"fr": "Gratuit, multiplateforme, et l’écosystème de plugins couvre le NDI, les tampons de rediffusion et le contrôle Stream Deck. Moins prévisible sous la pression du direct."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CasparCG Server",
+			"source": {
+				"host": "github",
+				"path": "CasparCG/server",
+				"url": "https://github.com/CasparCG/server"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "The broadcast graphics and playout engine used by real television stations, driven over a socket. It is not a switcher and it expects you to build the control surface.",
+				"fr": "Le moteur d’habillage et de diffusion utilisé par de vraies chaînes de télévision, piloté par socket. Ce n’est pas une régie et il attend que vous construisiez la surface de contrôle."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Blackmagic ATEM Mini",
+			"url": "https://www.blackmagicdesign.com/products/atemmini",
+			"priceMonthly": null,
+			"priceOnce": 349,
+			"note": {
+				"en": "Hardware, not software: a few hundred dollars once, and switching stops depending on your PC. Fixed input count and no software scene graph.",
+				"fr": "Du matériel, pas du logiciel : quelques centaines d’euros une fois, et la commutation ne dépend plus de votre PC. Nombre d’entrées figé et pas de scènes logicielles."
+			}
+		}
+	],
+	"priority": 2
+}

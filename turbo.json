@@ -1,0 +1,57 @@
+{
+	"$schema": "https://turbo.build/schema.json",
+	"globalEnv": [
+		"SITE_URL",
+		"DATABASE_URL"
+	],
+	"globalPassThroughEnv": [
+		"GITHUB_TOKEN",
+		"GITLAB_TOKEN",
+		"REFRESH",
+		"ONLY"
+	],
+	"tasks": {
+		"dev": {
+			"cache": false,
+			"persistent": true,
+			"env": [
+				"PUBLIC_API_URL",
+				"PUBLIC_UMAMI_WEBSITE_ID",
+				"PUBLIC_UMAMI_SRC",
+				"NODE_ENV"
+			]
+		},
+		"build": {
+			"dependsOn": [
+				"^build"
+			],
+			"outputs": [
+				"dist/**",
+				"build/**"
+			],
+			"env": [
+				"PUBLIC_API_URL",
+				"PUBLIC_UMAMI_WEBSITE_ID",
+				"PUBLIC_UMAMI_SRC",
+				"NODE_ENV"
+			]
+		},
+		"check": {
+			"cache": false
+		},
+		"typecheck": {
+			"dependsOn": [
+				"^build"
+			]
+		},
+		"db:generate": {
+			"cache": false
+		},
+		"db:push": {
+			"cache": false
+		},
+		"db:seed": {
+			"cache": false
+		}
+	}
+}

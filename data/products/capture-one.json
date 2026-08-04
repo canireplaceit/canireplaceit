@@ -1,0 +1,88 @@
+{
+	"slug": "capture-one",
+	"name": "Capture One Pro",
+	"domain": "captureone.com",
+	"category": "creative-studio",
+	"priceMonthly": 18,
+	"pricing": {
+		"plan": "Pro subscription (USD 18.00/mo listed); perpetual Pro licence USD 349 one-time",
+		"basis": "per-seat",
+		"url": "https://www.captureone.com/en/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Capture One is bought for two things: tethered shooting that does not drop frames, and colour that studio photographers trust straight out of the box. darktable matches it on raw processing and loses badly on tethering.",
+		"fr": "On achète Capture One pour deux choses : une prise de vue connectée qui ne perd pas d’images, et des couleurs auxquelles les photographes de studio se fient d’emblée. darktable l’égale sur le développement raw et perd nettement sur la prise de vue connectée."
+	},
+	"whatYouLose": [
+		{
+			"en": "Reliable tethered capture",
+			"fr": "Prise de vue connectée fiable"
+		},
+		{
+			"en": "Camera colour profiles out of the box",
+			"fr": "Profils colorimétriques prêts à l’emploi"
+		},
+		{
+			"en": "Layered local adjustments speed",
+			"fr": "Rapidité des retouches locales par calques"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "darktable",
+			"source": {
+				"host": "github",
+				"path": "darktable-org/darktable",
+				"url": "https://github.com/darktable-org/darktable"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Scene-referred processing, parametric masks and a full catalogue, entirely offline. Tethering exists via gPhoto2 and is fragile.",
+				"fr": "Traitement en référence scène, masques paramétriques et un catalogue complet, entièrement hors ligne. La prise de vue connectée passe par gPhoto2 et reste fragile."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "RawTherapee",
+			"source": {
+				"host": "github",
+				"path": "RawTherapee/RawTherapee",
+				"url": "https://github.com/RawTherapee/RawTherapee"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The best demosaicing and detail recovery in open source. No tethering and weak library management.",
+				"fr": "Le meilleur dématriçage et la meilleure récupération de détails en open source. Pas de prise de vue connectée et une gestion de bibliothèque faible."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "DxO PhotoLab",
+			"url": "https://www.dxo.com/dxo-photolab/",
+			"priceMonthly": 0,
+			"note": {
+				"en": "A perpetual licence with the best noise reduction and optical corrections on the market. No tethering, no real DAM.",
+				"fr": "Une licence perpétuelle avec le meilleur débruitage et les meilleures corrections optiques du marché. Ni prise de vue connectée, ni vrai DAM."
+			}
+		}
+	],
+	"priority": 3
+}

@@ -1,0 +1,99 @@
+{
+	"slug": "virtual-desktop",
+	"name": "Virtual Desktop",
+	"domain": "vrdesktop.net",
+	"category": "vr-ar",
+	"priceMonthly": null,
+	"pricing": {
+		"plan": "Virtual Desktop, $24.99 one-time store purchase",
+		"basis": "one-time",
+		"url": "https://store.steampowered.com/app/382110/Virtual_Desktop/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Virtual Desktop is a one-off store purchase, and ALVR does the same job for nothing: wireless PC VR over your own Wi-Fi with hardware encoding. The reason people still buy it is polish — VDXR and the streamer are more reliable across headset firmware updates, and ALVR occasionally needs an evening of tinkering after one.",
+		"fr": "Virtual Desktop est un achat unique en boutique, et ALVR fait la même chose gratuitement : PC VR sans fil sur votre propre Wi-Fi avec encodage matériel. Si les gens continuent d’acheter, c’est pour la finition — VDXR et son streamer résistent mieux aux mises à jour de firmware, là où ALVR demande parfois une soirée de bricolage après l’une d’elles."
+	},
+	"whatYouLose": [
+		{
+			"en": "Reliability across firmware updates",
+			"fr": "Fiabilité au fil des mises à jour de firmware"
+		},
+		{
+			"en": "Store install and support",
+			"fr": "Installation en boutique et support"
+		},
+		{
+			"en": "Polished desktop and media modes",
+			"fr": "Modes bureau et média soignés"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "ALVR",
+			"source": {
+				"host": "github",
+				"path": "alvr-org/ALVR",
+				"url": "https://github.com/alvr-org/ALVR"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Wireless PC VR streaming to standalone headsets, with foveated encoding and latency tuning. Free, and the settings go deeper than the paid app's.",
+				"fr": "Streaming PC VR sans fil vers les casques autonomes, avec encodage fovéal et réglage de la latence. Gratuit, et les réglages vont plus loin que ceux de l’application payante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "WiVRn",
+			"source": {
+				"host": "github",
+				"path": "WiVRn/WiVRn",
+				"url": "https://github.com/WiVRn/WiVRn"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The Linux-first option, built on the Monado OpenXR runtime. Now the default choice on a Linux host; less mature on Windows.",
+				"fr": "L’option pensée pour Linux, bâtie sur le runtime OpenXR Monado. Devenu le choix par défaut sur un hôte Linux ; moins mûr sous Windows."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Sunshine",
+			"source": {
+				"host": "github",
+				"path": "LizardByte/Sunshine",
+				"url": "https://github.com/LizardByte/Sunshine"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Covers the flat-screen half — streaming your desktop and games to the headset's 2D viewer. Not a VR runtime.",
+				"fr": "Couvre la partie écran plat — diffuser votre bureau et vos jeux vers la visionneuse 2D du casque. Ce n’est pas un runtime VR."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

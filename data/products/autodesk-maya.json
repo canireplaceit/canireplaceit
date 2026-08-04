@@ -1,0 +1,77 @@
+{
+	"slug": "autodesk-maya",
+	"name": "Autodesk Maya",
+	"domain": "autodesk.com",
+	"category": "3d-cad",
+	"priceMonthly": 156,
+	"pricing": {
+		"plan": "Maya, annual billed monthly (autodesk.com renders all prices client-side; not readable by fetch)",
+		"basis": "per-seat",
+		"url": "https://www.autodesk.com/products/maya/subscribe",
+		"checkedOn": "2026-08-02",
+		"confidence": "low"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Blender is not the weaker tool any more — it is the more pleasant one for modelling, sculpting and rendering. Maya survives on rigging depth, animation tooling and the fact that studio pipelines are written in MEL and Maya's Python API.",
+		"fr": "Blender n’est plus l’outil le plus faible — c’est le plus agréable pour la modélisation, le sculpt et le rendu. Maya survit grâce à la profondeur du rigging, aux outils d’animation et au fait que les pipelines de studio sont écrits en MEL et dans l’API Python de Maya."
+	},
+	"whatYouLose": [
+		{
+			"en": "Studio pipeline integration",
+			"fr": "Intégration aux pipelines de studio"
+		},
+		{
+			"en": "Rigging depth and muscle systems",
+			"fr": "Profondeur du rigging et systèmes musculaires"
+		},
+		{
+			"en": "Being what animation studios hire for",
+			"fr": "Ce que les studios d’animation exigent à l’embauche"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Blender",
+			"source": {
+				"host": "gitea",
+				"path": "blender/blender",
+				"url": "https://projects.blender.org/blender/blender"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Modelling, sculpting, UVs, Cycles and a compositor in a free 300 MB download that never phones home. Rigging is the weak side.",
+				"fr": "Modélisation, sculpt, UV, Cycles et un compositeur dans un téléchargement gratuit de 300 Mo qui ne téléphone jamais à la maison. Le rigging est le point faible."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Cascadeur",
+			"url": "https://cascadeur.com/pricing",
+			"priceMonthly": 20,
+			"note": {
+				"en": "Physics-assisted keyframe animation at a tenth of the price, and there is a free non-commercial tier. Animation only — no modelling, no rendering.",
+				"fr": "Animation par images-clés assistée par la physique pour un dixième du prix, avec une offre gratuite non commerciale. Animation seulement : pas de modélisation ni de rendu."
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Houdini Indie",
+			"url": "https://www.sidefx.com/buy/",
+			"priceMonthly": 27,
+			"note": {
+				"en": "If your revenue is under the Indie cap this is the best value in 3D. Watermarked-format output and a licence audit if you grow.",
+				"fr": "Si votre chiffre d’affaires est sous le plafond Indie, c’est le meilleur rapport qualité-prix en 3D. Formats de sortie restreints et audit de licence si vous grandissez."
+			}
+		}
+	],
+	"priority": 4
+}

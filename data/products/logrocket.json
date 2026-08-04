@@ -1,0 +1,107 @@
+{
+	"slug": "logrocket",
+	"name": "LogRocket",
+	"domain": "logrocket.com",
+	"category": "observability-telemetry",
+	"priceMonthly": 176,
+	"pricing": {
+		"plan": "Core, 25K sessions/month",
+		"basis": "usage",
+		"url": "https://logrocket.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Session replay is rrweb plus storage, and rrweb is MIT. Everyone including LogRocket builds on it. The only real work is PII redaction, and you should be auditing that yourself regardless of vendor.",
+		"fr": "Le rejeu de session, c’est rrweb plus du stockage, et rrweb est en MIT. Tout le monde, LogRocket compris, construit dessus. Le seul vrai travail, c’est le masquage des données personnelles — et vous devriez l’auditer vous-même quel que soit le fournisseur."
+	},
+	"whatYouLose": [
+		{
+			"en": "Managed PII redaction",
+			"fr": "Masquage des données personnelles géré"
+		},
+		{
+			"en": "Frontend error grouping",
+			"fr": "Regroupement des erreurs frontend"
+		},
+		{
+			"en": "Zero storage cost",
+			"fr": "Aucun coût de stockage"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "OpenReplay",
+			"source": {
+				"host": "github",
+				"path": "openreplay/openreplay",
+				"url": "https://github.com/openreplay/openreplay"
+			},
+			"license": "Elastic-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The direct equivalent: replay plus console, network and Redux state. Heavy stack, but nothing leaves your infrastructure.",
+				"fr": "L’équivalent direct : rejeu plus console, réseau et état Redux. Pile lourde, mais rien ne quitte votre infrastructure."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO, RBAC and audit logs are enterprise",
+					"fr": "SSO, RBAC et journaux d’audit en entreprise"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PostHog",
+			"source": {
+				"host": "github",
+				"path": "PostHog/posthog",
+				"url": "https://github.com/PostHog/posthog"
+			},
+			"license": "MIT/Ent",
+			"effort": "ops",
+			"note": {
+				"en": "Replay is free alongside analytics and flags. Weaker on the deep frontend-error debugging LogRocket is bought for.",
+				"fr": "Le rejeu est gratuit à côté de l’analytique et des flags. Plus faible sur le débogage d’erreurs frontend en profondeur, raison d’achat de LogRocket."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SAML SSO, RBAC, audit logs",
+					"fr": "SSO SAML, RBAC, journaux d’audit"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "rrweb",
+			"source": {
+				"host": "github",
+				"path": "rrweb-io/rrweb",
+				"url": "https://github.com/rrweb-io/rrweb"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The recording library itself. Use it if you want to store replays in your own bucket and skip the platform entirely.",
+				"fr": "La bibliothèque d’enregistrement elle-même. À utiliser si vous voulez stocker les rejeux dans votre propre bucket et sauter la plateforme."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

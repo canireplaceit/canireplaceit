@@ -1,0 +1,128 @@
+{
+	"slug": "gitbook",
+	"name": "GitBook",
+	"domain": "gitbook.com",
+	"category": "notes-docs",
+	"priceMonthly": 65,
+	"pricing": {
+		"plan": "Premium, per site, billed annually (+$12 per extra user)",
+		"basis": "flat",
+		"url": "https://www.gitbook.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Docs hosting is the most commoditised thing in this whole directory. Markdown in git, a static site generator and any CDN gets you 95% of GitBook for the cost of the domain.",
+		"fr": "L’hébergement de documentation est ce qu’il y a de plus banalisé dans tout ce répertoire. Du markdown dans git, un générateur de site statique et n’importe quel CDN vous donnent 95 % de GitBook pour le prix du domaine."
+	},
+	"whatYouLose": [
+		{
+			"en": "WYSIWYG editing for non-devs",
+			"fr": "Édition WYSIWYG pour non-développeurs"
+		},
+		{
+			"en": "Hosted search and analytics",
+			"fr": "Recherche et analytics hébergées"
+		},
+		{
+			"en": "Managed custom domains",
+			"fr": "Domaines personnalisés managés"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Material for MkDocs",
+			"source": {
+				"host": "github",
+				"path": "squidfunk/mkdocs-material",
+				"url": "https://github.com/squidfunk/mkdocs-material"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The default answer. Instant client-side search, versioning, dark mode, and it builds in seconds. Some navigation and analytics extras sit behind a sponsor-only Insiders build.",
+				"fr": "La réponse par défaut. Recherche client instantanée, versionnage, mode sombre, et un build en quelques secondes. Certains extras de navigation et d’analytics sont réservés à la version Insiders pour sponsors."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Insiders-only features (some navigation, privacy and analytics plugins) require sponsorship",
+					"fr": "Les fonctions réservées à Insiders (certains plugins de navigation, de confidentialité et d’analytics) exigent un sponsoring"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Docusaurus",
+			"source": {
+				"host": "github",
+				"path": "facebook/docusaurus",
+				"url": "https://github.com/facebook/docusaurus"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "React-based, versioned docs with i18n and MDX. Heavier to build, far more customisable.",
+				"fr": "Bâti sur React, docs versionnées avec i18n et MDX. Build plus lourd, personnalisation bien plus poussée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Starlight",
+			"source": {
+				"host": "github",
+				"path": "withastro/starlight",
+				"url": "https://github.com/withastro/starlight"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Astro's docs theme. Fastest output of the three and the least JavaScript shipped to readers.",
+				"fr": "Le thème docs d’Astro. Le rendu le plus rapide des trois et le moins de JavaScript envoyé aux lecteurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Outline",
+			"source": {
+				"host": "github",
+				"path": "outline/outline",
+				"url": "https://github.com/outline/outline"
+			},
+			"license": "BSL 1.1 (converts to Apache-2.0 after 4 years)",
+			"effort": "docker",
+			"note": {
+				"en": "If what you actually wanted was the collaborative wiki rather than the public site. Read the licence first: BSL is source-available, not open source.",
+				"fr": "Si ce que vous vouliez, c’était le wiki collaboratif plutôt que le site public. Lisez la licence d’abord : la BSL est source-available, pas open source."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "The hosted cloud plan; self-hosted use is restricted by the BSL's production clause",
+					"fr": "L’offre cloud hébergée ; l’usage auto-hébergé est encadré par la clause de production de la BSL"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

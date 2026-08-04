@@ -1,0 +1,88 @@
+{
+	"slug": "sketch",
+	"name": "Sketch",
+	"domain": "sketch.com",
+	"category": "design",
+	"priceMonthly": 12,
+	"pricing": {
+		"plan": "Standard, per editor, annual billed monthly",
+		"basis": "per-seat",
+		"url": "https://www.sketch.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Sketch already lost the market to Figma, so the switching cost that protects Figma does not protect Sketch. If you are leaving anyway, Penpot is the destination that keeps your files open and can run on your own server.",
+		"fr": "Sketch a déjà perdu le marché face à Figma, donc le coût de changement qui protège Figma ne protège pas Sketch. Si vous partez de toute façon, Penpot est la destination qui garde vos fichiers ouverts et peut tourner sur votre propre serveur."
+	},
+	"whatYouLose": [
+		{
+			"en": "macOS-native performance",
+			"fr": "Performances natives macOS"
+		},
+		{
+			"en": "The remaining Sketch plugin library",
+			"fr": "La bibliothèque de plugins Sketch restante"
+		},
+		{
+			"en": ".sketch files in your archive",
+			"fr": "Fichiers .sketch de vos archives"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Penpot",
+			"source": {
+				"host": "github",
+				"path": "penpot/penpot",
+				"url": "https://github.com/penpot/penpot"
+			},
+			"license": "MPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Real components, design tokens and CSS-native output, self-hostable with a compose file. Import from .sketch is not a thing.",
+				"fr": "Vrais composants, jetons de design et sortie native CSS, auto-hébergeable avec un fichier compose. L’import depuis .sketch n’existe pas."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Graphite",
+			"source": {
+				"host": "github",
+				"path": "GraphiteEditor/Graphite",
+				"url": "https://github.com/GraphiteEditor/Graphite"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "For the illustration side of Sketch's job, node-based and non-destructive. Not a UI design tool yet.",
+				"fr": "Pour la partie illustration du travail de Sketch, en nœuds et non destructif. Pas encore un outil de conception d’interface."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Lunacy",
+			"url": "https://icons8.com/lunacy",
+			"priceMonthly": 0,
+			"note": {
+				"en": "Free, opens .sketch files natively, and runs on Windows and Linux too. Closed source and Icons8 wants you in their asset ecosystem.",
+				"fr": "Gratuit, ouvre nativement les fichiers .sketch, et fonctionne aussi sous Windows et Linux. Code fermé, et Icons8 veut vous garder dans son écosystème d’assets."
+			}
+		}
+	],
+	"priority": 2
+}

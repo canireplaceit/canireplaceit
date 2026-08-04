@@ -1,0 +1,119 @@
+{
+	"slug": "teachable",
+	"name": "Teachable",
+	"domain": "teachable.com",
+	"category": "learning-teaching",
+	"priceMonthly": 39,
+	"pricing": {
+		"plan": "Starter, billed monthly ($29/mo annual)",
+		"basis": "flat",
+		"url": "https://teachable.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Videos behind a paywall with progress tracking and a certificate at the end. Nothing here is hard. The one thing you have to solve yourself is video delivery — bandwidth for a course with real students is not free.",
+		"fr": "Des vidéos derrière un paywall, un suivi de progression et un certificat à la fin. Rien de difficile ici. La seule chose à régler vous-même : la diffusion vidéo — la bande passante pour un cours avec de vrais élèves n’est pas gratuite."
+	},
+	"whatYouLose": [
+		{
+			"en": "Video hosting and transcoding",
+			"fr": "Hébergement et transcodage vidéo"
+		},
+		{
+			"en": "Built-in checkout and tax handling",
+			"fr": "Tunnel d’achat et fiscalité intégrés"
+		},
+		{
+			"en": "Affiliate and upsell tooling",
+			"fr": "Outils d’affiliation et de vente incitative"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Frappe LMS",
+			"source": {
+				"host": "github",
+				"path": "frappe/lms",
+				"url": "https://github.com/frappe/lms"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The closest in spirit: modern, light, course-selling shaped rather than university shaped.",
+				"fr": "Le plus proche dans l’esprit : moderne, léger, pensé pour vendre des cours et non pour une université."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Moodle",
+			"source": {
+				"host": "github",
+				"path": "moodle/moodle",
+				"url": "https://github.com/moodle/moodle"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Does everything, looks like a 2011 intranet, and has a plugin for whatever you need.",
+				"fr": "Fait tout, ressemble à un intranet de 2011, et possède un plugin pour à peu près n’importe quoi."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ghost",
+			"source": {
+				"host": "github",
+				"path": "TryGhost/Ghost",
+				"url": "https://github.com/TryGhost/Ghost"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "If your 'course' is really gated content plus email, this is simpler than any LMS.",
+				"fr": "Si votre « cours » est en réalité du contenu réservé plus des e-mails, c’est plus simple que n’importe quel LMS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Payhip",
+			"url": "https://payhip.com",
+			"priceMonthly": 29,
+			"note": {
+				"en": "Sells courses with a free tier that only takes a cut. Course player and drip scheduling are basic.",
+				"fr": "Vend des cours, avec une offre gratuite à la commission. Lecteur de cours et diffusion progressive rudimentaires."
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Podia",
+			"url": "https://www.podia.com",
+			"priceMonthly": 33,
+			"note": {
+				"en": "Cheaper and includes email marketing. Fewer sales-page and affiliate tools than Teachable.",
+				"fr": "Moins cher et inclut l’e-mailing. Moins d’outils de pages de vente et d’affiliation que Teachable."
+			}
+		}
+	],
+	"priority": 4
+}

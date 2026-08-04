@@ -1,0 +1,113 @@
+{
+	"slug": "mongodb-atlas",
+	"name": "MongoDB Atlas",
+	"domain": "mongodb.com",
+	"category": "databases-caches",
+	"priceMonthly": 57,
+	"pricing": {
+		"plan": "Atlas M10 dedicated, $0.08/hr (~$56.94/mo)",
+		"basis": "usage",
+		"url": "https://www.mongodb.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Most apps using Mongo would be happier on Postgres and everyone knows it. If you genuinely need the wire protocol, FerretDB gives it to you over Postgres — but aggregation pipeline coverage is still incomplete and Atlas Search has no answer at all.",
+		"fr": "La plupart des applis sous Mongo seraient plus heureuses sur Postgres, et tout le monde le sait. Si vous avez vraiment besoin du protocole, FerretDB vous le donne au-dessus de Postgres — mais la couverture du pipeline d’agrégation reste incomplète et Atlas Search n’a aucun équivalent."
+	},
+	"whatYouLose": [
+		{
+			"en": "Atlas Search",
+			"fr": "Atlas Search"
+		},
+		{
+			"en": "Full aggregation pipeline",
+			"fr": "Pipeline d’agrégation complet"
+		},
+		{
+			"en": "Managed sharding",
+			"fr": "Sharding managé"
+		},
+		{
+			"en": "Serverless tier",
+			"fr": "Palier serverless"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "FerretDB",
+			"source": {
+				"host": "github",
+				"path": "FerretDB/FerretDB",
+				"url": "https://github.com/FerretDB/FerretDB"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Speaks the Mongo wire protocol, stores in Postgres. Your driver doesn't know the difference until it hits an unsupported operator.",
+				"fr": "Parle le protocole Mongo, stocke dans Postgres. Votre driver ne voit pas la différence jusqu’au premier opérateur non pris en charge."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Percona Server for MongoDB",
+			"source": {
+				"host": "github",
+				"path": "percona/percona-server-mongodb",
+				"url": "https://github.com/percona/percona-server-mongodb"
+			},
+			"license": "SSPL-1.0",
+			"effort": "ops",
+			"note": {
+				"en": "Actual MongoDB with the enterprise features (encryption, auditing, hot backup) unlocked. Still SSPL, so read it before you ship a service on it.",
+				"fr": "Du vrai MongoDB avec les fonctions entreprise (chiffrement, audit, sauvegarde à chaud) débloquées. Toujours SSPL : lisez la licence avant d’en faire un service."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CloudNativePG",
+			"source": {
+				"host": "github",
+				"path": "cloudnative-pg/cloudnative-pg",
+				"url": "https://github.com/cloudnative-pg/cloudnative-pg"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The honest answer: migrate to Postgres with JSONB and run this operator. Failover and PITR that actually work.",
+				"fr": "La réponse honnête : migrez vers Postgres en JSONB et faites tourner cet opérateur. Bascule et PITR qui fonctionnent vraiment."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "DigitalOcean Managed MongoDB",
+			"url": "https://www.digitalocean.com/products/managed-databases-mongodb",
+			"priceMonthly": 15,
+			"note": {
+				"en": "Same database, roughly a third of Atlas for a small cluster, backups included. No Atlas Search, no serverless tier, fewer regions.",
+				"fr": "Même base, environ le tiers d’Atlas pour un petit cluster, sauvegardes incluses. Pas d’Atlas Search, pas de niveau serverless, moins de régions."
+			}
+		}
+	],
+	"priority": 4
+}

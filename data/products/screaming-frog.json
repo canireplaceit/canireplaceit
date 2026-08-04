@@ -1,0 +1,99 @@
+{
+	"slug": "screaming-frog",
+	"name": "Screaming Frog SEO Spider",
+	"domain": "screamingfrog.co.uk",
+	"category": "seo-rank-tracking",
+	"priceMonthly": 23,
+	"pricing": {
+		"plan": "SEO Spider licence, GBP 199/yr (USD 279/yr) billed annually",
+		"basis": "per-seat",
+		"url": "https://www.screamingfrog.co.uk/seo-spider/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "This one is a genuine piece of software rather than a dataset, so it is genuinely replaceable — and at £199 a year it is also the least offensive bill in SEO. Replace it because you want crawls running in CI, not to save money.",
+		"fr": "Ici c’est un vrai logiciel et non un jeu de données, donc c’est réellement remplaçable — et à 199 £ par an, c’est aussi la facture la moins choquante du SEO. Remplacez-le pour faire tourner vos crawls dans la CI, pas pour économiser."
+	},
+	"whatYouLose": [
+		{
+			"en": "JavaScript rendering at scale",
+			"fr": "Rendu JavaScript à grande échelle"
+		},
+		{
+			"en": "GSC and GA integrations",
+			"fr": "Intégrations GSC et GA"
+		},
+		{
+			"en": "Point-and-click custom extraction",
+			"fr": "Extraction personnalisée en clic-bouton"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "SEOnaut",
+			"source": {
+				"host": "github",
+				"path": "StJudeWasHere/seonaut",
+				"url": "https://github.com/StJudeWasHere/seonaut"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The closest thing to a self-hosted Spider: crawl, issue report, exports, and a web UI a non-engineer can use.",
+				"fr": "Ce qui ressemble le plus à un Spider auto-hébergé : crawl, rapport de problèmes, exports, et une interface web utilisable sans être développeur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "katana",
+			"source": {
+				"host": "github",
+				"path": "projectdiscovery/katana",
+				"url": "https://github.com/projectdiscovery/katana"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A very fast crawler with a headless mode. CLI only, so you write the SEO analysis yourself.",
+				"fr": "Un crawler très rapide avec mode headless. En CLI uniquement : l’analyse SEO, c’est vous qui l’écrivez."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Crawlee",
+			"source": {
+				"host": "github",
+				"path": "apify/crawlee",
+				"url": "https://github.com/apify/crawlee"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "If you want crawls in CI with real browser rendering, this is the library to build on.",
+				"fr": "Si vous voulez des crawls dans la CI avec rendu navigateur réel, c’est la bibliothèque sur laquelle bâtir."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

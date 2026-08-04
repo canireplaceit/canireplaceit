@@ -1,0 +1,90 @@
+{
+	"slug": "labelbox",
+	"name": "Labelbox",
+	"domain": "labelbox.com",
+	"category": "ai-infrastructure",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "Annotation tooling is a solved open source problem — Label Studio and CVAT are what most labelling vendors run internally. What you're really buying from Labelbox is the managed workforce, and that you cannot self-host. Pricing is quote-based and driven by labelled-unit volume rather than seats.",
+		"fr": "L’outillage d’annotation est un problème résolu en open source — Label Studio et CVAT sont ce que la plupart des prestataires d’étiquetage font tourner en interne. Ce que vous achetez vraiment à Labelbox, c’est la main-d’œuvre managée, et ça ne s’auto-héberge pas. La tarification se fait sur devis, pilotée par le volume d’unités étiquetées plutôt que par les utilisateurs."
+	},
+	"whatYouLose": [
+		{
+			"en": "The managed labelling workforce",
+			"fr": "La main-d’œuvre d’étiquetage managée"
+		},
+		{
+			"en": "Quality-control workflows",
+			"fr": "Flux de contrôle qualité"
+		},
+		{
+			"en": "Vendor SLAs",
+			"fr": "SLA éditeur"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Label Studio",
+			"source": {
+				"host": "github",
+				"path": "HumanSignal/label-studio",
+				"url": "https://github.com/HumanSignal/label-studio"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Handles every modality — text, audio, image, video, time series — in one configurable UI. The generalist pick.",
+				"fr": "Gère toutes les modalités — texte, audio, image, vidéo, séries temporelles — dans une interface configurable unique. Le choix généraliste."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO/SCIM, quality workflows, analytics",
+					"fr": "SSO/SCIM, contrôle qualité, analytique"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CVAT",
+			"source": {
+				"host": "github",
+				"path": "cvat-ai/cvat",
+				"url": "https://github.com/cvat-ai/cvat"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Computer vision only, and much better at it: interpolation across video frames, model-assisted pre-labelling.",
+				"fr": "Vision par ordinateur uniquement, et bien meilleur pour ça : interpolation entre images vidéo, pré-étiquetage assisté par modèle."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO/LDAP, fine-grained RBAC, audit logs",
+					"fr": "SSO/LDAP, RBAC granulaire, journaux d’audit"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Roboflow",
+			"url": "https://roboflow.com/pricing",
+			"priceMonthly": 60,
+			"note": {
+				"en": "Annotation, augmentation and hosted training for vision, with a real free tier. Vision only, and dataset egress is deliberately awkward.",
+				"fr": "Annotation, augmentation et entraînement hébergé pour la vision, avec un vrai palier gratuit. Vision uniquement, et l’export de jeux de données est volontairement pénible."
+			}
+		}
+	],
+	"priority": 2
+}

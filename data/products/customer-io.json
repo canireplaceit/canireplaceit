@@ -1,0 +1,109 @@
+{
+	"slug": "customer-io",
+	"name": "Customer.io",
+	"domain": "customer.io",
+	"category": "email-deliverability",
+	"priceMonthly": 100,
+	"pricing": {
+		"plan": "Essentials, from $100/mo — vendor page no longer publishes plan prices",
+		"basis": "usage",
+		"url": "https://customer.io/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "low"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Mautic will do segments, journeys and lifecycle campaigns and it has done for a decade. The difference is the event pipeline: Customer.io ingests your product events in real time and branches on them in seconds, where Mautic wants a nightly segment rebuild and a database that has not been tuned since 2019.",
+		"fr": "Mautic sait faire des segments, des parcours et des campagnes de cycle de vie, et depuis dix ans. La différence, c’est le pipeline d’événements : Customer.io ingère vos événements produit en temps réel et branche dessus en quelques secondes, là où Mautic veut une reconstruction nocturne des segments et une base non optimisée depuis 2019."
+	},
+	"whatYouLose": [
+		{
+			"en": "Real-time event triggers",
+			"fr": "Déclencheurs d’événements en direct"
+		},
+		{
+			"en": "Deliverability included",
+			"fr": "Délivrabilité incluse"
+		},
+		{
+			"en": "Journey analytics",
+			"fr": "Analytique des parcours"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Mautic",
+			"source": {
+				"host": "github",
+				"path": "mautic/mautic",
+				"url": "https://github.com/mautic/mautic"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "The full marketing automation suite: campaign builder, lead scoring, forms, SAML SSO. PHP and hungry — give it a real database and a cron you monitor.",
+				"fr": "La suite complète d’automatisation marketing : constructeur de campagnes, scoring, formulaires, SSO SAML. Du PHP et gourmand — donnez-lui une vraie base et un cron supervisé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Listmonk",
+			"source": {
+				"host": "github",
+				"path": "knadh/listmonk",
+				"url": "https://github.com/knadh/listmonk"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "One Go binary and Postgres, millions of messages an hour, SQL as the segmentation language. No journeys — it sends campaigns, extremely well.",
+				"fr": "Un binaire Go et Postgres, des millions de messages à l’heure, du SQL comme langage de segmentation. Pas de parcours — il envoie des campagnes, extrêmement bien."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Keila",
+			"source": {
+				"host": "github",
+				"path": "pentacent/keila",
+				"url": "https://github.com/pentacent/keila"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Elixir, pleasant to use, GDPR-minded, with a template editor a marketer will not hate. Small feature set on purpose.",
+				"fr": "En Elixir, agréable, pensé RGPD, avec un éditeur de modèles qu’un marketeur ne détestera pas. Périmètre volontairement réduit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Loops",
+			"url": "https://loops.so/pricing",
+			"priceMonthly": 49,
+			"note": {
+				"en": "Event-driven loops and a modern API at a fraction of the price. Far weaker segmentation and no multichannel.",
+				"fr": "Boucles pilotées par événements et API moderne pour une fraction du prix. Segmentation bien plus faible et pas de multicanal."
+			}
+		}
+	],
+	"priority": 3
+}

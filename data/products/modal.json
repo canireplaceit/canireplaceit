@@ -1,0 +1,107 @@
+{
+	"slug": "modal",
+	"name": "Modal",
+	"domain": "modal.com",
+	"category": "ai-infrastructure",
+	"priceMonthly": 250,
+	"pricing": {
+		"plan": "Team, $250/mo platform fee plus usage-based compute",
+		"basis": "flat",
+		"url": "https://modal.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Modal's actual product is sub-second cold starts on GPU containers, which is a hard systems problem nobody has fully cloned. Beam and dstack get close for batch work; for spiky inference you will notice the difference, and you still pay for the GPU either way.",
+		"fr": "Le vrai produit de Modal, ce sont des démarrages à froid sous la seconde sur des conteneurs GPU — un problème système difficile que personne n’a entièrement cloné. Beam et dstack s’en approchent pour le traitement par lots ; pour de l’inférence en pics, la différence se voit, et vous payez le GPU dans tous les cas."
+	},
+	"whatYouLose": [
+		{
+			"en": "Sub-second GPU cold starts",
+			"fr": "Démarrages GPU sous la seconde"
+		},
+		{
+			"en": "Per-second billing, scale to zero",
+			"fr": "Facturation à la seconde, mise à l’échelle à zéro"
+		},
+		{
+			"en": "No cluster to operate",
+			"fr": "Aucun cluster à exploiter"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Beam",
+			"source": {
+				"host": "github",
+				"path": "beam-cloud/beta9",
+				"url": "https://github.com/beam-cloud/beta9"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "The closest open reimplementation of Modal's model — serverless GPU containers with a Python decorator API. You supply the GPU nodes.",
+				"fr": "La réimplémentation ouverte la plus proche du modèle de Modal — conteneurs GPU serverless avec une API à décorateurs Python. Les nœuds GPU, c’est vous."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Beam's own hosted cloud",
+					"fr": "Le cloud hébergé de Beam"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dstack",
+			"source": {
+				"host": "github",
+				"path": "dstackai/dstack",
+				"url": "https://github.com/dstackai/dstack"
+			},
+			"license": "MPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "A lighter container-native orchestrator for dev environments and training runs across clouds and on-prem clusters.",
+				"fr": "Un orchestrateur plus léger, natif conteneur, pour les environnements de développement et les entraînements sur clouds et clusters sur site."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO and the managed enterprise control plane",
+					"fr": "Le SSO et le plan de contrôle entreprise managé"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ray",
+			"source": {
+				"host": "github",
+				"path": "ray-project/ray",
+				"url": "https://github.com/ray-project/ray"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The distributed runtime itself, Apache-2.0, written by the same people who founded Anyscale. Nothing is held back from the open build.",
+				"fr": "Le moteur distribué lui-même, en Apache-2.0, écrit par ceux-là mêmes qui ont fondé Anyscale. Rien n’est retenu dans la version ouverte."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

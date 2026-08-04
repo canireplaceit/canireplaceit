@@ -1,0 +1,107 @@
+{
+	"slug": "cisco-anyconnect",
+	"name": "Cisco AnyConnect",
+	"domain": "cisco.com",
+	"category": "networking-vpn",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "Concentrator-style corporate VPN is the one category where open source is straightforwardly better: WireGuard is faster, simpler and easier to audit than anything Cisco ships. The blocker is your compliance team's list of approved vendors, not the technology.",
+		"fr": "Le VPN d’entreprise à concentrateur est la seule catégorie où l’open source est franchement meilleur : WireGuard est plus rapide, plus simple et plus auditable que tout ce que Cisco livre. Le frein, c’est la liste de fournisseurs approuvés de votre équipe conformité, pas la technologie."
+	},
+	"whatYouLose": [
+		{
+			"en": "Approved-vendor status",
+			"fr": "Statut de fournisseur approuvé"
+		},
+		{
+			"en": "Enterprise support contract",
+			"fr": "Contrat de support entreprise"
+		},
+		{
+			"en": "Posture assessment agents",
+			"fr": "Agents d’évaluation de posture"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Firezone",
+			"source": {
+				"host": "github",
+				"path": "firezone/firezone",
+				"url": "https://github.com/firezone/firezone"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "WireGuard with SSO, per-group policies and audit logs — the enterprise wrapper that makes it a real AnyConnect replacement.",
+				"fr": "WireGuard avec SSO, politiques par groupe et journaux d’audit — l’enveloppe entreprise qui en fait un vrai remplaçant d’AnyConnect."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Directory sync and extended audit logs are paid",
+					"fr": "Sync d’annuaire et journaux d’audit payants"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "wg-easy",
+			"source": {
+				"host": "github",
+				"path": "wg-easy/wg-easy",
+				"url": "https://github.com/wg-easy/wg-easy"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "One container, a web UI, QR codes for phones. Zero enterprise features and that is the whole appeal.",
+				"fr": "Un conteneur, une interface web, des QR codes pour les téléphones. Zéro fonction entreprise, et c’est tout l’intérêt."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenVPN",
+			"source": {
+				"host": "github",
+				"path": "OpenVPN/openvpn",
+				"url": "https://github.com/OpenVPN/openvpn"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Slower than WireGuard, but it traverses hostile networks that block UDP and your auditors have heard of it.",
+				"fr": "Plus lent que WireGuard, mais il traverse les réseaux hostiles qui bloquent l’UDP, et vos auditeurs en ont entendu parler."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Twingate",
+			"url": "https://www.twingate.com/pricing",
+			"priceMonthly": 6,
+			"note": {
+				"en": "Zero-trust access without a concentrator, free for up to five users. It is not a full-tunnel VPN — no egress IP pinning, which some vendors require.",
+				"fr": "Accès zero-trust sans concentrateur, gratuit jusqu’à cinq utilisateurs. Ce n’est pas un VPN plein tunnel — pas d’IP de sortie fixe, ce qu’exigent certains fournisseurs."
+			}
+		}
+	],
+	"priority": 2
+}

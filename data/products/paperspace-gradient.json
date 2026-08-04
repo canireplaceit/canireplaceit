@@ -1,0 +1,107 @@
+{
+	"slug": "paperspace-gradient",
+	"name": "Paperspace Gradient",
+	"domain": "paperspace.com",
+	"category": "ai-infrastructure",
+	"priceMonthly": 8,
+	"pricing": {
+		"plan": "Pro",
+		"basis": "flat",
+		"url": "https://docs.digitalocean.com/products/paperspace/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Gradient is a GPU rental with a notebook stapled on. The notebook is free elsewhere; the GPU is not. SkyPilot is the honest replacement — it does the shopping across providers and will usually find the same card cheaper on spot.",
+		"fr": "Gradient, c’est une location de GPU avec un carnet agrafé dessus. Le carnet est gratuit ailleurs ; le GPU non. SkyPilot est le remplacement honnête — il fait les courses chez tous les fournisseurs et trouve en général la même carte moins cher en spot."
+	},
+	"whatYouLose": [
+		{
+			"en": "Preconfigured GPU notebooks",
+			"fr": "Carnets GPU préconfigurés"
+		},
+		{
+			"en": "Predictable flat pricing",
+			"fr": "Tarification forfaitaire prévisible"
+		},
+		{
+			"en": "Nothing to provision",
+			"fr": "Rien à provisionner"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "SkyPilot",
+			"source": {
+				"host": "github",
+				"path": "skypilot-org/skypilot",
+				"url": "https://github.com/skypilot-org/skypilot"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Point it at a YAML and it finds the cheapest available GPU across your clouds, provisions it, runs the job and tears it down. The best cost tool in this space.",
+				"fr": "Donnez-lui un YAML et il trouve le GPU disponible le moins cher parmi vos clouds, le provisionne, lance le job et le détruit. Le meilleur outil de maîtrise des coûts du domaine."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Hosted control plane and commercial support",
+					"fr": "Le plan de contrôle hébergé et le support commercial"
+				},
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dstack",
+			"source": {
+				"host": "github",
+				"path": "dstackai/dstack",
+				"url": "https://github.com/dstackai/dstack"
+			},
+			"license": "MPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "A lighter container-native orchestrator for dev environments and training runs across clouds and on-prem clusters.",
+				"fr": "Un orchestrateur plus léger, natif conteneur, pour les environnements de développement et les entraînements sur clouds et clusters sur site."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO and the managed enterprise control plane",
+					"fr": "Le SSO et le plan de contrôle entreprise managé"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "JupyterHub",
+			"source": {
+				"host": "github",
+				"path": "jupyterhub/jupyterhub",
+				"url": "https://github.com/jupyterhub/jupyterhub"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "ops",
+			"note": {
+				"en": "The notebook half, free, behind your own auth. Only worth it if you already have GPUs.",
+				"fr": "La moitié carnet, gratuite, derrière votre propre authentification. Rentable seulement si vous avez déjà des GPU."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

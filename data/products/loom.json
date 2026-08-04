@@ -1,0 +1,78 @@
+{
+	"slug": "loom",
+	"name": "Loom",
+	"domain": "loom.com",
+	"category": "video",
+	"priceMonthly": 18,
+	"pricing": {
+		"plan": "Business, monthly billing",
+		"basis": "per-seat",
+		"url": "https://www.loom.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Record screen, get link. The transcription and viewer analytics are the only real extras.",
+		"fr": "Enregistrez l’écran, récupérez un lien. La transcription et les stats de visionnage sont les seuls vrais extras."
+	},
+	"whatYouLose": [
+		{
+			"en": "Instant hosted link",
+			"fr": "Lien hébergé instantané"
+		},
+		{
+			"en": "Transcription and captions",
+			"fr": "Transcription et sous-titres"
+		},
+		{
+			"en": "Viewer analytics",
+			"fr": "Stats de visionnage"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Cap",
+			"source": {
+				"host": "github",
+				"path": "CapSoftware/Cap",
+				"url": "https://github.com/CapSoftware/Cap"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Direct Loom alternative, good desktop app.",
+				"fr": "Alternative directe à Loom, bonne appli de bureau."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OBS Studio",
+			"source": {
+				"host": "github",
+				"path": "obsproject/obs-studio",
+				"url": "https://github.com/obsproject/obs-studio"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Record locally, host anywhere.",
+				"fr": "Enregistrez en local, hébergez où vous voulez."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

@@ -1,0 +1,109 @@
+{
+	"slug": "strava",
+	"name": "Strava",
+	"domain": "strava.com",
+	"category": "health-care",
+	"priceMonthly": 12,
+	"pricing": {
+		"plan": "Subscription, monthly (page geolocates: PLN 19.99/mo, PLN 149.99/yr; USD not served)",
+		"basis": "flat",
+		"url": "https://www.strava.com/subscribe",
+		"checkedOn": "2026-08-02",
+		"confidence": "low"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Recording a GPS track and drawing charts is easy and several projects do it well. Segments, leaderboards and the fact that your riding club is already on Strava are not features you can install. You will keep the account for the social graph.",
+		"fr": "Enregistrer une trace GPS et tracer des graphiques est facile, et plusieurs projets le font bien. Les segments, les classements et le fait que votre club de vélo soit déjà sur Strava ne s’installent pas. Vous garderez le compte pour le graphe social."
+	},
+	"whatYouLose": [
+		{
+			"en": "Segments and leaderboards",
+			"fr": "Segments et classements"
+		},
+		{
+			"en": "Everyone you ride with",
+			"fr": "Tous ceux avec qui vous roulez"
+		},
+		{
+			"en": "Automatic sync from watches and head units",
+			"fr": "Synchro automatique des montres et compteurs"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Wanderer",
+			"source": {
+				"host": "github",
+				"path": "open-wanderer/wanderer",
+				"url": "https://github.com/open-wanderer/wanderer"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Best-looking of the group, trail-oriented, with route planning built in.",
+				"fr": "Le plus beau du lot, orienté randonnée, avec la planification d’itinéraires intégrée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FitTrackee",
+			"source": {
+				"host": "codeberg",
+				"path": "FitTrackee/FitTrackee",
+				"url": "https://codeberg.org/FitTrackee/FitTrackee"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Multi-sport, imports GPX and Garmin files, has a small federation story.",
+				"fr": "Multisport, importe des fichiers GPX et Garmin, avec un début de fédération."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Workout Tracker",
+			"source": {
+				"host": "github",
+				"path": "jovandeginste/workout-tracker",
+				"url": "https://github.com/jovandeginste/workout-tracker"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Single Go binary. The lowest-effort way to own your activity history.",
+				"fr": "Un seul binaire Go. La façon la moins coûteuse de posséder votre historique d’activités."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Ride with GPS",
+			"url": "https://ridewithgps.com",
+			"priceMonthly": 7,
+			"note": {
+				"en": "Better route planning than Strava for half the price. Almost no social layer, cycling-focused.",
+				"fr": "Meilleure planification d’itinéraires que Strava pour moitié prix. Presque aucune dimension sociale, centré vélo."
+			}
+		}
+	],
+	"priority": 5
+}

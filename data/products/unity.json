@@ -1,0 +1,120 @@
+{
+	"slug": "unity",
+	"name": "Unity Pro",
+	"domain": "unity.com",
+	"category": "game-development",
+	"priceMonthly": 185,
+	"pricing": {
+		"plan": "Pro, annual billed monthly (~$2,200/seat/yr); vendor pricing page blocked automated fetch, figure not re-confirmed",
+		"basis": "per-seat",
+		"url": "https://unity.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "low"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Godot 4 is a genuinely good engine and after the 2023 runtime-fee episode a lot of studios proved it in production. Where Unity still wins is boring and decisive: console export templates under NDA, an asset store with a plugin for everything, and mobile ad and analytics SDKs that already work. 2D and mid-size 3D can move; a shipping console title probably cannot.",
+		"fr": "Godot 4 est un moteur réellement bon, et après l’épisode des frais au runtime en 2023, beaucoup de studios l’ont prouvé en production. Là où Unity garde l’avantage, c’est ennuyeux et décisif : les gabarits d’export console sous NDA, un asset store qui a un plugin pour tout, et des SDK de pub et d’analytics mobiles qui fonctionnent déjà. Un projet 2D ou 3D moyen peut migrer ; un titre console en cours de production, sans doute pas."
+	},
+	"whatYouLose": [
+		{
+			"en": "Console export under NDA",
+			"fr": "Export console sous NDA"
+		},
+		{
+			"en": "The Asset Store",
+			"fr": "L’Asset Store"
+		},
+		{
+			"en": "Mobile ad and analytics SDKs",
+			"fr": "SDK de publicité et d’analytics mobiles"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Godot Engine",
+			"source": {
+				"host": "github",
+				"path": "godotengine/godot",
+				"url": "https://github.com/godotengine/godot"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "MIT, no royalties, no seat count, and the 2D workflow is better than Unity's. Console ports go through third-party porting houses, which costs money and time.",
+				"fr": "MIT, aucune redevance, aucun décompte d’utilisateurs, et un flux 2D meilleur que celui d’Unity. Les portages console passent par des prestataires, ce qui coûte du temps et de l’argent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Bevy",
+			"source": {
+				"host": "github",
+				"path": "bevyengine/bevy",
+				"url": "https://github.com/bevyengine/bevy"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A Rust ECS engine, code-first and fast-moving. No editor worth the name yet — pick it because you want the architecture, not because you want to ship next quarter.",
+				"fr": "Un moteur ECS en Rust, orienté code et en évolution rapide. Pas encore d’éditeur digne de ce nom — on le choisit pour son architecture, pas pour livrer au prochain trimestre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Open 3D Engine",
+			"source": {
+				"host": "github",
+				"path": "o3de/o3de",
+				"url": "https://github.com/o3de/o3de"
+			},
+			"license": "Apache-2.0 / MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Amazon's Lumberyard, donated to the Linux Foundation. AAA-shaped and heavy; the community is much smaller than the codebase suggests.",
+				"fr": "Le Lumberyard d’Amazon, confié à la Linux Foundation. Taillé pour le AAA et lourd ; la communauté est bien plus petite que ne le laisse croire la taille du code."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Stride",
+			"source": {
+				"host": "github",
+				"path": "stride3d/stride",
+				"url": "https://github.com/stride3d/stride"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The closest thing to Unity for C# developers — same language, similar scene model, real editor. Small ecosystem.",
+				"fr": "Ce qui ressemble le plus à Unity pour les développeurs C# — même langage, modèle de scène proche, vrai éditeur. Écosystème restreint."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 5
+}

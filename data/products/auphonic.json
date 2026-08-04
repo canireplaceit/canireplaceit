@@ -1,0 +1,99 @@
+{
+	"slug": "auphonic",
+	"name": "Auphonic",
+	"domain": "auphonic.com",
+	"category": "audio-podcasting",
+	"priceMonthly": 13,
+	"pricing": {
+		"plan": "S (9 h/month), USD 13/mo monthly billing (USD 11/mo billed yearly)",
+		"basis": "flat",
+		"url": "https://auphonic.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Loudness normalisation to -16 LUFS is one FFmpeg filter, and a two-pass loudnorm script gets you most of what Auphonic does for free. The parts that are hard to replicate are the adaptive levelling between speakers and the de-reverb, which are genuinely good. Auphonic also bills by processing hours rather than a subscription, so the honest answer is: automate the easy 80% and keep credits for the messy episodes.",
+		"fr": "La normalisation à -16 LUFS, c’est un filtre FFmpeg, et un script loudnorm en deux passes couvre gratuitement l’essentiel de ce que fait Auphonic. Ce qui est difficile à reproduire, c’est le nivellement adaptatif entre intervenants et la déréverbération, qui sont réellement bons. Auphonic facture d’ailleurs à l’heure traitée plutôt qu’à l’abonnement : la réponse honnête est donc d’automatiser les 80 % faciles et de garder des crédits pour les épisodes sales."
+	},
+	"whatYouLose": [
+		{
+			"en": "Adaptive multi-speaker levelling",
+			"fr": "Nivellement adaptatif multi-intervenants"
+		},
+		{
+			"en": "De-reverb that actually works",
+			"fr": "Déréverbération qui marche vraiment"
+		},
+		{
+			"en": "Automatic chapters and metadata",
+			"fr": "Chapitres et métadonnées automatiques"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "FFmpeg",
+			"source": {
+				"host": "forgejo",
+				"path": "FFmpeg/FFmpeg",
+				"url": "https://code.ffmpeg.org/FFmpeg/FFmpeg"
+			},
+			"license": "LGPL-2.1 / GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Two-pass loudnorm gives you broadcast-legal loudness in one command. This is the majority of the value, scriptable and free.",
+				"fr": "Le loudnorm en deux passes donne une intensité conforme aux normes en une commande. C’est l’essentiel de la valeur, scriptable et gratuit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Noise Suppression for Voice",
+			"source": {
+				"host": "github",
+				"path": "werman/noise-suppression-for-voice",
+				"url": "https://github.com/werman/noise-suppression-for-voice"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "RNNoise as a VST/LV2 plugin. Kills fan hum and room noise well; it will not fix reverb.",
+				"fr": "RNNoise en plugin VST/LV2. Élimine bien le bruit de ventilateur et de pièce ; ne corrigera pas la réverbération."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LSP Plugins",
+			"source": {
+				"host": "github",
+				"path": "lsp-plugins/lsp-plugins",
+				"url": "https://github.com/lsp-plugins/lsp-plugins"
+			},
+			"license": "LGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Professional-grade compressors, gates and loudness meters for Linux and Windows hosts. Manual work, but the results are yours to tune.",
+				"fr": "Compresseurs, gates et vumètres de niveau professionnel pour hôtes Linux et Windows. Travail manuel, mais le réglage vous appartient."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

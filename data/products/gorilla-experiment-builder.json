@@ -1,0 +1,103 @@
+{
+	"slug": "gorilla-experiment-builder",
+	"name": "Gorilla Experiment Builder",
+	"domain": "gorilla.sc",
+	"category": "research-science",
+	"priceMonthly": 20.7,
+	"pricing": {
+		"plan": "Researcher Basic, billed annually (EUR 230/yr ex VAT); pay-as-you-go is EUR 1.28 per respondent",
+		"basis": "per-seat",
+		"url": "https://gorilla.sc/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Gorilla is a drag-and-drop builder over what jsPsych does in code, plus hosting and per-participant billing. If your lab has anyone who writes JavaScript, the open stack is free and more flexible; if it does not, the token price is buying you that person.",
+		"fr": "Gorilla est un constructeur glisser-déposer par-dessus ce que jsPsych fait en code, plus l’hébergement et la facturation par participant. Si votre laboratoire compte quelqu’un qui écrit du JavaScript, la pile open source est gratuite et plus souple ; sinon, le prix des jetons vous achète cette personne."
+	},
+	"whatYouLose": [
+		{
+			"en": "No-code task builder",
+			"fr": "Constructeur de tâches sans code"
+		},
+		{
+			"en": "Managed hosting and data capture",
+			"fr": "Hébergement et collecte gérés"
+		},
+		{
+			"en": "Timing validation reports",
+			"fr": "Rapports de validation temporelle"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "jsPsych",
+			"source": {
+				"host": "github",
+				"path": "jspsych/jsPsych",
+				"url": "https://github.com/jspsych/jsPsych"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The de-facto standard for browser-based behavioural experiments. Plugin per trial type, data out as JSON or CSV.",
+				"fr": "Le standard de fait pour les expériences comportementales en navigateur. Une extension par type d’essai, données en JSON ou CSV."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "lab.js",
+			"source": {
+				"host": "github",
+				"path": "FelixHenninger/lab.js",
+				"url": "https://github.com/FelixHenninger/lab.js"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Closest thing to Gorilla's visual builder: the core library is Apache-2.0, the drag-and-drop builder is AGPL and runs in your browser.",
+				"fr": "Ce qui ressemble le plus au constructeur visuel de Gorilla : la bibliothèque cœur est en Apache-2.0, le constructeur glisser-déposer est en AGPL et tourne dans votre navigateur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PsychoPy",
+			"source": {
+				"host": "github",
+				"path": "psychopy/psychopy",
+				"url": "https://github.com/psychopy/psychopy"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Better than any of them for precise timing, and the Builder view is a genuine no-code path.",
+				"fr": "Meilleur que tous pour la précision temporelle, et la vue Builder est un vrai chemin sans code."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Pavlovia hosting and participant credits",
+					"fr": "L’hébergement Pavlovia et les crédits participants"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

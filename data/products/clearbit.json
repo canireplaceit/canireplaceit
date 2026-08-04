@@ -1,0 +1,107 @@
+{
+	"slug": "clearbit",
+	"name": "Clearbit",
+	"domain": "clearbit.com",
+	"category": "sales-outreach-data",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "not-yet",
+	"why": {
+		"en": "Now sold as HubSpot Breeze Intelligence, and priced in credits. Enrichment is an API over a dataset somebody spent years assembling and cleaning; the API is fifty lines, the dataset is the company. Anyone offering you an open source Clearbit is offering you an empty database.",
+		"fr": "Désormais vendu sous le nom HubSpot Breeze Intelligence, et facturé en crédits. L’enrichissement, c’est une API sur un jeu de données que quelqu’un a passé des années à constituer et nettoyer ; l’API fait cinquante lignes, le jeu de données est l’entreprise. Quiconque vous propose un Clearbit open source vous propose une base vide."
+	},
+	"whatYouLose": [
+		{
+			"en": "Company firmographic data",
+			"fr": "Données firmographiques d’entreprise"
+		},
+		{
+			"en": "IP-to-company reverse lookup",
+			"fr": "Identification d’entreprise par IP"
+		},
+		{
+			"en": "Real-time form enrichment",
+			"fr": "Enrichissement de formulaire en temps réel"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "SpiderFoot",
+			"source": {
+				"host": "github",
+				"path": "smicallef/spiderfoot",
+				"url": "https://github.com/smicallef/spiderfoot"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Automates the public lookups — WHOIS, DNS, certificates, social profiles — that a naive enrichment build ends up doing anyway. Slower, noisier, free.",
+				"fr": "Automatise les recherches publiques — WHOIS, DNS, certificats, profils sociaux — que fait de toute façon un enrichissement maison naïf. Plus lent, plus bruyant, gratuit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "email-verifier",
+			"source": {
+				"host": "github",
+				"path": "AfterShip/email-verifier",
+				"url": "https://github.com/AfterShip/email-verifier"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The one enrichment signal you can compute yourself reliably: whether the address is real.",
+				"fr": "Le seul signal d’enrichissement que vous pouvez calculer vous-même de façon fiable : l’adresse existe-t-elle."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Windmill",
+			"source": {
+				"host": "github",
+				"path": "windmill-labs/windmill",
+				"url": "https://github.com/windmill-labs/windmill"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted orchestration for whichever paid data sources you end up wiring together, so at least the plumbing is yours.",
+				"fr": "Orchestration auto-hébergée pour les sources payantes que vous finirez par relier, pour qu’au moins la tuyauterie soit à vous."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO/SAML, audit logs, Git sync and distributed workers are enterprise",
+					"fr": "SSO/SAML, journaux d’audit, sync Git et workers distribués sont réservés à l’entreprise"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Apollo.io",
+			"url": "https://www.apollo.io",
+			"priceMonthly": 49,
+			"note": {
+				"en": "Enrichment credits at a small fraction of the Clearbit rate. Company data is thinner and the IP lookup is weaker.",
+				"fr": "Des crédits d’enrichissement à une petite fraction du tarif Clearbit. Données d’entreprise plus maigres et identification par IP plus faible."
+			}
+		}
+	],
+	"priority": 3
+}

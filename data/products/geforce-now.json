@@ -1,0 +1,99 @@
+{
+	"slug": "geforce-now",
+	"name": "GeForce NOW",
+	"domain": "nvidia.com",
+	"category": "game-hosting-play",
+	"priceMonthly": 20,
+	"pricing": {
+		"plan": "Ultimate (prices not rendered on the geo-served page)",
+		"basis": "flat",
+		"url": "https://www.nvidia.com/en-us/geforce-now/premium-memberships/",
+		"checkedOn": "2026-08-02",
+		"confidence": "low"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Sunshine and Moonlight give you the same experience — 4K, 120fps, sub-20ms on a decent LAN — and it is free and open source on both ends. But be honest about the arithmetic: GeForce NOW rents you an RTX GPU you do not have to buy. Self-hosting only wins if there is already a gaming PC in the house doing nothing while you are on the sofa.",
+		"fr": "Sunshine et Moonlight offrent la même expérience — 4K, 120 images/s, moins de 20 ms sur un bon réseau local — le tout gratuit et open source des deux côtés. Mais soyons honnêtes sur le calcul : GeForce NOW vous loue un GPU RTX que vous n’avez pas à acheter. L’auto-hébergement ne gagne que s’il y a déjà un PC de jeu à la maison qui ne fait rien pendant que vous êtes sur le canapé."
+	},
+	"whatYouLose": [
+		{
+			"en": "Renting a GPU instead of owning one",
+			"fr": "Louer un GPU au lieu d’en posséder un"
+		},
+		{
+			"en": "Playing away from home reliably",
+			"fr": "Jouer hors de chez soi de façon fiable"
+		},
+		{
+			"en": "Instant library streaming",
+			"fr": "Streaming immédiat de la bibliothèque"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Sunshine",
+			"source": {
+				"host": "github",
+				"path": "LizardByte/Sunshine",
+				"url": "https://github.com/LizardByte/Sunshine"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The host side: hardware-encoded game streaming from your own PC, NVIDIA, AMD or Intel. Drop-in replacement for NVIDIA's discontinued GameStream.",
+				"fr": "Le côté hôte : streaming de jeu encodé matériellement depuis votre PC, en NVIDIA, AMD ou Intel. Remplacement direct du GameStream abandonné par NVIDIA."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Moonlight",
+			"source": {
+				"host": "github",
+				"path": "moonlight-stream/moonlight-qt",
+				"url": "https://github.com/moonlight-stream/moonlight-qt"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The client side, on everything: desktop, phone, Steam Deck, Apple TV, even old Android boxes. Excellent latency handling.",
+				"fr": "Le côté client, sur tout : ordinateur, téléphone, Steam Deck, Apple TV, jusqu’aux vieux boîtiers Android. Excellente gestion de la latence."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apollo",
+			"source": {
+				"host": "github",
+				"path": "ClassicOldSong/Apollo",
+				"url": "https://github.com/ClassicOldSong/Apollo"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "A Sunshine fork that adds virtual displays and per-client resolution, so streaming does not hijack the host's monitor. Fork, so it trails upstream fixes.",
+				"fr": "Un fork de Sunshine qui ajoute des écrans virtuels et une résolution par client, pour que le streaming ne réquisitionne pas l’écran de l’hôte. C’est un fork : il suit les correctifs amont avec du retard."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 4
+}

@@ -1,0 +1,86 @@
+{
+	"slug": "kubecost",
+	"name": "Kubecost",
+	"domain": "kubecost.com",
+	"category": "containers-kubernetes",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "Kubecost donated its own core to the CNCF as OpenCost, so the allocation engine is free by the vendor's own hand. The paid tier adds long-term retention and multi-cluster rollups, which Prometheus plus a dashboard also does. Above the free tier pricing is quote-based and scales with the number of monitored nodes.",
+		"fr": "Kubecost a donné son propre cœur à la CNCF sous le nom d’OpenCost : le moteur d’allocation est gratuit de la main même de l’éditeur. Le palier payant ajoute la rétention longue et l’agrégation multi-cluster, ce que Prometheus et un tableau de bord font aussi. Au-delà du palier gratuit, la tarification se fait sur devis et croît avec le nombre de nœuds surveillés."
+	},
+	"whatYouLose": [
+		{
+			"en": "Long-term retention",
+			"fr": "Rétention longue durée"
+		},
+		{
+			"en": "Multi-cluster rollups",
+			"fr": "Agrégation multi-cluster"
+		},
+		{
+			"en": "Savings recommendations",
+			"fr": "Recommandations d’économies"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "OpenCost",
+			"source": {
+				"host": "github",
+				"path": "opencost/opencost",
+				"url": "https://github.com/opencost/opencost"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The CNCF-donated allocation engine. Per-namespace and per-pod cost with real cloud billing rates.",
+				"fr": "Le moteur d’allocation donné à la CNCF. Coût par namespace et par pod avec les vrais tarifs de facturation cloud."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kubecost (free tier)",
+			"source": {
+				"host": "github",
+				"path": "kubecost/kubecost",
+				"url": "https://github.com/kubecost/kubecost"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The vendor's own free build covers a single cluster with 15 days of retention. Fine for most people.",
+				"fr": "La version gratuite de l’éditeur couvre un cluster unique avec 15 jours de rétention. Suffisant pour la plupart."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Long retention, actual billing, RBAC/SSO, multi-cluster",
+					"fr": "Rétention longue, facturation réelle, RBAC/SSO, multi-cluster"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Vantage",
+			"url": "https://www.vantage.sh/pricing",
+			"priceMonthly": 30,
+			"note": {
+				"en": "Cross-cloud cost visibility with a free tier, and it sees the spend outside Kubernetes too. Less pod-level granularity than Kubecost.",
+				"fr": "Visibilité des coûts multi-cloud avec palier gratuit, et elle voit aussi les dépenses hors Kubernetes. Moins de granularité au niveau des pods que Kubecost."
+			}
+		}
+	],
+	"priority": 2
+}

@@ -1,0 +1,124 @@
+{
+	"slug": "warp",
+	"name": "Warp",
+	"domain": "warp.dev",
+	"category": "developer-tooling",
+	"priceMonthly": 18,
+	"pricing": {
+		"plan": "Build, annual billed monthly ($20 month-to-month)",
+		"basis": "per-seat",
+		"url": "https://www.warp.dev/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Blocks, a real text input and command history search are all reproducible from open parts. Warp's actual product is the AI agent in the terminal — and it phones home; there is no self-hosted Warp.",
+		"fr": "Les blocs, un vrai champ de saisie et la recherche d’historique sont tous reproductibles avec des briques ouvertes. Le vrai produit de Warp, c’est l’agent IA dans le terminal — et il appelle ses serveurs ; il n’existe pas de Warp auto-hébergé."
+	},
+	"whatYouLose": [
+		{
+			"en": "Command blocks UI",
+			"fr": "Interface en blocs de commandes"
+		},
+		{
+			"en": "Built-in AI agent",
+			"fr": "Agent IA intégré"
+		},
+		{
+			"en": "Shared team workflows",
+			"fr": "Workflows d’équipe partagés"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Ghostty",
+			"source": {
+				"host": "github",
+				"path": "ghostty-org/ghostty",
+				"url": "https://github.com/ghostty-org/ghostty"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Fast native terminal with GPU rendering and sane defaults. No AI, no account, no telemetry.",
+				"fr": "Terminal natif rapide, rendu GPU, réglages par défaut sensés. Pas d’IA, pas de compte, pas de télémétrie."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "WezTerm",
+			"source": {
+				"host": "github",
+				"path": "wezterm/wezterm",
+				"url": "https://github.com/wezterm/wezterm"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Cross-platform, Lua-configured, multiplexer built in so you can drop tmux. The config file is the price of admission.",
+				"fr": "Multiplateforme, configuré en Lua, multiplexeur intégré : vous pouvez laisser tomber tmux. Le fichier de config est le ticket d’entrée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Atuin",
+			"source": {
+				"host": "github",
+				"path": "atuinsh/atuin",
+				"url": "https://github.com/atuinsh/atuin"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The shell-history half of Warp: searchable, synced history across machines. Run your own sync server and the data never leaves.",
+				"fr": "La moitié « historique » de Warp : historique cherchable et synchronisé entre machines. Hébergez votre serveur de synchro et les données ne sortent jamais."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "The hosted Atuin Cloud sync service and its team features",
+					"fr": "Le service de synchro hébergé Atuin Cloud et ses fonctions d’équipe"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Starship",
+			"source": {
+				"host": "github",
+				"path": "starship/starship",
+				"url": "https://github.com/starship/starship"
+			},
+			"license": "ISC",
+			"effort": "managed",
+			"note": {
+				"en": "The prompt half. Fast, works in every shell, one TOML file.",
+				"fr": "La moitié « prompt ». Rapide, fonctionne dans tous les shells, un seul fichier TOML."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

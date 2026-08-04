@@ -1,0 +1,107 @@
+{
+	"slug": "pusher",
+	"name": "Pusher Channels",
+	"domain": "pusher.com",
+	"category": "backend",
+	"priceMonthly": 49,
+	"pricing": {
+		"plan": "Startup",
+		"basis": "flat",
+		"url": "https://pusher.com/channels/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Pusher is a WebSocket fan-out with a channel naming convention and an auth callback. Centrifugo does all of it, holds far more connections per node than your Pusher tier allows, and the client SDKs you already use are mostly protocol-compatible with a drop-in server.",
+		"fr": "Pusher est une diffusion WebSocket avec une convention de nommage de canaux et un callback d’authentification. Centrifugo fait tout cela, tient bien plus de connexions par nœud que ne l’autorise votre palier Pusher, et les SDK clients que vous utilisez déjà sont pour la plupart compatibles avec un serveur de remplacement."
+	},
+	"whatYouLose": [
+		{
+			"en": "Someone else's uptime",
+			"fr": "Disponibilité de quelqu’un d’autre"
+		},
+		{
+			"en": "Global edge presence",
+			"fr": "Présence au edge mondial"
+		},
+		{
+			"en": "Connection debugging console",
+			"fr": "Console de débogage des connexions"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Centrifugo",
+			"source": {
+				"host": "github",
+				"path": "centrifugal/centrifugo",
+				"url": "https://github.com/centrifugal/centrifugo"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "One binary, JWT auth, presence, history, Redis or NATS broker. A single node comfortably holds a hundred thousand connections.",
+				"fr": "Un binaire, authentification JWT, présence, historique, broker Redis ou NATS. Un seul nœud tient confortablement cent mille connexions."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "PRO adds analytics, tracing, rate limits, push notifications and admin SSO.",
+					"fr": "La version PRO ajoute analytique, traçage, limites de débit, notifications push et SSO d’admin."
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Laravel Reverb",
+			"source": {
+				"host": "github",
+				"path": "laravel/reverb",
+				"url": "https://github.com/laravel/reverb"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Speaks the Pusher protocol natively, so an existing Laravel Echo front end switches with a config change. Best when you are already in that ecosystem.",
+				"fr": "Parle nativement le protocole Pusher : un front Laravel Echo existant bascule via un simple changement de configuration. Idéal si vous êtes déjà dans cet écosystème."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mercure",
+			"source": {
+				"host": "github",
+				"path": "dunglas/mercure",
+				"url": "https://github.com/dunglas/mercure"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Server-sent events over plain HTTP with JWT-scoped topics — no WebSocket to keep alive. Clustering and HA are the paid on-premise build.",
+				"fr": "Server-sent events en HTTP simple avec des sujets bornés par JWT — aucun WebSocket à maintenir. Le clustering et la haute disponibilité sont la build sur site payante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "High availability and clustering are the Enterprise on-premise build.",
+					"fr": "La haute disponibilité et le clustering sont la build Enterprise sur site."
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

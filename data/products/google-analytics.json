@@ -1,0 +1,132 @@
+{
+	"slug": "google-analytics",
+	"name": "Google Analytics",
+	"domain": "analytics.google.com",
+	"category": "analytics",
+	"priceMonthly": 0,
+	"pricing": {
+		"plan": "Google Analytics 4, free of charge; Analytics 360 is quote-only",
+		"basis": "flat",
+		"url": "https://marketingplatform.google.com/about/analytics/",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "You are paying in privacy and cookie banners, not dollars. Every replacement is a strict upgrade for most sites.",
+		"fr": "Vous payez en vie privée et en bandeaux cookies, pas en euros. Pour la plupart des sites, n’importe quel remplaçant est un gain net."
+	},
+	"whatYouLose": [
+		{
+			"en": "Google Ads attribution",
+			"fr": "Attribution Google Ads"
+		},
+		{
+			"en": "BigQuery export",
+			"fr": "Export BigQuery"
+		},
+		{
+			"en": "Free at any traffic volume",
+			"fr": "Gratuit quel que soit le trafic"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Plausible",
+			"source": {
+				"host": "github",
+				"path": "plausible/analytics",
+				"url": "https://github.com/plausible/analytics"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Cookieless, one page of stats.",
+				"fr": "Sans cookies, une seule page de stats."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Funnels, user journeys, revenue goals, SSO",
+					"fr": "Entonnoirs, parcours, objectifs de revenus, SSO"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Umami",
+			"source": {
+				"host": "github",
+				"path": "umami-software/umami",
+				"url": "https://github.com/umami-software/umami"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Lightest to self-host.",
+				"fr": "Le plus léger à auto-héberger."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Matomo",
+			"source": {
+				"host": "github",
+				"path": "matomo-org/matomo",
+				"url": "https://github.com/matomo-org/matomo"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Feature-parity with GA including funnels.",
+				"fr": "Parité avec GA, tunnels de conversion compris."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Heatmaps, funnels, A/B testing, SAML plugin",
+					"fr": "Cartes de chaleur, entonnoirs, tests A/B, plugin SAML"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PostHog",
+			"source": {
+				"host": "github",
+				"path": "PostHog/posthog",
+				"url": "https://github.com/PostHog/posthog"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Product analytics, heavy but complete.",
+				"fr": "Analytique produit, lourde mais complète."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SAML SSO, RBAC, audit logs",
+					"fr": "SSO SAML, RBAC, journaux d’audit"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

@@ -1,0 +1,124 @@
+{
+	"slug": "craft-docs",
+	"name": "Craft",
+	"domain": "craft.do",
+	"category": "notes-docs",
+	"priceMonthly": 6,
+	"pricing": {
+		"plan": "Plus — vendor page geo-served PLN 24.00/mo per person (~USD 6)",
+		"basis": "per-seat",
+		"url": "https://www.craft.do/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "low"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Craft sells the block-document feel of Notion with native Apple apps that actually work offline. SilverBullet and Trilium cover the structure and the linking; nothing open source covers the presentation, and Craft's whole argument is presentation.",
+		"fr": "Craft vend la sensation des documents en blocs de Notion avec des applications Apple natives qui fonctionnent vraiment hors ligne. SilverBullet et Trilium couvrent la structure et les liens ; rien en open source ne couvre la présentation, et tout l’argument de Craft est la présentation."
+	},
+	"whatYouLose": [
+		{
+			"en": "Native, fast Apple apps",
+			"fr": "Applications Apple natives et rapides"
+		},
+		{
+			"en": "Publishing a doc as a web page",
+			"fr": "Publication d’un document en page web"
+		},
+		{
+			"en": "Real-time collaboration",
+			"fr": "Collaboration en temps réel"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "SilverBullet",
+			"source": {
+				"host": "github",
+				"path": "silverbulletmd/silverbullet",
+				"url": "https://github.com/silverbulletmd/silverbullet"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "A self-hosted, keyboard-first Markdown workspace with a query language over your own notes. It runs in the browser, so every device is a client.",
+				"fr": "Un espace Markdown auto-hébergé, pensé clavier, avec un langage de requête sur vos propres notes. Il tourne dans le navigateur, donc chaque appareil est un client."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Trilium Notes",
+			"source": {
+				"host": "github",
+				"path": "TriliumNext/Trilium",
+				"url": "https://github.com/TriliumNext/Trilium"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Hierarchical notes with scripting, attributes and note cloning — the closest thing to a personal database. This is the TriliumNext continuation; the original zadam repo is retired.",
+				"fr": "Notes hiérarchiques avec scripts, attributs et clonage de notes : ce qui ressemble le plus à une base de données personnelle. C’est la continuation TriliumNext, le dépôt zadam d’origine est retiré."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Anytype",
+			"source": {
+				"host": "github",
+				"path": "anyproto/anytype-ts",
+				"url": "https://github.com/anyproto/anytype-ts"
+			},
+			"license": "Any Source Available Licence 1.0",
+			"effort": "managed",
+			"note": {
+				"en": "Local-first objects and relations with encrypted peer-to-peer sync. Read the licence first: 'Any Source Available Licence 1.0' is source-available, not OSI open source.",
+				"fr": "Objets et relations en local-first avec synchro pair-à-pair chiffrée. Lisez d’abord la licence : « Any Source Available Licence 1.0 » est à source ouverte, pas open source au sens OSI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Outline",
+			"source": {
+				"host": "github",
+				"path": "outline/outline",
+				"url": "https://github.com/outline/outline"
+			},
+			"license": "BSL-1.1",
+			"effort": "docker",
+			"note": {
+				"en": "The nicest-looking self-hostable team wiki — but the LICENSE is Business Source License 1.1, which is not an open source licence. Know that before you build on it.",
+				"fr": "Le wiki d’équipe auto-hébergeable le plus réussi visuellement, mais le LICENSE est une Business Source License 1.1, qui n’est pas une licence open source. Sachez-le avant de bâtir dessus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Commercial use is restricted by the BSL until the change date",
+					"fr": "L’usage commercial est restreint par la BSL jusqu’à la date de bascule"
+				},
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

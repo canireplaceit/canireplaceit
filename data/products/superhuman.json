@@ -1,0 +1,124 @@
+{
+	"slug": "superhuman",
+	"name": "Superhuman",
+	"domain": "superhuman.com",
+	"category": "email-clients",
+	"priceMonthly": 25,
+	"pricing": {
+		"plan": "Starter, $25/member/mo billed annually",
+		"basis": "per-seat",
+		"url": "https://superhuman.com/mail/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Thirty dollars a month buys keyboard shortcuts and a snappier front end over the Gmail account you already have — Superhuman never touches the hard part, which is running mail. Thunderbird and NeoMutt are just as fast once your fingers learn them, and neither has a read-receipt tracker pointed at your correspondents.",
+		"fr": "Trente dollars par mois achètent des raccourcis clavier et une interface plus vive au-dessus du compte Gmail que vous avez déjà — Superhuman ne touche jamais à la partie difficile, qui est de faire tourner du courrier. Thunderbird et NeoMutt sont tout aussi rapides une fois vos doigts formés, et aucun ne braque un traqueur d’accusés de lecture sur vos correspondants."
+	},
+	"whatYouLose": [
+		{
+			"en": "Sub-100ms search and rendering",
+			"fr": "Recherche et affichage sous 100 ms"
+		},
+		{
+			"en": "Split inbox and AI triage",
+			"fr": "Boîte scindée et tri par IA"
+		},
+		{
+			"en": "Onboarding that teaches you the shortcuts",
+			"fr": "Prise en main qui vous apprend les raccourcis"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Thunderbird",
+			"source": {
+				"host": "github",
+				"path": "mozilla/releases-comm-central",
+				"url": "https://github.com/mozilla/releases-comm-central"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The GitHub mirror of comm-central; Thunderbird's canonical repository is Mercurial. Free, no account, and the 2024 redesign finally made it look like this decade.",
+				"fr": "Le miroir GitHub de comm-central ; le dépôt canonique de Thunderbird est en Mercurial. Gratuit, sans compte, et la refonte de 2024 lui a enfin donné l’allure de cette décennie."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mailspring",
+			"source": {
+				"host": "github",
+				"path": "Foundry376/Mailspring",
+				"url": "https://github.com/Foundry376/Mailspring"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Looks the most like a modern paid client, and that is the problem: read receipts, snooze, templates and reminders all sit behind Mailspring Pro, and Pro needs a Mailspring account that proxies your mail.",
+				"fr": "C’est celui qui ressemble le plus à un client payant moderne, et c’est bien le problème : accusés de lecture, report, modèles et rappels sont tous derrière Mailspring Pro, qui exige un compte Mailspring servant de relais à votre courrier."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Read receipts, snooze, templates, reminders and link tracking (Pro)",
+					"fr": "Accusés de lecture, report, modèles, rappels et suivi de liens (Pro)"
+				},
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Roundcube",
+			"source": {
+				"host": "github",
+				"path": "roundcube/roundcubemail",
+				"url": "https://github.com/roundcube/roundcubemail"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The webmail every hosting provider ships. Plain, fast, plugin-extensible. Note there is no LICENSE file at the repo root — the GPL-3.0 grant lives in the source headers and docs.",
+				"fr": "Le webmail que tous les hébergeurs livrent. Sobre, rapide, extensible par greffons. À noter : pas de fichier LICENSE à la racine, la GPL-3.0 est déclarée dans les en-têtes et la documentation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "NeoMutt",
+			"source": {
+				"host": "github",
+				"path": "neomutt/neomutt",
+				"url": "https://github.com/neomutt/neomutt"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "If speed is really the goal, this is the fastest mail client that exists, and it has been free since 1995. The learning curve is a cliff.",
+				"fr": "Si la vitesse est vraiment l’objectif, c’est le client mail le plus rapide qui existe, et il est gratuit depuis 1995. La courbe d’apprentissage est une falaise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 4
+}

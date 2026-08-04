@@ -1,0 +1,78 @@
+{
+	"slug": "bright-data",
+	"name": "Bright Data",
+	"domain": "brightdata.com",
+	"category": "networking-vpn",
+	"priceMonthly": null,
+	"pricing": {
+		"plan": "Residential proxies, pay-as-you-go USD 4.00/GB (no commitment); monthly plans from USD 499",
+		"basis": "usage",
+		"url": "https://brightdata.com/pricing/proxy-network",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "not-yet",
+	"why": {
+		"en": "Every part of this is open source except the part you are buying: 70 million residential IPs belonging to people who installed somebody's free VPN. You can chain proxies, rotate cloud IPs and manage sessions with free tools — you cannot self-host other people's home internet, and you should think hard about whether you want to rent it.",
+		"fr": "Tout ici est open source sauf ce que vous achetez : 70 millions d’IP résidentielles appartenant à des gens qui ont installé le VPN gratuit de quelqu’un. Vous pouvez chaîner des proxys, faire tourner des IP cloud et gérer des sessions avec des outils open source — vous ne pouvez pas auto-héberger la connexion domestique d’autrui, et il vaut la peine de se demander si vous voulez la louer."
+	},
+	"whatYouLose": [
+		{
+			"en": "Residential and mobile IP pools",
+			"fr": "Pools d’IP résidentielles et mobiles"
+		},
+		{
+			"en": "Geo-targeting per city",
+			"fr": "Ciblage géographique par ville"
+		},
+		{
+			"en": "CAPTCHA and unblocking services",
+			"fr": "Services de déblocage et CAPTCHA"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "gost",
+			"source": {
+				"host": "github",
+				"path": "go-gost/gost",
+				"url": "https://github.com/go-gost/gost"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "A tunnel and proxy swiss-army knife: chaining, rotation, load balancing across a pool of your own exit nodes, every protocol you have heard of.",
+				"fr": "Un couteau suisse de tunnels et proxys : chaînage, rotation, répartition de charge sur un pool de vos propres sorties, tous les protocoles connus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Squid",
+			"source": {
+				"host": "github",
+				"path": "squid-cache/squid",
+				"url": "https://github.com/squid-cache/squid"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Boring and reliable as the front door of a proxy pool, with per-client ACLs and caching that cuts your egress bill. Note that Scrapoxy, often recommended here, is not open source — read its LICENSE.",
+				"fr": "Ennuyeux et fiable en porte d’entrée d’un pool de proxys, avec ACL par client et un cache qui réduit la facture de sortie. Notez que Scrapoxy, souvent recommandé ici, n’est pas open source — lisez sa LICENSE."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

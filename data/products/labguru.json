@@ -1,0 +1,97 @@
+{
+	"slug": "labguru",
+	"name": "Labguru",
+	"domain": "labguru.com",
+	"category": "research-science",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "Labguru bundles an ELN, an inventory and a light LIMS. Open source gives you those as three separate installs — eLabFTW plus SENAITE covers most of it — and nothing ties them together the way one vendor database does.",
+		"fr": "Labguru réunit un ELN, un inventaire et un LIMS léger. L’open source vous les donne en trois installations séparées — eLabFTW plus SENAITE couvre l’essentiel — et rien ne les relie comme le fait une base unique d’éditeur."
+	},
+	"whatYouLose": [
+		{
+			"en": "One database across ELN and LIMS",
+			"fr": "Base unique pour l’ELN et le LIMS"
+		},
+		{
+			"en": "Built-in project and budget tracking",
+			"fr": "Suivi de projets et de budgets intégré"
+		},
+		{
+			"en": "Vendor catalogue ordering",
+			"fr": "Commande depuis les catalogues fournisseurs"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "eLabFTW",
+			"source": {
+				"host": "github",
+				"path": "elabftw/elabftw",
+				"url": "https://github.com/elabftw/elabftw"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The default open source ELN in European labs. SAML and LDAP are in the free build, which matters when the university buys on SSO. One compose file.",
+				"fr": "L’ELN open source par défaut dans les laboratoires européens. SAML et LDAP sont dans la version open source, ce qui compte quand l’université achète sur le SSO. Un seul fichier compose."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SENAITE",
+			"source": {
+				"host": "github",
+				"path": "senaite/senaite.core",
+				"url": "https://github.com/senaite/senaite.core"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "A real open source LIMS — samples, worksheets, analyses, certificates of analysis. Plone underneath, so budget for someone who knows it.",
+				"fr": "Un vrai LIMS open source — échantillons, feuilles de travail, analyses, certificats d’analyse. Plone en dessous : prévoyez quelqu’un qui connaît."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SciNote",
+			"source": {
+				"host": "github",
+				"path": "scinote-eln/scinote-web",
+				"url": "https://github.com/scinote-eln/scinote-web"
+			},
+			"license": "MPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "MPL-2.0 core with a genuinely usable inventory and protocol repository. The compliance layer — e-signatures, validated audit trail — is only in the paid edition.",
+				"fr": "Cœur en MPL-2.0 avec un inventaire et un dépôt de protocoles réellement utilisables. La couche conformité — signatures électroniques, piste d’audit validée — n’existe que dans l’édition payante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "E-signatures, 21 CFR Part 11 compliance, premium integrations",
+					"fr": "Signatures électroniques, conformité 21 CFR Part 11, intégrations premium"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

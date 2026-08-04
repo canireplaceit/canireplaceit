@@ -1,0 +1,107 @@
+{
+	"slug": "hex",
+	"name": "Hex",
+	"domain": "hex.tech",
+	"category": "scientific-computing",
+	"priceMonthly": 36,
+	"pricing": {
+		"plan": "Professional, per editor (Team $75)",
+		"basis": "per-seat",
+		"url": "https://hex.tech/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Hex is a notebook, a SQL cell and a drag-built app in one, and the app layer is the bit worth paying for. Marimo and Quarto each cover half of it well; stitching them into something a non-technical stakeholder will open is on you.",
+		"fr": "Hex, c’est un carnet, une cellule SQL et une application construite au glisser-déposer réunis, et c’est la couche application qui vaut d’être payée. Marimo et Quarto en couvrent chacun bien la moitié ; les assembler en quelque chose qu’un interlocuteur non technique ouvrira, c’est votre affaire."
+	},
+	"whatYouLose": [
+		{
+			"en": "Notebook-to-app publishing",
+			"fr": "Publication carnet vers application"
+		},
+		{
+			"en": "Warehouse-aware SQL cells",
+			"fr": "Cellules SQL conscientes de l’entrepôt"
+		},
+		{
+			"en": "Multiplayer editing",
+			"fr": "Édition à plusieurs"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "marimo",
+			"source": {
+				"host": "github",
+				"path": "marimo-team/marimo",
+				"url": "https://github.com/marimo-team/marimo"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Reactive Python notebooks that export straight to a running web app, with SQL cells built in. The single closest open replacement.",
+				"fr": "Carnets Python réactifs qui s’exportent directement en application web, avec cellules SQL intégrées. Le remplaçant open source le plus proche."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "marimo's hosted cloud workspaces",
+					"fr": "Les espaces de travail hébergés de marimo"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Quarto",
+			"source": {
+				"host": "github",
+				"path": "quarto-dev/quarto-cli",
+				"url": "https://github.com/quarto-dev/quarto-cli"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Better than Hex at the document end — parameterised reports, cross-references, LaTeX and HTML from one source. No interactivity without a server.",
+				"fr": "Meilleur que Hex sur le versant document — rapports paramétrés, renvois, LaTeX et HTML depuis une source unique. Aucune interactivité sans serveur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Streamlit",
+			"source": {
+				"host": "github",
+				"path": "streamlit/streamlit",
+				"url": "https://github.com/streamlit/streamlit"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The app half, properly. Fifty lines of Python becomes something a PI can click through.",
+				"fr": "La moitié application, correctement. Cinquante lignes de Python deviennent quelque chose qu’un porteur de projet peut cliquer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Snowflake-hosted app deployment",
+					"fr": "Le déploiement d’applications hébergé par Snowflake"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

@@ -1,0 +1,99 @@
+{
+	"slug": "originpro",
+	"name": "OriginPro",
+	"domain": "originlab.com",
+	"category": "scientific-computing",
+	"priceMonthly": 62.92,
+	"pricing": {
+		"plan": "OriginPro individual node-locked annual subscription, USD 755/year commercial",
+		"basis": "per-seat",
+		"url": "https://store.originlab.com/store/default.aspx?CategoryID=53",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Origin is the plotting package physical scientists inherit from their supervisor. Everything it does, matplotlib does better and reproducibly — but it does it in code, and Origin's peak fitting and instrument import wizards genuinely have no GUI equivalent in open source.",
+		"fr": "Origin est le logiciel de tracé que les physiciens héritent de leur directeur de thèse. Tout ce qu’il fait, matplotlib le fait mieux et de façon reproductible — mais en code, et les assistants d’ajustement de pics et d’import d’instruments d’Origin n’ont vraiment pas d’équivalent graphique en open source."
+	},
+	"whatYouLose": [
+		{
+			"en": "Peak fitting and analysis wizards",
+			"fr": "Assistants d’ajustement de pics et d’analyse"
+		},
+		{
+			"en": "Instrument file import",
+			"fr": "Import de fichiers d’instruments"
+		},
+		{
+			"en": "Point-and-click plot editing",
+			"fr": "Édition de graphiques à la souris"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Veusz",
+			"source": {
+				"host": "github",
+				"path": "veusz/veusz",
+				"url": "https://github.com/veusz/veusz"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The closest GUI replacement: a scientific plotting app with a widget tree, publication output and a Python API underneath.",
+				"fr": "Le remplaçant graphique le plus proche : une application de tracé scientifique avec un arbre de widgets, une sortie publication et une API Python en dessous."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "matplotlib",
+			"source": {
+				"host": "github",
+				"path": "matplotlib/matplotlib",
+				"url": "https://github.com/matplotlib/matplotlib"
+			},
+			"license": "PSF-based BSD",
+			"effort": "managed",
+			"note": {
+				"en": "The default answer, and the reproducible one: your figure is a script that regenerates itself when the data changes.",
+				"fr": "La réponse par défaut, et la reproductible : votre figure est un script qui se régénère quand les données changent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SciDAVis",
+			"source": {
+				"host": "github",
+				"path": "SciDAVis/scidavis",
+				"url": "https://github.com/SciDAVis/scidavis"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A direct Origin clone in spirit — worksheet, plot, fit. Small team, slow release cadence, but it still ships.",
+				"fr": "Un clone d’Origin dans l’esprit — feuille de calcul, tracé, ajustement. Petite équipe, rythme de publication lent, mais toujours vivant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

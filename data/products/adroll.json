@@ -1,0 +1,107 @@
+{
+	"slug": "adroll",
+	"name": "AdRoll",
+	"domain": "adroll.com",
+	"category": "advertising-affiliate",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "not-yet",
+	"why": {
+		"en": "You are not buying software, you are buying access to ad inventory and a cross-site audience pool. No amount of self-hosting gets you a seat at an exchange — and third-party cookies dying has hollowed out the category anyway.",
+		"fr": "Vous n’achetez pas du logiciel, vous achetez l’accès à de l’inventaire publicitaire et à un pool d’audience inter-sites. Aucun auto-hébergement ne vous donne un siège sur une place de marché — et la fin des cookies tiers a de toute façon vidé la catégorie de sa substance."
+	},
+	"whatYouLose": [
+		{
+			"en": "DSP inventory access",
+			"fr": "Accès à l’inventaire DSP"
+		},
+		{
+			"en": "Cross-site retargeting audiences",
+			"fr": "Audiences de reciblage inter-sites"
+		},
+		{
+			"en": "Dynamic product ads",
+			"fr": "Publicités produit dynamiques"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Revive Adserver",
+			"source": {
+				"host": "github",
+				"path": "revive-adserver/revive-adserver",
+				"url": "https://github.com/revive-adserver/revive-adserver"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "A real, mature, self-hosted ad server — for inventory you already control. It serves your ads on your sites; it cannot buy space on anyone else's.",
+				"fr": "Un serveur publicitaire auto-hébergé, réel et mature — pour l’inventaire que vous contrôlez déjà. Il diffuse vos annonces sur vos sites ; il ne peut acheter d’espace nulle part ailleurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Prebid.js",
+			"source": {
+				"host": "github",
+				"path": "prebid/Prebid.js",
+				"url": "https://github.com/prebid/Prebid.js"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The open standard the ad industry actually runs on — but it is the sell side. It helps publishers monetise, not advertisers buy.",
+				"fr": "Le standard ouvert sur lequel tourne réellement le secteur — mais c’est le côté vendeur. Il aide les éditeurs à monétiser, pas les annonceurs à acheter."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Matomo",
+			"source": {
+				"host": "github",
+				"path": "matomo-org/matomo",
+				"url": "https://github.com/matomo-org/matomo"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Own the attribution side, so you at least stop paying a DSP to mark its own homework.",
+				"fr": "Reprenez au moins l’attribution, pour cesser de payer une DSP qui corrige sa propre copie."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Heatmaps, funnels, form analytics, custom reports and SAML are paid plugins",
+					"fr": "Heatmaps, entonnoirs, analyse de formulaires, rapports personnalisés et SAML sont des plugins payants"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Google Ads remarketing",
+			"url": "https://ads.google.com",
+			"priceMonthly": 0,
+			"note": {
+				"en": "No platform fee at all — buy the same retargeting directly and keep AdRoll's margin. You run the campaigns yourself and lose cross-network reach.",
+				"fr": "Aucun frais de plateforme — achetez le même reciblage en direct et gardez la marge d’AdRoll. Vous pilotez les campagnes vous-même et perdez la portée multi-réseaux."
+			}
+		}
+	],
+	"priority": 2
+}

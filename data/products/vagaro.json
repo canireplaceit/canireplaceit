@@ -1,0 +1,103 @@
+{
+	"slug": "vagaro",
+	"name": "Vagaro",
+	"domain": "vagaro.com",
+	"category": "bookings-property-events",
+	"priceMonthly": 30,
+	"pricing": {
+		"plan": "One location, 1 bookable calendar; vendor page served GBP (£30/mo list, £20 promo), USD figure not re-confirmed",
+		"basis": "flat",
+		"url": "https://www.vagaro.com/pro/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "At $30 a location Vagaro is cheap enough that self-hosting is a lifestyle choice, not a saving. Where it stops being cheap is the add-ons — texts, forms, payroll, the branded app — each billed separately until a small salon is paying $150 a month.",
+		"fr": "À 30 $ par établissement, Vagaro est assez bon marché pour que l’auto-hébergement soit un choix de principe, pas une économie. Ce qui cesse d’être bon marché, ce sont les options — SMS, formulaires, paie, app à votre marque — facturées séparément jusqu’à ce qu’un petit salon paie 150 $ par mois."
+	},
+	"whatYouLose": [
+		{
+			"en": "SMS reminders that reduce no-shows",
+			"fr": "Rappels SMS qui réduisent les défections"
+		},
+		{
+			"en": "Card terminal and tipping flow",
+			"fr": "Terminal carte et circuit des pourboires"
+		},
+		{
+			"en": "Marketplace listing",
+			"fr": "Visibilité sur la place de marché"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Easy!Appointments",
+			"source": {
+				"host": "github",
+				"path": "alextselegidis/easyappointments",
+				"url": "https://github.com/alextselegidis/easyappointments"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Staff, services, working plans, customer self-booking and reminders. The direct open equivalent of the booking half.",
+				"fr": "Personnel, prestations, plannings, réservation par le client et rappels. L’équivalent open source direct de la partie réservation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Cal.com",
+			"source": {
+				"host": "github",
+				"path": "calcom/cal.diy",
+				"url": "https://github.com/calcom/cal.diy"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "If you want it to look modern and handle payments and round-robin staff assignment. Repo renamed to calcom/cal.diy.",
+				"fr": "Si vous le voulez moderne, avec paiements et affectation du personnel en rotation. Dépôt renommé calcom/cal.diy."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Some platform and enterprise features need a paid licence key",
+					"fr": "Certaines fonctions plateforme et entreprise exigent une clé de licence payante"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Open Source Point of Sale",
+			"source": {
+				"host": "github",
+				"path": "opensourcepos/opensourcepos",
+				"url": "https://github.com/opensourcepos/opensourcepos"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The retail side of a salon — product sales, stock, commission-worthy reporting — which booking tools handle badly.",
+				"fr": "Le versant boutique d’un salon — ventes de produits, stock, rapports exploitables pour les commissions — que les outils de réservation gèrent mal."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

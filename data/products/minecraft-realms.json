@@ -1,0 +1,109 @@
+{
+	"slug": "minecraft-realms",
+	"name": "Minecraft Realms",
+	"domain": "minecraft.net",
+	"category": "game-hosting-play",
+	"priceMonthly": 8,
+	"pricing": {
+		"plan": "Realms Plus, 10 players ($7.99/mo)",
+		"basis": "flat",
+		"url": "https://www.minecraft.net/en-us/realms",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Realms is a small always-on server with a ten-player cap and no mod support worth the name. A €5 VPS running the itzg container gives you more players, real plugins, your own backups and no cap on world size. The trade is that you are now the admin: updates, whitelists, and a Discord full of people telling you it lagged.",
+		"fr": "Realms, c’est un petit serveur toujours allumé, plafonné à dix joueurs et sans véritable support des mods. Un VPS à 5 € avec le conteneur itzg vous donne plus de joueurs, de vrais plugins, vos propres sauvegardes et aucune limite de taille de monde. En échange, l’administrateur, c’est vous : mises à jour, listes blanches, et un Discord plein de gens qui trouvent que ça rame."
+	},
+	"whatYouLose": [
+		{
+			"en": "Zero administration",
+			"fr": "Absence totale d’administration"
+		},
+		{
+			"en": "In-client invites and joins",
+			"fr": "Invitations et connexions dans le jeu"
+		},
+		{
+			"en": "Automatic version updates",
+			"fr": "Mises à jour de version automatiques"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "docker-minecraft-server",
+			"source": {
+				"host": "github",
+				"path": "itzg/docker-minecraft-server",
+				"url": "https://github.com/itzg/docker-minecraft-server"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "One container, every server flavour and modpack loader handled by environment variables. The fastest possible route off Realms.",
+				"fr": "Un conteneur, toutes les variantes de serveur et les chargeurs de modpacks pilotés par variables d’environnement. Le moyen le plus rapide de quitter Realms."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pelican Panel",
+			"source": {
+				"host": "github",
+				"path": "pelican-dev/panel",
+				"url": "https://github.com/pelican-dev/panel"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "A web control panel for game servers — start, stop, console, file manager, sub-users. The actively developed successor to Pterodactyl.",
+				"fr": "Un panneau web pour serveurs de jeu — démarrage, arrêt, console, gestionnaire de fichiers, sous-utilisateurs. Le successeur activement développé de Pterodactyl."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Paper",
+			"source": {
+				"host": "github",
+				"path": "PaperMC/Paper",
+				"url": "https://github.com/PaperMC/Paper"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The server software itself: far better performance than vanilla and the plugin API everything targets.",
+				"fr": "Le logiciel serveur lui-même : bien plus performant que le vanilla et l’API de plugins que tout le monde vise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Shockbyte",
+			"url": "https://shockbyte.com",
+			"priceMonthly": 3,
+			"note": {
+				"en": "Managed Minecraft hosting cheaper than Realms with full plugin and modpack support. Shared hardware, so performance varies by node.",
+				"fr": "Hébergement Minecraft géré moins cher que Realms, avec support complet des plugins et modpacks. Matériel mutualisé, donc performances variables selon le nœud."
+			}
+		}
+	],
+	"priority": 3
+}

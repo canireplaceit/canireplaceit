@@ -1,0 +1,114 @@
+{
+	"slug": "carto",
+	"name": "CARTO",
+	"domain": "carto.com",
+	"category": "maps-location",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "CARTO is a spatial analytics layer on top of a warehouse plus a map renderer. PostGIS does the spatial SQL better than anything, MapLibre renders it, and kepler.gl handles the exploratory visuals — but you are now maintaining three things instead of buying one.",
+		"fr": "CARTO est une couche d’analyse spatiale sur un entrepôt de données, plus un moteur de rendu cartographique. PostGIS fait le SQL spatial mieux que quiconque, MapLibre le rend et kepler.gl assure la visualisation exploratoire — mais vous maintenez désormais trois briques au lieu d’en acheter une."
+	},
+	"whatYouLose": [
+		{
+			"en": "Warehouse-native spatial analytics",
+			"fr": "Analyse spatiale native sur entrepôt"
+		},
+		{
+			"en": "No-code map builder",
+			"fr": "Constructeur de cartes sans code"
+		},
+		{
+			"en": "Bundled demographic datasets",
+			"fr": "Jeux de données démographiques inclus"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "PostGIS",
+			"source": {
+				"host": "gitea",
+				"path": "postgis/postgis",
+				"url": "https://gitea.osgeo.org/postgis/postgis"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Spatial SQL in the database you already run. Everything CARTO computes, it computes here or somewhere very like it.",
+				"fr": "Du SQL spatial dans la base que vous avez déjà. Tout ce que CARTO calcule, il le calcule ici ou dans quelque chose de très proche."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "kepler.gl",
+			"source": {
+				"host": "github",
+				"path": "keplergl/kepler.gl",
+				"url": "https://github.com/keplergl/kepler.gl"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Uber's exploratory geospatial visualiser. Drop a CSV of a million points in a browser tab and see it immediately.",
+				"fr": "Le visualiseur géospatial exploratoire d’Uber. Déposez un CSV d’un million de points dans un onglet et voyez-le immédiatement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MapLibre GL JS",
+			"source": {
+				"host": "github",
+				"path": "maplibre/maplibre-gl-js",
+				"url": "https://github.com/maplibre/maplibre-gl-js"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "The renderer, forked from Mapbox GL before it went proprietary. No token, no per-view billing.",
+				"fr": "Le moteur de rendu, forké de Mapbox GL avant son passage en propriétaire. Pas de jeton, pas de facturation à la vue."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GeoNode",
+			"source": {
+				"host": "github",
+				"path": "GeoNode/geonode",
+				"url": "https://github.com/GeoNode/geonode"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "If what you wanted was the portal — a catalogue where colleagues publish and browse layers — this is it, with GeoServer underneath.",
+				"fr": "Si ce que vous vouliez, c’était le portail — un catalogue où les collègues publient et parcourent des couches — c’est lui, avec GeoServer en dessous."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

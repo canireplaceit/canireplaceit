@@ -1,0 +1,97 @@
+{
+	"slug": "procurify",
+	"name": "Procurify",
+	"domain": "procurify.com",
+	"category": "procurement-suppliers",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "Procurify is spend approvals with a nice mobile flow and virtual cards attached. Strip out the cards and it is a requisition-to-PO workflow, which is a solved problem in every open ERP. Keep the cards elsewhere; they are a banking product, not software.",
+		"fr": "Procurify, ce sont des validations de dépenses avec un joli parcours mobile et des cartes virtuelles greffées dessus. Retirez les cartes et il reste un circuit demande-vers-commande, problème résolu dans tous les ERP open source. Gardez les cartes ailleurs : c’est un produit bancaire, pas du logiciel."
+	},
+	"whatYouLose": [
+		{
+			"en": "Virtual cards tied to approvals",
+			"fr": "Cartes virtuelles liées aux validations"
+		},
+		{
+			"en": "Mobile approval experience",
+			"fr": "Expérience de validation mobile"
+		},
+		{
+			"en": "Budget visibility for non-finance staff",
+			"fr": "Visibilité budgétaire pour les non-financiers"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Odoo Community",
+			"source": {
+				"host": "github",
+				"path": "odoo/odoo",
+				"url": "https://github.com/odoo/odoo"
+			},
+			"license": "LGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Purchase agreements, approval rules by amount, and budgets that actually block. Full accounting is Enterprise-only.",
+				"fr": "Contrats-cadres, règles de validation par montant et budgets réellement bloquants. La comptabilité complète est réservée à l’Enterprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Full accounting, Studio, Barcode, Shop Floor, Field Service and Planning are Enterprise-only",
+					"fr": "La comptabilité complète, Studio, Code-barres, Atelier, Services sur site et Planification sont réservés à l’Enterprise"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ERPNext",
+			"source": {
+				"host": "github",
+				"path": "frappe/erpnext",
+				"url": "https://github.com/frappe/erpnext"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Purchase workflow plus budgets against cost centres, all GPL, all self-hosted.",
+				"fr": "Circuit d’achat plus budgets par centre de coût, entièrement GPL, entièrement auto-hébergé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dolibarr",
+			"source": {
+				"host": "github",
+				"path": "Dolibarr/dolibarr",
+				"url": "https://github.com/Dolibarr/dolibarr"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The smallest thing that works: supplier orders, validation steps, and an invoice trail behind them.",
+				"fr": "Le plus petit outil qui fonctionne : commandes fournisseurs, étapes de validation et trace de facturation derrière."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

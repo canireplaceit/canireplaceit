@@ -1,0 +1,103 @@
+{
+	"slug": "bitrise",
+	"name": "Bitrise",
+	"domain": "bitrise.io",
+	"category": "mobile-development",
+	"priceMonthly": 99,
+	"pricing": {
+		"plan": "Starter (USD 89/mo if billed annually)",
+		"basis": "flat",
+		"url": "https://bitrise.io/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Mobile CI is expensive because macOS runners are expensive, and nothing open changes that — Apple's licence still says the hardware must be Apple's. What is free is everything above the machine: the build steps, signing and distribution.",
+		"fr": "La CI mobile coûte cher parce que les runners macOS coûtent cher, et rien d’ouvert n’y change quoi que ce soit — la licence d’Apple exige toujours du matériel Apple. Ce qui est gratuit, c’est tout ce qui est au-dessus de la machine : les étapes de build, la signature et la distribution."
+	},
+	"whatYouLose": [
+		{
+			"en": "Managed macOS build fleet",
+			"fr": "Parc de machines macOS managé"
+		},
+		{
+			"en": "Pre-built mobile workflow steps",
+			"fr": "Étapes de workflow mobile prêtes à l’emploi"
+		},
+		{
+			"en": "Code signing management",
+			"fr": "Gestion de la signature de code"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "fastlane",
+			"source": {
+				"host": "github",
+				"path": "fastlane/fastlane",
+				"url": "https://github.com/fastlane/fastlane"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The actual substance of any mobile CI: match for signing, gym for builds, deliver and supply for the stores. Bitrise's steps are largely wrappers around it.",
+				"fr": "La vraie substance de toute CI mobile : match pour la signature, gym pour les builds, deliver et supply pour les stores. Les étapes de Bitrise en sont largement des enveloppes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Actions Runner Controller",
+			"source": {
+				"host": "github",
+				"path": "actions/actions-runner-controller",
+				"url": "https://github.com/actions/actions-runner-controller"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Self-hosted runners on your own Mac minis, driven from GitHub Actions. Kills the per-minute bill; you now own the Mac minis.",
+				"fr": "Runners auto-hébergés sur vos propres Mac mini, pilotés depuis GitHub Actions. Supprime la facture à la minute ; en échange vous possédez les Mac mini."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tramline",
+			"source": {
+				"host": "github",
+				"path": "tramlinehq/tramline",
+				"url": "https://github.com/tramlinehq/tramline"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The release-orchestration half: staged rollouts, release trains and store submission across both platforms, self-hostable.",
+				"fr": "La moitié « orchestration de release » : déploiements progressifs, trains de version et soumission aux stores sur les deux plateformes, auto-hébergeable."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "The vendor's hosted plan and its managed integrations",
+					"fr": "L’offre hébergée de l’éditeur et ses intégrations managées"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

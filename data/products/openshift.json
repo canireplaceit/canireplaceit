@@ -1,0 +1,103 @@
+{
+	"slug": "openshift",
+	"name": "Red Hat OpenShift",
+	"domain": "redhat.com",
+	"category": "containers-kubernetes",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "The Kubernetes underneath is free; you're buying opinionated defaults, an integrated build system and a support phone number your auditors like. k3s plus Talos gets you a better-maintained cluster for nothing — it just doesn't come with someone to blame. Pricing is quote-based and billed per core or per node, so the real cost depends entirely on cluster size.",
+		"fr": "Le Kubernetes en dessous est gratuit ; vous achetez des défauts opinionés, un système de build intégré et un numéro de support qui plaît aux auditeurs. k3s plus Talos vous donne un cluster mieux entretenu pour rien — il manque juste quelqu’un à blâmer. La tarification se fait sur devis, facturée au cœur ou au nœud : le coût réel dépend entièrement de la taille du cluster."
+	},
+	"whatYouLose": [
+		{
+			"en": "Red Hat support contract",
+			"fr": "Contrat de support Red Hat"
+		},
+		{
+			"en": "Integrated build pipelines",
+			"fr": "Pipelines de build intégrés"
+		},
+		{
+			"en": "FIPS and compliance certs",
+			"fr": "Certifications FIPS et conformité"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Talos Linux",
+			"source": {
+				"host": "github",
+				"path": "siderolabs/talos",
+				"url": "https://github.com/siderolabs/talos"
+			},
+			"license": "MPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "An immutable OS with no shell and no SSH — the cluster is the API. Genuinely the most secure way to run K8s on your own metal.",
+				"fr": "Un OS immuable sans shell ni SSH — le cluster est l’API. Vraiment la façon la plus sûre de faire tourner K8s sur votre propre matériel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "k3s",
+			"source": {
+				"host": "github",
+				"path": "k3s-io/k3s",
+				"url": "https://github.com/k3s-io/k3s"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Conformant Kubernetes in a single 60MB binary. Runs the same workloads OpenShift does, minus the operators.",
+				"fr": "Kubernetes conforme dans un seul binaire de 60 Mo. Fait tourner les mêmes charges qu’OpenShift, sans les opérateurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Rancher",
+			"source": {
+				"host": "github",
+				"path": "rancher/rancher",
+				"url": "https://github.com/rancher/rancher"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The multi-cluster management UI and RBAC layer OpenShift users actually miss. Pairs with k3s.",
+				"fr": "L’interface de gestion multi-cluster et la couche RBAC qui manquent réellement aux utilisateurs d’OpenShift. Se marie avec k3s."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "DigitalOcean Kubernetes",
+			"url": "https://www.digitalocean.com/products/kubernetes",
+			"priceMonthly": 12,
+			"note": {
+				"en": "Free control plane, you pay only for nodes. No OpenShift build pipelines, no Red Hat support contract, no FIPS story.",
+				"fr": "Plan de contrôle gratuit, vous ne payez que les nœuds. Pas de pipelines de build OpenShift, pas de contrat Red Hat, pas de conformité FIPS."
+			}
+		}
+	],
+	"priority": 3
+}

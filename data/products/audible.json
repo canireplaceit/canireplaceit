@@ -1,0 +1,88 @@
+{
+	"slug": "audible",
+	"name": "Audible",
+	"domain": "audible.com",
+	"category": "personal-media-libraries",
+	"priceMonthly": 14.95,
+	"pricing": {
+		"plan": "Premium Plus (US), USD 14.95/mo",
+		"basis": "flat",
+		"url": "https://www.audible.com/ep/memberships",
+		"checkedOn": "2026-08-02",
+		"confidence": "low"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "One credit a month for a DRM-locked file you don't own. Audiobookshelf gives you a proper library server with position sync across devices and it is better software than the Audible app. Sourcing books legally is the part you have to think about.",
+		"fr": "Un crédit par mois pour un fichier verrouillé par DRM que vous ne possédez pas. Audiobookshelf vous donne un vrai serveur de bibliothèque avec synchronisation de la position entre appareils, et c’est un meilleur logiciel que l’application Audible. Se procurer les livres légalement, ça reste à vous de le régler."
+	},
+	"whatYouLose": [
+		{
+			"en": "The Audible store and exclusives",
+			"fr": "La boutique Audible et ses exclusivités"
+		},
+		{
+			"en": "Whispersync with Kindle books",
+			"fr": "Synchro Whispersync avec les livres Kindle"
+		},
+		{
+			"en": "Car and smart-speaker integrations",
+			"fr": "Intégrations voiture et enceintes connectées"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Audiobookshelf",
+			"source": {
+				"host": "github",
+				"path": "advplyr/audiobookshelf",
+				"url": "https://github.com/advplyr/audiobookshelf"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Audiobooks and podcasts, native iOS and Android apps, chapter-accurate sync. Excellent.",
+				"fr": "Livres audio et podcasts, applications natives iOS et Android, synchronisation au chapitre près. Excellent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Castopod",
+			"source": {
+				"host": "gitlab",
+				"path": "adaures/castopod",
+				"url": "https://code.castopod.org/adaures/castopod"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Different job — hosting and publishing your own podcast, with ActivityPub built in.",
+				"fr": "Autre métier : héberger et publier votre propre podcast, avec ActivityPub intégré."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Libby",
+			"url": "https://libbyapp.com",
+			"priceMonthly": 0,
+			"note": {
+				"en": "Free audiobooks through your public library card, fully legal. You wait in holds queues and the catalogue is whatever your library bought.",
+				"fr": "Livres audio gratuits via votre carte de bibliothèque, tout à fait légal. Il faut attendre son tour et le catalogue se limite à ce que la bibliothèque a acheté."
+			}
+		}
+	],
+	"priority": 4
+}

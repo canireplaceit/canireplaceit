@@ -1,0 +1,124 @@
+{
+	"slug": "spark-mail",
+	"name": "Spark Mail",
+	"domain": "sparkmailapp.com",
+	"category": "email-clients",
+	"priceMonthly": 11,
+	"pricing": {
+		"plan": "Plus, EUR 10/mo",
+		"basis": "per-seat",
+		"url": "https://sparkmailapp.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Spark's smart inbox runs on Readdle's servers, which means your OAuth tokens and message metadata pass through a third party you did not choose to trust — they said so themselves after the 2019 row. FairEmail and Thunderbird for Android do the same job with nothing between you and your IMAP server.",
+		"fr": "La boîte intelligente de Spark tourne sur les serveurs de Readdle : vos jetons OAuth et les métadonnées de vos messages passent donc par un tiers que vous n’avez pas choisi — ils l’ont dit eux-mêmes après la polémique de 2019. FairEmail et Thunderbird pour Android font le même travail sans rien entre vous et votre serveur IMAP."
+	},
+	"whatYouLose": [
+		{
+			"en": "Cross-device snooze and send later",
+			"fr": "Report et envoi différé multi-appareils"
+		},
+		{
+			"en": "Shared drafts with a team",
+			"fr": "Brouillons partagés en équipe"
+		},
+		{
+			"en": "A genuinely lovely interface",
+			"fr": "Une interface vraiment réussie"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "FairEmail",
+			"source": {
+				"host": "github",
+				"path": "M66B/FairEmail",
+				"url": "https://github.com/M66B/FairEmail"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The most privacy-obsessed Android mail client there is: no tracking pixels, no remote images, nothing server-side. The F-Droid build has everything; the Play build hides a few conveniences behind a one-off unlock.",
+				"fr": "Le client mail Android le plus obsédé par la vie privée : pas de pixels espions, pas d’images distantes, rien côté serveur. La version F-Droid a tout ; celle du Play Store réserve quelques commodités à un achat unique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "A handful of convenience features behind a one-off pro unlock in the Play build",
+					"fr": "Quelques fonctions de confort derrière un achat unique dans la version Play Store"
+				},
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Thunderbird for Android",
+			"source": {
+				"host": "github",
+				"path": "thunderbird/thunderbird-android",
+				"url": "https://github.com/thunderbird/thunderbird-android"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The old K-9 Mail, rebadged. Fully offline-capable, no vendor account, works against any IMAP server.",
+				"fr": "L’ancien K-9 Mail, rebaptisé. Fonctionne entièrement hors ligne, sans compte éditeur, avec n’importe quel serveur IMAP."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Thunderbird",
+			"source": {
+				"host": "github",
+				"path": "mozilla/releases-comm-central",
+				"url": "https://github.com/mozilla/releases-comm-central"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The GitHub mirror of comm-central; Thunderbird's canonical repository is Mercurial. Free, no account, and the 2024 redesign finally made it look like this decade.",
+				"fr": "Le miroir GitHub de comm-central ; le dépôt canonique de Thunderbird est en Mercurial. Gratuit, sans compte, et la refonte de 2024 lui a enfin donné l’allure de cette décennie."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "imapfilter",
+			"source": {
+				"host": "github",
+				"path": "lefcha/imapfilter",
+				"url": "https://github.com/lefcha/imapfilter"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Server-side filing in a Lua config file. Ugly, unfashionable, and it will outlive every AI inbox startup.",
+				"fr": "Le classement côté serveur dans un fichier Lua. Moche, démodé, et il survivra à toutes les start-up de boîte de réception dopée à l’IA."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

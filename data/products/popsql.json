@@ -1,0 +1,124 @@
+{
+	"slug": "popsql",
+	"name": "PopSQL",
+	"domain": "popsql.com",
+	"category": "databases-caches",
+	"priceMonthly": 19,
+	"pricing": {
+		"plan": "Premium, per editor billed monthly",
+		"basis": "per-seat",
+		"url": "https://popsql.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Shared queries, a query history the whole team can search and lightweight charts. The open BI tools do all of that and more — they are just heavier than a SQL editor wants to be.",
+		"fr": "Des requêtes partagées, un historique cherchable par toute l’équipe et des graphiques légers. Les outils de BI ouverts font tout cela et plus — ils sont simplement plus lourds qu’un éditeur SQL ne le voudrait."
+	},
+	"whatYouLose": [
+		{
+			"en": "Lightweight collaborative editor",
+			"fr": "Éditeur collaboratif léger"
+		},
+		{
+			"en": "Live multiplayer query editing",
+			"fr": "Édition de requêtes en multijoueur"
+		},
+		{
+			"en": "Native desktop app",
+			"fr": "Application bureau native"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Querybook",
+			"source": {
+				"host": "github",
+				"path": "pinterest/querybook",
+				"url": "https://github.com/pinterest/querybook"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Pinterest's notebook-style SQL workspace: shared DataDocs, query history, lineage. The closest thing to PopSQL's actual value.",
+				"fr": "L’espace SQL en style notebook de Pinterest : DataDocs partagés, historique de requêtes, lignage. Ce qui se rapproche le plus de la vraie valeur de PopSQL."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Metabase",
+			"source": {
+				"host": "github",
+				"path": "metabase/metabase",
+				"url": "https://github.com/metabase/metabase"
+			},
+			"license": "AGPL-3.0 outside the enterprise/ directory",
+			"effort": "docker",
+			"note": {
+				"en": "Heavier and aimed at dashboards, but the SQL editor plus saved-question sharing covers the same ground. Everything under enterprise/ is commercially licensed.",
+				"fr": "Plus lourd et orienté tableaux de bord, mais l’éditeur SQL et le partage de questions couvrent le même terrain. Tout ce qui est sous enterprise/ est sous licence commerciale."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "SSO, row-level permissions, sandboxing, serialisation and white-labelling are in enterprise/",
+					"fr": "SSO, permissions au niveau ligne, sandboxing, sérialisation et marque blanche sont dans enterprise/"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache Superset",
+			"source": {
+				"host": "github",
+				"path": "apache/superset",
+				"url": "https://github.com/apache/superset"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "SQL Lab is a genuinely good shared SQL editor bolted to a full BI stack. Real ops cost.",
+				"fr": "SQL Lab est un très bon éditeur SQL partagé, greffé à une plateforme BI complète. Coût d’exploitation réel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Evidence",
+			"source": {
+				"host": "github",
+				"path": "evidence-dev/evidence",
+				"url": "https://github.com/evidence-dev/evidence"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "If the queries end up as a report anyway: markdown plus SQL, compiled to a static site in git.",
+				"fr": "Si les requêtes finissent en rapport de toute façon : markdown plus SQL, compilés en site statique dans git."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

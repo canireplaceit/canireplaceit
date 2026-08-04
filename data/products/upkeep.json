@@ -1,0 +1,107 @@
+{
+	"slug": "upkeep",
+	"name": "UpKeep",
+	"domain": "upkeep.com",
+	"category": "field-service-maintenance",
+	"priceMonthly": 24,
+	"pricing": {
+		"plan": "Essential (Premium $55/user/mo; Professional and Enterprise quote-only)",
+		"basis": "per-seat",
+		"url": "https://upkeep.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "A CMMS is a work-order queue, an asset tree, a PM schedule and a parts store. Atlas CMMS is all four under AGPL, and UpKeep's per-technician pricing means the maintenance team is exactly the group you least want to charge per seat. Self-host it and give everyone a login.",
+		"fr": "Une GMAO, c’est une file d’ordres de travail, un arbre d’équipements, un plan de maintenance préventive et un magasin de pièces. Atlas CMMS fournit les quatre sous AGPL, et la tarification par technicien d’UpKeep vise justement l’équipe qu’on veut le moins facturer au poste. Auto-hébergez et donnez un compte à tout le monde."
+	},
+	"whatYouLose": [
+		{
+			"en": "Offline-first mobile app",
+			"fr": "App mobile qui marche hors ligne"
+		},
+		{
+			"en": "Sensor and IoT integrations",
+			"fr": "Intégrations capteurs et IoT"
+		},
+		{
+			"en": "Vendor-managed hosting",
+			"fr": "Hébergement géré par l’éditeur"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Atlas CMMS",
+			"source": {
+				"host": "github",
+				"path": "Grashjs/cmms",
+				"url": "https://github.com/Grashjs/cmms"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Work orders, preventive schedules, assets, parts, meters, requests, and a mobile app. AGPL; white-labelling and a few advanced features need a paid key.",
+				"fr": "Ordres de travail, plans préventifs, équipements, pièces, compteurs, demandes, et une app mobile. AGPL ; le marquage blanc et quelques fonctions avancées exigent une clé payante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "White-labelling and some advanced features need a paid licence key",
+					"fr": "Le marquage blanc et certaines fonctions avancées exigent une clé de licence payante"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Snipe-IT",
+			"source": {
+				"host": "github",
+				"path": "grokability/snipe-it",
+				"url": "https://github.com/grokability/snipe-it"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "If what you actually need is knowing where the equipment is and who has it, not scheduling work on it.",
+				"fr": "Si votre vrai besoin est de savoir où est l’équipement et qui l’a, plutôt que d’y planifier des travaux."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Odoo Community",
+			"source": {
+				"host": "github",
+				"path": "odoo/odoo",
+				"url": "https://github.com/odoo/odoo"
+			},
+			"license": "LGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "The Maintenance app is in Community and links equipment to work centres, which is more than most standalone CMMS do.",
+				"fr": "L’app Maintenance est en Community et relie les équipements aux postes de charge, ce que peu de GMAO indépendantes font."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Full accounting, Studio, Barcode, Shop Floor, Field Service and Planning are Enterprise-only",
+					"fr": "La comptabilité complète, Studio, Code-barres, Atelier, Services sur site et Planification sont réservés à l’Enterprise"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

@@ -1,0 +1,115 @@
+{
+	"slug": "outreach-io",
+	"name": "Outreach",
+	"domain": "outreach.io",
+	"category": "sales-outreach-data",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "The sequencing engine is a queue and a template renderer, and you could write it. What you cannot write is the mailbox reputation, the dialer, the call recording compliance and the fact that reps will actually use it — Outreach is sold to VPs of Sales, not to engineers.",
+		"fr": "Le moteur de séquences, c’est une file et un moteur de templates : vous pourriez l’écrire. Ce que vous ne pouvez pas écrire, c’est la réputation des boîtes mail, le composeur téléphonique, la conformité des enregistrements d’appels et le fait que les commerciaux s’en serviront vraiment — Outreach se vend à des directeurs commerciaux, pas à des développeurs."
+	},
+	"whatYouLose": [
+		{
+			"en": "Deliverability and mailbox warming",
+			"fr": "Délivrabilité et préchauffage des boîtes"
+		},
+		{
+			"en": "Dialer and call recording",
+			"fr": "Composeur et enregistrement des appels"
+		},
+		{
+			"en": "Bi-directional CRM sync",
+			"fr": "Synchro CRM bidirectionnelle"
+		},
+		{
+			"en": "Rep adoption out of the box",
+			"fr": "Adoption immédiate par les commerciaux"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Mautic",
+			"source": {
+				"host": "github",
+				"path": "mautic/mautic",
+				"url": "https://github.com/mautic/mautic"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Fully GPL with no enterprise edition holding features back — campaign builder, drip sequences, lead scoring. It is marketing automation wearing a sales hat, and it is heavy to run.",
+				"fr": "Entièrement GPL sans édition entreprise qui retient des fonctionnalités — constructeur de campagnes, séquences, scoring de leads. C’est de l’automatisation marketing déguisée en outil commercial, et c’est lourd à exploiter."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "EspoCRM",
+			"source": {
+				"host": "github",
+				"path": "espocrm/espocrm",
+				"url": "https://github.com/espocrm/espocrm"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Mass email, campaigns and a real CRM underneath. The Sales Pack and VoIP integrations are paid extensions.",
+				"fr": "E-mailing de masse, campagnes et un vrai CRM en dessous. Le Sales Pack et les intégrations VoIP sont des extensions payantes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Advanced Pack, Sales Pack and the VoIP integrations are paid extensions",
+					"fr": "Advanced Pack, Sales Pack et les intégrations VoIP sont des extensions payantes"
+				},
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Twenty",
+			"source": {
+				"host": "github",
+				"path": "twentyhq/twenty",
+				"url": "https://github.com/twentyhq/twenty"
+			},
+			"license": "AGPL-3.0 with @license Enterprise files",
+			"effort": "docker",
+			"note": {
+				"en": "The modern open source CRM to build sequencing on top of. No native cadences yet; SSO and advanced permissions are enterprise-licensed files.",
+				"fr": "Le CRM open source moderne sur lequel bâtir vos séquences. Pas encore de cadences natives ; SSO et permissions avancées sont des fichiers sous licence entreprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO/SAML and advanced permissions are marked @license Enterprise",
+					"fr": "SSO/SAML et permissions avancées sont marqués @license Enterprise"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Smartlead",
+			"url": "https://www.smartlead.ai",
+			"priceMonthly": 39,
+			"note": {
+				"en": "Sequencing, inbox rotation and warmup for a fraction of an Outreach seat. No dialer, no forecasting, no enterprise CRM sync.",
+				"fr": "Séquences, rotation de boîtes et préchauffage pour une fraction d’un utilisateur Outreach. Pas de composeur, pas de prévision, pas de synchro CRM entreprise."
+			}
+		}
+	],
+	"priority": 3
+}

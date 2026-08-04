@@ -1,0 +1,88 @@
+{
+	"slug": "plex-pass",
+	"name": "Plex Pass",
+	"domain": "plex.tv",
+	"category": "media-servers-tv",
+	"priceMonthly": 7,
+	"pricing": {
+		"plan": "Plex Pass, billed monthly (vendor page served EUR 5.99)",
+		"basis": "flat",
+		"url": "https://www.plex.tv/plans/",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Jellyfin is a fork of Emby from before it closed, and today it does hardware transcoding, live TV, DVR and mobile sync with no paywall at all — all of which are Plex Pass features. Plex keeps a real advantage in polish and in client apps on ageing TVs, and it recently started charging for remote streaming of your own files, which is exactly the kind of move Jellyfin cannot make.",
+		"fr": "Jellyfin est un fork d’Emby d’avant sa fermeture, et il fait aujourd’hui le transcodage matériel, la TV en direct, le DVR et la synchro mobile sans aucun paywall — toutes des fonctions Plex Pass. Plex garde un vrai avantage sur la finition et sur les applications pour téléviseurs vieillissants, et il s’est mis à facturer la lecture à distance de vos propres fichiers, exactement le genre de décision que Jellyfin ne peut pas prendre."
+	},
+	"whatYouLose": [
+		{
+			"en": "Client apps on old TVs",
+			"fr": "Applications sur les vieux téléviseurs"
+		},
+		{
+			"en": "Relay for remote access",
+			"fr": "Relais pour l’accès à distance"
+		},
+		{
+			"en": "Better metadata matching",
+			"fr": "Correspondance de métadonnées plus fine"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Jellyfin",
+			"source": {
+				"host": "github",
+				"path": "jellyfin/jellyfin",
+				"url": "https://github.com/jellyfin/jellyfin"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Everything Plex Pass gates is free here: hardware transcoding, live TV, DVR, downloads. Remote access means you configure a reverse proxy yourself.",
+				"fr": "Tout ce que Plex Pass verrouille est gratuit ici : transcodage matériel, TV en direct, DVR, téléchargements. L’accès distant suppose de configurer vous-même un reverse proxy."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kodi",
+			"source": {
+				"host": "github",
+				"path": "xbmc/xbmc",
+				"url": "https://github.com/xbmc/xbmc"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A player rather than a server. Unbeatable format support on the box next to the TV; sharing a library across the house needs extra setup.",
+				"fr": "Un lecteur plutôt qu’un serveur. Support des formats inégalé sur le boîtier près de la télé ; partager une médiathèque dans toute la maison demande une configuration supplémentaire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Emby Premiere",
+			"url": "https://emby.media/premiere.html",
+			"priceMonthly": 5,
+			"note": {
+				"en": "Cheaper than Plex Pass with a lifetime option and good TV apps. The server went closed source in 2018, so you are choosing a different landlord, not leaving.",
+				"fr": "Moins cher que Plex Pass, avec une option à vie et de bonnes applications TV. Le serveur est passé en code fermé en 2018 : vous changez de propriétaire, vous ne partez pas."
+			}
+		}
+	],
+	"priority": 4
+}

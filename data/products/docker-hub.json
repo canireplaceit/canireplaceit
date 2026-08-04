@@ -1,0 +1,109 @@
+{
+	"slug": "docker-hub",
+	"name": "Docker Hub",
+	"domain": "docker.com",
+	"category": "containers-kubernetes",
+	"priceMonthly": 9,
+	"pricing": {
+		"plan": "Pro, billed annually ($11 month-to-month)",
+		"basis": "per-seat",
+		"url": "https://www.docker.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Anonymous pull rate limits are what push teams off, and a registry is a well-specified HTTP API with three good implementations. The one thing you must not skip is a pull-through cache, or your CI will be slower than before.",
+		"fr": "Ce sont les limites de pull anonyme qui font partir les équipes, et un registre n’est qu’une API HTTP bien spécifiée avec trois bonnes implémentations. La seule chose à ne pas négliger : un cache pull-through, sinon votre CI sera plus lente qu’avant."
+	},
+	"whatYouLose": [
+		{
+			"en": "Global pull CDN",
+			"fr": "CDN de pull mondial"
+		},
+		{
+			"en": "Official image trust",
+			"fr": "Confiance des images officielles"
+		},
+		{
+			"en": "Zero maintenance",
+			"fr": "Zéro maintenance"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Harbor",
+			"source": {
+				"host": "github",
+				"path": "goharbor/harbor",
+				"url": "https://github.com/goharbor/harbor"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Registry plus vulnerability scanning, image signing, replication and RBAC. The enterprise answer, and correspondingly chunky.",
+				"fr": "Registre plus analyse de vulnérabilités, signature d’images, réplication et RBAC. La réponse entreprise, et donc costaude."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "zot",
+			"source": {
+				"host": "github",
+				"path": "project-zot/zot",
+				"url": "https://github.com/project-zot/zot"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "OCI-native, no database, no dependencies. Right choice when you want a registry and nothing else.",
+				"fr": "Natif OCI, sans base de données ni dépendances. Le bon choix quand vous voulez un registre et rien d’autre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CNCF Distribution",
+			"source": {
+				"host": "github",
+				"path": "distribution/distribution",
+				"url": "https://github.com/distribution/distribution"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The reference implementation Docker Hub itself is built on. Configure it as a pull-through mirror in ten lines.",
+				"fr": "L’implémentation de référence sur laquelle Docker Hub lui-même repose. Se configure en miroir pull-through en dix lignes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "GitHub Container Registry",
+			"url": "https://docs.github.com/packages",
+			"priceMonthly": 0,
+			"note": {
+				"en": "Free for public images and bundled into a plan you probably already pay for. You are trading one vendor's rate limits for another's storage quota.",
+				"fr": "Gratuit pour les images publiques et inclus dans un abonnement que vous payez déjà probablement. Vous échangez les limites d’un fournisseur contre le quota de stockage d’un autre."
+			}
+		}
+	],
+	"priority": 5
+}

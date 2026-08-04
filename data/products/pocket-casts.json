@@ -1,0 +1,99 @@
+{
+	"slug": "pocket-casts",
+	"name": "Pocket Casts Plus",
+	"domain": "pocketcasts.com",
+	"category": "audio-podcasting",
+	"priceMonthly": 3.99,
+	"pricing": {
+		"plan": "Plus, billed monthly",
+		"basis": "flat",
+		"url": "https://support.pocketcasts.com/knowledge-base/pocket-casts-plus-pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Podcasts are RSS feeds and MP3 files, so a subscription can only ever sell you convenience on top of an open protocol. AntennaPod does the same job entirely on-device, and Audiobookshelf adds the cross-device position sync that Plus charges for.",
+		"fr": "Les podcasts sont des flux RSS et des fichiers MP3 : un abonnement ne peut donc vendre que du confort par-dessus un protocole ouvert. AntennaPod fait le même travail entièrement sur l’appareil, et Audiobookshelf ajoute la synchro de position multi-appareils que Plus facture."
+	},
+	"whatYouLose": [
+		{
+			"en": "Cloud storage for your own files",
+			"fr": "Stockage cloud de vos propres fichiers"
+		},
+		{
+			"en": "Apple Watch and desktop apps",
+			"fr": "Applications Apple Watch et bureau"
+		},
+		{
+			"en": "Automattic-run discovery and charts",
+			"fr": "Découverte et classements gérés par Automattic"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "AntennaPod",
+			"source": {
+				"host": "github",
+				"path": "AntennaPod/AntennaPod",
+				"url": "https://github.com/AntennaPod/AntennaPod"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Fifteen years old, no account, no tracking, and it will subscribe to any feed URL you paste. Optional gpodder sync if you want two devices in step.",
+				"fr": "Quinze ans d’âge, sans compte, sans pistage, et il s’abonne à n’importe quelle URL de flux que vous collez. Synchro gpodder facultative si vous voulez deux appareils alignés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Audiobookshelf",
+			"source": {
+				"host": "github",
+				"path": "advplyr/audiobookshelf",
+				"url": "https://github.com/advplyr/audiobookshelf"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "A self-hosted server for podcasts and audiobooks with real playback-position sync across devices, plus auto-downloading of new episodes.",
+				"fr": "Un serveur auto-hébergé pour podcasts et livres audio avec une vraie synchro de position entre appareils, et le téléchargement automatique des nouveaux épisodes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gPodder",
+			"source": {
+				"host": "github",
+				"path": "gpodder/gpodder",
+				"url": "https://github.com/gpodder/gpodder"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The desktop one, and the sync protocol AntennaPod speaks. Unfashionable, still maintained, still the standard.",
+				"fr": "Celui du bureau, et le protocole de synchro que parle AntennaPod. Démodé, toujours maintenu, toujours la référence."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

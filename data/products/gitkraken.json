@@ -1,0 +1,120 @@
+{
+	"slug": "gitkraken",
+	"name": "GitKraken",
+	"domain": "gitkraken.com",
+	"category": "developer-tooling",
+	"priceMonthly": 5,
+	"pricing": {
+		"plan": "Pro, per seat, billed annually (page geo-serves PLN 20/seat/mo)",
+		"basis": "per-seat",
+		"url": "https://www.gitkraken.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "The commit graph is genuinely the nicest one drawn. It is not $5/month nicer than lazygit, which is free, faster and does not need a login to open a private repo.",
+		"fr": "Le graphe de commits est vraiment le plus joli qui existe. Il ne vaut pas 5 $/mois de plus que lazygit, qui est gratuit, plus rapide, et n’exige pas de connexion pour ouvrir un dépôt privé."
+	},
+	"whatYouLose": [
+		{
+			"en": "The commit graph",
+			"fr": "Le graphe de commits"
+		},
+		{
+			"en": "Built-in merge conflict editor",
+			"fr": "Éditeur de conflits intégré"
+		},
+		{
+			"en": "Issue-tracker integrations",
+			"fr": "Intégrations avec les trackers"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "lazygit",
+			"source": {
+				"host": "github",
+				"path": "jesseduffield/lazygit",
+				"url": "https://github.com/jesseduffield/lazygit"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Terminal UI that makes interactive rebase and hunk staging genuinely pleasant. The one to try first.",
+				"fr": "Interface en terminal qui rend le rebase interactif et le staging par bloc réellement agréables. Le premier à essayer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GitButler",
+			"source": {
+				"host": "github",
+				"path": "gitbutlerapp/gitbutler",
+				"url": "https://github.com/gitbutlerapp/gitbutler"
+			},
+			"license": "FSL-1.1-MIT (converts to MIT after 2 years)",
+			"effort": "managed",
+			"note": {
+				"en": "Virtual branches let you keep several changes in flight in one worktree. Note the licence: FSL is source-available, not open source, until each release ages into MIT.",
+				"fr": "Les branches virtuelles permettent de mener plusieurs changements de front dans un seul worktree. Attention à la licence : la FSL est source-available, pas open source, jusqu’à ce que chaque version bascule en MIT après deux ans."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SourceGit",
+			"source": {
+				"host": "github",
+				"path": "sourcegit-scm/sourcegit",
+				"url": "https://github.com/sourcegit-scm/sourcegit"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Native desktop GUI with a proper graph. The closest free thing to GitKraken's actual look and feel.",
+				"fr": "Interface graphique native de bureau, avec un vrai graphe. Le plus proche visuellement de GitKraken, gratuitement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gitui",
+			"source": {
+				"host": "github",
+				"path": "gitui-org/gitui",
+				"url": "https://github.com/gitui-org/gitui"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Rust TUI, blazing on huge repos where the Electron apps stall.",
+				"fr": "TUI en Rust, ultra-rapide sur les gros dépôts où les applis Electron s’essoufflent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

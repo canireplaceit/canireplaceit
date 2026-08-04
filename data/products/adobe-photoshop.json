@@ -1,0 +1,98 @@
+{
+	"slug": "adobe-photoshop",
+	"name": "Adobe Photoshop",
+	"domain": "adobe.com",
+	"category": "design",
+	"priceMonthly": 22.99,
+	"pricing": {
+		"plan": "Photoshop single app, annual billed monthly",
+		"basis": "per-seat",
+		"url": "https://www.adobe.com/creativecloud/plans.html",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "GIMP 3 brought non-destructive editing and proper CMYK plumbing, and Krita beats Photoshop outright at painting. What remains Adobe's is the generative fill everybody now expects, and a decade of muscle memory and tutorials.",
+		"fr": "GIMP 3 a apporté l’édition non destructive et une vraie tuyauterie CMJN, et Krita bat Photoshop en peinture. Ce qui reste à Adobe : le remplissage génératif que tout le monde attend désormais, et une décennie de réflexes et de tutoriels."
+	},
+	"whatYouLose": [
+		{
+			"en": "Generative fill and AI retouching",
+			"fr": "Remplissage génératif et retouche IA"
+		},
+		{
+			"en": "PSD fidelity with clients",
+			"fr": "Fidélité PSD avec les clients"
+		},
+		{
+			"en": "Camera Raw integration",
+			"fr": "Intégration Camera Raw"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "GIMP",
+			"source": {
+				"host": "gitlab",
+				"path": "GNOME/gimp",
+				"url": "https://gitlab.gnome.org/GNOME/gimp"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Version 3 finally has non-destructive filters and a modern GTK build. Listed via the official GNOME mirror; upstream development is on GNOME GitLab.",
+				"fr": "La version 3 a enfin des filtres non destructifs et une base GTK moderne. Listé via le miroir officiel GNOME ; le développement amont est sur GitLab GNOME."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Krita",
+			"source": {
+				"host": "gitlab",
+				"path": "graphics/krita",
+				"url": "https://invent.kde.org/graphics/krita"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Better than Photoshop for digital painting, with brush engines nothing else matches. Weak on photo retouching and print prep. Also a mirror — upstream is KDE Invent.",
+				"fr": "Meilleur que Photoshop en peinture numérique, avec des moteurs de brosses inégalés. Faible en retouche photo et préparation à l’impression. Également un miroir — l’amont est sur KDE Invent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Affinity Photo 2",
+			"url": "https://affinity.serif.com/photo/",
+			"priceMonthly": 0,
+			"note": {
+				"en": "A one-off purchase that opens PSDs well and does live filters and focus stacking. No generative AI.",
+				"fr": "Un achat unique qui ouvre bien les PSD et gère filtres dynamiques et focus stacking. Pas d’IA générative."
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Photopea",
+			"url": "https://www.photopea.com",
+			"priceMonthly": 5,
+			"note": {
+				"en": "A browser Photoshop clone with startling PSD fidelity for the price of a coffee. Ad-supported free tier, closed source.",
+				"fr": "Un clone de Photoshop dans le navigateur avec une fidélité PSD étonnante pour le prix d’un café. Offre gratuite avec publicité, code fermé."
+			}
+		}
+	],
+	"priority": 5
+}

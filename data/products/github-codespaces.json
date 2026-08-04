@@ -1,0 +1,103 @@
+{
+	"slug": "github-codespaces",
+	"name": "GitHub Codespaces",
+	"domain": "github.com",
+	"category": "developer-tooling",
+	"priceMonthly": null,
+	"pricing": {
+		"plan": "Usage-based: from $0.18/hr compute + $0.07/GB-month storage",
+		"basis": "usage",
+		"url": "https://github.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Codespaces is billed per compute-hour on top of your GitHub plan, and the format it runs — devcontainer.json — is an open spec you can execute anywhere for the cost of the machine.",
+		"fr": "Codespaces est facturé à l’heure de calcul en plus de votre forfait GitHub, et le format qu’il exécute — devcontainer.json — est une spec ouverte que vous pouvez lancer n’importe où, au prix de la machine."
+	},
+	"whatYouLose": [
+		{
+			"en": "One-click browser IDE",
+			"fr": "IDE dans le navigateur en un clic"
+		},
+		{
+			"en": "Prebuild caching",
+			"fr": "Cache de prébuild"
+		},
+		{
+			"en": "Port forwarding with auth",
+			"fr": "Redirection de ports authentifiée"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "devcontainers CLI",
+			"source": {
+				"host": "github",
+				"path": "devcontainers/cli",
+				"url": "https://github.com/devcontainers/cli"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Runs the exact same devcontainer.json locally or on any VM. This is the reference implementation of what Codespaces charges to execute.",
+				"fr": "Exécute exactement le même devcontainer.json en local ou sur n’importe quelle VM. C’est l’implémentation de référence de ce que Codespaces facture."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "DevPod",
+			"source": {
+				"host": "github",
+				"path": "loft-sh/devpod",
+				"url": "https://github.com/loft-sh/devpod"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Adds provider plugins so the same config lands on AWS, a homelab box or Docker Desktop, with a UI.",
+				"fr": "Ajoute des plugins de fournisseur pour poser la même config sur AWS, une machine du homelab ou Docker Desktop, avec une interface."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Coder",
+			"source": {
+				"host": "github",
+				"path": "coder/coder",
+				"url": "https://github.com/coder/coder"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "The team-scale version with policy, templates and a control plane you own.",
+				"fr": "La version à l’échelle d’une équipe, avec politiques, modèles et un plan de contrôle qui vous appartient."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "SSO group sync, audit logs, quotas and HA are Premium",
+					"fr": "La synchro de groupes SSO, les journaux d’audit, les quotas et la HA relèvent de Premium"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

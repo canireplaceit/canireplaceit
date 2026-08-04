@@ -1,0 +1,107 @@
+{
+	"slug": "dagshub",
+	"name": "DagsHub",
+	"domain": "dagshub.com",
+	"category": "ai-infrastructure",
+	"priceMonthly": 99,
+	"pricing": {
+		"plan": "Team, billed annually ($119 month-to-month)",
+		"basis": "per-seat",
+		"url": "https://dagshub.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "DagsHub is a GitHub for datasets built on DVC, MLflow and Label Studio — all of which are open source and which you can wire together yourself in a day. The paid product is the wiring, the data-diff viewer and not maintaining four services.",
+		"fr": "DagsHub, c’est un GitHub pour jeux de données bâti sur DVC, MLflow et Label Studio — tous open source, et que vous pouvez relier vous-même en une journée. Le produit payant, c’est le câblage, le visualiseur de différences de données et le fait de ne pas maintenir quatre services."
+	},
+	"whatYouLose": [
+		{
+			"en": "Dataset diff and preview UI",
+			"fr": "Interface de différence et d’aperçu des jeux de données"
+		},
+		{
+			"en": "Four services pre-integrated",
+			"fr": "Quatre services préintégrés"
+		},
+		{
+			"en": "Hosted storage included",
+			"fr": "Stockage hébergé inclus"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "DVC",
+			"source": {
+				"host": "github",
+				"path": "treeverse/dvc",
+				"url": "https://github.com/treeverse/dvc"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Git-shaped versioning for data and models, backed by your own S3 or NFS. Now maintained under Treeverse after the Iterative acquisition.",
+				"fr": "Versionnage façon Git pour données et modèles, adossé à votre propre S3 ou NFS. Désormais maintenu sous Treeverse après le rachat d’Iterative."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "The hosted Studio dashboards",
+					"fr": "Les tableaux de bord Studio hébergés"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "lakeFS",
+			"source": {
+				"host": "github",
+				"path": "treeverse/lakeFS",
+				"url": "https://github.com/treeverse/lakeFS"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Branch and merge an object store as if it were Git — better than DVC above a terabyte. RBAC, SSO and audit logs are Enterprise-only, which is a real gap for a shared university cluster.",
+				"fr": "Brancher et fusionner un magasin d’objets comme si c’était Git — meilleur que DVC au-delà du téraoctet. RBAC, SSO et journaux d’audit sont réservés à l’édition Enterprise, ce qui est un vrai manque pour un cluster universitaire partagé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "RBAC, SSO and audit logs (Enterprise only)",
+					"fr": "RBAC, SSO et journaux d’audit (Enterprise uniquement)"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Aim",
+			"source": {
+				"host": "github",
+				"path": "aimhubio/aim",
+				"url": "https://github.com/aimhubio/aim"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The experiment-comparison UI, free and fast over thousands of runs.",
+				"fr": "L’interface de comparaison d’expériences, gratuite et rapide sur des milliers d’exécutions."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

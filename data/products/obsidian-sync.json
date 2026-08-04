@@ -1,0 +1,109 @@
+{
+	"slug": "obsidian-sync",
+	"name": "Obsidian Sync",
+	"domain": "obsidian.md",
+	"category": "notes-docs",
+	"priceMonthly": 4,
+	"pricing": {
+		"plan": "Standard, annual billed monthly",
+		"basis": "per-seat",
+		"url": "https://obsidian.md/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Obsidian itself is free, closed source and local-first — nothing to replace there. Sync is the paid part, and it is the easiest paid part on this site to remove: your vault is a folder of Markdown files, so Syncthing or Self-hosted LiveSync moves it between devices for nothing.",
+		"fr": "Obsidian lui-même est gratuit, propriétaire et local-first : rien à remplacer de ce côté. La synchro est la partie payante, et c’est la plus facile de tout le site à supprimer : votre coffre est un dossier de fichiers Markdown, donc Syncthing ou Self-hosted LiveSync le déplace entre appareils gratuitement."
+	},
+	"whatYouLose": [
+		{
+			"en": "One-year version history",
+			"fr": "Un an d’historique de versions"
+		},
+		{
+			"en": "Conflict resolution that just works",
+			"fr": "Résolution de conflits qui marche toute seule"
+		},
+		{
+			"en": "Sync on iOS without a server",
+			"fr": "Synchro sur iOS sans serveur"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Self-hosted LiveSync",
+			"source": {
+				"host": "github",
+				"path": "vrtmrz/obsidian-livesync",
+				"url": "https://github.com/vrtmrz/obsidian-livesync"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The direct replacement: an Obsidian plugin that syncs end-to-end encrypted through your own CouchDB. Real time, multi-device, conflict handling included.",
+				"fr": "Le remplacement direct : un greffon Obsidian qui synchronise en chiffrement de bout en bout via votre propre CouchDB. Temps réel, multi-appareils, gestion des conflits incluse."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Syncthing",
+			"source": {
+				"host": "github",
+				"path": "syncthing/syncthing",
+				"url": "https://github.com/syncthing/syncthing"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Continuous peer-to-peer sync with no server and no account at all. The closest thing to magic on this list, and the least like a cloud drive.",
+				"fr": "Synchronisation continue en pair-à-pair, sans serveur ni compte. Ce qui se rapproche le plus de la magie dans cette liste, et le moins d’un disque cloud."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "rclone",
+			"source": {
+				"host": "github",
+				"path": "rclone/rclone",
+				"url": "https://github.com/rclone/rclone"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "rsync for every cloud that exists, with client-side encryption via crypt remotes. The plumbing under half the other options here.",
+				"fr": "rsync pour tous les clouds existants, avec chiffrement côté client via les remotes crypt. La tuyauterie sous la moitié des autres options ici."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "iCloud Drive or a WebDAV host",
+			"url": "https://obsidian.md/sync",
+			"priceMonthly": 1,
+			"note": {
+				"en": "Obsidian will happily keep a vault in any synced folder. Free-with-a-privacy-cost on iCloud, or a couple of euros for a WebDAV box. Neither handles conflicts as well as the paid Sync.",
+				"fr": "Obsidian gère volontiers un coffre dans n’importe quel dossier synchronisé. Gratuit mais au prix de la vie privée sur iCloud, ou quelques euros pour un hébergement WebDAV. Aucun des deux ne gère les conflits aussi bien que la synchro payante."
+			}
+		}
+	],
+	"priority": 4
+}

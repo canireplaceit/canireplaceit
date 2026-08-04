@@ -1,0 +1,117 @@
+{
+	"slug": "similarweb",
+	"name": "Similarweb",
+	"domain": "similarweb.com",
+	"category": "seo-rank-tracking",
+	"priceMonthly": 125,
+	"pricing": {
+		"plan": "Web Intelligence Starter, 1 user, $125/mo billed annually ($129/mo month-to-month)",
+		"basis": "per-seat",
+		"url": "https://www.similarweb.com/corp/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "not-yet",
+	"why": {
+		"en": "Similarweb estimates other people's traffic from a panel of clickstream data bought from browser extensions and ISPs. There is no open source version of that, because there is no open source version of buying a panel — and the analytics tools people suggest instead only measure your own site.",
+		"fr": "Similarweb estime le trafic des autres à partir d’un panel de données de navigation achetées à des extensions et des FAI. Il n’y a pas de version open source de ça, parce qu’il n’y a pas de version open source de l’achat d’un panel — et les outils d’analytics qu’on propose à la place ne mesurent que votre propre site."
+	},
+	"whatYouLose": [
+		{
+			"en": "Competitor traffic estimates",
+			"fr": "Estimation du trafic des concurrents"
+		},
+		{
+			"en": "Audience overlap and demographics",
+			"fr": "Recoupement d’audience et démographie"
+		},
+		{
+			"en": "Market and category benchmarks",
+			"fr": "Repères de marché et de catégorie"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Matomo",
+			"source": {
+				"host": "github",
+				"path": "matomo-org/matomo",
+				"url": "https://github.com/matomo-org/matomo"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Full-fat analytics you own, raw data in your own MySQL. Tells you everything about your site and nothing about theirs.",
+				"fr": "Un analytics complet que vous possédez, données brutes dans votre propre MySQL. Vous dit tout sur votre site et rien sur le leur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Heatmaps, funnels, form analytics, custom reports and SAML are paid plugins",
+					"fr": "Heatmaps, entonnoirs, analyse de formulaires, rapports personnalisés et SAML sont des plugins payants"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Plausible CE",
+			"source": {
+				"host": "github",
+				"path": "plausible/analytics",
+				"url": "https://github.com/plausible/analytics"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight, cookie-free, EU-friendly. Community Edition, so funnels, revenue goals, SSO and the Sites API stay cloud-only.",
+				"fr": "Léger, sans cookies, compatible RGPD. Community Edition : entonnoirs, objectifs de revenus, SSO et API Sites restent réservés au cloud."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Funnels, revenue goals, SSO and the Sites API are cloud-only, and CE ships twice a year",
+					"fr": "Les entonnoirs, les objectifs de revenus, le SSO et l’API Sites sont réservés au cloud, et la CE ne sort que deux fois par an"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Umami",
+			"source": {
+				"host": "github",
+				"path": "umami-software/umami",
+				"url": "https://github.com/umami-software/umami"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The cheapest self-hosted analytics to run. No SSO, and again, your data only.",
+				"fr": "L’analytics auto-hébergé le moins coûteux à faire tourner. Pas de SSO, et là encore, uniquement vos données."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Cloudflare Radar",
+			"url": "https://radar.cloudflare.com",
+			"priceMonthly": 0,
+			"note": {
+				"en": "Free domain rankings and traffic trends from Cloudflare's resolver. Coarser than Similarweb with no per-page detail, but it is measured data rather than a panel model.",
+				"fr": "Classements de domaines et tendances de trafic gratuits, issus du résolveur Cloudflare. Plus grossier que Similarweb et sans détail par page, mais ce sont des mesures réelles plutôt qu’un modèle de panel."
+			}
+		}
+	],
+	"priority": 4
+}

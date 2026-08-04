@@ -1,0 +1,145 @@
+{
+	"slug": "fantastical",
+	"name": "Fantastical",
+	"domain": "flexibits.com",
+	"category": "scheduling",
+	"priceMonthly": 5,
+	"pricing": {
+		"plan": "Premium individual",
+		"basis": "per-seat",
+		"url": "https://flexibits.com/fantastical/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Fantastical is a client, not a service: it reads the CalDAV accounts you already have. Point Radicale or Baïkal at it and you own the data with no change to the app — but if the goal is to stop paying, no open source calendar client is anywhere near as good on Apple platforms.",
+		"fr": "Fantastical est un client, pas un service : il lit les comptes CalDAV que vous avez déjà. Pointez Radicale ou Baïkal dessus et vous possédez les données sans rien changer à l’application — mais si l’objectif est d’arrêter de payer, aucun client d’agenda open source n’est aussi bon sur les plateformes Apple."
+	},
+	"whatYouLose": [
+		{
+			"en": "Natural-language event entry",
+			"fr": "Saisie d’événements en langage naturel"
+		},
+		{
+			"en": "Best-in-class Apple Watch and widgets",
+			"fr": "Meilleurs widgets et Apple Watch"
+		},
+		{
+			"en": "Scheduling links and proposals",
+			"fr": "Liens de prise de rendez-vous"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Radicale",
+			"source": {
+				"host": "github",
+				"path": "Kozea/Radicale",
+				"url": "https://github.com/Kozea/Radicale"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "A tiny Python CalDAV and CardDAV server. Under 100MB of RAM, and every calendar app on earth speaks to it.",
+				"fr": "Un petit serveur CalDAV et CardDAV en Python. Moins de 100 Mo de RAM, et toutes les applications d’agenda du monde lui parlent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Baïkal",
+			"source": {
+				"host": "github",
+				"path": "sabre-io/Baikal",
+				"url": "https://github.com/sabre-io/Baikal"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The PHP CalDAV/CardDAV server, with a web admin. Drops onto cheap shared hosting where a Python daemon cannot.",
+				"fr": "Le serveur CalDAV/CardDAV en PHP, avec une administration web. S’installe sur un hébergement mutualisé bon marché là où un démon Python ne passe pas."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "DAVx⁵",
+			"source": {
+				"host": "github",
+				"path": "bitfireAT/davx5-ose",
+				"url": "https://github.com/bitfireAT/davx5-ose"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The missing piece on Android: it syncs any CalDAV/CardDAV server into the system calendar and contacts. Free on F-Droid, paid on Play as a donation — identical code.",
+				"fr": "La pièce manquante sur Android : il synchronise n’importe quel serveur CalDAV/CardDAV vers l’agenda et les contacts du système. Gratuit sur F-Droid, payant sur Play à titre de don, code identique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Fossify Calendar",
+			"source": {
+				"host": "github",
+				"path": "FossifyOrg/Calendar",
+				"url": "https://github.com/FossifyOrg/Calendar"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The Simple Mobile Tools calendar, continued after that project was sold to an ad company. No trackers, no account, CalDAV optional.",
+				"fr": "L’agenda de Simple Mobile Tools, poursuivi après la vente de ce projet à une régie publicitaire. Aucun traceur, aucun compte, CalDAV facultatif."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nextcloud",
+			"source": {
+				"host": "github",
+				"path": "nextcloud/server",
+				"url": "https://github.com/nextcloud/server"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Files, calendars, contacts, notes and photos in one AGPL server. Heavier than you want and slower than Dropbox, but it is genuinely all there.",
+				"fr": "Fichiers, agendas, contacts, notes et photos dans un seul serveur AGPL. Plus lourd que souhaité et plus lent que Dropbox, mais tout y est réellement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "A few enterprise-only apps and the support contract",
+					"fr": "Quelques applications réservées à l’édition entreprise et le contrat de support"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

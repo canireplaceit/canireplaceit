@@ -1,0 +1,103 @@
+{
+	"slug": "weights-and-biases",
+	"name": "Weights & Biases",
+	"domain": "wandb.ai",
+	"category": "ai-infrastructure",
+	"priceMonthly": 60,
+	"pricing": {
+		"plan": "Pro, starts at $60/mo billed monthly",
+		"basis": "flat",
+		"url": "https://wandb.ai/site/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Experiment tracking is a metrics table and a chart library. MLflow does it, is Apache-2.0, and has become the de-facto standard for model registry regardless. W&B's remaining edge is genuinely nicer visualisations and Sweeps.",
+		"fr": "Le suivi d’expériences, c’est une table de métriques et une bibliothèque de graphiques. MLflow le fait, il est en Apache-2.0, et s’est imposé de fait comme registre de modèles de toute façon. L’avantage restant de W&B, ce sont des visualisations réellement plus belles et Sweeps."
+	},
+	"whatYouLose": [
+		{
+			"en": "Sweeps hyperparameter search",
+			"fr": "Recherche d’hyperparamètres Sweeps"
+		},
+		{
+			"en": "Polished report sharing",
+			"fr": "Partage de rapports soigné"
+		},
+		{
+			"en": "Managed artifact storage",
+			"fr": "Stockage d’artefacts managé"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "MLflow",
+			"source": {
+				"host": "github",
+				"path": "mlflow/mlflow",
+				"url": "https://github.com/mlflow/mlflow"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Tracking, model registry and deployment in one, and every cloud already hosts a managed version. The safe choice.",
+				"fr": "Suivi, registre de modèles et déploiement réunis, et tous les clouds en hébergent déjà une version managée. Le choix sûr."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Aim",
+			"source": {
+				"host": "github",
+				"path": "aimhubio/aim",
+				"url": "https://github.com/aimhubio/aim"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The best UI of the open source options for comparing hundreds of runs. Tracking only — no registry, no deployment.",
+				"fr": "La meilleure interface des options open source pour comparer des centaines d’exécutions. Suivi uniquement — pas de registre ni de déploiement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ClearML",
+			"source": {
+				"host": "github",
+				"path": "clearml/clearml",
+				"url": "https://github.com/clearml/clearml"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Tracking plus orchestration, data versioning and a job queue. Much bigger scope, correspondingly bigger install.",
+				"fr": "Suivi plus orchestration, versionnage des données et file de tâches. Périmètre bien plus large, installation d’autant plus lourde."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "RBAC, SSO, vaults, hyper-datasets",
+					"fr": "RBAC, SSO, coffres-forts, hyper-datasets"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

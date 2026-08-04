@@ -1,0 +1,134 @@
+{
+	"slug": "callrail",
+	"name": "CallRail",
+	"domain": "callrail.com",
+	"category": "sales-outreach-data",
+	"priceMonthly": 50,
+	"pricing": {
+		"plan": "Call Tracking",
+		"basis": "flat",
+		"url": "https://www.callrail.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Dynamic number insertion is a JavaScript snippet and a pool of phone numbers. The snippet is trivial and the numbers come from a carrier either way — so the real question is whether you want to run a PBX to save forty dollars a month.",
+		"fr": "L’insertion dynamique de numéros, c’est un bout de JavaScript et un pool de numéros. Le script est trivial et les numéros viennent d’un opérateur dans les deux cas — la vraie question est de savoir si vous voulez exploiter un PBX pour économiser quarante dollars par mois."
+	},
+	"whatYouLose": [
+		{
+			"en": "A managed pool of local numbers",
+			"fr": "Un pool géré de numéros locaux"
+		},
+		{
+			"en": "Keyword-level call attribution",
+			"fr": "Attribution d’appels au mot-clé"
+		},
+		{
+			"en": "Recording, consent and transcripts",
+			"fr": "Enregistrement, consentement et transcriptions"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Asterisk",
+			"source": {
+				"host": "github",
+				"path": "asterisk/asterisk",
+				"url": "https://github.com/asterisk/asterisk"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The telephony engine the whole industry is built on, including several vendors in this category. Recording and routing are yours; carrier numbers still cost money.",
+				"fr": "Le moteur de téléphonie sur lequel repose tout le secteur, y compris plusieurs éditeurs de cette catégorie. Enregistrement et routage vous appartiennent ; les numéros de l’opérateur restent payants."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FreePBX",
+			"source": {
+				"host": "github",
+				"path": "FreePBX/framework",
+				"url": "https://github.com/FreePBX/framework"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "A usable web UI over Asterisk. Watch the module list: several first-party modules are commercial add-ons.",
+				"fr": "Une interface web utilisable au-dessus d’Asterisk. Surveillez la liste des modules : plusieurs modules maison sont des extensions commerciales."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Several first-party modules (Call Recording Reports, Endpoint Manager, Sysadmin Pro) are commercial add-ons",
+					"fr": "Plusieurs modules maison (rapports d’enregistrement, Endpoint Manager, Sysadmin Pro) sont des extensions commerciales"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "jambonz",
+			"source": {
+				"host": "github",
+				"path": "jambonz/jambonz-api-server",
+				"url": "https://github.com/jambonz/jambonz-api-server"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "A self-hosted CPaaS — the programmable-voice layer you would otherwise rent. Small project, real ops commitment.",
+				"fr": "Un CPaaS auto-hébergé — la couche voix programmable que vous loueriez sinon. Projet modeste, engagement d’exploitation réel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Whisper",
+			"source": {
+				"host": "github",
+				"path": "openai/whisper",
+				"url": "https://github.com/openai/whisper"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Call transcription and keyword spotting for free, which is a paid add-on almost everywhere else.",
+				"fr": "Transcription d’appels et détection de mots-clés gratuitement, alors que c’est une option payante presque partout ailleurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Twilio",
+			"url": "https://www.twilio.com",
+			"priceMonthly": 5,
+			"note": {
+				"en": "Buy the numbers and recording directly and write the twenty lines of insertion script. You lose the reporting UI and the attribution model.",
+				"fr": "Achetez les numéros et l’enregistrement en direct et écrivez les vingt lignes de script d’insertion. Vous perdez l’interface de rapports et le modèle d’attribution."
+			}
+		}
+	],
+	"priority": 2
+}

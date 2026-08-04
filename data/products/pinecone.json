@@ -1,0 +1,109 @@
+{
+	"slug": "pinecone",
+	"name": "Pinecone",
+	"domain": "pinecone.io",
+	"category": "databases-caches",
+	"priceMonthly": 50,
+	"pricing": {
+		"plan": "Standard, USD 50/mo minimum",
+		"basis": "usage",
+		"url": "https://www.pinecone.io/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Vector search became a commodity in about eighteen months. For under ~10M vectors, pgvector in the Postgres you already run beats a separate service on every axis including your own sanity.",
+		"fr": "La recherche vectorielle est devenue une commodité en dix-huit mois environ. En dessous de ~10 M de vecteurs, pgvector dans le Postgres que vous avez déjà bat un service séparé sur tous les plans, y compris votre santé mentale."
+	},
+	"whatYouLose": [
+		{
+			"en": "Zero-ops scaling",
+			"fr": "Mise à l’échelle sans ops"
+		},
+		{
+			"en": "Compliance certifications",
+			"fr": "Certifications de conformité"
+		},
+		{
+			"en": "Managed index rebuilds",
+			"fr": "Reconstruction d’index managée"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Qdrant",
+			"source": {
+				"host": "github",
+				"path": "qdrant/qdrant",
+				"url": "https://github.com/qdrant/qdrant"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Best filtered-search performance of the standalone engines, and a single binary. The default pick if you outgrow pgvector.",
+				"fr": "Meilleures performances en recherche filtrée parmi les moteurs autonomes, et un binaire unique. Le choix par défaut si pgvector ne suffit plus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pgvector",
+			"source": {
+				"host": "github",
+				"path": "pgvector/pgvector",
+				"url": "https://github.com/pgvector/pgvector"
+			},
+			"license": "PostgreSQL",
+			"effort": "managed",
+			"note": {
+				"en": "An extension, not a service. Joins your vectors to your real data — which is the thing Pinecone cannot do.",
+				"fr": "Une extension, pas un service. Elle joint vos vecteurs à vos vraies données — ce que Pinecone ne sait pas faire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Milvus",
+			"source": {
+				"host": "github",
+				"path": "milvus-io/milvus",
+				"url": "https://github.com/milvus-io/milvus"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The one built for billion-scale with GPU indexing. Genuinely heavy: etcd, object storage, message queue.",
+				"fr": "Celui conçu pour le milliard de vecteurs avec indexation GPU. Vraiment lourd : etcd, stockage objet, file de messages."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Qdrant Cloud",
+			"url": "https://qdrant.tech/pricing/",
+			"priceMonthly": 25,
+			"note": {
+				"en": "The same engine hosted by the people who wrote it, with a free 1GB tier. Smaller ecosystem and fewer compliance certifications than Pinecone.",
+				"fr": "Le même moteur hébergé par ceux qui l’ont écrit, avec un palier gratuit de 1 Go. Écosystème plus réduit et moins de certifications que Pinecone."
+			}
+		}
+	],
+	"priority": 3
+}

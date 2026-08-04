@@ -1,0 +1,82 @@
+{
+	"slug": "buffer",
+	"name": "Buffer",
+	"domain": "buffer.com",
+	"category": "community-publishing",
+	"priceMonthly": 5,
+	"pricing": {
+		"plan": "Essentials, per channel, USD 60/yr billed annually",
+		"basis": "per-seat",
+		"url": "https://buffer.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Scheduling a post is a cron job with an API token. The fragile part is that every platform's API terms change constantly and self-hosted tools break when they do — that maintenance is what the subscription was actually buying.",
+		"fr": "Programmer une publication, c’est une tâche cron avec un jeton d’API. Le point fragile : les conditions d’API de chaque plateforme changent sans arrêt et les outils auto-hébergés cassent à chaque fois — cette maintenance, c’est ce que l’abonnement achetait vraiment."
+	},
+	"whatYouLose": [
+		{
+			"en": "Someone else fixing broken platform APIs",
+			"fr": "Quelqu’un d’autre qui répare les API cassées"
+		},
+		{
+			"en": "Official API access on locked-down networks",
+			"fr": "Accès API officiel sur les réseaux verrouillés"
+		},
+		{
+			"en": "Cross-network analytics in one place",
+			"fr": "Statistiques multi-réseaux au même endroit"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Postiz",
+			"source": {
+				"host": "github",
+				"path": "gitroomhq/postiz-app",
+				"url": "https://github.com/gitroomhq/postiz-app"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The most actively developed option, covers a lot of networks, with AI drafting built in.",
+				"fr": "L’option la plus activement développée, couvre de nombreux réseaux, avec rédaction assistée par IA."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mixpost",
+			"source": {
+				"host": "github",
+				"path": "inovector/mixpost",
+				"url": "https://github.com/inovector/mixpost"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Laravel, self-hosted, calmer feature set. The paid Pro edition funds the free one.",
+				"fr": "En Laravel, auto-hébergé, périmètre plus sobre. L’édition Pro payante finance la version gratuite."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Most networks, API, workspaces, approvals, analytics",
+					"fr": "La plupart des réseaux, API, espaces, validations, analyses"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 4
+}

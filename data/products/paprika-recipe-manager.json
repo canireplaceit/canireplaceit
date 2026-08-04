@@ -1,0 +1,124 @@
+{
+	"slug": "paprika-recipe-manager",
+	"name": "Paprika Recipe Manager",
+	"domain": "paprikaapp.com",
+	"category": "home-devices",
+	"priceMonthly": null,
+	"pricing": {
+		"plan": "Paprika Recipe Manager 3, USD 29.99 one-time per platform",
+		"basis": "one-time",
+		"url": "https://apps.apple.com/us/app/paprika-recipe-manager-3/id1303222628",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Paprika charges once per platform and syncs through their own cloud, so a family on mixed devices pays several times over. Mealie imports from the same recipe sites, plans meals, and produces a shopping list grouped by aisle — and your recipes end up in a database you can back up.",
+		"fr": "Paprika se paie une fois par plateforme et se synchronise via leur cloud : une famille aux appareils mélangés paie donc plusieurs fois. Mealie importe depuis les mêmes sites de recettes, planifie les repas et produit une liste de courses groupée par rayon — et vos recettes finissent dans une base que vous pouvez sauvegarder."
+	},
+	"whatYouLose": [
+		{
+			"en": "Offline-first native mobile apps",
+			"fr": "Applications mobiles natives hors ligne"
+		},
+		{
+			"en": "Reliable import from awkward sites",
+			"fr": "Import fiable depuis les sites récalcitrants"
+		},
+		{
+			"en": "Nothing to host",
+			"fr": "Rien à héberger"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Mealie",
+			"source": {
+				"host": "github",
+				"path": "mealie-recipes/mealie",
+				"url": "https://github.com/mealie-recipes/mealie"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Recipe import from any URL, meal plans, and shopping lists that group by aisle. The one to pick — genuinely AGPL, with no Commons Clause attached.",
+				"fr": "Import de recettes depuis n’importe quelle URL, planification des repas, listes de courses groupées par rayon. Celui à choisir : réellement en AGPL, sans Commons Clause."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tandoor Recipes",
+			"source": {
+				"host": "github",
+				"path": "TandoorRecipes/recipes",
+				"url": "https://github.com/TandoorRecipes/recipes"
+			},
+			"license": "AGPL-3.0 + Commons Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Stronger than Mealie on scaling, units and meal planning. But the LICENSE carries a Commons Clause, which means it is not open source — fine for your kitchen, not for a business.",
+				"fr": "Meilleur que Mealie sur les conversions, les unités et la planification. Mais le LICENSE porte une Commons Clause, ce qui le rend non open source : parfait pour votre cuisine, pas pour une entreprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "The Commons Clause forbids selling the software or a service built on it",
+					"fr": "La Commons Clause interdit de vendre le logiciel ou un service bâti dessus"
+				},
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "KitchenOwl",
+			"source": {
+				"host": "github",
+				"path": "TomBursch/kitchenowl",
+				"url": "https://github.com/TomBursch/kitchenowl"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Shared shopping lists and recipes for a household, with a good Flutter app. A smaller scope than Mealie and much easier to get a partner to use.",
+				"fr": "Listes de courses et recettes partagées pour un foyer, avec une bonne application Flutter. Un périmètre plus réduit que Mealie et bien plus facile à faire adopter par un conjoint."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "grocy",
+			"source": {
+				"host": "github",
+				"path": "grocy/grocy",
+				"url": "https://github.com/grocy/grocy"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "ERP for your fridge: stock, expiry dates, chores and recipes derived from what you actually have. Obsessive, and brilliant if you are too.",
+				"fr": "Un ERP pour votre frigo : stocks, dates de péremption, corvées et recettes déduites de ce que vous avez vraiment. Obsessionnel, et génial si vous l’êtes aussi."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

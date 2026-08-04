@@ -1,0 +1,97 @@
+{
+	"slug": "foxpass",
+	"name": "Foxpass",
+	"domain": "foxpass.com",
+	"category": "networking-vpn",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "Hosted RADIUS and LDAP that syncs from your IdP is three days of work with FreeRADIUS and an LDAP proxy, and after that it costs nothing per user forever. The one thing to think about: RADIUS is UDP on your network, so hosting it yourself is usually the more sensible topology anyway.",
+		"fr": "Un RADIUS et un LDAP hébergés qui se synchronisent depuis votre IdP, c’est trois jours de travail avec FreeRADIUS et un proxy LDAP, et ensuite cela ne coûte plus rien par utilisateur, à jamais. Un point à considérer : RADIUS est de l’UDP sur votre réseau, donc l’héberger vous-même est de toute façon la topologie la plus sensée."
+	},
+	"whatYouLose": [
+		{
+			"en": "Google/Okta sync out of the box",
+			"fr": "Synchro Google/Okta prête à l’emploi"
+		},
+		{
+			"en": "Hosted high availability",
+			"fr": "Haute disponibilité hébergée"
+		},
+		{
+			"en": "SSH key distribution",
+			"fr": "Distribution des clés SSH"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "FreeRADIUS",
+			"source": {
+				"host": "github",
+				"path": "FreeRADIUS/freeradius-server",
+				"url": "https://github.com/FreeRADIUS/freeradius-server"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Handles WPA2-Enterprise, VPN and switch auth against any backend. The configuration is intimidating exactly once.",
+				"fr": "Gère l’authentification WPA2-Enterprise, VPN et commutateurs contre n’importe quel backend. La configuration n’est intimidante qu’une seule fois."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LLDAP",
+			"source": {
+				"host": "github",
+				"path": "lldap/lldap",
+				"url": "https://github.com/lldap/lldap"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "A small, sane LDAP server with a web UI for users and groups. Exactly the piece Foxpass sells, minus the per-seat bill.",
+				"fr": "Un petit serveur LDAP sensé avec interface web pour utilisateurs et groupes. Exactement la pièce que vend Foxpass, sans la facture par utilisateur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "authentik",
+			"source": {
+				"host": "github",
+				"path": "goauthentik/authentik",
+				"url": "https://github.com/goauthentik/authentik"
+			},
+			"license": "MIT + enterprise/",
+			"effort": "docker",
+			"note": {
+				"en": "An IdP with SAML, OIDC, LDAP and a RADIUS outpost in one place, so Wi-Fi auth uses the same directory as your apps. The enterprise directory adds support and a few extras.",
+				"fr": "Un IdP avec SAML, OIDC, LDAP et un avant-poste RADIUS au même endroit : l’authentification Wi-Fi utilise le même annuaire que vos applications. Le répertoire enterprise ajoute le support et quelques extras."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Remote desktop access (RAC), enterprise support and some admin features.",
+					"fr": "L’accès bureau à distance (RAC), le support entreprise et quelques fonctions d’admin."
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

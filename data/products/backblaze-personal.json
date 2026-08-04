@@ -1,0 +1,141 @@
+{
+	"slug": "backblaze-personal",
+	"name": "Backblaze Personal Backup",
+	"domain": "backblaze.com",
+	"category": "backup-recovery",
+	"priceMonthly": 9,
+	"pricing": {
+		"plan": "Computer Backup, $9/mo per computer (yearly $99 = $8.25/mo)",
+		"basis": "flat",
+		"url": "https://www.backblaze.com/cloud-backup.html",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Nine dollars a month for genuinely unlimited backup is hard to beat on price alone — restic or Kopia to a B2 bucket is cheaper only if your data is small. What you gain by switching is client-side encryption with a key Backblaze never holds, and a restore you can test.",
+		"fr": "Neuf dollars par mois pour une sauvegarde réellement illimitée est difficile à battre sur le seul prix : restic ou Kopia vers un bucket B2 n’est moins cher que si vos données sont petites. Ce que vous gagnez en changeant, c’est un chiffrement côté client dont Backblaze ne détient jamais la clé, et une restauration que vous pouvez tester."
+	},
+	"whatYouLose": [
+		{
+			"en": "Truly unlimited capacity",
+			"fr": "Capacité réellement illimitée"
+		},
+		{
+			"en": "A restore-by-post hard drive",
+			"fr": "Une restauration par disque envoyé par la poste"
+		},
+		{
+			"en": "Set it up once and forget",
+			"fr": "Installation à faire une seule fois"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "restic",
+			"source": {
+				"host": "github",
+				"path": "restic/restic",
+				"url": "https://github.com/restic/restic"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "ops",
+			"note": {
+				"en": "Deduplicating, encrypted, verifiable backups to any S3-compatible bucket. Boring in the best sense, and restore actually works.",
+				"fr": "Sauvegardes dédupliquées, chiffrées et vérifiables vers n’importe quel bucket compatible S3. Ennuyeux au meilleur sens du terme, et la restauration fonctionne vraiment."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kopia",
+			"source": {
+				"host": "github",
+				"path": "kopia/kopia",
+				"url": "https://github.com/kopia/kopia"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The same model as restic with a real desktop GUI, which is what most people need in order to keep a backup habit.",
+				"fr": "Le même modèle que restic avec une vraie interface graphique, ce dont la plupart des gens ont besoin pour tenir une habitude de sauvegarde."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Duplicati",
+			"source": {
+				"host": "github",
+				"path": "duplicati/duplicati",
+				"url": "https://github.com/duplicati/duplicati"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The most Windows-friendly of the three, with a scheduler and a web UI. Historically the flakiest at restore — test yours.",
+				"fr": "Le plus adapté à Windows des trois, avec planificateur et interface web. Historiquement le plus capricieux à la restauration : testez la vôtre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "BorgBackup",
+			"source": {
+				"host": "github",
+				"path": "borgbackup/borg",
+				"url": "https://github.com/borgbackup/borg"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "ops",
+			"note": {
+				"en": "Ancient, trusted, extremely space-efficient. It needs a Borg-aware destination, so pair it with a storage box rather than a bucket.",
+				"fr": "Ancien, éprouvé, extrêmement économe en espace. Il lui faut une destination compatible Borg : associez-le à une storage box plutôt qu’à un bucket."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "rclone",
+			"source": {
+				"host": "github",
+				"path": "rclone/rclone",
+				"url": "https://github.com/rclone/rclone"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "rsync for every cloud that exists, with client-side encryption via crypt remotes. The plumbing under half the other options here.",
+				"fr": "rsync pour tous les clouds existants, avec chiffrement côté client via les remotes crypt. La tuyauterie sous la moitié des autres options ici."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

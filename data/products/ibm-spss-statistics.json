@@ -1,0 +1,103 @@
+{
+	"slug": "ibm-spss-statistics",
+	"name": "IBM SPSS Statistics",
+	"domain": "ibm.com",
+	"category": "scientific-computing",
+	"priceMonthly": 109,
+	"pricing": {
+		"plan": "Base subscription, $109/authorized user/month ($1,308/year)",
+		"basis": "per-seat",
+		"url": "https://www.ibm.com/store/en/us/products/EID5HFZ6",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "SPSS is a menu over a set of standard tests, and JASP copies the menu almost item for item while adding Bayesian versions IBM charges extra for. The only real reason to stay is a lab full of .sps syntax nobody wants to rewrite.",
+		"fr": "SPSS est un menu au-dessus d’un ensemble de tests standards, et JASP en reprend presque chaque entrée tout en ajoutant les versions bayésiennes qu’IBM facture en supplément. La seule vraie raison de rester, c’est un laboratoire plein de syntaxe .sps que personne ne veut réécrire."
+	},
+	"whatYouLose": [
+		{
+			"en": "Legacy .sps syntax files",
+			"fr": "Anciens fichiers de syntaxe .sps"
+		},
+		{
+			"en": "Paid add-on modules",
+			"fr": "Modules complémentaires payants"
+		},
+		{
+			"en": "Vendor support for theses",
+			"fr": "Support éditeur pour les thèses"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "JASP",
+			"source": {
+				"host": "github",
+				"path": "jasp-stats/jasp-desktop",
+				"url": "https://github.com/jasp-stats/jasp-desktop"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "A free desktop app funded by the University of Amsterdam with an SPSS-shaped menu, plus Bayesian equivalents of every test. Reads .sav files directly.",
+				"fr": "Une application de bureau gratuite financée par l’université d’Amsterdam, avec des menus calqués sur SPSS et l’équivalent bayésien de chaque test. Lit les fichiers .sav directement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "jamovi",
+			"source": {
+				"host": "github",
+				"path": "jamovi/jamovi",
+				"url": "https://github.com/jamovi/jamovi"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The same idea as JASP with a spreadsheet-first workflow and an add-on library. Everything you click is echoed as R syntax, which is a good way to migrate off point-and-click entirely.",
+				"fr": "La même idée que JASP, avec un flux orienté tableur et une bibliothèque de modules. Chaque clic est retranscrit en syntaxe R, une bonne façon de sortir définitivement du tout-souris."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "jamovi Cloud hosted sessions",
+					"fr": "Les sessions hébergées de jamovi Cloud"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "statsmodels",
+			"source": {
+				"host": "github",
+				"path": "statsmodels/statsmodels",
+				"url": "https://github.com/statsmodels/statsmodels"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "The Python library with the regression, time-series and mixed-model output tables that actually look like a stats package. Free, scriptable, reviewable.",
+				"fr": "La bibliothèque Python dont les tableaux de régression, de séries temporelles et de modèles mixtes ressemblent vraiment à ceux d’un logiciel de stats. Gratuite, scriptable, relisible."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 4
+}

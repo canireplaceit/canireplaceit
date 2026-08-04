@@ -1,0 +1,111 @@
+{
+	"slug": "launchdarkly",
+	"name": "LaunchDarkly",
+	"domain": "launchdarkly.com",
+	"category": "dev-tools",
+	"priceMonthly": 10,
+	"pricing": {
+		"plan": "Foundation, $10 per service connection/month billed yearly",
+		"basis": "usage",
+		"url": "https://launchdarkly.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Feature flags are a boolean in a database with an SDK. The pricing does not reflect that.",
+		"fr": "Un feature flag, c’est un booléen en base avec un SDK. Le tarif ne reflète pas vraiment ça."
+	},
+	"whatYouLose": [
+		{
+			"en": "Enterprise audit logs",
+			"fr": "Journaux d’audit entreprise"
+		},
+		{
+			"en": "Experimentation stats engine",
+			"fr": "Moteur de stats d’expérimentation"
+		},
+		{
+			"en": "Edge flag delivery",
+			"fr": "Diffusion des flags en edge"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Unleash",
+			"source": {
+				"host": "github",
+				"path": "Unleash/unleash",
+				"url": "https://github.com/Unleash/unleash"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Mature, good SDK coverage.",
+				"fr": "Mature, bonne couverture SDK."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO, RBAC, change requests, extra projects",
+					"fr": "SSO, RBAC, demandes de changement, projets supplémentaires"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Flagsmith",
+			"source": {
+				"host": "github",
+				"path": "Flagsmith/flagsmith",
+				"url": "https://github.com/Flagsmith/flagsmith"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Flags plus remote config.",
+				"fr": "Flags et configuration distante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SAML/SSO, RBAC, audit logs",
+					"fr": "SAML/SSO, RBAC, journaux d’audit"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PostHog",
+			"source": {
+				"host": "github",
+				"path": "PostHog/posthog",
+				"url": "https://github.com/PostHog/posthog"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Flags free if you already run it.",
+				"fr": "Flags gratuits si vous l’utilisez déjà."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SAML SSO, RBAC, audit logs",
+					"fr": "SSO SAML, RBAC, journaux d’audit"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

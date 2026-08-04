@@ -1,0 +1,88 @@
+{
+	"slug": "browserstack",
+	"name": "BrowserStack",
+	"domain": "browserstack.com",
+	"category": "developer-tooling",
+	"priceMonthly": 39,
+	"pricing": {
+		"plan": "Live Desktop & Mobile",
+		"basis": "per-seat",
+		"url": "https://www.browserstack.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Chrome and Firefox in containers is a solved problem. Real iOS Safari on twelve device generations is not — you would be buying and maintaining a physical device lab, which is exactly the business BrowserStack is in.",
+		"fr": "Chrome et Firefox dans des conteneurs, c’est réglé. Safari iOS réel sur douze générations d’appareils, non — il faudrait acheter et entretenir un parc physique, ce qui est précisément le métier de BrowserStack."
+	},
+	"whatYouLose": [
+		{
+			"en": "Real iOS Safari devices",
+			"fr": "Vrais appareils Safari iOS"
+		},
+		{
+			"en": "Physical device lab",
+			"fr": "Parc d’appareils physiques"
+		},
+		{
+			"en": "Legacy browser coverage",
+			"fr": "Couverture des navigateurs anciens"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Playwright",
+			"source": {
+				"host": "github",
+				"path": "microsoft/playwright",
+				"url": "https://github.com/microsoft/playwright"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Bundles its own Chromium, Firefox and WebKit builds. WebKit is not Safari, but it catches most of what Safari would.",
+				"fr": "Embarque ses propres builds Chromium, Firefox et WebKit. WebKit n’est pas Safari, mais il attrape l’essentiel de ce que Safari attraperait."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Selenium Grid",
+			"source": {
+				"host": "github",
+				"path": "SeleniumHQ/selenium",
+				"url": "https://github.com/SeleniumHQ/selenium"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The self-hosted grid BrowserStack's API imitates. Scales on your own nodes; desktop browsers only in practice.",
+				"fr": "La grille auto-hébergée que l’API de BrowserStack imite. Monte en charge sur vos nœuds ; en pratique, navigateurs de bureau seulement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "LambdaTest",
+			"url": "https://www.lambdatest.com/pricing",
+			"priceMonthly": 15,
+			"note": {
+				"en": "Same real-device model at roughly half the price with a usable free tier. Smaller device catalogue and the flakiness reports are less good.",
+				"fr": "Même modèle d’appareils réels à environ la moitié du prix, avec un palier gratuit exploitable. Catalogue d’appareils plus réduit et rapports d’instabilité moins bons."
+			}
+		}
+	],
+	"priority": 3
+}

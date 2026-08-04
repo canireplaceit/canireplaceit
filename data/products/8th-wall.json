@@ -1,0 +1,99 @@
+{
+	"slug": "8th-wall",
+	"name": "8th Wall",
+	"domain": "8thwall.com",
+	"category": "vr-ar",
+	"priceMonthly": 0,
+	"pricing": {
+		"plan": "Free — hosted platform retired 2026-02-28, tools now free",
+		"basis": "flat",
+		"url": "https://8thwall.org/?site_path=pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "For marker and image tracking, AR.js on top of A-Frame does the job in a browser for nothing, and PlayCanvas builds the scene around it. What 8th Wall sells is world tracking without a marker — SLAM good enough that a sofa stays on the pavement while you walk around it — plus the hosting and analytics for a campaign. Open WebAR is not there on markerless tracking.",
+		"fr": "Pour le suivi de marqueurs et d’images, AR.js sur A-Frame fait le travail dans le navigateur gratuitement, et PlayCanvas construit la scène autour. Ce que vend 8th Wall, c’est le suivi du monde sans marqueur — un SLAM assez bon pour qu’un canapé reste sur le trottoir quand on tourne autour — plus l’hébergement et les statistiques d’une campagne. Le WebAR ouvert n’y est pas sur le suivi sans marqueur."
+	},
+	"whatYouLose": [
+		{
+			"en": "Markerless world tracking",
+			"fr": "Suivi du monde sans marqueur"
+		},
+		{
+			"en": "Face effects and hand tracking",
+			"fr": "Effets de visage et suivi des mains"
+		},
+		{
+			"en": "Hosting and campaign analytics",
+			"fr": "Hébergement et statistiques de campagne"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "AR.js",
+			"source": {
+				"host": "github",
+				"path": "AR-js-org/AR.js",
+				"url": "https://github.com/AR-js-org/AR.js"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Marker, image and location-based AR in a web page, fast even on old phones. No markerless world tracking.",
+				"fr": "AR par marqueur, image ou géolocalisation dans une page web, rapide même sur de vieux téléphones. Pas de suivi du monde sans marqueur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "A-Frame",
+			"source": {
+				"host": "github",
+				"path": "aframevr/aframe",
+				"url": "https://github.com/aframevr/aframe"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The scene layer: declarative WebXR in HTML, and where the WebXR hit-test API gets you basic surface placement on supporting devices.",
+				"fr": "La couche scène : du WebXR déclaratif en HTML, et c’est là que l’API hit-test de WebXR permet un placement basique sur les appareils compatibles."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PlayCanvas Engine",
+			"source": {
+				"host": "github",
+				"path": "playcanvas/engine",
+				"url": "https://github.com/playcanvas/engine"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The strongest open web 3D runtime for this kind of work — tiny builds, good WebXR support. The hosted PlayCanvas editor is a separate paid product.",
+				"fr": "Le meilleur moteur 3D web ouvert pour ce type de travail — builds légers, bon support WebXR. L’éditeur PlayCanvas hébergé est un produit payant distinct."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

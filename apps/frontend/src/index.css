@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+/* Self-hosted so a page view never calls out to a font CDN. */
+@import "@fontsource-variable/space-grotesk";
+@import "@fontsource/ibm-plex-sans";
+@import "@fontsource/ibm-plex-mono";
+
+/* Design tokens. Every component reads only these names, so a future retheme is this block and nothing else. */
+:root {
+	--bg: #f5f6f8;
+	--surface: #ffffff;
+	--line: #dde1e7;
+	--text: #12151a;
+	--muted: #5b6472;
+	--v-yes: #167a52;
+	--v-almost: #a15a05;
+	--v-no: #c62f2f;
+	--accent: #3b5bdb;
+	--radius: 6px;
+	--font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+	--font-body: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+	--font-mono-stack: "IBM Plex Mono", ui-monospace, monospace;
+
+	/* The logo blue. Its own token, deliberately never folded into --accent or a verdict colour. */
+	--brand: #2f6fed;
+}
+
+:root[data-theme="dark"] {
+	--bg: #0a0e14;
+	--surface: #11161f;
+	--line: #232b38;
+	--text: #e7ecf3;
+	--muted: #8b96a7;
+	--v-yes: #34d399;
+	--v-almost: #f5a623;
+	--v-no: #ff5c5c;
+	--accent: #7c9bff;
+	--brand: #4c8dff;
+}
+
+@theme {
+	--color-brand: var(--brand);
+	--color-bg: var(--bg);
+	--color-surface: var(--surface);
+	--color-border: var(--line);
+	--color-text: var(--text);
+	--color-muted: var(--muted);
+	--font-display: var(--font-display);
+	--font-body: var(--font-body);
+	--font-mono: var(--font-mono-stack);
+}
+
+html {
+	scroll-behavior: smooth;
+	background: var(--bg);
+}
+
+body {
+	background: var(--bg);
+	color: var(--text);
+	font-family: var(--font-body);
+	-webkit-font-smoothing: antialiased;
+}
+
+/* Tabular figures everywhere a number is compared against another number. */
+.nums {
+	font-variant-numeric: tabular-nums;
+	font-family: var(--font-mono);
+}
+
+/* :where() keeps this at specificity 0, so a bespoke `focus-visible:ring-*` elsewhere still wins the cascade without `!important`. */
+:where(a, button, summary, input, select, textarea, [tabindex]):focus-visible {
+	outline: none;
+	box-shadow:
+		0 0 0 2px var(--bg),
+		0 0 0 4px var(--brand);
+}
+
+/* Selects on the card-radius token rather than a component class, so it reaches every call site without editing each one. */
+:where(a, button, summary)[class*="rounded-[calc(var(--radius))]"] {
+	transition:
+		border-color 0.16s ease,
+		background-color 0.16s ease,
+		transform 0.16s ease;
+}
+:where(a, button, summary)[class*="rounded-[calc(var(--radius))]"]:hover {
+	transform: translateY(-1px);
+}
+:where(button)[class*="rounded-[calc(var(--radius))]"]:active:not(:disabled) {
+	transform: translateY(0);
+}
+
+/* `!important` is load-bearing: the selector is `*` (specificity 0,0,0), so without it every class-based animation below would win the cascade instead. */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		/* biome-ignore-start lint/complexity/noImportantStyles: a reduced-motion override must outrank the animations it is switching off */
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+		/* biome-ignore-end lint/complexity/noImportantStyles: see above */
+	}
+}
+
+/* Only the "replaceable" verdict pulses — motion as signal, not decoration. */
+@keyframes cri-pulse {
+	0%,
+	100% {
+		opacity: 0.55;
+	}
+	50% {
+		opacity: 1;
+	}
+}
+.pulse-yes {
+	animation: cri-pulse 2.4s ease-in-out infinite;
+}
+
+/* Sponsor tape: one continuous loop, paused on hover so a chip is clickable. */
+@keyframes cri-marquee {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		/* Exactly half the track — the second copy lands where the first began. */
+		transform: translateX(-50%);
+	}
+}
+.marquee {
+	animation: cri-marquee 60s linear infinite;
+}
+/* Must go on the clipping wrapper, not `.marquee` — masking the (much wider) scrolling track fades its ends, not the viewport edges. */
+.marquee-mask {
+	-webkit-mask-image: linear-gradient(
+		90deg,
+		transparent,
+		#000 5vw,
+		#000 calc(100% - 5vw),
+		transparent
+	);
+	mask-image: linear-gradient(
+		90deg,
+		transparent,
+		#000 5vw,
+		#000 calc(100% - 5vw),
+		transparent
+	);
+}
+.marquee:hover,
+.marquee:focus-within {
+	animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+	.marquee {
+		animation: none;
+		overflow-x: auto;
+		width: 100%;
+	}
+}

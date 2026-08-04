@@ -1,0 +1,109 @@
+{
+	"slug": "pingdom",
+	"name": "Pingdom",
+	"domain": "pingdom.com",
+	"category": "observability-telemetry",
+	"priceMonthly": 15,
+	"pricing": {
+		"plan": "Synthetic Monitoring Starter",
+		"basis": "flat",
+		"url": "https://www.pingdom.com/synthetic-pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Uptime Kuma took this category apart. You get the checks, the status page and the notifications in one container. The catch is philosophical: a monitor inside your own infrastructure cannot tell you your infrastructure is unreachable — so rent the smallest VPS somewhere else and run it there.",
+		"fr": "Uptime Kuma a démonté cette catégorie. Vous obtenez les contrôles, la page de statut et les notifications dans un seul conteneur. Le piège est philosophique : une sonde à l’intérieur de votre propre infrastructure ne peut pas vous dire que votre infrastructure est injoignable — louez donc le plus petit VPS ailleurs et faites-la tourner là."
+	},
+	"whatYouLose": [
+		{
+			"en": "Probes on other continents",
+			"fr": "Sondes sur d’autres continents"
+		},
+		{
+			"en": "Real user monitoring",
+			"fr": "Suivi des utilisateurs réels"
+		},
+		{
+			"en": "Independent failure domain",
+			"fr": "Domaine de panne indépendant"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Uptime Kuma",
+			"source": {
+				"host": "github",
+				"path": "louislam/uptime-kuma",
+				"url": "https://github.com/louislam/uptime-kuma"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "HTTP, TCP, DNS, ping and certificate-expiry checks with 90+ notification channels and a public status page. Five minutes to set up, and it is genuinely nicer than the paid tools.",
+				"fr": "Contrôles HTTP, TCP, DNS, ping et expiration de certificat, avec plus de 90 canaux de notification et une page de statut publique. Cinq minutes à installer, et réellement plus agréable que les outils payants."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Gatus",
+			"source": {
+				"host": "github",
+				"path": "TwiN/gatus",
+				"url": "https://github.com/TwiN/gatus"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Checks defined in YAML you commit to git, with conditions on response body and latency. The right shape when monitoring belongs in the repo.",
+				"fr": "Contrôles définis en YAML versionné, avec conditions sur le corps de réponse et la latence. La bonne forme quand la supervision appartient au dépôt."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "blackbox_exporter",
+			"source": {
+				"host": "github",
+				"path": "prometheus/blackbox_exporter",
+				"url": "https://github.com/prometheus/blackbox_exporter"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "If you already run Prometheus, this is one more scrape target and your alerting rules are already written.",
+				"fr": "Si vous exploitez déjà Prometheus, c’est une cible de scrape de plus et vos règles d’alerte sont déjà écrites."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Better Stack",
+			"url": "https://betterstack.com/uptime/pricing",
+			"priceMonthly": 0,
+			"note": {
+				"en": "Free tier with 10 monitors, global probes and a status page. You are still trusting an external service, which for uptime checking is the point.",
+				"fr": "Palier gratuit avec 10 sondes, des points de contrôle mondiaux et une page de statut. Vous faites toujours confiance à un service externe, ce qui pour la supervision de disponibilité est justement l’objectif."
+			}
+		}
+	],
+	"priority": 3
+}

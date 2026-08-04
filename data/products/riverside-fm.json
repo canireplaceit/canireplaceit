@@ -1,0 +1,99 @@
+{
+	"slug": "riverside-fm",
+	"name": "Riverside",
+	"domain": "riverside.fm",
+	"category": "audio-podcasting",
+	"priceMonthly": 24,
+	"pricing": {
+		"plan": "Pro, annual billed monthly (USD 29 billed monthly)",
+		"basis": "flat",
+		"url": "https://riverside.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "The whole trick is local recording: each guest's browser records lossless audio and video on their own disk and uploads it in the background, so a bad connection ruins the call but not the master. No open source project does progressive local capture and upload for remote guests. You can approximate it by asking every guest to record themselves, which works until one of them forgets.",
+		"fr": "Toute l’astuce tient à l’enregistrement local : le navigateur de chaque invité enregistre en qualité maximale sur son disque et téléverse en arrière-plan, si bien qu’une mauvaise connexion gâche la conversation mais pas le master. Aucun projet open source ne fait cette capture locale progressive avec téléversement pour des invités distants. On peut approcher le résultat en demandant à chacun de s’enregistrer — jusqu’au jour où quelqu’un oublie."
+	},
+	"whatYouLose": [
+		{
+			"en": "Lossless local guest recording",
+			"fr": "Enregistrement local sans perte des invités"
+		},
+		{
+			"en": "Background upload during the call",
+			"fr": "Téléversement en fond pendant l’appel"
+		},
+		{
+			"en": "Separate tracks per participant",
+			"fr": "Pistes séparées par participant"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "VDO.Ninja",
+			"source": {
+				"host": "github",
+				"path": "steveseguin/vdo.ninja",
+				"url": "https://github.com/steveseguin/vdo.ninja"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Gets guests into your recorder over WebRTC at high bitrate, and can trigger local recording on the guest side. Fiddly, but it is the closest thing.",
+				"fr": "Amène les invités dans votre enregistreur en WebRTC à haut débit, et peut déclencher un enregistrement local côté invité. Bricoleur, mais c’est ce qui s’en rapproche le plus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LiveKit",
+			"source": {
+				"host": "github",
+				"path": "livekit/livekit",
+				"url": "https://github.com/livekit/livekit"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Server-side egress gives you per-participant recording tracks. Quality is capped by the call itself, which is exactly the problem Riverside avoids.",
+				"fr": "La sortie côté serveur donne des pistes d’enregistrement par participant. La qualité reste plafonnée par l’appel lui-même, précisément le problème que Riverside contourne."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OBS Studio",
+			"source": {
+				"host": "github",
+				"path": "obsproject/obs-studio",
+				"url": "https://github.com/obsproject/obs-studio"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The double-ender workflow: every guest runs OBS locally and sends you the file afterwards. Free, flawless quality, and entirely dependent on your guests.",
+				"fr": "La méthode du double enregistrement : chaque invité lance OBS chez lui et vous envoie le fichier ensuite. Gratuit, qualité irréprochable, et totalement dépendant de vos invités."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

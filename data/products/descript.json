@@ -1,0 +1,99 @@
+{
+	"slug": "descript",
+	"name": "Descript",
+	"domain": "descript.com",
+	"category": "audio-podcasting",
+	"priceMonthly": 24,
+	"pricing": {
+		"plan": "Creator, billed annually ($35 month-to-month)",
+		"basis": "per-seat",
+		"url": "https://www.descript.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "not-yet",
+	"why": {
+		"en": "Editing audio by deleting words in a transcript is a genuinely new interaction, and nothing open source has rebuilt it. You can get the ingredients — Whisper for the transcript, auto-editor to cut silences and filler automatically, Audacity or Kdenlive to finish — but wiring them together is a script, not a product, and Overdub-style voice repair is not on the table.",
+		"fr": "Monter de l’audio en supprimant des mots dans une transcription est une interaction réellement nouvelle, et rien en open source ne l’a reconstruite. On peut réunir les ingrédients — Whisper pour la transcription, auto-editor pour couper silences et hésitations, Audacity ou Kdenlive pour finir — mais les relier reste un script, pas un produit, et la retouche de voix façon Overdub n’est pas envisageable."
+	},
+	"whatYouLose": [
+		{
+			"en": "Editing by editing the transcript",
+			"fr": "Montage en modifiant la transcription"
+		},
+		{
+			"en": "Voice cloning and word repair",
+			"fr": "Clonage de voix et retouche de mots"
+		},
+		{
+			"en": "Studio Sound one-click cleanup",
+			"fr": "Nettoyage Studio Sound en un clic"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "auto-editor",
+			"source": {
+				"host": "github",
+				"path": "WyattBlue/auto-editor",
+				"url": "https://github.com/WyattBlue/auto-editor"
+			},
+			"license": "Unlicense",
+			"effort": "managed",
+			"note": {
+				"en": "Cuts silence, dead air and filler out of a recording from the command line. Removes most of the tedium Descript sells, none of the interface.",
+				"fr": "Supprime silences, blancs et hésitations d’un enregistrement en ligne de commande. Élimine l’essentiel de la corvée que vend Descript, aucune de son interface."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "whisper.cpp",
+			"source": {
+				"host": "github",
+				"path": "ggml-org/whisper.cpp",
+				"url": "https://github.com/ggml-org/whisper.cpp"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Whisper transcription running locally and fast, even on a laptop. Nothing leaves the machine, which matters for unreleased material.",
+				"fr": "Transcription Whisper en local et rapide, même sur un portable. Rien ne quitte la machine, ce qui compte pour du matériel non diffusé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Audacity",
+			"source": {
+				"host": "github",
+				"path": "audacity/audacity",
+				"url": "https://github.com/audacity/audacity"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Still the fastest way to fix an actual waveform. Noise reduction, levelling, and no subscription.",
+				"fr": "Toujours le moyen le plus rapide de réparer une forme d’onde. Réduction de bruit, égalisation des niveaux, et aucun abonnement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

@@ -1,0 +1,98 @@
+{
+	"slug": "autodesk-fusion-360",
+	"name": "Autodesk Fusion",
+	"domain": "autodesk.com",
+	"category": "3d-cad",
+	"priceMonthly": 70,
+	"pricing": {
+		"plan": "Fusion, single user (autodesk.com renders all prices client-side; not readable by fetch)",
+		"basis": "per-seat",
+		"url": "https://www.autodesk.com/products/fusion-360/subscribe",
+		"checkedOn": "2026-08-02",
+		"confidence": "low"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "FreeCAD 1.x finally fixed the topological naming problem, which was the single reason it could not be recommended for parametric work. What Fusion still owns is the cloud: versioned projects, generative design and CAM that is genuinely good out of the box.",
+		"fr": "FreeCAD 1.x a enfin corrigé le problème de nommage topologique, la seule vraie raison de ne pas le recommander en modélisation paramétrique. Ce que Fusion garde, c’est le cloud : projets versionnés, conception générative et une FAO réellement bonne dès l’installation."
+	},
+	"whatYouLose": [
+		{
+			"en": "Cloud versioning and sharing",
+			"fr": "Versionnage et partage cloud"
+		},
+		{
+			"en": "Integrated CAM quality",
+			"fr": "Qualité de la FAO intégrée"
+		},
+		{
+			"en": "Generative design",
+			"fr": "Conception générative"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "FreeCAD",
+			"source": {
+				"host": "github",
+				"path": "FreeCAD/FreeCAD",
+				"url": "https://github.com/FreeCAD/FreeCAD"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "Parametric modelling, assemblies, FEM and a CAM workbench in one app. Version 1.x is the first release you can hand to a working engineer.",
+				"fr": "Modélisation paramétrique, assemblages, calcul par éléments finis et atelier FAO dans une seule application. La 1.x est la première version que l’on peut confier à un ingénieur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dune 3D",
+			"source": {
+				"host": "github",
+				"path": "dune3d/dune3d",
+				"url": "https://github.com/dune3d/dune3d"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "A small, fast history-based modeller with a proper constraint solver. Much simpler than FreeCAD and much less capable — no CAM, no assemblies.",
+				"fr": "Un modeleur historique petit et rapide avec un vrai solveur de contraintes. Bien plus simple que FreeCAD et bien moins capable : ni FAO, ni assemblages."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Alibre Design",
+			"url": "https://www.alibre.com",
+			"priceMonthly": 0,
+			"note": {
+				"en": "Perpetual licence from around $2,000, no subscription, and it reads STEP and Parasolid cleanly. Windows only.",
+				"fr": "Licence perpétuelle à partir d’environ 2 000 $, sans abonnement, et lecture propre des fichiers STEP et Parasolid. Windows uniquement."
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Shapr3D",
+			"url": "https://www.shapr3d.com",
+			"priceMonthly": 25,
+			"note": {
+				"en": "Direct modelling on an iPad or desktop for a third of the price. Weaker on drawings and no real CAM.",
+				"fr": "Modélisation directe sur iPad ou ordinateur pour un tiers du prix. Plus faible sur les mises en plan et sans vraie FAO."
+			}
+		}
+	],
+	"priority": 4
+}

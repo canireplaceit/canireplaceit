@@ -1,0 +1,103 @@
+{
+	"slug": "cisco-umbrella",
+	"name": "Cisco Umbrella",
+	"domain": "umbrella.cisco.com",
+	"category": "networking-vpn",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "The DNS server is the easy part and you already have three open source options. Umbrella sells the answer to 'is this domain malicious right now', computed from resolver traffic at planetary scale. You cannot rebuild that from public blocklists, and pretending otherwise gets people phished.",
+		"fr": "Le serveur DNS est la partie facile et vous avez déjà trois options open source. Umbrella vend la réponse à « ce domaine est-il malveillant en ce moment », calculée à partir du trafic de résolveurs à l’échelle planétaire. Impossible de reconstruire cela avec des listes publiques, et prétendre le contraire fait phisher des gens."
+	},
+	"whatYouLose": [
+		{
+			"en": "Live malicious-domain intelligence",
+			"fr": "Renseignement en direct sur les domaines"
+		},
+		{
+			"en": "Roaming client enforcement",
+			"fr": "Application sur postes nomades"
+		},
+		{
+			"en": "SIEM-ready reporting",
+			"fr": "Rapports prêts pour le SIEM"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "AdGuard Home",
+			"source": {
+				"host": "github",
+				"path": "AdguardTeam/AdGuardHome",
+				"url": "https://github.com/AdguardTeam/AdGuardHome"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Point it at community threat lists and you cover the loud, well-known malware domains. Nothing catches a domain registered forty minutes ago.",
+				"fr": "Pointez-le vers des listes communautaires et vous couvrez les domaines malveillants connus et bruyants. Rien n’attrape un domaine enregistré il y a quarante minutes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dnsdist (PowerDNS)",
+			"source": {
+				"host": "github",
+				"path": "PowerDNS/pdns",
+				"url": "https://github.com/PowerDNS/pdns"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The serious building block: a scriptable DNS load balancer where you write the policy in Lua, feed it your own intel and log every query. It supplies the mechanism, never the intelligence.",
+				"fr": "La brique sérieuse : un répartiteur DNS scriptable où vous écrivez la politique en Lua, l’alimentez de votre propre renseignement et journalisez chaque requête. Il fournit le mécanisme, jamais le renseignement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "blocky",
+			"source": {
+				"host": "github",
+				"path": "0xERR0R/blocky",
+				"url": "https://github.com/0xERR0R/blocky"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight enough to run one per site with per-group lists, and its Prometheus metrics make DNS exfiltration visible in Grafana.",
+				"fr": "Assez léger pour en faire tourner un par site avec des listes par groupe, et ses métriques Prometheus rendent l’exfiltration DNS visible dans Grafana."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "NextDNS",
+			"url": "https://nextdns.io/pricing",
+			"priceMonthly": 2,
+			"note": {
+				"en": "A fraction of the price with threat feeds and roaming clients. Nothing like Umbrella's reporting or its Cisco integrations.",
+				"fr": "Une fraction du prix, avec flux de menaces et clients nomades. Rien de comparable aux rapports d’Umbrella ni à ses intégrations Cisco."
+			}
+		}
+	],
+	"priority": 2
+}

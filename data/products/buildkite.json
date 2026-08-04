@@ -1,0 +1,109 @@
+{
+	"slug": "buildkite",
+	"name": "Buildkite",
+	"domain": "buildkite.com",
+	"category": "build-delivery",
+	"priceMonthly": 30,
+	"pricing": {
+		"plan": "Pro",
+		"basis": "per-seat",
+		"url": "https://buildkite.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "You already supply the compute — Buildkite only sells the coordinator. That's a defensible product, and the open source schedulers are noticeably worse at fan-out, flaky-test insight and queue visibility across hundreds of agents.",
+		"fr": "Vous fournissez déjà le calcul — Buildkite ne vend que le coordinateur. C’est un produit défendable, et les ordonnanceurs open source sont nettement moins bons sur la parallélisation, l’analyse des tests instables et la visibilité des files sur des centaines d’agents."
+	},
+	"whatYouLose": [
+		{
+			"en": "Queue visibility at scale",
+			"fr": "Visibilité des files à grande échelle"
+		},
+		{
+			"en": "Flaky-test analytics",
+			"fr": "Analyse des tests instables"
+		},
+		{
+			"en": "Fan-out orchestration",
+			"fr": "Orchestration en parallèle"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Jenkins",
+			"source": {
+				"host": "github",
+				"path": "jenkinsci/jenkins",
+				"url": "https://github.com/jenkinsci/jenkins"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Nobody's favourite, but it does everything and there is a plugin for your weird thing. Budget real time for upkeep.",
+				"fr": "Le préféré de personne, mais il fait tout et il existe un plugin pour votre besoin bizarre. Prévoyez du vrai temps de maintenance."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Actions Runner Controller",
+			"source": {
+				"host": "github",
+				"path": "actions/actions-runner-controller",
+				"url": "https://github.com/actions/actions-runner-controller"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Ephemeral self-hosted runners on Kubernetes. Keeps your existing workflow files and kills the per-minute bill.",
+				"fr": "Runners auto-hébergés éphémères sur Kubernetes. Conserve vos fichiers de workflow existants et supprime la facture à la minute."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "act",
+			"source": {
+				"host": "github",
+				"path": "nektos/act",
+				"url": "https://github.com/nektos/act"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Runs workflows locally in Docker. Not a CI server — it's the thing that stops you pushing eleven times to debug a pipeline.",
+				"fr": "Exécute les workflows localement dans Docker. Pas un serveur CI — juste ce qui vous évite onze pushs pour déboguer un pipeline."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Depot",
+			"url": "https://depot.dev/pricing",
+			"priceMonthly": 20,
+			"note": {
+				"en": "Much faster managed runners and remote Docker builds with persistent cache, billed per minute. It is runners only — no pipeline orchestration, so it complements rather than replaces.",
+				"fr": "Runners managés bien plus rapides et builds Docker distants à cache persistant, facturés à la minute. Ce ne sont que des runners — aucune orchestration, donc c’est un complément, pas un remplacement."
+			}
+		}
+	],
+	"priority": 2
+}

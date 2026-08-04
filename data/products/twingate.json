@@ -1,0 +1,107 @@
+{
+	"slug": "twingate",
+	"name": "Twingate",
+	"domain": "twingate.com",
+	"category": "networking-vpn",
+	"priceMonthly": 10,
+	"pricing": {
+		"plan": "Business, billed monthly ($8.50/user/mo billed annually; Teams $10/$8.50)",
+		"basis": "per-seat",
+		"url": "https://www.twingate.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "The connector model — outbound-only agents beside each private service, brokered by a control plane — is reproducible. What is not is the control plane's availability: when it is down nobody in your company reaches anything, so self-hosting it means owning that pager.",
+		"fr": "Le modèle de connecteurs — des agents sortants à côté de chaque service privé, arbitrés par un plan de contrôle — est reproductible. Ce qui ne l’est pas, c’est la disponibilité de ce plan de contrôle : quand il tombe, plus personne n’accède à rien, donc l’auto-héberger revient à prendre ce bipeur."
+	},
+	"whatYouLose": [
+		{
+			"en": "Managed control plane uptime",
+			"fr": "Disponibilité du plan de contrôle"
+		},
+		{
+			"en": "Polished device posture checks",
+			"fr": "Contrôles de posture soignés"
+		},
+		{
+			"en": "Vendor support",
+			"fr": "Support éditeur"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Pomerium",
+			"source": {
+				"host": "github",
+				"path": "pomerium/pomerium",
+				"url": "https://github.com/pomerium/pomerium"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Identity-aware reverse proxy: every request re-checked against policy, no client agent. The core does the enforcement; the management console with RBAC UI and audit is the paid Enterprise product.",
+				"fr": "Proxy inverse conscient de l’identité : chaque requête revérifiée contre la politique, sans agent client. Le cœur applique les règles ; la console de gestion avec l’interface RBAC et l’audit est le produit Enterprise payant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Management console, RBAC UI, audit logs and device management.",
+					"fr": "Console de gestion, interface RBAC, journaux d’audit et gestion des appareils."
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "NetBird",
+			"source": {
+				"host": "github",
+				"path": "netbirdio/netbird",
+				"url": "https://github.com/netbirdio/netbird"
+			},
+			"license": "BSD-3-Clause/AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Peer-to-peer WireGuard with SSO groups and posture checks in the free build. Closest thing to Twingate you can actually deploy on your own boxes.",
+				"fr": "WireGuard pair-à-pair avec groupes SSO et contrôles de posture dans la build gratuite. Ce qui se rapproche le plus de Twingate et que vous pouvez réellement déployer chez vous."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Audit reporting and some enterprise integrations.",
+					"fr": "Les rapports d’audit et certaines intégrations entreprise."
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Firezone",
+			"source": {
+				"host": "github",
+				"path": "firezone/firezone",
+				"url": "https://github.com/firezone/firezone"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "All the code is Apache-2.0, but since 1.0 the vendor only supports a hosted control plane and explicitly does not document or support self-hosting it. Open source you cannot practically run yourself is a warning, not a win.",
+				"fr": "Tout le code est en Apache-2.0, mais depuis la 1.0 l’éditeur ne prend en charge qu’un plan de contrôle hébergé et refuse explicitement de documenter ou de supporter son auto-hébergement. Un open source que vous ne pouvez pas exploiter est un avertissement, pas une victoire."
+			},
+			"facts": {
+				"selfHostable": false,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "us-only"
+			}
+		}
+	],
+	"priority": 3
+}

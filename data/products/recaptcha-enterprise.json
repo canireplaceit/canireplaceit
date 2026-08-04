@@ -1,0 +1,103 @@
+{
+	"slug": "recaptcha-enterprise",
+	"name": "reCAPTCHA Enterprise",
+	"domain": "cloud.google.com",
+	"category": "application-security",
+	"priceMonthly": 0,
+	"pricing": {
+		"plan": "Essentials, free to 10,000 assessments/month",
+		"basis": "usage",
+		"url": "https://docs.cloud.google.com/recaptcha/docs/billing-information",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "You pay for the free tier by sending every visitor's behaviour to Google and inheriting a GDPR problem. Proof-of-work challenges stop the same commodity bots without a third party, and are invisible to users.",
+		"fr": "Le palier gratuit se paie en envoyant le comportement de chaque visiteur à Google et en héritant d’un problème RGPD. Les défis par preuve de travail arrêtent les mêmes bots courants sans tiers, et restent invisibles pour l’utilisateur."
+	},
+	"whatYouLose": [
+		{
+			"en": "Google's bot signal network",
+			"fr": "Signaux anti-bots de Google"
+		},
+		{
+			"en": "Adaptive risk scoring",
+			"fr": "Score de risque adaptatif"
+		},
+		{
+			"en": "Defence against advanced bots",
+			"fr": "Défense contre les bots avancés"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "ALTCHA",
+			"source": {
+				"host": "github",
+				"path": "altcha-org/altcha",
+				"url": "https://github.com/altcha-org/altcha"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Proof-of-work, no cookies, no tracking, works without JavaScript frameworks. Won't stop a determined attacker with a GPU.",
+				"fr": "Preuve de travail, sans cookies ni pistage, fonctionne sans framework JavaScript. N’arrêtera pas un attaquant déterminé avec un GPU."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Sentinel: bot detection, spam filter, analytics",
+					"fr": "Sentinel : détection de bots, antispam, analytique"
+				},
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Cap",
+			"source": {
+				"host": "github",
+				"path": "tiagozip/cap",
+				"url": "https://github.com/tiagozip/cap"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Tiny proof-of-work widget, ~10x smaller payload than hCaptcha. Young project, moving fast.",
+				"fr": "Minuscule widget de preuve de travail, charge utile ~10x plus légère que hCaptcha. Projet jeune, qui évolue vite."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "mCaptcha",
+			"source": {
+				"host": "github",
+				"path": "mCaptcha/mCaptcha",
+				"url": "https://github.com/mCaptcha/mCaptcha"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Rate-limiting oriented: the difficulty scales with traffic. Development has slowed noticeably.",
+				"fr": "Orienté limitation de débit : la difficulté croît avec le trafic. Le développement a nettement ralenti."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 4
+}

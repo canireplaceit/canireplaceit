@@ -1,0 +1,99 @@
+{
+	"slug": "soundtrack-your-brand",
+	"name": "Soundtrack Your Brand",
+	"domain": "soundtrackyourbrand.com",
+	"category": "personal-media-libraries",
+	"priceMonthly": 15,
+	"pricing": {
+		"plan": "Essential, EUR 13.5 per zone/mo billed annually",
+		"basis": "per-seat",
+		"url": "https://www.soundtrack.io/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "The software half is trivial — Navidrome or AzuraCast will play scheduled music in a shop all day for free. What you are actually buying is the public performance licence, and self-hosting does not give you one: playing a consumer Spotify account or your own MP3s in a business is a collecting-society problem in most countries, and they do check. Replace the player, not the licence.",
+		"fr": "La partie logicielle est triviale — Navidrome ou AzuraCast diffuseront gratuitement une programmation musicale toute la journée dans un commerce. Ce que vous achetez réellement, c’est la licence de diffusion publique, et l’auto-hébergement ne vous en donne pas : diffuser un compte Spotify grand public ou vos propres MP3 dans un lieu commercial relève des sociétés de gestion dans la plupart des pays, et elles contrôlent. Remplacez le lecteur, pas la licence."
+	},
+	"whatYouLose": [
+		{
+			"en": "The public performance licence",
+			"fr": "La licence de diffusion publique"
+		},
+		{
+			"en": "Curated commercial playlists",
+			"fr": "Playlists commerciales éditorialisées"
+		},
+		{
+			"en": "Multi-site scheduling and control",
+			"fr": "Programmation et pilotage multi-sites"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "AzuraCast",
+			"source": {
+				"host": "github",
+				"path": "AzuraCast/AzuraCast",
+				"url": "https://github.com/AzuraCast/AzuraCast"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "A full radio station in a container: playlists by time of day, jingles, remote DJ input, per-site streams. Ideal for the technical half of this job.",
+				"fr": "Une radio complète en conteneur : playlists par tranche horaire, jingles, entrée DJ à distance, flux par site. Idéal pour la partie technique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LibreTime",
+			"source": {
+				"host": "github",
+				"path": "libretime/libretime",
+				"url": "https://github.com/libretime/libretime"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Broadcast-grade scheduling with a calendar, built for community radio. Heavier to run than AzuraCast and worth it only if you need real programming.",
+				"fr": "Programmation de niveau radio avec calendrier, conçue pour les radios associatives. Plus lourde qu’AzuraCast, justifiée seulement si vous avez besoin d’une vraie grille."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Navidrome",
+			"source": {
+				"host": "github",
+				"path": "navidrome/navidrome",
+				"url": "https://github.com/navidrome/navidrome"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "If one site and one speaker is the whole problem, this plus a cheap client is enough. No scheduling.",
+				"fr": "Si le problème se résume à un site et une enceinte, ceci plus un client bon marché suffit. Aucune programmation horaire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

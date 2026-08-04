@@ -1,0 +1,120 @@
+{
+	"slug": "announcekit",
+	"name": "AnnounceKit",
+	"domain": "announcekit.app",
+	"category": "developer-tooling",
+	"priceMonthly": 89,
+	"pricing": {
+		"plan": "Essentials (USD 79/mo billed annually)",
+		"basis": "flat",
+		"url": "https://announcekit.app/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "A changelog widget and an RSS feed, per month, forever. The release-notes generation is already solved by tools that read your commits, and the widget is a static page in an iframe.",
+		"fr": "Un widget de changelog et un flux RSS, au mois, pour toujours. La génération des notes de version est déjà résolue par des outils qui lisent vos commits, et le widget n’est qu’une page statique dans une iframe."
+	},
+	"whatYouLose": [
+		{
+			"en": "In-app announcement widget",
+			"fr": "Widget d’annonces dans l’application"
+		},
+		{
+			"en": "Segmented release targeting",
+			"fr": "Ciblage segmenté des annonces"
+		},
+		{
+			"en": "Read/engagement analytics",
+			"fr": "Analytics de lecture et d’engagement"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "git-cliff",
+			"source": {
+				"host": "github",
+				"path": "orhun/git-cliff",
+				"url": "https://github.com/orhun/git-cliff"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Generates a real changelog from conventional commits, configurable down to the template. The output is markdown you own.",
+				"fr": "Génère un vrai changelog à partir de commits conventionnels, configurable jusqu’au gabarit. La sortie est du markdown qui vous appartient."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "release-please",
+			"source": {
+				"host": "github",
+				"path": "googleapis/release-please",
+				"url": "https://github.com/googleapis/release-please"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Opens and maintains the release PR, bumps versions and writes the changelog. Google's own, and it handles monorepos.",
+				"fr": "Ouvre et maintient la PR de release, incrémente les versions et rédige le changelog. Celui de Google, et il gère les monorepos."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Changesets",
+			"source": {
+				"host": "github",
+				"path": "changesets/changesets",
+				"url": "https://github.com/changesets/changesets"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The monorepo answer for JavaScript: contributors declare the impact in the PR and the notes assemble themselves.",
+				"fr": "La réponse monorepo pour JavaScript : les contributeurs déclarent l’impact dans la PR et les notes s’assemblent toutes seules."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "semantic-release",
+			"source": {
+				"host": "github",
+				"path": "semantic-release/semantic-release",
+				"url": "https://github.com/semantic-release/semantic-release"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Fully automatic versioning and publishing from commit messages. Opinionated to the point of rigidity, which is the point.",
+				"fr": "Versionnage et publication entièrement automatiques à partir des messages de commit. Rigide par principe, et c’est voulu."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

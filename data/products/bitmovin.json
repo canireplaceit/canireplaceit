@@ -1,0 +1,99 @@
+{
+	"slug": "bitmovin",
+	"name": "Bitmovin",
+	"domain": "bitmovin.com",
+	"category": "video",
+	"priceMonthly": null,
+	"pricing": {
+		"plan": "Pay-as-you-go, no fixed fee: VOD encoding $0.02/min after 2,000 free min/month; live encoding $3/hour ($0.05/min) after 6 free hours/month; Player $1.50 per 1,000 impressions after 10k free/month; Observability $0.65 per 1,000 impressions after 100k free/month; AI Scene Analysis $0.09/input-min after 10 free hours. Resolution multipliers apply (SD 1x, HD 2x, 4K 4x).",
+		"basis": "usage",
+		"url": "https://bitmovin.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "For a normal catalogue, FFmpeg plus Shaka Packager driven by a job queue does what Bitmovin's encoding API does, at the cost of the compute you rent. What you are actually buying at the enterprise tier is per-title bitrate optimisation, codec coverage that keeps up with AV1 and studio-approved DRM workflows — and someone to blame when a device stops playing.",
+		"fr": "Pour un catalogue normal, FFmpeg plus Shaka Packager pilotés par une file de tâches font ce que fait l’API d’encodage de Bitmovin, au prix du calcul que vous louez. Ce que vous achetez vraiment en entreprise, c’est l’optimisation de débit par titre, une couverture de codecs qui suit l’AV1 et des chaînes DRM validées par les studios — et quelqu’un à blâmer quand un appareil cesse de lire."
+	},
+	"whatYouLose": [
+		{
+			"en": "Per-title bitrate optimisation",
+			"fr": "Optimisation de débit par titre"
+		},
+		{
+			"en": "Studio-approved DRM workflows",
+			"fr": "Chaînes DRM validées par les studios"
+		},
+		{
+			"en": "Device compatibility testing",
+			"fr": "Tests de compatibilité des appareils"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "FFmpeg",
+			"source": {
+				"host": "forgejo",
+				"path": "FFmpeg/FFmpeg",
+				"url": "https://code.ffmpeg.org/FFmpeg/FFmpeg"
+			},
+			"license": "LGPL-2.1 / GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The encoder underneath almost every commercial product in this category, including some that do not admit it.",
+				"fr": "L’encodeur qui se cache sous presque tous les produits commerciaux de cette catégorie, y compris ceux qui ne l’avouent pas."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Shaka Packager",
+			"source": {
+				"host": "github",
+				"path": "shaka-project/shaka-packager",
+				"url": "https://github.com/shaka-project/shaka-packager"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "ops",
+			"note": {
+				"en": "DASH and HLS packaging with Widevine, PlayReady and FairPlay key exchange. The DRM licence servers themselves are still commercial.",
+				"fr": "Empaquetage DASH et HLS avec échange de clés Widevine, PlayReady et FairPlay. Les serveurs de licences DRM restent commerciaux."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "HandBrake",
+			"source": {
+				"host": "github",
+				"path": "HandBrake/HandBrake",
+				"url": "https://github.com/HandBrake/HandBrake"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "For a library, not an API. Presets, queueing and a UI when you just need files converted properly once.",
+				"fr": "Pour une médiathèque, pas pour une API. Préréglages, file d’attente et interface quand il s’agit juste de convertir des fichiers correctement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

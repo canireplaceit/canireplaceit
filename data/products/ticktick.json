@@ -1,0 +1,124 @@
+{
+	"slug": "ticktick",
+	"name": "TickTick",
+	"domain": "ticktick.com",
+	"category": "productivity",
+	"priceMonthly": 3,
+	"pricing": {
+		"plan": "Premium, annual billed monthly (pricing page renders client-side; unconfirmed)",
+		"basis": "per-seat",
+		"url": "https://ticktick.com/",
+		"checkedOn": "2026-08-02",
+		"confidence": "low"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "TickTick bundles tasks, a calendar view, habits and a pomodoro timer, and puts the calendar and habits behind Premium. Super Productivity has the same bundle in one local-first app, and Vikunja has the better task model — you just need two windows instead of one.",
+		"fr": "TickTick regroupe tâches, vue calendrier, habitudes et minuteur pomodoro, et place le calendrier et les habitudes derrière Premium. Super Productivity propose le même ensemble dans une seule application local-first, et Vikunja a le meilleur modèle de tâches — il vous faut simplement deux fenêtres au lieu d’une."
+	},
+	"whatYouLose": [
+		{
+			"en": "Calendar and tasks in one view",
+			"fr": "Agenda et tâches dans une seule vue"
+		},
+		{
+			"en": "Smooth apps on every platform",
+			"fr": "Applications fluides sur chaque plateforme"
+		},
+		{
+			"en": "Voice input and natural-language dates",
+			"fr": "Saisie vocale et dates en langage naturel"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Super Productivity",
+			"source": {
+				"host": "github",
+				"path": "super-productivity/super-productivity",
+				"url": "https://github.com/super-productivity/super-productivity"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Tasks plus time tracking plus a pomodoro timer in one local-first desktop app. The repo moved from johannesjo/ to its own organisation.",
+				"fr": "Tâches, suivi du temps et minuteur pomodoro dans une seule application de bureau local-first. Le dépôt a migré de johannesjo/ vers sa propre organisation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Vikunja",
+			"source": {
+				"host": "github",
+				"path": "go-vikunja/vikunja",
+				"url": "https://github.com/go-vikunja/vikunja"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "List, kanban, gantt and calendar views over the same tasks, with a real API and CalDAV. The most complete self-hosted to-do app there is.",
+				"fr": "Vues liste, kanban, gantt et calendrier sur les mêmes tâches, avec une vraie API et CalDAV. L’application de tâches auto-hébergée la plus complète."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tasks.org",
+			"source": {
+				"host": "github",
+				"path": "tasks/tasks",
+				"url": "https://github.com/tasks/tasks"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The best open source Android task app, and it syncs over any CalDAV server you already run. The F-Droid build is complete; the Play build sells Google Tasks and hosted CalDAV sync.",
+				"fr": "La meilleure application de tâches Android open source, et elle se synchronise via n’importe quel serveur CalDAV que vous gérez déjà. La version F-Droid est complète ; celle du Play Store vend la synchro Google Tasks et CalDAV hébergée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Google Tasks and their hosted CalDAV sync in the Play build",
+					"fr": "La synchro Google Tasks et leur CalDAV hébergé dans la version Play Store"
+				},
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Loop Habit Tracker",
+			"source": {
+				"host": "github",
+				"path": "iSoron/uhabits",
+				"url": "https://github.com/iSoron/uhabits"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Fully offline, no account, and it does not even request the network permission. Streaks, a strength score and widgets — everything the paid ones charge for.",
+				"fr": "Entièrement hors ligne, sans compte, et il ne demande même pas la permission réseau. Séries, score de régularité et widgets : tout ce que les payantes facturent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

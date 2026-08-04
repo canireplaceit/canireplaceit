@@ -1,0 +1,124 @@
+{
+	"slug": "kindle-goodreads",
+	"name": "Kindle Unlimited & Goodreads",
+	"domain": "amazon.com",
+	"category": "personal-media-libraries",
+	"priceMonthly": 12,
+	"pricing": {
+		"plan": "Kindle Unlimited (price not readable; Amazon gates it behind sign-in - unconfirmed)",
+		"basis": "flat",
+		"url": "https://www.amazon.com/kindle-dbs/hz/subscribe/ku",
+		"checkedOn": "2026-08-02",
+		"confidence": "low"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Amazon owns both your reading device and the place you record what you read, which is a lot of leverage over a hobby. Calibre-Web plus BookWyrm rebuilds both halves. The ebooks themselves still have to come from somewhere.",
+		"fr": "Amazon possède à la fois votre liseuse et l’endroit où vous notez vos lectures, ce qui fait beaucoup de pouvoir sur un loisir. Calibre-Web plus BookWyrm reconstruit les deux moitiés. Les livres eux-mêmes doivent quand même venir de quelque part."
+	},
+	"whatYouLose": [
+		{
+			"en": "The Kindle Unlimited catalogue",
+			"fr": "Le catalogue Kindle Unlimited"
+		},
+		{
+			"en": "Sync across Kindle devices and apps",
+			"fr": "Synchro entre liseuses et applications Kindle"
+		},
+		{
+			"en": "Goodreads' review corpus and reach",
+			"fr": "Corpus de critiques et audience de Goodreads"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Calibre-Web",
+			"source": {
+				"host": "github",
+				"path": "janeczku/calibre-web",
+				"url": "https://github.com/janeczku/calibre-web"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Web front end over a Calibre library, with send-to-Kindle and OPDS for your reader.",
+				"fr": "Interface web sur une bibliothèque Calibre, avec envoi vers Kindle et OPDS pour votre liseuse."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kavita",
+			"source": {
+				"host": "github",
+				"path": "Kareadita/Kavita",
+				"url": "https://github.com/Kareadita/Kavita"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Better in-browser reader, strong with comics and manga as well as books.",
+				"fr": "Meilleur lecteur intégré au navigateur, très bon pour la BD et le manga autant que pour les livres."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Metadata sync, ratings, recommendations (Kavita+)",
+					"fr": "Sync métadonnées, notes, recommandations (Kavita+)"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Komga",
+			"source": {
+				"host": "github",
+				"path": "gotson/komga",
+				"url": "https://github.com/gotson/komga"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The comics-first option. Excellent metadata scraping and OPDS support.",
+				"fr": "L’option orientée BD. Excellente récupération de métadonnées et support OPDS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "BookWyrm",
+			"source": {
+				"host": "github",
+				"path": "bookwyrm-social/bookwyrm",
+				"url": "https://github.com/bookwyrm-social/bookwyrm"
+			},
+			"license": "Anti-Capitalist SL",
+			"effort": "docker",
+			"note": {
+				"en": "Federated Goodreads: reviews, shelves, friends across instances. Note the unusual, non-OSI licence.",
+				"fr": "Un Goodreads fédéré : critiques, étagères, amis entre instances. Attention à la licence inhabituelle, non OSI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 4
+}

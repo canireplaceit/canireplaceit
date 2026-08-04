@@ -1,0 +1,128 @@
+{
+	"slug": "icloud-plus",
+	"name": "iCloud+",
+	"domain": "apple.com",
+	"category": "storage",
+	"priceMonthly": 3,
+	"pricing": {
+		"plan": "200GB ($2.99/mo)",
+		"basis": "flat",
+		"url": "https://www.apple.com/icloud/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "You can replace the storage — Nextcloud and Immich do files and photos well now. What you cannot replace is iCloud's position underneath the operating system: device backup, Keychain, Messages history and Find My are not APIs anyone else can implement.",
+		"fr": "Vous pouvez remplacer le stockage : Nextcloud et Immich gèrent bien fichiers et photos aujourd’hui. Ce que vous ne pouvez pas remplacer, c’est la position d’iCloud sous le système d’exploitation : sauvegarde d’appareil, Trousseau, historique Messages et Localiser ne sont pas des API que quelqu’un d’autre peut implémenter."
+	},
+	"whatYouLose": [
+		{
+			"en": "Whole-device iPhone backup",
+			"fr": "Sauvegarde complète de l’iPhone"
+		},
+		{
+			"en": "Keychain and Messages sync",
+			"fr": "Synchro du Trousseau et de Messages"
+		},
+		{
+			"en": "Advanced Data Protection",
+			"fr": "Protection avancée des données"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Nextcloud",
+			"source": {
+				"host": "github",
+				"path": "nextcloud/server",
+				"url": "https://github.com/nextcloud/server"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Files, calendars, contacts, notes and photos in one AGPL server. Heavier than you want and slower than Dropbox, but it is genuinely all there.",
+				"fr": "Fichiers, agendas, contacts, notes et photos dans un seul serveur AGPL. Plus lourd que souhaité et plus lent que Dropbox, mais tout y est réellement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "A few enterprise-only apps and the support contract",
+					"fr": "Quelques applications réservées à l’édition entreprise et le contrat de support"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Immich",
+			"source": {
+				"host": "github",
+				"path": "immich-app/immich",
+				"url": "https://github.com/immich-app/immich"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Photo and video backup with face and object search that genuinely rivals Google Photos. The mobile auto-upload is the part that finally works.",
+				"fr": "Sauvegarde photo et vidéo avec recherche de visages et d’objets qui rivalise vraiment avec Google Photos. La sauvegarde automatique mobile est la partie qui fonctionne enfin."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Syncthing",
+			"source": {
+				"host": "github",
+				"path": "syncthing/syncthing",
+				"url": "https://github.com/syncthing/syncthing"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Continuous peer-to-peer sync with no server and no account at all. The closest thing to magic on this list, and the least like a cloud drive.",
+				"fr": "Synchronisation continue en pair-à-pair, sans serveur ni compte. Ce qui se rapproche le plus de la magie dans cette liste, et le moins d’un disque cloud."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Cryptomator",
+			"source": {
+				"host": "github",
+				"path": "cryptomator/cryptomator",
+				"url": "https://github.com/cryptomator/cryptomator"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Client-side encryption on top of the drive you already pay for. It does not replace the provider, it removes their ability to read anything. Desktop is free; the mobile apps are a one-off purchase.",
+				"fr": "Chiffrement côté client par-dessus le disque que vous payez déjà. Il ne remplace pas le fournisseur, il lui retire la capacité de lire quoi que ce soit. Le bureau est gratuit ; les applications mobiles sont un achat unique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "The iOS and Android apps are a paid one-off purchase",
+					"fr": "Les applications iOS et Android sont un achat unique payant"
+				},
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 4
+}

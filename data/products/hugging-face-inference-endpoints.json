@@ -1,0 +1,124 @@
+{
+	"slug": "hugging-face-inference-endpoints",
+	"name": "Hugging Face Inference Endpoints",
+	"domain": "huggingface.co",
+	"category": "ai-infrastructure",
+	"priceMonthly": null,
+	"pricing": {
+		"plan": "Usage-based, billed per instance-hour (from $0.03/hr CPU, $0.50/hr GPU)",
+		"basis": "usage",
+		"url": "https://huggingface.co/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Hugging Face archived text-generation-inference in March 2026 and the ecosystem moved to vLLM, which is Apache-2.0 and faster. A container with vLLM in front of your own card serves the same OpenAI-compatible API — the endpoint product is convenience plus a GPU you are renting anyway.",
+		"fr": "Hugging Face a archivé text-generation-inference en mars 2026 et l’écosystème est passé à vLLM, en Apache-2.0 et plus rapide. Un conteneur avec vLLM devant votre propre carte sert la même API compatible OpenAI — le produit endpoint, c’est du confort plus un GPU que vous louez de toute façon."
+	},
+	"whatYouLose": [
+		{
+			"en": "One-click deploy from the Hub",
+			"fr": "Déploiement en un clic depuis le Hub"
+		},
+		{
+			"en": "Rented GPUs without a contract",
+			"fr": "GPU loués sans contrat"
+		},
+		{
+			"en": "Managed scaling and uptime",
+			"fr": "Mise à l’échelle et la disponibilité gérées"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "vLLM",
+			"source": {
+				"host": "github",
+				"path": "vllm-project/vllm",
+				"url": "https://github.com/vllm-project/vllm"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The serving engine the field standardised on after Hugging Face archived TGI in 2026. OpenAI-compatible API, continuous batching, paged attention.",
+				"fr": "Le moteur de service sur lequel le domaine s’est standardisé après l’archivage de TGI par Hugging Face en 2026. API compatible OpenAI, batching continu, paged attention."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SGLang",
+			"source": {
+				"host": "github",
+				"path": "sgl-project/sglang",
+				"url": "https://github.com/sgl-project/sglang"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "vLLM's main rival, usually ahead on structured output and prefix caching. Same OpenAI-compatible surface.",
+				"fr": "Le principal rival de vLLM, généralement devant sur les sorties structurées et le cache de préfixes. Même surface compatible OpenAI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Text Embeddings Inference",
+			"source": {
+				"host": "github",
+				"path": "huggingface/text-embeddings-inference",
+				"url": "https://github.com/huggingface/text-embeddings-inference"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Hugging Face's embedding server, still maintained and still Apache-2.0 — the one part of the stack worth taking from them directly.",
+				"fr": "Le serveur d’embeddings de Hugging Face, toujours maintenu et toujours en Apache-2.0 — la seule brique de la pile à leur prendre directement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ollama",
+			"source": {
+				"host": "github",
+				"path": "ollama/ollama",
+				"url": "https://github.com/ollama/ollama"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The lazy path for a lab machine: one command, a model runs, an OpenAI-shaped API appears. Not a production server.",
+				"fr": "La voie paresseuse pour une machine de laboratoire : une commande, un modèle tourne, une API façon OpenAI apparaît. Pas un serveur de production."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Ollama's hosted cloud models",
+					"fr": "Les modèles hébergés du cloud Ollama"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

@@ -1,0 +1,82 @@
+{
+	"slug": "steam",
+	"name": "Steam",
+	"domain": "store.steampowered.com",
+	"category": "game-hosting-play",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "Steam takes 30% and there is no open source replacement, because the thing you are buying is not software — it is two hundred million wallets with a card on file. Open source solves the launcher side beautifully: Heroic and Lutris install and run your library, including Windows games on Linux. Nobody open source will sell your game for you.",
+		"fr": "Steam prend 30 % et il n’existe aucun remplacement open source, parce que ce que vous achetez n’est pas du logiciel — ce sont deux cents millions de portefeuilles avec une carte enregistrée. L’open source règle très bien la partie lanceur : Heroic et Lutris installent et lancent votre bibliothèque, y compris des jeux Windows sous Linux. Mais personne en open source ne vendra votre jeu à votre place."
+	},
+	"whatYouLose": [
+		{
+			"en": "The store's own audience",
+			"fr": "L’audience propre de la boutique"
+		},
+		{
+			"en": "Cloud saves and achievements",
+			"fr": "Sauvegardes cloud et succès"
+		},
+		{
+			"en": "Workshop and matchmaking APIs",
+			"fr": "Workshop et API de matchmaking"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Heroic Games Launcher",
+			"source": {
+				"host": "github",
+				"path": "Heroic-Games-Launcher/HeroicGamesLauncher",
+				"url": "https://github.com/Heroic-Games-Launcher/HeroicGamesLauncher"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Installs and runs your Epic, GOG and Amazon libraries on Linux, Windows and macOS with Wine handled for you. A launcher, not a store.",
+				"fr": "Installe et lance vos bibliothèques Epic, GOG et Amazon sous Linux, Windows et macOS avec Wine géré pour vous. Un lanceur, pas une boutique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Lutris",
+			"source": {
+				"host": "github",
+				"path": "lutris/lutris",
+				"url": "https://github.com/lutris/lutris"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Community install scripts for thousands of games across every source, including DRM-free files you already own.",
+				"fr": "Scripts d’installation communautaires pour des milliers de jeux de toutes provenances, y compris des fichiers sans DRM que vous possédez déjà."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "itch.io",
+			"url": "https://itch.io",
+			"priceMonthly": 0,
+			"note": {
+				"en": "You choose the revenue share, down to zero, and payouts go straight to you. The audience is a fraction of Steam's and discovery is on you.",
+				"fr": "Vous choisissez la commission, jusqu’à zéro, et les paiements vous vont directement. L’audience est une fraction de celle de Steam et la découverte vous incombe."
+			}
+		}
+	],
+	"priority": 3
+}

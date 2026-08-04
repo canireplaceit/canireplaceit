@@ -1,0 +1,97 @@
+{
+	"slug": "replicate",
+	"name": "Replicate",
+	"domain": "replicate.com",
+	"category": "ai-infrastructure",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "Replicate open sourced its own packaging format — Cog is Apache-2.0 and produces the exact container their platform runs. Point that container at your own GPU and you have Replicate without the per-second markup. What is left is the model catalogue and scale-to-zero.",
+		"fr": "Replicate a ouvert son propre format d’empaquetage — Cog est en Apache-2.0 et produit exactement le conteneur que leur plateforme exécute. Pointez ce conteneur sur votre GPU et vous avez Replicate sans la marge à la seconde. Restent le catalogue de modèles et la mise à l’échelle à zéro."
+	},
+	"whatYouLose": [
+		{
+			"en": "The public model catalogue",
+			"fr": "Le catalogue public de modèles"
+		},
+		{
+			"en": "Scale to zero between calls",
+			"fr": "Mise à l’échelle à zéro entre deux appels"
+		},
+		{
+			"en": "No GPU capacity planning",
+			"fr": "Aucune planification de capacité GPU"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Cog",
+			"source": {
+				"host": "github",
+				"path": "replicate/cog",
+				"url": "https://github.com/replicate/cog"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Replicate's own tool, Apache-2.0: one YAML file becomes a CUDA container with an HTTP API. Runs anywhere Docker does.",
+				"fr": "L’outil de Replicate lui-même, en Apache-2.0 : un fichier YAML devient un conteneur CUDA avec une API HTTP. Tourne partout où Docker tourne."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "BentoML",
+			"source": {
+				"host": "github",
+				"path": "bentoml/BentoML",
+				"url": "https://github.com/bentoml/BentoML"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Packages any model into a versioned service with an API and a container. BentoCloud is the paid hosting; the framework holds nothing back.",
+				"fr": "Empaquette n’importe quel modèle en service versionné avec une API et un conteneur. BentoCloud est l’hébergement payant ; le framework ne retient rien."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "BentoCloud hosted deployment and autoscaling",
+					"fr": "Le déploiement hébergé et l’autoscaling de BentoCloud"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "vLLM",
+			"source": {
+				"host": "github",
+				"path": "vllm-project/vllm",
+				"url": "https://github.com/vllm-project/vllm"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The serving engine the field standardised on after Hugging Face archived TGI in 2026. OpenAI-compatible API, continuous batching, paged attention.",
+				"fr": "Le moteur de service sur lequel le domaine s’est standardisé après l’archivage de TGI par Hugging Face en 2026. API compatible OpenAI, batching continu, paged attention."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

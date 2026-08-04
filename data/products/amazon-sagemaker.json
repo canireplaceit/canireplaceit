@@ -1,0 +1,128 @@
+{
+	"slug": "amazon-sagemaker",
+	"name": "Amazon SageMaker",
+	"domain": "aws.amazon.com",
+	"category": "ai-infrastructure",
+	"priceMonthly": null,
+	"pricing": {
+		"plan": "Pay-as-you-go, no fixed fee: billed per instance-hour, e.g. Studio JupyterLab ml.g4dn.xlarge $0.7364/hr, training ml.m4.4xlarge $0.96/hr, real-time inference ml.c5.xlarge $0.204/hr, serverless inference $0.00004/second at 2 GB. Two-month free tier includes 250 hrs of ml.t3.medium notebooks",
+		"basis": "usage",
+		"url": "https://aws.amazon.com/sagemaker-ai/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "SageMaker is a wrapper around EC2 with a 20-40% markup on the instance and a lot of glue. Kubeflow plus MLflow replaces the glue; SkyPilot replaces the instance shopping and usually beats SageMaker on price. What you keep paying for is IAM already being wired to everything.",
+		"fr": "SageMaker est une surcouche d’EC2 avec 20 à 40 % de marge sur l’instance et beaucoup de plomberie. Kubeflow plus MLflow remplace la plomberie ; SkyPilot remplace la chasse aux instances et bat en général SageMaker sur le prix. Ce que vous continuez de payer, c’est qu’IAM soit déjà câblé à tout."
+	},
+	"whatYouLose": [
+		{
+			"en": "IAM and VPC wired in",
+			"fr": "IAM et VPC déjà câblés"
+		},
+		{
+			"en": "Managed endpoints and autoscaling",
+			"fr": "Endpoints managés et autoscaling"
+		},
+		{
+			"en": "Ground Truth and Feature Store",
+			"fr": "Ground Truth et le Feature Store"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Kubeflow",
+			"source": {
+				"host": "github",
+				"path": "kubeflow/kubeflow",
+				"url": "https://github.com/kubeflow/kubeflow"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Notebooks, pipelines, training operators and serving on Kubernetes. Genuinely covers the scope, and genuinely needs a platform engineer.",
+				"fr": "Carnets, pipelines, opérateurs d’entraînement et service sur Kubernetes. Couvre réellement le périmètre, et exige réellement un ingénieur plateforme."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MLflow",
+			"source": {
+				"host": "github",
+				"path": "mlflow/mlflow",
+				"url": "https://github.com/mlflow/mlflow"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Tracking, model registry and packaging in one Apache-2.0 server. The piece every platform in this category ends up reimplementing.",
+				"fr": "Suivi, registre de modèles et empaquetage dans un serveur Apache-2.0 unique. La brique que toutes les plateformes de cette catégorie finissent par réimplémenter."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SkyPilot",
+			"source": {
+				"host": "github",
+				"path": "skypilot-org/skypilot",
+				"url": "https://github.com/skypilot-org/skypilot"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Point it at a YAML and it finds the cheapest available GPU across your clouds, provisions it, runs the job and tears it down. The best cost tool in this space.",
+				"fr": "Donnez-lui un YAML et il trouve le GPU disponible le moins cher parmi vos clouds, le provisionne, lance le job et le détruit. Le meilleur outil de maîtrise des coûts du domaine."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Hosted control plane and commercial support",
+					"fr": "Le plan de contrôle hébergé et le support commercial"
+				},
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Metaflow",
+			"source": {
+				"host": "github",
+				"path": "Netflix/metaflow",
+				"url": "https://github.com/Netflix/metaflow"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Netflix's answer to the same problem, and far more pleasant than Kubeflow if your team writes Python rather than YAML.",
+				"fr": "La réponse de Netflix au même problème, bien plus agréable que Kubeflow si votre équipe écrit du Python plutôt que du YAML."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Outerbounds' hosted control plane",
+					"fr": "Le plan de contrôle hébergé d’Outerbounds"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

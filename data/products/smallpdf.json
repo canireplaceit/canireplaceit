@@ -1,0 +1,113 @@
+{
+	"slug": "smallpdf",
+	"name": "Smallpdf",
+	"domain": "smallpdf.com",
+	"category": "documents",
+	"priceMonthly": 9,
+	"pricing": {
+		"plan": "Pro, annual billed monthly (EUR 7.50/mo, EUR 90/yr)",
+		"basis": "per-seat",
+		"url": "https://smallpdf.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Every tool on Smallpdf's grid is a wrapper around a free library, and Stirling PDF is that same grid running on your own machine. The strong argument is not price — it is that contracts and payslips stop being uploaded to a third party.",
+		"fr": "Chaque outil de la grille Smallpdf est une surcouche d’une bibliothèque open source, et Stirling PDF est cette même grille sur votre propre machine. L’argument fort n’est pas le prix : c’est que contrats et bulletins de paie cessent d’être téléversés chez un tiers."
+	},
+	"whatYouLose": [
+		{
+			"en": "Nothing to install",
+			"fr": "Rien à installer"
+		},
+		{
+			"en": "Mobile apps and Google Drive add-on",
+			"fr": "Applications mobiles et module Google Drive"
+		},
+		{
+			"en": "Their OCR quality",
+			"fr": "Qualité de leur OCR"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Stirling PDF",
+			"source": {
+				"host": "github",
+				"path": "Stirling-Tools/Stirling-PDF",
+				"url": "https://github.com/Stirling-Tools/Stirling-PDF"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Fifty-odd PDF operations in one container, nothing leaves the host. MIT overall, but an app/proprietary directory carries a separate licence for the paid enterprise features.",
+				"fr": "Une cinquantaine d’opérations PDF dans un conteneur, rien ne quitte la machine. MIT dans l’ensemble, mais un dossier app/proprietary porte une licence distincte pour les fonctions entreprise payantes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO, audit logs and enterprise admin features",
+					"fr": "Le SSO, les journaux d’audit et les fonctions d’administration entreprise"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PDF Arranger",
+			"source": {
+				"host": "github",
+				"path": "pdfarranger/pdfarranger",
+				"url": "https://github.com/pdfarranger/pdfarranger"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Merge, split, rotate and reorder pages in a small desktop app. Does one job and never asks for anything.",
+				"fr": "Fusionner, découper, pivoter et réordonner des pages dans une petite application de bureau. Fait une chose et ne demande jamais rien."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Okular",
+			"source": {
+				"host": "gitlab",
+				"path": "graphics/okular",
+				"url": "https://invent.kde.org/graphics/okular"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Annotation, forms and signatures in a proper desktop reader. Listed via the KDE mirror; upstream is KDE Invent.",
+				"fr": "Annotation, formulaires et signatures dans un vrai lecteur de bureau. Listé via le miroir KDE ; l’amont est sur KDE Invent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "PDF24",
+			"url": "https://tools.pdf24.org",
+			"priceMonthly": 0,
+			"note": {
+				"en": "Free, including an offline Windows toolkit that covers the same operations. Ad-supported and closed source.",
+				"fr": "Gratuit, avec une boîte à outils Windows hors ligne couvrant les mêmes opérations. Financé par la publicité et à code fermé."
+			}
+		}
+	],
+	"priority": 3
+}

@@ -1,0 +1,111 @@
+{
+	"slug": "braze",
+	"name": "Braze",
+	"domain": "braze.com",
+	"category": "comms",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "Braze is a journey orchestrator wired into every channel at a scale where a bad send costs real money. Dittofeed is a credible open replacement for the orchestration, but the mobile SDKs, the deliverability estimate and the ability to send fifty million messages on a Tuesday are what the contract is actually for.",
+		"fr": "Braze est un orchestrateur de parcours branché sur tous les canaux, à une échelle où un mauvais envoi coûte cher. Dittofeed est un remplaçant ouvert crédible pour l’orchestration, mais les SDK mobiles, la délivrabilité et la capacité d’envoyer cinquante millions de messages un mardi, c’est pour ça qu’on signe le contrat."
+	},
+	"whatYouLose": [
+		{
+			"en": "Send volume without capacity planning",
+			"fr": "Volume d’envoi sans dimensionnement"
+		},
+		{
+			"en": "Maintained mobile SDKs",
+			"fr": "SDK mobiles maintenus"
+		},
+		{
+			"en": "Currents raw event streaming",
+			"fr": "Streaming d’événements bruts Currents"
+		},
+		{
+			"en": "Deliverability and IP reputation",
+			"fr": "Délivrabilité et réputation des IP"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Dittofeed",
+			"source": {
+				"host": "github",
+				"path": "dittofeed/dittofeed",
+				"url": "https://github.com/dittofeed/dittofeed"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Explicitly built as the open alternative to this category: journeys, segments, templates, multi-channel. MIT throughout with no enterprise directory, which is rare here.",
+				"fr": "Conçu explicitement comme l’alternative ouverte à cette catégorie : parcours, segments, modèles, multicanal. MIT de bout en bout sans dossier entreprise, ce qui est rare ici."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Novu",
+			"source": {
+				"host": "github",
+				"path": "novuhq/novu",
+				"url": "https://github.com/novuhq/novu"
+			},
+			"license": "MIT core with an enterprise/ directory",
+			"effort": "docker",
+			"note": {
+				"en": "Stronger on transactional and in-app inbox, weaker on marketing campaign management.",
+				"fr": "Plus fort sur le transactionnel et la boîte in-app, plus faible sur la gestion de campagnes marketing."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SAML SSO, RBAC, translation management and the AI features sit under enterprise/",
+					"fr": "SSO SAML, RBAC, gestion des traductions et fonctions IA sont sous enterprise/"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mautic",
+			"source": {
+				"host": "github",
+				"path": "mautic/mautic",
+				"url": "https://github.com/mautic/mautic"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Fully GPL campaign automation with no features held back. Dated interface and a real ops burden at volume.",
+				"fr": "Automatisation de campagnes entièrement GPL, sans fonctionnalités retenues. Interface datée et vraie charge d’exploitation à volume."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Customer.io",
+			"url": "https://customer.io",
+			"priceMonthly": 100,
+			"note": {
+				"en": "Same journey model at a fraction of a Braze contract, and it scales properly. Weaker mobile SDKs and no enterprise account team.",
+				"fr": "Le même modèle de parcours pour une fraction d’un contrat Braze, et ça monte en charge correctement. SDK mobiles plus faibles et pas d’équipe de compte dédiée."
+			}
+		}
+	],
+	"priority": 4
+}

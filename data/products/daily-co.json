@@ -1,0 +1,99 @@
+{
+	"slug": "daily-co",
+	"name": "Daily",
+	"domain": "daily.co",
+	"category": "video",
+	"priceMonthly": null,
+	"pricing": {
+		"plan": "Pay-as-you-go, per participant-minute",
+		"basis": "usage",
+		"url": "https://www.daily.co/pricing/video-sdk/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "LiveKit is the same architecture — an SFU plus a token-auth signalling layer — and its client SDKs are as good as Daily's. The moment you have to care about a user in Lagos on 4G, though, you are buying TURN bandwidth and edge relays either way.",
+		"fr": "LiveKit repose sur la même architecture — un SFU plus une couche de signalisation par jetons — et ses SDK clients valent ceux de Daily. Dès qu’il faut se soucier d’un utilisateur à Lagos en 4G, en revanche, vous achetez de la bande passante TURN et des relais edge de toute façon."
+	},
+	"whatYouLose": [
+		{
+			"en": "Global TURN and edge relays",
+			"fr": "TURN et relais edge mondiaux"
+		},
+		{
+			"en": "Managed recording pipeline",
+			"fr": "Pipeline d’enregistrement géré"
+		},
+		{
+			"en": "Prebuilt call UI",
+			"fr": "Interface d’appel prête à l’emploi"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "LiveKit",
+			"source": {
+				"host": "github",
+				"path": "livekit/livekit",
+				"url": "https://github.com/livekit/livekit"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Full-featured SFU with server-side recording, simulcast, adaptive streams and agent APIs. The open source build is the whole product; the cloud is the paid convenience.",
+				"fr": "SFU complet avec enregistrement côté serveur, simulcast, flux adaptatifs et API d’agents. La build open source est le produit entier ; le cloud est la commodité payante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "mediasoup",
+			"source": {
+				"host": "github",
+				"path": "versatica/mediasoup",
+				"url": "https://github.com/versatica/mediasoup"
+			},
+			"license": "ISC",
+			"effort": "ops",
+			"note": {
+				"en": "A library, not a server: you write the signalling and the room logic. Chosen when you need exact control over routing and bandwidth estimation.",
+				"fr": "Une bibliothèque, pas un serveur : vous écrivez la signalisation et la logique des salles. À choisir quand il faut un contrôle exact du routage et de l’estimation de bande passante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Jitsi Meet",
+			"source": {
+				"host": "github",
+				"path": "jitsi/jitsi-meet",
+				"url": "https://github.com/jitsi/jitsi-meet"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "If you want meetings rather than an embeddable API, this is a working product in one compose file, including recording and streaming.",
+				"fr": "Si vous voulez des réunions plutôt qu’une API intégrable, c’est un produit fonctionnel en un seul fichier compose, enregistrement et diffusion inclus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

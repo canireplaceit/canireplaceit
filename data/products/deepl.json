@@ -1,0 +1,88 @@
+{
+	"slug": "deepl",
+	"name": "DeepL Pro",
+	"domain": "deepl.com",
+	"category": "language-localization",
+	"priceMonthly": 9,
+	"pricing": {
+		"plan": "Pro Starter, per user (prices are client-rendered and geo-served; could not read a figure)",
+		"basis": "per-seat",
+		"url": "https://www.deepl.com/en/pro",
+		"checkedOn": "2026-08-02",
+		"confidence": "low"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "LibreTranslate runs offline and is the right answer whenever the text cannot leave your network. But on quality — especially idiom and register in European language pairs — DeepL is still clearly ahead, and pretending otherwise wastes your time.",
+		"fr": "LibreTranslate fonctionne hors ligne et c’est la bonne réponse dès que le texte ne peut pas sortir de votre réseau. Mais sur la qualité — surtout les idiomes et le registre entre langues européennes — DeepL garde une avance nette, et prétendre le contraire vous fera perdre du temps."
+	},
+	"whatYouLose": [
+		{
+			"en": "Noticeably better translation quality",
+			"fr": "Qualité de traduction nettement meilleure"
+		},
+		{
+			"en": "Document translation keeping the layout",
+			"fr": "Traduction de documents en conservant la mise en page"
+		},
+		{
+			"en": "Glossaries and tone control",
+			"fr": "Glossaires et contrôle du ton"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "LibreTranslate",
+			"source": {
+				"host": "github",
+				"path": "LibreTranslate/LibreTranslate",
+				"url": "https://github.com/LibreTranslate/LibreTranslate"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted translation API with a drop-in HTTP interface. Quality is usable, not DeepL-grade.",
+				"fr": "API de traduction auto-hébergée avec une interface HTTP directe. Qualité utilisable, mais pas au niveau de DeepL."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Argos Translate",
+			"source": {
+				"host": "github",
+				"path": "argosopentech/argos-translate",
+				"url": "https://github.com/argosopentech/argos-translate"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The engine underneath LibreTranslate, usable as a Python library or offline desktop app.",
+				"fr": "Le moteur qui fait tourner LibreTranslate, utilisable en bibliothèque Python ou en application hors ligne."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Google Cloud Translation",
+			"url": "https://cloud.google.com/translate",
+			"priceMonthly": 0,
+			"note": {
+				"en": "Pay per character with a free monthly allowance — cheaper than DeepL Pro for low volume. Weaker on nuance and tone.",
+				"fr": "Facturation au caractère avec un quota gratuit mensuel — moins cher que DeepL Pro à faible volume. Plus faible sur la nuance et le ton."
+			}
+		}
+	],
+	"priority": 4
+}

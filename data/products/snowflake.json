@@ -1,0 +1,134 @@
+{
+	"slug": "snowflake",
+	"name": "Snowflake",
+	"domain": "snowflake.com",
+	"category": "data-platform-etl",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "ClickHouse and DuckDB will out-run Snowflake on most workloads under a few terabytes for a fraction of the credits. What you lose is zero-copy cloning, cross-account data sharing, and the fact that your finance team already trusts the bill format. Pricing is credit-metered, so there is no list price — your bill tracks warehouse size and query volume.",
+		"fr": "ClickHouse et DuckDB battent Snowflake sur la plupart des charges sous quelques téraoctets, pour une fraction des crédits. Vous perdez le clonage zéro-copie, le partage de données entre comptes, et le fait que votre équipe finance fait déjà confiance au format de facture. La tarification se fait en crédits : pas de prix catalogue, votre facture suit la taille des entrepôts et le volume de requêtes."
+	},
+	"whatYouLose": [
+		{
+			"en": "Zero-copy cloning",
+			"fr": "Clonage zéro-copie"
+		},
+		{
+			"en": "Cross-account data sharing",
+			"fr": "Partage de données entre comptes"
+		},
+		{
+			"en": "Elastic multi-cluster concurrency",
+			"fr": "Concurrence élastique multi-cluster"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "ClickHouse",
+			"source": {
+				"host": "github",
+				"path": "ClickHouse/ClickHouse",
+				"url": "https://github.com/ClickHouse/ClickHouse"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Absurdly fast on analytical scans. Punishes you for updates, joins and anything resembling normalisation.",
+				"fr": "Absurdement rapide sur les scans analytiques. Vous punit pour les mises à jour, les jointures et tout ce qui ressemble à de la normalisation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "DuckDB",
+			"source": {
+				"host": "github",
+				"path": "duckdb/duckdb",
+				"url": "https://github.com/duckdb/duckdb"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "No server at all. If your warehouse fits on one machine — and it probably does — this is the whole answer.",
+				"fr": "Aucun serveur. Si votre entrepôt tient sur une machine — et c’est probablement le cas — c’est toute la réponse."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Trino",
+			"source": {
+				"host": "github",
+				"path": "trinodb/trino",
+				"url": "https://github.com/trinodb/trino"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Query engine over data you already have in S3 and Postgres. Closest to Snowflake's compute/storage split.",
+				"fr": "Moteur de requêtes sur les données que vous avez déjà dans S3 et Postgres. Le plus proche de la séparation calcul/stockage de Snowflake."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "StarRocks",
+			"source": {
+				"host": "github",
+				"path": "StarRocks/starrocks",
+				"url": "https://github.com/StarRocks/starrocks"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Handles joins and updates far better than ClickHouse. Less mature tooling around it.",
+				"fr": "Gère bien mieux les jointures et les mises à jour que ClickHouse. Outillage périphérique moins mature."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "MotherDuck",
+			"url": "https://motherduck.com/",
+			"priceMonthly": 25,
+			"note": {
+				"en": "Hosted DuckDB with hybrid local/cloud execution. Not a Snowflake replacement above single-digit terabytes and the concurrency story is thin.",
+				"fr": "DuckDB hébergé avec exécution hybride local/cloud. Pas un remplaçant de Snowflake au-delà de quelques téraoctets, et la concurrence reste limitée."
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "ClickHouse Cloud",
+			"url": "https://clickhouse.com/cloud",
+			"priceMonthly": 50,
+			"note": {
+				"en": "Same engine, someone else's on-call, and it idles down. You still inherit ClickHouse's hostility to mutable data.",
+				"fr": "Même moteur, l’astreinte de quelqu’un d’autre, et il se met en veille. Vous héritez toujours de l’hostilité de ClickHouse aux données mutables."
+			}
+		}
+	],
+	"priority": 4
+}

@@ -1,0 +1,25 @@
+pre-commit:
+  parallel: true
+  commands:
+    biome:
+      glob: "*.{ts,tsx,js,json,jsonc,css}"
+      run: bunx biome check --write --no-errors-on-unmatched {staged_files}
+      stage_fixed: true
+    content:
+      glob: "data/**/*.json"
+      run: bun run validate
+
+pre-push:
+  parallel: true
+  commands:
+    lint:
+      run: bunx biome check apps packages scripts
+    typecheck:
+      run: bun run typecheck
+    test:
+      run: bun test
+
+commit-msg:
+  commands:
+    conventional:
+      run: bunx --bun commitlint --edit {1}

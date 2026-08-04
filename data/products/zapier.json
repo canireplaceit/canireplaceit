@@ -1,0 +1,111 @@
+{
+	"slug": "zapier",
+	"name": "Zapier",
+	"domain": "zapier.com",
+	"category": "automation",
+	"priceMonthly": 30,
+	"pricing": {
+		"plan": "Professional, 750 tasks/mo, monthly billing ($19.99/mo billed annually)",
+		"basis": "usage",
+		"url": "https://zapier.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "The moat was 5,000 pre-built connectors. HTTP nodes plus an LLM erased most of that.",
+		"fr": "Le fossé, c’était 5 000 connecteurs prêts à l’emploi. Un nœud HTTP et un LLM en ont effacé l’essentiel."
+	},
+	"whatYouLose": [
+		{
+			"en": "5,000 prebuilt connectors",
+			"fr": "5 000 connecteurs prêts à l’emploi"
+		},
+		{
+			"en": "Managed OAuth for every app",
+			"fr": "OAuth géré pour chaque app"
+		},
+		{
+			"en": "Nothing to run",
+			"fr": "Rien à exploiter"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "n8n",
+			"source": {
+				"host": "github",
+				"path": "n8n-io/n8n",
+				"url": "https://github.com/n8n-io/n8n"
+			},
+			"license": "Sustainable Use",
+			"effort": "docker",
+			"note": {
+				"en": "The default answer. Fair-code, not OSI.",
+				"fr": "La réponse par défaut. Fair-code, pas OSI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO/SAML, log streaming, environments, advanced permissions",
+					"fr": "SSO/SAML, flux de logs, environnements, permissions avancées"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Activepieces",
+			"source": {
+				"host": "github",
+				"path": "activepieces/activepieces",
+				"url": "https://github.com/activepieces/activepieces"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Truly MIT, cleaner UI.",
+				"fr": "Réellement en MIT, interface plus propre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO, RBAC, audit logs, Git sync",
+					"fr": "SSO, RBAC, journaux d’audit, sync Git"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Windmill",
+			"source": {
+				"host": "github",
+				"path": "windmill-labs/windmill",
+				"url": "https://github.com/windmill-labs/windmill"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Scripts-first, for people who'd rather write code.",
+				"fr": "Les scripts d’abord, pour ceux qui préfèrent coder."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SAML/SCIM, audit logs, distributed cache",
+					"fr": "SAML/SCIM, journaux d’audit, cache distribué"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

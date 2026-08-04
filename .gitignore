@@ -1,0 +1,24 @@
+node_modules
+dist
+build
+.turbo
+# The one configuration file, for development and production alike: session
+# secret, vote secret, live Stripe key. `.env.example` is the committed one.
+.env
+# `.env` alone does not match the `.env.bak` that `env:gen --force` leaves behind.
+.env.*
+!.env.example
+*.log
+# Written by every scripts/build-images.sh run.
+slim.report.json
+
+# SQLite: the database is state, never committed. WAL mode adds two siblings.
+*.db
+*.db-wal
+*.db-shm
+
+.playwright-mcp
+.playwright-cli
+
+# Fetched by `bun run icons`, not authored. See CONTRIBUTING.md.
+/apps/frontend/public/icons

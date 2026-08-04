@@ -1,0 +1,24 @@
+node_modules
+**/node_modules
+**/dist
+**/build
+.turbo
+**/.turbo
+.git
+.github
+docs
+coverage
+data/*.db
+data/*.db-wal
+data/*.db-shm
+# `**/.env` does not match `.env.bak` or `.env.local`, and the frontend image
+# builds from the repo root with `COPY . .` — so real secrets would land in the
+# build stage. The backend reads its configuration from the container
+# environment, never a file.
+**/.env
+**/.env.*
+!**/.env.example
+/provision
+*.log
+/sqlite
+/acme-webroot

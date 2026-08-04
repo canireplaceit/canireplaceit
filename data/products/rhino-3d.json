@@ -1,0 +1,98 @@
+{
+	"slug": "rhino-3d",
+	"name": "Rhino 3D",
+	"domain": "rhino3d.com",
+	"category": "3d-cad",
+	"priceMonthly": null,
+	"pricing": {
+		"plan": "Rhino 8 commercial, perpetual",
+		"basis": "one-time",
+		"url": "https://www.rhino3d.com/sales/",
+		"checkedOn": "2026-08-02",
+		"confidence": "low"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Rhino is already a perpetual licence, which removes most of the reason to leave. And nothing open source has a NURBS kernel in its class — Blender's meshes and FreeCAD's OpenCascade solids both solve a different problem than a designer pushing surfaces.",
+		"fr": "Rhino est déjà une licence perpétuelle, ce qui enlève la plupart des raisons de partir. Et rien en open source n’a un noyau NURBS de ce niveau — les maillages de Blender et les solides OpenCascade de FreeCAD résolvent un autre problème que celui d’un designer qui travaille ses surfaces."
+	},
+	"whatYouLose": [
+		{
+			"en": "Class-A NURBS surfacing",
+			"fr": "Surfaçage NURBS de classe A"
+		},
+		{
+			"en": "Grasshopper",
+			"fr": "Grasshopper"
+		},
+		{
+			"en": "Plugin ecosystem for architecture and jewellery",
+			"fr": "Écosystème de plugins pour l’architecture et la joaillerie"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Blender",
+			"source": {
+				"host": "gitea",
+				"path": "blender/blender",
+				"url": "https://projects.blender.org/blender/blender"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Geometry Nodes covers a lot of what people use Grasshopper for, and the mesh modelling is world class. It is not a surface modeller.",
+				"fr": "Les Geometry Nodes couvrent une bonne part de ce pour quoi on utilise Grasshopper, et la modélisation de maillage est de classe mondiale. Ce n’est pas un modeleur surfacique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FreeCAD",
+			"source": {
+				"host": "github",
+				"path": "FreeCAD/FreeCAD",
+				"url": "https://github.com/FreeCAD/FreeCAD"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "Solid NURBS via OpenCascade, and the Curves workbench does real surfacing. Slower and rougher than Rhino at every step.",
+				"fr": "NURBS solides via OpenCascade, et l’atelier Curves fait du vrai surfaçage. Plus lent et plus brut que Rhino à chaque étape."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Plasticity",
+			"url": "https://www.plasticity.xyz",
+			"priceMonthly": 0,
+			"note": {
+				"en": "A $149 one-off (Indie) sub-D-plus-NURBS hybrid that concept artists have largely moved to. No Grasshopper equivalent.",
+				"fr": "Un achat unique à 149 $ (Indie), hybride sub-D et NURBS, vers lequel les concept artists ont largement migré. Pas d’équivalent Grasshopper."
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "MoI 3D",
+			"url": "https://moi3d.com",
+			"priceMonthly": 0,
+			"note": {
+				"en": "$295 once, the same Solids++ lineage, and the cleanest NURBS-to-mesh export there is. Single developer, slow release cycle.",
+				"fr": "295 $ une fois, la même lignée Solids++, et le meilleur export NURBS vers maillage qui existe. Développeur unique, cycle de publication lent."
+			}
+		}
+	],
+	"priority": 2
+}

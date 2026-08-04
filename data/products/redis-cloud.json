@@ -1,0 +1,98 @@
+{
+	"slug": "redis-cloud",
+	"name": "Redis Cloud",
+	"domain": "redis.io",
+	"category": "databases-caches",
+	"priceMonthly": 5,
+	"pricing": {
+		"plan": "Essentials, from USD 5/month",
+		"basis": "usage",
+		"url": "https://redis.io/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Redis relicensed itself and the entire industry forked away inside a month. Valkey is the same thing under the same BSD licence with more maintainers. There is no reason left to pay Redis Ltd.",
+		"fr": "Redis a changé de licence et toute l’industrie a forké en un mois. Valkey, c’est la même chose sous la même licence BSD avec plus de mainteneurs. Il n’y a plus aucune raison de payer Redis Ltd."
+	},
+	"whatYouLose": [
+		{
+			"en": "Redis modules (JSON, Search)",
+			"fr": "Modules Redis (JSON, Search)"
+		},
+		{
+			"en": "Active-active geo-replication",
+			"fr": "Géo-réplication actif-actif"
+		},
+		{
+			"en": "Vendor support contract",
+			"fr": "Contrat de support éditeur"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Valkey",
+			"source": {
+				"host": "github",
+				"path": "valkey-io/valkey",
+				"url": "https://github.com/valkey-io/valkey"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "The Linux Foundation fork of Redis 7.2. Drop-in — your client library does not need to know.",
+				"fr": "Le fork Linux Foundation de Redis 7.2. Interchangeable — votre bibliothèque cliente n’a rien à savoir."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dragonfly",
+			"source": {
+				"host": "github",
+				"path": "dragonflydb/dragonfly",
+				"url": "https://github.com/dragonflydb/dragonfly"
+			},
+			"license": "BUSL-1.1",
+			"effort": "docker",
+			"note": {
+				"en": "Multi-threaded, so one big node replaces a Redis cluster. BUSL-1.1, not OSI-approved — check the clause before commercial use.",
+				"fr": "Multi-thread : un gros nœud remplace un cluster Redis. Licence BSL, non approuvée OSI — vérifiez la clause avant un usage commercial."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Upstash",
+			"url": "https://upstash.com/",
+			"priceMonthly": 0,
+			"note": {
+				"en": "Per-request pricing, so an idle cache costs nearly nothing. Latency is worse than a colocated instance and you pay badly at high throughput.",
+				"fr": "Tarification à la requête : un cache inactif ne coûte presque rien. La latence est moins bonne qu’une instance colocalisée et le débit élevé se paie cher."
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "DigitalOcean Managed Valkey",
+			"url": "https://www.digitalocean.com/products/managed-databases-caching",
+			"priceMonthly": 15,
+			"note": {
+				"en": "Managed Valkey at a flat, predictable price. No modules (no RedisJSON, no search), so check what you're using first.",
+				"fr": "Valkey managé à prix fixe et prévisible. Aucun module (ni RedisJSON ni recherche) : vérifiez d’abord ce que vous utilisez."
+			}
+		}
+	],
+	"priority": 4
+}

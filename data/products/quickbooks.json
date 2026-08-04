@@ -1,0 +1,123 @@
+{
+	"slug": "quickbooks",
+	"name": "QuickBooks Online",
+	"domain": "quickbooks.intuit.com",
+	"category": "accounting-invoicing",
+	"priceMonthly": 38,
+	"pricing": {
+		"plan": "Simple Start, list price before intro discount",
+		"basis": "flat",
+		"url": "https://quickbooks.intuit.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Double-entry ledgers and invoices are solved. What does not port is your accountant, the automatic bank feeds, and the sales-tax and payroll filings QuickBooks does for you — those are jurisdiction-specific and nobody open source maintains them.",
+		"fr": "La comptabilité en partie double et la facturation sont réglées depuis longtemps. Ce qui ne suit pas : votre comptable, les flux bancaires automatiques, et les déclarations de TVA et de paie — c’est propre à chaque pays et personne ne maintient ça en open source."
+	},
+	"whatYouLose": [
+		{
+			"en": "Automatic bank feeds",
+			"fr": "Flux bancaires automatiques"
+		},
+		{
+			"en": "Sales-tax and payroll filing",
+			"fr": "Déclarations de TVA et de paie"
+		},
+		{
+			"en": "An accountant who knows the software",
+			"fr": "Un comptable qui connaît le logiciel"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Bigcapital",
+			"source": {
+				"host": "github",
+				"path": "bigcapitalhq/bigcapital",
+				"url": "https://github.com/bigcapitalhq/bigcapital"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Actually built as a QuickBooks replacement, and it's genuinely AGPL.",
+				"fr": "Conçu explicitement comme un remplaçant de QuickBooks, et réellement en AGPL."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Akaunting",
+			"source": {
+				"host": "github",
+				"path": "akaunting/akaunting",
+				"url": "https://github.com/akaunting/akaunting"
+			},
+			"license": "BSL-1.1",
+			"effort": "docker",
+			"note": {
+				"en": "Closest look-alike, but it's Business Source, not OSI — read the licence before you commit.",
+				"fr": "Le clone le plus proche visuellement, mais licence Business Source, pas OSI — lisez-la avant de vous engager."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Multi-user, multi-company, most App Store modules",
+					"fr": "Multi-utilisateur, multi-société, modules payants"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ERPNext",
+			"source": {
+				"host": "github",
+				"path": "frappe/erpnext",
+				"url": "https://github.com/frappe/erpnext"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Overkill for bookkeeping alone, but the accounting module is real and used by real businesses.",
+				"fr": "Surdimensionné si vous ne voulez que la compta, mais le module comptable est sérieux et utilisé en production."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Wave",
+			"url": "https://www.waveapps.com",
+			"priceMonthly": 0,
+			"note": {
+				"en": "Free invoicing and bookkeeping; you pay only for payments and payroll. Reporting is thin and there's no inventory.",
+				"fr": "Facturation et compta gratuites ; vous ne payez que les paiements et la paie. Reporting pauvre, aucune gestion de stock."
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Zoho Books",
+			"url": "https://www.zoho.com/books/",
+			"priceMonthly": 15,
+			"note": {
+				"en": "Half the price with more features than QuickBooks Simple Start. The catch is you're now inside Zoho's ecosystem.",
+				"fr": "Deux fois moins cher et plus complet que QuickBooks Simple Start. Le piège : vous entrez dans l’écosystème Zoho."
+			}
+		}
+	],
+	"priority": 5
+}

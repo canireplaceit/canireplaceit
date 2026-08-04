@@ -1,0 +1,103 @@
+{
+	"slug": "anyscale",
+	"name": "Anyscale",
+	"domain": "anyscale.com",
+	"category": "ai-infrastructure",
+	"priceMonthly": null,
+	"pricing": {
+		"plan": "Pay-as-you-go, no fixed monthly fee: Anyscale platform fee per instance-hour on top of cloud compute — CPU-only $0.0135/hr, NVIDIA T4 $0.5682/hr, L4 $0.9542/hr, A10G $1.3635/hr, A100 $4.9591/hr; $100 free credits to start; committed contracts quoted by sales",
+		"basis": "usage",
+		"url": "https://www.anyscale.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Anyscale is hosted Ray, sold by the people who wrote Ray. Ray is Apache-2.0 with nothing withheld, and KubeRay runs it on any cluster — you are paying for the autoscaler UI, the observability and not having to debug a head node at 2am.",
+		"fr": "Anyscale, c’est Ray hébergé, vendu par ceux qui ont écrit Ray. Ray est en Apache-2.0 sans rien de retenu, et KubeRay l’exécute sur n’importe quel cluster — vous payez l’interface d’autoscaling, l’observabilité et le fait de ne pas déboguer un head node à 2 h du matin."
+	},
+	"whatYouLose": [
+		{
+			"en": "Managed autoscaling and cluster ops",
+			"fr": "Autoscaling et exploitation de cluster managés"
+		},
+		{
+			"en": "Ray-specific observability",
+			"fr": "Observabilité spécifique à Ray"
+		},
+		{
+			"en": "Support from the Ray authors",
+			"fr": "Support par les auteurs de Ray"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Ray",
+			"source": {
+				"host": "github",
+				"path": "ray-project/ray",
+				"url": "https://github.com/ray-project/ray"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The distributed runtime itself, Apache-2.0, written by the same people who founded Anyscale. Nothing is held back from the open build.",
+				"fr": "Le moteur distribué lui-même, en Apache-2.0, écrit par ceux-là mêmes qui ont fondé Anyscale. Rien n’est retenu dans la version ouverte."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kubeflow",
+			"source": {
+				"host": "github",
+				"path": "kubeflow/kubeflow",
+				"url": "https://github.com/kubeflow/kubeflow"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Notebooks, pipelines, training operators and serving on Kubernetes. Genuinely covers the scope, and genuinely needs a platform engineer.",
+				"fr": "Carnets, pipelines, opérateurs d’entraînement et service sur Kubernetes. Couvre réellement le périmètre, et exige réellement un ingénieur plateforme."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SkyPilot",
+			"source": {
+				"host": "github",
+				"path": "skypilot-org/skypilot",
+				"url": "https://github.com/skypilot-org/skypilot"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Point it at a YAML and it finds the cheapest available GPU across your clouds, provisions it, runs the job and tears it down. The best cost tool in this space.",
+				"fr": "Donnez-lui un YAML et il trouve le GPU disponible le moins cher parmi vos clouds, le provisionne, lance le job et le détruit. Le meilleur outil de maîtrise des coûts du domaine."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Hosted control plane and commercial support",
+					"fr": "Le plan de contrôle hébergé et le support commercial"
+				},
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

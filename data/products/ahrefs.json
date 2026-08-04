@@ -1,0 +1,109 @@
+{
+	"slug": "ahrefs",
+	"name": "Ahrefs",
+	"domain": "ahrefs.com",
+	"category": "seo-rank-tracking",
+	"priceMonthly": 129,
+	"pricing": {
+		"plan": "Lite",
+		"basis": "flat",
+		"url": "https://ahrefs.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "The software is the cheap part. Ahrefs is a crawler that has been running non-stop for over a decade and a link index nobody else can hand you. You can stand up a site crawler this afternoon; you cannot self-host twelve years of the web's link graph, and no open source project has seriously tried.",
+		"fr": "Le logiciel est la partie bon marché. Ahrefs, c’est un crawler qui tourne sans interruption depuis plus de dix ans et un index de liens que personne ne peut vous donner. Vous pouvez monter un crawler de site cet après-midi ; vous ne pouvez pas auto-héberger douze ans de graphe de liens du web, et aucun projet open source n’a sérieusement essayé."
+	},
+	"whatYouLose": [
+		{
+			"en": "The backlink index",
+			"fr": "L’index de backlinks"
+		},
+		{
+			"en": "Keyword volume data",
+			"fr": "Volumes de recherche"
+		},
+		{
+			"en": "Competitor traffic estimates",
+			"fr": "Estimation du trafic des concurrents"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "SEOnaut",
+			"source": {
+				"host": "github",
+				"path": "StJudeWasHere/seonaut",
+				"url": "https://github.com/StJudeWasHere/seonaut"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "A real crawler and technical audit for your own site: broken links, redirect chains, canonicals, thin content. It knows nothing about anyone else's site.",
+				"fr": "Un vrai crawler et audit technique pour votre propre site : liens cassés, chaînes de redirection, canoniques, contenu pauvre. Il ne sait rien des sites des autres."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "advertools",
+			"source": {
+				"host": "github",
+				"path": "eliasdabbas/advertools",
+				"url": "https://github.com/eliasdabbas/advertools"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Python toolkit for crawling, log analysis and SERP work. It replaces the reporting, never the data.",
+				"fr": "Boîte à outils Python pour le crawl, l’analyse de logs et les SERP. Elle remplace les rapports, jamais les données."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Common Crawl + cc-pyspark",
+			"source": {
+				"host": "github",
+				"path": "commoncrawl/cc-pyspark",
+				"url": "https://github.com/commoncrawl/cc-pyspark"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "You genuinely can compute a link graph from Common Crawl. Budget terabytes, a Spark cluster and weeks, and it will still be a fraction of Ahrefs' index and months out of date.",
+				"fr": "Vous pouvez réellement calculer un graphe de liens à partir de Common Crawl. Prévoyez des téraoctets, un cluster Spark et des semaines, et ce sera toujours une fraction de l’index d’Ahrefs, avec des mois de retard."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Ubersuggest",
+			"url": "https://neilpatel.com/ubersuggest/",
+			"priceMonthly": 29,
+			"note": {
+				"en": "A quarter of the price for a thinner index and rougher numbers. Fine for directional work, not for competitive link research.",
+				"fr": "Quatre fois moins cher pour un index plus maigre et des chiffres plus grossiers. Correct pour dégrossir, pas pour de la vraie analyse de liens concurrentielle."
+			}
+		}
+	],
+	"priority": 5
+}

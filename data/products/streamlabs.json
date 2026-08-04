@@ -1,0 +1,88 @@
+{
+	"slug": "streamlabs",
+	"name": "Streamlabs Ultra",
+	"domain": "streamlabs.com",
+	"category": "live-streaming-broadcast",
+	"priceMonthly": 19,
+	"pricing": {
+		"plan": "Ultra (pricing page renders client-side; figure unconfirmed)",
+		"basis": "flat",
+		"url": "https://streamlabs.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "low"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Streamlabs Desktop is a fork of OBS Studio. You are paying a monthly subscription for themes, alert widgets and a merch store bolted onto GPL software that costs nothing. OBS plus Firebot covers alerts, chat commands, loyalty points and overlays, runs faster, and does not want an account.",
+		"fr": "Streamlabs Desktop est un fork d’OBS Studio. Vous payez un abonnement mensuel pour des thèmes, des widgets d’alerte et une boutique greffés sur un logiciel GPL qui ne coûte rien. OBS plus Firebot couvrent les alertes, les commandes de chat, les points de fidélité et l’habillage, tournent plus vite et ne réclament aucun compte."
+	},
+	"whatYouLose": [
+		{
+			"en": "The overlay theme library",
+			"fr": "La bibliothèque de thèmes d’habillage"
+		},
+		{
+			"en": "Multistream and cloud backup",
+			"fr": "Multistream et sauvegarde cloud"
+		},
+		{
+			"en": "Merch and tipping built in",
+			"fr": "Boutique et dons intégrés"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "OBS Studio",
+			"source": {
+				"host": "github",
+				"path": "obsproject/obs-studio",
+				"url": "https://github.com/obsproject/obs-studio"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The upstream project Streamlabs forked. Better performance, a far bigger plugin ecosystem, no telemetry.",
+				"fr": "Le projet amont dont Streamlabs est issu. Meilleures performances, écosystème de plugins bien plus large, aucune télémétrie."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Firebot",
+			"source": {
+				"host": "github",
+				"path": "crowbartools/Firebot",
+				"url": "https://github.com/crowbartools/Firebot"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Alerts, chat commands, channel points, currency and timers in one desktop app. Twitch-first; YouTube support is thinner.",
+				"fr": "Alertes, commandes de chat, points de chaîne, monnaie et minuteurs dans une seule application. Orienté Twitch ; la prise en charge YouTube est plus limitée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "StreamElements",
+			"url": "https://streamelements.com",
+			"priceMonthly": 0,
+			"note": {
+				"en": "Overlays, alerts and a bot, free and cloud-hosted. Not open source, and your entire overlay stack lives on their servers.",
+				"fr": "Habillage, alertes et bot, gratuits et hébergés. Pas open source, et tout votre habillage vit sur leurs serveurs."
+			}
+		}
+	],
+	"priority": 3
+}

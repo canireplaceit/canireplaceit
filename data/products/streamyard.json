@@ -1,0 +1,109 @@
+{
+	"slug": "streamyard",
+	"name": "StreamYard",
+	"domain": "streamyard.com",
+	"category": "live-streaming-broadcast",
+	"priceMonthly": 45,
+	"pricing": {
+		"plan": "Core, $44.99/mo billed monthly",
+		"basis": "flat",
+		"url": "https://streamyard.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "VDO.Ninja plus OBS reproduces the whole thing — remote guests over WebRTC, branded overlays, multistreaming — and it is what a lot of professional shows already run underneath. What you give up is that a non-technical guest joins StreamYard from a link with zero explanation, and that your show is not held together by browser sources you configured at 2am.",
+		"fr": "VDO.Ninja plus OBS reproduit l’ensemble — invités distants en WebRTC, habillage, multidiffusion — et beaucoup d’émissions professionnelles fonctionnent déjà comme ça. Ce que vous perdez, c’est qu’un invité non technique rejoint StreamYard depuis un lien sans aucune explication, et que votre émission ne tient pas à des sources navigateur bricolées à 2 h du matin."
+	},
+	"whatYouLose": [
+		{
+			"en": "One-link guest join",
+			"fr": "Arrivée des invités par simple lien"
+		},
+		{
+			"en": "Cloud recording and encoding",
+			"fr": "Enregistrement et encodage cloud"
+		},
+		{
+			"en": "Nothing to install",
+			"fr": "Rien à installer"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "VDO.Ninja",
+			"source": {
+				"host": "github",
+				"path": "steveseguin/vdo.ninja",
+				"url": "https://github.com/steveseguin/vdo.ninja"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Peer-to-peer guest feeds straight into OBS from a browser link. Free hosted instance or self-host it; the UI is dense but nothing else does this job as well.",
+				"fr": "Flux d’invités en pair-à-pair directement dans OBS depuis un lien navigateur. Instance hébergée gratuite ou auto-hébergement ; l’interface est touffue mais rien ne fait mieux ce travail."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OBS Studio",
+			"source": {
+				"host": "github",
+				"path": "obsproject/obs-studio",
+				"url": "https://github.com/obsproject/obs-studio"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The switcher half. Scenes, overlays, lower thirds — but it runs on your machine, so your laptop becomes the broadcast chain.",
+				"fr": "La partie régie. Scènes, habillage, synthés — mais tout tourne sur votre machine, votre portable devient donc la chaîne de diffusion."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LiveKit",
+			"source": {
+				"host": "github",
+				"path": "livekit/livekit",
+				"url": "https://github.com/livekit/livekit"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The build-it-yourself route: a proper SFU with server-side recording and RTMP egress. Infrastructure, not a product — you write the studio.",
+				"fr": "La voie à construire soi-même : un vrai SFU avec enregistrement côté serveur et sortie RTMP. De l’infrastructure, pas un produit — le studio, c’est vous qui l’écrivez."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Ecamm Live",
+			"url": "https://www.ecamm.com/mac/ecammlive",
+			"priceMonthly": 16,
+			"note": {
+				"en": "A real production app for less, with better Mac hardware integration. macOS only, and remote guests are the weakest part of it.",
+				"fr": "Une vraie application de production pour moins cher, mieux intégrée au matériel Mac. macOS uniquement, et la gestion des invités distants est son point faible."
+			}
+		}
+	],
+	"priority": 3
+}

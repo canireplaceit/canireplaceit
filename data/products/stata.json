@@ -1,0 +1,103 @@
+{
+	"slug": "stata",
+	"name": "Stata",
+	"domain": "stata.com",
+	"category": "scientific-computing",
+	"priceMonthly": 83,
+	"pricing": {
+		"plan": "Stata/MP4 annual business licence, $995/yr billed monthly",
+		"basis": "per-seat",
+		"url": "https://www.stata.com/order/new/bus/single-user-licenses/dl/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Stata's moat is the econometrics: panel estimators, survey weights and the SSC package archive are twenty years of methods work you would be reimplementing. For everything up to a fixed-effects model, statsmodels and R already match it at zero cost.",
+		"fr": "Le fossé de Stata, c’est l’économétrie : estimateurs de panel, pondérations d’enquête et archive de paquets SSC représentent vingt ans de travail méthodologique à réimplémenter. Pour tout ce qui va jusqu’au modèle à effets fixes, statsmodels et R font déjà jeu égal, gratuitement."
+	},
+	"whatYouLose": [
+		{
+			"en": "Panel and survey estimators",
+			"fr": "Estimateurs de panel et d’enquête"
+		},
+		{
+			"en": "The SSC package archive",
+			"fr": "L’archive de paquets SSC"
+		},
+		{
+			"en": "Reviewer-familiar .do files",
+			"fr": "Fichiers .do familiers aux relecteurs"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "statsmodels",
+			"source": {
+				"host": "github",
+				"path": "statsmodels/statsmodels",
+				"url": "https://github.com/statsmodels/statsmodels"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "The Python library with the regression, time-series and mixed-model output tables that actually look like a stats package. Free, scriptable, reviewable.",
+				"fr": "La bibliothèque Python dont les tableaux de régression, de séries temporelles et de modèles mixtes ressemblent vraiment à ceux d’un logiciel de stats. Gratuite, scriptable, relisible."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dplyr / tidyverse",
+			"source": {
+				"host": "github",
+				"path": "tidyverse/dplyr",
+				"url": "https://github.com/tidyverse/dplyr"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "R is where the econometrics packages that are not in Stata live — fixest and sandwich cover most of what an applied paper needs.",
+				"fr": "R est l’endroit où vivent les paquets d’économétrie absents de Stata — fixest et sandwich couvrent l’essentiel des besoins d’un article appliqué."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "jamovi",
+			"source": {
+				"host": "github",
+				"path": "jamovi/jamovi",
+				"url": "https://github.com/jamovi/jamovi"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The same idea as JASP with a spreadsheet-first workflow and an add-on library. Everything you click is echoed as R syntax, which is a good way to migrate off point-and-click entirely.",
+				"fr": "La même idée que JASP, avec un flux orienté tableur et une bibliothèque de modules. Chaque clic est retranscrit en syntaxe R, une bonne façon de sortir définitivement du tout-souris."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "jamovi Cloud hosted sessions",
+					"fr": "Les sessions hébergées de jamovi Cloud"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

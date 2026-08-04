@@ -1,0 +1,132 @@
+{
+	"slug": "inngest",
+	"name": "Inngest",
+	"domain": "inngest.com",
+	"category": "backend",
+	"priceMonthly": 99,
+	"pricing": {
+		"plan": "Pro",
+		"basis": "flat",
+		"url": "https://www.inngest.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Durable background jobs with a nice local dev UI. Several open projects do the same thing on top of Postgres you already run, and the migration is mostly renaming decorators.",
+		"fr": "Des tâches de fond durables avec une belle interface de développement local. Plusieurs projets ouverts font la même chose au-dessus d’un Postgres que vous exploitez déjà, et migrer revient surtout à renommer des décorateurs."
+	},
+	"whatYouLose": [
+		{
+			"en": "Zero-infra event bus",
+			"fr": "Bus d’événements sans infra"
+		},
+		{
+			"en": "Hosted concurrency controls",
+			"fr": "Contrôles de concurrence hébergés"
+		},
+		{
+			"en": "Managed retries and observability",
+			"fr": "Retries et observabilité managés"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Hatchet",
+			"source": {
+				"host": "github",
+				"path": "hatchet-dev/hatchet",
+				"url": "https://github.com/hatchet-dev/hatchet"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The closest match: durable execution, DAGs, rate limits and concurrency keys, all on Postgres, with a dashboard.",
+				"fr": "Le plus proche : exécution durable, DAG, limites de débit et clés de concurrence, le tout sur Postgres, avec un tableau de bord."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Hatchet Cloud hosting plus managed scaling and support",
+					"fr": "L’hébergement Hatchet Cloud plus la mise à l’échelle managée et le support"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Trigger.dev",
+			"source": {
+				"host": "github",
+				"path": "triggerdotdev/trigger.dev",
+				"url": "https://github.com/triggerdotdev/trigger.dev"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Long-running TypeScript jobs with a self-hosted option that is genuinely supported, not an afterthought.",
+				"fr": "Tâches TypeScript longues, avec une option auto-hébergée réellement maintenue et non bricolée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "The hosted cloud, its managed compute, warm starts and higher concurrency tiers",
+					"fr": "Le cloud hébergé, son calcul managé, les démarrages à chaud et les paliers de concurrence supérieurs"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "River",
+			"source": {
+				"host": "github",
+				"path": "riverqueue/river",
+				"url": "https://github.com/riverqueue/river"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "If you are in Go and already have Postgres, this is a library, not a platform. Nothing to operate at all.",
+				"fr": "Si vous êtes en Go et avez déjà Postgres, c’est une bibliothèque, pas une plateforme. Rien du tout à exploiter."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Temporal",
+			"source": {
+				"host": "github",
+				"path": "temporalio/temporal",
+				"url": "https://github.com/temporalio/temporal"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Heavier and stronger. Choose it when losing a job is a business incident, not an annoyance.",
+				"fr": "Plus lourd et plus solide. À choisir quand perdre une tâche est un incident métier, pas un désagrément."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Multi-region replication, SLAs and enterprise SSO are Temporal Cloud only",
+					"fr": "La réplication multi-région, les SLA et le SSO entreprise sont réservés à Temporal Cloud"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

@@ -1,0 +1,88 @@
+{
+	"slug": "keyshot",
+	"name": "KeyShot",
+	"domain": "keyshot.com",
+	"category": "3d-cad",
+	"priceMonthly": 108,
+	"pricing": {
+		"plan": "Professional, $1,299/user/year billed annually (monthly equivalent)",
+		"basis": "per-seat",
+		"url": "https://www.keyshot.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "KeyShot sells one thing: drag a CAD file in, drop a material on, get a photoreal image with no lighting knowledge. Blender's Cycles renders as well or better, but it makes you learn the parts KeyShot hides.",
+		"fr": "KeyShot vend une seule chose : glissez un fichier CAO, déposez un matériau, obtenez une image photoréaliste sans rien connaître à l’éclairage. Cycles dans Blender rend aussi bien voire mieux, mais il vous oblige à apprendre ce que KeyShot masque."
+	},
+	"whatYouLose": [
+		{
+			"en": "Zero-setup photorealism",
+			"fr": "Photoréalisme sans réglages"
+		},
+		{
+			"en": "Native CAD import with assemblies intact",
+			"fr": "Import CAO natif avec les assemblages intacts"
+		},
+		{
+			"en": "Curated material library",
+			"fr": "Bibliothèque de matériaux organisée"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Blender",
+			"source": {
+				"host": "gitea",
+				"path": "blender/blender",
+				"url": "https://projects.blender.org/blender/blender"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Cycles is a production path tracer with GPU denoising. The gap is workflow, not image quality — expect a week of learning.",
+				"fr": "Cycles est un moteur de path tracing de production avec débruitage GPU. L’écart porte sur le flux de travail, pas sur la qualité d’image — comptez une semaine d’apprentissage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LuxCoreRender",
+			"source": {
+				"host": "github",
+				"path": "LuxCoreRender/LuxCore",
+				"url": "https://github.com/LuxCoreRender/LuxCore"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A physically based renderer with real spectral and caustics handling, driven from Blender. Smaller community, fewer materials.",
+				"fr": "Un moteur de rendu physiquement réaliste avec une vraie gestion spectrale et des caustiques, piloté depuis Blender. Communauté plus petite, moins de matériaux."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "D5 Render",
+			"url": "https://www.d5render.com/pricing",
+			"priceMonthly": 38,
+			"note": {
+				"en": "Real-time ray tracing with a large asset library and a usable free tier. Windows and NVIDIA only.",
+				"fr": "Ray tracing en temps réel avec une grande bibliothèque d’assets et une offre gratuite utilisable. Windows et NVIDIA uniquement."
+			}
+		}
+	],
+	"priority": 2
+}

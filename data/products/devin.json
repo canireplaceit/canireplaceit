@@ -1,0 +1,99 @@
+{
+	"slug": "devin",
+	"name": "Devin",
+	"domain": "devin.ai",
+	"category": "ai",
+	"priceMonthly": 20,
+	"pricing": {
+		"plan": "Pro (Teams is $80/mo base + $40 per extra seat)",
+		"basis": "per-seat",
+		"url": "https://devin.ai/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "The sandboxed autonomous-engineer pitch is real product, not just a model wrapper: browser, shell, planning and a review loop. Open agents do the same loop and score far worse on real repos — but you can run them for the price of tokens instead of $500 a seat.",
+		"fr": "La promesse d’un ingénieur autonome en bac à sable est un vrai produit, pas un simple wrapper de modèle : navigateur, shell, planification et boucle de revue. Les agents ouverts font la même boucle et s’en sortent bien moins bien sur de vrais dépôts — mais vous les faites tourner au prix des tokens plutôt qu’à 500 $ le utilisateur."
+	},
+	"whatYouLose": [
+		{
+			"en": "Managed sandbox VMs",
+			"fr": "VMs bac à sable managées"
+		},
+		{
+			"en": "Long autonomous runs",
+			"fr": "Longues exécutions autonomes"
+		},
+		{
+			"en": "Benchmark-level success rate",
+			"fr": "Taux de réussite au niveau des benchmarks"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "OpenHands",
+			"source": {
+				"host": "github",
+				"path": "OpenHands/OpenHands",
+				"url": "https://github.com/OpenHands/OpenHands"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The direct open equivalent, formerly OpenDevin and now under its own org. Sandboxed shell, browser and editor in Docker; you supply the model API key or a local endpoint.",
+				"fr": "L’équivalent ouvert direct, ex-OpenDevin, désormais dans sa propre organisation. Shell, navigateur et éditeur en bac à sable Docker ; vous fournissez la clé d’API du modèle ou un endpoint local."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SWE-agent",
+			"source": {
+				"host": "github",
+				"path": "SWE-agent/SWE-agent",
+				"url": "https://github.com/SWE-agent/SWE-agent"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The research lineage behind most of these numbers. Excellent for issue-to-patch batch runs, not for interactive work.",
+				"fr": "La lignée de recherche derrière la plupart de ces chiffres. Excellent pour des lots issue-vers-patch, pas pour du travail interactif."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Goose",
+			"source": {
+				"host": "github",
+				"path": "aaif-goose/goose",
+				"url": "https://github.com/aaif-goose/goose"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Desktop or CLI agent with MCP extensions. Shorter leash than Devin, which is often the point.",
+				"fr": "Agent bureau ou CLI avec extensions MCP. Laisse plus courte que Devin, ce qui est souvent souhaitable."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

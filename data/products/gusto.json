@@ -1,0 +1,102 @@
+{
+	"slug": "gusto",
+	"name": "Gusto",
+	"domain": "gusto.com",
+	"category": "people-hiring",
+	"priceMonthly": 40,
+	"pricing": {
+		"plan": "Simple, monthly base plus per-person fee (gusto.com blocks automated fetches; figure not read off the page)",
+		"basis": "flat",
+		"url": "https://gusto.com/product/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "low"
+	},
+	"verdict": "not-yet",
+	"why": {
+		"en": "Payroll is not software, it is a regulated filing relationship with tax authorities in every place you employ someone. Open source can calculate gross-to-net perfectly and still leave you personally liable for a late filing. Do not self-host payroll.",
+		"fr": "La paie n’est pas un logiciel, c’est une relation déclarative réglementée avec l’administration fiscale de chaque territoire où vous employez quelqu’un. L’open source peut calculer le net parfaitement et vous laisser quand même responsable d’une déclaration en retard. N’auto-hébergez pas votre paie."
+	},
+	"whatYouLose": [
+		{
+			"en": "Automatic tax filing and remittance",
+			"fr": "Déclarations et versements fiscaux automatiques"
+		},
+		{
+			"en": "Liability for filing errors",
+			"fr": "Prise en charge des erreurs de déclaration"
+		},
+		{
+			"en": "Benefits and workers' comp administration",
+			"fr": "Gestion des avantages et de la prévoyance"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Frappe HR",
+			"source": {
+				"host": "github",
+				"path": "frappe/hrms",
+				"url": "https://github.com/frappe/hrms"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Real payroll calculation and salary structures. Filing is entirely on you.",
+				"fr": "Vrai calcul de paie et structures salariales. Les déclarations sont entièrement à votre charge."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Odoo Payroll",
+			"source": {
+				"host": "github",
+				"path": "odoo/odoo",
+				"url": "https://github.com/odoo/odoo"
+			},
+			"license": "LGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Country localisation packs exist but coverage is uneven and mostly Enterprise.",
+				"fr": "Des packs de localisation existent, mais la couverture est inégale et surtout en Enterprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Payroll app is Enterprise-only",
+					"fr": "L’application Paie est réservée à l’Enterprise"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Patriot Payroll",
+			"url": "https://www.patriotsoftware.com/payroll/",
+			"priceMonthly": 17,
+			"note": {
+				"en": "Files your taxes for less than half of Gusto. No benefits administration, no international, plainer UI.",
+				"fr": "Fait vos déclarations pour moins de la moitié de Gusto. Pas de gestion des avantages, pas d’international, interface plus fruste."
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Wave Payroll",
+			"url": "https://www.waveapps.com/payroll",
+			"priceMonthly": 20,
+			"note": {
+				"en": "Cheap and tied to Wave's books. Full tax filing only in some US states — check yours first.",
+				"fr": "Bon marché et lié à la compta Wave. Déclarations complètes seulement dans certains États américains — vérifiez le vôtre."
+			}
+		}
+	],
+	"priority": 4
+}

@@ -1,0 +1,117 @@
+{
+	"slug": "astronomer",
+	"name": "Astronomer",
+	"domain": "astronomer.io",
+	"category": "data-platform-etl",
+	"priceMonthly": null,
+	"pricing": {
+		"plan": "Astro Developer, from USD 0.35/hour (pay-as-you-go)",
+		"basis": "usage",
+		"url": "https://www.astronomer.io/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "You are paying a premium to have someone else run the open source Airflow you were already going to run. Worth it only if nobody on the team wants to own a scheduler — and if that's true, Dagster or Kestra are less scheduler to own. Pricing is quote-based and scales with concurrent task volume.",
+		"fr": "Vous payez une prime pour que quelqu’un d’autre fasse tourner l’Airflow open source que vous alliez de toute façon déployer. Ça ne vaut le coup que si personne dans l’équipe ne veut posséder un ordonnanceur — et dans ce cas, Dagster ou Kestra en demandent moins. La tarification se fait sur devis et évolue avec le volume de tâches concurrentes."
+	},
+	"whatYouLose": [
+		{
+			"en": "Managed scheduler uptime",
+			"fr": "Disponibilité de l’ordonnanceur managé"
+		},
+		{
+			"en": "Airflow upgrade path",
+			"fr": "Chemin de mise à niveau Airflow"
+		},
+		{
+			"en": "Vendor on-call",
+			"fr": "Astreinte éditeur"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Apache Airflow",
+			"source": {
+				"host": "github",
+				"path": "apache/airflow",
+				"url": "https://github.com/apache/airflow"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The thing Astronomer sells. Airflow 3 finally fixed the parts everyone complained about.",
+				"fr": "Exactement ce qu’Astronomer revend. Airflow 3 a enfin corrigé ce dont tout le monde se plaignait."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dagster",
+			"source": {
+				"host": "github",
+				"path": "dagster-io/dagster",
+				"url": "https://github.com/dagster-io/dagster"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Models assets rather than tasks, which is the right abstraction for data. Migration from Airflow is a rewrite, not a port.",
+				"fr": "Modélise des actifs plutôt que des tâches, la bonne abstraction pour la donnée. Migrer depuis Airflow, c’est une réécriture, pas un portage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO, RBAC, alerting, branch deployments, insights",
+					"fr": "SSO, RBAC, alertes, déploiements de branche, analyses"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kestra",
+			"source": {
+				"host": "github",
+				"path": "kestra-io/kestra",
+				"url": "https://github.com/kestra-io/kestra"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "YAML-declared flows, no Python DAG files. Much easier to hand to non-engineers.",
+				"fr": "Flux déclarés en YAML, pas de fichiers DAG Python. Bien plus facile à confier à des non-développeurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO, RBAC, multi-tenancy, audit logs, HA",
+					"fr": "SSO, RBAC, multi-tenance, journaux d’audit, haute dispo"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Prefect Cloud",
+			"url": "https://www.prefect.io/pricing",
+			"priceMonthly": 100,
+			"note": {
+				"en": "Hosted control plane, your own workers, so you pay for orchestration rather than compute. Smaller ecosystem than Airflow and you still run the execution layer.",
+				"fr": "Plan de contrôle hébergé, vos propres workers : vous payez l’orchestration, pas le calcul. Écosystème plus réduit qu’Airflow et vous exploitez toujours la couche d’exécution."
+			}
+		}
+	],
+	"priority": 2
+}

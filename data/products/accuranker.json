@@ -1,0 +1,88 @@
+{
+	"slug": "accuranker",
+	"name": "AccuRanker",
+	"domain": "accuranker.com",
+	"category": "seo-rank-tracking",
+	"priceMonthly": 224,
+	"pricing": {
+		"plan": "Professional (2,000 keywords), billed monthly",
+		"basis": "flat",
+		"url": "https://www.accuranker.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Rank tracking is a cron job that scrapes Google and stores a number. The reason it costs money is that Google fights scrapers, so what you are buying is proxies and captcha solving with a chart on top.",
+		"fr": "Le suivi de positions, c’est un cron qui scrape Google et stocke un nombre. Si ça coûte cher, c’est que Google combat les scrapers : vous achetez en fait des proxys et de la résolution de captcha, avec un graphique par-dessus."
+	},
+	"whatYouLose": [
+		{
+			"en": "Proxy and captcha handling",
+			"fr": "Gestion des proxys et des captchas"
+		},
+		{
+			"en": "Local pack and SERP feature tracking",
+			"fr": "Suivi du pack local et des fonctionnalités SERP"
+		},
+		{
+			"en": "Years of historical positions",
+			"fr": "Des années d’historique de positions"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "SerpBear",
+			"source": {
+				"host": "github",
+				"path": "towfiqi/serpbear",
+				"url": "https://github.com/towfiqi/serpbear"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "A purpose-built self-hosted rank tracker with email reports and a Search Console tie-in. You still plug in a scraping API or your own proxies, which is where the cost quietly returns.",
+				"fr": "Un suivi de positions auto-hébergé conçu pour ça, avec rapports e-mail et lien vers la Search Console. Vous branchez quand même une API de scraping ou vos proxys — c’est là que le coût revient discrètement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SearXNG",
+			"source": {
+				"host": "github",
+				"path": "searxng/searxng",
+				"url": "https://github.com/searxng/searxng"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "A free SERP source if you accept flaky engines and no historical guarantees.",
+				"fr": "Une source de SERP gratuite si vous acceptez des moteurs capricieux et aucune garantie d’historique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Wincher",
+			"url": "https://www.wincher.com",
+			"priceMonthly": 29,
+			"note": {
+				"en": "A quarter of the price for daily tracking accurate enough for most sites. Fewer SERP features and thinner reporting.",
+				"fr": "Quatre fois moins cher pour un suivi quotidien assez précis pour la plupart des sites. Moins de fonctionnalités SERP et des rapports plus maigres."
+			}
+		}
+	],
+	"priority": 2
+}

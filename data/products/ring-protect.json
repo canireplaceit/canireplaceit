@@ -1,0 +1,88 @@
+{
+	"slug": "ring-protect",
+	"name": "Ring Protect",
+	"domain": "ring.com",
+	"category": "home-devices",
+	"priceMonthly": 10,
+	"pricing": {
+		"plan": "Ring Home Standard (vendor page served EUR 9.99/mo)",
+		"basis": "flat",
+		"url": "https://ring.com/plans",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "You are renting cloud storage for footage of your own front door, from a company with a documented history of handing it to police. Frigate does object detection locally on a cheap accelerator and never uploads anything. Professional monitoring dispatch is the one thing you lose.",
+		"fr": "Vous louez du stockage cloud pour des images de votre propre porte d’entrée, à une entreprise qui a un historique documenté de transmission aux forces de l’ordre. Frigate fait la détection d’objets en local sur un accélérateur bon marché et n’envoie rien. La seule perte : l’intervention d’un centre de télésurveillance."
+	},
+	"whatYouLose": [
+		{
+			"en": "Professional monitoring dispatch",
+			"fr": "Intervention d’un centre de télésurveillance"
+		},
+		{
+			"en": "Cellular backup when the internet drops",
+			"fr": "Secours cellulaire en cas de coupure Internet"
+		},
+		{
+			"en": "Cameras that pair in thirty seconds",
+			"fr": "Caméras appairées en trente secondes"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Frigate",
+			"source": {
+				"host": "github",
+				"path": "blakeblackshear/frigate",
+				"url": "https://github.com/blakeblackshear/frigate"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Real-time local object detection on a Coral or a GPU. Integrates cleanly with Home Assistant.",
+				"fr": "Détection d’objets locale en temps réel sur un Coral ou un GPU. S’intègre parfaitement à Home Assistant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ZoneMinder",
+			"source": {
+				"host": "github",
+				"path": "ZoneMinder/zoneminder",
+				"url": "https://github.com/ZoneMinder/zoneminder"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Twenty years old, handles enormous camera counts. Motion detection only, no machine learning by default.",
+				"fr": "Vingt ans d’âge, gère un très grand nombre de caméras. Détection de mouvement seulement, pas d’IA par défaut."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Wyze Cam Plus",
+			"url": "https://www.wyze.com",
+			"priceMonthly": 3,
+			"note": {
+				"en": "A fraction of the price for cloud recording and person detection. Same privacy trade you were trying to escape.",
+				"fr": "Une fraction du prix pour l’enregistrement cloud et la détection de personnes. Le même compromis sur la vie privée que vous vouliez fuir."
+			}
+		}
+	],
+	"priority": 4
+}

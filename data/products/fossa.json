@@ -1,0 +1,145 @@
+{
+	"slug": "fossa",
+	"name": "FOSSA",
+	"domain": "fossa.com",
+	"category": "application-security",
+	"priceMonthly": 20,
+	"pricing": {
+		"plan": "Business, $20 per project per month billed annually (~$207/mo example for 10 developers)",
+		"basis": "usage",
+		"url": "https://fossa.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Generating an SBOM is solved and free — Syft does it in one command. What FOSSA sells is the licence knowledge base and the legal-grade attribution report, and there is no open equivalent of the lawyer-reviewed policy data.",
+		"fr": "Générer un SBOM est un problème résolu et gratuit — Syft le fait en une commande. Ce que vend FOSSA, c’est la base de connaissances des licences et le rapport d’attribution de qualité juridique, et il n’existe pas d’équivalent ouvert des données de politique validées par des juristes."
+	},
+	"whatYouLose": [
+		{
+			"en": "Curated licence knowledge base",
+			"fr": "Base de connaissances des licences curée"
+		},
+		{
+			"en": "Legal attribution reports",
+			"fr": "Rapports d’attribution juridiques"
+		},
+		{
+			"en": "Policy enforcement workflow",
+			"fr": "Flux d’application des politiques"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Syft",
+			"source": {
+				"host": "github",
+				"path": "anchore/syft",
+				"url": "https://github.com/anchore/syft"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "SBOM generation from images, filesystems and lock files in SPDX or CycloneDX. Pair it with Grype and you have the scanning half for free.",
+				"fr": "Génération de SBOM depuis des images, des systèmes de fichiers et des lockfiles, en SPDX ou CycloneDX. Associez-le à Grype et vous avez la moitié « analyse » gratuitement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ORT",
+			"source": {
+				"host": "github",
+				"path": "oss-review-toolkit/ort",
+				"url": "https://github.com/oss-review-toolkit/ort"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The one that actually competes: analyse, scan, evaluate against policy rules and generate attribution documents. Genuinely heavy to configure.",
+				"fr": "Le seul qui rivalise vraiment : analyse, scan, évaluation selon des règles de politique et génération des documents d’attribution. Réellement lourd à configurer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ScanCode Toolkit",
+			"source": {
+				"host": "github",
+				"path": "aboutcode-org/scancode-toolkit",
+				"url": "https://github.com/aboutcode-org/scancode-toolkit"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The licence detection engine underneath much of this space, including parts of ORT. Slow, thorough, no service to sign up for.",
+				"fr": "Le moteur de détection de licences sous une bonne partie de ce domaine, y compris des parties d’ORT. Lent, minutieux, sans inscription à un service."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "cdxgen",
+			"source": {
+				"host": "github",
+				"path": "cdxgen/cdxgen",
+				"url": "https://github.com/cdxgen/cdxgen"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "CycloneDX SBOMs across an unusually wide range of ecosystems, including the awkward ones.",
+				"fr": "SBOM CycloneDX sur un éventail d’écosystèmes exceptionnellement large, y compris les plus pénibles."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FOSSA CLI",
+			"source": {
+				"host": "github",
+				"path": "fossas/fossa-cli",
+				"url": "https://github.com/fossas/fossa-cli"
+			},
+			"license": "CPAL-1.0",
+			"effort": "managed",
+			"note": {
+				"en": "FOSSA's own analyser is open under CPAL — useful for dependency graph extraction even if you never send anything to their API.",
+				"fr": "L’analyseur de FOSSA lui-même est ouvert sous CPAL — utile pour extraire le graphe de dépendances, même si vous n’envoyez jamais rien à leur API."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "The knowledge base, policy engine, attribution reports and the whole web application",
+					"fr": "La base de connaissances, le moteur de politiques, les rapports d’attribution et toute l’application web"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

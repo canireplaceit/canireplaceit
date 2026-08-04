@@ -1,0 +1,124 @@
+{
+	"slug": "atlas-cloud",
+	"name": "Atlas Cloud",
+	"domain": "atlasgo.io",
+	"category": "databases-caches",
+	"priceMonthly": 9,
+	"pricing": {
+		"plan": "Atlas Pro (Team), from USD 9 per developer/mo plus usage",
+		"basis": "per-seat",
+		"url": "https://atlasgo.io/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Atlas is the rare tool where the CLI is Apache-2.0 but the interesting commands ask you to log in. Declarative schema diffing works free; drift detection, the schema registry and CI reporting do not.",
+		"fr": "Atlas est le cas rare où la CLI est en Apache-2.0 mais où les commandes intéressantes exigent une connexion. Le diff déclaratif de schéma est gratuit ; la détection de dérive, le registre de schémas et les rapports en CI ne le sont pas."
+	},
+	"whatYouLose": [
+		{
+			"en": "Schema registry",
+			"fr": "Registre de schémas"
+		},
+		{
+			"en": "Drift detection",
+			"fr": "Détection de dérive"
+		},
+		{
+			"en": "Hosted CI migration reports",
+			"fr": "Rapports de migration en CI hébergés"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Atlas",
+			"source": {
+				"host": "github",
+				"path": "ariga/atlas",
+				"url": "https://github.com/ariga/atlas"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The open CLI does declarative schema-as-code, diffing and linting. Several commands gate behind an Atlas Pro login even in the open build — check before you standardise on them.",
+				"fr": "La CLI ouverte fait du schéma-as-code déclaratif, du diff et du lint. Plusieurs commandes exigent une connexion Atlas Pro même dans la version ouverte — vérifiez avant de bâtir dessus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Schema registry, drift detection, cloud-linted CI reports and several Pro-gated CLI commands",
+					"fr": "Registre de schémas, détection de dérive, rapports CI analysés dans le cloud et plusieurs commandes CLI réservées à Pro"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "golang-migrate",
+			"source": {
+				"host": "github",
+				"path": "golang-migrate/migrate",
+				"url": "https://github.com/golang-migrate/migrate"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Numbered up/down SQL files and a CLI. No registry, no dashboard, no login, nothing to expire.",
+				"fr": "Des fichiers SQL up/down numérotés et une CLI. Pas de registre, pas de tableau de bord, pas de connexion, rien qui expire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dbmate",
+			"source": {
+				"host": "github",
+				"path": "amacneil/dbmate",
+				"url": "https://github.com/amacneil/dbmate"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Single static binary, framework-agnostic, works the same in every language's project.",
+				"fr": "Un seul binaire statique, indépendant du framework, identique dans un projet de n’importe quel langage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "goose",
+			"source": {
+				"host": "github",
+				"path": "pressly/goose",
+				"url": "https://github.com/pressly/goose"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "SQL or Go migrations with embedded FS support. The Go ecosystem default.",
+				"fr": "Migrations en SQL ou en Go, avec support du FS embarqué. Le choix par défaut de l’écosystème Go."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}
