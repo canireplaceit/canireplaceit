@@ -1,0 +1,111 @@
+{
+	"slug": "jetbrains-datagrip",
+	"name": "JetBrains DataGrip",
+	"domain": "jetbrains.com",
+	"category": "databases-caches",
+	"priceMonthly": 24,
+	"pricing": {
+		"plan": "Commercial (organization), EUR 259/user/year, converted to monthly",
+		"basis": "per-seat",
+		"url": "https://www.jetbrains.com/datagrip/buy/?section=commercial&billing=yearly",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "DataGrip's edge is the SQL language engine — real resolution of table and column names across schemas. DBeaver gets close enough, supports more engines, and the community build costs nothing.",
+		"fr": "L’avantage de DataGrip, c’est son moteur de langage SQL — une vraie résolution des noms de tables et de colonnes entre schémas. DBeaver s’en approche suffisamment, gère plus de moteurs, et la version communautaire ne coûte rien."
+	},
+	"whatYouLose": [
+		{
+			"en": "Best-in-class SQL completion",
+			"fr": "Meilleure complétion SQL"
+		},
+		{
+			"en": "Cross-schema refactoring",
+			"fr": "Refactorisation inter-schémas"
+		},
+		{
+			"en": "JetBrains keymap consistency",
+			"fr": "Cohérence des raccourcis JetBrains"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "DBeaver Community",
+			"source": {
+				"host": "github",
+				"path": "dbeaver/dbeaver",
+				"url": "https://github.com/dbeaver/dbeaver"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "80+ drivers, ER diagrams, data transfer. PRO adds NoSQL drivers, an AI assistant and advanced data views on top.",
+				"fr": "Plus de 80 pilotes, diagrammes ER, transfert de données. La version PRO ajoute les pilotes NoSQL, un assistant IA et des vues de données avancées."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "NoSQL/cloud drivers, AI assistant, advanced data editor and support are DBeaver PRO only",
+					"fr": "Les pilotes NoSQL/cloud, l’assistant IA, l’éditeur de données avancé et le support sont réservés à DBeaver PRO"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CloudBeaver",
+			"source": {
+				"host": "github",
+				"path": "dbeaver/cloudbeaver",
+				"url": "https://github.com/dbeaver/cloudbeaver"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The browser version, for giving analysts read access without shipping desktop licences. SSO and team roles are enterprise-only.",
+				"fr": "La version navigateur, pour donner un accès en lecture aux analystes sans distribuer de licences bureau. Le SSO et les rôles d’équipe sont réservés à l’édition entreprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "SSO/LDAP, team roles, access management and cloud drivers are in the enterprise edition",
+					"fr": "SSO/LDAP, rôles d’équipe, gestion des accès et pilotes cloud sont dans l’édition entreprise"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "DbGate",
+			"source": {
+				"host": "github",
+				"path": "dbgate/dbgate",
+				"url": "https://github.com/dbgate/dbgate"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Lighter than DBeaver, runs as a desktop app or a web service, handles SQL and NoSQL in the same UI.",
+				"fr": "Plus léger que DBeaver, s’exécute en application bureau ou en service web, gère SQL et NoSQL dans la même interface."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Premium adds team collaboration, advanced charts and some cloud connectors",
+					"fr": "L’édition Premium ajoute la collaboration d’équipe, des graphiques avancés et certains connecteurs cloud"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

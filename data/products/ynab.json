@@ -1,0 +1,88 @@
+{
+	"slug": "ynab",
+	"name": "YNAB",
+	"domain": "ynab.com",
+	"category": "money-budgeting",
+	"priceMonthly": 15,
+	"pricing": {
+		"plan": "Monthly, $14.99/mo (annual $109/yr = $9.08/mo)",
+		"basis": "flat",
+		"url": "https://www.ynab.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Actual Budget is the same envelope method by people who wanted it local-first, and it is arguably a better implementation. The one real regression is bank sync: you will be importing CSVs or wiring up a third-party aggregator yourself.",
+		"fr": "Actual Budget reprend la même méthode des enveloppes, par des gens qui la voulaient en local-first, et c’est sans doute une meilleure implémentation. La seule vraie régression : la synchronisation bancaire — vous importerez des CSV ou brancherez vous-même un agrégateur tiers."
+	},
+	"whatYouLose": [
+		{
+			"en": "Automatic bank sync",
+			"fr": "Synchronisation bancaire automatique"
+		},
+		{
+			"en": "YNAB's teaching material and community",
+			"fr": "Contenus pédagogiques et communauté YNAB"
+		},
+		{
+			"en": "Polished mobile apps",
+			"fr": "Applications mobiles soignées"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Actual Budget",
+			"source": {
+				"host": "github",
+				"path": "actualbudget/actual",
+				"url": "https://github.com/actualbudget/actual"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Local-first, syncs end-to-end encrypted between your own devices. The direct YNAB replacement.",
+				"fr": "Local-first, synchronisation chiffrée de bout en bout entre vos appareils. Le remplaçant direct de YNAB."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Firefly III",
+			"source": {
+				"host": "github",
+				"path": "firefly-iii/firefly-iii",
+				"url": "https://github.com/firefly-iii/firefly-iii"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "More of a personal double-entry ledger than a budget coach. Excellent reporting, steeper start.",
+				"fr": "Plutôt un grand livre personnel en partie double qu’un coach budgétaire. Excellents rapports, démarrage plus rude."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Goodbudget",
+			"url": "https://goodbudget.com",
+			"priceMonthly": 10,
+			"note": {
+				"en": "Same envelope philosophy for less, and there is a usable free tier. Manual entry only — no bank sync at all.",
+				"fr": "Même philosophie d’enveloppes pour moins cher, avec une offre gratuite utilisable. Saisie manuelle uniquement — aucune synchronisation bancaire."
+			}
+		}
+	],
+	"priority": 4
+}

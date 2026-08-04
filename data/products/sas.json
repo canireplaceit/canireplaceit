@@ -1,0 +1,93 @@
+{
+	"slug": "sas",
+	"name": "SAS",
+	"domain": "sas.com",
+	"category": "scientific-computing",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "For everyday analysis R and Python passed SAS a decade ago. For a regulatory submission they have not: FDA reviewers expect SAS transport files and validated PROCs, and 'we used a peer-reviewed R package' is a conversation you will have to have with your sponsor.",
+		"fr": "Pour l’analyse quotidienne, R et Python ont dépassé SAS il y a dix ans. Pour un dossier réglementaire, non : les évaluateurs de la FDA attendent des fichiers de transport SAS et des PROC validées, et « nous avons utilisé un paquet R relu par les pairs » est une discussion à avoir avec votre promoteur."
+	},
+	"whatYouLose": [
+		{
+			"en": "Regulatory-accepted validated PROCs",
+			"fr": "PROC validées acceptées par le régulateur"
+		},
+		{
+			"en": "Decades of institutional SAS code",
+			"fr": "Des décennies de code SAS institutionnel"
+		},
+		{
+			"en": "Vendor liability and validation docs",
+			"fr": "Responsabilité éditeur et dossiers de validation"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "dplyr / tidyverse",
+			"source": {
+				"host": "github",
+				"path": "tidyverse/dplyr",
+				"url": "https://github.com/tidyverse/dplyr"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The grammar most ex-SAS analysts land on. A DATA step becomes a pipeline you can read out loud.",
+				"fr": "La grammaire vers laquelle atterrissent la plupart des anciens de SAS. Un DATA step devient un pipeline qu’on peut lire à voix haute."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "DuckDB",
+			"source": {
+				"host": "github",
+				"path": "duckdb/duckdb",
+				"url": "https://github.com/duckdb/duckdb"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Handles the SAS-sized datasets that used to justify the licence — tens of gigabytes on a laptop, in SQL, in-process.",
+				"fr": "Encaisse les jeux de données de taille SAS qui justifiaient la licence — des dizaines de gigaoctets sur un portable, en SQL, en processus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pandas",
+			"source": {
+				"host": "github",
+				"path": "pandas-dev/pandas",
+				"url": "https://github.com/pandas-dev/pandas"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "The Python end of the same move. Weaker than SAS on formats and labels, far stronger on everything downstream.",
+				"fr": "Le versant Python du même mouvement. Plus faible que SAS sur les formats et les libellés, bien plus fort sur tout ce qui vient après."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

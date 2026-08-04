@@ -1,0 +1,99 @@
+{
+	"slug": "antstream-arcade",
+	"name": "Antstream Arcade",
+	"domain": "antstream.com",
+	"category": "game-hosting-play",
+	"priceMonthly": 4,
+	"pricing": {
+		"plan": "Monthly, USD 3.99/mo (USD 39.99/yr, USD 99.99 lifetime)",
+		"basis": "flat",
+		"url": "https://www.antstream.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "What you are paying Antstream for is licensing — a legal way to play a few thousand old games without owning them. The emulation itself is entirely open source and better on your own hardware: RetroArch runs the same cores with rewind, shaders and no input lag from a cloud round trip. Sourcing the ROMs legally is the part the subscription was solving, and you should be clear-eyed about that.",
+		"fr": "Ce que vous payez à Antstream, ce sont des licences — un moyen légal de jouer à quelques milliers de vieux jeux sans les posséder. L’émulation elle-même est entièrement open source et meilleure sur votre matériel : RetroArch exécute les mêmes cœurs avec rembobinage, shaders et sans latence d’aller-retour cloud. Se procurer les ROM légalement, c’est ce que réglait l’abonnement, et il faut le regarder en face."
+	},
+	"whatYouLose": [
+		{
+			"en": "Licensed game catalogue",
+			"fr": "Catalogue de jeux sous licence"
+		},
+		{
+			"en": "Nothing to install or configure",
+			"fr": "Rien à installer ni configurer"
+		},
+		{
+			"en": "Challenges and leaderboards",
+			"fr": "Défis et classements"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "RetroArch",
+			"source": {
+				"host": "github",
+				"path": "libretro/RetroArch",
+				"url": "https://github.com/libretro/RetroArch"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "One frontend, every emulator core, on every platform including phones and consoles. Run-ahead latency reduction makes it feel better than original hardware in places.",
+				"fr": "Une seule interface, tous les cœurs d’émulation, sur toutes les plateformes y compris téléphones et consoles. La réduction de latence par run-ahead le rend parfois plus réactif que le matériel d’origine."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Batocera.linux",
+			"source": {
+				"host": "github",
+				"path": "batocera-linux/batocera.linux",
+				"url": "https://github.com/batocera-linux/batocera.linux"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A whole distribution on a USB stick that turns any old PC or a Raspberry Pi into a console. Nothing to install on the host machine.",
+				"fr": "Une distribution complète sur clé USB qui transforme un vieux PC ou un Raspberry Pi en console. Rien à installer sur la machine hôte."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "RetroPie",
+			"source": {
+				"host": "github",
+				"path": "RetroPie/RetroPie-Setup",
+				"url": "https://github.com/RetroPie/RetroPie-Setup"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The Raspberry Pi classic: EmulationStation plus libretro cores, with the biggest guide ecosystem of any of these.",
+				"fr": "Le classique du Raspberry Pi : EmulationStation plus les cœurs libretro, avec le plus grand écosystème de tutoriels du lot."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

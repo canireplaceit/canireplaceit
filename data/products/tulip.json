@@ -1,0 +1,128 @@
+{
+	"slug": "tulip",
+	"name": "Tulip",
+	"domain": "tulip.co",
+	"category": "manufacturing-quality",
+	"priceMonthly": 250,
+	"pricing": {
+		"plan": "Professional, per Monthly Active Interface billed annually, 10-interface minimum (Essentials $100)",
+		"basis": "per-seat",
+		"url": "https://tulip.co/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Tulip is a low-code app builder pointed at the shop floor: work instructions on a tablet, a scale and a torque driver plugged in, everything logged. The app-builder half is well served by ToolJet or Appsmith. The device gateway that talks to your torque driver is the half nobody has open-sourced properly.",
+		"fr": "Tulip est un constructeur d’applications low-code orienté atelier : instructions de travail sur tablette, balance et visseuse dynamométrique branchées, tout est journalisé. La partie constructeur d’applications est bien couverte par ToolJet ou Appsmith. La passerelle qui parle à votre visseuse est celle que personne n’a correctement libérée."
+	},
+	"whatYouLose": [
+		{
+			"en": "Edge device gateway for shop-floor hardware",
+			"fr": "Passerelle pour le matériel d’atelier"
+		},
+		{
+			"en": "Pre-built manufacturing app library",
+			"fr": "Bibliothèque d’applications industrielles prêtes"
+		},
+		{
+			"en": "Validation support for regulated plants",
+			"fr": "Accompagnement à la validation en site réglementé"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "ToolJet",
+			"source": {
+				"host": "github",
+				"path": "ToolJet/ToolJet",
+				"url": "https://github.com/ToolJet/ToolJet"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Drag-and-drop operator apps over your own databases and APIs. SSO, audit logs, multi-environment and Git sync are paid.",
+				"fr": "Applications opérateur en glisser-déposer au-dessus de vos bases et API. SSO, journaux d’audit, multi-environnement et sync Git sont payants."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SAML/LDAP SSO, audit logs, multi-environment and Git sync are paid",
+					"fr": "SSO SAML/LDAP, journaux d’audit, multi-environnement et sync Git sont payants"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Appsmith",
+			"source": {
+				"host": "github",
+				"path": "appsmithorg/appsmith",
+				"url": "https://github.com/appsmithorg/appsmith"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The same job with an Apache-2.0 core. SAML/OIDC SSO, audit logs and granular permissions are the paid part.",
+				"fr": "Le même travail avec un cœur Apache-2.0. SSO SAML/OIDC, journaux d’audit et permissions fines sont la partie payante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SAML/OIDC SSO, audit logs and granular permissions are paid",
+					"fr": "SSO SAML/OIDC, journaux d’audit et permissions fines sont payants"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Node-RED",
+			"source": {
+				"host": "github",
+				"path": "node-red/node-red",
+				"url": "https://github.com/node-red/node-red"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The device side: Modbus, OPC-UA, MQTT and serial nodes exist and work. This is how most people actually get a scale into a web app.",
+				"fr": "Le côté matériel : les nœuds Modbus, OPC-UA, MQTT et série existent et fonctionnent. C’est ainsi que la plupart des gens branchent réellement une balance sur une application web."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache StreamPipes",
+			"source": {
+				"host": "github",
+				"path": "apache/streampipes",
+				"url": "https://github.com/apache/streampipes"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The industrial data layer above Node-RED: connect PLCs, build pipelines, store and alert. Apache Software Foundation, so no vendor edition above it.",
+				"fr": "La couche de données industrielle au-dessus de Node-RED : connecter les automates, construire des pipelines, stocker et alerter. Fondation Apache, donc aucune édition éditeur au-dessus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

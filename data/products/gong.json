@@ -1,0 +1,107 @@
+{
+	"slug": "gong",
+	"name": "Gong",
+	"domain": "gong.io",
+	"category": "sales-outreach-data",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "Transcription — the part that used to be hard — is now free and runs on a laptop. Gong's remaining moat is everything around it: joining meetings as a permitted bot, mapping calls to CRM opportunities, and the deal risk models built on years of other people's calls.",
+		"fr": "La transcription — la partie autrefois difficile — est aujourd’hui gratuite et tourne sur un portable. Le fossé qui reste à Gong, c’est tout ce qu’il y a autour : rejoindre les réunions en tant que bot autorisé, relier les appels aux opportunités du CRM, et les modèles de risque bâtis sur des années d’appels d’autres gens."
+	},
+	"whatYouLose": [
+		{
+			"en": "Meeting bots with platform permissions",
+			"fr": "Bots de réunion autorisés par les plateformes"
+		},
+		{
+			"en": "Deal risk and forecast models",
+			"fr": "Modèles de risque et de prévision"
+		},
+		{
+			"en": "CRM hygiene automation",
+			"fr": "Automatisation de la propreté du CRM"
+		},
+		{
+			"en": "Recording consent and compliance",
+			"fr": "Consentement et conformité des enregistrements"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Whisper",
+			"source": {
+				"host": "github",
+				"path": "openai/whisper",
+				"url": "https://github.com/openai/whisper"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "MIT, runs locally, and is better than what Gong shipped in 2019. This removes the single largest line item from any build-versus-buy sheet.",
+				"fr": "MIT, tourne en local, et meilleur que ce que Gong livrait en 2019. Cela supprime le plus gros poste de n’importe quel calcul « faire ou acheter »."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Vexa",
+			"source": {
+				"host": "github",
+				"path": "Vexa-ai/vexa",
+				"url": "https://github.com/Vexa-ai/vexa"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Meeting bots that join Google Meet and Teams and return real-time transcripts through an API. The closest open thing to Gong's capture layer, and young.",
+				"fr": "Des bots qui rejoignent Google Meet et Teams et renvoient des transcriptions en temps réel via une API. Ce qui se rapproche le plus, en open source, de la couche de capture de Gong — et c’est jeune."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Meetily",
+			"source": {
+				"host": "github",
+				"path": "Zackriya-Solutions/meetily",
+				"url": "https://github.com/Zackriya-Solutions/meetily"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Local-first meeting notes and summaries with no audio leaving the machine. Personal scale, not a sales org.",
+				"fr": "Notes et résumés de réunion en local, sans qu’aucun audio ne quitte la machine. Échelle individuelle, pas une direction commerciale."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Fathom",
+			"url": "https://fathom.video",
+			"priceMonthly": 19,
+			"note": {
+				"en": "Recording, transcripts and summaries with CRM push for a twentieth of a Gong seat. No coaching analytics or forecasting.",
+				"fr": "Enregistrement, transcriptions et résumés avec envoi au CRM pour un vingtième d’un utilisateur Gong. Pas d’analyse de coaching ni de prévision."
+			}
+		}
+	],
+	"priority": 4
+}

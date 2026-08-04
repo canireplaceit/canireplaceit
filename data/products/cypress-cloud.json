@@ -1,0 +1,120 @@
+{
+	"slug": "cypress-cloud",
+	"name": "Cypress Cloud",
+	"domain": "cypress.io",
+	"category": "testing-qa",
+	"priceMonthly": 67,
+	"pricing": {
+		"plan": "Team, from $67/mo",
+		"basis": "usage",
+		"url": "https://www.cypress.io/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "The test runner is MIT; the dashboard, parallelisation and flake detection are the business. All three have credible free replacements, and Playwright ships two of them in the box.",
+		"fr": "Le runner est en MIT ; le tableau de bord, la parallélisation et la détection d’instabilité sont le business. Ces trois éléments ont des remplaçants gratuits crédibles, et Playwright en fournit deux d’origine."
+	},
+	"whatYouLose": [
+		{
+			"en": "Hosted run history",
+			"fr": "Historique d’exécutions hébergé"
+		},
+		{
+			"en": "Smart test-load balancing",
+			"fr": "Répartition intelligente de la charge"
+		},
+		{
+			"en": "Flake detection analytics",
+			"fr": "Analyse des tests instables"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Sorry Cypress",
+			"source": {
+				"host": "github",
+				"path": "sorry-cypress/sorry-cypress",
+				"url": "https://github.com/sorry-cypress/sorry-cypress"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "A drop-in self-hosted replacement for the Cypress Cloud API: parallelisation, run history, screenshots. Development has slowed noticeably — check activity before betting on it.",
+				"fr": "Un remplacement auto-hébergé direct de l’API Cypress Cloud : parallélisation, historique, captures d’écran. Le développement a nettement ralenti — vérifiez l’activité avant de miser dessus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Playwright",
+			"source": {
+				"host": "github",
+				"path": "microsoft/playwright",
+				"url": "https://github.com/microsoft/playwright"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The structural answer: sharding, retries, trace viewer and an HTML report are all built in and free. Migrating the suite is the real cost.",
+				"fr": "La réponse structurelle : sharding, retries, visualiseur de traces et rapport HTML sont intégrés et gratuits. Migrer la suite est le vrai coût."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ReportPortal",
+			"source": {
+				"host": "github",
+				"path": "reportportal/reportportal",
+				"url": "https://github.com/reportportal/reportportal"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Keeps Cypress and adds the dashboard: history, trends and automatic flake clustering across runs.",
+				"fr": "Conserve Cypress et ajoute le tableau de bord : historique, tendances et regroupement automatique des tests instables."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Allure Report",
+			"source": {
+				"host": "github",
+				"path": "allure-framework/allure2",
+				"url": "https://github.com/allure-framework/allure2"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Publish a static report to any bucket or Pages site. No server, no seats.",
+				"fr": "Publiez un rapport statique sur n’importe quel bucket ou site Pages. Pas de serveur, aucune licence par utilisateur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

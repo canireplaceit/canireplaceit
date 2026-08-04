@@ -1,0 +1,92 @@
+{
+	"slug": "autodesk-revit",
+	"name": "Autodesk Revit",
+	"domain": "autodesk.com",
+	"category": "3d-cad",
+	"priceMonthly": 243,
+	"pricing": {
+		"plan": "Revit, annual billed monthly (autodesk.com renders all prices client-side; not readable by fetch)",
+		"basis": "per-seat",
+		"url": "https://www.autodesk.com/products/revit/subscribe",
+		"checkedOn": "2026-08-02",
+		"confidence": "low"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Bonsai proves open IFC authoring works, and for a small practice doing IFC-native delivery it is genuinely usable. But Revit is a contractual requirement on most projects — the BIM execution plan names the .rvt file, and no amount of standards compliance changes that.",
+		"fr": "Bonsai prouve que la création IFC open source fonctionne, et pour une petite agence en livraison IFC native, c’est réellement utilisable. Mais Revit est une exigence contractuelle sur la plupart des projets — le plan d’exécution BIM nomme le fichier .rvt, et aucune conformité aux normes n’y changera rien."
+	},
+	"whatYouLose": [
+		{
+			"en": "The .rvt file the contract demands",
+			"fr": "Le fichier .rvt exigé par le contrat"
+		},
+		{
+			"en": "Worksharing on large teams",
+			"fr": "Travail partagé en grande équipe"
+		},
+		{
+			"en": "MEP and structural depth",
+			"fr": "Profondeur CVC-électricité et structure"
+		},
+		{
+			"en": "Consultant compatibility",
+			"fr": "Compatibilité avec les bureaux d’études"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Bonsai (IfcOpenShell)",
+			"source": {
+				"host": "github",
+				"path": "IfcOpenShell/IfcOpenShell",
+				"url": "https://github.com/IfcOpenShell/IfcOpenShell"
+			},
+			"license": "LGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Native IFC authoring inside Blender — the model IS the IFC file, with no round-trip loss. Documentation and MEP are far behind Revit.",
+				"fr": "Création IFC native dans Blender — le modèle EST le fichier IFC, sans perte d’aller-retour. Documentation et CVC très en retard sur Revit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FreeCAD",
+			"source": {
+				"host": "github",
+				"path": "FreeCAD/FreeCAD",
+				"url": "https://github.com/FreeCAD/FreeCAD"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "The BIM workbench does walls, levels, schedules and IFC. Fine for a small practice, painful on a large project.",
+				"fr": "L’atelier BIM gère murs, niveaux, nomenclatures et IFC. Correct pour une petite agence, pénible sur un grand projet."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "BricsCAD BIM",
+			"url": "https://www.bricsys.com/en-eu/bricscad-bim",
+			"priceMonthly": 0,
+			"note": {
+				"en": "Perpetual licence, IFC-first, and it opens DWG natively. Small ecosystem and few consultants know it.",
+				"fr": "Licence perpétuelle, IFC d’abord, et ouverture native du DWG. Petit écosystème et peu de bureaux d’études le connaissent."
+			}
+		}
+	],
+	"priority": 2
+}

@@ -1,0 +1,57 @@
+name: canireplaceit
+
+x-logging: &logging
+  driver: json-file
+  options:
+    max-size: "10m"
+    max-file: "5"
+    compress: "true"
+
+services:
+  canireplaceit-be:
+    image: ghcr.io/canireplaceit/canireplaceit-be:${TAG:?TAG required — deploy.sh writes .env.tag}
+    container_name: canireplaceit-be
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: production
+      PORT: "3001"
+      DATABASE_URL: /var/lib/canireplaceit/canireplaceit.db
+    volumes:
+      - canireplaceit-state:/var/lib/canireplaceit
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "/usr/local/bin/bun",
+          "-e",
+          "fetch('http://localhost:3001/health').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 60s
+    logging: *logging
+    networks: [canireplaceit]
+
+  canireplaceit-fe:
+    image: ghcr.io/canireplaceit/canireplaceit-fe:${TAG:?TAG required — deploy.sh writes .env.tag}
+    container_name: canireplaceit-fe
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "/usr/bin/wget", "-q", "-O", "/dev/null", "http://localhost/"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    logging: *logging
+    networks: [canireplaceit]
+
+volumes:
+  canireplaceit-state:
+    name: canireplaceit-state
+
+networks:
+  canireplaceit:
+    name: canireplaceit

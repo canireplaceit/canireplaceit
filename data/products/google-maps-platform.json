@@ -1,0 +1,109 @@
+{
+	"slug": "google-maps-platform",
+	"name": "Google Maps Platform",
+	"domain": "mapsplatform.google.com",
+	"category": "maps-location",
+	"priceMonthly": 0,
+	"pricing": {
+		"plan": "Pay-as-you-go, no monthly fee; 10,000 free events/mo then from $2.83 per 1,000",
+		"basis": "usage",
+		"url": "https://developers.google.com/maps/billing-and-pricing/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Free until the monthly credit runs out, then a bill that scales with your traffic. The full OpenStreetMap stack — tiles, geocoding, routing — is self-hostable and cheap at scale. What you cannot self-host is Google's Places data: business hours, phone numbers, reviews.",
+		"fr": "Gratuit jusqu’à épuisement du crédit mensuel, puis une facture qui grimpe avec votre trafic. La pile OpenStreetMap complète — tuiles, géocodage, calcul d’itinéraires — est auto-hébergeable et peu coûteuse à l’échelle. Ce que vous ne pouvez pas auto-héberger, c’est la donnée Places de Google : horaires, numéros de téléphone, avis."
+	},
+	"whatYouLose": [
+		{
+			"en": "Places data: hours, phones, reviews",
+			"fr": "Données Places : horaires, téléphones, avis"
+		},
+		{
+			"en": "Live traffic in routing",
+			"fr": "Trafic en temps réel dans les itinéraires"
+		},
+		{
+			"en": "Street View and satellite imagery",
+			"fr": "Street View et imagerie satellite"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Nominatim",
+			"source": {
+				"host": "github",
+				"path": "osm-search/Nominatim",
+				"url": "https://github.com/osm-search/Nominatim"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "The OpenStreetMap geocoder. A full planet import needs serious disk and hours of patience.",
+				"fr": "Le géocodeur d’OpenStreetMap. Un import planétaire complet demande beaucoup de disque et des heures de patience."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Valhalla",
+			"source": {
+				"host": "github",
+				"path": "valhalla/valhalla",
+				"url": "https://github.com/valhalla/valhalla"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Routing engine with turn-by-turn, isochrones and matrix APIs. Fast and well documented.",
+				"fr": "Moteur d’itinéraires avec navigation, isochrones et API matricielles. Rapide et bien documenté."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Photon",
+			"source": {
+				"host": "github",
+				"path": "komoot/photon",
+				"url": "https://github.com/komoot/photon"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Search-as-you-type geocoding on top of OpenStreetMap. Much easier to run than Nominatim.",
+				"fr": "Géocodage à la frappe basé sur OpenStreetMap. Bien plus facile à exploiter que Nominatim."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "LocationIQ",
+			"url": "https://locationiq.com",
+			"priceMonthly": 9,
+			"note": {
+				"en": "OpenStreetMap-backed geocoding and maps at a fraction of Google's per-request cost. No Places-style business data.",
+				"fr": "Géocodage et cartes basés sur OpenStreetMap à une fraction du coût par requête de Google. Aucune donnée d’établissements type Places."
+			}
+		}
+	],
+	"priority": 4
+}

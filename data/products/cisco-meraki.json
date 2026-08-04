@@ -1,0 +1,103 @@
+{
+	"slug": "cisco-meraki",
+	"name": "Cisco Meraki",
+	"domain": "meraki.com",
+	"category": "networking-vpn",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "Meraki's value is a dashboard that makes 400 access points across 40 sites one object, plus hardware that bricks itself when the licence lapses. OpenWrt and OpenWISP get you the same fleet management without the ransom clause, at the cost of doing your own RF planning.",
+		"fr": "La valeur de Meraki, c’est un tableau de bord qui fait de 400 points d’accès sur 40 sites un seul objet, plus du matériel qui se transforme en brique à l’expiration de la licence. OpenWrt et OpenWISP offrent la même gestion de parc sans la clause de rançon, au prix de faire votre propre ingénierie radio."
+	},
+	"whatYouLose": [
+		{
+			"en": "One dashboard for everything",
+			"fr": "Tableau de bord unique"
+		},
+		{
+			"en": "Zero-touch site deployment",
+			"fr": "Déploiement de site sans intervention"
+		},
+		{
+			"en": "Vendor RF tuning and support",
+			"fr": "Réglage radio et support éditeur"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "OpenWrt",
+			"source": {
+				"host": "github",
+				"path": "openwrt/openwrt",
+				"url": "https://github.com/openwrt/openwrt"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Linux for network hardware, on hundreds of supported devices. No licence to lapse: the AP keeps working forever, which is the entire argument.",
+				"fr": "Linux pour matériel réseau, sur des centaines d’appareils pris en charge. Aucune licence à expirer : le point d’accès continue de fonctionner, et c’est tout l’argument."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenWISP",
+			"source": {
+				"host": "github",
+				"path": "openwisp/openwisp-controller",
+				"url": "https://github.com/openwisp/openwisp-controller"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "The missing dashboard: configuration templates, zero-touch provisioning, firmware upgrades and monitoring for an OpenWrt fleet. Django, so plan a real deployment.",
+				"fr": "Le tableau de bord manquant : modèles de configuration, provisioning sans intervention, mises à jour de firmware et supervision d’un parc OpenWrt. Du Django, donc prévoyez un vrai déploiement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PacketFence",
+			"source": {
+				"host": "github",
+				"path": "inverse-inc/packetfence",
+				"url": "https://github.com/inverse-inc/packetfence"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Covers the access-control half — 802.1X, guest portals, device isolation — across mixed vendor hardware, which Meraki only does for Meraki.",
+				"fr": "Couvre la moitié contrôle d’accès — 802.1X, portails invités, isolation d’appareils — sur du matériel multi-constructeur, ce que Meraki ne fait que pour Meraki."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Ubiquiti UniFi",
+			"url": "https://ui.com/us/en/cloud-gateways",
+			"priceMonthly": 0,
+			"note": {
+				"en": "Buy the hardware once, run the controller yourself, pay nothing per year. The controller is proprietary and Ubiquiti support is a community forum.",
+				"fr": "Achetez le matériel une fois, faites tourner le contrôleur vous-même, ne payez rien par an. Le contrôleur est propriétaire et le support Ubiquiti est un forum communautaire."
+			}
+		}
+	],
+	"priority": 3
+}

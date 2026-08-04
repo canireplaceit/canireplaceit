@@ -1,0 +1,120 @@
+{
+	"slug": "claude-code",
+	"name": "Claude Code",
+	"domain": "claude.com",
+	"category": "ai",
+	"priceMonthly": 20,
+	"pricing": {
+		"plan": "Claude Pro",
+		"basis": "per-seat",
+		"url": "https://claude.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "The terminal-agent space caught up in about a year: opencode, Crush, Goose and Aider all do the same loop and let you point at any model. What you cannot self-host is the model — swapping to a local one is a real quality drop, and swapping to another API just moves the bill.",
+		"fr": "L’espace des agents en terminal a rattrapé son retard en un an : opencode, Crush, Goose et Aider font la même boucle et acceptent n’importe quel modèle. Ce qui ne s’auto-héberge pas, c’est le modèle — passer à un modèle local fait vraiment chuter la qualité, et passer à une autre API ne fait que déplacer la facture."
+	},
+	"whatYouLose": [
+		{
+			"en": "Frontier model quality",
+			"fr": "Qualité du modèle de pointe"
+		},
+		{
+			"en": "Included inference in the price",
+			"fr": "Inférence incluse dans le prix"
+		},
+		{
+			"en": "Hooks and subagent polish",
+			"fr": "Finition des hooks et sous-agents"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "opencode",
+			"source": {
+				"host": "github",
+				"path": "anomalyco/opencode",
+				"url": "https://github.com/anomalyco/opencode"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The most direct equivalent. Provider-agnostic, TUI plus an LSP-aware editing loop; works fine against a local llama.cpp or Ollama endpoint with no vendor account.",
+				"fr": "L’équivalent le plus direct. Indépendant du fournisseur, TUI plus une boucle d’édition consciente du LSP ; fonctionne contre un endpoint local llama.cpp ou Ollama, sans compte fournisseur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Crush",
+			"source": {
+				"host": "github",
+				"path": "charmbracelet/crush",
+				"url": "https://github.com/charmbracelet/crush"
+			},
+			"license": "FSL-1.1-MIT (converts to MIT after 2 years)",
+			"effort": "managed",
+			"note": {
+				"en": "Charm's terminal agent, MCP-capable, any provider. Source-available under FSL rather than open source until each release ages out — worth knowing before you fork it.",
+				"fr": "L’agent en terminal de Charm, compatible MCP, tout fournisseur. Source-available sous FSL plutôt qu’open source jusqu’à l’expiration du délai — bon à savoir avant de le forker."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Goose",
+			"source": {
+				"host": "github",
+				"path": "aaif-goose/goose",
+				"url": "https://github.com/aaif-goose/goose"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Block's agent, now maintained in its own org after the move out of block/goose. Strong MCP extension story and runs against local models.",
+				"fr": "L’agent de Block, désormais maintenu dans sa propre organisation après le départ de block/goose. Très bon support des extensions MCP, et tourne sur des modèles locaux."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Aider",
+			"source": {
+				"host": "github",
+				"path": "Aider-AI/aider",
+				"url": "https://github.com/Aider-AI/aider"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Git-native: every change is a commit, so review is just git. Older and less agentic than the others, and still the easiest to trust.",
+				"fr": "Natif git : chaque changement est un commit, donc la revue se fait avec git. Plus ancien et moins agentique que les autres, et toujours le plus facile à auditer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 5
+}

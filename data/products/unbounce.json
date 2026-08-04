@@ -1,0 +1,134 @@
+{
+	"slug": "unbounce",
+	"name": "Unbounce",
+	"domain": "unbounce.com",
+	"category": "marketing",
+	"priceMonthly": 99,
+	"pricing": {
+		"plan": "Build, billed monthly ($74/mo billed annually; Starter $29)",
+		"basis": "flat",
+		"url": "https://unbounce.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "A landing page is a static file. Ninety-nine dollars a month buys a drag-and-drop editor so a marketer never has to open a pull request — that is a workflow problem, not a technology one, and open source page builders now solve it properly.",
+		"fr": "Une landing page, c’est un fichier statique. Quatre-vingt-dix-neuf dollars par mois achètent un éditeur glisser-déposer pour qu’un marketeur n’ouvre jamais de pull request — c’est un problème d’organisation, pas de technologie, et les éditeurs open source le résolvent désormais correctement."
+	},
+	"whatYouLose": [
+		{
+			"en": "Smart Traffic auto-optimisation",
+			"fr": "Auto-optimisation Smart Traffic"
+		},
+		{
+			"en": "A library of converting templates",
+			"fr": "Une bibliothèque de modèles qui convertissent"
+		},
+		{
+			"en": "Hosting and A/B testing bundled",
+			"fr": "Hébergement et tests A/B inclus"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Webstudio",
+			"source": {
+				"host": "github",
+				"path": "webstudio-is/webstudio",
+				"url": "https://github.com/webstudio-is/webstudio"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The closest thing to a self-hosted Unbounce: a real visual builder producing clean, fast pages. The hosted plan funds it, but the builder is fully AGPL.",
+				"fr": "Ce qui ressemble le plus à un Unbounce auto-hébergé : un vrai éditeur visuel qui produit des pages propres et rapides. Le plan hébergé le finance, mais l’éditeur est entièrement AGPL."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GrapesJS",
+			"source": {
+				"host": "github",
+				"path": "GrapesJS/grapesjs",
+				"url": "https://github.com/GrapesJS/grapesjs"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "The page-builder engine other products are built on. It is a library, so you supply the app around it.",
+				"fr": "Le moteur d’édition de pages sur lequel d’autres produits sont bâtis. C’est une bibliothèque : l’application autour, c’est vous."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Puck",
+			"source": {
+				"host": "github",
+				"path": "puckeditor/puck",
+				"url": "https://github.com/puckeditor/puck"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Drop a visual editor into your own React app so marketing edits real components. MIT, no strings.",
+				"fr": "Ajoutez un éditeur visuel dans votre app React pour que le marketing modifie de vrais composants. MIT, sans contrepartie."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Plasmic",
+			"source": {
+				"host": "github",
+				"path": "plasmicapp/plasmic",
+				"url": "https://github.com/plasmicapp/plasmic"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Worth naming precisely because of the trap: the MIT repo is the codegen and loader runtime, while Studio itself is a hosted SaaS you cannot self-host.",
+				"fr": "À citer précisément à cause du piège : le dépôt MIT n’est que le runtime de génération et de chargement, alors que Studio lui-même est un SaaS hébergé non auto-hébergeable."
+			},
+			"facts": {
+				"selfHostable": false,
+				"openCore": "major",
+				"paywalled": {
+					"en": "The Studio itself is a hosted SaaS; the MIT repo is the codegen and loader runtime",
+					"fr": "Le Studio lui-même est un SaaS hébergé ; le dépôt MIT n’est que le runtime de génération et de chargement"
+				},
+				"ssoInFree": false,
+				"dataResidency": "us-only"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Carrd",
+			"url": "https://carrd.co",
+			"priceMonthly": 2,
+			"note": {
+				"en": "Nineteen dollars a year for one-page sites. No A/B testing, no dynamic text replacement, no team features.",
+				"fr": "Dix-neuf dollars par an pour des sites d’une page. Pas de tests A/B, pas de remplacement dynamique de texte, pas de fonctions d’équipe."
+			}
+		}
+	],
+	"priority": 3
+}

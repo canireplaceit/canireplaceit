@@ -1,0 +1,145 @@
+{
+	"slug": "cozi",
+	"name": "Cozi",
+	"domain": "cozi.com",
+	"category": "home-devices",
+	"priceMonthly": 3.25,
+	"pricing": {
+		"plan": "Cozi Gold, $39/year",
+		"basis": "flat",
+		"url": "https://www.cozi.com/cozi-gold/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "The free tier is ad-supported, which in a family calendar means your household's schedule funds an ad business — Gold removes the ads, not the data collection. Nextcloud plus Donetick rebuilds the calendar, lists and chores; what it cannot rebuild is a partner who will actually install it.",
+		"fr": "L’offre gratuite est financée par la publicité, ce qui, dans un agenda familial, signifie que le planning de votre foyer finance un business publicitaire — Gold retire les publicités, pas la collecte. Nextcloud plus Donetick reconstruit l’agenda, les listes et les corvées ; ce qu’il ne reconstruit pas, c’est un conjoint qui acceptera de l’installer."
+	},
+	"whatYouLose": [
+		{
+			"en": "A shared calendar the whole family uses",
+			"fr": "Un agenda partagé que toute la famille utilise"
+		},
+		{
+			"en": "Setup with no technical person",
+			"fr": "Installation sans personne technique"
+		},
+		{
+			"en": "One app for lists, meals and chores",
+			"fr": "Une seule application pour listes, repas et corvées"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Nextcloud",
+			"source": {
+				"host": "github",
+				"path": "nextcloud/server",
+				"url": "https://github.com/nextcloud/server"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Files, calendars, contacts, notes and photos in one AGPL server. Heavier than you want and slower than Dropbox, but it is genuinely all there.",
+				"fr": "Fichiers, agendas, contacts, notes et photos dans un seul serveur AGPL. Plus lourd que souhaité et plus lent que Dropbox, mais tout y est réellement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "A few enterprise-only apps and the support contract",
+					"fr": "Quelques applications réservées à l’édition entreprise et le contrat de support"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Donetick",
+			"source": {
+				"host": "github",
+				"path": "donetick/donetick",
+				"url": "https://github.com/donetick/donetick"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Recurring household chores assigned around a family, with rotation and nagging. The part of Cozi that actually matters.",
+				"fr": "Corvées récurrentes réparties dans la famille, avec rotation et relances. La partie de Cozi qui compte vraiment."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "KitchenOwl",
+			"source": {
+				"host": "github",
+				"path": "TomBursch/kitchenowl",
+				"url": "https://github.com/TomBursch/kitchenowl"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Shared shopping lists and recipes for a household, with a good Flutter app. A smaller scope than Mealie and much easier to get a partner to use.",
+				"fr": "Listes de courses et recettes partagées pour un foyer, avec une bonne application Flutter. Un périmètre plus réduit que Mealie et bien plus facile à faire adopter par un conjoint."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Radicale",
+			"source": {
+				"host": "github",
+				"path": "Kozea/Radicale",
+				"url": "https://github.com/Kozea/Radicale"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "A tiny Python CalDAV and CardDAV server. Under 100MB of RAM, and every calendar app on earth speaks to it.",
+				"fr": "Un petit serveur CalDAV et CardDAV en Python. Moins de 100 Mo de RAM, et toutes les applications d’agenda du monde lui parlent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "grocy",
+			"source": {
+				"host": "github",
+				"path": "grocy/grocy",
+				"url": "https://github.com/grocy/grocy"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "ERP for your fridge: stock, expiry dates, chores and recipes derived from what you actually have. Obsessive, and brilliant if you are too.",
+				"fr": "Un ERP pour votre frigo : stocks, dates de péremption, corvées et recettes déduites de ce que vous avez vraiment. Obsessionnel, et génial si vous l’êtes aussi."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

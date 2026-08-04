@@ -1,0 +1,113 @@
+{
+	"slug": "tailscale",
+	"name": "Tailscale",
+	"domain": "tailscale.com",
+	"category": "networking-vpn",
+	"priceMonthly": 8,
+	"pricing": {
+		"plan": "Standard",
+		"basis": "per-seat",
+		"url": "https://tailscale.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "The client is open source and Headscale reimplements the control plane faithfully. What you do not get is Tailscale's global DERP relay fleet — when NAT traversal fails, and it will, someone has to run the relay. That someone becomes you.",
+		"fr": "Le client est open source et Headscale réimplémente fidèlement le plan de contrôle. Ce que vous n’obtenez pas, c’est la flotte mondiale de relais DERP de Tailscale — quand la traversée de NAT échoue, et elle échouera, quelqu’un doit exploiter le relais. Ce quelqu’un, c’est vous."
+	},
+	"whatYouLose": [
+		{
+			"en": "The global DERP relay fleet",
+			"fr": "La flotte mondiale de relais DERP"
+		},
+		{
+			"en": "Polished admin console",
+			"fr": "Console d’admin soignée"
+		},
+		{
+			"en": "Zero-config NAT fallback",
+			"fr": "Repli NAT sans configuration"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Headscale",
+			"source": {
+				"host": "github",
+				"path": "juanfont/headscale",
+				"url": "https://github.com/juanfont/headscale"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Reimplements the coordination server; official Tailscale clients connect to it unmodified. No admin UI in the box.",
+				"fr": "Réimplémente le serveur de coordination ; les clients Tailscale officiels s’y connectent sans modification. Pas d’interface d’admin fournie."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "NetBird",
+			"source": {
+				"host": "github",
+				"path": "netbirdio/netbird",
+				"url": "https://github.com/netbirdio/netbird"
+			},
+			"license": "BSD-3-Clause/AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Whole stack open source including the UI, SSO and access policies. The most complete self-hosted answer.",
+				"fr": "Pile entièrement open source, interface, SSO et politiques d’accès inclus. La réponse auto-hébergée la plus complète."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "High availability and SCIM require a licence",
+					"fr": "Haute disponibilité et SCIM sous licence payante"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nebula",
+			"source": {
+				"host": "github",
+				"path": "slackhq/nebula",
+				"url": "https://github.com/slackhq/nebula"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Slack's mesh, built for tens of thousands of hosts. No web UI, config files only — deliberately.",
+				"fr": "Le maillage de Slack, conçu pour des dizaines de milliers d’hôtes. Pas d’interface web, uniquement des fichiers de config — délibérément."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "NetBird Cloud",
+			"url": "https://netbird.io/pricing",
+			"priceMonthly": 5,
+			"note": {
+				"en": "Hosted by the project's authors with a free tier for small teams. Smaller relay footprint than Tailscale, so cross-continent fallback performance is worse.",
+				"fr": "Hébergé par les auteurs du projet, avec un palier gratuit pour les petites équipes. Empreinte de relais plus faible que Tailscale : le repli intercontinental est moins performant."
+			}
+		}
+	],
+	"priority": 5
+}

@@ -1,0 +1,103 @@
+{
+	"slug": "parsec",
+	"name": "Parsec",
+	"domain": "parsec.app",
+	"category": "remote-access",
+	"priceMonthly": 9.99,
+	"pricing": {
+		"plan": "Warp, billed monthly",
+		"basis": "per-seat",
+		"url": "https://parsec.app/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "On your own LAN, Sunshine plus Moonlight matches Parsec and arguably beats it — same NVENC pipeline, sub-frame latency, no account. Over the internet it is a different story: Parsec's NAT traversal and relay network are the reason it works from a hotel and your self-hosted setup does not.",
+		"fr": "Sur votre propre réseau local, Sunshine plus Moonlight égale Parsec et le dépasse sans doute — même pipeline NVENC, latence sous la trame, aucun compte. Sur internet, c’est une autre histoire : la traversée de NAT et le réseau de relais de Parsec expliquent que ça marche depuis un hôtel, et pas votre installation maison."
+	},
+	"whatYouLose": [
+		{
+			"en": "NAT traversal that just works",
+			"fr": "Traversée de NAT qui marche"
+		},
+		{
+			"en": "Relay fallback over WAN",
+			"fr": "Repli par relais sur WAN"
+		},
+		{
+			"en": "Team management features",
+			"fr": "Fonctions de gestion d’équipe"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Sunshine",
+			"source": {
+				"host": "github",
+				"path": "LizardByte/Sunshine",
+				"url": "https://github.com/LizardByte/Sunshine"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Self-hosted host server for the Moonlight protocol, with NVENC, AMF and QuickSync encoding and a web UI. Install, pair, done.",
+				"fr": "Serveur hôte auto-hébergé pour le protocole Moonlight, avec encodage NVENC, AMF et QuickSync, et une interface web. Installez, appairez, terminé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Moonlight",
+			"source": {
+				"host": "github",
+				"path": "moonlight-stream/moonlight-qt",
+				"url": "https://github.com/moonlight-stream/moonlight-qt"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The client, on every platform including phones, TVs and a Steam Deck. Pair it with Sunshine and you have Parsec on your LAN for nothing.",
+				"fr": "Le client, sur toutes les plateformes, y compris téléphones, téléviseurs et Steam Deck. Associé à Sunshine, vous avez Parsec sur votre LAN pour rien."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "RustDesk",
+			"source": {
+				"host": "github",
+				"path": "rustdesk/rustdesk",
+				"url": "https://github.com/rustdesk/rustdesk"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Not a gaming codec, but it does solve the WAN half with your own relay — useful when the goal is working on a remote workstation rather than playing on it.",
+				"fr": "Pas un codec de jeu, mais il règle la moitié WAN avec votre propre relais — utile quand l’objectif est de travailler sur une station distante plutôt que d’y jouer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Web console, address book, LDAP/OIDC SSO and 2FA are Server Pro.",
+					"fr": "Console web, carnet d’adresses, SSO LDAP/OIDC et 2FA sont dans Server Pro."
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

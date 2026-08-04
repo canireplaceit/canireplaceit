@@ -1,0 +1,76 @@
+{
+	"slug": "prolific",
+	"name": "Prolific",
+	"domain": "prolific.com",
+	"category": "research-science",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "not-yet",
+	"why": {
+		"en": "You are not buying software, you are buying a vetted, prescreened, reliably paid participant pool. Software can host the study — jsPsych does that for free — but no repository will hand you 200 demographically balanced humans on a Tuesday.",
+		"fr": "Vous n’achetez pas un logiciel, vous achetez un panel de participants vérifiés, présélectionnés et payés de façon fiable. Un logiciel peut héberger l’étude — jsPsych le fait gratuitement — mais aucun dépôt ne vous fournira 200 humains démographiquement équilibrés un mardi."
+	},
+	"whatYouLose": [
+		{
+			"en": "The participant pool itself",
+			"fr": "Le panel de participants lui-même"
+		},
+		{
+			"en": "Demographic prescreening",
+			"fr": "Présélection démographique"
+		},
+		{
+			"en": "Payment and fraud handling",
+			"fr": "Gestion des paiements et de la fraude"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "jsPsych",
+			"source": {
+				"host": "github",
+				"path": "jspsych/jsPsych",
+				"url": "https://github.com/jspsych/jsPsych"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Runs the experiment in the browser and gives you the data. Host it on any static server; recruit participants wherever you like.",
+				"fr": "Exécute l’expérience dans le navigateur et vous rend les données. Hébergez-la sur n’importe quel serveur statique ; recrutez les participants où vous voulez."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PsychoPy",
+			"source": {
+				"host": "github",
+				"path": "psychopy/psychopy",
+				"url": "https://github.com/psychopy/psychopy"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Millisecond-accurate stimulus presentation, in the lab or online via PsychoJS. Pavlovia hosting is the paid part; self-hosting the JS build is free.",
+				"fr": "Présentation de stimuli précise à la milliseconde, en laboratoire ou en ligne via PsychoJS. L’hébergement Pavlovia est la partie payante ; auto-héberger la version JS est gratuit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Pavlovia hosting and participant credits",
+					"fr": "L’hébergement Pavlovia et les crédits participants"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

@@ -1,0 +1,128 @@
+{
+	"slug": "auth0",
+	"name": "Auth0",
+	"domain": "auth0.com",
+	"category": "auth",
+	"priceMonthly": 35,
+	"pricing": {
+		"plan": "B2C Essentials, from $35/mo (MAU-based)",
+		"basis": "usage",
+		"url": "https://auth0.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Auth0's pricing cliff at scale is what drives every migration. OIDC is a standard; the lock-in is thin.",
+		"fr": "C’est la falaise tarifaire à grande échelle qui déclenche toutes les migrations. OIDC est un standard ; le verrouillage est mince."
+	},
+	"whatYouLose": [
+		{
+			"en": "Hosted login pages",
+			"fr": "Pages de connexion hébergées"
+		},
+		{
+			"en": "Preconfigured social logins",
+			"fr": "Connexions sociales préconfigurées"
+		},
+		{
+			"en": "Anomaly and bot detection",
+			"fr": "Détection d’anomalies et de bots"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Keycloak",
+			"source": {
+				"host": "github",
+				"path": "keycloak/keycloak",
+				"url": "https://github.com/keycloak/keycloak"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Enterprise-grade, JVM, heavy but bulletproof.",
+				"fr": "Niveau entreprise, en JVM, lourd mais increvable."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Zitadel",
+			"source": {
+				"host": "github",
+				"path": "zitadel/zitadel",
+				"url": "https://github.com/zitadel/zitadel"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Modern, multi-tenant, Go.",
+				"fr": "Moderne, multi-tenant, en Go."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ory Kratos",
+			"source": {
+				"host": "github",
+				"path": "ory/kratos",
+				"url": "https://github.com/ory/kratos"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "API-first, you build the UI.",
+				"fr": "API d’abord, l’interface est à votre charge."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SAML, SCIM, B2B organizations, multi-region",
+					"fr": "SAML, SCIM, organisations B2B, multi-région"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Logto",
+			"source": {
+				"host": "github",
+				"path": "logto-io/logto",
+				"url": "https://github.com/logto-io/logto"
+			},
+			"license": "MPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Best DX of the bunch.",
+				"fr": "La meilleure DX du lot."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Console MFA, unlimited SAML apps, branding removal",
+					"fr": "MFA console, apps SAML illimitées, retrait du logo"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

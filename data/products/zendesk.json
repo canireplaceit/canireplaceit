@@ -1,0 +1,107 @@
+{
+	"slug": "zendesk",
+	"name": "Zendesk",
+	"domain": "zendesk.com",
+	"category": "support",
+	"priceMonthly": 55,
+	"pricing": {
+		"plan": "Suite Team, annual billed monthly",
+		"basis": "per-seat",
+		"url": "https://www.zendesk.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Ticketing with SLAs and a knowledge base is well covered. Migration of ticket history is the actual work.",
+		"fr": "Le ticketing avec SLA et base de connaissances est bien couvert. Le vrai travail, c’est de migrer l’historique des tickets."
+	},
+	"whatYouLose": [
+		{
+			"en": "Ticket history migration",
+			"fr": "Migration de l’historique"
+		},
+		{
+			"en": "Mature SLA reporting",
+			"fr": "Rapports SLA matures"
+		},
+		{
+			"en": "Marketplace apps",
+			"fr": "Apps du marketplace"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Zammad",
+			"source": {
+				"host": "github",
+				"path": "zammad/zammad",
+				"url": "https://github.com/zammad/zammad"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "The most Zendesk-like.",
+				"fr": "Le plus proche de Zendesk."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FreeScout",
+			"source": {
+				"host": "github",
+				"path": "freescout-help-desk/freescout",
+				"url": "https://github.com/freescout-help-desk/freescout"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Help Scout clone, PHP, cheap to run.",
+				"fr": "Clone de Help Scout, en PHP, peu coûteux à faire tourner."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Most official modules cost extra",
+					"fr": "La plupart des modules officiels sont payants"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Chatwoot",
+			"source": {
+				"host": "github",
+				"path": "chatwoot/chatwoot",
+				"url": "https://github.com/chatwoot/chatwoot"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "If chat matters more than tickets.",
+				"fr": "Si le chat compte plus que les tickets."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO/SAML, SLAs, audit logs",
+					"fr": "SSO/SAML, SLA, journaux d’audit"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

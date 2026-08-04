@@ -1,0 +1,88 @@
+{
+	"slug": "coolors",
+	"name": "Coolors",
+	"domain": "coolors.co",
+	"category": "design",
+	"priceMonthly": 3,
+	"pricing": {
+		"plan": "Pro, $3/mo billed yearly (prices render client-side; monthly rate not readable)",
+		"basis": "per-seat",
+		"url": "https://coolors.co/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "low"
+	},
+	"verdict": "not-yet",
+	"why": {
+		"en": "The generator is a fifteen-line algorithm; what Coolors sells is the collection of palettes other people made and a UI you enjoy pressing space in. The open colour tools are libraries, not products — you get better maths and no interface.",
+		"fr": "Le générateur tient en quinze lignes ; ce que Coolors vend, ce sont les palettes créées par d’autres et une interface où l’on aime appuyer sur espace. Les outils de couleur open source sont des bibliothèques, pas des produits — meilleures mathématiques, aucune interface."
+	},
+	"whatYouLose": [
+		{
+			"en": "Community palette library",
+			"fr": "Bibliothèque de palettes communautaire"
+		},
+		{
+			"en": "The generator interface itself",
+			"fr": "L’interface du générateur elle-même"
+		},
+		{
+			"en": "Contrast checker and image extraction",
+			"fr": "Vérificateur de contraste et extraction depuis une image"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Material Color Utilities",
+			"source": {
+				"host": "github",
+				"path": "material-foundation/material-color-utilities",
+				"url": "https://github.com/material-foundation/material-color-utilities"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Generates a full tonal palette from one seed colour in HCT, with contrast guaranteed by construction. A library, in six languages, with no UI.",
+				"fr": "Génère une palette tonale complète depuis une couleur source en HCT, avec un contraste garanti par construction. Une bibliothèque, en six langages, sans interface."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "chroma.js",
+			"source": {
+				"host": "github",
+				"path": "gka/chroma.js",
+				"url": "https://github.com/gka/chroma.js"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Perceptually correct scales, interpolation and contrast checks in about 20 kB. Build the tool you wanted in an afternoon.",
+				"fr": "Échelles perceptuellement correctes, interpolation et vérification de contraste en environ 20 ko. De quoi construire l’outil voulu en une après-midi."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Adobe Color",
+			"url": "https://color.adobe.com",
+			"priceMonthly": 0,
+			"note": {
+				"en": "Free with any Adobe account, with harmony rules, accessibility checks and image extraction. Ties palettes to Creative Cloud libraries.",
+				"fr": "Gratuit avec un compte Adobe, avec règles d’harmonie, contrôles d’accessibilité et extraction depuis une image. Lie les palettes aux bibliothèques Creative Cloud."
+			}
+		}
+	],
+	"priority": 1
+}

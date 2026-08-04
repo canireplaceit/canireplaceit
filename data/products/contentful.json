@@ -1,0 +1,111 @@
+{
+	"slug": "contentful",
+	"name": "Contentful",
+	"domain": "contentful.com",
+	"category": "cms",
+	"priceMonthly": 300,
+	"pricing": {
+		"plan": "Lite",
+		"basis": "flat",
+		"url": "https://www.contentful.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Headless CMS pricing is per-seat and per-API-call for what is, structurally, a database with an admin panel.",
+		"fr": "La tarification des CMS headless se fait à l’utilisateur et à l’appel d’API, pour ce qui est structurellement une base de données avec un back-office."
+	},
+	"whatYouLose": [
+		{
+			"en": "Global content CDN",
+			"fr": "CDN de contenu mondial"
+		},
+		{
+			"en": "Enterprise roles and workflows",
+			"fr": "Rôles et workflows entreprise"
+		},
+		{
+			"en": "No infrastructure to run",
+			"fr": "Aucune infra à exploiter"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Strapi",
+			"source": {
+				"host": "github",
+				"path": "strapi/strapi",
+				"url": "https://github.com/strapi/strapi"
+			},
+			"license": "MIT/EE",
+			"effort": "docker",
+			"note": {
+				"en": "Most popular, big plugin ecosystem.",
+				"fr": "Le plus populaire, gros écosystème de plugins."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO, RBAC, audit logs, review workflows",
+					"fr": "SSO, RBAC, journaux d’audit, workflows"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Directus",
+			"source": {
+				"host": "github",
+				"path": "directus/directus",
+				"url": "https://github.com/directus/directus"
+			},
+			"license": "BSL",
+			"effort": "docker",
+			"note": {
+				"en": "Wraps any existing SQL schema.",
+				"fr": "S’enroule autour de n’importe quel schéma SQL existant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Over 3 seats, 25 collections, SSO",
+					"fr": "Au-delà de 3 utilisateurs, 25 collections, SSO"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Payload",
+			"source": {
+				"host": "github",
+				"path": "payloadcms/payload",
+				"url": "https://github.com/payloadcms/payload"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "TypeScript-native, best for Next.js.",
+				"fr": "Natif TypeScript, idéal avec Next.js."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO, audit logs, multi-tenancy, visual editing",
+					"fr": "SSO, journaux d’audit, multi-tenance, édition visuelle"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

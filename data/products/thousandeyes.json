@@ -1,0 +1,93 @@
+{
+	"slug": "thousandeyes",
+	"name": "Cisco ThousandEyes",
+	"domain": "thousandeyes.com",
+	"category": "observability-telemetry",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "not-yet",
+	"why": {
+		"en": "ThousandEyes answers 'is it us, our ISP, or AWS?' by correlating traceroutes and BGP data from thousands of agents on networks you will never have access to. You can run the probes; you cannot run the vantage points, and the vantage points are the entire product.",
+		"fr": "ThousandEyes répond à « est-ce nous, notre FAI ou AWS ? » en corrélant des traceroutes et des données BGP issues de milliers d’agents sur des réseaux auxquels vous n’aurez jamais accès. Vous pouvez exécuter les sondes ; vous ne pouvez pas exploiter les points d’observation, et ce sont eux tout le produit."
+	},
+	"whatYouLose": [
+		{
+			"en": "Global vantage-point fleet",
+			"fr": "Flotte mondiale de points d’observation"
+		},
+		{
+			"en": "BGP and ISP correlation",
+			"fr": "Corrélation BGP et FAI"
+		},
+		{
+			"en": "Shared internet outage feed",
+			"fr": "Flux partagé des pannes internet"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "SmokePing",
+			"source": {
+				"host": "github",
+				"path": "oetiker/SmokePing",
+				"url": "https://github.com/oetiker/SmokePing"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Twenty years old and still the clearest way to see latency distribution and packet loss over time. Ugly graphs that have ended more arguments with ISPs than any dashboard.",
+				"fr": "Vingt ans d’âge et toujours la façon la plus claire de voir la distribution de latence et la perte de paquets dans le temps. Des graphiques laids qui ont clos plus de disputes avec des FAI que n’importe quel tableau de bord."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "blackbox_exporter",
+			"source": {
+				"host": "github",
+				"path": "prometheus/blackbox_exporter",
+				"url": "https://github.com/prometheus/blackbox_exporter"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Probes from every site you control, alerting through Prometheus. Deploy one per branch office and you have a poor man's agent mesh.",
+				"fr": "Sondes depuis chaque site que vous contrôlez, alertes via Prometheus. Un par agence et vous avez un maillage d’agents du pauvre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Trippy",
+			"source": {
+				"host": "github",
+				"path": "fujiapple852/trippy",
+				"url": "https://github.com/fujiapple852/trippy"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "traceroute and ping combined into one live TUI with per-hop loss. The tool you actually reach for when an incident is happening.",
+				"fr": "traceroute et ping combinés dans une TUI en direct avec la perte par saut. L’outil vers lequel on se tourne réellement pendant un incident."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

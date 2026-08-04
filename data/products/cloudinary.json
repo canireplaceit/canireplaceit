@@ -1,0 +1,123 @@
+{
+	"slug": "cloudinary",
+	"name": "Cloudinary",
+	"domain": "cloudinary.com",
+	"category": "cloud-platforms-hosting",
+	"priceMonthly": 99,
+	"pricing": {
+		"plan": "Plus, $99/mo ($89/mo billed annually)",
+		"basis": "flat",
+		"url": "https://cloudinary.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "It resizes and re-encodes images on a URL. imgproxy does that in a 20MB binary. The only thing you rebuild yourself is the CDN cache in front, and any CDN will do.",
+		"fr": "Il redimensionne et réencode des images à partir d’une URL. imgproxy fait la même chose dans un binaire de 20 Mo. La seule chose à rebâtir, c’est le cache CDN devant, et n’importe quel CDN fera l’affaire."
+	},
+	"whatYouLose": [
+		{
+			"en": "Built-in global CDN",
+			"fr": "CDN mondial intégré"
+		},
+		{
+			"en": "Video transcoding pipeline",
+			"fr": "Chaîne de transcodage vidéo"
+		},
+		{
+			"en": "Asset management UI",
+			"fr": "Interface de gestion des médias"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "imgproxy",
+			"source": {
+				"host": "github",
+				"path": "imgproxy/imgproxy",
+				"url": "https://github.com/imgproxy/imgproxy"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Fastest of the three, signed URLs by default so nobody can DoS your CPU. AVIF and WebP out of the box.",
+				"fr": "Le plus rapide des trois, URLs signées par défaut pour que personne ne sature votre CPU. AVIF et WebP nativement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Pro: video thumbnails, advanced processing",
+					"fr": "Pro : vignettes vidéo, traitement avancé"
+				},
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Thumbor",
+			"source": {
+				"host": "github",
+				"path": "thumbor/thumbor",
+				"url": "https://github.com/thumbor/thumbor"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Python, oldest, has smart-cropping via detectors. Slower but far more extensible.",
+				"fr": "Python, le plus ancien, recadrage intelligent via détecteurs. Plus lent mais bien plus extensible."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "imaginary",
+			"source": {
+				"host": "github",
+				"path": "h2non/imaginary",
+				"url": "https://github.com/h2non/imaginary"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Smallest surface area of the lot. Development is slow, which for this job is fine.",
+				"fr": "La plus petite surface d’attaque du lot. Le développement est lent, ce qui pour ce type d’outil n’est pas grave."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "ImageKit",
+			"url": "https://imagekit.io/",
+			"priceMonthly": 9,
+			"note": {
+				"en": "Same URL-transform model with a CDN included, an order of magnitude cheaper at small scale. No video pipeline worth the name and a thinner DAM.",
+				"fr": "Même modèle de transformation par URL avec CDN inclus, dix fois moins cher à petite échelle. Pas de vraie chaîne vidéo et un DAM plus maigre."
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "bunny.net Optimizer",
+			"url": "https://bunny.net/optimizer/",
+			"priceMonthly": 10,
+			"note": {
+				"en": "Bolts image transforms onto an already very cheap CDN. Fewer transform primitives than Cloudinary and no upload API.",
+				"fr": "Greffe les transformations d’images sur un CDN déjà très bon marché. Moins de primitives que Cloudinary et pas d’API d’upload."
+			}
+		}
+	],
+	"priority": 3
+}

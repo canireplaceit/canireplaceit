@@ -1,0 +1,103 @@
+{
+	"slug": "trello",
+	"name": "Trello",
+	"domain": "trello.com",
+	"category": "project-mgmt",
+	"priceMonthly": 6,
+	"pricing": {
+		"plan": "Standard, billed monthly ($5/user/mo billed annually)",
+		"basis": "per-seat",
+		"url": "https://trello.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "It is a kanban board. There are forty of them and half are one docker run away.",
+		"fr": "C’est un tableau kanban. Il en existe quarante et la moitié sont à un docker run d’ici."
+	},
+	"whatYouLose": [
+		{
+			"en": "Power-Ups",
+			"fr": "Power-Ups"
+		},
+		{
+			"en": "Mobile apps",
+			"fr": "Applications mobiles"
+		},
+		{
+			"en": "Inviting anyone in seconds",
+			"fr": "Inviter n’importe qui en dix secondes"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Focalboard",
+			"source": {
+				"host": "github",
+				"path": "mattermost/focalboard",
+				"url": "https://github.com/mattermost/focalboard"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Archived upstream but stable and standalone.",
+				"fr": "Abandonné en amont mais stable et autonome."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Wekan",
+			"source": {
+				"host": "github",
+				"path": "wekan/wekan",
+				"url": "https://github.com/wekan/wekan"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The literal Trello clone.",
+				"fr": "Le clone littéral de Trello."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Vikunja",
+			"source": {
+				"host": "github",
+				"path": "go-vikunja/vikunja",
+				"url": "https://github.com/go-vikunja/vikunja"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Kanban + lists + gantt.",
+				"fr": "Kanban, listes et gantt."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Admin panel, time tracking, audit logs",
+					"fr": "Panneau admin, suivi du temps, journaux d’audit"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

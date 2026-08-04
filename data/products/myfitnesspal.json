@@ -1,0 +1,88 @@
+{
+	"slug": "myfitnesspal",
+	"name": "MyFitnessPal",
+	"domain": "myfitnesspal.com",
+	"category": "health-care",
+	"priceMonthly": 25,
+	"pricing": {
+		"plan": "Premium+, monthly billing ($24.99)",
+		"basis": "flat",
+		"url": "https://www.myfitnesspal.com/premium",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Twenty dollars a month to look up calories in a database and put a number in a box, in an app that now shows ads. The open food database is Open Food Facts and it is free. Barcode scanning coverage is the only real gap, and it is closing.",
+		"fr": "Vingt dollars par mois pour chercher des calories dans une base et saisir un chiffre, dans une application qui affiche désormais de la publicité. La base alimentaire ouverte s’appelle Open Food Facts, et elle est gratuite. La couverture du scan de codes-barres est le seul vrai manque, et il se comble."
+	},
+	"whatYouLose": [
+		{
+			"en": "The largest barcode database",
+			"fr": "La plus grande base de codes-barres"
+		},
+		{
+			"en": "Restaurant and chain menu entries",
+			"fr": "Entrées de menus de restaurants et de chaînes"
+		},
+		{
+			"en": "Integrations with fitness wearables",
+			"fr": "Intégrations avec les montres connectées"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "wger",
+			"source": {
+				"host": "github",
+				"path": "wger-project/wger",
+				"url": "https://github.com/wger-project/wger"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Nutrition plus workout logging plus body measurements in one place. Uses Open Food Facts data.",
+				"fr": "Nutrition, suivi d’entraînement et mensurations au même endroit. S’appuie sur les données Open Food Facts."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Waistline",
+			"source": {
+				"host": "github",
+				"path": "davidhealey/waistline",
+				"url": "https://github.com/davidhealey/waistline"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Android app, no server needed, barcode scanning against Open Food Facts.",
+				"fr": "Application Android, sans serveur, scan de codes-barres via Open Food Facts."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Cronometer",
+			"url": "https://cronometer.com",
+			"priceMonthly": 10,
+			"note": {
+				"en": "Half the price and its micronutrient data is far more accurate. Smaller crowd-sourced food database.",
+				"fr": "Deux fois moins cher, avec des données en micronutriments bien plus précises. Base alimentaire collaborative plus petite."
+			}
+		}
+	],
+	"priority": 4
+}

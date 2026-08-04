@@ -1,0 +1,96 @@
+{
+	"slug": "ironclad",
+	"name": "Ironclad",
+	"domain": "ironcladapp.com",
+	"category": "legal-contracts-signing",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "Ironclad quotes per contract volume and per seat — public reporting puts real deals in the tens of thousands a year. Contract lifecycle management is a workflow engine plus clause extraction plus an obligation calendar. The workflow half is easy; nobody open source has built the clause library or the redline comparison legal teams actually use.",
+		"fr": "Ironclad facture au volume de contrats et à l’utilisateur — les retours publics situent les contrats réels à plusieurs dizaines de milliers d’euros par an. La gestion du cycle de vie contractuel, c’est un moteur de workflow, plus l’extraction de clauses, plus un calendrier d’échéances. La partie workflow est facile ; personne en open source n’a construit la bibliothèque de clauses ni la comparaison de versions dont les juristes se servent vraiment."
+	},
+	"whatYouLose": [
+		{
+			"en": "Clause extraction and a clause library",
+			"fr": "Extraction de clauses et la bibliothèque de clauses"
+		},
+		{
+			"en": "Redline comparison lawyers trust",
+			"fr": "Comparaison de versions à laquelle les juristes se fient"
+		},
+		{
+			"en": "Renewal and obligation alerts",
+			"fr": "Alertes de renouvellement et d’échéances"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "docassemble",
+			"source": {
+				"host": "github",
+				"path": "jhpyle/docassemble",
+				"url": "https://github.com/jhpyle/docassemble"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Generates contracts from templates and logic. Handles authoring, not the lifecycle after signature.",
+				"fr": "Génère des contrats à partir de modèles et de règles. Gère la rédaction, pas le cycle de vie après signature."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Documenso",
+			"source": {
+				"host": "github",
+				"path": "documenso/documenso",
+				"url": "https://github.com/documenso/documenso"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Covers signature and audit trail. Everything before and after is manual.",
+				"fr": "Couvre la signature et la piste d’audit. Tout ce qui vient avant et après reste manuel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO, white-label embedding, 21 CFR compliance",
+					"fr": "SSO, marque blanche, conformité 21 CFR"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Concord",
+			"url": "https://www.concord.app",
+			"priceMonthly": 17,
+			"note": {
+				"en": "A fraction of Ironclad's price for repository, approvals and renewal alerts. No serious AI clause analysis.",
+				"fr": "Une fraction du prix d’Ironclad pour le référentiel, les validations et les alertes de renouvellement. Pas de véritable analyse de clauses par IA."
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "PandaDoc",
+			"url": "https://www.pandadoc.com",
+			"priceMonthly": 35,
+			"note": {
+				"en": "Great for outbound contracts and proposals. Not built for negotiating inbound paper.",
+				"fr": "Excellent pour les contrats et propositions que vous envoyez. Pas conçu pour négocier les contrats qu’on vous envoie."
+			}
+		}
+	],
+	"priority": 2
+}

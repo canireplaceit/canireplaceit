@@ -1,0 +1,88 @@
+{
+	"slug": "rekordbox",
+	"name": "rekordbox",
+	"domain": "rekordbox.com",
+	"category": "creative-studio",
+	"priceMonthly": 15,
+	"pricing": {
+		"plan": "Creative, EUR 15/month (EUR list price)",
+		"basis": "per-seat",
+		"url": "https://rekordbox.com/en/plan/",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Mixxx is a real DJ application — four decks, beatgrids, key detection, effects, and it supports most controllers people actually own. The thing that keeps working DJs on rekordbox is the club: CDJs read rekordbox's USB export format and nothing else, so if you play on house gear you are tied to it regardless of how good the free software is.",
+		"fr": "Mixxx est une vraie application de DJ — quatre platines, grilles rythmiques, détection de tonalité, effets, et la prise en charge de la plupart des contrôleurs répandus. Ce qui retient les DJ professionnels sur rekordbox, c’est le club : les CDJ ne lisent que le format d’export USB de rekordbox, donc si vous jouez sur le matériel de la salle, vous y êtes lié quelle que soit la qualité du logiciel libre."
+	},
+	"whatYouLose": [
+		{
+			"en": "USB export CDJs will read",
+			"fr": "Export USB lisible par les CDJ"
+		},
+		{
+			"en": "Pioneer hardware integration",
+			"fr": "Intégration au matériel Pioneer"
+		},
+		{
+			"en": "Streaming service crates",
+			"fr": "Bacs depuis les services de streaming"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Mixxx",
+			"source": {
+				"host": "github",
+				"path": "mixxxdj/mixxx",
+				"url": "https://github.com/mixxxdj/mixxx"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Four decks, timecode vinyl support, broadcast to Icecast, huge controller mapping library. Genuinely good software, and free.",
+				"fr": "Quatre platines, prise en charge du vinyle timecodé, diffusion vers Icecast, énorme bibliothèque de mappings de contrôleurs. Un très bon logiciel, et gratuit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ardour",
+			"source": {
+				"host": "gitea",
+				"path": "ardour/ardour",
+				"url": "https://git.ardour.org/ardour/ardour"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Different job — for preparing edits, intros and mashups before they go into the crate.",
+				"fr": "Autre métier — préparer les edits, intros et mashups avant qu’ils n’entrent dans le bac."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Serato DJ Lite",
+			"url": "https://serato.com/dj/lite",
+			"priceMonthly": 0,
+			"note": {
+				"en": "Free with supported hardware and stable in a club. Two decks only, and it is another closed library format.",
+				"fr": "Gratuit avec du matériel compatible et stable en club. Deux platines seulement, et encore un format de bibliothèque fermé."
+			}
+		}
+	],
+	"priority": 3
+}

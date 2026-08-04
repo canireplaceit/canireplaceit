@@ -1,0 +1,107 @@
+{
+	"slug": "coderabbit",
+	"name": "CodeRabbit",
+	"domain": "coderabbit.ai",
+	"category": "ai",
+	"priceMonthly": 24,
+	"pricing": {
+		"plan": "Pro, $24/dev/mo billed annually ($30 month-to-month)",
+		"basis": "per-seat",
+		"url": "https://coderabbit.ai/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Line-level AI review on every PR is genuinely useful and genuinely cheap to reproduce — PR-Agent does the same job for the cost of tokens. What you cannot rebuild in a weekend is the learning loop that stops it repeating rejected suggestions.",
+		"fr": "La revue IA ligne par ligne sur chaque PR est réellement utile et réellement facile à reproduire — PR-Agent fait le même travail au prix des tokens. Ce qu’on ne reconstruit pas en un week-end, c’est la boucle d’apprentissage qui l’empêche de répéter des suggestions rejetées."
+	},
+	"whatYouLose": [
+		{
+			"en": "Learning from rejected comments",
+			"fr": "Apprentissage à partir des commentaires rejetés"
+		},
+		{
+			"en": "Zero-setup GitHub app",
+			"fr": "Application GitHub sans configuration"
+		},
+		{
+			"en": "Bundled static-analysis suite",
+			"fr": "Suite d’analyse statique intégrée"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "PR-Agent",
+			"source": {
+				"host": "github",
+				"path": "The-PR-Agent/pr-agent",
+				"url": "https://github.com/The-PR-Agent/pr-agent"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The mature open reviewer. Self-hostable as a webhook server; bring an API key or a local model and no diff leaves your network.",
+				"fr": "Le relecteur ouvert le plus mûr. Auto-hébergeable en serveur de webhooks ; avec votre clé d’API ou un modèle local, aucun diff ne quitte votre réseau."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "The hosted Qodo Merge SaaS and its cross-repo context",
+					"fr": "Le SaaS hébergé Qodo Merge et son contexte multi-dépôts"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Danger",
+			"source": {
+				"host": "github",
+				"path": "danger/danger",
+				"url": "https://github.com/danger/danger"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The boring answer that works: codify your review conventions as rules in CI. Catches the 60% of comments that were never judgement calls.",
+				"fr": "La réponse ennuyeuse qui marche : codifiez vos conventions de revue en règles dans la CI. Attrape les 60 % de commentaires qui n’ont jamais relevé du jugement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Semgrep",
+			"source": {
+				"host": "github",
+				"path": "semgrep/semgrep",
+				"url": "https://github.com/semgrep/semgrep"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "Pattern-based rules with autofix, run as a PR check. Deterministic, so nobody argues with it twice.",
+				"fr": "Règles par motifs avec correction automatique, exécutées en check de PR. Déterministe, donc personne n’en rediscute deux fois."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Supply-chain and secrets scanning, the Pro engine and the hosted platform",
+					"fr": "L’analyse de la chaîne d’approvisionnement et des secrets, le moteur Pro et la plateforme hébergée"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

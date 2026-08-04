@@ -1,0 +1,82 @@
+{
+	"slug": "kasten-k10",
+	"name": "Veeam Kasten K10",
+	"domain": "kasten.io",
+	"category": "backup-recovery",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "Kubernetes backup is snapshotting PVCs and dumping resource manifests, and Velero has been the CNCF reference implementation for years. The paid tier adds a UI, policy templates and better database hooks — real, but you can assemble those. Pricing is quote-based per worker node.",
+		"fr": "La sauvegarde Kubernetes, c’est prendre des instantanés de PVC et exporter des manifestes de ressources, et Velero est l’implémentation de référence CNCF depuis des années. Le palier payant ajoute une interface, des modèles de politiques et de meilleurs hooks de base de données — utile, mais assemblable soi-même. La tarification se fait sur devis, par nœud de travail."
+	},
+	"whatYouLose": [
+		{
+			"en": "Policy template UI",
+			"fr": "Interface de modèles de politiques"
+		},
+		{
+			"en": "Database-aware hooks",
+			"fr": "Hooks adaptés aux bases de données"
+		},
+		{
+			"en": "Enterprise support",
+			"fr": "Support entreprise"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Velero",
+			"source": {
+				"host": "github",
+				"path": "velero-io/velero",
+				"url": "https://github.com/velero-io/velero"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Namespace-scoped backup and restore, cross-cluster migration, CSI snapshot integration. The default and the one most tooling assumes.",
+				"fr": "Sauvegarde et restauration par namespace, migration inter-clusters, intégration des instantanés CSI. Le choix par défaut, et celui que la plupart des outils supposent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "K8up",
+			"source": {
+				"host": "github",
+				"path": "k8up-io/k8up",
+				"url": "https://github.com/k8up-io/k8up"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Wraps restic in a Kubernetes operator. Simpler than Velero if you only care about PVC data, not the whole cluster state.",
+				"fr": "Enveloppe restic dans un opérateur Kubernetes. Plus simple que Velero si seules les données des PVC vous intéressent, pas l’état complet du cluster."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "CloudCasa",
+			"url": "https://cloudcasa.io/pricing/",
+			"priceMonthly": 25,
+			"note": {
+				"en": "Managed Velero with a free tier for small clusters. Fewer application-consistency hooks than Kasten and your backup catalogue lives in their SaaS.",
+				"fr": "Velero managé avec un palier gratuit pour les petits clusters. Moins de hooks de cohérence applicative que Kasten, et votre catalogue de sauvegardes vit dans leur SaaS."
+			}
+		}
+	],
+	"priority": 2
+}

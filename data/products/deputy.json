@@ -1,0 +1,111 @@
+{
+	"slug": "deputy",
+	"name": "Deputy",
+	"domain": "deputy.com",
+	"category": "scheduling",
+	"priceMonthly": 6.5,
+	"pricing": {
+		"plan": "Core",
+		"basis": "per-seat",
+		"url": "https://www.deputy.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Deputy is per-employee per-month, so it scales its price with exactly the thing you cannot control: headcount. Frappe HR covers rostering, attendance and leave for nothing per head. What Deputy adds is award interpretation — encoding your country's overtime and penalty rules correctly — and getting that wrong is a wage claim.",
+		"fr": "Deputy se facture par employé et par mois : son prix suit exactement ce que vous ne maîtrisez pas, l’effectif. Frappe HR couvre les plannings, les présences et les congés sans coût par tête. Ce que Deputy ajoute, c’est l’interprétation des conventions — encoder correctement les règles d’heures supplémentaires et de majorations de votre pays — et s’y tromper, c’est un contentieux prud’homal."
+	},
+	"whatYouLose": [
+		{
+			"en": "Award and overtime rule interpretation",
+			"fr": "Interprétation des conventions et heures supplémentaires"
+		},
+		{
+			"en": "Geofenced clock-in",
+			"fr": "Pointage géolocalisé"
+		},
+		{
+			"en": "Payroll provider integrations",
+			"fr": "Intégrations avec les prestataires de paie"
+		},
+		{
+			"en": "Compliance liability sitting elsewhere",
+			"fr": "Responsabilité de conformité portée par un tiers"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Frappe HR",
+			"source": {
+				"host": "github",
+				"path": "frappe/hrms",
+				"url": "https://github.com/frappe/hrms"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Rosters, shift requests, geolocated check-in, leave and expense claims. Fully GPL with LDAP and OAuth login included.",
+				"fr": "Plannings, demandes de service, pointage géolocalisé, congés et notes de frais. Entièrement GPL, avec connexion LDAP et OAuth incluse."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OrangeHRM",
+			"source": {
+				"host": "github",
+				"path": "orangehrm/orangehrm",
+				"url": "https://github.com/orangehrm/orangehrm"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The Open Source edition covers PIM, leave and time. Performance, onboarding, the mobile app and advanced reports are Advanced-edition only — check the split before you commit.",
+				"fr": "L’édition Open Source couvre le dossier salarié, les congés et le temps. Performance, intégration, app mobile et rapports avancés sont réservés à l’édition Advanced — vérifiez le découpage avant de vous engager."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Performance, onboarding, mobile app and advanced reports are Advanced-edition only",
+					"fr": "Performance, intégration, application mobile et rapports avancés sont réservés à l’édition Advanced"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kimai",
+			"source": {
+				"host": "github",
+				"path": "kimai/kimai",
+				"url": "https://github.com/kimai/kimai"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Timesheets and approvals done narrowly and well, with SAML in the free build.",
+				"fr": "Feuilles de temps et validations, faites étroitement et bien, avec SAML dans la version open source."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Some official plugins (approvals, expenses) are sold separately",
+					"fr": "Certains plugins officiels (validations, notes de frais) sont vendus à part"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

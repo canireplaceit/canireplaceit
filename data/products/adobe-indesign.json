@@ -1,0 +1,67 @@
+{
+	"slug": "adobe-indesign",
+	"name": "Adobe InDesign",
+	"domain": "adobe.com",
+	"category": "creative-studio",
+	"priceMonthly": 22.99,
+	"pricing": {
+		"plan": "InDesign single app, annual billed monthly",
+		"basis": "per-seat",
+		"url": "https://www.adobe.com/creativecloud/plans.html",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Scribus does master pages, CMYK separations and PDF/X export — genuinely enough to send a book to a printer. Where it loses is typographic polish, OpenType feature handling, and the fact that your printer's prepress desk wants an .indd file.",
+		"fr": "Scribus gère les gabarits, les séparations CMJN et l’export PDF/X — largement de quoi envoyer un livre chez l’imprimeur. Là où il perd : la finesse typographique, la gestion des fonctions OpenType, et le fait que le service prépresse de votre imprimeur veut un fichier .indd."
+	},
+	"whatYouLose": [
+		{
+			"en": "Typographic polish and OpenType depth",
+			"fr": "Finesse typographique et richesse OpenType"
+		},
+		{
+			"en": "File formats your printer expects",
+			"fr": "Formats que votre imprimeur attend"
+		},
+		{
+			"en": "Creative Cloud asset linking",
+			"fr": "Lien avec les ressources Creative Cloud"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Scribus",
+			"source": {
+				"host": "github",
+				"path": "scribusproject/scribus",
+				"url": "https://github.com/scribusproject/scribus"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The only real open desktop publishing application. Colour management and preflight are surprisingly complete.",
+				"fr": "La seule vraie application de PAO open source. Gestion des couleurs et contrôle en amont étonnamment complets."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Affinity Publisher 2",
+			"url": "https://affinity.serif.com/publisher/",
+			"priceMonthly": 0,
+			"note": {
+				"en": "A one-off purchase, no subscription, and typographically it is close to InDesign. It cannot open .indd files.",
+				"fr": "Un achat unique, sans abonnement, et typographiquement proche d’InDesign. Il ne peut pas ouvrir les fichiers .indd."
+			}
+		}
+	],
+	"priority": 2
+}

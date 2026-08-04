@@ -1,0 +1,113 @@
+{
+	"slug": "cin7",
+	"name": "Cin7",
+	"domain": "cin7.com",
+	"category": "inventory-warehouse",
+	"priceMonthly": 349,
+	"pricing": {
+		"plan": "Standard",
+		"basis": "flat",
+		"url": "https://www.cin7.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Cin7's pitch is that it sits between your sales channels and your stock and keeps both honest. The stock ledger itself is a solved problem in open source; the 40 pre-built channel connectors are not. Budget the saved licence fee for integration work and you come out ahead.",
+		"fr": "L’argument de Cin7 : se placer entre vos canaux de vente et votre stock et maintenir les deux cohérents. Le grand livre de stock est un problème résolu en open source ; les 40 connecteurs de canaux prêts à l’emploi ne le sont pas. Réaffectez la licence économisée à l’intégration et vous êtes gagnant."
+	},
+	"whatYouLose": [
+		{
+			"en": "Pre-built marketplace connectors",
+			"fr": "Connecteurs marketplaces prêts à l’emploi"
+		},
+		{
+			"en": "EDI with big retailers",
+			"fr": "EDI avec la grande distribution"
+		},
+		{
+			"en": "3PL integrations",
+			"fr": "Intégrations 3PL"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "ERPNext",
+			"source": {
+				"host": "github",
+				"path": "frappe/erpnext",
+				"url": "https://github.com/frappe/erpnext"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Real multi-warehouse stock with batch and serial tracking, landed costs and reorder rules. Channel sync you build yourself.",
+				"fr": "Vraie gestion multi-entrepôts avec lots et numéros de série, coûts de revient et règles de réappro. La synchro des canaux, c’est à vous."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "InvenTree",
+			"source": {
+				"host": "github",
+				"path": "inventree/InvenTree",
+				"url": "https://github.com/inventree/InvenTree"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Parts-first inventory with an excellent REST API and a plugin system. Aimed at makers and manufacturers more than retailers.",
+				"fr": "Gestion de stock orientée pièces, avec une excellente API REST et un système de plugins. Plutôt pensé pour les fabricants que pour les détaillants."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Odoo Community",
+			"source": {
+				"host": "github",
+				"path": "odoo/odoo",
+				"url": "https://github.com/odoo/odoo"
+			},
+			"license": "LGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Inventory plus every sales channel Odoo already speaks. The Barcode app you will want for picking is Enterprise-only.",
+				"fr": "Le stock plus tous les canaux de vente qu’Odoo parle déjà. L’app Code-barres, indispensable pour la préparation, est réservée à l’Enterprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Full accounting, Studio, Barcode, Shop Floor, Field Service and Planning are Enterprise-only",
+					"fr": "La comptabilité complète, Studio, Code-barres, Atelier, Services sur site et Planification sont réservés à l’Enterprise"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Zoho Inventory",
+			"url": "https://www.zoho.com/inventory/pricing/",
+			"priceMonthly": 39,
+			"note": {
+				"en": "A tenth of the price with decent marketplace and shipping integrations. Thin on manufacturing and landed cost.",
+				"fr": "Un dixième du prix avec de bonnes intégrations marketplaces et transporteurs. Pauvre sur la production et les coûts de revient."
+			}
+		}
+	],
+	"priority": 3
+}

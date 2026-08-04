@@ -1,0 +1,107 @@
+{
+	"slug": "sonarqube-cloud",
+	"name": "SonarQube Cloud",
+	"domain": "sonarsource.com",
+	"category": "application-security",
+	"priceMonthly": 34,
+	"pricing": {
+		"plan": "Team, from 100k LOC",
+		"basis": "flat",
+		"url": "https://www.sonarsource.com/plans-and-pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "SonarSource still publishes the Community Build under LGPL, and for most teams it is the same analysis with fewer languages. Self-hosting it is a Docker command; the branch and PR analysis is the honest paywall.",
+		"fr": "SonarSource publie toujours la Community Build sous LGPL, et pour la plupart des équipes c’est la même analyse avec moins de langages. L’auto-héberger tient en une commande Docker ; l’analyse des branches et des PR est le vrai mur payant."
+	},
+	"whatYouLose": [
+		{
+			"en": "Branch and PR decoration",
+			"fr": "Analyse des branches et décoration des PR"
+		},
+		{
+			"en": "C/C++/Swift and other paid languages",
+			"fr": "C/C++/Swift et autres langages payants"
+		},
+		{
+			"en": "Portfolio-level reporting",
+			"fr": "Reporting au niveau portefeuille"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "SonarQube Community Build",
+			"source": {
+				"host": "github",
+				"path": "SonarSource/sonarqube",
+				"url": "https://github.com/SonarSource/sonarqube"
+			},
+			"license": "LGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The vendor's own open build. Same rules engine, ~20 languages, quality gates. Branch analysis and PR decoration are removed.",
+				"fr": "La version ouverte de l’éditeur. Même moteur de règles, une vingtaine de langages, quality gates. L’analyse de branches et la décoration des PR sont retirées."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Branch/PR analysis, C/C++/Swift/ABAP analysers, portfolio reporting, SSO and audit logs",
+					"fr": "Analyse des branches/PR, analyseurs C/C++/Swift/ABAP, rapports de portefeuille, SSO et journaux d’audit"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Semgrep",
+			"source": {
+				"host": "github",
+				"path": "semgrep/semgrep",
+				"url": "https://github.com/semgrep/semgrep"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "Faster, rules are readable YAML, and it runs as a plain CI step with no server. Weaker on whole-project metrics.",
+				"fr": "Plus rapide, des règles en YAML lisible, et il tourne comme une simple étape de CI, sans serveur. Plus faible sur les métriques globales du projet."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Supply-chain scanning, secrets, the Pro cross-file engine and the hosted platform",
+					"fr": "Analyse de la chaîne d’approvisionnement, secrets, moteur Pro inter-fichiers et plateforme hébergée"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ORT",
+			"source": {
+				"host": "github",
+				"path": "oss-review-toolkit/ort",
+				"url": "https://github.com/oss-review-toolkit/ort"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Different problem — dependencies rather than code — but often the reason people wanted a quality gate in the first place.",
+				"fr": "Problème différent — les dépendances plutôt que le code — mais souvent la vraie raison pour laquelle on voulait un quality gate."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

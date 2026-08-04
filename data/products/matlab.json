@@ -1,0 +1,99 @@
+{
+	"slug": "matlab",
+	"name": "MATLAB",
+	"domain": "mathworks.com",
+	"category": "scientific-computing",
+	"priceMonthly": 78,
+	"pricing": {
+		"plan": "Standard Individual License, $940/year (monthly equivalent)",
+		"basis": "per-seat",
+		"url": "https://www.mathworks.com/pricing-licensing.html",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "The language is replaceable — Octave runs most .m files unchanged and Julia is faster than both. Simulink is not. If your work is block diagrams, hardware-in-the-loop or generated embedded C, you are staying, and the campus licence is the cheapest way to do it.",
+		"fr": "Le langage est remplaçable — Octave exécute la plupart des fichiers .m sans modification et Julia est plus rapide que les deux. Simulink, non. Si votre travail, ce sont des schémas-blocs, du hardware-in-the-loop ou du C embarqué généré, vous resterez, et la licence de campus est la façon la moins chère de le faire."
+	},
+	"whatYouLose": [
+		{
+			"en": "Simulink and code generation",
+			"fr": "Simulink et la génération de code"
+		},
+		{
+			"en": "Validated domain toolboxes",
+			"fr": "Toolboxes métier validées"
+		},
+		{
+			"en": "Hardware and instrument support",
+			"fr": "Support matériel et instruments"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "GNU Octave",
+			"source": {
+				"host": "savannah",
+				"path": "gnu/octave",
+				"url": "https://savannah.gnu.org/projects/octave"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Deliberately MATLAB-compatible syntax; most scripts run untouched. Slower, and the toolbox equivalents are patchy.",
+				"fr": "Syntaxe volontairement compatible MATLAB ; la plupart des scripts tournent tels quels. Plus lent, et les équivalents de toolboxes sont inégaux."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Julia",
+			"source": {
+				"host": "github",
+				"path": "JuliaLang/julia",
+				"url": "https://github.com/JuliaLang/julia"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "What people who leave MATLAB for performance actually pick. Real numerical ecosystem, and DifferentialEquations.jl beats anything MathWorks ships.",
+				"fr": "Ce que choisissent réellement ceux qui quittent MATLAB pour la performance. Vrai écosystème numérique, et DifferentialEquations.jl surpasse tout ce que vend MathWorks."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SciPy",
+			"source": {
+				"host": "github",
+				"path": "scipy/scipy",
+				"url": "https://github.com/scipy/scipy"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "The pragmatic route: signal processing, optimisation and linear algebra in the language your students already know.",
+				"fr": "La voie pragmatique : traitement du signal, optimisation et algèbre linéaire dans le langage que vos étudiants connaissent déjà."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 4
+}

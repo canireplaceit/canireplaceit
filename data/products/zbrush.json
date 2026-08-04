@@ -1,0 +1,79 @@
+{
+	"slug": "zbrush",
+	"name": "ZBrush",
+	"domain": "maxon.net",
+	"category": "3d-cad",
+	"priceMonthly": 40,
+	"pricing": {
+		"plan": "ZBrush single-app, annual billed monthly (site showed PLN 179.58/mo incl VAT, ~USD 40 ex-VAT)",
+		"basis": "per-seat",
+		"url": "https://www.maxon.net/en/buy",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Blender's sculpt mode handles multi-million-polygon meshes, dynamic topology and a full brush set, and for most character and product work that is enough. ZBrush still wins on raw mesh density, ZRemesher and the muscle memory of every professional sculptor alive.",
+		"fr": "Le mode sculpt de Blender gère des maillages de plusieurs millions de polygones, la topologie dynamique et un jeu de brosses complet ; pour la plupart des personnages et des produits, c’est suffisant. ZBrush garde l’avantage sur la densité brute, ZRemesher et les réflexes de tous les sculpteurs professionnels."
+	},
+	"whatYouLose": [
+		{
+			"en": "Extreme polygon counts",
+			"fr": "Très hautes densités de polygones"
+		},
+		{
+			"en": "ZRemesher retopology",
+			"fr": "Rétopologie ZRemesher"
+		},
+		{
+			"en": "Industry-standard brush behaviour",
+			"fr": "Comportement de brosses standard de l’industrie"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Blender",
+			"source": {
+				"host": "gitea",
+				"path": "blender/blender",
+				"url": "https://projects.blender.org/blender/blender"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Sculpt mode with multiresolution, dyntopo and Voxel Remesh. Slower above roughly 20 million polygons.",
+				"fr": "Mode sculpt avec multirésolution, dyntopo et remaillage voxel. Il ralentit au-delà d’environ 20 millions de polygones."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Nomad Sculpt",
+			"url": "https://nomadsculpt.com",
+			"priceMonthly": null,
+			"priceOnce": 19.99,
+			"note": {
+				"en": "A $20 one-off iPad sculptor that professionals genuinely ship with. Tablet only.",
+				"fr": "Un sculpteur iPad à 20 $ en achat unique que des professionnels utilisent réellement en production. Tablette uniquement."
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "3DCoat",
+			"url": "https://3dcoat.com/pricing/",
+			"priceMonthly": null,
+			"priceOnce": 435,
+			"note": {
+				"en": "Perpetual licence, voxel sculpting plus the best auto-retopology outside ZBrush. Interface is an acquired taste.",
+				"fr": "Licence perpétuelle, sculpt voxel et la meilleure rétopologie automatique hors ZBrush. Interface qui se mérite."
+			}
+		}
+	],
+	"priority": 3
+}

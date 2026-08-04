@@ -1,0 +1,113 @@
+{
+	"slug": "lightspeed-retail",
+	"name": "Lightspeed Retail",
+	"domain": "lightspeedhq.com",
+	"category": "retail-pos",
+	"priceMonthly": 149,
+	"pricing": {
+		"plan": "Core, monthly",
+		"basis": "flat",
+		"url": "https://www.lightspeedhq.com/pos/retail/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Lightspeed is a catalogue-and-purchasing system with a till bolted on, and that is exactly the part open source does well. Odoo and ERPNext will run a multi-store retailer for the price of the hardware. What you will rebuild is the supplier catalogue import and the reporting nobody wants to write.",
+		"fr": "Lightspeed est un système de catalogue et d’achats avec une caisse greffée dessus, et c’est précisément ce que l’open source fait bien. Odoo ou ERPNext feront tourner un détaillant multi-boutique pour le prix du matériel. Ce que vous reconstruirez, c’est l’import des catalogues fournisseurs et les rapports que personne n’a envie d’écrire."
+	},
+	"whatYouLose": [
+		{
+			"en": "Supplier catalogue imports",
+			"fr": "Imports de catalogues fournisseurs"
+		},
+		{
+			"en": "Built-in payments",
+			"fr": "Paiements intégrés"
+		},
+		{
+			"en": "Hardware that just works",
+			"fr": "Matériel qui marche du premier coup"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Odoo Community",
+			"source": {
+				"host": "github",
+				"path": "odoo/odoo",
+				"url": "https://github.com/odoo/odoo"
+			},
+			"license": "LGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Multi-store POS, purchasing, stock and loyalty in one system. Plan on a partner or a lot of your own time.",
+				"fr": "Caisse multi-boutique, achats, stock et fidélité dans un seul système. Prévoyez un intégrateur ou beaucoup de votre temps."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Full accounting, Studio, Barcode, Shop Floor, Field Service and Planning are Enterprise-only",
+					"fr": "La comptabilité complète, Studio, Code-barres, Atelier, Services sur site et Planification sont réservés à l’Enterprise"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ERPNext",
+			"source": {
+				"host": "github",
+				"path": "frappe/erpnext",
+				"url": "https://github.com/frappe/erpnext"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Fully open, no Enterprise upsell, and the POS is offline-capable. The UI is more ERP than shop floor.",
+				"fr": "Entièrement ouvert, sans version Enterprise à acheter, et la caisse fonctionne hors ligne. L’interface reste plus ERP que magasin."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Open Source Point of Sale",
+			"source": {
+				"host": "github",
+				"path": "opensourcepos/opensourcepos",
+				"url": "https://github.com/opensourcepos/opensourcepos"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "If you only need one shop and one till, this is a weekend and no licence fee.",
+				"fr": "Si vous n’avez qu’une boutique et une caisse, c’est un week-end de travail et zéro licence."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Loyverse",
+			"url": "https://loyverse.com",
+			"priceMonthly": 0,
+			"note": {
+				"en": "Free POS with paid add-ons for employee management and advanced stock. Weak at multi-store purchasing.",
+				"fr": "Caisse gratuite avec modules payants pour la gestion du personnel et le stock avancé. Faible sur les achats multi-boutique."
+			}
+		}
+	],
+	"priority": 3
+}

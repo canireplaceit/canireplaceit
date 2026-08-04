@@ -1,0 +1,103 @@
+{
+	"slug": "deepnote",
+	"name": "Deepnote",
+	"domain": "deepnote.com",
+	"category": "scientific-computing",
+	"priceMonthly": 39,
+	"pricing": {
+		"plan": "Team, per editor, billed annually",
+		"basis": "per-seat",
+		"url": "https://deepnote.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Deepnote is JupyterLab with real-time collaboration and a nicer skin. JupyterHub gives every member of a lab an isolated kernel behind institutional SSO for the price of one VM, which is what most universities already do.",
+		"fr": "Deepnote, c’est JupyterLab avec de la collaboration en temps réel et une plus belle peau. JupyterHub donne à chaque membre d’un laboratoire un noyau isolé derrière le SSO de l’établissement pour le prix d’une VM, ce que la plupart des universités font déjà."
+	},
+	"whatYouLose": [
+		{
+			"en": "Real-time co-editing",
+			"fr": "Co-édition en temps réel"
+		},
+		{
+			"en": "Zero-setup environments",
+			"fr": "Environnements sans configuration"
+		},
+		{
+			"en": "Managed scheduling and sharing",
+			"fr": "Planification et partage gérés"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "JupyterHub",
+			"source": {
+				"host": "github",
+				"path": "jupyterhub/jupyterhub",
+				"url": "https://github.com/jupyterhub/jupyterhub"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "ops",
+			"note": {
+				"en": "Multi-user Jupyter with pluggable auth — LDAP, SAML, OAuth all free. The standard university deployment, and the reason Deepnote is a hard sell to a research computing team.",
+				"fr": "Jupyter multi-utilisateur avec authentification enfichable — LDAP, SAML, OAuth tous gratuits. Le déploiement universitaire standard, et la raison pour laquelle Deepnote se vend mal à une équipe de calcul scientifique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "JupyterLab",
+			"source": {
+				"host": "github",
+				"path": "jupyterlab/jupyterlab",
+				"url": "https://github.com/jupyterlab/jupyterlab"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Real-time collaboration is built in since v3 — the feature Deepnote's pitch is built on is already upstream and free.",
+				"fr": "La collaboration en temps réel est intégrée depuis la v3 — la fonctionnalité sur laquelle Deepnote fonde son argumentaire est déjà en amont, et gratuite."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "marimo",
+			"source": {
+				"host": "github",
+				"path": "marimo-team/marimo",
+				"url": "https://github.com/marimo-team/marimo"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A reactive notebook stored as a plain .py file, so it diffs and reruns deterministically. Fixes the hidden-state problem Jupyter never solved.",
+				"fr": "Un carnet réactif stocké comme simple fichier .py : il se diffe et se réexécute de façon déterministe. Corrige le problème d’état caché que Jupyter n’a jamais résolu."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "marimo's hosted cloud workspaces",
+					"fr": "Les espaces de travail hébergés de marimo"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

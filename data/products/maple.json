@@ -1,0 +1,93 @@
+{
+	"slug": "maple",
+	"name": "Maple",
+	"domain": "maplesoft.com",
+	"category": "scientific-computing",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "Maple's remaining edge over the open CAS options is teaching: Maple Learn, the document mode and the step-by-step solutions are built for a classroom. For research symbolic work, SageMath and SymPy are already sufficient.",
+		"fr": "L’avantage restant de Maple sur les systèmes de calcul formel open source, c’est l’enseignement : Maple Learn, le mode document et les solutions pas à pas sont conçus pour une salle de cours. Pour le travail symbolique de recherche, SageMath et SymPy suffisent déjà."
+	},
+	"whatYouLose": [
+		{
+			"en": "Step-by-step teaching solutions",
+			"fr": "Solutions pas à pas pour l’enseignement"
+		},
+		{
+			"en": "Document-mode maths input",
+			"fr": "Saisie mathématique en mode document"
+		},
+		{
+			"en": "MapleSim modelling",
+			"fr": "Modélisation MapleSim"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "SymPy",
+			"source": {
+				"host": "github",
+				"path": "sympy/sympy",
+				"url": "https://github.com/sympy/sympy"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Pure-Python computer algebra: symbolic integration, ODEs, matrices, LaTeX output. Slower than Mathematica's kernel, and honest about it.",
+				"fr": "Calcul formel en Python pur : intégration symbolique, EDO, matrices, sortie LaTeX. Plus lent que le noyau de Mathematica, et il ne s’en cache pas."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SageMath",
+			"source": {
+				"host": "github",
+				"path": "sagemath/sage",
+				"url": "https://github.com/sagemath/sage"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "A distribution that wires SymPy, Maxima, GAP, PARI and Singular behind one Python interface. Closest thing to Mathematica's breadth; a large install.",
+				"fr": "Une distribution qui relie SymPy, Maxima, GAP, PARI et Singular derrière une interface Python unique. Ce qui se rapproche le plus de l’étendue de Mathematica ; installation volumineuse."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "wxMaxima",
+			"source": {
+				"host": "github",
+				"path": "wxMaxima-developers/wxmaxima",
+				"url": "https://github.com/wxMaxima-developers/wxmaxima"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A document interface over Maxima, the CAS that predates Mathematica. Symbolic engine is excellent; the notebook is plain.",
+				"fr": "Une interface document par-dessus Maxima, le système de calcul formel antérieur à Mathematica. Le moteur symbolique est excellent ; le carnet est austère."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

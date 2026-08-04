@@ -1,0 +1,82 @@
+{
+	"slug": "teamspeak",
+	"name": "TeamSpeak",
+	"domain": "teamspeak.com",
+	"category": "game-hosting-play",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "Mumble is lower latency than TeamSpeak, has positional audio that works in supported games, and the server is a single process that idles at a few megabytes of RAM. TeamSpeak's server has never been open source and its licensing for anything commercial is a maze. There is no good reason left to pay for this.",
+		"fr": "Mumble a une latence plus faible que TeamSpeak, un son positionnel qui fonctionne dans les jeux compatibles, et un serveur qui tient dans un processus consommant quelques mégaoctets. Le serveur TeamSpeak n’a jamais été open source et sa licence pour tout usage commercial est un labyrinthe. Il ne reste aucune bonne raison de payer pour ça."
+	},
+	"whatYouLose": [
+		{
+			"en": "Familiar client for your clan",
+			"fr": "Client familier de votre communauté"
+		},
+		{
+			"en": "The TeamSpeak addon store",
+			"fr": "La boutique d’extensions TeamSpeak"
+		},
+		{
+			"en": "Hosted server with no setup",
+			"fr": "Serveur hébergé sans installation"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Mumble",
+			"source": {
+				"host": "github",
+				"path": "mumble-voip/mumble",
+				"url": "https://github.com/mumble-voip/mumble"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "The direct replacement: low-latency voice, ACL-based channels, positional audio, and a server small enough to run beside your game server.",
+				"fr": "Le remplacement direct : voix à faible latence, canaux avec ACL, son positionnel, et un serveur assez léger pour tourner à côté de votre serveur de jeu."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Jitsi Meet",
+			"source": {
+				"host": "github",
+				"path": "jitsi/jitsi-meet",
+				"url": "https://github.com/jitsi/jitsi-meet"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "If half the group is on a phone and nobody wants to install anything, a browser link wins. Higher latency than Mumble and no positional audio.",
+				"fr": "Si la moitié du groupe est au téléphone et que personne ne veut rien installer, un lien navigateur l’emporte. Latence plus élevée que Mumble et pas de son positionnel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Discord",
+			"url": "https://discord.com",
+			"priceMonthly": 0,
+			"note": {
+				"en": "Free, and where your players already are. Closed, ad-adjacent, and your community history lives entirely on their servers.",
+				"fr": "Gratuit, et c’est là que sont déjà vos joueurs. Fermé, adossé à la publicité, et tout l’historique de votre communauté vit sur leurs serveurs."
+			}
+		}
+	],
+	"priority": 2
+}

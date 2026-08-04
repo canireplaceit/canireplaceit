@@ -1,0 +1,109 @@
+{
+	"slug": "graphite",
+	"name": "Graphite",
+	"domain": "graphite.dev",
+	"category": "developer-tooling",
+	"priceMonthly": 20,
+	"pricing": {
+		"plan": "Starter, billed annually",
+		"basis": "per-seat",
+		"url": "https://graphite.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Stacked pull requests are a workflow, not a product — and there are free CLIs that do the restacking. The part you pay for is the merge queue and the web UI that makes a nine-PR stack legible to a reviewer.",
+		"fr": "Les pull requests empilées sont un flux de travail, pas un produit — et des CLI gratuites font le restacking. Ce que vous payez, c’est la file de merge et l’interface web qui rend une pile de neuf PR lisible pour un relecteur."
+	},
+	"whatYouLose": [
+		{
+			"en": "Hosted merge queue",
+			"fr": "File de merge hébergée"
+		},
+		{
+			"en": "Stack-aware review UI",
+			"fr": "Interface de revue consciente des piles"
+		},
+		{
+			"en": "Team-wide adoption without CLI",
+			"fr": "Adoption d’équipe sans CLI"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "git-spr",
+			"source": {
+				"host": "github",
+				"path": "ejoffe/spr",
+				"url": "https://github.com/ejoffe/spr"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "One commit, one PR, restacked automatically on amend. The closest free equivalent of the core Graphite loop.",
+				"fr": "Un commit, une PR, réempilée automatiquement au moment de l’amend. L’équivalent gratuit le plus proche de la boucle centrale de Graphite."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "git-branchless",
+			"source": {
+				"host": "github",
+				"path": "arxanas/git-branchless",
+				"url": "https://github.com/arxanas/git-branchless"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Mercurial-style stack manipulation for git: move, sync and submit whole subtrees of commits.",
+				"fr": "Manipulation de piles à la Mercurial pour git : déplacer, synchroniser et soumettre des sous-arbres entiers de commits."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Jujutsu (jj)",
+			"source": {
+				"host": "github",
+				"path": "jj-vcs/jj",
+				"url": "https://github.com/jj-vcs/jj"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The bigger swing: a different VCS that is git-compatible and makes stacks the natural unit. Highest ceiling, highest retraining cost.",
+				"fr": "Le pari le plus ambitieux : un autre VCS, compatible git, où les piles sont l’unité naturelle. Plafond le plus élevé, coût de réapprentissage le plus élevé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "GitHub merge queue",
+			"url": "https://github.com/pricing",
+			"priceMonthly": 4,
+			"note": {
+				"en": "If the merge queue is the only bit you actually wanted, it is included with GitHub Team and needs no new tooling.",
+				"fr": "Si la file de merge est la seule chose qui vous intéressait, elle est incluse dans GitHub Team et n’exige aucun nouvel outil."
+			}
+		}
+	],
+	"priority": 3
+}

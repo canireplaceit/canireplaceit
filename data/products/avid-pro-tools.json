@@ -1,0 +1,88 @@
+{
+	"slug": "avid-pro-tools",
+	"name": "Avid Pro Tools",
+	"domain": "avid.com",
+	"category": "creative-studio",
+	"priceMonthly": 35,
+	"pricing": {
+		"plan": "Studio, $35/mo month-to-month ($299/yr annual)",
+		"basis": "per-seat",
+		"url": "https://www.avid.com/pro-tools",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Ardour records, edits and mixes to a professional standard and costs nothing. Pro Tools survives on interchange: AAF sessions that a dub stage expects, HDX hardware in every commercial room, and an engineer pool trained on those keyboard shortcuts. If you never hand a session to anyone else, leave today. If you do post for broadcast, you cannot.",
+		"fr": "Ardour enregistre, monte et mixe à un niveau professionnel et ne coûte rien. Pro Tools survit par l’échange : des sessions AAF qu’un auditorium de mixage attend, du matériel HDX dans chaque studio commercial, et un vivier d’ingénieurs formés à ces raccourcis. Si vous ne transmettez jamais de session, partez aujourd’hui. Si vous faites de la post pour la télé, non."
+	},
+	"whatYouLose": [
+		{
+			"en": "AAF interchange with studios",
+			"fr": "Échange AAF avec les studios"
+		},
+		{
+			"en": "HDX hardware and low-latency DSP",
+			"fr": "Matériel HDX et son DSP à faible latence"
+		},
+		{
+			"en": "Engineers who know the shortcuts",
+			"fr": "Ingénieurs qui connaissent les raccourcis"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Ardour",
+			"source": {
+				"host": "gitea",
+				"path": "ardour/ardour",
+				"url": "https://git.ardour.org/ardour/ardour"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Unlimited tracks, video sync, surround, proper automation. Reads and writes AAF only through third-party tools, which is exactly the friction point.",
+				"fr": "Pistes illimitées, synchronisation vidéo, multicanal, vraie automation. Ne lit et n’écrit l’AAF que via des outils tiers, ce qui est précisément le point de friction."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Audacity",
+			"source": {
+				"host": "github",
+				"path": "audacity/audacity",
+				"url": "https://github.com/audacity/audacity"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Not a session-based workstation, but faster than any of them for cleaning a single file.",
+				"fr": "Pas une station orientée sessions, mais plus rapide que toutes pour nettoyer un fichier isolé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "REAPER",
+			"url": "https://www.reaper.fm",
+			"priceMonthly": 0,
+			"note": {
+				"en": "A one-time licence around $60 and it does everything Pro Tools does for most rooms, including video and surround. Closed source and the default UI is unfriendly.",
+				"fr": "Une licence unique d’environ 60 $ et il fait tout ce que fait Pro Tools pour la plupart des studios, vidéo et multicanal compris. Code fermé et interface par défaut rebutante."
+			}
+		}
+	],
+	"priority": 3
+}

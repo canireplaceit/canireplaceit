@@ -1,0 +1,103 @@
+{
+	"slug": "solidworks",
+	"name": "SolidWorks",
+	"domain": "solidworks.com",
+	"category": "3d-cad",
+	"priceMonthly": 235,
+	"pricing": {
+		"plan": "SOLIDWORKS Design Standard, single user — $2,820/year billed annually ($235/month equivalent)",
+		"basis": "per-seat",
+		"url": "https://www.3ds.com/store/solidworks-design",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "This is the hardest replacement on the list. Not because FreeCAD cannot model a part — it can — but because your suppliers, your simulation validation and your entire drawing standard are built on SolidWorks files, and nobody in the chain accepts anything else.",
+		"fr": "C’est le remplacement le plus difficile de la liste. Non pas parce que FreeCAD ne sait pas modéliser une pièce — il le sait — mais parce que vos fournisseurs, votre validation en simulation et toute votre norme de plans reposent sur des fichiers SolidWorks, et personne dans la chaîne n’accepte autre chose."
+	},
+	"whatYouLose": [
+		{
+			"en": "Native file exchange with suppliers",
+			"fr": "Échange de fichiers natifs avec les fournisseurs"
+		},
+		{
+			"en": "Validated simulation",
+			"fr": "Simulation validée"
+		},
+		{
+			"en": "Large assembly performance",
+			"fr": "Performances sur grands assemblages"
+		},
+		{
+			"en": "Drawing standards compliance",
+			"fr": "Conformité aux normes de plans"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "FreeCAD",
+			"source": {
+				"host": "github",
+				"path": "FreeCAD/FreeCAD",
+				"url": "https://github.com/FreeCAD/FreeCAD"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "Genuinely capable for single parts and small assemblies. Large-assembly performance and drawing output are the honest gaps.",
+				"fr": "Réellement capable pour les pièces seules et les petits assemblages. Les performances sur grands assemblages et la sortie des plans sont les vraies faiblesses."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SolveSpace",
+			"source": {
+				"host": "github",
+				"path": "solvespace/solvespace",
+				"url": "https://github.com/solvespace/solvespace"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "A 30 MB parametric CAD with an excellent constraint solver. Brilliant for mechanisms and linkages, not for a 400-part machine.",
+				"fr": "Un CAO paramétrique de 30 Mo avec un excellent solveur de contraintes. Excellent pour les mécanismes et les liaisons, pas pour une machine de 400 pièces."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Alibre Design Expert",
+			"url": "https://www.alibre.com",
+			"priceMonthly": null,
+			"priceOnce": 1799,
+			"note": {
+				"en": "A perpetual licence for the price of one SolidWorks year. Same Parasolid-family kernel, so imports behave.",
+				"fr": "Une licence perpétuelle pour le prix d’une année de SolidWorks. Noyau de la même famille Parasolid, donc les imports se comportent bien."
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Onshape Standard",
+			"url": "https://www.onshape.com/en/pricing",
+			"priceMonthly": 125,
+			"note": {
+				"en": "Cloud-native, real version control, but your models live on their servers and the free tier makes everything public.",
+				"fr": "Nativement cloud, vrai contrôle de version, mais vos modèles vivent sur leurs serveurs et l’offre gratuite rend tout public."
+			}
+		}
+	],
+	"priority": 3
+}

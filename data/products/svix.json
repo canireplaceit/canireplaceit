@@ -1,0 +1,107 @@
+{
+	"slug": "svix",
+	"name": "Svix",
+	"domain": "svix.com",
+	"category": "api-development",
+	"priceMonthly": 490,
+	"pricing": {
+		"plan": "Professional",
+		"basis": "flat",
+		"url": "https://www.svix.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Unusually honest pricing model aside, the entire server is MIT and self-hosting is documented by the vendor. You pay for someone else to own retry queues and endpoint reputation — worth it at scale, not at ten thousand events a day.",
+		"fr": "Modèle tarifaire honnête mis à part, tout le serveur est en MIT et l’auto-hébergement est documenté par l’éditeur. Vous payez pour que quelqu’un d’autre gère les files de retry et la réputation des endpoints — rentable à grande échelle, pas à dix mille événements par jour."
+	},
+	"whatYouLose": [
+		{
+			"en": "Operated retry infrastructure",
+			"fr": "Infrastructure de retry opérée"
+		},
+		{
+			"en": "Hosted consumer portal",
+			"fr": "Portail consommateur hébergé"
+		},
+		{
+			"en": "Delivery SLAs",
+			"fr": "SLA de livraison"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Svix",
+			"source": {
+				"host": "github",
+				"path": "svix/svix-webhooks",
+				"url": "https://github.com/svix/svix-webhooks"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The vendor's own server, MIT, with a compose file. Retries with exponential backoff, signature verification, the app portal — all of it.",
+				"fr": "Le serveur de l’éditeur lui-même, en MIT, avec un fichier compose. Retries avec backoff exponentiel, vérification de signature, portail applicatif — tout y est."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "The hosted service: operated queues, delivery SLAs and enterprise support",
+					"fr": "Le service hébergé : files opérées, SLA de livraison et support entreprise"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Hatchet",
+			"source": {
+				"host": "github",
+				"path": "hatchet-dev/hatchet",
+				"url": "https://github.com/hatchet-dev/hatchet"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "If webhook delivery is just 'a durable queue with retries', a general job queue is less software to run.",
+				"fr": "Si la livraison de webhooks n’est qu’« une file durable avec retries », une file de tâches généraliste, c’est moins de logiciel à exploiter."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Hatchet Cloud hosting and managed scaling",
+					"fr": "L’hébergement Hatchet Cloud et la mise à l’échelle managée"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "smee.io",
+			"source": {
+				"host": "github",
+				"path": "probot/smee.io",
+				"url": "https://github.com/probot/smee.io"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Only solves the development half — forwarding public webhooks to localhost — but that is often the actual reason people signed up.",
+				"fr": "Ne résout que la moitié « développement » — rediriger des webhooks publics vers localhost — mais c’est souvent la vraie raison de l’inscription."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

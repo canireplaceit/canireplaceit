@@ -1,0 +1,67 @@
+{
+	"slug": "cinema-4d",
+	"name": "Cinema 4D",
+	"domain": "maxon.net",
+	"category": "3d-cad",
+	"priceMonthly": 70,
+	"pricing": {
+		"plan": "Cinema 4D + Redshift, billed annually (USD 839/yr; Maxon's own page is JS-only, price from authorised reseller B&H)",
+		"basis": "per-seat",
+		"url": "https://www.bhphotovideo.com/c/search?q=maxon%20cinema%204d%20subscription",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "This is the clearest yes in 3D. Blender does motion graphics, MoGraph-style cloning, simulation and rendering at a quality C4D users recognise, and the Blender-to-After-Effects path is no worse than C4D's. What you give up is Maxon's polish and the Redshift bundle.",
+		"fr": "C’est le oui le plus net en 3D. Blender fait du motion design, du clonage à la MoGraph, de la simulation et du rendu à un niveau que les utilisateurs de C4D reconnaissent, et le chemin Blender vers After Effects ne vaut pas moins que celui de C4D. Vous perdez le vernis de Maxon et l’inclusion de Redshift."
+	},
+	"whatYouLose": [
+		{
+			"en": "Cineware link to After Effects",
+			"fr": "Lien Cineware avec After Effects"
+		},
+		{
+			"en": "Redshift included",
+			"fr": "Redshift inclus"
+		},
+		{
+			"en": "MoGraph's ease of use",
+			"fr": "Simplicité de MoGraph"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Blender",
+			"source": {
+				"host": "gitea",
+				"path": "blender/blender",
+				"url": "https://projects.blender.org/blender/blender"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Geometry Nodes replaces MoGraph, with a steeper start and a higher ceiling. Cycles and EEVEE Next cover the render side.",
+				"fr": "Les Geometry Nodes remplacent MoGraph, avec un départ plus raide et un plafond plus haut. Cycles et EEVEE Next couvrent le rendu."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Houdini Indie",
+			"url": "https://www.sidefx.com/buy/",
+			"priceMonthly": 27,
+			"note": {
+				"en": "Half the price and no ceiling on procedural work. The learning curve is genuinely brutal.",
+				"fr": "Deux fois moins cher et aucun plafond en procédural. La courbe d’apprentissage est réellement brutale."
+			}
+		}
+	],
+	"priority": 3
+}

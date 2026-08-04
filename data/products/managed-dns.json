@@ -1,0 +1,103 @@
+{
+	"slug": "managed-dns",
+	"name": "NS1 / Managed DNS",
+	"domain": "ns1.com",
+	"category": "networking-vpn",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "PowerDNS and Knot are the same software the managed providers run. What you cannot self-host is anycast: a hundred POPs so that a query from Jakarta resolves in 12ms and a DDoS against your nameserver doesn't take your company offline.",
+		"fr": "PowerDNS et Knot sont le logiciel même que font tourner les fournisseurs managés. Ce que vous ne pouvez pas auto-héberger, c’est l’anycast : une centaine de POPs pour qu’une requête depuis Jakarta se résolve en 12 ms et qu’un DDoS sur votre serveur de noms ne mette pas votre société hors ligne."
+	},
+	"whatYouLose": [
+		{
+			"en": "Global anycast network",
+			"fr": "Réseau anycast mondial"
+		},
+		{
+			"en": "DDoS absorption",
+			"fr": "Absorption des DDoS"
+		},
+		{
+			"en": "Traffic steering and failover",
+			"fr": "Routage du trafic et bascule"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "PowerDNS",
+			"source": {
+				"host": "github",
+				"path": "PowerDNS/pdns",
+				"url": "https://github.com/PowerDNS/pdns"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "SQL or LMDB backends, a real HTTP API, and GeoIP routing via the dnsdist companion. The one to pick if you must self-host.",
+				"fr": "Backends SQL ou LMDB, vraie API HTTP, et routage GeoIP via le compagnon dnsdist. Le choix si vous devez vraiment auto-héberger."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Knot DNS",
+			"source": {
+				"host": "gitlab",
+				"path": "knot/knot-dns",
+				"url": "https://gitlab.nic.cz/knot/knot-dns"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Runs .cz and several other TLDs. Fastest authoritative server here and DNSSEC signing is nearly automatic.",
+				"fr": "Fait tourner .cz et plusieurs autres TLD. Le serveur autoritaire le plus rapide ici, et la signature DNSSEC est quasi automatique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Technitium DNS",
+			"source": {
+				"host": "github",
+				"path": "TechnitiumSoftware/DnsServer",
+				"url": "https://github.com/TechnitiumSoftware/DnsServer"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Authoritative and recursive with a genuinely pleasant web UI. Right size for one company, not for a TLD.",
+				"fr": "Autoritaire et récursif avec une interface web réellement agréable. Bon calibre pour une entreprise, pas pour un TLD."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Cloudflare DNS",
+			"url": "https://www.cloudflare.com/dns/",
+			"priceMonthly": 0,
+			"note": {
+				"en": "Free anycast DNS on one of the largest networks in the world. No advanced traffic steering without a paid plan, and you hand Cloudflare your zone.",
+				"fr": "DNS anycast gratuit sur l’un des plus grands réseaux au monde. Pas de routage de trafic avancé sans forfait payant, et vous confiez votre zone à Cloudflare."
+			}
+		}
+	],
+	"priority": 2
+}

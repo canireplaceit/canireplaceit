@@ -1,0 +1,132 @@
+{
+	"slug": "onfleet",
+	"name": "Onfleet",
+	"domain": "onfleet.com",
+	"category": "shipping-logistics",
+	"priceMonthly": 619,
+	"pricing": {
+		"plan": "Launch, from USD 619/mo",
+		"basis": "flat",
+		"url": "https://onfleet.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Last-mile dispatch is three things: a route optimiser, a driver app and a customer tracking link. VROOM is a better optimiser than most commercial ones, Fleetbase ships a driver app, and the tracking link is a page. The gap is polish and the on-call engineer at 6am when routing breaks.",
+		"fr": "La livraison du dernier kilomètre, c’est trois choses : un optimiseur de tournées, une app conducteur et un lien de suivi client. VROOM est un meilleur optimiseur que la plupart des solutions commerciales, Fleetbase fournit une app conducteur, et le lien de suivi est une page. Ce qui manque, c’est le fini et l’ingénieur d’astreinte à 6 h quand le routage casse."
+	},
+	"whatYouLose": [
+		{
+			"en": "Driver app support and updates",
+			"fr": "Support et mises à jour de l’app conducteur"
+		},
+		{
+			"en": "Live customer ETA texts",
+			"fr": "SMS d’heure d’arrivée en direct"
+		},
+		{
+			"en": "Proof-of-delivery workflows",
+			"fr": "Flux de preuve de livraison"
+		},
+		{
+			"en": "Someone on call when routing fails",
+			"fr": "Quelqu’un d’astreinte quand le routage casse"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "VROOM",
+			"source": {
+				"host": "github",
+				"path": "VROOM-Project/vroom",
+				"url": "https://github.com/VROOM-Project/vroom"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "A genuinely excellent vehicle-routing solver: time windows, capacities, skills, multiple depots. BSD-2-Clause, no paid edition, pairs with OSRM.",
+				"fr": "Un solveur de tournées réellement excellent : fenêtres horaires, capacités, compétences, dépôts multiples. BSD-2-Clause, sans édition payante, s’associe à OSRM."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Fleetbase",
+			"source": {
+				"host": "github",
+				"path": "fleetbase/fleetbase",
+				"url": "https://github.com/fleetbase/fleetbase"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "The rest of the stack — orders, dispatch board, Navigator driver app, customer tracking. AGPL core, some extensions paid.",
+				"fr": "Le reste de la pile — commandes, tableau de répartition, app conducteur Navigator, suivi client. Cœur AGPL, certaines extensions payantes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Some marketplace extensions and the hosted console are paid",
+					"fr": "Certaines extensions du marketplace et la console hébergée sont payantes"
+				},
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OSRM",
+			"source": {
+				"host": "github",
+				"path": "Project-OSRM/osrm-backend",
+				"url": "https://github.com/Project-OSRM/osrm-backend"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "ops",
+			"note": {
+				"en": "The routing engine underneath: real road distances and turn-by-turn on your own OpenStreetMap extract.",
+				"fr": "Le moteur de routage sous-jacent : distances routières réelles et guidage sur votre propre extrait OpenStreetMap."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Timefold Solver",
+			"source": {
+				"host": "github",
+				"path": "TimefoldAI/timefold-solver",
+				"url": "https://github.com/TimefoldAI/timefold-solver"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "If your constraints are weirder than VROOM's model — driver shifts, legal breaks, priorities — this is the constraint solver to reach for.",
+				"fr": "Si vos contraintes dépassent le modèle de VROOM — services conducteurs, pauses légales, priorités — c’est le solveur de contraintes à choisir."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Multithreaded and partitioned solving are Enterprise Edition only",
+					"fr": "Le solveur multithread et la recherche partitionnée sont réservés à l’Enterprise Edition"
+				},
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

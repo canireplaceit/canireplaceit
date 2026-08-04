@@ -1,0 +1,82 @@
+{
+	"slug": "optisigns",
+	"name": "OptiSigns",
+	"domain": "optisigns.com",
+	"category": "digital-signage",
+	"priceMonthly": 10,
+	"pricing": {
+		"plan": "Standard, per screen billed monthly",
+		"basis": "per-seat",
+		"url": "https://www.optisigns.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "OptiSigns is a per-screen subscription wrapped around a media player and a scheduler, and the open equivalents are mature. The honest catch is the same for every product in this category: self-hosting is cheap when your screens are Raspberry Pis on your own network, and much less cheap once you need remote sites, cellular players and someone to drive across town when a display shows a black screen.",
+		"fr": "OptiSigns est un abonnement à l’écran enveloppant un lecteur média et un planificateur, et les équivalents ouverts sont matures. Le vrai bémol vaut pour toute la catégorie : l’auto-hébergement est bon marché tant que vos écrans sont des Raspberry Pi sur votre réseau, beaucoup moins dès qu’il faut des sites distants, des lecteurs en 4G et quelqu’un qui traverse la ville quand un écran reste noir."
+	},
+	"whatYouLose": [
+		{
+			"en": "Hundreds of ready-made app widgets",
+			"fr": "Des centaines de widgets applicatifs prêts"
+		},
+		{
+			"en": "Support for cheap smart-TV players",
+			"fr": "Support des lecteurs TV connectées bon marché"
+		},
+		{
+			"en": "Remote troubleshooting",
+			"fr": "Dépannage à distance"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Xibo",
+			"source": {
+				"host": "github",
+				"path": "xibosignage/xibo-cms",
+				"url": "https://github.com/xibosignage/xibo-cms"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Feature-for-feature the closest replacement, including scheduling and proof-of-play. Player licensing is the thing to budget for.",
+				"fr": "Le remplacement le plus proche fonction pour fonction, programmation et preuves de diffusion comprises. C’est la licence des lecteurs qu’il faut budgéter."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "The Android, webOS and Tizen players need a paid per-device licence from Xibo Signage; the AGPL-3.0 CMS and the Windows player are free.",
+					"fr": "Les lecteurs Android, webOS et Tizen nécessitent une licence payante par appareil auprès de Xibo Signage ; le CMS AGPL-3.0 et le lecteur Windows sont gratuits."
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Anthias",
+			"source": {
+				"host": "github",
+				"path": "Screenly/Anthias",
+				"url": "https://github.com/Screenly/Anthias"
+			},
+			"license": "GPL-2.0 (dual-licensed, commercial option available)",
+			"effort": "docker",
+			"note": {
+				"en": "The simplest thing that works: a Raspberry Pi image, a playlist of URLs, images and videos. Perfect for a handful of screens you can physically reach.",
+				"fr": "Le plus simple qui fonctionne : une image Raspberry Pi, une playlist d’URL, d’images et de vidéos. Parfait pour quelques écrans physiquement accessibles."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

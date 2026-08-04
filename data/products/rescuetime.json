@@ -1,0 +1,99 @@
+{
+	"slug": "rescuetime",
+	"name": "RescueTime",
+	"domain": "rescuetime.com",
+	"category": "productivity",
+	"priceMonthly": 12,
+	"pricing": {
+		"plan": "Solo+ (Timesheets + Focus), annual billed monthly",
+		"basis": "per-seat",
+		"url": "https://www.rescuetime.com/plans",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "RescueTime works by uploading a log of every app and window title you touch to a company's servers, then selling you a chart of it. ActivityWatch produces the same charts from a database that stays on the machine — for this particular product, self-hosting is not a compromise, it is the point.",
+		"fr": "RescueTime fonctionne en téléversant vers les serveurs d’une entreprise le journal de chaque application et titre de fenêtre que vous touchez, puis en vous vendant un graphique. ActivityWatch produit les mêmes graphiques depuis une base qui reste sur la machine — pour ce produit précis, l’auto-hébergement n’est pas un compromis, c’est l’objectif."
+	},
+	"whatYouLose": [
+		{
+			"en": "Polished weekly email reports",
+			"fr": "Rapports hebdomadaires soignés"
+		},
+		{
+			"en": "Focus sessions with blocking",
+			"fr": "Sessions de concentration avec blocage"
+		},
+		{
+			"en": "Cross-device aggregation",
+			"fr": "Agrégation entre appareils"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "ActivityWatch",
+			"source": {
+				"host": "github",
+				"path": "ActivityWatch/activitywatch",
+				"url": "https://github.com/ActivityWatch/activitywatch"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The direct replacement: automatic time tracking per app and per window title, stored in a local database that never leaves your machine.",
+				"fr": "Le remplacement direct : suivi automatique du temps par application et par titre de fenêtre, dans une base locale qui ne quitte jamais votre machine."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Super Productivity",
+			"source": {
+				"host": "github",
+				"path": "super-productivity/super-productivity",
+				"url": "https://github.com/super-productivity/super-productivity"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Tasks plus time tracking plus a pomodoro timer in one local-first desktop app. The repo moved from johannesjo/ to its own organisation.",
+				"fr": "Tâches, suivi du temps et minuteur pomodoro dans une seule application de bureau local-first. Le dépôt a migré de johannesjo/ vers sa propre organisation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LeechBlock NG",
+			"source": {
+				"host": "github",
+				"path": "proginosko/LeechBlockNG",
+				"url": "https://github.com/proginosko/LeechBlockNG"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Per-site time budgets and schedules in the browser, with a lockdown mode. Browser-only, so the phone remains a hole in the plan.",
+				"fr": "Budgets de temps et horaires par site dans le navigateur, avec un mode verrouillage. Uniquement dans le navigateur : le téléphone reste donc une faille."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

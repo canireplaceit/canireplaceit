@@ -1,0 +1,113 @@
+{
+	"slug": "wowza",
+	"name": "Wowza Streaming Engine",
+	"domain": "wowza.com",
+	"category": "live-streaming-broadcast",
+	"priceMonthly": 195,
+	"pricing": {
+		"plan": "Streaming Engine Basic Monthly",
+		"basis": "flat",
+		"url": "https://www.wowza.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Wowza is a media server you install on your own machine and then pay a licence for. SRS and MediaMTX do RTMP, SRT, WebRTC and HLS packaging for free and are frankly nicer to configure. The bill you cannot delete is egress: past a few thousand concurrent viewers it is the CDN, not the server licence, that hurts.",
+		"fr": "Wowza est un serveur média que vous installez sur votre machine et pour lequel vous payez ensuite une licence. SRS et MediaMTX font le RTMP, le SRT, le WebRTC et l’empaquetage HLS gratuitement et sont franchement plus agréables à configurer. La facture qu’on n’efface pas, c’est la bande passante : passé quelques milliers de spectateurs simultanés, c’est le CDN, pas la licence, qui fait mal."
+	},
+	"whatYouLose": [
+		{
+			"en": "A support contract",
+			"fr": "Un contrat de support"
+		},
+		{
+			"en": "DRM and studio approvals",
+			"fr": "DRM et validations studios"
+		},
+		{
+			"en": "Turnkey CDN integration",
+			"fr": "Intégration CDN clé en main"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "SRS",
+			"source": {
+				"host": "github",
+				"path": "ossrs/srs",
+				"url": "https://github.com/ossrs/srs"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Simple Realtime Server: RTMP, SRT, WebRTC, HLS, DVR and edge clustering, genuinely production-grade. Documentation leans Chinese-first.",
+				"fr": "Simple Realtime Server : RTMP, SRT, WebRTC, HLS, DVR et clustering en périphérie, réellement de niveau production. La documentation est d’abord en chinois."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MediaMTX",
+			"source": {
+				"host": "github",
+				"path": "bluenviron/mediamtx",
+				"url": "https://github.com/bluenviron/mediamtx"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "One binary, one YAML file, every protocol that matters. The best starting point unless you need clustering.",
+				"fr": "Un binaire, un fichier YAML, tous les protocoles utiles. Le meilleur point de départ sauf si vous avez besoin de clustering."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ant Media Server",
+			"source": {
+				"host": "github",
+				"path": "ant-media/Ant-Media-Server",
+				"url": "https://github.com/ant-media/Ant-Media-Server"
+			},
+			"license": "Apache-2.0 (Community Edition only)",
+			"effort": "ops",
+			"note": {
+				"en": "The closest feature map to Wowza, but read the licence file: only the Community Edition is Apache-2.0, and the interesting half is Enterprise, priced by quote.",
+				"fr": "Le périmètre le plus proche de Wowza, mais lisez le fichier de licence : seule la Community Edition est en Apache-2.0, et la moitié intéressante est en Enterprise, sur devis."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Adaptive bitrate transcoding, clustering and horizontal scaling, SFU conferencing and the low-latency WebRTC stack are Enterprise Edition only.",
+					"fr": "Le transcodage à débit adaptatif, le clustering et la montée en charge, la conférence SFU et la pile WebRTC basse latence sont réservés à l’Enterprise Edition."
+				}
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Cloudflare Stream",
+			"url": "https://www.cloudflare.com/developer-platform/products/cloudflare-stream/",
+			"priceMonthly": 5,
+			"note": {
+				"en": "Encoding, storage and global delivery billed per minute, with no server to keep alive. You are back on someone else's platform and delivery is metered.",
+				"fr": "Encodage, stockage et diffusion mondiale facturés à la minute, sans serveur à maintenir. Vous revenez sur la plateforme d’un tiers et la diffusion est comptée."
+			}
+		}
+	],
+	"priority": 3
+}

@@ -1,0 +1,97 @@
+{
+	"slug": "zscaler",
+	"name": "Zscaler Internet Access",
+	"domain": "zscaler.com",
+	"category": "security",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "Squid plus a filter list is a web proxy; Zscaler is a global inline inspection fabric with threat intelligence, sandboxing and DLP applied to every user wherever they are. The proxy part is easy. The 150-datacentre footprint and the feed behind it are the product.",
+		"fr": "Squid plus une liste de filtrage, c’est un proxy web ; Zscaler est un tissu d’inspection en ligne mondial avec renseignement sur les menaces, bac à sable et DLP appliqués à chaque utilisateur où qu’il soit. La partie proxy est facile. L’empreinte de 150 centres de données et le flux de renseignement derrière, c’est ça le produit."
+	},
+	"whatYouLose": [
+		{
+			"en": "Global inline inspection",
+			"fr": "Inspection en ligne mondiale"
+		},
+		{
+			"en": "Commercial threat feeds",
+			"fr": "Flux de menaces commerciaux"
+		},
+		{
+			"en": "Cloud sandboxing and DLP",
+			"fr": "Bac à sable cloud et DLP"
+		},
+		{
+			"en": "Off-network coverage",
+			"fr": "Couverture hors réseau"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Squid",
+			"source": {
+				"host": "github",
+				"path": "squid-cache/squid",
+				"url": "https://github.com/squid-cache/squid"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Twenty-five years of caching proxy, still the reference for ACL-based egress control and ICAP hand-off to a scanner. On-premises only, so remote laptops need a VPN back to it.",
+				"fr": "Vingt-cinq ans de proxy cache, toujours la référence pour le contrôle de sortie par ACL et le renvoi ICAP vers un antivirus. Sur site uniquement : les portables distants doivent revenir par VPN."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "e2guardian",
+			"source": {
+				"host": "github",
+				"path": "e2guardian/e2guardian",
+				"url": "https://github.com/e2guardian/e2guardian"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Content filtering with TLS interception on top of Squid, the DansGuardian lineage. Maintained but by a small team — check the commit log before betting a school district on it.",
+				"fr": "Filtrage de contenu avec interception TLS au-dessus de Squid, dans la lignée de DansGuardian. Maintenu, mais par une petite équipe — regardez le journal des commits avant d’y engager un rectorat."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenZiti",
+			"source": {
+				"host": "github",
+				"path": "openziti/ziti",
+				"url": "https://github.com/openziti/ziti"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Covers the ZTNA half — private app access with per-service identity — and nothing of the secure web gateway half. Half a replacement, honestly labelled.",
+				"fr": "Couvre la moitié ZTNA — accès aux applications privées avec identité par service — et rien de la moitié passerelle web sécurisée. Un demi-remplacement, annoncé comme tel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

@@ -1,0 +1,124 @@
+{
+	"slug": "jetbrains-intellij-idea",
+	"name": "JetBrains IntelliJ IDEA",
+	"domain": "jetbrains.com",
+	"category": "developer-tooling",
+	"priceMonthly": 65,
+	"pricing": {
+		"plan": "Commercial (organization), EUR 59.92/user/month billed annually, converted",
+		"basis": "per-seat",
+		"url": "https://www.jetbrains.com/idea/buy/?section=commercial&billing=yearly",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "The Community build is genuinely open source and genuinely crippled: no Spring, no profiler, no database tools, no remote dev. The free editors have caught up on editing and are still behind on refactoring a million-line Java monolith.",
+		"fr": "La version Community est réellement open source et réellement amputée : pas de Spring, pas de profileur, pas d’outils base de données, pas de dev distant. Les éditeurs gratuits ont rattrapé l’édition, mais restent en retrait pour refactorer un monolithe Java d’un million de lignes."
+	},
+	"whatYouLose": [
+		{
+			"en": "Framework-aware refactoring",
+			"fr": "Refactorisation consciente des frameworks"
+		},
+		{
+			"en": "Bundled profiler",
+			"fr": "Profileur intégré"
+		},
+		{
+			"en": "Spring/JPA tooling",
+			"fr": "Outillage Spring/JPA"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "IntelliJ IDEA Community",
+			"source": {
+				"host": "github",
+				"path": "JetBrains/intellij-community",
+				"url": "https://github.com/JetBrains/intellij-community"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "JetBrains' own open build. Same editor core, but Ultimate's framework support, profiler, database tools and remote dev are all withheld.",
+				"fr": "La version ouverte de JetBrains elle-même. Même cœur d’éditeur, mais le support des frameworks, le profileur, les outils base de données et le dev distant d’Ultimate sont retirés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Spring/JPA support, profiler, database tools, remote development",
+					"fr": "Support Spring/JPA, profileur, outils base de données, développement distant"
+				},
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "VS Code / VSCodium",
+			"source": {
+				"host": "github",
+				"path": "VSCodium/vscodium",
+				"url": "https://github.com/VSCodium/vscodium"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "VSCodium is Microsoft's editor built without telemetry or the proprietary marketplace. Java support via the Red Hat extension pack is good, not IntelliJ-good.",
+				"fr": "VSCodium, c’est l’éditeur de Microsoft compilé sans télémétrie ni marketplace propriétaire. Le support Java via le pack Red Hat est bon, mais pas au niveau d’IntelliJ."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Eclipse IDE",
+			"source": {
+				"host": "github",
+				"path": "eclipse-platform/eclipse.platform",
+				"url": "https://github.com/eclipse-platform/eclipse.platform"
+			},
+			"license": "EPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Still the most complete free Java IDE for enterprise stacks. The UI is from another era and you will feel it every day.",
+				"fr": "Toujours l’IDE Java gratuit le plus complet pour les stacks d’entreprise. L’interface vient d’une autre époque et ça se sent tous les jours."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Zed",
+			"source": {
+				"host": "github",
+				"path": "zed-industries/zed",
+				"url": "https://github.com/zed-industries/zed"
+			},
+			"license": "GPL-3.0 (Apache-2.0 for gpui)",
+			"effort": "managed",
+			"note": {
+				"en": "Rust-native, fast, collaborative. LSP-based so it knows syntax, not your framework.",
+				"fr": "Natif Rust, rapide, collaboratif. Repose sur LSP : il connaît la syntaxe, pas votre framework."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 4
+}

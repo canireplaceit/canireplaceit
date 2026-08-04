@@ -1,0 +1,78 @@
+{
+	"slug": "netlify",
+	"name": "Netlify",
+	"domain": "netlify.com",
+	"category": "dev-tools",
+	"priceMonthly": 20,
+	"pricing": {
+		"plan": "Pro",
+		"basis": "flat",
+		"url": "https://www.netlify.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Static hosting with git deploys and forms. The CDN part you can rent for a fraction.",
+		"fr": "De l’hébergement statique avec déploiement git et des formulaires. La partie CDN, vous pouvez la louer pour une fraction du prix."
+	},
+	"whatYouLose": [
+		{
+			"en": "Global CDN",
+			"fr": "CDN mondial"
+		},
+		{
+			"en": "Built-in forms and functions",
+			"fr": "Formulaires et fonctions intégrés"
+		},
+		{
+			"en": "Deploy previews",
+			"fr": "Previews de déploiement"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Coolify",
+			"source": {
+				"host": "github",
+				"path": "coollabsio/coolify",
+				"url": "https://github.com/coollabsio/coolify"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Static sites plus everything else.",
+				"fr": "Sites statiques et tout le reste avec."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Caddy",
+			"source": {
+				"host": "github",
+				"path": "caddyserver/caddy",
+				"url": "https://github.com/caddyserver/caddy"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Automatic HTTPS, one config file.",
+				"fr": "HTTPS automatique, un seul fichier de config."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

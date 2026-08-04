@@ -1,0 +1,78 @@
+{
+	"slug": "emby-premiere",
+	"name": "Emby Premiere",
+	"domain": "emby.media",
+	"category": "media-servers-tv",
+	"priceMonthly": 4.99,
+	"pricing": {
+		"plan": "Monthly ($54/yr, $119 lifetime)",
+		"basis": "flat",
+		"url": "https://emby.media/premiere.html",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "This is the cleanest swap on the whole site: Jellyfin literally is Emby, forked in 2018 at the point Emby's server stopped being open source, and developed in the open ever since. The features Premiere charges for — hardware transcoding, mobile sync, live TV DVR — are all free in Jellyfin. What Emby kept is a slicker app on some smart TVs and better metadata handling.",
+		"fr": "C’est l’échange le plus net de tout le site : Jellyfin est littéralement Emby, forké en 2018 au moment où le serveur d’Emby a cessé d’être open source, et développé au grand jour depuis. Les fonctions facturées par Premiere — transcodage matériel, synchro mobile, DVR — sont toutes gratuites dans Jellyfin. Ce qu’Emby a gardé, c’est une application plus léchée sur certains téléviseurs et une meilleure gestion des métadonnées."
+	},
+	"whatYouLose": [
+		{
+			"en": "Smart TV apps that feel finished",
+			"fr": "Applications TV qui semblent abouties"
+		},
+		{
+			"en": "Emby Connect remote access",
+			"fr": "Accès distant Emby Connect"
+		},
+		{
+			"en": "Cloud sync integrations",
+			"fr": "Intégrations de synchronisation cloud"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Jellyfin",
+			"source": {
+				"host": "github",
+				"path": "jellyfin/jellyfin",
+				"url": "https://github.com/jellyfin/jellyfin"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The fork of this exact codebase, with every Premiere feature unlocked and no licence key. Migration is close to painless.",
+				"fr": "Le fork de ce code précis, avec toutes les fonctions Premiere débloquées et sans clé de licence. La migration est quasiment indolore."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kodi",
+			"source": {
+				"host": "github",
+				"path": "xbmc/xbmc",
+				"url": "https://github.com/xbmc/xbmc"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "If there is only one television, skip the server entirely and put Kodi on the box.",
+				"fr": "S’il n’y a qu’un téléviseur, laissez tomber le serveur et mettez Kodi sur le boîtier."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

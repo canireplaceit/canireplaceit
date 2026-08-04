@@ -1,0 +1,86 @@
+{
+	"slug": "brandfolder",
+	"name": "Brandfolder",
+	"domain": "brandfolder.com",
+	"category": "creative-studio",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "Brandfolder's pitch is that non-technical teams will actually use it, and that is a real thing money buys. If your users are designers rather than the whole sales org, a self-hosted DAM with a decent search index does the job for the cost of a small VM.",
+		"fr": "L’argument de Brandfolder, c’est que des équipes non techniques l’utiliseront vraiment, et cela s’achète. Si vos utilisateurs sont des designers plutôt que toute la force de vente, un DAM auto-hébergé avec un bon index de recherche fait l’affaire pour le prix d’une petite VM."
+	},
+	"whatYouLose": [
+		{
+			"en": "Adoption by non-technical teams",
+			"fr": "Adoption par les équipes non techniques"
+		},
+		{
+			"en": "Usage analytics per asset",
+			"fr": "Statistiques d’usage par ressource"
+		},
+		{
+			"en": "CDN-backed public share links",
+			"fr": "Liens de partage publics via CDN"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Phraseanet",
+			"source": {
+				"host": "github",
+				"path": "alchemy-fr/Phraseanet",
+				"url": "https://github.com/alchemy-fr/Phraseanet"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Collections, controlled vocabularies, expiring share links and an API. The UI is functional rather than charming.",
+				"fr": "Collections, vocabulaires contrôlés, liens de partage expirants et une API. L’interface est fonctionnelle plus que séduisante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nextcloud",
+			"source": {
+				"host": "github",
+				"path": "nextcloud/server",
+				"url": "https://github.com/nextcloud/server"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Not a DAM, but with the Photos and Collectives apps it covers share links, versioning and permissions for a small brand library.",
+				"fr": "Ce n’est pas un DAM, mais avec les applications Photos et Collectives il couvre liens de partage, versions et permissions pour une petite photothèque de marque."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Enterprise support subscription and some collaboration add-ons",
+					"fr": "L’abonnement de support entreprise et certains modules de collaboration"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Air",
+			"url": "https://air.inc/pricing",
+			"priceMonthly": 30,
+			"note": {
+				"en": "Per-seat and far cheaper than an enterprise DAM contract, with genuinely good visual search. Cloud only.",
+				"fr": "Par utilisateur et bien moins cher qu’un contrat DAM d’entreprise, avec une recherche visuelle réellement bonne. Cloud uniquement."
+			}
+		}
+	],
+	"priority": 2
+}

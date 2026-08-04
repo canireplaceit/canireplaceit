@@ -1,0 +1,124 @@
+{
+	"slug": "omnifocus",
+	"name": "OmniFocus",
+	"domain": "omnigroup.com",
+	"category": "productivity",
+	"priceMonthly": 8.33,
+	"pricing": {
+		"plan": "Subscription, all platforms, USD 99.99/year",
+		"basis": "per-seat",
+		"url": "https://www.omnigroup.com/omnifocus/buy",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "OmniFocus is the only consumer task app with a genuinely serious model: deferred dates, sequential projects, perspectives, review cycles. Taskwarrior matches the power and none of the interface; Vikunja is a complete self-hosted app with neither the perspectives nor the review. You can run GTD on either — you will rebuild by hand the parts OmniFocus ships.",
+		"fr": "OmniFocus est la seule appli de tâches grand public avec un modèle vraiment sérieux : dates de report, projets séquentiels, perspectives, revues. Taskwarrior en a toute la puissance et aucune interface ; Vikunja est une appli auto-hébergée complète, sans les perspectives ni la revue. On peut faire du GTD avec l’un ou l’autre — en reconstruisant à la main ce qu’OmniFocus livre tel quel."
+	},
+	"whatYouLose": [
+		{
+			"en": "Custom perspectives",
+			"fr": "Perspectives personnalisées"
+		},
+		{
+			"en": "The weekly review workflow",
+			"fr": "Le flux de revue hebdomadaire"
+		},
+		{
+			"en": "Deferred dates and sequential projects",
+			"fr": "Dates différées et projets séquentiels"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Taskwarrior",
+			"source": {
+				"host": "github",
+				"path": "GothenburgBitFactory/taskwarrior",
+				"url": "https://github.com/GothenburgBitFactory/taskwarrior"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "The terminal one, with a genuinely serious urgency and dependency model. Sync via your own Taskchampion server.",
+				"fr": "Celui du terminal, avec un modèle d’urgence et de dépendances vraiment sérieux. Synchro via votre propre serveur Taskchampion."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Vikunja",
+			"source": {
+				"host": "github",
+				"path": "go-vikunja/vikunja",
+				"url": "https://github.com/go-vikunja/vikunja"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "List, kanban, gantt and calendar views over the same tasks, with a real API and CalDAV. The most complete self-hosted to-do app there is.",
+				"fr": "Vues liste, kanban, gantt et calendrier sur les mêmes tâches, avec une vraie API et CalDAV. L’application de tâches auto-hébergée la plus complète."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tasks.org",
+			"source": {
+				"host": "github",
+				"path": "tasks/tasks",
+				"url": "https://github.com/tasks/tasks"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The best open source Android task app, and it syncs over any CalDAV server you already run. The F-Droid build is complete; the Play build sells Google Tasks and hosted CalDAV sync.",
+				"fr": "La meilleure application de tâches Android open source, et elle se synchronise via n’importe quel serveur CalDAV que vous gérez déjà. La version F-Droid est complète ; celle du Play Store vend la synchro Google Tasks et CalDAV hébergée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Google Tasks and their hosted CalDAV sync in the Play build",
+					"fr": "La synchro Google Tasks et leur CalDAV hébergé dans la version Play Store"
+				},
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kanboard",
+			"source": {
+				"host": "github",
+				"path": "kanboard/kanboard",
+				"url": "https://github.com/kanboard/kanboard"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Plain PHP, no build step, runs on anything. Ugly and completely dependable.",
+				"fr": "Du PHP simple, aucune étape de build, tourne sur n’importe quoi. Moche et parfaitement fiable."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

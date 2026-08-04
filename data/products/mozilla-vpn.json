@@ -1,0 +1,134 @@
+{
+	"slug": "mozilla-vpn",
+	"name": "Mozilla VPN",
+	"domain": "mozilla.org",
+	"category": "networking-vpn",
+	"priceMonthly": 10,
+	"pricing": {
+		"plan": "Month-to-month",
+		"basis": "per-seat",
+		"url": "https://www.mozilla.org/products/vpn/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Mozilla VPN is Mullvad's network with a Mozilla wrapper and a markup, which is the single most useful fact about it. Buy Mullvad directly and you get the same exit nodes for less, or run WireGuard yourself if what you actually wanted was a tunnel home.",
+		"fr": "Mozilla VPN, c’est le réseau de Mullvad enveloppé par Mozilla, avec une marge : c’est le fait le plus utile à connaître. Achetez Mullvad directement et vous obtenez les mêmes nœuds de sortie pour moins cher, ou faites tourner WireGuard vous-même si ce que vous vouliez était un tunnel vers chez vous."
+	},
+	"whatYouLose": [
+		{
+			"en": "Mozilla's billing and support",
+			"fr": "Facturation et support de Mozilla"
+		},
+		{
+			"en": "Bundling with Firefox Relay",
+			"fr": "Regroupement avec Firefox Relay"
+		},
+		{
+			"en": "A brand you already trust",
+			"fr": "Une marque en qui vous avez déjà confiance"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "wg-easy",
+			"source": {
+				"host": "github",
+				"path": "wg-easy/wg-easy",
+				"url": "https://github.com/wg-easy/wg-easy"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "WireGuard plus a web UI with QR codes for phones. The five-minute version of the same idea.",
+				"fr": "WireGuard plus une interface web avec QR codes pour les téléphones. La version cinq minutes de la même idée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Algo VPN",
+			"source": {
+				"host": "github",
+				"path": "trailofbits/algo",
+				"url": "https://github.com/trailofbits/algo"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Ansible scripts from Trail of Bits that stand up a hardened WireGuard server on a cloud VM in one command. Remember the exit IP is then yours alone: worse for anonymity, better for trust.",
+				"fr": "Des scripts Ansible de Trail of Bits qui montent un serveur WireGuard durci sur une VM cloud en une commande. Attention, l’IP de sortie est alors la vôtre seule : pire pour l’anonymat, meilleur pour la confiance."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Headscale",
+			"source": {
+				"host": "github",
+				"path": "juanfont/headscale",
+				"url": "https://github.com/juanfont/headscale"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "An open control server for Tailscale's clients. You get the mesh without the coordination server being someone else's.",
+				"fr": "Un serveur de contrôle open source pour les clients Tailscale. Vous obtenez le maillage sans que le serveur de coordination appartienne à quelqu’un d’autre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "NetBird",
+			"source": {
+				"host": "github",
+				"path": "netbirdio/netbird",
+				"url": "https://github.com/netbirdio/netbird"
+			},
+			"license": "BSD-3-Clause (management/ under AGPL-3.0)",
+			"effort": "docker",
+			"note": {
+				"en": "WireGuard mesh with SSO and access policies. Read the LICENSE carefully: the client is BSD-3, but management/, signal/ and relay/ are AGPL with a commercial option.",
+				"fr": "Maillage WireGuard avec SSO et politiques d’accès. Lisez bien le LICENSE : le client est en BSD-3, mais management/, signal/ et relay/ sont en AGPL avec option commerciale."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Hosted control-plane tiers and the enterprise policy features",
+					"fr": "Les paliers hébergés du plan de contrôle et les politiques d’entreprise"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Mullvad",
+			"url": "https://mullvad.net/en/pricing",
+			"priceMonthly": 6,
+			"note": {
+				"en": "The same servers Mozilla resells, bought at source, with no account email required.",
+				"fr": "Les mêmes serveurs que Mozilla revend, achetés à la source, sans e-mail de compte requis."
+			}
+		}
+	],
+	"priority": 3
+}

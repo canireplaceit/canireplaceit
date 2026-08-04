@@ -1,0 +1,109 @@
+{
+	"slug": "life360",
+	"name": "Life360",
+	"domain": "life360.com",
+	"category": "home-devices",
+	"priceMonthly": 8,
+	"pricing": {
+		"plan": "Silver, monthly ($7.99)",
+		"basis": "flat",
+		"url": "https://www.life360.com/plans-pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Life360 was caught selling precise location data of families to data brokers. Traccar or OwnTracks give you the same map with the data staying on your server. Crash detection and roadside assistance are genuinely not replicable.",
+		"fr": "Life360 a été pris à vendre les données de localisation précises de familles à des courtiers en données. Traccar ou OwnTracks vous donnent la même carte, avec les données qui restent sur votre serveur. La détection d’accident et l’assistance routière, elles, ne sont vraiment pas reproductibles."
+	},
+	"whatYouLose": [
+		{
+			"en": "Crash detection and roadside assistance",
+			"fr": "Détection d’accident et assistance routière"
+		},
+		{
+			"en": "Battery-optimised background tracking",
+			"fr": "Suivi en arrière-plan optimisé pour la batterie"
+		},
+		{
+			"en": "Setup a non-technical family can do",
+			"fr": "Installation qu’une famille non technique peut faire"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Traccar",
+			"source": {
+				"host": "github",
+				"path": "traccar/traccar",
+				"url": "https://github.com/traccar/traccar"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Geofences, alerts, hundreds of device protocols. Built for fleets, works fine for a family.",
+				"fr": "Géorepérage, alertes, des centaines de protocoles d’appareils. Conçu pour les flottes, très bien pour une famille."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OwnTracks",
+			"source": {
+				"host": "github",
+				"path": "owntracks/recorder",
+				"url": "https://github.com/owntracks/recorder"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "MQTT-based, minimal, battery-friendly phone apps. Less interface, more plumbing.",
+				"fr": "Sur MQTT, minimal, applications mobiles économes en batterie. Moins d’interface, plus de tuyauterie."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dawarich",
+			"source": {
+				"host": "github",
+				"path": "Freika/dawarich",
+				"url": "https://github.com/Freika/dawarich"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "A self-hosted location timeline: history and heatmaps rather than live family tracking.",
+				"fr": "Un historique de localisation auto-hébergé : parcours et cartes de chaleur plutôt que suivi familial en direct."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Apple Find My",
+			"url": "https://www.apple.com/icloud/find-my/",
+			"priceMonthly": 0,
+			"note": {
+				"en": "Free, excellent battery behaviour, and crash detection is built into the phone. Apple-only, and no driving reports.",
+				"fr": "Gratuit, excellente autonomie, et la détection d’accident est intégrée au téléphone. Réservé à Apple, et pas de rapports de conduite."
+			}
+		}
+	],
+	"priority": 4
+}

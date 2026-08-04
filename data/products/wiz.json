@@ -1,0 +1,114 @@
+{
+	"slug": "wiz",
+	"name": "Wiz",
+	"domain": "wiz.io",
+	"category": "application-security",
+	"priceMonthly": null,
+	"pricing": {
+		"plan": "Contact sales — no published list price",
+		"basis": "custom",
+		"url": "https://www.wiz.io/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"notPublic": true,
+	"verdict": "almost",
+	"why": {
+		"en": "Anyone can enumerate misconfigurations — Prowler does it well and free. What Wiz sells is the graph that connects a public bucket to an over-permissioned role to a vulnerable container and tells you which three of nine hundred findings actually matter. Nothing open source builds that graph. Pricing is quote-only and scales with your cloud footprint, which is why nobody publishes a number.",
+		"fr": "N’importe qui peut énumérer des erreurs de configuration — Prowler le fait bien et gratuitement. Ce que vend Wiz, c’est le graphe qui relie un bucket public à un rôle sur-privilégié puis à un conteneur vulnérable, et qui vous dit lesquelles des neuf cents alertes comptent vraiment. Aucun projet open source ne construit ce graphe. La tarification est uniquement sur devis et croît avec votre empreinte cloud — d’où l’absence de chiffre public."
+	},
+	"whatYouLose": [
+		{
+			"en": "The attack-path graph",
+			"fr": "Le graphe des chemins d’attaque"
+		},
+		{
+			"en": "Finding prioritisation",
+			"fr": "Priorisation des alertes"
+		},
+		{
+			"en": "Agentless full-stack scanning",
+			"fr": "Analyse sans agent, pile complète"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Prowler",
+			"source": {
+				"host": "github",
+				"path": "prowler-cloud/prowler",
+				"url": "https://github.com/prowler-cloud/prowler"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Hundreds of AWS, Azure and GCP checks mapped to CIS and SOC2. Gives you the findings list, not the prioritisation.",
+				"fr": "Des centaines de contrôles AWS, Azure et GCP alignés sur CIS et SOC2. Vous donne la liste des constats, pas la priorisation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CloudQuery",
+			"source": {
+				"host": "github",
+				"path": "cloudquery/cloudquery",
+				"url": "https://github.com/cloudquery/cloudquery"
+			},
+			"license": "MPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Syncs your whole cloud inventory into Postgres so you can write the correlation queries yourself. Closest to Wiz's model, if you do the work.",
+				"fr": "Synchronise tout votre inventaire cloud dans Postgres pour que vous écriviez vous-même les requêtes de corrélation. Le plus proche du modèle de Wiz, si vous faites le travail."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "AWS, GCP, Azure plugins beyond free quota",
+					"fr": "Plugins AWS, GCP, Azure au-delà du quota"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Falco",
+			"source": {
+				"host": "github",
+				"path": "falcosecurity/falco",
+				"url": "https://github.com/falcosecurity/falco"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Runtime detection at the syscall level. Covers the half of Wiz that posture scanning cannot.",
+				"fr": "Détection à l’exécution au niveau des appels système. Couvre la moitié de Wiz que l’analyse de posture ne peut pas atteindre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Prowler Cloud",
+			"url": "https://prowler.com/pricing/",
+			"priceMonthly": 99,
+			"note": {
+				"en": "Hosted Prowler from its own authors, an order of magnitude below Wiz. You get scheduling and dashboards, not the attack-path graph.",
+				"fr": "Prowler hébergé par ses propres auteurs, dix fois moins cher que Wiz. Vous obtenez la planification et les tableaux de bord, pas le graphe de chemins d’attaque."
+			}
+		}
+	],
+	"priority": 3
+}

@@ -1,0 +1,117 @@
+{
+	"slug": "expensify",
+	"name": "Expensify",
+	"domain": "expensify.com",
+	"category": "accounting-invoicing",
+	"priceMonthly": 5,
+	"pricing": {
+		"plan": "Collect (Control is custom, as low as $9)",
+		"basis": "per-seat",
+		"url": "https://www.expensify.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Expensify open-sourced its own client under MIT, which is an unusual admission. The receipt OCR and the corporate card are the paid parts; the approval workflow is a form with a state machine and every HR suite already has one.",
+		"fr": "Expensify a publié son propre client sous licence MIT, ce qui est un aveu inhabituel. L’OCR des reçus et la carte corporate sont les parties payantes ; le circuit de validation, c’est un formulaire avec une machine à états — chaque suite RH en a déjà un."
+	},
+	"whatYouLose": [
+		{
+			"en": "SmartScan receipt OCR",
+			"fr": "OCR des reçus SmartScan"
+		},
+		{
+			"en": "The Expensify corporate card",
+			"fr": "La carte corporate Expensify"
+		},
+		{
+			"en": "Direct accounting-package sync",
+			"fr": "Synchro directe avec le logiciel comptable"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Expensify App",
+			"source": {
+				"host": "github",
+				"path": "Expensify/App",
+				"url": "https://github.com/Expensify/App"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Their real client, MIT. The backend is not open, so this is a starting point, not a drop-in.",
+				"fr": "Leur vrai client, en MIT. Le backend n’est pas ouvert : c’est un point de départ, pas un remplacement clé en main."
+			},
+			"facts": {
+				"selfHostable": false,
+				"openCore": "major",
+				"paywalled": {
+					"en": "The whole backend stays proprietary SaaS",
+					"fr": "Tout le backend reste un SaaS propriétaire"
+				},
+				"ssoInFree": false,
+				"dataResidency": "us-only"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Frappe HR",
+			"source": {
+				"host": "github",
+				"path": "frappe/hrms",
+				"url": "https://github.com/frappe/hrms"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Expense claims with approvals wired straight into ERPNext accounting.",
+				"fr": "Notes de frais et validations branchées directement sur la compta ERPNext."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Odoo Community",
+			"source": {
+				"host": "github",
+				"path": "odoo/odoo",
+				"url": "https://github.com/odoo/odoo"
+			},
+			"license": "LGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "The Expenses module is one of the few genuinely good free Odoo apps.",
+				"fr": "Le module Notes de frais est l’une des rares applications Odoo gratuites vraiment bonnes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Full accounting, Studio, 40+ apps, mobile",
+					"fr": "Comptabilité complète, Studio, 40+ apps, mobile"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Zoho Expense",
+			"url": "https://www.zoho.com/expense/",
+			"priceMonthly": 3,
+			"note": {
+				"en": "Cheaper and the OCR is comparable. No corporate card programme of its own.",
+				"fr": "Moins cher, OCR comparable. Pas de programme de carte corporate maison."
+			}
+		}
+	],
+	"priority": 3
+}

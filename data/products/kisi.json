@@ -1,0 +1,128 @@
+{
+	"slug": "kisi",
+	"name": "Kisi",
+	"domain": "getkisi.com",
+	"category": "facilities-access",
+	"priceMonthly": 99,
+	"pricing": {
+		"plan": "One Security Platform, from $99/mo",
+		"basis": "flat",
+		"url": "https://www.getkisi.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "not-yet",
+	"why": {
+		"en": "Door access is where self-hosting runs into the fire marshal, not the sysadmin. A controller on an egress door has to fail safe, hold up under UL 294 or EN 60839, and satisfy your insurer — and no open source controller carries those listings. You can absolutely build a door opener with ESPHome; you cannot legally make it your only fire-egress path.",
+		"fr": "Le contrôle d’accès est le domaine où l’auto-hébergement se heurte au préventionniste incendie, pas à l’administrateur système. Un contrôleur sur une porte de sortie doit être à sécurité positive, tenir la certification UL 294 ou EN 60839 et satisfaire votre assureur — et aucun contrôleur open source ne porte ces marquages. Vous pouvez tout à fait fabriquer un ouvre-porte avec ESPHome ; vous ne pouvez pas légalement en faire votre unique issue de secours."
+	},
+	"whatYouLose": [
+		{
+			"en": "UL 294 / EN 60839 certified hardware",
+			"fr": "Matériel certifié UL 294 / EN 60839"
+		},
+		{
+			"en": "Insurer and fire-code acceptance",
+			"fr": "Acceptation par l’assureur et la réglementation incendie"
+		},
+		{
+			"en": "Mobile credentials and Apple Wallet keys",
+			"fr": "Badges mobiles et clés Apple Wallet"
+		},
+		{
+			"en": "Cloud uptime for the unlock path",
+			"fr": "Disponibilité cloud du chemin de déverrouillage"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Home Assistant",
+			"source": {
+				"host": "github",
+				"path": "home-assistant/core",
+				"url": "https://github.com/home-assistant/core"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Genuinely runs doors, readers and schedules today via ESPHome, Zigbee and Z-Wave locks, with full logging. Use it for internal doors and cabinets, not fire egress.",
+				"fr": "Gère réellement portes, lecteurs et plannings via ESPHome, Zigbee et les serrures Z-Wave, avec journalisation complète. À réserver aux portes intérieures et aux armoires, pas aux issues de secours."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ESPHome",
+			"source": {
+				"host": "github",
+				"path": "esphome/esphome",
+				"url": "https://github.com/esphome/esphome"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The controller firmware: Wiegand readers, relays, door sensors, all declared in YAML. Licence is MIT for Python and GPL-3.0 for the C++ runtime.",
+				"fr": "Le micrologiciel du contrôleur : lecteurs Wiegand, relais, capteurs de porte, tout déclaré en YAML. Licence MIT pour le Python et GPL-3.0 pour le runtime C++."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Frigate",
+			"source": {
+				"host": "github",
+				"path": "blakeblackshear/frigate",
+				"url": "https://github.com/blakeblackshear/frigate"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The camera half — who actually came through the door — on your own GPU. Frigate+ model training is the paid part.",
+				"fr": "La partie caméra — qui est réellement passé — sur votre propre GPU. L’entraînement de modèles Frigate+ est la partie payante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Frigate+ custom model training is a paid subscription",
+					"fr": "L’entraînement de modèles personnalisés Frigate+ est un abonnement payant"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Snipe-IT",
+			"source": {
+				"host": "github",
+				"path": "grokability/snipe-it",
+				"url": "https://github.com/grokability/snipe-it"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Where the physical keys and badges you hand out should be recorded, whatever runs the doors.",
+				"fr": "L’endroit où consigner les clés et badges physiques que vous remettez, quel que soit le système qui pilote les portes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

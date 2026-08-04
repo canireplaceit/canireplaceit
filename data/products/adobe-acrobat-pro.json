@@ -1,0 +1,106 @@
+{
+	"slug": "adobe-acrobat-pro",
+	"name": "Adobe Acrobat Pro",
+	"domain": "adobe.com",
+	"category": "legal-contracts-signing",
+	"priceMonthly": 19.99,
+	"pricing": {
+		"plan": "Acrobat Pro for individuals, annual billed monthly (Teams $29.99)",
+		"basis": "per-seat",
+		"url": "https://www.adobe.com/acrobat/pricing.html",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Merging, splitting, OCR'ing and redacting PDFs is a subscription only because Adobe made the format and nobody questioned it. Stirling PDF does the entire toolbox in one container. Advanced form-field authoring and PDF/A certification are the remaining gaps.",
+		"fr": "Fusionner, découper, OCRiser et caviarder des PDF n’est un abonnement que parce qu’Adobe a inventé le format et que personne n’a posé la question. Stirling PDF fait toute la boîte à outils dans un seul conteneur. Restent les formulaires avancés et la certification PDF/A."
+	},
+	"whatYouLose": [
+		{
+			"en": "Advanced form-field authoring",
+			"fr": "Création de formulaires avancés"
+		},
+		{
+			"en": "PDF/A archival certification",
+			"fr": "Certification d’archivage PDF/A"
+		},
+		{
+			"en": "Adobe-signed document integrity",
+			"fr": "Intégrité des documents signée par Adobe"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Stirling PDF",
+			"source": {
+				"host": "github",
+				"path": "Stirling-Tools/Stirling-PDF",
+				"url": "https://github.com/Stirling-Tools/Stirling-PDF"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Dozens of PDF operations, runs locally so files never leave your machine. Some newer features sit in a proprietary directory.",
+				"fr": "Des dizaines d’opérations PDF, en local : vos fichiers ne quittent jamais la machine. Certaines nouveautés sont dans un répertoire propriétaire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO/SAML, audit logs, priority support",
+					"fr": "SSO/SAML, journaux d’audit, support prioritaire"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ONLYOFFICE Docs",
+			"source": {
+				"host": "github",
+				"path": "ONLYOFFICE/DocumentServer",
+				"url": "https://github.com/ONLYOFFICE/DocumentServer"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Real PDF form filling and editing alongside docx and xlsx. Heavier to run.",
+				"fr": "Vraie saisie et édition de formulaires PDF, aux côtés du docx et du xlsx. Plus lourd à exploiter."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Mobile web editors and support",
+					"fr": "Éditeurs web mobiles et support"
+				},
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "PDF Expert",
+			"url": "https://pdfexpert.com",
+			"priceMonthly": 7,
+			"note": {
+				"en": "A third of the price, much faster on Mac and iPad. Windows support and OCR are weaker.",
+				"fr": "Trois fois moins cher, bien plus rapide sur Mac et iPad. Support Windows et OCR plus faibles."
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Foxit PDF Editor",
+			"url": "https://www.foxit.com",
+			"priceMonthly": 15,
+			"note": {
+				"en": "Near feature-parity on Windows for less. The UI is a museum of toolbars.",
+				"fr": "Quasi-parité fonctionnelle sur Windows pour moins cher. L’interface est un musée de barres d’outils."
+			}
+		}
+	],
+	"priority": 4
+}

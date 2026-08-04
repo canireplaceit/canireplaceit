@@ -1,0 +1,113 @@
+{
+	"slug": "fastmail",
+	"name": "Fastmail",
+	"domain": "fastmail.com",
+	"category": "email-deliverability",
+	"priceMonthly": 5,
+	"pricing": {
+		"plan": "Standard, billed annually (USD page geo-redirects; PLN page shows 25 zl/user/mo)",
+		"basis": "per-seat",
+		"url": "https://www.fastmail.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Running your own mailbox server is a solved problem — mailcow or Stalwart is one evening. Running it for ten years is not: it is DNSBL listings, a disk that fills at 3am, and the day Gmail decides your IP is suspicious and your invoices stop arriving.",
+		"fr": "Faire tourner son propre serveur de boîtes aux lettres est un problème résolu — mailcow ou Stalwart, c’est une soirée. Le faire tourner pendant dix ans ne l’est pas : c’est des inscriptions en DNSBL, un disque qui se remplit à 3 h du matin, et le jour où Gmail juge votre IP suspecte et où vos factures cessent d’arriver."
+	},
+	"whatYouLose": [
+		{
+			"en": "Someone else on call",
+			"fr": "Quelqu’un d’autre d’astreinte"
+		},
+		{
+			"en": "Reputation you inherit",
+			"fr": "Réputation dont vous héritez"
+		},
+		{
+			"en": "Polished mobile apps",
+			"fr": "Applications mobiles soignées"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "mailcow",
+			"source": {
+				"host": "github",
+				"path": "mailcow/mailcow-dockerized",
+				"url": "https://github.com/mailcow/mailcow-dockerized"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Postfix, Dovecot, Rspamd, SOGo and ClamAV wired together correctly with an admin UI. The pragmatic choice, and it now speaks OIDC/LDAP to an external IdP.",
+				"fr": "Postfix, Dovecot, Rspamd, SOGo et ClamAV câblés correctement avec une interface d’admin. Le choix pragmatique, et il parle désormais OIDC/LDAP à un IdP externe."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Stalwart",
+			"source": {
+				"host": "github",
+				"path": "stalwartlabs/stalwart",
+				"url": "https://github.com/stalwartlabs/stalwart"
+			},
+			"license": "AGPL-3.0 / LicenseRef-SEL",
+			"effort": "docker",
+			"note": {
+				"en": "One binary, JMAP as a first-class protocol, encryption at rest, sieve scripting. The most interesting new mail server in a decade.",
+				"fr": "Un binaire, JMAP comme protocole de première classe, chiffrement au repos, scripts Sieve. Le serveur de messagerie récent le plus intéressant depuis dix ans."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Multi-tenancy, delivery history, live telemetry and metric alerts.",
+					"fr": "Multi-location, historique de livraison, télémétrie en direct et alertes sur métriques."
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "docker-mailserver",
+			"source": {
+				"host": "github",
+				"path": "docker-mailserver/docker-mailserver",
+				"url": "https://github.com/docker-mailserver/docker-mailserver"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "No database, no web UI, config in files you can commit to git. The one to pick if you want to understand every moving part.",
+				"fr": "Pas de base de données, pas d’interface web, configuration dans des fichiers versionnables. À choisir si vous voulez comprendre chaque rouage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Migadu",
+			"url": "https://migadu.com/pricing/",
+			"priceMonthly": 3,
+			"note": {
+				"en": "Priced per message volume rather than per mailbox, so unlimited addresses for a family or a small company. No large-attachment storage and a spartan webmail.",
+				"fr": "Tarifé au volume de messages plutôt qu’à la boîte : adresses illimitées pour une famille ou une petite société. Pas de stockage de grosses pièces jointes et un webmail spartiate."
+			}
+		}
+	],
+	"priority": 3
+}

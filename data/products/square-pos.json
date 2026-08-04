@@ -1,0 +1,121 @@
+{
+	"slug": "square-pos",
+	"name": "Square POS",
+	"domain": "squareup.com",
+	"category": "retail-pos",
+	"priceMonthly": null,
+	"pricing": {
+		"plan": "Free (pay per transaction)",
+		"basis": "usage",
+		"url": "https://squareup.com/us/en/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Square's software is free; the 2.6% + 10c per swipe is the product. Open source POS software exists and is decent, but nobody ships you a certified card reader with it, and the payment terminal is where the compliance and the money both live. You can replace the till and the catalogue, not the acquiring.",
+		"fr": "Le logiciel Square est gratuit ; les 2,6 % + 10 c par transaction, c’est le produit. Il existe de bons logiciels de caisse open source, mais aucun ne vous livre un terminal de paiement certifié, et c’est là que se trouvent la conformité et l’argent. Vous pouvez remplacer la caisse et le catalogue, pas l’acquisition."
+	},
+	"whatYouLose": [
+		{
+			"en": "Certified card terminals",
+			"fr": "Terminaux de paiement certifiés"
+		},
+		{
+			"en": "Next-day payouts",
+			"fr": "Virements à J+1"
+		},
+		{
+			"en": "PCI scope handled for you",
+			"fr": "Périmètre PCI géré pour vous"
+		},
+		{
+			"en": "Chargeback handling",
+			"fr": "Gestion des impayés"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Open Source Point of Sale",
+			"source": {
+				"host": "github",
+				"path": "opensourcepos/opensourcepos",
+				"url": "https://github.com/opensourcepos/opensourcepos"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "A plain PHP till: catalogue, sales, customers, stock, receipts. No payment integration — you pair it with whatever terminal you already have.",
+				"fr": "Une caisse PHP sans fioritures : catalogue, ventes, clients, stock, tickets. Aucune intégration de paiement — vous l’associez au terminal que vous avez déjà."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "NexoPOS",
+			"source": {
+				"host": "github",
+				"path": "Blair2004/NexoPOS",
+				"url": "https://github.com/Blair2004/NexoPOS"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Modern Laravel/Vue till and the nicest-looking of the lot. The core is GPL, but restaurant, multi-store and warehouse features are paid marketplace modules.",
+				"fr": "Caisse moderne en Laravel/Vue, la plus soignée visuellement. Le cœur est GPL, mais restaurant, multi-boutique et entrepôt sont des modules payants du marketplace."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Restaurant, multi-store, warehouse and printing modules are sold on the marketplace",
+					"fr": "Les modules restaurant, multi-boutique, entrepôt et impression sont vendus sur le marketplace"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Odoo Community",
+			"source": {
+				"host": "github",
+				"path": "odoo/odoo",
+				"url": "https://github.com/odoo/odoo"
+			},
+			"license": "LGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Odoo POS runs offline in the browser and syncs to real stock and accounting. Barcode and Shop Floor apps are Enterprise-only.",
+				"fr": "Le POS Odoo fonctionne hors ligne dans le navigateur et se synchronise avec le stock et la compta. Les apps Code-barres et Atelier sont réservées à l’Enterprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Full accounting, Studio, Barcode, Shop Floor, Field Service and Planning are Enterprise-only",
+					"fr": "La comptabilité complète, Studio, Code-barres, Atelier, Services sur site et Planification sont réservés à l’Enterprise"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "SumUp",
+			"url": "https://www.sumup.com",
+			"priceMonthly": 0,
+			"note": {
+				"en": "Same free-software, paid-per-transaction shape with cheaper hardware and slightly higher card fees in some markets.",
+				"fr": "Même modèle logiciel gratuit / commission par transaction, avec du matériel moins cher et des commissions parfois un peu plus élevées."
+			}
+		}
+	],
+	"priority": 4
+}

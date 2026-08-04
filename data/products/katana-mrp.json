@@ -1,0 +1,124 @@
+{
+	"slug": "katana-mrp",
+	"name": "Katana Cloud Inventory",
+	"domain": "katanamrp.com",
+	"category": "manufacturing-quality",
+	"priceMonthly": 299,
+	"pricing": {
+		"plan": "Core",
+		"basis": "flat",
+		"url": "https://katanamrp.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Katana is a BOM, a production schedule and a live stock number, aimed at small makers who found ERP terrifying. ERPNext does all of it with better costing and no per-seat tax; the price you pay is that ERPNext looks like an ERP, because it is one.",
+		"fr": "Katana, c’est une nomenclature, un planning de production et un stock en temps réel, destiné aux petits fabricants que l’ERP effraie. ERPNext fait tout cela avec un meilleur calcul de coût et sans taxe au poste ; le prix à payer, c’est qu’ERPNext ressemble à un ERP, parce que c’en est un."
+	},
+	"whatYouLose": [
+		{
+			"en": "Shopify and WooCommerce sync out of the box",
+			"fr": "Synchro Shopify et WooCommerce prête à l’emploi"
+		},
+		{
+			"en": "Visual production scheduler",
+			"fr": "Planificateur de production visuel"
+		},
+		{
+			"en": "Zero-setup onboarding",
+			"fr": "Mise en route sans installation"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "ERPNext",
+			"source": {
+				"host": "github",
+				"path": "frappe/erpnext",
+				"url": "https://github.com/frappe/erpnext"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "BOMs, work orders, routing, subcontracting, batch and serial traceability, and the accounting underneath. Fully GPL with no Enterprise edition.",
+				"fr": "Nomenclatures, ordres de fabrication, gammes, sous-traitance, traçabilité par lot et numéro de série, et la comptabilité dessous. Entièrement GPL, sans édition Enterprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Odoo Community",
+			"source": {
+				"host": "github",
+				"path": "odoo/odoo",
+				"url": "https://github.com/odoo/odoo"
+			},
+			"license": "LGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "MRP is in Community and is genuinely good. The Shop Floor tablet view, Quality and PLM are all Enterprise-only.",
+				"fr": "La MRP est en Community et vraiment bonne. La vue tablette Atelier, Qualité et PLM sont réservés à l’Enterprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Full accounting, Studio, Barcode, Shop Floor, Field Service and Planning are Enterprise-only",
+					"fr": "La comptabilité complète, Studio, Code-barres, Atelier, Services sur site et Planification sont réservés à l’Enterprise"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "InvenTree",
+			"source": {
+				"host": "github",
+				"path": "inventree/InvenTree",
+				"url": "https://github.com/inventree/InvenTree"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Better for a maker with thousands of parts and a handful of builds: parts, stock, BOMs, purchase orders, great API.",
+				"fr": "Meilleur pour un fabricant avec des milliers de pièces et quelques assemblages : pièces, stock, nomenclatures, commandes d’achat, excellente API."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tryton",
+			"source": {
+				"host": "gitlab",
+				"path": "tryton/tryton",
+				"url": "https://foss.heptapod.net/tryton/tryton"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Modular and accounting-correct production for people who want the model right before the UI is pretty. Development happens on the project's own Mercurial/GitLab; GitHub is the mirror.",
+				"fr": "Production modulaire et comptablement rigoureuse, pour ceux qui veulent un modèle juste avant une interface jolie. Le développement se fait sur le Mercurial/GitLab du projet ; GitHub est le miroir."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

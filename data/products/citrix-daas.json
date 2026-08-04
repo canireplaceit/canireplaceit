@@ -1,0 +1,97 @@
+{
+	"slug": "citrix-daas",
+	"name": "Citrix DaaS",
+	"domain": "citrix.com",
+	"category": "remote-access",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "Guacamole will publish desktops in a browser and Kasm will stream containerised apps, and for many teams that is enough. It is not Citrix: no HDX adaptive transport over a satellite link, no published-app seamless windows, no profile management for 5,000 users logging in at 8:55am.",
+		"fr": "Guacamole publiera des bureaux dans un navigateur et Kasm diffusera des applications conteneurisées, et pour bien des équipes cela suffit. Ce n’est pas Citrix : pas de transport adaptatif HDX sur un lien satellite, pas de fenêtres transparentes d’applications publiées, pas de gestion de profils pour 5 000 utilisateurs qui se connectent à 8 h 55."
+	},
+	"whatYouLose": [
+		{
+			"en": "HDX over hostile links",
+			"fr": "HDX sur liens dégradés"
+		},
+		{
+			"en": "Seamless published apps",
+			"fr": "Applications publiées transparentes"
+		},
+		{
+			"en": "Profile and image management",
+			"fr": "Gestion des profils et des images"
+		},
+		{
+			"en": "Windows multi-session support",
+			"fr": "Support Windows multi-session"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Apache Guacamole",
+			"source": {
+				"host": "github",
+				"path": "apache/guacamole-server",
+				"url": "https://github.com/apache/guacamole-server"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "HTML5 gateway to RDP, VNC and SSH with per-user connection sets, recording and SAML/OIDC. The realistic replacement for basic desktop publishing.",
+				"fr": "Passerelle HTML5 vers RDP, VNC et SSH avec ensembles de connexions par utilisateur, enregistrement et SAML/OIDC. Le remplaçant réaliste de la publication de bureaux basique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "KasmVNC",
+			"source": {
+				"host": "github",
+				"path": "kasmtech/KasmVNC",
+				"url": "https://github.com/kasmtech/KasmVNC"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Browser-native VNC with modern codecs and no Java. Note that only KasmVNC is open source — Kasm Workspaces, the orchestration product people mean, is proprietary with a free tier.",
+				"fr": "VNC natif navigateur avec codecs modernes et sans Java. Notez que seul KasmVNC est open source — Kasm Workspaces, le produit d’orchestration dont on parle, est propriétaire avec un palier gratuit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "xrdp",
+			"source": {
+				"host": "github",
+				"path": "neutrinolabs/xrdp",
+				"url": "https://github.com/neutrinolabs/xrdp"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Real RDP into Linux sessions, so Windows clients connect with the built-in mstsc. Session brokering is on you.",
+				"fr": "Du vrai RDP vers des sessions Linux : les clients Windows se connectent avec mstsc intégré. Le courtage de sessions est à votre charge."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

@@ -1,0 +1,109 @@
+{
+	"slug": "postmark",
+	"name": "Postmark",
+	"domain": "postmarkapp.com",
+	"category": "email-deliverability",
+	"priceMonthly": 15,
+	"pricing": {
+		"plan": "Basic, 10,000 emails/month",
+		"basis": "usage",
+		"url": "https://postmarkapp.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Postmark's entire proposition is that a password reset lands in the inbox in four seconds, because they refuse bulk marketing mail on those IPs. You can self-host the sending; you cannot self-host a policy of turning away the customers who would poison the pool.",
+		"fr": "Toute la proposition de Postmark est qu’une réinitialisation de mot de passe arrive dans la boîte en quatre secondes, parce qu’ils refusent le marketing de masse sur ces IP. Vous pouvez auto-héberger l’envoi ; vous ne pouvez pas auto-héberger une politique consistant à refuser les clients qui pollueraient le pool."
+	},
+	"whatYouLose": [
+		{
+			"en": "Transactional-only IP pools",
+			"fr": "Pools d’IP purement transactionnels"
+		},
+		{
+			"en": "Seconds-to-inbox delivery",
+			"fr": "Livraison en quelques secondes"
+		},
+		{
+			"en": "45-day searchable log",
+			"fr": "Journal consultable sur 45 jours"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Postal",
+			"source": {
+				"host": "github",
+				"path": "postalserver/postal",
+				"url": "https://github.com/postalserver/postal"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Message-level tracking and a searchable log come out of the box, so the observability gap is smaller than the reputation gap.",
+				"fr": "Suivi au niveau du message et journal consultable inclus d’origine : l’écart d’observabilité est plus petit que l’écart de réputation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "maddy",
+			"source": {
+				"host": "github",
+				"path": "foxcpp/maddy",
+				"url": "https://github.com/foxcpp/maddy"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "If you send a few thousand transactional messages a month from your own domain, this plus correct SPF/DKIM/DMARC really does work.",
+				"fr": "Si vous envoyez quelques milliers de messages transactionnels par mois depuis votre domaine, ceci plus un SPF/DKIM/DMARC correct fonctionne vraiment."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Haraka",
+			"source": {
+				"host": "github",
+				"path": "haraka/Haraka",
+				"url": "https://github.com/haraka/Haraka"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The relay to pick when you need to bend delivery logic — per-tenant routing, custom bounce handling — rather than click a UI.",
+				"fr": "Le relais à choisir quand vous devez tordre la logique de livraison — routage par locataire, gestion de rebonds sur mesure — plutôt que cliquer dans une interface."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Amazon SES",
+			"url": "https://aws.amazon.com/ses/pricing/",
+			"priceMonthly": 1,
+			"note": {
+				"en": "A tenth of the price for the same delivery job. You give up the log UI, the templates and any human to email when Outlook starts deferring you.",
+				"fr": "Dix fois moins cher pour le même travail de livraison. Vous perdez l’interface de journaux, les modèles et tout humain à qui écrire quand Outlook commence à vous différer."
+			}
+		}
+	],
+	"priority": 3
+}

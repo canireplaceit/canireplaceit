@@ -1,0 +1,107 @@
+{
+	"slug": "google-workspace",
+	"name": "Google Workspace",
+	"domain": "workspace.google.com",
+	"category": "productivity",
+	"priceMonthly": 14,
+	"pricing": {
+		"plan": "Business Standard, billed annually (USD page geo-redirects; PLN page shows 63 zl/user/mo flexible)",
+		"basis": "per-seat",
+		"url": "https://workspace.google.com/pricing.html",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Docs and Drive have real alternatives. Running your own mail server in 2026 is a career choice, not a task.",
+		"fr": "Docs et Drive ont de vraies alternatives. Gérer son propre serveur mail en 2026 n’est pas une tâche, c’est un choix de carrière."
+	},
+	"whatYouLose": [
+		{
+			"en": "Email that actually arrives",
+			"fr": "Mails qui arrivent vraiment"
+		},
+		{
+			"en": "Real-time co-editing",
+			"fr": "Co-édition en temps réel"
+		},
+		{
+			"en": "Everyone has a Google account",
+			"fr": "Tout le monde a un compte Google"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Nextcloud",
+			"source": {
+				"host": "github",
+				"path": "nextcloud/server",
+				"url": "https://github.com/nextcloud/server"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Files, calendar, contacts, office.",
+				"fr": "Fichiers, agenda, contacts, bureautique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Collabora / OnlyOffice",
+			"source": {
+				"host": "github",
+				"path": "ONLYOFFICE/DocumentServer",
+				"url": "https://github.com/ONLYOFFICE/DocumentServer"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Real docx/xlsx co-editing.",
+				"fr": "Vraie co-édition docx/xlsx."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Mobile editors, scaling, support",
+					"fr": "Éditeurs mobiles, mise à l’échelle, support"
+				},
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Stalwart Mail",
+			"source": {
+				"host": "github",
+				"path": "stalwartlabs/mail-server",
+				"url": "https://github.com/stalwartlabs/mail-server"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Modern all-in-one mail server, if you insist.",
+				"fr": "Serveur mail moderne tout-en-un, si vous y tenez."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "External OIDC, undelete, AI spam filter",
+					"fr": "OIDC externe, restauration, antispam IA"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

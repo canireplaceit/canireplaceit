@@ -1,0 +1,93 @@
+{
+	"slug": "fme",
+	"name": "FME",
+	"domain": "safe.com",
+	"category": "maps-location",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "FME is a GUI over format translation and geometry transformation, and it reads a few hundred proprietary formats nothing else touches. For the eighty percent that are shapefiles, GeoPackages and rasters, GDAL and the QGIS Processing toolbox do the same job in a scheduled script.",
+		"fr": "FME est une interface graphique sur la traduction de formats et la transformation de géométries, et il lit quelques centaines de formats propriétaires que rien d’autre ne touche. Pour les quatre-vingts pour cent qui sont des shapefiles, des GeoPackages et des rasters, GDAL et la boîte à outils Processing de QGIS font le même travail dans un script planifié."
+	},
+	"whatYouLose": [
+		{
+			"en": "Exotic proprietary format readers",
+			"fr": "Lecteurs de formats propriétaires exotiques"
+		},
+		{
+			"en": "Visual transformation workbench",
+			"fr": "Atelier de transformation visuel"
+		},
+		{
+			"en": "Vendor support on format changes",
+			"fr": "Support éditeur lors des changements de format"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "GDAL/OGR",
+			"source": {
+				"host": "github",
+				"path": "OSGeo/gdal",
+				"url": "https://github.com/OSGeo/gdal"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The library every GIS product on earth uses to read files, including the commercial ones. If your problem is format conversion, this is the whole answer.",
+				"fr": "La bibliothèque que tous les produits SIG de la planète utilisent pour lire des fichiers, y compris les commerciaux. Si votre problème est la conversion de formats, c’est toute la réponse."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "QGIS",
+			"source": {
+				"host": "github",
+				"path": "qgis/QGIS",
+				"url": "https://github.com/qgis/QGIS"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A genuine peer to ArcGIS Pro, not a lesser option — and for raster analysis and format support it is ahead. Processing toolbox wraps GDAL, GRASS and SAGA in one window.",
+				"fr": "Un véritable pair d’ArcGIS Pro, pas une option au rabais — et sur l’analyse raster et le support de formats, il a de l’avance. La boîte à outils Processing réunit GDAL, GRASS et SAGA dans une seule fenêtre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache Hop",
+			"source": {
+				"host": "github",
+				"path": "apache/hop",
+				"url": "https://github.com/apache/hop"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The visual data-pipeline builder if the drag-and-drop workbench is what you are actually buying. Weaker on geometry, stronger on scheduling.",
+				"fr": "Le constructeur visuel de pipelines de données si c’est l’atelier glisser-déposer que vous achetez réellement. Plus faible sur la géométrie, plus fort sur la planification."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

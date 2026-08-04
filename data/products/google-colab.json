@@ -1,0 +1,88 @@
+{
+	"slug": "google-colab",
+	"name": "Google Colab Pro",
+	"domain": "colab.google",
+	"category": "scientific-computing",
+	"priceMonthly": 10,
+	"pricing": {
+		"plan": "Colab Pro (signup page requires sign-in; figure not read off the page)",
+		"basis": "per-seat",
+		"url": "https://colab.research.google.com/signup",
+		"checkedOn": "2026-08-02",
+		"confidence": "low"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Ten dollars a month for an A100 you did not have to buy is the best price in this entire category. Self-hosting JupyterHub replaces the notebook but not the GPU — you are swapping a subscription for a hardware invoice, and for occasional use that is a worse deal.",
+		"fr": "Dix dollars par mois pour une A100 que vous n’avez pas achetée, c’est le meilleur prix de toute cette catégorie. Auto-héberger JupyterHub remplace le carnet, pas le GPU — vous échangez un abonnement contre une facture de matériel, et pour un usage occasionnel c’est une moins bonne affaire."
+	},
+	"whatYouLose": [
+		{
+			"en": "Rented GPUs at consumer prices",
+			"fr": "GPU loués à prix grand public"
+		},
+		{
+			"en": "Nothing to install or maintain",
+			"fr": "Rien à installer ni à maintenir"
+		},
+		{
+			"en": "Drive and Sheets integration",
+			"fr": "Intégration Drive et Sheets"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "JupyterHub",
+			"source": {
+				"host": "github",
+				"path": "jupyterhub/jupyterhub",
+				"url": "https://github.com/jupyterhub/jupyterhub"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "ops",
+			"note": {
+				"en": "The right answer if your department already owns GPUs sitting idle. It will not conjure hardware you do not have.",
+				"fr": "La bonne réponse si votre département possède déjà des GPU inutilisés. Il ne fera pas apparaître du matériel que vous n’avez pas."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Jupyter Docker Stacks",
+			"source": {
+				"host": "github",
+				"path": "jupyter/docker-stacks",
+				"url": "https://github.com/jupyter/docker-stacks"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "The maintained CUDA-ready notebook images that make a self-hosted GPU box feel like Colab in an afternoon.",
+				"fr": "Les images de carnet prêtes pour CUDA, maintenues, qui font ressembler une machine GPU auto-hébergée à Colab en un après-midi."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Kaggle Notebooks",
+			"url": "https://www.kaggle.com/code",
+			"priceMonthly": 0,
+			"note": {
+				"en": "Free weekly GPU and TPU quota with no card on file. Harder session limits and a 12-hour ceiling.",
+				"fr": "Quota GPU et TPU hebdomadaire gratuit sans carte bancaire. Limites de session plus dures et plafond de 12 heures."
+			}
+		}
+	],
+	"priority": 3
+}

@@ -1,0 +1,124 @@
+{
+	"slug": "shortwave",
+	"name": "Shortwave",
+	"domain": "shortwave.com",
+	"category": "email-clients",
+	"priceMonthly": 30,
+	"pricing": {
+		"plan": "Business",
+		"basis": "per-seat",
+		"url": "https://www.shortwave.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Shortwave is an AI layer over Gmail, which means the summaries and the search index are built by sending your mail to a third party's models. Thunderbird and Roundcube give you the mailbox with nothing reading it; what they cannot give you is the assistant, and the assistant is the product.",
+		"fr": "Shortwave est une couche d’IA au-dessus de Gmail : les résumés et l’index de recherche sont donc construits en envoyant votre courrier vers les modèles d’un tiers. Thunderbird et Roundcube vous donnent la boîte sans que rien ne la lise ; ce qu’ils ne peuvent pas vous donner, c’est l’assistant, et l’assistant est le produit."
+	},
+	"whatYouLose": [
+		{
+			"en": "AI summaries and natural-language search",
+			"fr": "Résumés IA et recherche en langage naturel"
+		},
+		{
+			"en": "Bundle-style inbox triage",
+			"fr": "Tri de la boîte par groupes"
+		},
+		{
+			"en": "A fast, modern web client",
+			"fr": "Un client web moderne et rapide"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Thunderbird",
+			"source": {
+				"host": "github",
+				"path": "mozilla/releases-comm-central",
+				"url": "https://github.com/mozilla/releases-comm-central"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The GitHub mirror of comm-central; Thunderbird's canonical repository is Mercurial. Free, no account, and the 2024 redesign finally made it look like this decade.",
+				"fr": "Le miroir GitHub de comm-central ; le dépôt canonique de Thunderbird est en Mercurial. Gratuit, sans compte, et la refonte de 2024 lui a enfin donné l’allure de cette décennie."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Roundcube",
+			"source": {
+				"host": "github",
+				"path": "roundcube/roundcubemail",
+				"url": "https://github.com/roundcube/roundcubemail"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The webmail every hosting provider ships. Plain, fast, plugin-extensible. Note there is no LICENSE file at the repo root — the GPL-3.0 grant lives in the source headers and docs.",
+				"fr": "Le webmail que tous les hébergeurs livrent. Sobre, rapide, extensible par greffons. À noter : pas de fichier LICENSE à la racine, la GPL-3.0 est déclarée dans les en-têtes et la documentation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mailspring",
+			"source": {
+				"host": "github",
+				"path": "Foundry376/Mailspring",
+				"url": "https://github.com/Foundry376/Mailspring"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Looks the most like a modern paid client, and that is the problem: read receipts, snooze, templates and reminders all sit behind Mailspring Pro, and Pro needs a Mailspring account that proxies your mail.",
+				"fr": "C’est celui qui ressemble le plus à un client payant moderne, et c’est bien le problème : accusés de lecture, report, modèles et rappels sont tous derrière Mailspring Pro, qui exige un compte Mailspring servant de relais à votre courrier."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Read receipts, snooze, templates, reminders and link tracking (Pro)",
+					"fr": "Accusés de lecture, report, modèles, rappels et suivi de liens (Pro)"
+				},
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "imapfilter",
+			"source": {
+				"host": "github",
+				"path": "lefcha/imapfilter",
+				"url": "https://github.com/lefcha/imapfilter"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Server-side filing in a Lua config file. Ugly, unfashionable, and it will outlive every AI inbox startup.",
+				"fr": "Le classement côté serveur dans un fichier Lua. Moche, démodé, et il survivra à toutes les start-up de boîte de réception dopée à l’IA."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

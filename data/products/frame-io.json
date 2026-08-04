@@ -1,0 +1,88 @@
+{
+	"slug": "frame-io",
+	"name": "Frame.io",
+	"domain": "frame.io",
+	"category": "video",
+	"priceMonthly": 15,
+	"pricing": {
+		"plan": "Pro",
+		"basis": "per-seat",
+		"url": "https://frame.io/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Timecoded comments and frame annotations exist in open source — Kitsu does them well for animation and VFX teams. What does not exist is Camera to Cloud: footage leaving the camera on set and being in the editor's bin before the take is over. That is the feature people actually pay for, and it needs hardware partnerships nobody open source has.",
+		"fr": "Les commentaires timecodés et les annotations image par image existent en open source — Kitsu les gère très bien pour les équipes d’animation et de VFX. Ce qui n’existe pas, c’est le Camera to Cloud : les rushes qui quittent la caméra sur le plateau et arrivent dans le chutier du monteur avant la fin de la prise. C’est la fonction pour laquelle on paie, et elle exige des partenariats matériels que personne n’a en open source."
+	},
+	"whatYouLose": [
+		{
+			"en": "Camera to Cloud from set",
+			"fr": "Camera to Cloud depuis le plateau"
+		},
+		{
+			"en": "Premiere and After Effects panels",
+			"fr": "Panneaux Premiere et After Effects"
+		},
+		{
+			"en": "Forensic watermarked review links",
+			"fr": "Liens de validation filigranés"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Kitsu",
+			"source": {
+				"host": "github",
+				"path": "cgwire/kitsu",
+				"url": "https://github.com/cgwire/kitsu"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Review sessions with frame-accurate notes and drawings, plus real production tracking. Built for animation studios, not for a two-person edit.",
+				"fr": "Sessions de validation avec notes à l’image près et annotations, plus un vrai suivi de production. Pensé pour les studios d’animation, pas pour un duo de monteurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MediaCMS",
+			"source": {
+				"host": "github",
+				"path": "mediacms-io/mediacms",
+				"url": "https://github.com/mediacms-io/mediacms"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "If all you need is a private place to post cuts for clients to watch, this is it. No timecoded comments.",
+				"fr": "Si vous voulez juste un endroit privé où déposer des montages pour vos clients, c’est ça. Pas de commentaires timecodés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Dropbox Replay",
+			"url": "https://www.dropbox.com/replay",
+			"priceMonthly": 10,
+			"note": {
+				"en": "Timecoded comments and version stacking on top of storage you probably already pay for. No Camera to Cloud, no editorial panels.",
+				"fr": "Commentaires timecodés et gestion des versions sur un stockage que vous payez déjà sans doute. Pas de Camera to Cloud, pas de panneaux de montage."
+			}
+		}
+	],
+	"priority": 2
+}

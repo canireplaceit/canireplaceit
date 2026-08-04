@@ -1,0 +1,118 @@
+{
+	"slug": "domino-data-lab",
+	"name": "Domino Data Lab",
+	"domain": "domino.ai",
+	"category": "ai-infrastructure",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "Domino sells reproducibility and governance to regulated enterprises — every run pinned to an environment, an audit trail a validator will accept. The compute and notebook layers are Kubeflow and JupyterHub with a licence fee; the governance paperwork is the part you would be rebuilding.",
+		"fr": "Domino vend de la reproductibilité et de la gouvernance à des entreprises régulées — chaque exécution figée à un environnement, une piste d’audit qu’un validateur acceptera. Les couches calcul et carnets sont Kubeflow et JupyterHub avec une redevance ; c’est la paperasse de gouvernance que vous auriez à reconstruire."
+	},
+	"whatYouLose": [
+		{
+			"en": "Validated reproducibility records",
+			"fr": "Enregistrements de reproductibilité validés"
+		},
+		{
+			"en": "Enterprise governance and audit",
+			"fr": "Gouvernance et audit entreprise"
+		},
+		{
+			"en": "Vendor accountability",
+			"fr": "Responsabilité de l’éditeur"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Kubeflow",
+			"source": {
+				"host": "github",
+				"path": "kubeflow/kubeflow",
+				"url": "https://github.com/kubeflow/kubeflow"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Notebooks, pipelines, training operators and serving on Kubernetes. Genuinely covers the scope, and genuinely needs a platform engineer.",
+				"fr": "Carnets, pipelines, opérateurs d’entraînement et service sur Kubernetes. Couvre réellement le périmètre, et exige réellement un ingénieur plateforme."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MLflow",
+			"source": {
+				"host": "github",
+				"path": "mlflow/mlflow",
+				"url": "https://github.com/mlflow/mlflow"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Tracking, model registry and packaging in one Apache-2.0 server. The piece every platform in this category ends up reimplementing.",
+				"fr": "Suivi, registre de modèles et empaquetage dans un serveur Apache-2.0 unique. La brique que toutes les plateformes de cette catégorie finissent par réimplémenter."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Flyte",
+			"source": {
+				"host": "github",
+				"path": "flyteorg/flyte",
+				"url": "https://github.com/flyteorg/flyte"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Strongly typed, versioned and cached workflows — the closest open equivalent of Domino's reproducibility claim.",
+				"fr": "Des workflows typés, versionnés et mis en cache — l’équivalent ouvert le plus proche de la promesse de reproductibilité de Domino."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ZenML",
+			"source": {
+				"host": "github",
+				"path": "zenml-io/zenml",
+				"url": "https://github.com/zenml-io/zenml"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "A lighter pipeline framework that stitches your existing stack together. Workspaces, RBAC and SSO are in the paid Pro tier only.",
+				"fr": "Un framework de pipelines plus léger qui relie votre pile existante. Espaces de travail, RBAC et SSO sont réservés au palier Pro payant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Workspaces, RBAC and SSO (ZenML Pro)",
+					"fr": "Espaces de travail, RBAC et SSO (ZenML Pro)"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

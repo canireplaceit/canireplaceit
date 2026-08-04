@@ -1,0 +1,121 @@
+{
+	"slug": "sendcloud",
+	"name": "Sendcloud",
+	"domain": "sendcloud.com",
+	"category": "shipping-logistics",
+	"priceMonthly": 100,
+	"pricing": {
+		"plan": "Growth, EUR 87/mo",
+		"basis": "flat",
+		"url": "https://www.sendcloud.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Sendcloud's value in Europe is the pre-negotiated PostNL, DPD and DHL contracts and the return portal your customers use. Karrio covers the label and tracking API; the European returns portal and the contract rates are what you are actually paying for.",
+		"fr": "En Europe, la valeur de Sendcloud tient aux contrats prénégociés PostNL, DPD et DHL et au portail de retours utilisé par vos clients. Karrio couvre l’API d’étiquettes et de suivi ; le portail de retours européen et les tarifs contractuels sont ce que vous payez réellement."
+	},
+	"whatYouLose": [
+		{
+			"en": "Pre-negotiated EU carrier contracts",
+			"fr": "Contrats transporteurs UE prénégociés"
+		},
+		{
+			"en": "Branded returns portal",
+			"fr": "Portail de retours à votre marque"
+		},
+		{
+			"en": "Service point picker",
+			"fr": "Sélecteur de points relais"
+		},
+		{
+			"en": "Localised tracking emails",
+			"fr": "E-mails de suivi localisés"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Karrio",
+			"source": {
+				"host": "github",
+				"path": "karrioapi/karrio",
+				"url": "https://github.com/karrioapi/karrio"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Speaks DHL, DPD, Chronopost, Colissimo and the rest, self-hosted in the EU so parcel data never leaves. Returns portal not included.",
+				"fr": "Parle DHL, DPD, Chronopost, Colissimo et les autres, auto-hébergé dans l’UE pour que les données colis ne sortent pas. Portail de retours non inclus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "The multi-tenant platform app and white-labelling live under ee/",
+					"fr": "L’app plateforme multi-tenant et le marquage blanc sont sous ee/"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Odoo Community",
+			"source": {
+				"host": "github",
+				"path": "odoo/odoo",
+				"url": "https://github.com/odoo/odoo"
+			},
+			"license": "LGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Delivery carrier connectors plus the returns and refund flow already modelled in Sales and Inventory.",
+				"fr": "Connecteurs transporteurs, plus le flux de retours et remboursements déjà modélisé dans Ventes et Stock."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Full accounting, Studio, Barcode, Shop Floor, Field Service and Planning are Enterprise-only",
+					"fr": "La comptabilité complète, Studio, Code-barres, Atelier, Services sur site et Planification sont réservés à l’Enterprise"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Openship",
+			"source": {
+				"host": "github",
+				"path": "openshiporg/openship",
+				"url": "https://github.com/openshiporg/openship"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Order-to-supplier routing if you dropship across several European partners.",
+				"fr": "Routage commande-vers-fournisseur si vous faites du dropshipping avec plusieurs partenaires européens."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Shippo",
+			"url": "https://goshippo.com/pricing",
+			"priceMonthly": 19,
+			"note": {
+				"en": "Cheaper entry tier with the same rate-aggregation model. Weaker in continental Europe than Sendcloud.",
+				"fr": "Palier d’entrée moins cher avec le même modèle d’agrégation de tarifs. Plus faible en Europe continentale que Sendcloud."
+			}
+		}
+	],
+	"priority": 3
+}

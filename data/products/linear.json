@@ -1,0 +1,82 @@
+{
+	"slug": "linear",
+	"name": "Linear",
+	"domain": "linear.app",
+	"category": "project-mgmt",
+	"priceMonthly": 10,
+	"pricing": {
+		"plan": "Basic, billed yearly",
+		"basis": "per-seat",
+		"url": "https://linear.app/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "The moat is taste and 16ms interactions. Clones copy the features and miss the entire point.",
+		"fr": "Le fossé, c’est le goût et des interactions à 16 ms. Les clones copient les fonctionnalités et passent complètement à côté."
+	},
+	"whatYouLose": [
+		{
+			"en": "16ms interactions",
+			"fr": "Interactions à 16 ms"
+		},
+		{
+			"en": "Keyboard-first flow",
+			"fr": "Le tout-clavier"
+		},
+		{
+			"en": "Opinionated defaults",
+			"fr": "Défauts assumés"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Plane",
+			"source": {
+				"host": "github",
+				"path": "makeplane/plane",
+				"url": "https://github.com/makeplane/plane"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Closest, still not as fast.",
+				"fr": "Le plus proche, mais toujours moins rapide."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO/SAML, teamspaces, workflows, advanced admin",
+					"fr": "SSO/SAML, espaces d’équipe, workflows, administration avancée"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Huly",
+			"source": {
+				"host": "github",
+				"path": "hcengineering/platform",
+				"url": "https://github.com/hcengineering/platform"
+			},
+			"license": "EPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Ambitious, rough edges.",
+				"fr": "Ambitieux, encore rugueux."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

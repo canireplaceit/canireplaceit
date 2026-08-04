@@ -1,0 +1,103 @@
+{
+	"slug": "hcp-terraform",
+	"name": "HCP Terraform",
+	"domain": "hashicorp.com",
+	"category": "infrastructure-as-code",
+	"priceMonthly": null,
+	"pricing": {
+		"plan": "Standard, $0.47 per resource per month (Essentials $0.10); no fixed monthly fee",
+		"basis": "usage",
+		"url": "https://www.hashicorp.com/en/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "HashiCorp went BSL, the Linux Foundation forked OpenTofu, and the fork now has features upstream doesn't. State in S3 plus Atlantis for PR-driven plans covers what most teams actually used the paid tier for.",
+		"fr": "HashiCorp est passé en BSL, la Linux Foundation a forké OpenTofu, et le fork a désormais des fonctions que l’amont n’a pas. L’état dans S3 plus Atlantis pour les plans pilotés par PR couvre ce dont la plupart des équipes se servaient réellement."
+	},
+	"whatYouLose": [
+		{
+			"en": "Hosted state locking",
+			"fr": "Verrouillage d’état hébergé"
+		},
+		{
+			"en": "Team RBAC",
+			"fr": "RBAC d’équipe"
+		},
+		{
+			"en": "Private module registry",
+			"fr": "Registre de modules privé"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "OpenTofu",
+			"source": {
+				"host": "github",
+				"path": "opentofu/opentofu",
+				"url": "https://github.com/opentofu/opentofu"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Drop-in fork of Terraform 1.5, still MPL. Has state encryption and early variable evaluation, which Terraform doesn't.",
+				"fr": "Fork interchangeable de Terraform 1.5, toujours en MPL. Dispose du chiffrement d’état et de l’évaluation anticipée des variables, absents de Terraform."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Atlantis",
+			"source": {
+				"host": "github",
+				"path": "runatlantis/atlantis",
+				"url": "https://github.com/runatlantis/atlantis"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Posts the plan as a PR comment and applies on approval. This is 80% of what you were paying HCP for.",
+				"fr": "Publie le plan en commentaire de PR et applique après approbation. C’est 80 % de ce que vous payiez à HCP."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Digger",
+			"source": {
+				"host": "github",
+				"path": "diggerhq/digger",
+				"url": "https://github.com/diggerhq/digger"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Same idea as Atlantis but runs inside your existing CI instead of needing its own server.",
+				"fr": "Même idée qu’Atlantis mais s’exécute dans votre CI existant au lieu d’exiger son propre serveur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Drift detection, RBAC, SSO, audit trail",
+					"fr": "Détection de dérive, RBAC, SSO, audit"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 4
+}

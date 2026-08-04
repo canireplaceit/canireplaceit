@@ -1,0 +1,117 @@
+{
+	"slug": "netsuite",
+	"name": "Oracle NetSuite",
+	"domain": "netsuite.com",
+	"category": "accounting-invoicing",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "NetSuite does not publish a price — deals are negotiated and start in the tens of thousands per year plus implementation. The software is replaceable; the implementation is not. Open source ERP gets you 80% and hands you the remaining 20% as a project.",
+		"fr": "NetSuite ne publie aucun tarif — les contrats se négocient et démarrent à plusieurs dizaines de milliers d’euros par an, hors intégration. Le logiciel est remplaçable ; l’implémentation ne l’est pas. L’ERP open source vous donne 80 % et vous laisse les 20 % restants sous forme de chantier."
+	},
+	"whatYouLose": [
+		{
+			"en": "Multi-entity consolidation out of the box",
+			"fr": "Consolidation multi-entités native"
+		},
+		{
+			"en": "Revenue recognition that survives an audit",
+			"fr": "Reconnaissance du revenu qui passe l’audit"
+		},
+		{
+			"en": "A partner ecosystem that knows your industry",
+			"fr": "Un écosystème de partenaires qui connaît votre secteur"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Odoo Community",
+			"source": {
+				"host": "github",
+				"path": "odoo/odoo",
+				"url": "https://github.com/odoo/odoo"
+			},
+			"license": "LGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "The most complete open ERP. The modules you actually want are often Enterprise-only — check before planning.",
+				"fr": "L’ERP ouvert le plus complet. Les modules dont vous avez vraiment besoin sont souvent réservés à l’Enterprise — vérifiez avant de planifier."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Full accounting, Studio, 40+ apps, mobile",
+					"fr": "Comptabilité complète, Studio, 40+ apps, mobile"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ERPNext",
+			"source": {
+				"host": "github",
+				"path": "frappe/erpnext",
+				"url": "https://github.com/frappe/erpnext"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Fully open, no Enterprise upsell. Weaker in complex manufacturing.",
+				"fr": "Entièrement ouvert, sans version Enterprise à acheter. Plus faible sur la production complexe."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tryton",
+			"source": {
+				"host": "gitlab",
+				"path": "tryton/tryton",
+				"url": "https://foss.heptapod.net/tryton/tryton"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Austere, modular, accounting-correct. For people who found Odoo too magical.",
+				"fr": "Austère, modulaire, comptablement rigoureux. Pour ceux qui trouvent Odoo trop magique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Odoo Enterprise",
+			"url": "https://www.odoo.com/pricing",
+			"priceMonthly": 25,
+			"note": {
+				"en": "Same shape as NetSuite for a fraction, hosted by Odoo. You still pay a partner to implement it.",
+				"fr": "La même forme que NetSuite pour une fraction du prix, hébergé par Odoo. Vous payez quand même un intégrateur."
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Zoho One",
+			"url": "https://www.zoho.com/one/",
+			"priceMonthly": 37,
+			"note": {
+				"en": "45 apps per employee. Nowhere near NetSuite's financial depth, but most mid-market companies never used that depth.",
+				"fr": "45 applications par employé. Loin de la profondeur financière de NetSuite, mais la plupart des PME ne s’en servaient pas."
+			}
+		}
+	],
+	"priority": 3
+}

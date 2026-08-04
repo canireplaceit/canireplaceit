@@ -1,0 +1,72 @@
+{
+	"slug": "twilio",
+	"name": "Twilio",
+	"domain": "twilio.com",
+	"category": "comms",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "not-yet",
+	"why": {
+		"en": "Carrier interconnects and phone number inventory are not software. You can only move the layer above.",
+		"fr": "Les interconnexions opérateurs et le stock de numéros ne sont pas du logiciel. Vous ne pouvez déplacer que la couche au-dessus."
+	},
+	"whatYouLose": [
+		{
+			"en": "Carrier interconnects",
+			"fr": "Interconnexions opérateurs"
+		},
+		{
+			"en": "Phone number inventory",
+			"fr": "Stock de numéros"
+		},
+		{
+			"en": "Global SMS deliverability",
+			"fr": "Délivrabilité SMS mondiale"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "FreeSWITCH",
+			"source": {
+				"host": "github",
+				"path": "signalwire/freeswitch",
+				"url": "https://github.com/signalwire/freeswitch"
+			},
+			"license": "MPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Telephony engine — still need a carrier.",
+				"fr": "Moteur de téléphonie — il vous faudra toujours un opérateur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Asterisk",
+			"source": {
+				"host": "github",
+				"path": "asterisk/asterisk",
+				"url": "https://github.com/asterisk/asterisk"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The classic PBX.",
+				"fr": "Le PBX classique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

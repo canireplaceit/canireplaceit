@@ -1,0 +1,109 @@
+{
+	"slug": "docker-desktop",
+	"name": "Docker Desktop",
+	"domain": "docker.com",
+	"category": "containers-kubernetes",
+	"priceMonthly": 15,
+	"pricing": {
+		"plan": "Team, billed annually ($16 month-to-month)",
+		"basis": "per-seat",
+		"url": "https://www.docker.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Docker Desktop is a VM plus a GUI wrapped around open source components. Everything under it is free, and on macOS the alternatives are usually faster because they carry less.",
+		"fr": "Docker Desktop, c’est une VM et une interface graphique enroulées autour de composants open source. Tout ce qu’il y a en dessous est gratuit, et sur macOS les alternatives sont souvent plus rapides parce qu’elles transportent moins."
+	},
+	"whatYouLose": [
+		{
+			"en": "Vendor support",
+			"fr": "Support éditeur"
+		},
+		{
+			"en": "Windows feature parity",
+			"fr": "Parité fonctionnelle Windows"
+		},
+		{
+			"en": "One-click updates",
+			"fr": "Mises à jour en un clic"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Podman Desktop",
+			"source": {
+				"host": "github",
+				"path": "podman-desktop/podman-desktop",
+				"url": "https://github.com/podman-desktop/podman-desktop"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Closest UI match, rootless by default, handles Compose and Kubernetes. Some tools that shell out to `docker` still need an alias.",
+				"fr": "L’interface la plus proche, rootless par défaut, gère Compose et Kubernetes. Certains outils qui appellent `docker` en ligne de commande exigent encore un alias."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Colima",
+			"source": {
+				"host": "github",
+				"path": "abiosoft/colima",
+				"url": "https://github.com/abiosoft/colima"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "One command, no GUI, uses far less RAM. The choice if you live in a terminal anyway.",
+				"fr": "Une commande, pas d’interface, bien moins de RAM. Le choix si vous vivez de toute façon dans un terminal."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Rancher Desktop",
+			"source": {
+				"host": "github",
+				"path": "rancher-sandbox/rancher-desktop",
+				"url": "https://github.com/rancher-sandbox/rancher-desktop"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Ships a local k3s cluster alongside the container runtime. Heavier, but replaces two tools.",
+				"fr": "Embarque un cluster k3s local à côté du runtime de conteneurs. Plus lourd, mais remplace deux outils."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "OrbStack",
+			"url": "https://orbstack.dev/",
+			"priceMonthly": 8,
+			"note": {
+				"en": "A third of Docker Business, macOS only, and materially faster with better battery life. No Windows or Linux version, and it's a single small vendor.",
+				"fr": "Le tiers de Docker Business, macOS uniquement, sensiblement plus rapide et meilleur pour la batterie. Pas de version Windows ou Linux, et c’est un tout petit éditeur."
+			}
+		}
+	],
+	"priority": 5
+}

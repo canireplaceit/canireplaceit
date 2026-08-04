@@ -1,0 +1,125 @@
+{
+	"slug": "toast-pos",
+	"name": "Toast POS",
+	"domain": "pos.toasttab.com",
+	"category": "retail-pos",
+	"priceMonthly": 69,
+	"pricing": {
+		"plan": "Core (toasttab.com returns 403 to all fetches; unconfirmed)",
+		"basis": "flat",
+		"url": "https://pos.toasttab.com/restaurant-pos/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "low"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Toast sells restaurant-grade hardware, card processing and a kitchen display as one locked bundle, and in several countries the receipt printer itself must be fiscally certified. Open source restaurant POS exists and works, but you cannot self-host a certified fiscal printer or a payment processor — that is a legal constraint, not a software gap.",
+		"fr": "Toast vend un ensemble verrouillé : matériel adapté à la restauration, encaissement carte et écran cuisine, et dans plusieurs pays l’imprimante de tickets doit elle-même être certifiée fiscalement. Il existe des caisses open source pour la restauration qui fonctionnent, mais vous ne pouvez pas auto-héberger une imprimante fiscale certifiée ni un acquéreur — c’est une contrainte légale, pas un manque logiciel."
+	},
+	"whatYouLose": [
+		{
+			"en": "Fiscal receipt certification",
+			"fr": "Certification fiscale des tickets"
+		},
+		{
+			"en": "Integrated card processing",
+			"fr": "Encaissement carte intégré"
+		},
+		{
+			"en": "Delivery platform integrations",
+			"fr": "Intégrations plateformes de livraison"
+		},
+		{
+			"en": "Hardware support contract",
+			"fr": "Contrat de support matériel"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "FloreantPOS",
+			"source": {
+				"host": "github",
+				"path": "floreantpos/floreantpos",
+				"url": "https://github.com/floreantpos/floreantpos"
+			},
+			"license": "MRPL-1.2",
+			"effort": "docker",
+			"note": {
+				"en": "The long-running Java restaurant till: tables, courses, kitchen tickets. The MRPL is a Mozilla licence variant with an attribution clause, and cloud sync is a paid vendor add-on.",
+				"fr": "La vieille caisse restaurant en Java : tables, services, bons de cuisine. La MRPL est une variante de la licence Mozilla avec clause d’attribution, et la synchro cloud est un module payant de l’éditeur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Cloud sync and several vendor plugins are paid",
+					"fr": "La synchro cloud et plusieurs plugins de l’éditeur sont payants"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "NexoPOS",
+			"source": {
+				"host": "github",
+				"path": "Blair2004/NexoPOS",
+				"url": "https://github.com/Blair2004/NexoPOS"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The GPL core is a shop till; table service and the kitchen screen come from the paid Gastro module.",
+				"fr": "Le cœur GPL est une caisse de boutique ; le service en salle et l’écran cuisine viennent du module payant Gastro."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Restaurant, multi-store, warehouse and printing modules are sold on the marketplace",
+					"fr": "Les modules restaurant, multi-boutique, entrepôt et impression sont vendus sur le marketplace"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Odoo Community",
+			"source": {
+				"host": "github",
+				"path": "odoo/odoo",
+				"url": "https://github.com/odoo/odoo"
+			},
+			"license": "LGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Odoo Restaurant POS handles floor plans and split bills in Community. Kitchen Display and Shop Floor are Enterprise.",
+				"fr": "Le POS Restaurant d’Odoo gère les plans de salle et les additions partagées en Community. L’écran cuisine et l’Atelier sont Enterprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Full accounting, Studio, Barcode, Shop Floor, Field Service and Planning are Enterprise-only",
+					"fr": "La comptabilité complète, Studio, Code-barres, Atelier, Services sur site et Planification sont réservés à l’Enterprise"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Square for Restaurants",
+			"url": "https://squareup.com/us/en/point-of-sale/restaurants",
+			"priceMonthly": 0,
+			"note": {
+				"en": "Free tier covers a single location with table service. You still pay per card transaction.",
+				"fr": "L’offre gratuite couvre un seul établissement avec service en salle. Vous payez toujours à la transaction."
+			}
+		}
+	],
+	"priority": 3
+}

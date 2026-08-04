@@ -1,0 +1,82 @@
+{
+	"slug": "endnote",
+	"name": "EndNote",
+	"domain": "endnote.com",
+	"category": "research-science",
+	"priceMonthly": null,
+	"pricing": {
+		"plan": "EndNote 2025 full licence, perpetual one-time purchase",
+		"basis": "one-time",
+		"url": "https://endnote.com/buy",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "EndNote stores references and formats citations to journal styles. Zotero does both, ships the same CSL styles, imports your .enl library, and costs nothing — the lock-in is your library's site licence and twenty years of Cite While You Write muscle memory.",
+		"fr": "EndNote stocke des références et formate les citations aux styles des revues. Zotero fait les deux, embarque les mêmes styles CSL, importe votre bibliothèque .enl et ne coûte rien — le verrouillage, c’est la licence de site de votre bibliothèque et vingt ans d’habitude de Cite While You Write."
+	},
+	"whatYouLose": [
+		{
+			"en": "Institutional support desk",
+			"fr": "Support de l’établissement"
+		},
+		{
+			"en": "Cite While You Write in legacy Word",
+			"fr": "Cite While You Write dans les vieux Word"
+		},
+		{
+			"en": "EndNote-format library sharing",
+			"fr": "Partage de bibliothèques au format EndNote"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Zotero",
+			"source": {
+				"host": "github",
+				"path": "zotero/zotero",
+				"url": "https://github.com/zotero/zotero"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The client is AGPL and does everything EndNote does, including the same CSL style repository. Sync above 300 MB is a paid Zotero service — or point it at your own WebDAV and pay nothing.",
+				"fr": "Le client est en AGPL et fait tout ce que fait EndNote, avec le même dépôt de styles CSL. La synchronisation au-delà de 300 Mo est un service Zotero payant — ou vous la branchez sur votre propre WebDAV et ne payez rien."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Zotero-hosted file storage above 300 MB",
+					"fr": "Le stockage de fichiers hébergé par Zotero au-delà de 300 Mo"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "JabRef",
+			"source": {
+				"host": "github",
+				"path": "JabRef/jabref",
+				"url": "https://github.com/JabRef/jabref"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A plain BibTeX file on disk, edited by a desktop app. No server, no account, no sync bill — and it survives your institution changing vendors.",
+				"fr": "Un simple fichier BibTeX sur disque, édité par une application de bureau. Pas de serveur, pas de compte, pas de facture de synchronisation — et il survit au changement de fournisseur de votre établissement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

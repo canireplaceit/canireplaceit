@@ -1,0 +1,148 @@
+{
+	"slug": "amazon-s3",
+	"name": "Amazon S3",
+	"domain": "aws.amazon.com",
+	"category": "cloud-platforms-hosting",
+	"priceMonthly": null,
+	"pricing": {
+		"plan": "Pay-as-you-go, no fixed fee: S3 Standard $0.023/GB-month for the first 50 TB (US East N. Virginia), plus $0.005 per 1,000 PUT/COPY/POST requests and $0.0004 per 1,000 GET requests",
+		"basis": "usage",
+		"url": "https://aws.amazon.com/s3/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "The API is trivially reimplementable and four projects do it well. What you cannot reproduce is eleven nines of durability across three datacenters you don't own — and MinIO, the default answer for a decade, archived its community repo in 2026.",
+		"fr": "L’API se réimplémente sans peine et quatre projets le font bien. Ce que vous ne reproduirez pas, c’est onze neufs de durabilité répartis sur trois datacenters qui ne vous appartiennent pas — et MinIO, la réponse par défaut pendant dix ans, a archivé son dépôt communautaire en 2026."
+	},
+	"whatYouLose": [
+		{
+			"en": "Eleven-nines durability",
+			"fr": "Durabilité à onze neufs"
+		},
+		{
+			"en": "Multi-region replication",
+			"fr": "Réplication multi-régions"
+		},
+		{
+			"en": "Fine-grained IAM policies",
+			"fr": "Politiques IAM fines"
+		},
+		{
+			"en": "Glacier cold tiers",
+			"fr": "Paliers froids Glacier"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Garage",
+			"source": {
+				"host": "forgejo",
+				"path": "Deuxfleurs/garage",
+				"url": "https://git.deuxfleurs.fr/Deuxfleurs/garage"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Built for geo-distributed nodes on bad links. Small, Rust, no metadata server to babysit.",
+				"fr": "Conçu pour des nœuds géo-distribués sur des liens médiocres. Petit, en Rust, pas de serveur de métadonnées à surveiller."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SeaweedFS",
+			"source": {
+				"host": "github",
+				"path": "seaweedfs/seaweedfs",
+				"url": "https://github.com/seaweedfs/seaweedfs"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The one that actually scales to billions of small files. More moving parts than Garage.",
+				"fr": "Le seul qui monte réellement à des milliards de petits fichiers. Plus de pièces mobiles que Garage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "OIDC auth, EC self-healing, point-in-time recovery",
+					"fr": "Auth OIDC, auto-réparation EC, restauration à un instant"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "RustFS",
+			"source": {
+				"host": "github",
+				"path": "rustfs/rustfs",
+				"url": "https://github.com/rustfs/rustfs"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Explicit MinIO-shaped replacement, Apache instead of AGPL. Young — do not trust it with your only copy yet.",
+				"fr": "Remplaçant explicitement calqué sur MinIO, en Apache plutôt qu’AGPL. Jeune — ne lui confiez pas encore votre unique copie."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MinIO (pgsty fork)",
+			"source": {
+				"host": "github",
+				"path": "pgsty/minio",
+				"url": "https://github.com/pgsty/minio"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Community fork that restored the removed admin console and the binaries. Use it to stay put, not to build on.",
+				"fr": "Fork communautaire qui a restauré la console d’admin supprimée et les binaires. Bon pour rester en place, pas pour bâtir dessus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Backblaze B2",
+			"url": "https://www.backblaze.com/cloud-storage",
+			"priceMonthly": 6,
+			"note": {
+				"en": "About a quarter of S3's per-TB price and free egress to Cloudflare. Fewer regions, no Glacier-style cold tier, weaker IAM.",
+				"fr": "Environ le quart du prix au To de S3, sortie gratuite vers Cloudflare. Moins de régions, pas d’équivalent Glacier, IAM plus faible."
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Cloudflare R2",
+			"url": "https://developers.cloudflare.com/r2/",
+			"priceMonthly": 15,
+			"note": {
+				"en": "Zero egress fees, which is where the S3 bill actually comes from. Weaker consistency guarantees and no lifecycle sophistication.",
+				"fr": "Zéro frais de sortie — c’est précisément d’où vient la facture S3. Garanties de cohérence plus faibles et gestion du cycle de vie rudimentaire."
+			}
+		}
+	],
+	"priority": 5
+}

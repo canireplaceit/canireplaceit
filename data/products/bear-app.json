@@ -1,0 +1,128 @@
+{
+	"slug": "bear-app",
+	"name": "Bear",
+	"domain": "bear.app",
+	"category": "notes-docs",
+	"priceMonthly": 2.99,
+	"pricing": {
+		"plan": "Pro, USD 2.99/mo or 29.99/yr",
+		"basis": "per-seat",
+		"url": "https://bear.app/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Bear is a design object. The subscription buys iCloud sync and export, and the notes themselves are Markdown, so leaving is technically trivial — the reason people do not is that nothing open source is anywhere near as nice to type in.",
+		"fr": "Bear est un objet de design. L’abonnement achète la synchro iCloud et l’export, et les notes sont du Markdown : partir est techniquement trivial. Si les gens ne partent pas, c’est qu’aucun logiciel libre n’approche ce plaisir de frappe."
+	},
+	"whatYouLose": [
+		{
+			"en": "Genuinely beautiful typography",
+			"fr": "Typographie réellement magnifique"
+		},
+		{
+			"en": "Instant iCloud sync on Apple devices",
+			"fr": "Synchro iCloud instantanée sur appareils Apple"
+		},
+		{
+			"en": "A polished tag and search system",
+			"fr": "Un système d’étiquettes et de recherche soigné"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Joplin",
+			"source": {
+				"host": "github",
+				"path": "laurent22/joplin",
+				"url": "https://github.com/laurent22/joplin"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The important detail: sync is not a paid service. Point it at WebDAV, S3, Dropbox or a folder and cross-device sync costs nothing. Joplin Cloud exists but is optional.",
+				"fr": "Le détail important : la synchro n’est pas un service payant. Pointez-la vers WebDAV, S3, Dropbox ou un dossier et la synchro multi-appareils ne coûte rien. Joplin Cloud existe mais reste facultatif."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Notesnook",
+			"source": {
+				"host": "github",
+				"path": "streetwriters/notesnook",
+				"url": "https://github.com/streetwriters/notesnook"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "End-to-end encrypted, and cross-device sync is in the free tier — the rare open source note app that does not sell you back your own sync. Pro raises attachment storage and lifts the notebook and tag caps.",
+				"fr": "Chiffré de bout en bout, et la synchro multi-appareils est incluse dans l’offre gratuite : la rare application de notes open source qui ne vous revend pas votre propre synchro. Pro augmente le stockage des pièces jointes et lève les limites de carnets et d’étiquettes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Attachment storage and unlimited notebooks and tags on their hosted sync",
+					"fr": "Le stockage des pièces jointes et les carnets et étiquettes illimités sur leur synchro hébergée"
+				},
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Standard Notes",
+			"source": {
+				"host": "github",
+				"path": "standardnotes/app",
+				"url": "https://github.com/standardnotes/app"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Encrypted sync across unlimited devices really is free, but editors, themes, attachments and version history are subscription features — and self-hosting the server still requires buying an offline subscription to unlock them.",
+				"fr": "La synchro chiffrée sur un nombre illimité d’appareils est bien gratuite, mais éditeurs, thèmes, pièces jointes et historique de versions sont des fonctions d’abonnement, et auto-héberger le serveur exige encore d’acheter un abonnement hors ligne pour les débloquer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Rich editors, themes, attachments and version history — even on your own server",
+					"fr": "Éditeurs riches, thèmes, pièces jointes et historique de versions, même sur votre propre serveur"
+				},
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Zettlr",
+			"source": {
+				"host": "github",
+				"path": "Zettlr/Zettlr",
+				"url": "https://github.com/Zettlr/Zettlr"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "A Markdown editor built for Zettelkasten and academic writing, with Zotero citations. Local files only, which means sync is your problem and also your right.",
+				"fr": "Un éditeur Markdown pensé pour le Zettelkasten et l’écriture académique, avec citations Zotero. Fichiers locaux uniquement : la synchro est donc votre problème, et aussi votre droit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

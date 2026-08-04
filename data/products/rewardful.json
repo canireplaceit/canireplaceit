@@ -1,0 +1,96 @@
+{
+	"slug": "rewardful",
+	"name": "Rewardful",
+	"domain": "getrewardful.com",
+	"category": "advertising-affiliate",
+	"priceMonthly": 49,
+	"pricing": {
+		"plan": "Starter, billed monthly",
+		"basis": "flat",
+		"url": "https://rewardful.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Rewardful is a Stripe webhook listener, a cookie and a commission table. It earns its price on the Stripe edge cases alone — refunds, plan changes, currencies — but this is the one affiliate product where rolling your own is a real option.",
+		"fr": "Rewardful, c’est un écouteur de webhooks Stripe, un cookie et une table de commissions. Il mérite son prix rien que pour les cas tordus de Stripe — remboursements, changements de plan, devises — mais c’est le seul produit d’affiliation où le faire soi-même est une vraie option."
+	},
+	"whatYouLose": [
+		{
+			"en": "Stripe refund and proration handling",
+			"fr": "Gestion des remboursements et proratas Stripe"
+		},
+		{
+			"en": "A dashboard your affiliates log into",
+			"fr": "Un tableau de bord où vos affiliés se connectent"
+		},
+		{
+			"en": "PayPal mass payouts",
+			"fr": "Paiements de masse PayPal"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Dub",
+			"source": {
+				"host": "github",
+				"path": "dubinc/dub",
+				"url": "https://github.com/dubinc/dub"
+			},
+			"license": "AGPL-3.0 core, partner program under a commercial ee licence",
+			"effort": "docker",
+			"note": {
+				"en": "Self-host the link tracking and analytics under AGPL; the partner payout program is the commercially licensed (ee) part, so this is not a drop-in swap.",
+				"fr": "Auto-hébergez le suivi de liens et les statistiques sous AGPL ; le programme de paiement partenaires est la partie (ee) sous licence commerciale, donc ce n’est pas un remplacement direct."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "The whole partner and affiliate program, the admin app and parts of analytics sit under the commercial (ee) licence",
+					"fr": "Tout le programme partenaires/affiliation, l’app admin et une partie des statistiques sont sous licence commerciale (ee)"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Affiliates for WordPress",
+			"source": {
+				"host": "github",
+				"path": "itthinx/affiliates",
+				"url": "https://github.com/itthinx/affiliates"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Works if your checkout is WooCommerce. Irrelevant if you are Stripe-native, which most Rewardful customers are.",
+				"fr": "Fonctionne si votre tunnel est WooCommerce. Sans intérêt si vous êtes nativement sur Stripe, ce qui est le cas de la plupart des clients Rewardful."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Tiers, coupon tracking and the payment integrations are in the paid Affiliates Pro/Enterprise editions",
+					"fr": "Les paliers, le suivi des coupons et les intégrations de paiement sont dans les éditions payantes Affiliates Pro/Enterprise"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Tolt",
+			"url": "https://tolt.com",
+			"priceMonthly": 29,
+			"note": {
+				"en": "Same Stripe-native model, cheaper entry tier, no revenue share. Younger company with a shorter track record.",
+				"fr": "Même modèle nativement Stripe, palier d’entrée moins cher, sans commission sur le revenu. Entreprise plus jeune, moins d’antécédents."
+			}
+		}
+	],
+	"priority": 2
+}

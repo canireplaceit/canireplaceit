@@ -1,0 +1,92 @@
+{
+	"slug": "eventbrite",
+	"name": "Eventbrite",
+	"domain": "eventbrite.com",
+	"category": "bookings-property-events",
+	"priceMonthly": 0,
+	"pricing": {
+		"plan": "Free to publish; 3.7% + $1.79 service fee per paid ticket",
+		"basis": "usage",
+		"url": "https://www.eventbrite.com/organizer/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "You pay Eventbrite a percentage plus a fee per ticket, which on a 500-person conference is thousands of dollars for a QR code generator. pretix runs real conferences today. What you lose is Eventbrite's discovery marketplace — relevant only if you were selling to strangers.",
+		"fr": "Vous payez à Eventbrite un pourcentage plus des frais par billet, soit des milliers d’euros sur une conférence de 500 personnes pour un générateur de QR codes. pretix fait tourner de vraies conférences aujourd’hui. Ce que vous perdez, c’est la place de marché d’Eventbrite — pertinente seulement si vous vendiez à des inconnus."
+	},
+	"whatYouLose": [
+		{
+			"en": "The discovery marketplace",
+			"fr": "La place de marché de découverte"
+		},
+		{
+			"en": "Payouts handled for you",
+			"fr": "Reversements gérés à votre place"
+		},
+		{
+			"en": "Traffic spikes on sale day",
+			"fr": "Pics de trafic le jour de l’ouverture des ventes"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "pretix",
+			"source": {
+				"host": "github",
+				"path": "pretix/pretix",
+				"url": "https://github.com/pretix/pretix"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Used by large European tech conferences. Handles VAT, seating plans and door check-in properly.",
+				"fr": "Utilisé par de grandes conférences tech européennes. Gère correctement la TVA, les plans de salle et le contrôle à l’entrée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Proprietary Enterprise add-on plugins",
+					"fr": "Plugins additionnels Enterprise propriétaires"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Hi.Events",
+			"source": {
+				"host": "github",
+				"path": "HiEventsDev/Hi.Events",
+				"url": "https://github.com/HiEventsDev/Hi.Events"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Younger and prettier, with a modern event page builder. Less battle-tested at scale.",
+				"fr": "Plus jeune et plus joli, avec un éditeur de page d’événement moderne. Moins éprouvé à grande échelle."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Ticket Tailor",
+			"url": "https://www.tickettailor.com",
+			"priceMonthly": 0,
+			"note": {
+				"en": "Flat per-ticket fee with no percentage, so it stays cheap on expensive tickets. No discovery marketplace at all.",
+				"fr": "Frais fixes par billet, sans pourcentage : reste bon marché sur les billets chers. Aucune place de marché de découverte."
+			}
+		}
+	],
+	"priority": 4
+}

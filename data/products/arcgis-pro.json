@@ -1,0 +1,99 @@
+{
+	"slug": "arcgis-pro",
+	"name": "ArcGIS Pro",
+	"domain": "esri.com",
+	"category": "maps-location",
+	"priceMonthly": 58.33,
+	"pricing": {
+		"plan": "ArcGIS Pro Basic via ArcGIS Online Creator, USD 700/year (Esri no longer publishes figures on its pricing/store pages)",
+		"basis": "per-seat",
+		"url": "https://www.esri.com/en-us/arcgis/products/arcgis-pro/buy",
+		"checkedOn": "2026-08-02",
+		"confidence": "low"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "QGIS matches ArcGIS Pro for desktop analysis and beats it on price by definition. What Esri sells that nobody has replicated is the enterprise half: Portal, the geodatabase model, and the fact that every municipal dataset you need is already published as an Esri service.",
+		"fr": "QGIS égale ArcGIS Pro pour l’analyse bureautique et le bat sur le prix par définition. Ce qu’Esri vend et que personne n’a répliqué, c’est la moitié entreprise : Portal, le modèle de géodatabase, et le fait que chaque jeu de données municipal dont vous avez besoin est déjà publié en service Esri."
+	},
+	"whatYouLose": [
+		{
+			"en": "Enterprise geodatabase and Portal",
+			"fr": "Géodatabase entreprise et Portal"
+		},
+		{
+			"en": "The Esri data and services ecosystem",
+			"fr": "L’écosystème de données et services Esri"
+		},
+		{
+			"en": "Certified extensions and training",
+			"fr": "Extensions certifiées et formation"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "QGIS",
+			"source": {
+				"host": "github",
+				"path": "qgis/QGIS",
+				"url": "https://github.com/qgis/QGIS"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A genuine peer to ArcGIS Pro, not a lesser option — and for raster analysis and format support it is ahead. Processing toolbox wraps GDAL, GRASS and SAGA in one window.",
+				"fr": "Un véritable pair d’ArcGIS Pro, pas une option au rabais — et sur l’analyse raster et le support de formats, il a de l’avance. La boîte à outils Processing réunit GDAL, GRASS et SAGA dans une seule fenêtre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GRASS GIS",
+			"source": {
+				"host": "github",
+				"path": "OSGeo/grass",
+				"url": "https://github.com/OSGeo/grass"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Thirty-five years of peer-reviewed geospatial analysis modules — hydrology, terrain, remote sensing. Drive it from QGIS and you get the depth without the interface.",
+				"fr": "Trente-cinq ans de modules d’analyse géospatiale relus par les pairs — hydrologie, terrain, télédétection. Pilotez-le depuis QGIS et vous avez la profondeur sans l’interface."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GDAL/OGR",
+			"source": {
+				"host": "github",
+				"path": "OSGeo/gdal",
+				"url": "https://github.com/OSGeo/gdal"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The library every GIS product on earth uses to read files, including the commercial ones. If your problem is format conversion, this is the whole answer.",
+				"fr": "La bibliothèque que tous les produits SIG de la planète utilisent pour lire des fichiers, y compris les commerciaux. Si votre problème est la conversion de formats, c’est toute la réponse."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

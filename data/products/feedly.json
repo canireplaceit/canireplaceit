@@ -1,0 +1,130 @@
+{
+	"slug": "feedly",
+	"name": "Feedly",
+	"domain": "feedly.com",
+	"category": "personal-media-libraries",
+	"priceMonthly": 8,
+	"pricing": {
+		"plan": "Pro (feedly.com/i/pricing fails to load; figure not read off the page)",
+		"basis": "per-seat",
+		"url": "https://feedly.com/i/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "low"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Paying a monthly fee to poll RSS feeds is difficult to justify. Miniflux is a single binary that does it faster, and unlike Feedly it will never introduce an AI summary you didn't ask for. Only Feedly's topic filtering has no open equivalent.",
+		"fr": "Payer un abonnement mensuel pour interroger des flux RSS est difficile à justifier. Miniflux est un binaire unique qui le fait plus vite et qui, contrairement à Feedly, n’introduira jamais un résumé par IA que vous n’avez pas demandé. Seul le filtrage thématique de Feedly n’a pas d’équivalent open source."
+	},
+	"whatYouLose": [
+		{
+			"en": "AI topic filtering across feeds",
+			"fr": "Filtrage thématique par IA sur tous les flux"
+		},
+		{
+			"en": "Polished mobile apps",
+			"fr": "Applications mobiles soignées"
+		},
+		{
+			"en": "Feeds polled without your server",
+			"fr": "Flux interrogés sans votre serveur"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Miniflux",
+			"source": {
+				"host": "github",
+				"path": "miniflux/v2",
+				"url": "https://github.com/miniflux/v2"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "One Go binary, one Postgres. Deliberately minimal, keyboard-driven, extremely fast.",
+				"fr": "Un binaire Go, un Postgres. Volontairement minimal, piloté au clavier, extrêmement rapide."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FreshRSS",
+			"source": {
+				"host": "github",
+				"path": "FreshRSS/FreshRSS",
+				"url": "https://github.com/FreshRSS/FreshRSS"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "More features and extensions, PHP, runs on any cheap shared host.",
+				"fr": "Plus de fonctions et d’extensions, en PHP, tourne sur n’importe quel hébergement mutualisé bon marché."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Karakeep",
+			"source": {
+				"host": "github",
+				"path": "karakeep-app/karakeep",
+				"url": "https://github.com/karakeep-app/karakeep"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Bookmarking and read-later with AI tagging — this is the Pocket replacement, not the Feedly one.",
+				"fr": "Marque-pages et lecture différée avec étiquetage par IA — c’est le remplaçant de Pocket, pas celui de Feedly."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Wallabag",
+			"source": {
+				"host": "github",
+				"path": "wallabag/wallabag",
+				"url": "https://github.com/wallabag/wallabag"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Article extraction and archiving, with a hosted instance if you don't want a server.",
+				"fr": "Extraction et archivage d’articles, avec une instance hébergée si vous ne voulez pas de serveur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Inoreader",
+			"url": "https://www.inoreader.com",
+			"priceMonthly": 3,
+			"note": {
+				"en": "Cheapest paid tier is a fraction of Feedly and the filtering rules are better. The mobile app is dated.",
+				"fr": "L’offre payante la moins chère coûte une fraction de Feedly et les règles de filtrage sont meilleures. L’application mobile est datée."
+			}
+		}
+	],
+	"priority": 4
+}

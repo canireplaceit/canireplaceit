@@ -1,0 +1,1 @@
+ALTER TABLE `quote_requests` ADD `plan` text;

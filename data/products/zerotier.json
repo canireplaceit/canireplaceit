@@ -1,0 +1,107 @@
+{
+	"slug": "zerotier",
+	"name": "ZeroTier Central",
+	"domain": "zerotier.com",
+	"category": "networking-vpn",
+	"priceMonthly": 18,
+	"pricing": {
+		"plan": "Essential",
+		"basis": "flat",
+		"url": "https://www.zerotier.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "You can run your own ZeroTier controller — but read the licence first: the controller sits in the repo's nonfree/ directory under a source-available, non-commercial licence. Self-hosting it at a company is not permitted. If you want a mesh you actually own, the honest answer is to leave ZeroTier entirely.",
+		"fr": "Vous pouvez faire tourner votre propre contrôleur ZeroTier — mais lisez d’abord la licence : le contrôleur se trouve dans le répertoire nonfree/ du dépôt, sous une licence source-available non commerciale. L’auto-héberger en entreprise n’est pas autorisé. Si vous voulez un maillage réellement à vous, la réponse honnête est de quitter ZeroTier."
+	},
+	"whatYouLose": [
+		{
+			"en": "Planet-wide root servers",
+			"fr": "Serveurs racine mondiaux"
+		},
+		{
+			"en": "Hosted network admin UI",
+			"fr": "Interface d’admin hébergée"
+		},
+		{
+			"en": "Commercial self-host rights",
+			"fr": "Droit d’auto-héberger en entreprise"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "ZeroTier",
+			"source": {
+				"host": "github",
+				"path": "zerotier/ZeroTierOne",
+				"url": "https://github.com/zerotier/ZeroTierOne"
+			},
+			"license": "MPL-2.0 (core) / source-available non-commercial (controller)",
+			"effort": "ops",
+			"note": {
+				"en": "The node is MPL-2.0 and genuinely free. The network controller lives in nonfree/ and is licensed for personal, academic or 30-day evaluation use only — running it for a business is a licence breach, not a grey area.",
+				"fr": "Le nœud est en MPL-2.0 et réellement open source. Le contrôleur réseau vit dans nonfree/ et n’est licencié que pour un usage personnel, académique ou d’évaluation de 30 jours — le faire tourner pour une entreprise est une violation de licence, pas une zone grise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "The network controller itself: non-commercial licence only.",
+					"fr": "Le contrôleur réseau lui-même : licence non commerciale uniquement."
+				},
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "innernet",
+			"source": {
+				"host": "github",
+				"path": "tonarino/innernet",
+				"url": "https://github.com/tonarino/innernet"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "WireGuard plus a tiny CIDR-based peer registry. No relays, no NAT magic — if both ends cannot reach each other, it will not work, and it tells you that up front.",
+				"fr": "WireGuard plus un minuscule registre de pairs par CIDR. Pas de relais, pas de magie NAT — si les deux extrémités ne s’atteignent pas, ça ne marchera pas, et c’est annoncé d’emblée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "NetBird",
+			"source": {
+				"host": "github",
+				"path": "netbirdio/netbird",
+				"url": "https://github.com/netbirdio/netbird"
+			},
+			"license": "BSD-3-Clause/AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The closest like-for-like: managed mesh, web UI, ACLs and SSO, all in the open source build. Some enterprise add-ons live behind a licence but the product is usable without them.",
+				"fr": "L’équivalent le plus proche : maillage géré, interface web, ACL et SSO, le tout dans la build open source. Quelques extensions entreprise sont sous licence, mais le produit est utilisable sans elles."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Activity/audit reporting and some enterprise integrations.",
+					"fr": "Les rapports d’audit et certaines intégrations entreprise."
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

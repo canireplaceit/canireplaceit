@@ -1,0 +1,128 @@
+{
+	"slug": "jira",
+	"name": "Jira",
+	"domain": "atlassian.com",
+	"category": "project-mgmt",
+	"priceMonthly": 8,
+	"pricing": {
+		"plan": "Standard, monthly billing",
+		"basis": "per-seat",
+		"url": "https://www.atlassian.com/software/jira/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Nobody likes Jira. The thing keeping you is 9 years of tickets and 40 custom workflows.",
+		"fr": "Personne n’aime Jira. Ce qui vous retient, ce sont 9 ans de tickets et 40 workflows sur mesure."
+	},
+	"whatYouLose": [
+		{
+			"en": "Nine years of ticket history",
+			"fr": "Neuf ans d’historique de tickets"
+		},
+		{
+			"en": "Custom workflows",
+			"fr": "Workflows sur mesure"
+		},
+		{
+			"en": "Atlassian ecosystem",
+			"fr": "Écosystème Atlassian"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Plane",
+			"source": {
+				"host": "github",
+				"path": "makeplane/plane",
+				"url": "https://github.com/makeplane/plane"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Cycles, modules, roadmaps. Very close.",
+				"fr": "Cycles, modules, roadmaps. Très proche."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO/SAML, teamspaces, workflows, advanced admin",
+					"fr": "SSO/SAML, espaces d’équipe, workflows, administration avancée"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Huly",
+			"source": {
+				"host": "github",
+				"path": "hcengineering/platform",
+				"url": "https://github.com/hcengineering/platform"
+			},
+			"license": "EPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Linear-like, ambitious scope.",
+				"fr": "À la Linear, périmètre ambitieux."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Taiga",
+			"source": {
+				"host": "github",
+				"path": "taigaio/taiga-back",
+				"url": "https://github.com/taigaio/taiga-back"
+			},
+			"license": "MPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Mature agile boards. Development is back on the original taigaio repos — the kaleidos-ventures rewrite stalled in 2023 — and taigaio/taiga-docker is the compose install.",
+				"fr": "Tableaux agiles matures. Le développement est revenu sur les dépôts taigaio d’origine — la réécriture kaleidos-ventures s’est arrêtée en 2023 — et taigaio/taiga-docker fournit l’installation compose."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Vikunja",
+			"source": {
+				"host": "github",
+				"path": "go-vikunja/vikunja",
+				"url": "https://github.com/go-vikunja/vikunja"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight, for small teams.",
+				"fr": "Léger, pour les petites équipes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Admin panel, time tracking, audit logs",
+					"fr": "Panneau admin, suivi du temps, journaux d’audit"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

@@ -1,0 +1,103 @@
+{
+	"slug": "pulumi-cloud",
+	"name": "Pulumi Cloud",
+	"domain": "pulumi.com",
+	"category": "infrastructure-as-code",
+	"priceMonthly": 40,
+	"pricing": {
+		"plan": "Team, USD 40/month base including 40 credits",
+		"basis": "flat",
+		"url": "https://www.pulumi.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "The Pulumi engine is Apache-2.0 and supports an S3 or filesystem state backend with one flag. Pulumi Cloud is the state store, RBAC and secrets manager — genuinely useful, entirely optional.",
+		"fr": "Le moteur Pulumi est en Apache-2.0 et gère un backend d’état S3 ou fichier avec un seul drapeau. Pulumi Cloud, c’est le stockage d’état, le RBAC et le gestionnaire de secrets — vraiment utile, totalement facultatif."
+	},
+	"whatYouLose": [
+		{
+			"en": "Web UI and history",
+			"fr": "Interface web et historique"
+		},
+		{
+			"en": "Team RBAC",
+			"fr": "RBAC d’équipe"
+		},
+		{
+			"en": "Managed secrets encryption",
+			"fr": "Chiffrement des secrets managé"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Pulumi (self-managed backend)",
+			"source": {
+				"host": "github",
+				"path": "pulumi/pulumi",
+				"url": "https://github.com/pulumi/pulumi"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "`pulumi login s3://bucket` and the paid tier stops being required. You lose the web UI and team RBAC.",
+				"fr": "`pulumi login s3://bucket` et le palier payant cesse d’être nécessaire. Vous perdez l’interface web et le RBAC d’équipe."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Teams, RBAC, policy enforcement, deployments",
+					"fr": "Équipes, RBAC, politiques, déploiements"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenTofu",
+			"source": {
+				"host": "github",
+				"path": "opentofu/opentofu",
+				"url": "https://github.com/opentofu/opentofu"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "If you're leaving anyway, HCL has a far bigger provider and module ecosystem than Pulumi's SDKs.",
+				"fr": "Si vous partez de toute façon, HCL a un écosystème de providers et de modules bien plus vaste que les SDK Pulumi."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Crossplane",
+			"source": {
+				"host": "github",
+				"path": "crossplane/crossplane",
+				"url": "https://github.com/crossplane/crossplane"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Infrastructure as Kubernetes resources, continuously reconciled. Different model — no plan/apply, no drift.",
+				"fr": "L’infrastructure en ressources Kubernetes, réconciliées en continu. Modèle différent — pas de plan/apply, pas de dérive."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

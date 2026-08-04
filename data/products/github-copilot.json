@@ -1,0 +1,103 @@
+{
+	"slug": "github-copilot",
+	"name": "GitHub Copilot",
+	"domain": "github.com",
+	"category": "developer-tooling",
+	"priceMonthly": 10,
+	"pricing": {
+		"plan": "Pro (Pro+ $39, Business $19/user, Enterprise $39/user)",
+		"basis": "per-seat",
+		"url": "https://github.com/features/copilot/plans",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "At $10 this is one of the few things on this list that is arguably underpriced. Self-hosting is about keeping your code off someone's servers, not about saving money — and local completion models are close, while local agentic editing still is not.",
+		"fr": "À 10 $, c’est l’un des rares produits de cette liste dont on peut dire qu’il est sous-facturé. L’auto-hébergement sert à garder votre code hors des serveurs d’autrui, pas à faire des économies — et si les modèles de complétion locaux s’approchent, l’édition agentique locale, elle, n’y est pas."
+	},
+	"whatYouLose": [
+		{
+			"en": "Frontier model quality",
+			"fr": "Qualité des modèles de pointe"
+		},
+		{
+			"en": "Zero setup",
+			"fr": "Aucune configuration"
+		},
+		{
+			"en": "Agent mode maturity",
+			"fr": "Maturité du mode agent"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Tabby",
+			"source": {
+				"host": "github",
+				"path": "TabbyML/tabby",
+				"url": "https://github.com/TabbyML/tabby"
+			},
+			"license": "Apache-2.0/EE",
+			"effort": "docker",
+			"note": {
+				"en": "Purpose-built self-hosted completion server with repo context. One container plus a GPU and your code never leaves.",
+				"fr": "Serveur de complétion auto-hébergé conçu pour ça, avec contexte du dépôt. Un conteneur plus un GPU, et votre code ne sort jamais."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Over five users, SSO/SAML, usage analytics",
+					"fr": "Au-delà de cinq utilisateurs, SSO/SAML, analyses d’utilisation"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Continue",
+			"source": {
+				"host": "github",
+				"path": "continuedev/continue",
+				"url": "https://github.com/continuedev/continue"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The IDE extension half. Point it at Tabby, Ollama or any API — it doesn't care which.",
+				"fr": "La moitié « extension d’IDE ». Pointez-la vers Tabby, Ollama ou n’importe quelle API — ça lui est égal."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "opencode",
+			"source": {
+				"host": "github",
+				"path": "anomalyco/opencode",
+				"url": "https://github.com/anomalyco/opencode"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Terminal agent, provider-agnostic. Closer to Copilot's agent mode than to its autocomplete.",
+				"fr": "Agent en terminal, indépendant du fournisseur. Plus proche du mode agent de Copilot que de son autocomplétion."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 5
+}

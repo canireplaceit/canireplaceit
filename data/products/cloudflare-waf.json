@@ -1,0 +1,103 @@
+{
+	"slug": "cloudflare-waf",
+	"name": "Cloudflare WAF",
+	"domain": "cloudflare.com",
+	"category": "security",
+	"priceMonthly": 20,
+	"pricing": {
+		"plan": "Pro, $20/mo billed annually ($25 month-to-month)",
+		"basis": "flat",
+		"url": "https://www.cloudflare.com/plans/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "The rules are open: the OWASP Core Rule Set is what most commercial WAFs start from, and Coraza runs it natively inside your proxy. The gap is not detection, it is that Cloudflare drops the attack a thousand kilometres before it reaches your bandwidth bill.",
+		"fr": "Les règles sont ouvertes : l’OWASP Core Rule Set est le point de départ de la plupart des WAF commerciaux, et Coraza l’exécute nativement dans votre proxy. L’écart n’est pas la détection, c’est que Cloudflare jette l’attaque mille kilomètres avant qu’elle n’atteigne votre facture de bande passante."
+	},
+	"whatYouLose": [
+		{
+			"en": "Volumetric DDoS absorption",
+			"fr": "Absorption des DDoS volumétriques"
+		},
+		{
+			"en": "Managed rule updates",
+			"fr": "Mises à jour de règles gérées"
+		},
+		{
+			"en": "Bot fingerprinting at scale",
+			"fr": "Empreinte des bots à grande échelle"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Coraza",
+			"source": {
+				"host": "github",
+				"path": "corazawaf/coraza",
+				"url": "https://github.com/corazawaf/coraza"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "ModSecurity-compatible engine in pure Go, embeddable in Caddy, Traefik or Envoy with no C module. The successor the ecosystem settled on.",
+				"fr": "Moteur compatible ModSecurity en Go pur, intégrable dans Caddy, Traefik ou Envoy sans module C. Le successeur sur lequel l’écosystème s’est fixé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OWASP Core Rule Set",
+			"source": {
+				"host": "github",
+				"path": "coreruleset/coreruleset",
+				"url": "https://github.com/coreruleset/coreruleset"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The ruleset itself, actively maintained and the baseline every vendor tunes. Budget real time for tuning out false positives — that work is the actual cost.",
+				"fr": "Le jeu de règles lui-même, activement maintenu, base que chaque éditeur ajuste. Prévoyez du temps réel pour éliminer les faux positifs — c’est là le vrai coût."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "BunkerWeb",
+			"source": {
+				"host": "github",
+				"path": "bunkerity/bunkerweb",
+				"url": "https://github.com/bunkerity/bunkerweb"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "nginx pre-hardened with CRS, bad-IP feeds, rate limits and a web UI. The PRO edition adds extra plugins and support.",
+				"fr": "nginx pré-durci avec CRS, flux d’IP malveillantes, limites de débit et interface web. L’édition PRO ajoute des greffons supplémentaires et le support."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "PRO plugins (advanced blacklists, extended UI) and support.",
+					"fr": "Les greffons PRO (listes noires avancées, interface étendue) et le support."
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

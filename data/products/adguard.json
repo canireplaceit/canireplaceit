@@ -1,0 +1,120 @@
+{
+	"slug": "adguard",
+	"name": "AdGuard",
+	"domain": "adguard.com",
+	"category": "networking-vpn",
+	"priceMonthly": 2.49,
+	"pricing": {
+		"plan": "Personal (3 devices), billed annually ($29.88/yr); lifetime $84.79",
+		"basis": "flat",
+		"url": "https://adguard.com/en/license.html",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "The oddest entry here: AdGuard sells you the paid apps and also publishes AdGuard Home, which is GPL-3.0 and complete. Add uBlock Origin in the browser and AdAway on the phone and the paid licence covers almost nothing you cannot already have.",
+		"fr": "L’entrée la plus étrange de la liste : AdGuard vous vend les applications payantes et publie aussi AdGuard Home, en GPL-3.0 et complet. Ajoutez uBlock Origin dans le navigateur et AdAway sur le téléphone, et la licence payante ne couvre presque plus rien que vous ne puissiez déjà avoir."
+	},
+	"whatYouLose": [
+		{
+			"en": "System-wide filtering on iOS",
+			"fr": "Filtrage système sur iOS"
+		},
+		{
+			"en": "Their maintained premium filter lists",
+			"fr": "Leurs listes de filtres premium maintenues"
+		},
+		{
+			"en": "One installer for the whole family",
+			"fr": "Un seul installeur pour toute la famille"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "uBlock Origin",
+			"source": {
+				"host": "github",
+				"path": "gorhill/uBlock",
+				"url": "https://github.com/gorhill/uBlock"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Still the best content blocker ever written and it costs nothing. Chrome's Manifest V3 has crippled it there — that is an argument for changing browser, not for paying.",
+				"fr": "Toujours le meilleur bloqueur jamais écrit, et il ne coûte rien. Le Manifest V3 de Chrome l’a mutilé là-bas : c’est un argument pour changer de navigateur, pas pour payer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "AdGuard Home",
+			"source": {
+				"host": "github",
+				"path": "AdguardTeam/AdGuardHome",
+				"url": "https://github.com/AdguardTeam/AdGuardHome"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Same job as Pi-hole, one Go binary, DoH and DoT servers built in. Made by the same company that sells the paid AdGuard apps, and this build is genuinely complete.",
+				"fr": "Le même travail que Pi-hole, un seul binaire Go, serveurs DoH et DoT intégrés. Fait par l’entreprise qui vend les applications AdGuard payantes, mais cette version est réellement complète."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "AdAway",
+			"source": {
+				"host": "github",
+				"path": "AdAway/AdAway",
+				"url": "https://github.com/AdAway/AdAway"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "System-wide blocking on Android via the hosts file with root, or a local VPN without. Entirely on-device.",
+				"fr": "Blocage système sur Android via le fichier hosts avec root, ou un VPN local sans root. Entièrement sur l’appareil."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pi-hole",
+			"source": {
+				"host": "github",
+				"path": "pi-hole/pi-hole",
+				"url": "https://github.com/pi-hole/pi-hole"
+			},
+			"license": "EUPL-1.2",
+			"effort": "docker",
+			"note": {
+				"en": "The default answer. Network-wide DNS blocking, per-client groups, and a query log that shows exactly how often your TV phones home.",
+				"fr": "La réponse par défaut. Blocage DNS pour tout le réseau, groupes par client, et un journal de requêtes qui montre exactement à quel point votre téléviseur appelle la maison."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 4
+}

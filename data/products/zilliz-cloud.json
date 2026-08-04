@@ -1,0 +1,107 @@
+{
+	"slug": "zilliz-cloud",
+	"name": "Zilliz Cloud",
+	"domain": "zilliz.com",
+	"category": "ai-infrastructure",
+	"priceMonthly": 197,
+	"pricing": {
+		"plan": "Enterprise, from $197/month (Dedicated). Standard is from $126/GB/month Dedicated or $0 Serverless usage-based; Free tier gives 5 GB",
+		"basis": "usage",
+		"url": "https://zilliz.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Zilliz Cloud is managed Milvus, sold by the company that writes Milvus, and Milvus is Apache-2.0 with the indexes and RBAC intact. For anything under ten million vectors, pgvector in the Postgres you already run is the answer nobody wants to hear.",
+		"fr": "Zilliz Cloud, c’est Milvus managé, vendu par l’entreprise qui écrit Milvus, et Milvus est en Apache-2.0 avec ses index et son RBAC intacts. En dessous de dix millions de vecteurs, pgvector dans le Postgres que vous avez déjà est la réponse que personne ne veut entendre."
+	},
+	"whatYouLose": [
+		{
+			"en": "Managed sharding and rebalancing",
+			"fr": "Sharding et rééquilibrage managés"
+		},
+		{
+			"en": "Serverless pricing at low volume",
+			"fr": "Tarification serverless à faible volume"
+		},
+		{
+			"en": "Vendor-tuned index selection",
+			"fr": "Choix d’index optimisé par l’éditeur"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Milvus",
+			"source": {
+				"host": "github",
+				"path": "milvus-io/milvus",
+				"url": "https://github.com/milvus-io/milvus"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The same engine Zilliz hosts. Standalone mode is one container; the distributed mode is a genuine Kubernetes project.",
+				"fr": "Le moteur même que Zilliz héberge. Le mode autonome tient en un conteneur ; le mode distribué est un vrai projet Kubernetes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Zilliz Cloud's managed control plane",
+					"fr": "Le plan de contrôle managé de Zilliz Cloud"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Qdrant",
+			"source": {
+				"host": "github",
+				"path": "qdrant/qdrant",
+				"url": "https://github.com/qdrant/qdrant"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Much easier to operate than Milvus at small and mid scale, with good filtered search. Single Rust binary.",
+				"fr": "Bien plus simple à exploiter que Milvus à petite et moyenne échelle, avec une bonne recherche filtrée. Un seul binaire Rust."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Qdrant Cloud and hybrid-cloud management",
+					"fr": "Qdrant Cloud et la gestion hybride"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pgvector",
+			"source": {
+				"host": "github",
+				"path": "pgvector/pgvector",
+				"url": "https://github.com/pgvector/pgvector"
+			},
+			"license": "PostgreSQL License",
+			"effort": "docker",
+			"note": {
+				"en": "An extension, not a service. Your embeddings join your relational data, get backed up with it, and cost nothing extra.",
+				"fr": "Une extension, pas un service. Vos embeddings rejoignent vos données relationnelles, sont sauvegardés avec elles et ne coûtent rien de plus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

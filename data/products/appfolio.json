@@ -1,0 +1,92 @@
+{
+	"slug": "appfolio",
+	"name": "AppFolio",
+	"domain": "appfolio.com",
+	"category": "bookings-property-events",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "AppFolio prices per unit with a monthly minimum and does not publish a simple number, so budget for a few hundred a month at small scale. Property management software is glued to things you cannot self-host: tenant screening bureaus, rent collection by direct debit, and jurisdiction-specific eviction paperwork.",
+		"fr": "AppFolio facture au lot avec un minimum mensuel et ne publie pas de tarif simple : comptez quelques centaines d’euros par mois à petite échelle. Un logiciel de gestion locative est collé à des services non auto-hébergeables : bureaux de solvabilité, prélèvement automatique des loyers, et procédures d’expulsion propres à chaque territoire."
+	},
+	"whatYouLose": [
+		{
+			"en": "Tenant screening and credit checks",
+			"fr": "Enquête de solvabilité des locataires"
+		},
+		{
+			"en": "Rent collection by direct debit",
+			"fr": "Prélèvement automatique des loyers"
+		},
+		{
+			"en": "Jurisdiction-specific legal forms",
+			"fr": "Formulaires légaux propres à votre territoire"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "MicroRealEstate",
+			"source": {
+				"host": "github",
+				"path": "microrealestate/microrealestate",
+				"url": "https://github.com/microrealestate/microrealestate"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The only credible open landlord tool: tenants, leases, rent tracking, receipts. No payments, no screening.",
+				"fr": "Le seul outil open source crédible pour bailleurs : locataires, baux, suivi des loyers, quittances. Pas de paiement, pas d’enquête de solvabilité."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "QloApps",
+			"source": {
+				"host": "github",
+				"path": "Qloapps/QloApps",
+				"url": "https://github.com/Qloapps/QloApps"
+			},
+			"license": "OSL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Different job — a hotel property-management system with booking engine and channel manager. Worth knowing if you do short stays.",
+				"fr": "Autre métier : un logiciel hôtelier avec moteur de réservation et channel manager. Utile si vous faites de la location courte durée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "TenantCloud",
+			"url": "https://www.tenantcloud.com",
+			"priceMonthly": 16,
+			"note": {
+				"en": "A fraction of the price with online rent and screening built in. Falls apart past a few dozen units.",
+				"fr": "Une fraction du prix, avec paiement du loyer en ligne et enquête de solvabilité. Craque au-delà de quelques dizaines de lots."
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Buildium",
+			"url": "https://www.buildium.com",
+			"priceMonthly": 58,
+			"note": {
+				"en": "Same category as AppFolio for less, and no minimum-unit requirement. Accounting is less sophisticated.",
+				"fr": "Même catégorie qu’AppFolio pour moins cher, sans minimum de lots. Comptabilité moins sophistiquée."
+			}
+		}
+	],
+	"priority": 2
+}

@@ -1,0 +1,103 @@
+{
+	"slug": "photon-engine",
+	"name": "Photon Engine",
+	"domain": "photonengine.com",
+	"category": "game-development",
+	"priceMonthly": 125,
+	"pricing": {
+		"plan": "500 CCU plan",
+		"basis": "usage",
+		"url": "https://www.photonengine.com/fusion/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Photon is priced per concurrent user, which means a viral week costs you money at exactly the moment you have none. Mirror and Colyseus are mature, free, and used in shipped games. What you take on is the part Photon quietly does well: relay servers near your players so a match between Brazil and Poland does not feel like it.",
+		"fr": "Photon se facture au joueur simultané : une semaine virale vous coûte de l’argent précisément quand vous n’en avez pas. Mirror et Colyseus sont matures, gratuits et utilisés dans des jeux sortis. Ce que vous récupérez, c’est ce que Photon fait discrètement bien : des relais proches des joueurs pour qu’une partie entre le Brésil et la Pologne ne se sente pas."
+	},
+	"whatYouLose": [
+		{
+			"en": "Global relay and matchmaking",
+			"fr": "Relais mondiaux et matchmaking"
+		},
+		{
+			"en": "Scaling without capacity planning",
+			"fr": "Montée en charge sans planification"
+		},
+		{
+			"en": "NAT punch-through that just works",
+			"fr": "Franchissement de NAT qui marche tout seul"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Mirror",
+			"source": {
+				"host": "github",
+				"path": "MirrorNetworking/Mirror",
+				"url": "https://github.com/MirrorNetworking/Mirror"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The default networking library for Unity outside Photon, battle-tested in shipped multiplayer games. Note that Unity's own Netcode for GameObjects is under the Unity Companion License, not an open source licence.",
+				"fr": "La bibliothèque réseau par défaut sous Unity hors Photon, éprouvée dans des jeux multijoueurs sortis. À noter : le Netcode for GameObjects d’Unity est sous Unity Companion License, pas une licence open source."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Colyseus",
+			"source": {
+				"host": "github",
+				"path": "colyseus/colyseus",
+				"url": "https://github.com/colyseus/colyseus"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Authoritative rooms in TypeScript with state sync and clients for Unity, Godot and the web. The managed Colyseus Cloud is optional hosting, not a feature gate.",
+				"fr": "Salles autoritaires en TypeScript avec synchronisation d’état et clients Unity, Godot et web. Colyseus Cloud est un hébergement facultatif, pas un verrou fonctionnel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nakama",
+			"source": {
+				"host": "github",
+				"path": "heroiclabs/nakama",
+				"url": "https://github.com/heroiclabs/nakama"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Realtime multiplayer plus accounts, matchmaking, leaderboards and chat in one server. A single node handles a surprising amount; multi-node clustering is the paid edition.",
+				"fr": "Multijoueur temps réel plus comptes, matchmaking, classements et chat dans un seul serveur. Un nœud unique encaisse beaucoup ; le clustering multi-nœuds est l’édition payante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Multi-node clustering and horizontal scaling ship only in Nakama Enterprise; the Apache-2.0 build is single-node.",
+					"fr": "Le clustering multi-nœuds et la montée en charge horizontale ne sont que dans Nakama Enterprise ; la version Apache-2.0 est mono-nœud."
+				}
+			}
+		}
+	],
+	"priority": 3
+}

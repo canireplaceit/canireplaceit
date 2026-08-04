@@ -1,0 +1,120 @@
+{
+	"slug": "swaggerhub",
+	"name": "SwaggerHub",
+	"domain": "swagger.io",
+	"category": "api-development",
+	"priceMonthly": 21,
+	"pricing": {
+		"plan": "Team, per design seat (SmartBear pricing page serves no figures; unconfirmed)",
+		"basis": "per-seat",
+		"url": "https://swagger.io/product/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "low"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Design-first API governance sold per seat, built almost entirely on tools SmartBear and others already give away. A repo, Spectral in CI and openapi-generator replaces it outright.",
+		"fr": "De la gouvernance d’API design-first vendue à l’utilisateur, bâtie presque entièrement sur des outils que SmartBear et d’autres distribuent déjà gratuitement. Un dépôt, Spectral en CI et openapi-generator la remplacent entièrement."
+	},
+	"whatYouLose": [
+		{
+			"en": "Hosted spec registry",
+			"fr": "Registre de specs hébergé"
+		},
+		{
+			"en": "Collaborative spec editor",
+			"fr": "Éditeur de specs collaboratif"
+		},
+		{
+			"en": "Org-wide style governance",
+			"fr": "Gouvernance de style à l’échelle de l’organisation"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Spectral",
+			"source": {
+				"host": "github",
+				"path": "stoplightio/spectral",
+				"url": "https://github.com/stoplightio/spectral"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The governance part: a linter for OpenAPI with custom rulesets. This is what SwaggerHub's style checks actually are.",
+				"fr": "La partie gouvernance : un linter OpenAPI avec des jeux de règles personnalisés. C’est exactement ce que sont les vérifications de style de SwaggerHub."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenAPI Generator",
+			"source": {
+				"host": "github",
+				"path": "OpenAPITools/openapi-generator",
+				"url": "https://github.com/OpenAPITools/openapi-generator"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Client SDKs and server stubs in 50+ languages. The community fork of Swagger Codegen and the one that is maintained.",
+				"fr": "SDK clients et squelettes de serveur dans plus de 50 langages. Le fork communautaire de Swagger Codegen, et celui qui est maintenu."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Swagger UI",
+			"source": {
+				"host": "github",
+				"path": "swagger-api/swagger-ui",
+				"url": "https://github.com/swagger-api/swagger-ui"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "SmartBear's own renderer, still Apache-2.0. Host it yourself and the registry becomes a git repo.",
+				"fr": "Le moteur de rendu de SmartBear lui-même, toujours en Apache-2.0. Hébergez-le et le registre devient un dépôt git."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Microcks",
+			"source": {
+				"host": "github",
+				"path": "microcks/microcks",
+				"url": "https://github.com/microcks/microcks"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Adds the piece SwaggerHub does not really do: turning the spec into a live mock and a contract test.",
+				"fr": "Ajoute ce que SwaggerHub ne fait pas vraiment : transformer la spec en mock vivant et en test de contrat."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

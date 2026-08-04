@@ -1,0 +1,109 @@
+{
+	"slug": "lokalise",
+	"name": "Lokalise",
+	"domain": "lokalise.com",
+	"category": "language-localization",
+	"priceMonthly": 144,
+	"pricing": {
+		"plan": "Explorer",
+		"basis": "flat",
+		"url": "https://lokalise.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Weblate is used by GNOME, Fedora and thousands of others, has a hosted tier that is free for open source, and its git integration is better than the commercial tools. Localisation platforms are one of the clearest wins on this whole site.",
+		"fr": "Weblate est utilisé par GNOME, Fedora et des milliers d’autres, dispose d’une offre hébergée gratuite pour l’open source, et son intégration git est meilleure que celle des outils commerciaux. Les plateformes de localisation sont l’une des victoires les plus nettes de tout ce site."
+	},
+	"whatYouLose": [
+		{
+			"en": "Managed translation-vendor ordering",
+			"fr": "Commande intégrée auprès d’agences de traduction"
+		},
+		{
+			"en": "Some design-tool integrations",
+			"fr": "Certaines intégrations avec les outils de design"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Weblate",
+			"source": {
+				"host": "github",
+				"path": "WeblateOrg/weblate",
+				"url": "https://github.com/WeblateOrg/weblate"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Commits translations straight back to your repo. Translation memory, glossaries, quality checks.",
+				"fr": "Committe les traductions directement dans votre dépôt. Mémoire de traduction, glossaires, contrôles qualité."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tolgee",
+			"source": {
+				"host": "github",
+				"path": "tolgee/tolgee-platform",
+				"url": "https://github.com/tolgee/tolgee-platform"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "In-context editing directly in your running app — genuinely a nicer developer workflow. Some parts are restricted-licence.",
+				"fr": "Édition en contexte directement dans votre application — un flux de travail réellement plus agréable. Certaines parties ont une licence restreinte."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO, granular permissions, beyond ten seats",
+					"fr": "SSO, permissions fines, au-delà de dix utilisateurs"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Traduora",
+			"source": {
+				"host": "github",
+				"path": "ever-co/ever-traduora",
+				"url": "https://github.com/ever-co/ever-traduora"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Simple API-first string management. Fewer features, much less to run.",
+				"fr": "Gestion de chaînes simple et orientée API. Moins de fonctions, beaucoup moins à administrer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Localazy",
+			"url": "https://localazy.com",
+			"priceMonthly": 9,
+			"note": {
+				"en": "An order of magnitude cheaper with a real free tier. Fewer integrations and no serious workflow automation.",
+				"fr": "Un ordre de grandeur moins cher, avec une vraie offre gratuite. Moins d’intégrations et pas de véritable automatisation des flux."
+			}
+		}
+	],
+	"priority": 3
+}

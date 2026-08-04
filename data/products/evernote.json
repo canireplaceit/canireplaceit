@@ -1,0 +1,145 @@
+{
+	"slug": "evernote",
+	"name": "Evernote",
+	"domain": "evernote.com",
+	"category": "notes-docs",
+	"priceMonthly": 7.9,
+	"pricing": {
+		"plan": "Advanced, billed annually (EU page shows 29.16 zl/mo incl. VAT; Starter 11.65 zl)",
+		"basis": "per-seat",
+		"url": "https://evernote.com/compare-plans",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Evernote has raised prices and cut the free tier to fifty notes since the Bending Spoons acquisition, which makes leaving less a decision than an eviction. Joplin imports ENEX files directly and syncs over storage you already have, so the migration is genuinely an afternoon.",
+		"fr": "Evernote a augmenté ses prix et réduit l’offre gratuite à cinquante notes depuis le rachat par Bending Spoons, ce qui fait du départ moins une décision qu’une expulsion. Joplin importe les fichiers ENEX directement et se synchronise via un stockage que vous avez déjà : la migration tient vraiment en un après-midi."
+	},
+	"whatYouLose": [
+		{
+			"en": "OCR search inside scanned images",
+			"fr": "Recherche OCR dans les images scannées"
+		},
+		{
+			"en": "The web clipper's fidelity",
+			"fr": "La fidélité du web clipper"
+		},
+		{
+			"en": "Twenty years of integrations",
+			"fr": "Vingt ans d’intégrations"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Joplin",
+			"source": {
+				"host": "github",
+				"path": "laurent22/joplin",
+				"url": "https://github.com/laurent22/joplin"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The important detail: sync is not a paid service. Point it at WebDAV, S3, Dropbox or a folder and cross-device sync costs nothing. Joplin Cloud exists but is optional.",
+				"fr": "Le détail important : la synchro n’est pas un service payant. Pointez-la vers WebDAV, S3, Dropbox ou un dossier et la synchro multi-appareils ne coûte rien. Joplin Cloud existe mais reste facultatif."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Trilium Notes",
+			"source": {
+				"host": "github",
+				"path": "TriliumNext/Trilium",
+				"url": "https://github.com/TriliumNext/Trilium"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Hierarchical notes with scripting, attributes and note cloning — the closest thing to a personal database. This is the TriliumNext continuation; the original zadam repo is retired.",
+				"fr": "Notes hiérarchiques avec scripts, attributs et clonage de notes : ce qui ressemble le plus à une base de données personnelle. C’est la continuation TriliumNext, le dépôt zadam d’origine est retiré."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Notesnook",
+			"source": {
+				"host": "github",
+				"path": "streetwriters/notesnook",
+				"url": "https://github.com/streetwriters/notesnook"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "End-to-end encrypted, and cross-device sync is in the free tier — the rare open source note app that does not sell you back your own sync. Pro raises attachment storage and lifts the notebook and tag caps.",
+				"fr": "Chiffré de bout en bout, et la synchro multi-appareils est incluse dans l’offre gratuite : la rare application de notes open source qui ne vous revend pas votre propre synchro. Pro augmente le stockage des pièces jointes et lève les limites de carnets et d’étiquettes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Attachment storage and unlimited notebooks and tags on their hosted sync",
+					"fr": "Le stockage des pièces jointes et les carnets et étiquettes illimités sur leur synchro hébergée"
+				},
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Memos",
+			"source": {
+				"host": "github",
+				"path": "usememos/memos",
+				"url": "https://github.com/usememos/memos"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "A self-hosted stream of short notes — the Twitter-shaped end of note-taking. One Go binary, MIT, no account anywhere else.",
+				"fr": "Un flux auto-hébergé de notes courtes, l’extrémité façon Twitter de la prise de notes. Un binaire Go, MIT, aucun compte ailleurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nextcloud Notes",
+			"source": {
+				"host": "github",
+				"path": "nextcloud/notes",
+				"url": "https://github.com/nextcloud/notes"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Markdown notes synced by your own Nextcloud, with decent iOS and Android clients. Boring, and it simply works if you already run Nextcloud.",
+				"fr": "Notes Markdown synchronisées par votre propre Nextcloud, avec des clients iOS et Android corrects. Ennuyeux, et parfaitement fonctionnel si vous avez déjà Nextcloud."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 5
+}

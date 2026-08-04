@@ -1,0 +1,117 @@
+{
+	"slug": "sprout-social",
+	"name": "Sprout Social",
+	"domain": "sproutsocial.com",
+	"category": "community-publishing",
+	"priceMonthly": 199,
+	"pricing": {
+		"plan": "Standard, annual billed monthly ($249 month-to-month)",
+		"basis": "per-seat",
+		"url": "https://sproutsocial.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Two hundred dollars per seat per month for scheduling, an inbox and some charts. The scheduling half is solved in open source; the unified inbox and the official API quotas that make it work at agency scale are not.",
+		"fr": "Deux cents dollars par utilisateur et par mois pour de la planification, une boîte de réception et quelques graphiques. La moitié planification est résolue en open source ; la boîte unifiée et les quotas d’API officiels qui la font fonctionner à l’échelle d’une agence, non."
+	},
+	"whatYouLose": [
+		{
+			"en": "The unified social inbox",
+			"fr": "La boîte de réception sociale unifiée"
+		},
+		{
+			"en": "Listening and sentiment",
+			"fr": "Écoute et sentiment"
+		},
+		{
+			"en": "Approval workflows for clients",
+			"fr": "Circuits de validation pour les clients"
+		},
+		{
+			"en": "Elevated official API quotas",
+			"fr": "Quotas d’API officiels relevés"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Postiz",
+			"source": {
+				"host": "github",
+				"path": "gitroomhq/postiz-app",
+				"url": "https://github.com/gitroomhq/postiz-app"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The most actively developed self-hosted scheduler, covering a long list of networks with AI drafting. AGPL throughout, no enterprise directory.",
+				"fr": "Le planificateur auto-hébergé le plus activement développé, couvrant une longue liste de réseaux avec rédaction assistée par IA. AGPL de bout en bout, sans dossier entreprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mixpost",
+			"source": {
+				"host": "github",
+				"path": "inovector/mixpost",
+				"url": "https://github.com/inovector/mixpost"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Read this one carefully: the MIT repository is Mixpost Lite. Multiple workspaces, analytics and most networks are in the paid Pro edition.",
+				"fr": "À lire attentivement : le dépôt MIT est Mixpost Lite. Espaces multiples, statistiques et la plupart des réseaux sont dans l’édition Pro payante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "The MIT repo is Mixpost Lite; multiple workspaces, analytics and most networks are in the paid Pro edition",
+					"fr": "Le dépôt MIT est Mixpost Lite ; espaces multiples, statistiques et la plupart des réseaux sont dans l’édition Pro payante"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "crowd.dev",
+			"source": {
+				"host": "github",
+				"path": "linuxfoundation/crowd.dev",
+				"url": "https://github.com/linuxfoundation/crowd.dev"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Covers the listening and audience-graph half if your audience lives in developer communities.",
+				"fr": "Couvre la partie écoute et graphe d’audience si votre public vit dans des communautés de développeurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Buffer",
+			"url": "https://buffer.com",
+			"priceMonthly": 6,
+			"note": {
+				"en": "A thirtieth of the price for the scheduling that most teams actually use Sprout for. No inbox, no listening, no approvals.",
+				"fr": "Trente fois moins cher pour la planification, ce à quoi la plupart des équipes utilisent réellement Sprout. Pas de boîte de réception, pas d’écoute, pas de validations."
+			}
+		}
+	],
+	"priority": 3
+}

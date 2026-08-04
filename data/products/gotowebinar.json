@@ -1,0 +1,120 @@
+{
+	"slug": "gotowebinar",
+	"name": "GoToWebinar",
+	"domain": "goto.com",
+	"category": "comms",
+	"priceMonthly": 59,
+	"pricing": {
+		"plan": "Organiser plan, billed annually (goto.com blocks automated fetches; figure not read off the page)",
+		"basis": "per-seat",
+		"url": "https://www.goto.com/webinar/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "low"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "The streaming is solved — BigBlueButton has run university lectures for a decade. What GoToWebinar really sells is registration pages, reminder emails that arrive, and someone else's server melting instead of yours when a thousand people join at 14:00.",
+		"fr": "La diffusion est un problème résolu — BigBlueButton assure des cours universitaires depuis dix ans. Ce que vend vraiment GoToWebinar, ce sont les pages d’inscription, les e-mails de rappel qui arrivent, et le serveur de quelqu’un d’autre qui fond à votre place quand mille personnes se connectent à 14 h."
+	},
+	"whatYouLose": [
+		{
+			"en": "Registration and reminder emails",
+			"fr": "Inscriptions et e-mails de rappel"
+		},
+		{
+			"en": "Scale without capacity planning",
+			"fr": "Montée en charge sans dimensionnement"
+		},
+		{
+			"en": "Recording hosting and replays",
+			"fr": "Hébergement des enregistrements et rediffusions"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "BigBlueButton",
+			"source": {
+				"host": "github",
+				"path": "bigbluebutton/bigbluebutton",
+				"url": "https://github.com/bigbluebutton/bigbluebutton"
+			},
+			"license": "LGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Genuinely webinar-grade: presenter roles, breakouts, polls, recording. It also genuinely wants a dedicated server and someone who knows what it is doing.",
+				"fr": "Réellement de niveau webinaire : rôles de présentateur, salles, sondages, enregistrement. Il réclame aussi un serveur dédié et quelqu’un qui sait ce qu’il fait."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Jitsi Meet",
+			"source": {
+				"host": "github",
+				"path": "jitsi/jitsi-meet",
+				"url": "https://github.com/jitsi/jitsi-meet"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Easiest to stand up and fine to a few hundred viewers with the streaming bridge. Thin on the webinar furniture.",
+				"fr": "Le plus simple à monter, correct jusqu’à quelques centaines de spectateurs avec le pont de diffusion. Peu d’outils propres au webinaire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Owncast",
+			"source": {
+				"host": "github",
+				"path": "owncast/owncast",
+				"url": "https://github.com/owncast/owncast"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "If it is really one-to-many, this is a single Go binary that streams to thousands with chat. No registration, no interactivity.",
+				"fr": "Si c’est vraiment du un-vers-tous, c’est un binaire Go unique qui diffuse vers des milliers de personnes avec un chat. Pas d’inscription, pas d’interactivité."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LiveKit",
+			"source": {
+				"host": "github",
+				"path": "livekit/livekit",
+				"url": "https://github.com/livekit/livekit"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Build the webinar you actually want on WebRTC infrastructure you control. It is a platform, not a product.",
+				"fr": "Construisez le webinaire que vous voulez vraiment sur une infrastructure WebRTC que vous contrôlez. C’est une plateforme, pas un produit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

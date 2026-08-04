@@ -1,0 +1,117 @@
+{
+	"slug": "new-relic",
+	"name": "New Relic",
+	"domain": "newrelic.com",
+	"category": "observability-telemetry",
+	"priceMonthly": 99,
+	"pricing": {
+		"plan": "Standard, per full-platform user beyond the first",
+		"basis": "per-seat",
+		"url": "https://newrelic.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Per-user pricing on an observability tool means people stop looking at dashboards to save money, which is the exact opposite of the goal. OpenTelemetry made the agent portable, so switching backends is now a config change.",
+		"fr": "Facturer un outil d’observabilité par utilisateur, c’est pousser les gens à ne plus regarder les tableaux de bord pour économiser — l’inverse exact du but. OpenTelemetry a rendu l’agent portable : changer de backend n’est plus qu’une modification de configuration."
+	},
+	"whatYouLose": [
+		{
+			"en": "Turnkey APM agents",
+			"fr": "Agents APM clés en main"
+		},
+		{
+			"en": "Vendor-managed retention",
+			"fr": "Rétention gérée par l’éditeur"
+		},
+		{
+			"en": "Deep continuous profiling",
+			"fr": "Profilage continu approfondi"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "OpenObserve",
+			"source": {
+				"host": "github",
+				"path": "openobserve/openobserve",
+				"url": "https://github.com/openobserve/openobserve"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Logs, metrics and traces in one Rust binary, storing to S3. Cheapest thing here to run at volume.",
+				"fr": "Logs, métriques et traces dans un binaire Rust unique, stockage sur S3. Le moins cher à exploiter en volume."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO, RBAC, audit trail, federated search",
+					"fr": "SSO, RBAC, journal d’audit, recherche fédérée"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "HyperDX",
+			"source": {
+				"host": "github",
+				"path": "hyperdxio/hyperdx",
+				"url": "https://github.com/hyperdxio/hyperdx"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "ClickHouse-backed, and the session-replay-to-trace correlation is genuinely better than New Relic's.",
+				"fr": "Repose sur ClickHouse, et la corrélation replay de session vers trace est réellement meilleure que celle de New Relic."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO/SAML, multi-tenancy, OAuth alerting",
+					"fr": "SSO/SAML, multi-tenant, alertes OAuth"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenTelemetry Collector",
+			"source": {
+				"host": "github",
+				"path": "open-telemetry/opentelemetry-collector",
+				"url": "https://github.com/open-telemetry/opentelemetry-collector"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Not a backend — the thing you deploy first so that leaving the next vendor is also easy.",
+				"fr": "Pas un backend — la brique à déployer en premier pour que quitter le prochain fournisseur soit également simple."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Better Stack",
+			"url": "https://betterstack.com/pricing",
+			"priceMonthly": 29,
+			"note": {
+				"en": "Logs, uptime and incident management for a fraction of New Relic. APM and profiling are far shallower — this is not a full replacement for deep tracing.",
+				"fr": "Logs, disponibilité et gestion d’incidents pour une fraction du prix de New Relic. L’APM et le profilage sont bien plus superficiels — ce n’est pas un remplacement pour du traçage profond."
+			}
+		}
+	],
+	"priority": 4
+}

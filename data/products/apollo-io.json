@@ -1,0 +1,113 @@
+{
+	"slug": "apollo-io",
+	"name": "Apollo.io",
+	"domain": "apollo.io",
+	"category": "sales-outreach-data",
+	"priceMonthly": 49,
+	"pricing": {
+		"plan": "Basic, billed annually",
+		"basis": "per-seat",
+		"url": "https://www.apollo.io/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Apollo bundles a contact database with a sequencer. The sequencer half has open source answers; the database half does not, and the database is why anyone signs up. Self-hosting here means keeping the tool and losing the reason you opened it.",
+		"fr": "Apollo combine une base de contacts et un outil de séquences. La moitié séquences a des réponses open source ; la moitié base de données non, et c’est la base qui fait signer. Auto-héberger ici, c’est garder l’outil et perdre la raison pour laquelle vous l’ouvriez."
+	},
+	"whatYouLose": [
+		{
+			"en": "275M+ contact records",
+			"fr": "Plus de 275 millions de contacts"
+		},
+		{
+			"en": "Email and phone verification at source",
+			"fr": "Vérification e-mail et téléphone à la source"
+		},
+		{
+			"en": "Buying intent signals",
+			"fr": "Signaux d’intention d’achat"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "EspoCRM",
+			"source": {
+				"host": "github",
+				"path": "espocrm/espocrm",
+				"url": "https://github.com/espocrm/espocrm"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Replaces the CRM and campaign half entirely. Bring your own contacts.",
+				"fr": "Remplace entièrement la partie CRM et campagnes. Apportez vos propres contacts."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Advanced Pack, Sales Pack and the VoIP integrations are paid extensions",
+					"fr": "Advanced Pack, Sales Pack et les intégrations VoIP sont des extensions payantes"
+				},
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mautic",
+			"source": {
+				"host": "github",
+				"path": "mautic/mautic",
+				"url": "https://github.com/mautic/mautic"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "The sequencing and scoring half, GPL and unrestricted.",
+				"fr": "La partie séquences et scoring, GPL et sans restriction."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "email-verifier",
+			"source": {
+				"host": "github",
+				"path": "AfterShip/email-verifier",
+				"url": "https://github.com/AfterShip/email-verifier"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Keeps a list you sourced elsewhere clean, which is roughly half of what Apollo credits get spent on.",
+				"fr": "Garde propre une liste obtenue ailleurs, ce à quoi sert environ la moitié des crédits Apollo."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Snov.io",
+			"url": "https://snov.io",
+			"priceMonthly": 39,
+			"note": {
+				"en": "Cheaper database plus sequencing with a similar shape. Smaller coverage outside North America.",
+				"fr": "Base moins chère plus séquences, de forme similaire. Couverture plus faible hors Amérique du Nord."
+			}
+		}
+	],
+	"priority": 4
+}

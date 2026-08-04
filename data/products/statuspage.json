@@ -1,0 +1,99 @@
+{
+	"slug": "statuspage",
+	"name": "Statuspage",
+	"domain": "statuspage.io",
+	"category": "observability",
+	"priceMonthly": 29,
+	"pricing": {
+		"plan": "Hobby",
+		"basis": "flat",
+		"url": "https://www.atlassian.com/software/statuspage/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "A static page that says whether things are up. $29/mo is a joke and everyone knows it.",
+		"fr": "Une page statique qui dit si ça marche ou non. 29 $/mois, c’est une blague et tout le monde le sait."
+	},
+	"whatYouLose": [
+		{
+			"en": "Hosted off your own infrastructure",
+			"fr": "Hébergée hors de votre infra"
+		},
+		{
+			"en": "Subscriber notifications",
+			"fr": "Notifications aux abonnés"
+		},
+		{
+			"en": "Atlassian incident tooling",
+			"fr": "Outillage incident d’Atlassian"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Uptime Kuma",
+			"source": {
+				"host": "github",
+				"path": "louislam/uptime-kuma",
+				"url": "https://github.com/louislam/uptime-kuma"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Monitoring + status page. Beloved.",
+				"fr": "Supervision et page de statut. Adoré."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Cachet",
+			"source": {
+				"host": "github",
+				"path": "cachethq/cachet",
+				"url": "https://github.com/cachethq/cachet"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Status page only, clean.",
+				"fr": "Page de statut uniquement, très propre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Gatus",
+			"source": {
+				"host": "github",
+				"path": "TwiN/gatus",
+				"url": "https://github.com/TwiN/gatus"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "YAML-configured, tiny.",
+				"fr": "Configuré en YAML, minuscule."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

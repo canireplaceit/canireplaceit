@@ -1,0 +1,99 @@
+{
+	"slug": "roon",
+	"name": "Roon",
+	"domain": "roon.app",
+	"category": "media-servers-tv",
+	"priceMonthly": 14.99,
+	"pricing": {
+		"plan": "Monthly",
+		"basis": "flat",
+		"url": "https://roon.app/en/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Navidrome and Music Assistant serve your library beautifully and cost nothing, and Music Assistant handles multi-room and streaming service integration better than people expect. Roon's actual product is the metadata: credits, band lineages, reviews and the linking that turns a folder of FLACs into something you browse for an hour. Nobody open source licenses that data, and nobody will.",
+		"fr": "Navidrome et Music Assistant servent votre bibliothèque à merveille et ne coûtent rien, et Music Assistant gère le multiroom et l’intégration des services de streaming mieux qu’on ne le croit. Le vrai produit de Roon, ce sont les métadonnées : crédits, filiations de groupes, chroniques et les liens qui transforment un dossier de FLAC en objet qu’on explore pendant une heure. Personne en open source ne licencie ces données, et personne ne le fera."
+	},
+	"whatYouLose": [
+		{
+			"en": "Licensed credits and reviews",
+			"fr": "Crédits et chroniques sous licence"
+		},
+		{
+			"en": "RAAT and certified endpoints",
+			"fr": "RAAT et les périphériques certifiés"
+		},
+		{
+			"en": "DSP room correction",
+			"fr": "Correction acoustique par DSP"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Navidrome",
+			"source": {
+				"host": "github",
+				"path": "navidrome/navidrome",
+				"url": "https://github.com/navidrome/navidrome"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Fast, tiny, Subsonic-compatible so dozens of good mobile clients already work with it. Library server, not a whole-house audio system.",
+				"fr": "Rapide, minuscule, compatible Subsonic donc des dizaines de bons clients mobiles fonctionnent déjà avec. Serveur de bibliothèque, pas un système audio multipièce."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Music Assistant",
+			"source": {
+				"host": "github",
+				"path": "music-assistant/server",
+				"url": "https://github.com/music-assistant/server"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The closest to Roon's whole-house model: groups Sonos, Chromecast and AirPlay speakers, merges local files with streaming services, integrates with Home Assistant.",
+				"fr": "Le plus proche du modèle multipièce de Roon : regroupe des enceintes Sonos, Chromecast et AirPlay, mélange fichiers locaux et services de streaming, s’intègre à Home Assistant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Lyrion Music Server",
+			"source": {
+				"host": "github",
+				"path": "LMS-Community/slimserver",
+				"url": "https://github.com/LMS-Community/slimserver"
+			},
+			"license": "GPL-2.0 (with some non-GPL bundled components)",
+			"effort": "docker",
+			"note": {
+				"en": "The old Logitech Media Server, community-maintained and genuinely excellent at synchronised multi-room playback. Read the licence notice: the Perl core is GPL-2.0 but not everything shipped with it is.",
+				"fr": "L’ancien Logitech Media Server, maintenu par la communauté et réellement excellent en lecture multipièce synchronisée. Lisez la notice de licence : le cœur Perl est en GPL-2.0, mais pas tout ce qui l’accompagne."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

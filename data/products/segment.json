@@ -1,0 +1,82 @@
+{
+	"slug": "segment",
+	"name": "Segment",
+	"domain": "segment.com",
+	"category": "analytics",
+	"priceMonthly": 120,
+	"pricing": {
+		"plan": "Team, starts at USD 120/mo for 10k visitors",
+		"basis": "usage",
+		"url": "https://www.twilio.com/en-us/products/connections/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "An event router with connectors. MTU-based pricing is what makes it a migration target.",
+		"fr": "Un routeur d’événements avec des connecteurs. C’est la tarification au MTU qui en fait une cible de migration."
+	},
+	"whatYouLose": [
+		{
+			"en": "300+ prebuilt destinations",
+			"fr": "Plus de 300 destinations prêtes"
+		},
+		{
+			"en": "Managed identity resolution",
+			"fr": "Résolution d’identité gérée"
+		},
+		{
+			"en": "Compliance tooling",
+			"fr": "Outillage conformité"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "RudderStack",
+			"source": {
+				"host": "github",
+				"path": "rudderlabs/rudder-server",
+				"url": "https://github.com/rudderlabs/rudder-server"
+			},
+			"license": "AGPL/Elastic",
+			"effort": "docker",
+			"note": {
+				"en": "Segment-compatible API.",
+				"fr": "API compatible Segment."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Advanced reporting, clustering, transformations UI, support",
+					"fr": "Rapports avancés, clustering, interface de transformations, support"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Jitsu",
+			"source": {
+				"host": "github",
+				"path": "jitsucom/jitsu",
+				"url": "https://github.com/jitsucom/jitsu"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Lighter, warehouse-first.",
+				"fr": "Plus léger, orienté entrepôt de données."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

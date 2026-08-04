@@ -1,0 +1,107 @@
+{
+	"slug": "brandwatch",
+	"name": "Brandwatch",
+	"domain": "brandwatch.com",
+	"category": "community-publishing",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "not-yet",
+	"why": {
+		"en": "Social listening is licensed firehose access. Brandwatch pays X, Reddit and forum aggregators for historical data at a scale no individual can buy, and the platforms have spent three years pricing independent researchers out entirely. There is no open source path to the data, only to the dashboard.",
+		"fr": "L’écoute sociale, c’est un accès sous licence au firehose. Brandwatch paie X, Reddit et des agrégateurs de forums pour des données historiques à une échelle qu’aucun particulier ne peut acheter, et les plateformes ont passé trois ans à évincer les chercheurs indépendants par les prix. Il n’y a pas de chemin open source vers les données, seulement vers le tableau de bord."
+	},
+	"whatYouLose": [
+		{
+			"en": "Licensed access to social firehoses",
+			"fr": "Accès sous licence aux firehoses sociaux"
+		},
+		{
+			"en": "Years of historical mentions",
+			"fr": "Des années de mentions historiques"
+		},
+		{
+			"en": "Sentiment and demographic models",
+			"fr": "Modèles de sentiment et de démographie"
+		},
+		{
+			"en": "Image and logo detection",
+			"fr": "Détection d’images et de logos"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "changedetection.io",
+			"source": {
+				"host": "github",
+				"path": "dgtlmoon/changedetection.io",
+				"url": "https://github.com/dgtlmoon/changedetection.io"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Monitors any public page for your brand name and alerts you. It covers forums, review sites and news pages — not the platforms that require a data licence.",
+				"fr": "Surveille n’importe quelle page publique pour votre nom de marque et vous alerte. Cela couvre forums, sites d’avis et pages d’actualités — pas les plateformes qui exigent une licence de données."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "crowd.dev",
+			"source": {
+				"host": "github",
+				"path": "linuxfoundation/crowd.dev",
+				"url": "https://github.com/linuxfoundation/crowd.dev"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Now maintained under the Linux Foundation. Aggregates community activity from GitHub, Discord, Slack and forums into one identity graph — the closest open thing to listening, for developer audiences.",
+				"fr": "Désormais maintenu sous l’égide de la Linux Foundation. Agrège l’activité communautaire de GitHub, Discord, Slack et des forums en un graphe d’identités — ce qui se rapproche le plus de l’écoute, pour un public de développeurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FreshRSS",
+			"source": {
+				"host": "github",
+				"path": "FreshRSS/FreshRSS",
+				"url": "https://github.com/FreshRSS/FreshRSS"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Feeds and saved searches over news and blogs, free, forever. Nothing from inside walled platforms.",
+				"fr": "Flux et recherches enregistrées sur actualités et blogs, gratuitement et pour toujours. Rien depuis l’intérieur des plateformes fermées."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Brand24",
+			"url": "https://brand24.com",
+			"priceMonthly": 79,
+			"note": {
+				"en": "A tiny fraction of a Brandwatch contract with real mention monitoring and sentiment. Shallower historical data and fewer sources.",
+				"fr": "Une infime fraction d’un contrat Brandwatch avec une vraie veille de mentions et du sentiment. Historique moins profond et moins de sources."
+			}
+		}
+	],
+	"priority": 4
+}

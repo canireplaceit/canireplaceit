@@ -1,0 +1,103 @@
+{
+	"slug": "veeam-backup",
+	"name": "Veeam Backup & Replication",
+	"domain": "veeam.com",
+	"category": "backup-recovery",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "restic and Kopia give you deduplicated, encrypted, verifiable backups that are better engineered than most commercial agents. What Veeam sells is bare-metal and VM-image restore with application-consistent snapshots of Exchange and SQL Server — nothing open source does that end to end.",
+		"fr": "restic et Kopia offrent des sauvegardes dédupliquées, chiffrées et vérifiables, mieux conçues que la plupart des agents commerciaux. Ce que vend Veeam, c’est la restauration bare-metal et d’images de VM avec des instantanés cohérents applicatifs d’Exchange et SQL Server — aucun projet open source ne fait ça de bout en bout."
+	},
+	"whatYouLose": [
+		{
+			"en": "Bare-metal restore",
+			"fr": "Restauration bare-metal"
+		},
+		{
+			"en": "VM image-level backup",
+			"fr": "Sauvegarde d’images de VM"
+		},
+		{
+			"en": "Application-consistent snapshots",
+			"fr": "Instantanés cohérents applicatifs"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "restic",
+			"source": {
+				"host": "github",
+				"path": "restic/restic",
+				"url": "https://github.com/restic/restic"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "One binary, content-addressed dedup, backs up straight to S3 or B2. `restic check` actually verifies the repository, which most tools skip.",
+				"fr": "Un binaire, déduplication par adressage de contenu, sauvegarde directe vers S3 ou B2. `restic check` vérifie réellement le dépôt, ce que la plupart des outils omettent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kopia",
+			"source": {
+				"host": "github",
+				"path": "kopia/kopia",
+				"url": "https://github.com/kopia/kopia"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Same idea as restic with a GUI, faster on large datasets and better retention policies. Younger and less battle-tested.",
+				"fr": "Même idée que restic avec une interface graphique, plus rapide sur les gros jeux de données et de meilleures politiques de rétention. Plus jeune et moins éprouvé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "BorgBackup",
+			"source": {
+				"host": "github",
+				"path": "borgbackup/borg",
+				"url": "https://github.com/borgbackup/borg"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "The most mature deduplicating backup tool on Linux. Needs a Borg-aware server on the far end — no plain S3 target.",
+				"fr": "L’outil de sauvegarde dédupliquante le plus mature sous Linux. Exige un serveur compatible Borg en face — pas de cible S3 simple."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Backblaze Computer Backup",
+			"url": "https://www.backblaze.com/cloud-backup",
+			"priceMonthly": 9,
+			"note": {
+				"en": "Unlimited per-machine backup at a flat price, restore-by-mail included. Endpoints only — no servers, no VMs, no application-consistent database snapshots.",
+				"fr": "Sauvegarde illimitée par machine à prix fixe, restauration par courrier incluse. Postes de travail uniquement — pas de serveurs, pas de VM, pas d’instantanés de base cohérents applicatifs."
+			}
+		}
+	],
+	"priority": 3
+}

@@ -1,0 +1,117 @@
+{
+	"slug": "confluent-cloud",
+	"name": "Confluent Cloud",
+	"domain": "confluent.io",
+	"category": "data-platform-etl",
+	"priceMonthly": null,
+	"pricing": {
+		"plan": "Usage-based (eCKU-hours): Basic $0, Standard ~$385/mo estimated minimum",
+		"basis": "usage",
+		"url": "https://www.confluent.io/confluent-cloud/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Kafka is Apache-licensed; Confluent sells the operational burden away. Redpanda removes the burden instead — no ZooKeeper, no JVM, one binary that speaks the Kafka protocol. Check the BSL clause before you build a product on it. Pricing is metered on throughput, storage and partitions, so there is no meaningful list price.",
+		"fr": "Kafka est sous licence Apache ; Confluent vend l’élimination du fardeau opérationnel. Redpanda supprime plutôt le fardeau — pas de ZooKeeper, pas de JVM, un binaire qui parle le protocole Kafka. Vérifiez la clause BSL avant d’en faire la base d’un produit. La tarification est mesurée sur le débit, le stockage et les partitions : il n’existe pas de prix catalogue significatif."
+	},
+	"whatYouLose": [
+		{
+			"en": "Schema Registry",
+			"fr": "Schema Registry"
+		},
+		{
+			"en": "Managed connectors",
+			"fr": "Connecteurs managés"
+		},
+		{
+			"en": "ksqlDB and Flink",
+			"fr": "ksqlDB et Flink"
+		},
+		{
+			"en": "An OSI licence",
+			"fr": "Une licence OSI"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Redpanda",
+			"source": {
+				"host": "github",
+				"path": "redpanda-data/redpanda",
+				"url": "https://github.com/redpanda-data/redpanda"
+			},
+			"license": "BUSL-1.1",
+			"effort": "docker",
+			"note": {
+				"en": "Kafka-wire-compatible in C++, dramatically lower p99 and far less to tune. Source-available, not OSI open source.",
+				"fr": "Compatible protocole Kafka en C++, p99 nettement plus bas et bien moins de réglages. Source disponible, pas open source au sens OSI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Tiered storage, RBAC, SSO",
+					"fr": "Stockage hiérarchisé, RBAC, SSO"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache Kafka",
+			"source": {
+				"host": "github",
+				"path": "apache/kafka",
+				"url": "https://github.com/apache/kafka"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "KRaft mode killed the ZooKeeper dependency, so self-hosting is genuinely less awful than it was. Still a JVM cluster.",
+				"fr": "Le mode KRaft a tué la dépendance à ZooKeeper : l’auto-hébergement est réellement moins pénible qu’avant. Ça reste un cluster JVM."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "NATS JetStream",
+			"source": {
+				"host": "github",
+				"path": "nats-io/nats-server",
+				"url": "https://github.com/nats-io/nats-server"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Not Kafka and doesn't pretend to be. If you wanted durable pub/sub rather than a log, this is a tenth of the operational weight.",
+				"fr": "Ce n’est pas Kafka et ça ne prétend pas l’être. Si vous vouliez du pub/sub durable plutôt qu’un log, c’est dix fois plus léger à exploiter."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Redpanda Cloud",
+			"url": "https://www.redpanda.com/pricing",
+			"priceMonthly": 100,
+			"note": {
+				"en": "Managed Redpanda, typically well under Confluent for the same throughput. Thinner connector and stream-processing ecosystem than Confluent's.",
+				"fr": "Redpanda managé, généralement bien en dessous de Confluent à débit égal. Écosystème de connecteurs et de traitement de flux plus mince que celui de Confluent."
+			}
+		}
+	],
+	"priority": 3
+}

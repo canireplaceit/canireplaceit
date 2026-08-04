@@ -1,0 +1,99 @@
+{
+	"slug": "sentry",
+	"name": "Sentry",
+	"domain": "sentry.io",
+	"category": "observability",
+	"priceMonthly": 26,
+	"pricing": {
+		"plan": "Team",
+		"basis": "flat",
+		"url": "https://sentry.io/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Sentry publishes its own self-host repo. They are not hiding the door.",
+		"fr": "Sentry publie son propre dépôt d’auto-hébergement. Ils ne cachent pas la porte de sortie."
+	},
+	"whatYouLose": [
+		{
+			"en": "Someone else running it",
+			"fr": "Quelqu’un d’autre qui l’exploite"
+		},
+		{
+			"en": "Long data retention",
+			"fr": "Longue rétention des données"
+		},
+		{
+			"en": "Managed scaling",
+			"fr": "Montée en charge gérée"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Sentry (self-hosted)",
+			"source": {
+				"host": "github",
+				"path": "getsentry/self-hosted",
+				"url": "https://github.com/getsentry/self-hosted"
+			},
+			"license": "BSL",
+			"effort": "ops",
+			"note": {
+				"en": "Same product, your hardware, needs ~16GB RAM.",
+				"fr": "Le même produit, sur votre matériel, il faut ~16 Go de RAM."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GlitchTip",
+			"source": {
+				"host": "gitlab",
+				"path": "glitchtip/glitchtip-backend",
+				"url": "https://gitlab.com/glitchtip/glitchtip-backend"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Sentry-SDK compatible, tiny footprint.",
+				"fr": "Compatible avec les SDK Sentry, empreinte minuscule."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Bugsink",
+			"source": {
+				"host": "github",
+				"path": "bugsink/bugsink",
+				"url": "https://github.com/bugsink/bugsink"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Single container, error tracking only.",
+				"fr": "Un seul conteneur, suivi d’erreurs uniquement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

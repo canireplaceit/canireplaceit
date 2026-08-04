@@ -1,0 +1,114 @@
+{
+	"slug": "glyphs",
+	"name": "Glyphs",
+	"domain": "glyphsapp.com",
+	"category": "design",
+	"priceMonthly": null,
+	"pricing": {
+		"plan": "Glyphs 4, perpetual one-time licence, EUR 319 (~$345)",
+		"basis": "one-time",
+		"url": "https://glyphsapp.com/buy",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "FontForge can draw, space, kern and export a production font, and plenty of shipped typefaces were made in it. Glyphs wins on interpolation, the variable-font workflow and simply not fighting you — which for a working type designer is most of the job.",
+		"fr": "FontForge sait dessiner, espacer, crénerer et exporter une police de production, et beaucoup de caractères publiés y ont été faits. Glyphs gagne sur l’interpolation, le flux de polices variables et le fait de ne pas vous résister — ce qui, pour un créateur de caractères, est l’essentiel du métier."
+	},
+	"whatYouLose": [
+		{
+			"en": "Interpolation and variable font tooling",
+			"fr": "Interpolation et outils de police variable"
+		},
+		{
+			"en": "Plugin and script ecosystem",
+			"fr": "Écosystème de plugins et de scripts"
+		},
+		{
+			"en": "Not fighting the interface",
+			"fr": "Ne pas se battre avec l’interface"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "FontForge",
+			"source": {
+				"host": "github",
+				"path": "fontforge/fontforge",
+				"url": "https://github.com/fontforge/fontforge"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The whole pipeline: outlines, hinting, OpenType features, export. Licensing is GPL-3.0 as a whole with most parts also under revised BSD.",
+				"fr": "Toute la chaîne : contours, hinting, fonctionnalités OpenType, export. Licence GPL-3.0 dans son ensemble, la plupart des composants étant aussi en BSD révisée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Fontra",
+			"source": {
+				"host": "github",
+				"path": "fontra/fontra",
+				"url": "https://github.com/fontra/fontra"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "A browser-based variable-font editor from the Google Fonts orbit, built around designspace from the start. Young, and you host it yourself.",
+				"fr": "Un éditeur de polices variables dans le navigateur, issu de la sphère Google Fonts, pensé dès le départ autour du designspace. Jeune, et à héberger soi-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Birdfont",
+			"source": {
+				"host": "github",
+				"path": "johanmattssonm/birdfont",
+				"url": "https://github.com/johanmattssonm/birdfont"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Far friendlier than FontForge for a first typeface. The vendor also sells a paid build; the source here is the whole program.",
+				"fr": "Bien plus accessible que FontForge pour une première police. L’éditeur vend aussi une version payante ; le code ici est le programme complet."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Prebuilt paid packages and export of some formats in the paid build",
+					"fr": "Les paquets payants précompilés et l’export de certains formats dans la version payante"
+				},
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Glyphs Mini",
+			"url": "https://glyphsapp.com/buy",
+			"priceMonthly": null,
+			"note": {
+				"en": "A fraction of the price for a full-fat Glyphs licence, if you do not need interpolation or scripting.",
+				"fr": "Une fraction du prix d’une licence Glyphs complète, si vous n’avez besoin ni d’interpolation ni de scripts."
+			},
+			"priceOnce": 53
+		}
+	],
+	"priority": 2
+}

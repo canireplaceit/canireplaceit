@@ -1,0 +1,120 @@
+{
+	"slug": "unreal-engine",
+	"name": "Unreal Engine",
+	"domain": "unrealengine.com",
+	"category": "game-development",
+	"priceMonthly": 154,
+	"pricing": {
+		"plan": "Unreal Subscription — $1,850 per seat per year (annual only; monthly equivalent shown). Free for creators under $1M annual gross revenue; games instead pay a 5% royalty above $1M lifetime gross product revenue.",
+		"basis": "per-seat",
+		"url": "https://www.unrealengine.com/en-US/license",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Unreal is free until you make a million dollars, then it takes 5% — for a lot of teams that is a better deal than any subscription. And nothing open source is close on the high end: Nanite, Lumen, Chaos and the virtual production toolchain represent hundreds of engineer-years. Note that Unreal is source-available, not open source: you can read and modify it under the EULA, but you cannot use it however you like.",
+		"fr": "Unreal est gratuit jusqu’à un million de dollars de revenus, puis prend 5 % — pour beaucoup d’équipes, c’est plus avantageux que n’importe quel abonnement. Et rien en open source n’approche le haut de gamme : Nanite, Lumen, Chaos et la chaîne de production virtuelle représentent des centaines d’années-ingénieur. À noter : Unreal est à code visible, pas open source — on peut le lire et le modifier sous EULA, pas en faire ce qu’on veut."
+	},
+	"whatYouLose": [
+		{
+			"en": "Nanite and Lumen",
+			"fr": "Nanite et Lumen"
+		},
+		{
+			"en": "Virtual production and LED stages",
+			"fr": "Production virtuelle et murs LED"
+		},
+		{
+			"en": "First-party console support",
+			"fr": "Support console de première partie"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Godot Engine",
+			"source": {
+				"host": "github",
+				"path": "godotengine/godot",
+				"url": "https://github.com/godotengine/godot"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Actually open source, actually royalty-free. The 3D renderer has improved enormously but it is not competing with Lumen.",
+				"fr": "Réellement open source, réellement sans redevance. Le rendu 3D a énormément progressé mais ne joue pas dans la cour de Lumen."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Open 3D Engine",
+			"source": {
+				"host": "github",
+				"path": "o3de/o3de",
+				"url": "https://github.com/o3de/o3de"
+			},
+			"license": "Apache-2.0 / MIT",
+			"effort": "ops",
+			"note": {
+				"en": "The only open engine aiming at this weight class, with a modern PBR renderer and a real physics stack. Steep setup, thin documentation.",
+				"fr": "Le seul moteur ouvert visant cette catégorie, avec un rendu PBR moderne et une vraie pile physique. Installation ardue, documentation mince."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Bevy",
+			"source": {
+				"host": "github",
+				"path": "bevyengine/bevy",
+				"url": "https://github.com/bevyengine/bevy"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "For teams that want to own their stack in Rust. Years away from this feature set, and honest about it.",
+				"fr": "Pour les équipes qui veulent maîtriser leur pile en Rust. À des années de ce périmètre fonctionnel, et l’assume."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Stride",
+			"source": {
+				"host": "github",
+				"path": "stride3d/stride",
+				"url": "https://github.com/stride3d/stride"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "MIT, C#, with a real editor and a PBR renderer. A serious engine for a small team; nothing like Unreal's tooling or console support.",
+				"fr": "MIT, en C#, avec un vrai éditeur et un rendu PBR. Un moteur sérieux pour une petite équipe ; rien à voir avec l’outillage ou le support console d’Unreal."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 4
+}

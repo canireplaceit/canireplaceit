@@ -1,0 +1,109 @@
+{
+	"slug": "lemlist",
+	"name": "lemlist",
+	"domain": "lemlist.com",
+	"category": "sales-outreach-data",
+	"priceMonthly": 69,
+	"pricing": {
+		"plan": "Email, monthly billing",
+		"basis": "per-seat",
+		"url": "https://www.lemlist.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Cold email is a mail merge plus deliverability. The mail merge is free; the deliverability is why the invoice exists — inbox rotation, warmup pools and the constant fight with spam filters. Point your own SMTP at 500 strangers a day and you will learn this the expensive way.",
+		"fr": "Le cold email, c’est un publipostage plus de la délivrabilité. Le publipostage est gratuit ; la délivrabilité justifie la facture — rotation des boîtes, pools de préchauffage et la bagarre permanente avec les filtres anti-spam. Pointez votre propre SMTP vers 500 inconnus par jour et vous l’apprendrez à vos dépens."
+	},
+	"whatYouLose": [
+		{
+			"en": "Inbox rotation and warmup",
+			"fr": "Rotation et préchauffage des boîtes"
+		},
+		{
+			"en": "Shared sending reputation",
+			"fr": "Réputation d’expédition partagée"
+		},
+		{
+			"en": "The built-in lead database",
+			"fr": "La base de prospects intégrée"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Mautic",
+			"source": {
+				"host": "github",
+				"path": "mautic/mautic",
+				"url": "https://github.com/mautic/mautic"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Real multi-step campaigns with conditions and scoring, fully GPL. You bring the sending infrastructure and the reputation.",
+				"fr": "De vraies campagnes multi-étapes avec conditions et scoring, entièrement GPL. À vous l’infrastructure d’envoi et la réputation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Postal",
+			"source": {
+				"host": "github",
+				"path": "postalserver/postal",
+				"url": "https://github.com/postalserver/postal"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Your own mail server with per-message tracking. It is excellent and it will not save you: a fresh IP sending cold email lands in spam for months.",
+				"fr": "Votre propre serveur mail avec suivi par message. Il est excellent et ne vous sauvera pas : une IP neuve qui envoie du cold email finit en spam pendant des mois."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Listmonk",
+			"source": {
+				"host": "github",
+				"path": "knadh/listmonk",
+				"url": "https://github.com/knadh/listmonk"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Enormous sending volume for almost nothing — but it is built for opt-in lists, not one-to-one prospecting.",
+				"fr": "Un volume d’envoi énorme pour presque rien — mais c’est fait pour des listes opt-in, pas pour de la prospection individuelle."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Smartlead",
+			"url": "https://www.smartlead.ai",
+			"priceMonthly": 39,
+			"note": {
+				"en": "Half the price with unlimited mailboxes and rotation built in. Rougher UI and no lead database.",
+				"fr": "Moitié prix avec boîtes illimitées et rotation intégrée. Interface plus rustique et pas de base de prospects."
+			}
+		}
+	],
+	"priority": 3
+}

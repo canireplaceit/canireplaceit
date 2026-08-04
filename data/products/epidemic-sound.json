@@ -1,0 +1,88 @@
+{
+	"slug": "epidemic-sound",
+	"name": "Epidemic Sound",
+	"domain": "epidemicsound.com",
+	"category": "creative-studio",
+	"priceMonthly": 15,
+	"pricing": {
+		"plan": "Personal, annual billed monthly",
+		"basis": "per-seat",
+		"url": "https://www.epidemicsound.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "not-yet",
+	"why": {
+		"en": "You are not buying music, you are buying a clean chain of rights that stops YouTube's Content ID from claiming your video. No open catalogue offers that guarantee, and Creative Commons tracks get false-claimed constantly.",
+		"fr": "Vous n’achetez pas de la musique, vous achetez une chaîne de droits propre qui empêche Content ID de revendiquer votre vidéo. Aucun catalogue open source n’offre cette garantie, et les morceaux en Creative Commons sont sans cesse revendiqués à tort."
+	},
+	"whatYouLose": [
+		{
+			"en": "Content ID clearance",
+			"fr": "Levée des revendications Content ID"
+		},
+		{
+			"en": "Catalogue size and curation",
+			"fr": "Taille et curation du catalogue"
+		},
+		{
+			"en": "Stems and alternate lengths",
+			"fr": "Pistes séparées et versions de durées différentes"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Openverse",
+			"source": {
+				"host": "github",
+				"path": "WordPress/openverse",
+				"url": "https://github.com/WordPress/openverse"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Searches openly licensed audio with the licence attached to each result. Attribution is usually required and Content ID disputes are your problem.",
+				"fr": "Recherche des pistes sous licence ouverte avec la licence attachée à chaque résultat. L’attribution est généralement requise et les litiges Content ID sont votre affaire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LMMS",
+			"source": {
+				"host": "github",
+				"path": "LMMS/lmms",
+				"url": "https://github.com/LMMS/lmms"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The blunt answer: make the track yourself and own the rights outright. A real DAW, free, offline — and a genuinely large time cost.",
+				"fr": "La réponse brutale : composez le morceau vous-même et détenez les droits entièrement. Un vrai séquenceur, gratuit, hors ligne — et un coût en temps réellement élevé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Uppbeat",
+			"url": "https://uppbeat.io/pricing",
+			"priceMonthly": 7,
+			"note": {
+				"en": "Less than half the price with the same Content ID clearance, and a free tier that only needs credit. Much smaller catalogue.",
+				"fr": "Moins de la moitié du prix avec la même levée Content ID, et une offre gratuite qui n’exige qu’un crédit. Catalogue bien plus petit."
+			}
+		}
+	],
+	"priority": 2
+}

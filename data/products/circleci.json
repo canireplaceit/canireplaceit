@@ -1,0 +1,103 @@
+{
+	"slug": "circleci",
+	"name": "CircleCI",
+	"domain": "circleci.com",
+	"category": "dev-tools",
+	"priceMonthly": 15,
+	"pricing": {
+		"plan": "Performance, from USD 15/mo (credit-based)",
+		"basis": "usage",
+		"url": "https://circleci.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "CI is containers plus a queue. The pain is maintaining runners, which is exactly what you were paying to avoid.",
+		"fr": "La CI, c’est des conteneurs et une file d’attente. La douleur, c’est de maintenir les runners — exactement ce que vous payiez pour éviter."
+	},
+	"whatYouLose": [
+		{
+			"en": "Managed runners",
+			"fr": "Runners gérés"
+		},
+		{
+			"en": "Elastic build capacity",
+			"fr": "Capacité de build élastique"
+		},
+		{
+			"en": "macOS and GPU machines",
+			"fr": "Machines macOS et GPU"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Woodpecker CI",
+			"source": {
+				"host": "github",
+				"path": "woodpecker-ci/woodpecker",
+				"url": "https://github.com/woodpecker-ci/woodpecker"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Drone fork, stays open.",
+				"fr": "Fork de Drone, resté ouvert."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Drone",
+			"source": {
+				"host": "github",
+				"path": "harness/drone",
+				"url": "https://github.com/harness/drone"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Simple pipelines, license changed.",
+				"fr": "Pipelines simples, licence changée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Kubernetes runners, autoscaling, org secrets need license",
+					"fr": "Runners Kubernetes, autoscaling et secrets d’org sous licence"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Concourse",
+			"source": {
+				"host": "github",
+				"path": "concourse/concourse",
+				"url": "https://github.com/concourse/concourse"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Opinionated, reproducible, steep.",
+				"fr": "Opinionné, reproductible, ardu."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

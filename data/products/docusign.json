@@ -1,0 +1,111 @@
+{
+	"slug": "docusign",
+	"name": "DocuSign",
+	"domain": "docusign.com",
+	"category": "documents",
+	"priceMonthly": 30,
+	"pricing": {
+		"plan": "Standard",
+		"basis": "per-seat",
+		"url": "https://ecom.docusign.com/plans-and-pricing/esignature",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Signing flows are easy. Legal audit trails your counterparty's lawyers accept are the whole value.",
+		"fr": "Les parcours de signature sont faciles. Ce qui vaut le prix, c’est la piste d’audit juridique que les avocats d’en face acceptent."
+	},
+	"whatYouLose": [
+		{
+			"en": "Court-admissible audit trail",
+			"fr": "Piste d’audit opposable"
+		},
+		{
+			"en": "Counterparty familiarity",
+			"fr": "Confiance des contreparties"
+		},
+		{
+			"en": "Identity verification",
+			"fr": "Vérification d’identité"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Documenso",
+			"source": {
+				"host": "github",
+				"path": "documenso/documenso",
+				"url": "https://github.com/documenso/documenso"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Purpose-built DocuSign alternative.",
+				"fr": "Alternative à DocuSign conçue exactement pour ça."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO, white-label embedding, 21 CFR compliance",
+					"fr": "SSO, marque blanche, conformité 21 CFR"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenSign",
+			"source": {
+				"host": "github",
+				"path": "OpenSignLabs/OpenSign",
+				"url": "https://github.com/OpenSignLabs/OpenSign"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Templates and bulk send.",
+				"fr": "Modèles et envoi en masse."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SAML SSO and enterprise admin controls",
+					"fr": "SSO SAML et contrôles d’administration entreprise"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Docuseal",
+			"source": {
+				"host": "github",
+				"path": "docusealco/docuseal",
+				"url": "https://github.com/docusealco/docuseal"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Simplest to deploy.",
+				"fr": "Le plus simple à déployer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SAML SSO, API, embedding and branding",
+					"fr": "SSO SAML, API, intégration et personnalisation"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}
