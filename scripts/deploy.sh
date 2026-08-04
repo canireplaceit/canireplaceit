@@ -54,7 +54,7 @@ fi
 docker compose --env-file .env --env-file .env.tag pull
 docker compose --env-file .env --env-file .env.tag up -d --wait
 
-install -m 644 canireplaceit.conf "${NGINX_CONF_DIR}/canireplaceit.conf"
+install -D -m 644 canireplaceit.conf "${NGINX_CONF_DIR}/canireplaceit.conf"
 docker exec ${NGINX_CONTAINER} nginx -t
 docker exec ${NGINX_CONTAINER} nginx -s reload
 
