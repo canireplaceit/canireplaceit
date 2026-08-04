@@ -9,6 +9,11 @@ on:
         description: "Released version to deploy, with or without the v (e.g. 0.0.1)"
         required: true
         type: string
+      deploy_only:
+        description: "Skip build/push — just redeploy the images already in GHCR for that tag"
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: read
@@ -42,17 +47,21 @@ jobs:
           persist-credentials: false
 
       - uses: oven-sh/setup-bun@v2
+        if: ${{ !inputs.deploy_only }}
         with:
           bun-version: 1.3.14
 
       - run: bun install --frozen-lockfile
+        if: ${{ !inputs.deploy_only }}
 
       - name: Install slim
+        if: ${{ !inputs.deploy_only }}
         run: |
           curl -sL https://github.com/slimtoolkit/slim/releases/download/1.40.11/dist_linux.tar.gz | tar xz
           sudo cp -a dist_linux/. /usr/local/bin/
 
       - name: Build and slim
+        if: ${{ !inputs.deploy_only }}
         env:
           SITE_URL: https://${{ vars.SITE_DOMAIN }}
           PUBLIC_UMAMI_WEBSITE_ID: ${{ vars.PUBLIC_UMAMI_WEBSITE_ID }}
@@ -60,6 +69,7 @@ jobs:
         run: ./scripts/build-images.sh
 
       - name: Push
+        if: ${{ !inputs.deploy_only }}
         env:
           V: ${{ steps.v.outputs.version }}
           OWNER: ${{ github.repository_owner }}
@@ -82,7 +92,7 @@ jobs:
           SSH_PORT: ${{ secrets.SSH_PORT }}
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           GHCR_USERNAME: ${{ github.actor }}
-          GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
+          GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SITE_DOMAIN: ${{ vars.SITE_DOMAIN }}
           UMAMI_HOST: ${{ vars.UMAMI_HOST }}
           APP_DIR: ${{ vars.APP_DIR }}
