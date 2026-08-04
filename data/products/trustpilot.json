@@ -1,0 +1,96 @@
+{
+	"slug": "trustpilot",
+	"name": "Trustpilot",
+	"domain": "trustpilot.com",
+	"category": "marketing",
+	"priceMonthly": 319,
+	"pricing": {
+		"plan": "Plus, per domain, billed annually (Starter $99, Premium $799)",
+		"basis": "flat",
+		"url": "https://business.trustpilot.com/plans",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "not-yet",
+	"why": {
+		"en": "The reviews are not the point — the third-party badge is. A review widget you host yourself is, to a stranger, marketing copy you wrote about yourself. Trustpilot sells consumer-side credibility and Google Seller Ratings eligibility, and neither is software.",
+		"fr": "Les avis ne sont pas le sujet — le badge tiers l’est. Un widget d’avis que vous hébergez vous-même est, pour un inconnu, un texte marketing que vous avez écrit sur vous-même. Trustpilot vend une crédibilité côté consommateur et l’éligibilité aux Google Seller Ratings, et ni l’une ni l’autre n’est du logiciel."
+	},
+	"whatYouLose": [
+		{
+			"en": "Third-party credibility",
+			"fr": "Crédibilité d’un tiers"
+		},
+		{
+			"en": "Google Seller Ratings eligibility",
+			"fr": "Éligibilité aux Google Seller Ratings"
+		},
+		{
+			"en": "Consumer traffic from their domain",
+			"fr": "Trafic consommateur depuis leur domaine"
+		},
+		{
+			"en": "Invitation deliverability",
+			"fr": "Délivrabilité des invitations"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Remark42",
+			"source": {
+				"host": "github",
+				"path": "umputun/remark42",
+				"url": "https://github.com/umputun/remark42"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "A tiny, fast, privacy-respecting comment and rating engine you own outright. Perfect for on-site reviews, worth nothing as third-party proof.",
+				"fr": "Un moteur de commentaires et de notes minuscule, rapide et respectueux de la vie privée, qui vous appartient. Parfait pour des avis sur votre site, sans valeur comme preuve tierce."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Formbricks",
+			"source": {
+				"host": "github",
+				"path": "formbricks/formbricks",
+				"url": "https://github.com/formbricks/formbricks"
+			},
+			"license": "AGPL-3.0 core with a large ee/ directory",
+			"effort": "docker",
+			"note": {
+				"en": "Collect the reviews and NPS yourself with proper targeting. Note how much is behind the wall: SSO, teams and roles, audit logs, contact targeting and white-label are all in apps/web/modules/ee.",
+				"fr": "Collectez vous-même avis et NPS avec un vrai ciblage. Notez tout ce qui est derrière le mur : SSO, équipes et rôles, journaux d’audit, ciblage des contacts et marque blanche sont tous dans apps/web/modules/ee."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "SSO, teams and roles, audit logs, contact targeting and white-label are all in apps/web/modules/ee",
+					"fr": "SSO, équipes et rôles, journaux d’audit, ciblage des contacts et marque blanche sont tous dans apps/web/modules/ee"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Judge.me",
+			"url": "https://judge.me",
+			"priceMonthly": 15,
+			"note": {
+				"en": "A twentieth of the price with rich snippets and photo reviews for e-commerce. No consumer-facing directory and far less brand recognition.",
+				"fr": "Vingt fois moins cher avec extraits enrichis et avis photo pour l’e-commerce. Pas d’annuaire grand public et bien moins de notoriété."
+			}
+		}
+	],
+	"priority": 4
+}

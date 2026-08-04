@@ -1,0 +1,128 @@
+{
+	"slug": "redocly",
+	"name": "Redocly",
+	"domain": "redocly.com",
+	"category": "api-development",
+	"priceMonthly": 10,
+	"pricing": {
+		"plan": "Pro, per seat billed monthly",
+		"basis": "per-seat",
+		"url": "https://redocly.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Redocly open-sourced the hard part years ago and sells the workflow around it. Redoc and the CLI are MIT and cover reference docs, linting and bundling completely.",
+		"fr": "Redocly a ouvert la partie difficile il y a des années et vend le flux de travail autour. Redoc et la CLI sont en MIT et couvrent entièrement la doc de référence, le lint et le bundling."
+	},
+	"whatYouLose": [
+		{
+			"en": "Hosted portal with auth",
+			"fr": "Portail hébergé avec authentification"
+		},
+		{
+			"en": "Multi-API developer portal",
+			"fr": "Portail développeur multi-API"
+		},
+		{
+			"en": "Managed previews and RBAC",
+			"fr": "Prévisualisations managées et RBAC"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Redoc",
+			"source": {
+				"host": "github",
+				"path": "Redocly/redoc",
+				"url": "https://github.com/Redocly/redoc"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Redocly's own reference renderer. One HTML file, one spec, done.",
+				"fr": "Le moteur de rendu de référence de Redocly lui-même. Un fichier HTML, une spec, terminé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "The try-it console, search, multi-API portals and theming live in the paid Redocly product",
+					"fr": "La console d’essai, la recherche, les portails multi-API et le theming sont dans le produit payant Redocly"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Redocly CLI",
+			"source": {
+				"host": "github",
+				"path": "Redocly/redocly-cli",
+				"url": "https://github.com/Redocly/redocly-cli"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Lint, bundle, split and preview OpenAPI locally. The bit most teams actually run in CI.",
+				"fr": "Lint, bundle, découpe et prévisualisation d’OpenAPI en local. La partie que la plupart des équipes exécutent réellement en CI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Scalar",
+			"source": {
+				"host": "github",
+				"path": "scalar/scalar",
+				"url": "https://github.com/scalar/scalar"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Nicer default reference UI than Redoc, with a working try-it console included rather than sold.",
+				"fr": "Interface de référence par défaut plus jolie que Redoc, avec une console d’essai incluse plutôt que vendue."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "The hosted Scalar platform and its managed API registry",
+					"fr": "La plateforme hébergée Scalar et son registre d’API managé"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Stoplight Elements",
+			"source": {
+				"host": "github",
+				"path": "stoplightio/elements",
+				"url": "https://github.com/stoplightio/elements"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Embeddable API docs web components if you are gluing docs into an existing app.",
+				"fr": "Composants web de documentation d’API intégrables, si vous greffez la doc dans une application existante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

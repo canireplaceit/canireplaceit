@@ -1,0 +1,99 @@
+{
+	"slug": "izotope-rx",
+	"name": "iZotope RX",
+	"domain": "izotope.com",
+	"category": "audio-podcasting",
+	"priceMonthly": null,
+	"pricing": {
+		"plan": "RX 12 Standard, $399 one-time (Advanced $1,399)",
+		"basis": "one-time",
+		"url": "https://www.izotope.com/en/products/rx.html",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "not-yet",
+	"why": {
+		"en": "RX is bought outright, not subscribed to, and it is the tool post-production actually reaches for when a take is damaged. Spectral repair — painting a siren out of a spectrogram — has no open source equivalent that works. Audacity and RNNoise handle steady background noise; they do not handle a chair scrape over dialogue.",
+		"fr": "RX s’achète, ne s’abonne pas, et c’est l’outil que la post-production sort réellement quand une prise est abîmée. La réparation spectrale — effacer une sirène en peignant sur un spectrogramme — n’a aucun équivalent open source qui fonctionne. Audacity et RNNoise gèrent le bruit de fond constant ; ils ne gèrent pas un raclement de chaise sur du dialogue."
+	},
+	"whatYouLose": [
+		{
+			"en": "Spectral repair",
+			"fr": "Réparation spectrale"
+		},
+		{
+			"en": "Dialogue isolation and de-reverb",
+			"fr": "Isolation de dialogue et déréverbération"
+		},
+		{
+			"en": "Mouth-click and de-plosive removal",
+			"fr": "Suppression des clics de bouche et plosives"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Audacity",
+			"source": {
+				"host": "github",
+				"path": "audacity/audacity",
+				"url": "https://github.com/audacity/audacity"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Has a spectrogram view and noise reduction, and can genuinely fix simple problems. Nowhere near RX for anything transient.",
+				"fr": "Dispose d’une vue spectrogramme et d’une réduction de bruit, et corrige réellement les problèmes simples. Très loin de RX dès qu’il s’agit de transitoires."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Noise Suppression for Voice",
+			"source": {
+				"host": "github",
+				"path": "werman/noise-suppression-for-voice",
+				"url": "https://github.com/werman/noise-suppression-for-voice"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Neural noise suppression as a plugin. Excellent on hiss and hum, useless on a one-off bang.",
+				"fr": "Suppression de bruit neuronale en plugin. Excellente sur le souffle et le ronflement, inutile sur un claquement isolé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ardour",
+			"source": {
+				"host": "gitea",
+				"path": "ardour/ardour",
+				"url": "https://git.ardour.org/ardour/ardour"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The host to do the repair work in, with proper automation and plugin routing. Bring your own restoration plugins.",
+				"fr": "L’hôte dans lequel faire le travail de restauration, avec une vraie automation et un routage de plugins. Apportez vos propres outils de restauration."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

@@ -1,0 +1,88 @@
+{
+	"slug": "lottiefiles",
+	"name": "LottieFiles",
+	"domain": "lottiefiles.com",
+	"category": "design",
+	"priceMonthly": 25,
+	"pricing": {
+		"plan": "Team ($24.99/user/month, billed annually)",
+		"basis": "per-seat",
+		"url": "https://lottiefiles.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "The Lottie format and its players are open — LottieFiles sells hosting, a marketplace and collaboration around a spec you can implement yourself. Export from After Effects with Bodymovin, serve the JSON from your own CDN, and the bill goes away.",
+		"fr": "Le format Lottie et ses lecteurs sont ouverts — LottieFiles vend de l’hébergement, une place de marché et de la collaboration autour d’une spécification que vous pouvez implémenter vous-même. Exportez depuis After Effects avec Bodymovin, servez le JSON depuis votre propre CDN, et la facture disparaît."
+	},
+	"whatYouLose": [
+		{
+			"en": "The animation marketplace",
+			"fr": "La place de marché d’animations"
+		},
+		{
+			"en": "Hosted previews and handoff links",
+			"fr": "Aperçus hébergés et liens de transfert"
+		},
+		{
+			"en": "Figma and Webflow plugins",
+			"fr": "Plugins Figma et Webflow"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "lottie-web",
+			"source": {
+				"host": "github",
+				"path": "airbnb/lottie-web",
+				"url": "https://github.com/airbnb/lottie-web"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The original renderer. Drop the JSON in a bundle and it plays — no service, no account, no per-view pricing.",
+				"fr": "Le lecteur d’origine. Déposez le JSON dans votre bundle et ça joue — pas de service, pas de compte, pas de tarif à la vue."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ThorVG",
+			"source": {
+				"host": "github",
+				"path": "thorvg/thorvg",
+				"url": "https://github.com/thorvg/thorvg"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A lightweight vector engine with a Lottie player, used where lottie-web is too heavy — embedded, native apps, games.",
+				"fr": "Un moteur vectoriel léger avec un lecteur Lottie, utilisé là où lottie-web est trop lourd — embarqué, applications natives, jeux."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Rive",
+			"url": "https://rive.app/pricing",
+			"priceMonthly": 14,
+			"note": {
+				"en": "A better authoring tool than the Lottie chain if you are designing interactive animation, with a real free tier. Its own runtime and format.",
+				"fr": "Un meilleur outil de création que la chaîne Lottie si vous concevez de l’animation interactive, avec une vraie offre gratuite. Son propre runtime et son propre format."
+			}
+		}
+	],
+	"priority": 3
+}

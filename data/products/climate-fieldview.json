@@ -1,0 +1,103 @@
+{
+	"slug": "climate-fieldview",
+	"name": "Climate FieldView",
+	"domain": "climate.com",
+	"category": "agriculture",
+	"priceMonthly": 54,
+	"pricing": {
+		"plan": "Plus, USD 649/year billed annually",
+		"basis": "flat",
+		"url": "https://climate.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "FieldView is priced per acre and its real function is turning your planter and combine data into maps you can act on. farmOS handles the records, the plantings and the logs honestly and openly; the yield-map ingestion from a specific brand of monitor is where it stops and a proprietary reader begins.",
+		"fr": "FieldView se facture à l’hectare et sa vraie fonction est de transformer les données de votre semoir et de votre moissonneuse en cartes exploitables. farmOS gère les enregistrements, les cultures et les interventions de façon honnête et ouverte ; c’est l’ingestion des cartes de rendement d’une marque de console précise qui l’arrête et où commence un lecteur propriétaire."
+	},
+	"whatYouLose": [
+		{
+			"en": "Yield-map ingestion from your monitor",
+			"fr": "Import des cartes de rendement de votre console"
+		},
+		{
+			"en": "Variable-rate prescription export",
+			"fr": "Export de préconisations à dose variable"
+		},
+		{
+			"en": "Satellite field health imagery",
+			"fr": "Imagerie satellite de vigueur"
+		},
+		{
+			"en": "Dealer support at harvest",
+			"fr": "Support concessionnaire en pleine moisson"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "farmOS",
+			"source": {
+				"host": "github",
+				"path": "farmOS/farmOS",
+				"url": "https://github.com/farmOS/farmOS"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The open farm record system: fields, plantings, inputs, harvests, observations, all with a real API and a map. GPL-2.0, no paid edition.",
+				"fr": "Le système d’enregistrement agricole ouvert : parcelles, cultures, intrants, récoltes, observations, avec une vraie API et une carte. GPL-2.0, sans édition payante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "QGIS",
+			"source": {
+				"host": "github",
+				"path": "qgis/QGIS",
+				"url": "https://github.com/qgis/QGIS"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Where you actually do the agronomy: Sentinel imagery, NDVI, zone delineation and prescription maps, for free.",
+				"fr": "Là où se fait réellement l’agronomie : imagerie Sentinel, NDVI, découpage en zones et cartes de préconisation, gratuitement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "AgOpenGPS",
+			"source": {
+				"host": "github",
+				"path": "AgOpenGPS-Official/AgOpenGPS",
+				"url": "https://github.com/AgOpenGPS-Official/AgOpenGPS"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Precision guidance and section control on your own tractor with off-the-shelf GPS. Apache-2.0 and a very active community. Note the project moved to the AgOpenGPS-Official org.",
+				"fr": "Guidage de précision et coupure de tronçons sur votre tracteur avec du GPS grand public. Apache-2.0 et une communauté très active. Le projet a migré vers l’organisation AgOpenGPS-Official."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

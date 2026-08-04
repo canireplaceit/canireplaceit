@@ -1,0 +1,97 @@
+{
+	"slug": "brivo",
+	"name": "Brivo",
+	"domain": "brivo.com",
+	"category": "facilities-access",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "not-yet",
+	"why": {
+		"en": "Brivo is the cloud on top of certified panel hardware you buy from an installer, quoted per door per month forever. The panels speak OSDP and Wiegand, which are open protocols — but the certified panel, the installer relationship and the alarm-monitoring contract are not things software replaces.",
+		"fr": "Brivo est le cloud posé sur des centrales certifiées achetées chez un installateur, facturé par porte et par mois à perpétuité. Les centrales parlent OSDP et Wiegand, protocoles ouverts — mais la centrale certifiée, la relation avec l’installateur et le contrat de télésurveillance ne se remplacent pas par du logiciel."
+	},
+	"whatYouLose": [
+		{
+			"en": "Certified panels and installer network",
+			"fr": "Centrales certifiées et réseau d’installateurs"
+		},
+		{
+			"en": "Alarm monitoring integration",
+			"fr": "Intégration à la télésurveillance"
+		},
+		{
+			"en": "Audit trail your compliance team accepts",
+			"fr": "Piste d’audit acceptée par votre conformité"
+		},
+		{
+			"en": "Credential lifecycle at scale",
+			"fr": "Gestion du cycle de vie des badges à grande échelle"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Home Assistant",
+			"source": {
+				"host": "github",
+				"path": "home-assistant/core",
+				"url": "https://github.com/home-assistant/core"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Handles the logic, schedules, notifications and history perfectly well once the hardware exists. It is the certification, not the software, that stops you.",
+				"fr": "Gère parfaitement la logique, les plannings, les notifications et l’historique une fois le matériel en place. C’est la certification, pas le logiciel, qui vous bloque."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ESPHome",
+			"source": {
+				"host": "github",
+				"path": "esphome/esphome",
+				"url": "https://github.com/esphome/esphome"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "OSDP and Wiegand reader support in firmware you can read. Fine for a workshop or a server room, not for a regulated egress door.",
+				"fr": "Prise en charge des lecteurs OSDP et Wiegand dans un micrologiciel lisible. Convient pour un atelier ou une salle serveurs, pas pour une issue de secours réglementée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ZoneMinder",
+			"source": {
+				"host": "github",
+				"path": "ZoneMinder/zoneminder",
+				"url": "https://github.com/ZoneMinder/zoneminder"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The long-running open CCTV recorder if the surveillance side is what you were paying Brivo for.",
+				"fr": "L’enregistreur vidéo open source historique, si c’est la partie vidéosurveillance que vous payiez chez Brivo."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

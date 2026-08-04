@@ -1,0 +1,113 @@
+{
+	"slug": "readme-io",
+	"name": "ReadMe",
+	"domain": "readme.com",
+	"category": "api-development",
+	"priceMonthly": 250,
+	"pricing": {
+		"plan": "Pro, annual billed monthly",
+		"basis": "flat",
+		"url": "https://readme.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "It renders an OpenAPI spec into a documentation site with a try-it console. Scalar and Redoc do that from the same file, for free, and you can put the output behind your existing auth instead of theirs.",
+		"fr": "Il transforme une spécification OpenAPI en site de documentation avec console d’essai. Scalar et Redoc le font depuis le même fichier, gratuitement, et vous pouvez placer le résultat derrière votre propre authentification plutôt que la leur."
+	},
+	"whatYouLose": [
+		{
+			"en": "Per-consumer usage analytics",
+			"fr": "Analytique d’usage par consommateur"
+		},
+		{
+			"en": "Personalised API keys",
+			"fr": "Clés d’API personnalisées"
+		},
+		{
+			"en": "Hosted changelog and support",
+			"fr": "Journal des modifications et support hébergés"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Scalar",
+			"source": {
+				"host": "github",
+				"path": "scalar/scalar",
+				"url": "https://github.com/scalar/scalar"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The best-looking of the three by a distance, with a working request client built in. One script tag.",
+				"fr": "De loin le plus beau des trois, avec un client de requêtes fonctionnel intégré. Une seule balise script."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Redoc",
+			"source": {
+				"host": "github",
+				"path": "Redocly/redoc",
+				"url": "https://github.com/Redocly/redoc"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Three-column reference layout, handles enormous specs without dying. No try-it console in the free version.",
+				"fr": "Mise en page de référence à trois colonnes, encaisse d’énormes spécifications sans broncher. Pas de console d’essai en version gratuite."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Try-it console, search, code samples",
+					"fr": "Console d’essai, recherche, exemples de code"
+				},
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Swagger UI",
+			"source": {
+				"host": "github",
+				"path": "swagger-api/swagger-ui",
+				"url": "https://github.com/swagger-api/swagger-ui"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Ugly and universal. Every developer already knows how to read it, which counts for something.",
+				"fr": "Laid et universel. Chaque développeur sait déjà le lire, ce qui compte pour quelque chose."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Scalar (hosted)",
+			"url": "https://scalar.com/pricing",
+			"priceMonthly": 12,
+			"note": {
+				"en": "Hosted by the open source project's authors, with custom domains and versioning. No usage analytics or personalised API keys, which is ReadMe's real differentiator.",
+				"fr": "Hébergé par les auteurs du projet open source, avec domaines personnalisés et versionnage. Pas d’analytique d’usage ni de clés d’API personnalisées — le vrai différenciateur de ReadMe."
+			}
+		}
+	],
+	"priority": 2
+}

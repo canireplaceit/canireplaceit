@@ -1,0 +1,107 @@
+{
+	"slug": "grafana-cloud-k6",
+	"name": "Grafana Cloud k6",
+	"domain": "grafana.com",
+	"category": "testing-qa",
+	"priceMonthly": 19,
+	"pricing": {
+		"plan": "Grafana Cloud Pro, $19/mo platform fee + $0.15 per virtual-user-hour",
+		"basis": "usage",
+		"url": "https://grafana.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Grafana sells distributed load generators and a results dashboard for a tool they publish under AGPL. If you can spin up a few machines, the only thing missing is the map of load-generation regions.",
+		"fr": "Grafana vend des générateurs de charge distribués et un tableau de bord de résultats pour un outil qu’elle publie sous AGPL. Si vous savez démarrer quelques machines, il ne manque que la carte des régions de génération de charge."
+	},
+	"whatYouLose": [
+		{
+			"en": "Geo-distributed load generators",
+			"fr": "Générateurs de charge géo-distribués"
+		},
+		{
+			"en": "Hosted result history",
+			"fr": "Historique des résultats hébergé"
+		},
+		{
+			"en": "Zero-infra scale to millions of VUs",
+			"fr": "Montée à des millions de VU sans infra"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "k6",
+			"source": {
+				"host": "github",
+				"path": "grafana/k6",
+				"url": "https://github.com/grafana/k6"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The engine itself, fully open. Scripts in JavaScript, results out to Prometheus or InfluxDB. Distributed runs need your own machines or the k6-operator on Kubernetes.",
+				"fr": "Le moteur lui-même, entièrement ouvert. Scripts en JavaScript, résultats vers Prometheus ou InfluxDB. Les exécutions distribuées exigent vos propres machines ou l’opérateur k6 sur Kubernetes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Managed distributed load zones, hosted result storage and comparison, team dashboards and alerting",
+					"fr": "Zones de charge distribuées managées, stockage et comparaison des résultats hébergés, tableaux de bord d’équipe et alertes"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Gatling",
+			"source": {
+				"host": "github",
+				"path": "gatling/gatling",
+				"url": "https://github.com/gatling/gatling"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "JVM-based, excellent HTML reports out of the box, higher throughput per machine than most.",
+				"fr": "Sur la JVM, excellents rapports HTML d’origine, meilleur débit par machine que la plupart des autres."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Gatling Enterprise adds distributed injectors, the web UI, scheduling and team management",
+					"fr": "Gatling Enterprise ajoute les injecteurs distribués, l’interface web, la planification et la gestion d’équipe"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Locust",
+			"source": {
+				"host": "github",
+				"path": "locustio/locust",
+				"url": "https://github.com/locustio/locust"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Write the load test in plain Python and scale it master/worker across boxes yourself. No enterprise edition to bump into.",
+				"fr": "Écrivez le test de charge en Python et distribuez-le vous-même en maître/travailleurs. Aucune édition entreprise sur laquelle buter."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

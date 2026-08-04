@@ -1,0 +1,109 @@
+{
+	"slug": "circle-so",
+	"name": "Circle",
+	"domain": "circle.so",
+	"category": "community-publishing",
+	"priceMonthly": 89,
+	"pricing": {
+		"plan": "Professional, billed annually",
+		"basis": "flat",
+		"url": "https://circle.so/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Eighty-nine dollars a month for a forum with a nicer font. Discourse is what large technical communities actually run, has better search and moderation, and offers hosting if you don't want the server. Circle's course and paywall bundling is the only genuine differentiator.",
+		"fr": "Quatre-vingt-neuf dollars par mois pour un forum avec une plus jolie police. Discourse est ce que font tourner les grandes communautés techniques : meilleure recherche, meilleure modération, et un hébergement disponible si vous ne voulez pas de serveur. Le seul vrai différenciateur de Circle, c’est le regroupement cours + paywall."
+	},
+	"whatYouLose": [
+		{
+			"en": "Courses and paywalls in the same product",
+			"fr": "Cours et paywall dans le même produit"
+		},
+		{
+			"en": "Native mobile apps for members",
+			"fr": "Applications mobiles natives pour les membres"
+		},
+		{
+			"en": "Zero moderation-tooling setup",
+			"fr": "Aucune configuration des outils de modération"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Discourse",
+			"source": {
+				"host": "github",
+				"path": "discourse/discourse",
+				"url": "https://github.com/discourse/discourse"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The standard. Trust levels, plugins, real moderation tooling. Wants a couple of GB of RAM.",
+				"fr": "La référence. Niveaux de confiance, plugins, vrais outils de modération. Réclame quelques Go de RAM."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Flarum",
+			"source": {
+				"host": "github",
+				"path": "flarum/flarum",
+				"url": "https://github.com/flarum/flarum"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Much lighter and faster to stand up. Extension ecosystem is thinner.",
+				"fr": "Bien plus léger et rapide à mettre en place. Écosystème d’extensions plus maigre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "NodeBB",
+			"source": {
+				"host": "github",
+				"path": "NodeBB/NodeBB",
+				"url": "https://github.com/NodeBB/NodeBB"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Real-time feel, good mobile layout, straightforward plugin API.",
+				"fr": "Sensation temps réel, bonne mise en page mobile, API de plugins simple."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Heartbeat",
+			"url": "https://www.heartbeat.chat",
+			"priceMonthly": 19,
+			"note": {
+				"en": "A quarter of Circle's price with events and courses included. Smaller company, smaller feature set.",
+				"fr": "Quatre fois moins cher que Circle, avec événements et cours inclus. Entreprise plus petite, périmètre plus restreint."
+			}
+		}
+	],
+	"priority": 3
+}

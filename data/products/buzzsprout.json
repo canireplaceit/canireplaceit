@@ -1,0 +1,88 @@
+{
+	"slug": "buzzsprout",
+	"name": "Buzzsprout",
+	"domain": "buzzsprout.com",
+	"category": "audio-podcasting",
+	"priceMonthly": 15,
+	"pricing": {
+		"plan": "Audio, billed annually",
+		"basis": "flat",
+		"url": "https://www.buzzsprout.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "A podcast host is an RSS feed, MP3 files and download statistics. Castopod does all three, adds ActivityPub so people can follow the show from Mastodon, and runs on cheap shared hosting. The one thing to think about before you move is that podcast analytics are IAB-certified numbers advertisers accept — your own server logs are not.",
+		"fr": "Un hébergeur de podcast, c’est un flux RSS, des fichiers MP3 et des statistiques de téléchargement. Castopod fait les trois, ajoute ActivityPub pour qu’on suive l’émission depuis Mastodon, et tourne sur un hébergement mutualisé bon marché. Le point à régler avant de partir : les statistiques de podcast sont des chiffres certifiés IAB que les annonceurs acceptent — vos logs serveur, non."
+	},
+	"whatYouLose": [
+		{
+			"en": "IAB-certified download stats",
+			"fr": "Statistiques de téléchargement certifiées IAB"
+		},
+		{
+			"en": "Bandwidth included",
+			"fr": "Bande passante incluse"
+		},
+		{
+			"en": "One-click directory submission",
+			"fr": "Soumission aux annuaires en un clic"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Castopod",
+			"source": {
+				"host": "gitlab",
+				"path": "adaures/castopod",
+				"url": "https://code.castopod.org/adaures/castopod"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "A complete podcast host: episodes, RSS with Podcasting 2.0 tags, analytics, and a fediverse-native audience.",
+				"fr": "Un hébergeur de podcast complet : épisodes, RSS avec balises Podcasting 2.0, statistiques, et une audience native du fédiverse."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Podlove Publisher",
+			"source": {
+				"host": "github",
+				"path": "podlove/podlove-publisher",
+				"url": "https://github.com/podlove/podlove-publisher"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A WordPress plugin, which is the point: if the show already has a WordPress site, publishing becomes one more post type.",
+				"fr": "Une extension WordPress, et c’est tout l’intérêt : si l’émission a déjà un site WordPress, publier devient un type de contenu de plus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Spotify for Creators",
+			"url": "https://creators.spotify.com",
+			"priceMonthly": 0,
+			"note": {
+				"en": "Free hosting with unlimited bandwidth and a real RSS feed you can point elsewhere later. You are handing your distribution to a competitor of your distribution.",
+				"fr": "Hébergement gratuit, bande passante illimitée et un vrai flux RSS que vous pourrez rediriger plus tard. Vous confiez votre diffusion à un concurrent de votre diffusion."
+			}
+		}
+	],
+	"priority": 3
+}

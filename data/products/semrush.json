@@ -1,0 +1,113 @@
+{
+	"slug": "semrush",
+	"name": "Semrush",
+	"domain": "semrush.com",
+	"category": "seo-rank-tracking",
+	"priceMonthly": 139,
+	"pricing": {
+		"plan": "SEO",
+		"basis": "flat",
+		"url": "https://www.semrush.com/prices/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Semrush sells four datasets at once — keywords, backlinks, competitor traffic and paid ad copy — and none of them are software. The parts that are software you can host: SerpBear tracks your positions and SEOnaut audits your site, which is most of what people actually open Semrush for. The competitive half would leave you with an empty dashboard.",
+		"fr": "Semrush vend quatre jeux de données à la fois — mots-clés, backlinks, trafic des concurrents et créations publicitaires — et aucun n’est du logiciel. Ce qui en est, vous pouvez l’héberger : SerpBear suit vos positions et SEOnaut audite votre site, soit l’essentiel de ce que les gens ouvrent vraiment. La moitié concurrentielle, elle, ne laisserait qu’un tableau de bord vide."
+	},
+	"whatYouLose": [
+		{
+			"en": "Keyword and ad databases",
+			"fr": "Bases de mots-clés et d’annonces"
+		},
+		{
+			"en": "Competitor intelligence",
+			"fr": "Renseignement concurrentiel"
+		},
+		{
+			"en": "Backlink index",
+			"fr": "Index de backlinks"
+		},
+		{
+			"en": "One login for the whole team",
+			"fr": "Un seul accès pour toute l’équipe"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "SEOnaut",
+			"source": {
+				"host": "github",
+				"path": "StJudeWasHere/seonaut",
+				"url": "https://github.com/StJudeWasHere/seonaut"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Covers the site-audit half of Semrush properly. The competitive half has no open source answer at all.",
+				"fr": "Couvre correctement la moitié « audit de site » de Semrush. La moitié concurrentielle n’a aucune réponse open source."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SerpBear",
+			"source": {
+				"host": "github",
+				"path": "towfiqi/serpbear",
+				"url": "https://github.com/towfiqi/serpbear"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Replaces position tracking, the part of Semrush people actually open every morning. You supply a scraping provider or your own proxies.",
+				"fr": "Remplace le suivi de positions, la partie de Semrush que les gens ouvrent vraiment chaque matin. À vous de fournir un service de scraping ou vos propres proxys."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SearXNG",
+			"source": {
+				"host": "github",
+				"path": "searxng/searxng",
+				"url": "https://github.com/searxng/searxng"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Your own metasearch instance, which is how you get SERP snapshots without paying per query. Expect to babysit engine breakage.",
+				"fr": "Votre propre métamoteur, la façon d’obtenir des captures de SERP sans payer à la requête. Prévoyez de réparer les moteurs qui cassent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "SE Ranking",
+			"url": "https://seranking.com",
+			"priceMonthly": 65,
+			"note": {
+				"en": "Half the price with a genuine keyword and backlink database. Smaller index, weaker competitive data.",
+				"fr": "Moitié prix avec une vraie base de mots-clés et de backlinks. Index plus petit, données concurrentielles plus faibles."
+			}
+		}
+	],
+	"priority": 5
+}

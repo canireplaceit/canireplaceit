@@ -1,0 +1,113 @@
+{
+	"slug": "aws-lambda",
+	"name": "AWS Lambda",
+	"domain": "aws.amazon.com",
+	"category": "cloud-platforms-hosting",
+	"priceMonthly": null,
+	"pricing": {
+		"plan": "Usage-based: $0.20 per 1M requests + $0.0000166667/GB-s; 1M requests/mo free tier; no fixed fee",
+		"basis": "usage",
+		"url": "https://aws.amazon.com/lambda/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Running a function on an HTTP trigger is easy. Scale-to-zero with 50ms cold starts and no capacity planning is not — every self-hosted FaaS needs a Kubernetes cluster idling underneath, which defeats the point.",
+		"fr": "Exécuter une fonction sur un déclencheur HTTP, c’est simple. Descendre à zéro avec 50 ms de démarrage à froid et zéro planification de capacité, non — chaque FaaS auto-hébergé exige un cluster Kubernetes qui tourne à vide en dessous, ce qui annule l’intérêt."
+	},
+	"whatYouLose": [
+		{
+			"en": "True scale-to-zero",
+			"fr": "Vrai scale-to-zero"
+		},
+		{
+			"en": "No capacity planning",
+			"fr": "Zéro planification de capacité"
+		},
+		{
+			"en": "Native AWS event sources",
+			"fr": "Sources d’événements AWS natives"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Knative",
+			"source": {
+				"host": "github",
+				"path": "knative/serving",
+				"url": "https://github.com/knative/serving"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The real scale-to-zero implementation. Also the one that assumes you already run Kubernetes competently.",
+				"fr": "La vraie implémentation du scale-to-zero. Aussi celle qui suppose que vous maîtrisez déjà Kubernetes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenFaaS",
+			"source": {
+				"host": "github",
+				"path": "openfaas/faas",
+				"url": "https://github.com/openfaas/faas"
+			},
+			"license": "OpenFaaS CE EULA",
+			"effort": "docker",
+			"note": {
+				"en": "Runs on plain Docker Swarm if you want, not just K8s. Read the licence first — OpenFaaS CE is a vendor EULA, not OSI open source.",
+				"fr": "Tourne sur du Docker Swarm nu si vous voulez, pas seulement sur K8s. Lisez d’abord la licence — OpenFaaS CE est un EULA éditeur, pas de l’open source au sens OSI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Autoscaling, scale-to-zero, multi-namespace and SSO paid",
+					"fr": "Autoscaling, scale-to-zero, multi-namespace et SSO payants"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Fission",
+			"source": {
+				"host": "github",
+				"path": "fission/fission",
+				"url": "https://github.com/fission/fission"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Keeps warm pods pre-baked, so cold starts are genuinely fast. You pay for that in idle cost.",
+				"fr": "Garde des pods chauds préchargés, donc les démarrages à froid sont réellement rapides. Vous le payez en coût d’inactivité."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Cloudflare Workers",
+			"url": "https://workers.cloudflare.com/",
+			"priceMonthly": 5,
+			"note": {
+				"en": "Flat $5 covers what would be a painful Lambda bill, with no cold starts. You give up the Node runtime, long-running jobs and the whole AWS-service adjacency.",
+				"fr": "5 $ forfaitaires couvrent ce qui serait une facture Lambda douloureuse, sans démarrage à froid. Vous perdez le runtime Node, les tâches longues et toute la proximité des services AWS."
+			}
+		}
+	],
+	"priority": 4
+}

@@ -1,0 +1,102 @@
+{
+	"slug": "adobe-after-effects",
+	"name": "Adobe After Effects",
+	"domain": "adobe.com",
+	"category": "creative-studio",
+	"priceMonthly": 22.99,
+	"pricing": {
+		"plan": "After Effects single app, annual billed monthly",
+		"basis": "per-seat",
+		"url": "https://www.adobe.com/creativecloud/plans.html",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Natron is a fine compositor and Blender's node compositor is better than people think, but neither is a motion-graphics tool. Nothing open does shape layers, text animators and expressions the way After Effects does, and that is what most of its users are actually doing.",
+		"fr": "Natron est un bon compositeur et le compositeur nodal de Blender vaut mieux que sa réputation, mais aucun n’est un outil de motion design. Rien en open source ne fait les calques de forme, les animateurs de texte et les expressions comme After Effects, et c’est précisément ce que font la plupart de ses utilisateurs."
+	},
+	"whatYouLose": [
+		{
+			"en": "Shape layers and text animators",
+			"fr": "Calques de forme et animateurs de texte"
+		},
+		{
+			"en": "The plugin market (Trapcode, Element 3D)",
+			"fr": "Le marché des plugins (Trapcode, Element 3D)"
+		},
+		{
+			"en": "Premiere round-tripping",
+			"fr": "Allers-retours avec Premiere"
+		},
+		{
+			"en": "Expressions ecosystem",
+			"fr": "Écosystème d’expressions"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Natron",
+			"source": {
+				"host": "github",
+				"path": "NatronGitHub/Natron",
+				"url": "https://github.com/NatronGitHub/Natron"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A node-based compositor with OpenFX plugin support and proper 2D tracking. Revived after a quiet period and shipping again — this is the live fork.",
+				"fr": "Un compositeur nodal avec support des plugins OpenFX et un vrai tracking 2D. Relancé après une période creuse et de nouveau publié — c’est le fork vivant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Blender",
+			"source": {
+				"host": "gitea",
+				"path": "blender/blender",
+				"url": "https://projects.blender.org/blender/blender"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Its compositor plus Grease Pencil covers a surprising amount of motion work, and 3D is native rather than a plugin.",
+				"fr": "Son compositeur et Grease Pencil couvrent une part surprenante du motion design, et la 3D est native plutôt qu’un plugin."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "DaVinci Resolve Studio",
+			"url": "https://www.blackmagicdesign.com/products/davinciresolve",
+			"priceMonthly": 0,
+			"note": {
+				"en": "Fusion is a full node compositor and the free Resolve build includes it. A $295 one-off unlocks the rest — no subscription, not open source.",
+				"fr": "Fusion est un compositeur nodal complet, inclus dans la version gratuite de Resolve. Un achat unique de 295 $ débloque le reste — sans abonnement, mais pas open source."
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Cavalry",
+			"url": "https://cavalry.scenegroup.co/pricing",
+			"priceMonthly": 16,
+			"note": {
+				"en": "Purpose-built for procedural motion graphics, cheaper, with a real free tier. Small ecosystem and no compositing.",
+				"fr": "Conçu pour le motion design procédural, moins cher, avec une vraie offre gratuite. Petit écosystème et pas de compositing."
+			}
+		}
+	],
+	"priority": 4
+}

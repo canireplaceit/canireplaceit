@@ -1,0 +1,93 @@
+{
+	"slug": "auvik",
+	"name": "Auvik",
+	"domain": "auvik.com",
+	"category": "observability-telemetry",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "Auvik's trick is walking into an undocumented client network and producing a layer-2 map plus config backups in an hour. LibreNMS and NetXMS do the discovery; what you rebuild by hand is the multi-tenant MSP wrapper — one console, per-client billing, and no VPN to each site.",
+		"fr": "Le tour de force d’Auvik, c’est d’arriver sur un réseau client non documenté et de produire une carte de couche 2 et des sauvegardes de configuration en une heure. LibreNMS et NetXMS font la découverte ; ce que vous reconstruisez à la main, c’est l’enveloppe MSP multi-locataire — une console unique, la facturation par client, et pas de VPN vers chaque site."
+	},
+	"whatYouLose": [
+		{
+			"en": "Multi-tenant MSP console",
+			"fr": "Console MSP multi-locataire"
+		},
+		{
+			"en": "Cloud collectors, no VPN",
+			"fr": "Collecteurs cloud, sans VPN"
+		},
+		{
+			"en": "Automated config backups",
+			"fr": "Sauvegardes de configuration automatisées"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "LibreNMS",
+			"source": {
+				"host": "github",
+				"path": "librenms/librenms",
+				"url": "https://github.com/librenms/librenms"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Discovery, alerting and Oxidized integration for config backups. Per-client separation means one instance per client, not one console.",
+				"fr": "Découverte, alertes et intégration Oxidized pour les sauvegardes de configuration. La séparation par client implique une instance par client, pas une console unique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nautobot",
+			"source": {
+				"host": "github",
+				"path": "nautobot/nautobot",
+				"url": "https://github.com/nautobot/nautobot"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Source of truth plus a job engine: model the intended network, then diff it against reality. More work than Auvik, and far more useful afterwards.",
+				"fr": "Source de vérité plus moteur de jobs : modélisez le réseau voulu, puis comparez-le à la réalité. Plus de travail qu’Auvik, et bien plus utile ensuite."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "NetXMS",
+			"source": {
+				"host": "github",
+				"path": "netxms/netxms",
+				"url": "https://github.com/netxms/netxms"
+			},
+			"license": "GPL-2.0/LGPL",
+			"effort": "ops",
+			"note": {
+				"en": "The closest on automatic layer-2 topology, which is the feature people actually pay Auvik for.",
+				"fr": "Le plus proche pour la topologie de couche 2 automatique, la fonction pour laquelle on paie réellement Auvik."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

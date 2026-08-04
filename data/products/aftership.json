@@ -1,0 +1,103 @@
+{
+	"slug": "aftership",
+	"name": "AfterShip",
+	"domain": "aftership.com",
+	"category": "shipping-logistics",
+	"priceMonthly": 29,
+	"pricing": {
+		"plan": "Essentials (6,000 shipments/yr, then USD 0.08 overage)",
+		"basis": "flat",
+		"url": "https://www.aftership.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Post-purchase tracking is scraping and polling a few hundred carrier endpoints, then emailing customers about it. Karrio tracks; a mail template does the rest. AfterShip's real asset is the carrier coverage in markets whose postal APIs are undocumented.",
+		"fr": "Le suivi après achat consiste à interroger quelques centaines de points d’accès transporteurs, puis à en informer les clients par e-mail. Karrio suit ; un modèle d’e-mail fait le reste. Le vrai actif d’AfterShip, c’est la couverture des marchés dont les API postales ne sont pas documentées."
+	},
+	"whatYouLose": [
+		{
+			"en": "1000+ carrier coverage",
+			"fr": "Couverture de plus de 1 000 transporteurs"
+		},
+		{
+			"en": "Branded tracking page",
+			"fr": "Page de suivi à votre marque"
+		},
+		{
+			"en": "Delivery-date predictions",
+			"fr": "Prédictions de date de livraison"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Karrio",
+			"source": {
+				"host": "github",
+				"path": "karrioapi/karrio",
+				"url": "https://github.com/karrioapi/karrio"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Tracking webhooks across the carriers you actually ship with, self-hosted. You write the tracking page.",
+				"fr": "Webhooks de suivi pour les transporteurs que vous utilisez réellement, en auto-hébergé. La page de suivi, c’est vous qui l’écrivez."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "The multi-tenant platform app and white-labelling live under ee/",
+					"fr": "L’app plateforme multi-tenant et le marquage blanc sont sous ee/"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Medusa",
+			"source": {
+				"host": "github",
+				"path": "medusajs/medusa",
+				"url": "https://github.com/medusajs/medusa"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Fulfilment and notification hooks are first-class, so a branded tracking page is a few hundred lines rather than a subscription.",
+				"fr": "Les hooks d’expédition et de notification sont natifs : une page de suivi à votre marque tient en quelques centaines de lignes plutôt qu’en abonnement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ERPNext",
+			"source": {
+				"host": "github",
+				"path": "frappe/erpnext",
+				"url": "https://github.com/frappe/erpnext"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Shipment records and email templates already exist; carrier polling is a scheduled job you write once.",
+				"fr": "Les enregistrements d’expédition et les modèles d’e-mail existent déjà ; l’interrogation des transporteurs est une tâche planifiée à écrire une fois."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

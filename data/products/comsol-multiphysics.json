@@ -1,0 +1,118 @@
+{
+	"slug": "comsol-multiphysics",
+	"name": "COMSOL Multiphysics",
+	"domain": "comsol.com",
+	"category": "scientific-computing",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "Individually, the open solvers are excellent — FEniCSx for FEM, SU2 for CFD, Elmer for coupled problems. COMSOL's product is that you never touch a solver: geometry, meshing, coupled physics and post-processing are one GUI with validated material data. Assembling that yourself is a job, not an afternoon.",
+		"fr": "Pris un par un, les solveurs open source sont excellents — FEniCSx pour les éléments finis, SU2 pour la CFD, Elmer pour les problèmes couplés. Le produit de COMSOL, c’est de ne jamais toucher un solveur : géométrie, maillage, physiques couplées et post-traitement dans une seule interface, avec des données matériaux validées. Assembler ça soi-même est un métier, pas un après-midi."
+	},
+	"whatYouLose": [
+		{
+			"en": "One GUI from geometry to results",
+			"fr": "Interface unique de la géométrie aux résultats"
+		},
+		{
+			"en": "Validated material libraries",
+			"fr": "Bibliothèques de matériaux validées"
+		},
+		{
+			"en": "Automatic multiphysics coupling",
+			"fr": "Couplage multiphysique automatique"
+		},
+		{
+			"en": "Vendor validation for certification",
+			"fr": "Validation éditeur pour la certification"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "FEniCSx",
+			"source": {
+				"host": "github",
+				"path": "FEniCS/dolfinx",
+				"url": "https://github.com/FEniCS/dolfinx"
+			},
+			"license": "LGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Write the weak form, get a solver. Unmatched for custom PDEs, useless if you wanted a GUI.",
+				"fr": "Écrivez la formulation faible, obtenez un solveur. Inégalé pour des EDP sur mesure, inutile si vous vouliez une interface graphique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Elmer FEM",
+			"source": {
+				"host": "github",
+				"path": "ElmerCSC/elmerfem",
+				"url": "https://github.com/ElmerCSC/elmerfem"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The closest open equivalent to COMSOL's coupled-physics scope, with an actual GUI. Meshing and materials are still on you.",
+				"fr": "L’équivalent open source le plus proche du périmètre multiphysique de COMSOL, avec une vraie interface. Le maillage et les matériaux restent à votre charge."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SU2",
+			"source": {
+				"host": "github",
+				"path": "su2code/SU2",
+				"url": "https://github.com/su2code/SU2"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "Stanford's CFD and adjoint-optimisation suite. Narrow scope, research-grade quality.",
+				"fr": "La suite CFD et d’optimisation adjointe de Stanford. Périmètre étroit, qualité recherche."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "preCICE",
+			"source": {
+				"host": "github",
+				"path": "precice/precice",
+				"url": "https://github.com/precice/precice"
+			},
+			"license": "LGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The glue if you go this route: couples separate solvers into one multiphysics simulation.",
+				"fr": "La colle si vous prenez cette voie : elle couple des solveurs distincts en une seule simulation multiphysique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

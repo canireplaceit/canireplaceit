@@ -1,0 +1,88 @@
+{
+	"slug": "adobe-lightroom",
+	"name": "Adobe Lightroom",
+	"domain": "adobe.com",
+	"category": "creative-studio",
+	"priceMonthly": 11.99,
+	"pricing": {
+		"plan": "Lightroom single app (1TB), annual billed monthly; Photography plan $19.99",
+		"basis": "per-seat",
+		"url": "https://www.adobe.com/creativecloud/plans.html",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "darktable's raw processing is competitive and in some areas better, and neither project will hold your catalogue hostage when you stop paying. The honest losses are Adobe's denoise and lens-correction models and phone-to-desktop sync.",
+		"fr": "Le développement raw de darktable est compétitif, parfois meilleur, et aucun des deux projets ne prendra votre catalogue en otage le jour où vous arrêtez de payer. Les pertes réelles : les modèles de débruitage et de correction optique d’Adobe, et la synchronisation mobile-bureau."
+	},
+	"whatYouLose": [
+		{
+			"en": "AI denoise and lens profiles",
+			"fr": "Débruitage par IA et profils optiques"
+		},
+		{
+			"en": "Phone-to-desktop catalogue sync",
+			"fr": "Synchro du catalogue mobile-bureau"
+		},
+		{
+			"en": "Cloud backup of originals",
+			"fr": "Sauvegarde cloud des originaux"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "darktable",
+			"source": {
+				"host": "github",
+				"path": "darktable-org/darktable",
+				"url": "https://github.com/darktable-org/darktable"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Non-destructive, scene-referred workflow. Steep curve, but the masking is excellent.",
+				"fr": "Flux non destructif en référence scène. Courbe d’apprentissage raide, mais un masquage excellent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "RawTherapee",
+			"source": {
+				"host": "github",
+				"path": "RawTherapee/RawTherapee",
+				"url": "https://github.com/RawTherapee/RawTherapee"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Best pure demosaicing and detail recovery. Weaker library management than darktable.",
+				"fr": "Le meilleur dématriçage et la meilleure récupération de détails. Gestion de bibliothèque plus faible que darktable."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "ON1 Photo RAW",
+			"url": "https://www.on1.com",
+			"priceMonthly": 8,
+			"note": {
+				"en": "Cheaper, and a perpetual licence exists so you can stop paying. AI masking is behind Adobe's.",
+				"fr": "Moins cher, avec une licence perpétuelle qui permet d’arrêter de payer. Le masquage par IA est en retard sur Adobe."
+			}
+		}
+	],
+	"priority": 4
+}

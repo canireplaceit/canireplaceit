@@ -1,0 +1,109 @@
+{
+	"slug": "surfer-seo",
+	"name": "Surfer SEO",
+	"domain": "surferseo.com",
+	"category": "seo-rank-tracking",
+	"priceMonthly": 99,
+	"pricing": {
+		"plan": "Standard (listed EUR 99/mo, annual billing)",
+		"basis": "flat",
+		"url": "https://surferseo.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Surfer scrapes the top ten results, counts terms and shows you a score. That pipeline is a weekend project now that SERP access and language models are both cheap — what you are really paying for is not having to maintain the scraper.",
+		"fr": "Surfer scrape les dix premiers résultats, compte des termes et vous affiche un score. Ce pipeline est un projet de week-end maintenant que l’accès aux SERP et les modèles de langage sont bon marché — ce que vous payez vraiment, c’est de ne pas maintenir le scraper."
+	},
+	"whatYouLose": [
+		{
+			"en": "Maintained SERP scraping",
+			"fr": "Scraping de SERP maintenu"
+		},
+		{
+			"en": "A score writers already trust",
+			"fr": "Un score auquel les rédacteurs se fient déjà"
+		},
+		{
+			"en": "Google Docs and WordPress plugins",
+			"fr": "Plugins Google Docs et WordPress"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "SearXNG",
+			"source": {
+				"host": "github",
+				"path": "searxng/searxng",
+				"url": "https://github.com/searxng/searxng"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Gives you the top results to analyse without paying per SERP. Engines break regularly and you are the one who fixes them.",
+				"fr": "Vous donne les meilleurs résultats à analyser sans payer par SERP. Les moteurs cassent régulièrement et c’est vous qui réparez."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "advertools",
+			"source": {
+				"host": "github",
+				"path": "eliasdabbas/advertools",
+				"url": "https://github.com/eliasdabbas/advertools"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Has the text analysis half — n-grams, term frequency, content crawls — already written.",
+				"fr": "Contient déjà la moitié analyse de texte : n-grammes, fréquence des termes, crawls de contenu."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ddgs",
+			"source": {
+				"host": "github",
+				"path": "deedy5/ddgs",
+				"url": "https://github.com/deedy5/ddgs"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Cheapest possible SERP source for a scoring script. Rate-limited and fragile by nature.",
+				"fr": "La source de SERP la moins chère pour un script de scoring. Limitée en débit et fragile par nature."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "NeuronWriter",
+			"url": "https://neuronwriter.com",
+			"priceMonthly": 23,
+			"note": {
+				"en": "A quarter of the price for the same term-frequency idea. Clunkier UI, smaller language coverage.",
+				"fr": "Quatre fois moins cher pour la même idée de fréquence de termes. Interface plus rustique, moins de langues."
+			}
+		}
+	],
+	"priority": 2
+}

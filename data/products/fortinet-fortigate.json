@@ -1,0 +1,109 @@
+{
+	"slug": "fortinet-fortigate",
+	"name": "Fortinet FortiGate",
+	"domain": "fortinet.com",
+	"category": "networking-vpn",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "OPNsense on a mini-PC will route, filter, do IPsec and WireGuard, and terminate VLANs as well as a mid-range FortiGate. The subscription you cannot replicate is FortiGuard: IPS signatures and application control updated hourly by a paid research team.",
+		"fr": "OPNsense sur un mini-PC routera, filtrera, fera de l’IPsec et du WireGuard et terminera des VLAN aussi bien qu’un FortiGate de milieu de gamme. L’abonnement irremplaçable, c’est FortiGuard : signatures IPS et contrôle applicatif mis à jour toutes les heures par une équipe de recherche payée."
+	},
+	"whatYouLose": [
+		{
+			"en": "FortiGuard IPS signatures",
+			"fr": "Signatures IPS FortiGuard"
+		},
+		{
+			"en": "ASIC-accelerated throughput",
+			"fr": "Débit accéléré par ASIC"
+		},
+		{
+			"en": "Fabric management at scale",
+			"fr": "Gestion de parc à grande échelle"
+		},
+		{
+			"en": "Hardware RMA",
+			"fr": "Remplacement matériel"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "OPNsense",
+			"source": {
+				"host": "github",
+				"path": "opnsense/core",
+				"url": "https://github.com/opnsense/core"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "ops",
+			"note": {
+				"en": "HardenedBSD-based firewall with a coherent web UI, plugin repository and twice-yearly releases that actually ship. The default recommendation now.",
+				"fr": "Pare-feu basé sur HardenedBSD, interface web cohérente, dépôt de greffons et versions semestrielles réellement livrées. La recommandation par défaut aujourd’hui."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Business Edition adds a few plugins and earlier access to releases.",
+					"fr": "L’édition Business ajoute quelques greffons et un accès anticipé aux versions."
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pfSense CE",
+			"source": {
+				"host": "github",
+				"path": "pfsense/pfsense",
+				"url": "https://github.com/pfsense/pfsense"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Still solid, but be clear-eyed: Community Edition trails pfSense Plus by years and the vendor's roadmap is Plus. Choose it for familiarity, not for the future.",
+				"fr": "Toujours solide, mais soyez lucide : la Community Edition a des années de retard sur pfSense Plus, et la feuille de route de l’éditeur, c’est Plus. Choisissez-le par habitude, pas pour l’avenir."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "pfSense Plus gets the features, the hardware support and the release cadence.",
+					"fr": "pfSense Plus reçoit les fonctionnalités, le support matériel et le rythme de publication."
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "VyOS",
+			"source": {
+				"host": "github",
+				"path": "vyos/vyos-1x",
+				"url": "https://github.com/vyos/vyos-1x"
+			},
+			"license": "LGPL-2.1",
+			"effort": "ops",
+			"note": {
+				"en": "A router, not an appliance: Junos-like CLI, config commits and rollback, excellent BGP. The source is open but stable LTS images are subscription-only — you build your own or run rolling.",
+				"fr": "Un routeur, pas un boîtier : CLI à la Junos, commits de configuration et rollback, excellent BGP. Le code est ouvert mais les images LTS stables sont réservées aux abonnés — vous compilez vous-même ou vous suivez la rolling."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Prebuilt stable LTS images and their package repos need a subscription.",
+					"fr": "Les images LTS stables précompilées et leurs dépôts exigent un abonnement."
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

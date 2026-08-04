@@ -1,0 +1,88 @@
+{
+	"slug": "camtasia",
+	"name": "Camtasia",
+	"domain": "techsmith.com",
+	"category": "video",
+	"priceMonthly": 15,
+	"pricing": {
+		"plan": "Camtasia Essentials, USD 179.88/yr billed annually",
+		"basis": "per-seat",
+		"url": "https://www.techsmith.com/store/camtasia",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Camtasia is a screen recorder bolted to a simple timeline, and OBS plus Kdenlive does both halves better for nothing. You give up the tutorial-specific niceties — cursor smoothing, callout templates, quizzing — and gain a real editor.",
+		"fr": "Camtasia, c’est un enregistreur d’écran vissé à une timeline simple, et OBS avec Kdenlive fait mieux les deux moitiés pour rien. Vous perdez le confort propre aux tutoriels — lissage du curseur, modèles d’annotations, quiz — et gagnez un vrai monteur."
+	},
+	"whatYouLose": [
+		{
+			"en": "Cursor effects and callout templates",
+			"fr": "Effets de curseur et modèles d’annotations"
+		},
+		{
+			"en": "Built-in quizzing and SCORM export",
+			"fr": "Quiz intégrés et export SCORM"
+		},
+		{
+			"en": "Record-and-edit in one window",
+			"fr": "Enregistrer et monter dans une même fenêtre"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "OBS Studio",
+			"source": {
+				"host": "github",
+				"path": "obsproject/obs-studio",
+				"url": "https://github.com/obsproject/obs-studio"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The recording half, and it is the industry default. Scene composition, multiple sources, hardware encoding, no watermark ever.",
+				"fr": "La partie enregistrement, et c’est la référence du secteur. Composition de scènes, sources multiples, encodage matériel, jamais de filigrane."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kdenlive",
+			"source": {
+				"host": "gitlab",
+				"path": "multimedia/kdenlive",
+				"url": "https://invent.kde.org/multimedia/kdenlive"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The editing half. Proxies, multicam, titles and effect stacks — considerably more editor than Camtasia has.",
+				"fr": "La partie montage. Proxys, multicaméra, titres et piles d’effets — nettement plus complet que Camtasia."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "ScreenPal",
+			"url": "https://screenpal.com/pricing",
+			"priceMonthly": 4,
+			"note": {
+				"en": "A quarter of the price, browser-based, with hosting and captions included. Thin editor and cloud-tied.",
+				"fr": "Quatre fois moins cher, dans le navigateur, avec hébergement et sous-titres inclus. Monteur léger et dépendance au cloud."
+			}
+		}
+	],
+	"priority": 3
+}

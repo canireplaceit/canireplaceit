@@ -1,0 +1,111 @@
+{
+	"slug": "fieldwire",
+	"name": "Fieldwire",
+	"domain": "fieldwire.com",
+	"category": "construction-tech",
+	"priceMonthly": 39,
+	"pricing": {
+		"plan": "Pro, billed annually",
+		"basis": "per-seat",
+		"url": "https://www.fieldwire.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "not-yet",
+	"why": {
+		"en": "Fieldwire is drawings on a tablet with pins on them, working offline in a basement with no signal. That last clause is the product. There is no open source equivalent of a plan viewer that syncs punch-list photos from a site with no connectivity, and pretending otherwise wastes a foreman's day.",
+		"fr": "Fieldwire, ce sont des plans sur tablette avec des épingles dessus, qui fonctionnent hors ligne dans un sous-sol sans réseau. C’est cette dernière condition qui fait le produit. Il n’existe aucun équivalent open source d’une visionneuse de plans qui synchronise les photos de réserves depuis un chantier sans connexion, et prétendre le contraire fait perdre une journée à un chef de chantier."
+	},
+	"whatYouLose": [
+		{
+			"en": "Offline plan viewing on site",
+			"fr": "Consultation de plans hors ligne sur chantier"
+		},
+		{
+			"en": "Punch lists with photo markup",
+			"fr": "Réserves annotées par photo"
+		},
+		{
+			"en": "Sheet version comparison",
+			"fr": "Comparaison de versions de plans"
+		},
+		{
+			"en": "Works on a phone in a basement",
+			"fr": "Utilisable sur téléphone en sous-sol"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Stirling PDF",
+			"source": {
+				"host": "github",
+				"path": "Stirling-Tools/Stirling-PDF",
+				"url": "https://github.com/Stirling-Tools/Stirling-PDF"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted drawing handling: split, compare, overlay, stamp and annotate PDFs. MIT core, with SSO and team management in app/proprietary.",
+				"fr": "Traitement de plans auto-hébergé : découper, comparer, superposer, tamponner et annoter des PDF. Cœur MIT, avec SSO et gestion d’équipe dans app/proprietary."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO, audit logs and team management sit in app/proprietary",
+					"fr": "SSO, journaux d’audit et gestion d’équipe sont dans app/proprietary"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "IfcOpenShell / Bonsai",
+			"source": {
+				"host": "github",
+				"path": "IfcOpenShell/IfcOpenShell",
+				"url": "https://github.com/IfcOpenShell/IfcOpenShell"
+			},
+			"license": "LGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "If your drawings are actually a model, this reads and edits IFC properly. Not a site tool.",
+				"fr": "Si vos plans sont en réalité une maquette, il lit et modifie l’IFC correctement. Ce n’est pas un outil de chantier."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenProject",
+			"source": {
+				"host": "github",
+				"path": "opf/openproject",
+				"url": "https://github.com/opf/openproject"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Where the resulting task list and its photos can live once someone is back on wifi.",
+				"fr": "L’endroit où peuvent vivre la liste de tâches et ses photos une fois de retour sur le wifi."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SAML/OIDC SSO, team planner, custom theming and portfolio views are Enterprise",
+					"fr": "SSO SAML/OIDC, planificateur d’équipe, thème personnalisé et vues portefeuille sont Enterprise"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

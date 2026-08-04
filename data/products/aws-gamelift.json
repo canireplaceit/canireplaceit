@@ -1,0 +1,103 @@
+{
+	"slug": "aws-gamelift",
+	"name": "AWS GameLift",
+	"domain": "aws.amazon.com",
+	"category": "game-development",
+	"priceMonthly": null,
+	"pricing": {
+		"plan": "Usage-based instance hours (e.g. c6a.large $0.099/hr on-demand); no fixed monthly fee",
+		"basis": "usage",
+		"url": "https://aws.amazon.com/gamelift/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "GameLift is fleet management and matchmaking for dedicated game servers, billed on top of the EC2 instances you were already paying for. Agones does the same job on Kubernetes, is a CNCF project, and lets you run the same fleet on any cloud or on hardware you own. If you already have a Kubernetes team, this is a straightforward swap; if you do not, you are hiring one.",
+		"fr": "GameLift, c’est la gestion de flotte et le matchmaking pour serveurs de jeu dédiés, facturés en plus des instances EC2 que vous payiez déjà. Agones fait le même travail sur Kubernetes, c’est un projet CNCF, et il permet de faire tourner la même flotte sur n’importe quel cloud ou sur votre propre matériel. Si vous avez déjà une équipe Kubernetes, l’échange est direct ; sinon, vous allez la recruter."
+	},
+	"whatYouLose": [
+		{
+			"en": "FlexMatch matchmaking",
+			"fr": "Matchmaking FlexMatch"
+		},
+		{
+			"en": "Spot fleet cost optimisation",
+			"fr": "Optimisation des coûts en instances spot"
+		},
+		{
+			"en": "AWS support on the pager",
+			"fr": "Support AWS en astreinte"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Agones",
+			"source": {
+				"host": "github",
+				"path": "agones-dev/agones",
+				"url": "https://github.com/agones-dev/agones"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Dedicated game server orchestration on Kubernetes: fleets, autoscaling, allocation, graceful shutdown. Cloud-agnostic and CNCF-hosted.",
+				"fr": "Orchestration de serveurs de jeu dédiés sur Kubernetes : flottes, autoscaling, allocation, arrêt propre. Indépendant du cloud et hébergé par la CNCF."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Rivet",
+			"source": {
+				"host": "github",
+				"path": "rivet-dev/rivet",
+				"url": "https://github.com/rivet-dev/rivet"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Game server orchestration without needing to become a Kubernetes shop. Smaller project, faster-moving API.",
+				"fr": "Orchestration de serveurs de jeu sans devoir devenir une boutique Kubernetes. Projet plus petit, API qui bouge plus vite."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nakama",
+			"source": {
+				"host": "github",
+				"path": "heroiclabs/nakama",
+				"url": "https://github.com/heroiclabs/nakama"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Covers the matchmaking side — tickets, parties, skill-based pools — which is often the part you actually miss from FlexMatch.",
+				"fr": "Couvre la partie matchmaking — tickets, groupes, pools par niveau — c’est-à-dire souvent ce qui manque vraiment quand on quitte FlexMatch."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Multi-node clustering is Nakama Enterprise only; the free build runs on one node.",
+					"fr": "Le clustering multi-nœuds est réservé à Nakama Enterprise ; la version open source tourne sur un seul nœud."
+				}
+			}
+		}
+	],
+	"priority": 3
+}

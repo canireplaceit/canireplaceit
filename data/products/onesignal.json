@@ -1,0 +1,103 @@
+{
+	"slug": "onesignal",
+	"name": "OneSignal",
+	"domain": "onesignal.com",
+	"category": "comms",
+	"priceMonthly": 19,
+	"pricing": {
+		"plan": "Growth, from USD 19/mo plus usage",
+		"basis": "flat",
+		"url": "https://onesignal.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Push notifications are a POST to Apple and Google. OneSignal's value is the segmentation UI and never having to think about token churn, but this is one of the genuinely replaceable products in go-to-market — the delivery infrastructure is free and belongs to the platforms.",
+		"fr": "Les notifications push, c’est un POST vers Apple et Google. La valeur de OneSignal, c’est l’interface de segmentation et le fait de ne jamais penser à la rotation des jetons, mais c’est un des produits réellement remplaçables du go-to-market — l’infrastructure de livraison est gratuite et appartient aux plateformes."
+	},
+	"whatYouLose": [
+		{
+			"en": "Segmentation and journeys UI",
+			"fr": "Interface de segmentation et de parcours"
+		},
+		{
+			"en": "Maintained iOS and Android SDKs",
+			"fr": "SDK iOS et Android maintenus"
+		},
+		{
+			"en": "Delivery analytics at scale",
+			"fr": "Statistiques de livraison à grande échelle"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Novu",
+			"source": {
+				"host": "github",
+				"path": "novuhq/novu",
+				"url": "https://github.com/novuhq/novu"
+			},
+			"license": "MIT core with an enterprise/ directory",
+			"effort": "docker",
+			"note": {
+				"en": "The real answer: a notification workflow engine across push, email, SMS and in-app inbox. SAML SSO, RBAC and translation management are the enterprise directories.",
+				"fr": "La vraie réponse : un moteur de workflows de notification couvrant push, e-mail, SMS et boîte in-app. SSO SAML, RBAC et gestion des traductions sont les dossiers entreprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SAML SSO, RBAC, translation management and the AI features sit under enterprise/",
+					"fr": "SSO SAML, RBAC, gestion des traductions et fonctions IA sont sous enterprise/"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ntfy",
+			"source": {
+				"host": "github",
+				"path": "binwiederhier/ntfy",
+				"url": "https://github.com/binwiederhier/ntfy"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Absurdly simple pub-sub push over HTTP with its own apps. Perfect for internal alerts, not for consumer marketing pushes.",
+				"fr": "Du push pub-sub en HTTP d’une simplicité absurde, avec ses propres applications. Parfait pour des alertes internes, pas pour du push marketing grand public."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Gotify",
+			"source": {
+				"host": "github",
+				"path": "gotify/server",
+				"url": "https://github.com/gotify/server"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "A tiny self-hosted push server with an Android client. Same caveat: your own users, not the App Store.",
+				"fr": "Un minuscule serveur de push auto-hébergé avec un client Android. Même réserve : vos propres utilisateurs, pas l’App Store."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

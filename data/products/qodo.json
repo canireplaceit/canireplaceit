@@ -1,0 +1,107 @@
+{
+	"slug": "qodo",
+	"name": "Qodo",
+	"domain": "qodo.ai",
+	"category": "ai",
+	"priceMonthly": 30,
+	"pricing": {
+		"plan": "Pro Team, USD 30/month base for up to 30 users plus credits",
+		"basis": "flat",
+		"url": "https://www.qodo.ai/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Unusually for this list, the vendor's own engine is the open source option: PR-Agent is MIT and does the review, describe and improve commands. You give up the hosted dashboards and the test-generation IDE plugin.",
+		"fr": "Fait rare dans cette liste : le moteur de l’éditeur est lui-même l’option open source. PR-Agent est en MIT et fournit les commandes review, describe et improve. Vous perdez les tableaux de bord hébergés et le plugin IDE de génération de tests."
+	},
+	"whatYouLose": [
+		{
+			"en": "Hosted review dashboards",
+			"fr": "Tableaux de bord de revue hébergés"
+		},
+		{
+			"en": "Test-generation IDE plugin",
+			"fr": "Plugin IDE de génération de tests"
+		},
+		{
+			"en": "Org-wide best-practice memory",
+			"fr": "Mémoire des bonnes pratiques de l’organisation"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "PR-Agent",
+			"source": {
+				"host": "github",
+				"path": "The-PR-Agent/pr-agent",
+				"url": "https://github.com/The-PR-Agent/pr-agent"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Qodo's own open engine, now living under The-PR-Agent org. Runs as a GitHub Action or webhook server against any model endpoint you point it at.",
+				"fr": "Le moteur ouvert de Qodo lui-même, désormais dans l’organisation The-PR-Agent. S’exécute en GitHub Action ou en serveur de webhooks, contre l’endpoint de modèle de votre choix."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "The hosted Qodo Merge SaaS, its dashboards and org-level best-practice memory",
+					"fr": "Le SaaS hébergé Qodo Merge, ses tableaux de bord et la mémoire des bonnes pratiques au niveau organisation"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Shippie",
+			"source": {
+				"host": "github",
+				"path": "mattzcarey/shippie",
+				"url": "https://github.com/mattzcarey/shippie"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Formerly code-review-gpt. A small CI-first reviewer you can read end to end in an afternoon.",
+				"fr": "Anciennement code-review-gpt. Un relecteur pensé pour la CI, assez petit pour être lu en entier en une après-midi."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Semgrep",
+			"source": {
+				"host": "github",
+				"path": "semgrep/semgrep",
+				"url": "https://github.com/semgrep/semgrep"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "Not AI at all, and that is the point: deterministic rules catch the same classes of bug with zero token spend and zero hallucination.",
+				"fr": "Pas d’IA du tout, et c’est justement l’intérêt : des règles déterministes attrapent les mêmes classes de bugs, sans dépense de tokens ni hallucination."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Supply-chain scanning, secrets, the Pro cross-file engine and the hosted AppSec platform",
+					"fr": "L’analyse de la chaîne d’approvisionnement, les secrets, le moteur Pro inter-fichiers et la plateforme AppSec hébergée"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

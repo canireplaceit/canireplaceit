@@ -1,0 +1,99 @@
+{
+	"slug": "landr",
+	"name": "LANDR",
+	"domain": "landr.com",
+	"category": "audio-podcasting",
+	"priceMonthly": 12,
+	"pricing": {
+		"plan": "Studio (price not shown publicly; unconfirmed)",
+		"basis": "flat",
+		"url": "https://www.landr.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "low"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Automatic mastering is reference matching plus a limiter. Matchering does exactly that — give it your mix and a commercial track you want to sound like, and it matches the spectrum and loudness — and it is free, offline, and repeatable. Neither LANDR nor Matchering is a mastering engineer, but at this price point that was never the comparison.",
+		"fr": "Le mastering automatique, c’est de la correspondance de référence plus un limiteur. Matchering fait exactement ça — donnez-lui votre mix et un morceau commercial dont vous voulez le son, il en aligne le spectre et l’intensité — gratuitement, hors ligne et de façon reproductible. Ni LANDR ni Matchering ne sont un ingénieur de mastering, mais à ce prix, ce n’était pas la comparaison."
+	},
+	"whatYouLose": [
+		{
+			"en": "Distribution to stores",
+			"fr": "Distribution vers les plateformes"
+		},
+		{
+			"en": "Sample packs and plugins bundled",
+			"fr": "Packs de samples et plugins inclus"
+		},
+		{
+			"en": "Presets chosen for you",
+			"fr": "Préréglages choisis à votre place"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Matchering",
+			"source": {
+				"host": "github",
+				"path": "sergree/matchering",
+				"url": "https://github.com/sergree/matchering"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Reference-based mastering as a Python library or a container with a web UI. The direct replacement, and often better because you choose the reference.",
+				"fr": "Mastering par référence sous forme de bibliothèque Python ou de conteneur avec interface web. Le remplacement direct, souvent meilleur puisque vous choisissez la référence."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LSP Plugins",
+			"source": {
+				"host": "github",
+				"path": "lsp-plugins/lsp-plugins",
+				"url": "https://github.com/lsp-plugins/lsp-plugins"
+			},
+			"license": "LGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Multiband compression, limiting and loudness metering if you would rather master by hand.",
+				"fr": "Compression multibande, limitation et mesure d’intensité si vous préférez masteriser à la main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ardour",
+			"source": {
+				"host": "gitea",
+				"path": "ardour/ardour",
+				"url": "https://git.ardour.org/ardour/ardour"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Has a real mastering-grade loudness analysis and export pipeline built in, including EBU R128 reporting.",
+				"fr": "Intègre une véritable analyse d’intensité et une chaîne d’export de niveau mastering, avec rapport EBU R128."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

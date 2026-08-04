@@ -1,0 +1,88 @@
+{
+	"slug": "wistia",
+	"name": "Wistia",
+	"domain": "wistia.com",
+	"category": "video",
+	"priceMonthly": 79,
+	"pricing": {
+		"plan": "Business, annual billed monthly",
+		"basis": "flat",
+		"url": "https://wistia.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Wistia is not really a video host, it is a lead-gen tool: heatmaps, email gates, CRM push. PeerTube and MediaCMS will host and stream your videos happily, but neither will tell your sales team that a prospect watched 80% of the demo. If that tracking is why you bought it, nothing open source replaces it.",
+		"fr": "Wistia n’est pas vraiment un hébergeur vidéo, c’est un outil de génération de leads : cartes de chaleur, formulaires bloquants, envoi vers le CRM. PeerTube et MediaCMS hébergeront et diffuseront vos vidéos sans problème, mais aucun ne dira à vos commerciaux qu’un prospect a regardé 80 % de la démo. Si c’est ce suivi qui a motivé l’achat, rien en open source ne le remplace."
+	},
+	"whatYouLose": [
+		{
+			"en": "Viewer heatmaps and CRM push",
+			"fr": "Cartes de chaleur et envoi vers le CRM"
+		},
+		{
+			"en": "Email gates and CTAs in-player",
+			"fr": "Formulaires et CTA dans le lecteur"
+		},
+		{
+			"en": "Transcoding and delivery included",
+			"fr": "Transcodage et diffusion inclus"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "PeerTube",
+			"source": {
+				"host": "github",
+				"path": "Chocobozzz/PeerTube",
+				"url": "https://github.com/Chocobozzz/PeerTube"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Full hosting, transcoding and a good player, with P2P offload that genuinely cuts bandwidth on popular videos. Federation is optional.",
+				"fr": "Hébergement complet, transcodage et bon lecteur, avec délestage P2P qui réduit réellement la bande passante sur les vidéos populaires. La fédération est facultative."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MediaCMS",
+			"source": {
+				"host": "github",
+				"path": "mediacms-io/mediacms",
+				"url": "https://github.com/mediacms-io/mediacms"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Django-based video portal with encoding, playlists and roles. Better fit than PeerTube if you want a private company library rather than a public channel.",
+				"fr": "Portail vidéo en Django avec encodage, playlists et rôles. Plus adapté que PeerTube pour une médiathèque interne d’entreprise qu’une chaîne publique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Bunny Stream",
+			"url": "https://bunny.net/stream/",
+			"priceMonthly": 5,
+			"note": {
+				"en": "Hosting, encoding, player and CDN for a few dollars. Marketing analytics are basic and there is no CRM integration.",
+				"fr": "Hébergement, encodage, lecteur et CDN pour quelques euros. Statistiques marketing sommaires et aucune intégration CRM."
+			}
+		}
+	],
+	"priority": 3
+}

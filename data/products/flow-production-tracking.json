@@ -1,0 +1,78 @@
+{
+	"slug": "flow-production-tracking",
+	"name": "Autodesk Flow Production Tracking",
+	"domain": "autodesk.com",
+	"category": "video",
+	"priceMonthly": 50,
+	"pricing": {
+		"plan": "Per user per month (autodesk.com returns Access Denied; figure not read off the page)",
+		"basis": "per-seat",
+		"url": "https://www.autodesk.com/products/flow-production-tracking/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "low"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "The old ShotGrid, renamed and repriced per seat. Kitsu covers shots, tasks, assets, playlists and review notes, and studios genuinely ship features on it. The gap is the ecosystem: a decade of pipeline code, vendor integrations and freelancers who already know the schema. Migrating mid-show is not a weekend.",
+		"fr": "L’ancien ShotGrid, rebaptisé et refacturé à l’utilisateur. Kitsu couvre les plans, les tâches, les assets, les playlists et les notes de validation, et des studios livrent réellement des films avec. L’écart, c’est l’écosystème : dix ans de code de pipeline, d’intégrations et de freelances qui connaissent déjà le schéma. Migrer en cours de production n’est pas une affaire de week-end."
+	},
+	"whatYouLose": [
+		{
+			"en": "A decade of pipeline integrations",
+			"fr": "Dix ans d’intégrations de pipeline"
+		},
+		{
+			"en": "Freelancers who already know it",
+			"fr": "Freelances qui le connaissent déjà"
+		},
+		{
+			"en": "Autodesk suite tie-ins",
+			"fr": "Liens avec la suite Autodesk"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Kitsu",
+			"source": {
+				"host": "github",
+				"path": "cgwire/kitsu",
+				"url": "https://github.com/cgwire/kitsu"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The credible replacement. Shot and asset tracking, task breakdowns, playlists, review notes, decent client reporting.",
+				"fr": "Le remplacement crédible. Suivi des plans et des assets, découpage des tâches, playlists, notes de validation, rapports client corrects."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Zou",
+			"source": {
+				"host": "github",
+				"path": "cgwire/zou",
+				"url": "https://github.com/cgwire/zou"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Kitsu's API server — this is the half your pipeline scripts talk to. Deploy both; Kitsu without Zou is just a front end.",
+				"fr": "Le serveur d’API de Kitsu — c’est la moitié à laquelle vos scripts de pipeline parlent. Déployez les deux ; Kitsu sans Zou n’est qu’une interface."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

@@ -1,0 +1,109 @@
+{
+	"slug": "coreldraw",
+	"name": "CorelDRAW Graphics Suite",
+	"domain": "coreldraw.com",
+	"category": "design",
+	"priceMonthly": 22.42,
+	"pricing": {
+		"plan": "Graphics Suite, $269/yr list ($174/yr promo at time of check)",
+		"basis": "per-seat",
+		"url": "https://www.coreldraw.com/en/product/coreldraw/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "CorelDRAW's remaining strongholds are sign-making, engraving and garment printing, where the workflow is 'draw it, cut it' and the plotter driver expects Corel. For everything else the open vector tools reached parity years ago.",
+		"fr": "Les derniers bastions de CorelDRAW sont la signalétique, la gravure et l’impression textile, où le flux est « je dessine, je découpe » et où le pilote du traceur attend du Corel. Pour tout le reste, les outils vectoriels open source ont atteint la parité il y a des années."
+	},
+	"whatYouLose": [
+		{
+			"en": "Plotter and cutter driver support",
+			"fr": "Prise en charge des traceurs et découpeuses"
+		},
+		{
+			"en": "CDR files from twenty years of archives",
+			"fr": "Fichiers CDR de vingt ans d’archives"
+		},
+		{
+			"en": "Bundled photo editor and fonts",
+			"fr": "Éditeur photo et polices inclus"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Graphite",
+			"source": {
+				"host": "github",
+				"path": "GraphiteEditor/Graphite",
+				"url": "https://github.com/GraphiteEditor/Graphite"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A modern node-based vector editor that runs in the browser or on the desktop. Early, but the direction is right.",
+				"fr": "Un éditeur vectoriel moderne à base de nœuds, dans le navigateur ou en application. Précoce, mais la direction est la bonne."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Scribus",
+			"source": {
+				"host": "github",
+				"path": "scribusproject/scribus",
+				"url": "https://github.com/scribusproject/scribus"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Where CorelDRAW is doing page layout, Scribus does it properly with CMYK separations and PDF/X. Not a drawing tool.",
+				"fr": "Là où CorelDRAW fait de la mise en page, Scribus le fait correctement avec séparations CMJN et PDF/X. Ce n’est pas un outil de dessin."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GIMP",
+			"source": {
+				"host": "gitlab",
+				"path": "GNOME/gimp",
+				"url": "https://gitlab.gnome.org/GNOME/gimp"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Covers the bundled PHOTO-PAINT half of the suite. Official GNOME mirror; upstream lives on GNOME GitLab.",
+				"fr": "Couvre la partie PHOTO-PAINT de la suite. Miroir officiel GNOME ; l’amont est sur GitLab GNOME."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Affinity Designer 2",
+			"url": "https://affinity.serif.com/designer/",
+			"priceMonthly": 0,
+			"note": {
+				"en": "One perpetual purchase against Corel's annual renewal, with better typography. No cutter drivers.",
+				"fr": "Un achat perpétuel unique face au renouvellement annuel de Corel, avec une meilleure typographie. Pas de pilotes de découpe."
+			}
+		}
+	],
+	"priority": 2
+}

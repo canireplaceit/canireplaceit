@@ -1,0 +1,72 @@
+{
+	"slug": "turnitin",
+	"name": "Turnitin",
+	"domain": "turnitin.com",
+	"category": "research-science",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "not-yet",
+	"why": {
+		"en": "The product is not the matching algorithm, it is the private corpus of every paper every student has ever submitted. You cannot rebuild that, and no open source tool tries. Code plagiarism is a different story — JPlag and Dolos beat Turnitin at it.",
+		"fr": "Le produit, ce n’est pas l’algorithme de comparaison, c’est le corpus privé de tous les devoirs jamais soumis par des étudiants. Vous ne pouvez pas le reconstituer, et aucun outil open source n’essaie. Le plagiat de code est une autre histoire — JPlag et Dolos y battent Turnitin."
+	},
+	"whatYouLose": [
+		{
+			"en": "The student paper repository",
+			"fr": "Le dépôt des travaux étudiants"
+		},
+		{
+			"en": "Publisher and LMS integrations",
+			"fr": "Intégrations éditeurs et LMS"
+		},
+		{
+			"en": "Defensible similarity reports",
+			"fr": "Rapports de similarité opposables"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "JPlag",
+			"source": {
+				"host": "github",
+				"path": "jplag/JPlag",
+				"url": "https://github.com/jplag/JPlag"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Structural code similarity across 20+ languages, used in university CS departments for two decades. Text plagiarism is out of scope.",
+				"fr": "Similarité structurelle de code sur plus de 20 langages, utilisé dans les départements d’informatique depuis vingt ans. Le plagiat de texte est hors périmètre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dolos",
+			"source": {
+				"host": "github",
+				"path": "dodona-edu/dolos",
+				"url": "https://github.com/dodona-edu/dolos"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Same problem as JPlag with a much better visual report — clusters of similar submissions you can actually show a student.",
+				"fr": "Même problème que JPlag avec un bien meilleur rapport visuel — des grappes de rendus similaires que vous pouvez réellement montrer à un étudiant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

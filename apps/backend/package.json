@@ -1,0 +1,33 @@
+{
+	"name": "backend",
+	"version": "0.1.0",
+	"private": true,
+	"type": "module",
+	"main": "src/index.ts",
+	"scripts": {
+		"dev": "bun run --env-file=../../.env --watch src/index.ts",
+		"prod": "NODE_ENV=production bun run --env-file=../../.env src/index.ts",
+		"check": "biome check --write",
+		"typecheck": "bun tsc --project tsconfig.json",
+		"db:generate": "bun drizzle-kit generate",
+		"db:push": "bun run src/db/migrate.ts",
+		"db:seed": "bun run src/db/seed.ts"
+	},
+	"dependencies": {
+		"@elysiajs/cors": "^1.4.2",
+		"core": "workspace:*",
+		"drizzle-orm": "^0.45.2",
+		"elysia": "latest",
+		"jose": "^6.2.8",
+		"nodemailer": "^9.0.3",
+		"pino": "^10.3.1",
+		"stripe": "^22.4.0"
+	},
+	"devDependencies": {
+		"@types/bun": "^1.3.14",
+		"@types/nodemailer": "^8.0.1",
+		"drizzle-kit": "^0.31.10",
+		"pino-pretty": "^13.1.3",
+		"typescript": "^7.0.2"
+	}
+}

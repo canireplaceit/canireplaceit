@@ -1,0 +1,99 @@
+{
+	"slug": "zen-planner",
+	"name": "Zen Planner",
+	"domain": "zenplanner.com",
+	"category": "bookings-property-events",
+	"priceMonthly": 99,
+	"pricing": {
+		"plan": "Zen Planner Studio, starting at $99/mo (scales with member count)",
+		"basis": "usage",
+		"url": "https://zenplanner.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Zen Planner prices by member count, which is exactly backwards for a gym trying to grow. Class booking, attendance, belts and workout tracking are all in wger and Easy!Appointments; the one genuinely hard part is the recurring card billing, and that is a Stripe integration, not a platform.",
+		"fr": "Zen Planner facture au nombre d’adhérents, ce qui est exactement l’inverse de ce que veut une salle en croissance. Réservation de cours, présence, grades et suivi des séances sont tous dans wger et Easy!Appointments ; la seule vraie difficulté est le prélèvement récurrent par carte, et c’est une intégration Stripe, pas une plateforme."
+	},
+	"whatYouLose": [
+		{
+			"en": "Recurring billing with dunning",
+			"fr": "Prélèvement récurrent avec relances"
+		},
+		{
+			"en": "Member self-service app",
+			"fr": "App d’auto-gestion pour les adhérents"
+		},
+		{
+			"en": "Skill and belt progression tracking",
+			"fr": "Suivi des progressions et des grades"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "wger",
+			"source": {
+				"host": "github",
+				"path": "wger-project/wger",
+				"url": "https://github.com/wger-project/wger"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Members, workouts, body measurements and a gym mode for trainers. AGPL-3.0 with no paid edition and an honest REST API.",
+				"fr": "Adhérents, séances, mesures corporelles et un mode salle pour les coachs. AGPL-3.0 sans édition payante et une API REST honnête."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Easy!Appointments",
+			"source": {
+				"host": "github",
+				"path": "alextselegidis/easyappointments",
+				"url": "https://github.com/alextselegidis/easyappointments"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Class timetables and self-booking against staff availability, which wger does not do.",
+				"fr": "Grilles de cours et réservation en ligne selon les disponibilités du personnel, ce que wger ne fait pas."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Bigcapital",
+			"source": {
+				"host": "github",
+				"path": "bigcapitalhq/bigcapital",
+				"url": "https://github.com/bigcapitalhq/bigcapital"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The invoicing and recurring-billing ledger behind it, self-hosted. AGPL-3.0, no enterprise tier.",
+				"fr": "Le grand livre de facturation et d’abonnements derrière, auto-hébergé. AGPL-3.0, sans palier entreprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

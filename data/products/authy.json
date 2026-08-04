@@ -1,0 +1,120 @@
+{
+	"slug": "authy",
+	"name": "Authy",
+	"domain": "authy.com",
+	"category": "security",
+	"priceMonthly": 0,
+	"pricing": {
+		"plan": "Authy authenticator app, free",
+		"basis": "flat",
+		"url": "https://authy.com/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Authy is free because the price is that your TOTP secrets live in Twilio's cloud, tied to a phone number, with no export — and Twilio killed the desktop apps at a month's notice in 2024. Aegis and Ente Auth both hand you a full encrypted export on day one.",
+		"fr": "Authy est gratuit parce que le prix, c’est que vos secrets TOTP vivent dans le cloud de Twilio, liés à un numéro de téléphone, sans export — et Twilio a supprimé les applications de bureau avec un mois de préavis en 2024. Aegis et Ente Auth vous remettent tous deux un export chiffré complet dès le premier jour."
+	},
+	"whatYouLose": [
+		{
+			"en": "Multi-device sync with zero setup",
+			"fr": "Synchro multi-appareils sans configuration"
+		},
+		{
+			"en": "Recovery by phone number",
+			"fr": "Récupération par numéro de téléphone"
+		},
+		{
+			"en": "A brand your bank recognises",
+			"fr": "Une marque que votre banque reconnaît"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Aegis Authenticator",
+			"source": {
+				"host": "github",
+				"path": "beemdevelopment/Aegis",
+				"url": "https://github.com/beemdevelopment/Aegis"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "An encrypted local vault and, the thing Authy refuses, a plain complete export you own. Android only.",
+				"fr": "Un coffre local chiffré et, ce qu’Authy refuse, un export complet et lisible qui vous appartient. Android uniquement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ente Auth",
+			"source": {
+				"host": "github",
+				"path": "ente/ente",
+				"url": "https://github.com/ente/ente"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "End-to-end encrypted TOTP sync across iOS, Android, desktop and web, free, with a self-hostable server. The repo moved from ente-io/ to ente/.",
+				"fr": "Synchro TOTP chiffrée de bout en bout sur iOS, Android, bureau et web, gratuite, avec un serveur auto-hébergeable. Le dépôt a migré de ente-io/ vers ente/."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "2FAS",
+			"source": {
+				"host": "github",
+				"path": "twofas/2fas-android",
+				"url": "https://github.com/twofas/2fas-android"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "iOS and Android, a browser extension for desktop autofill, and backup to your own iCloud or Drive. No 2FAS account required.",
+				"fr": "iOS et Android, une extension de navigateur pour la saisie automatique sur ordinateur, et sauvegarde vers votre propre iCloud ou Drive. Aucun compte 2FAS requis."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "KeePassXC",
+			"source": {
+				"host": "github",
+				"path": "keepassxreboot/keepassxc",
+				"url": "https://github.com/keepassxreboot/keepassxc"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Keeps TOTP secrets in the same offline .kdbx file as your passwords. One file, your sync, no vendor.",
+				"fr": "Conserve les secrets TOTP dans le même fichier .kdbx hors ligne que vos mots de passe. Un fichier, votre synchro, aucun éditeur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 4
+}

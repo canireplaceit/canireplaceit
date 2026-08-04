@@ -1,0 +1,99 @@
+{
+	"slug": "cursor",
+	"name": "Cursor",
+	"domain": "cursor.com",
+	"category": "ai",
+	"priceMonthly": 20,
+	"pricing": {
+		"plan": "Pro",
+		"basis": "per-seat",
+		"url": "https://www.cursor.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "The editor is open-ish; the model routing and indexing are the product. Local coding models are closing fast.",
+		"fr": "L’éditeur est plus ou moins ouvert ; le produit, c’est le routage de modèles et l’indexation. Les modèles de code locaux comblent vite l’écart."
+	},
+	"whatYouLose": [
+		{
+			"en": "Frontier model routing",
+			"fr": "Routage vers les modèles de pointe"
+		},
+		{
+			"en": "Whole-repo indexing",
+			"fr": "Indexation du dépôt entier"
+		},
+		{
+			"en": "Tab completion quality",
+			"fr": "Qualité de l’autocomplétion"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Continue",
+			"source": {
+				"host": "github",
+				"path": "continuedev/continue",
+				"url": "https://github.com/continuedev/continue"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "VS Code/JetBrains, bring your own model.",
+				"fr": "VS Code/JetBrains, avec le modèle de votre choix."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Cline",
+			"source": {
+				"host": "github",
+				"path": "cline/cline",
+				"url": "https://github.com/cline/cline"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Agentic editing in VS Code.",
+				"fr": "Édition agentique dans VS Code."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Aider",
+			"source": {
+				"host": "github",
+				"path": "Aider-AI/aider",
+				"url": "https://github.com/Aider-AI/aider"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Terminal-first, git-native.",
+				"fr": "Terminal d’abord, natif git."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

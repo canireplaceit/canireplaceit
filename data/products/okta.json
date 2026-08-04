@@ -1,0 +1,103 @@
+{
+	"slug": "okta",
+	"name": "Okta",
+	"domain": "okta.com",
+	"category": "auth",
+	"priceMonthly": 6,
+	"pricing": {
+		"plan": "Workforce Identity Starter, annual billed monthly",
+		"basis": "per-seat",
+		"url": "https://www.okta.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "SSO and directory sync are standards. SOC2 auditors asking 'which IdP' is why people keep paying.",
+		"fr": "Le SSO et la synchro d’annuaire sont des standards. Ce qu’on paie, c’est de pouvoir répondre quand l’auditeur SOC2 demande « quel IdP ? »."
+	},
+	"whatYouLose": [
+		{
+			"en": "A name auditors recognise",
+			"fr": "Un nom que l’auditeur reconnaît"
+		},
+		{
+			"en": "Thousands of prebuilt integrations",
+			"fr": "Des milliers d’intégrations prêtes"
+		},
+		{
+			"en": "24/7 support when auth breaks",
+			"fr": "Support 24/7 quand l’auth casse"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Keycloak",
+			"source": {
+				"host": "github",
+				"path": "keycloak/keycloak",
+				"url": "https://github.com/keycloak/keycloak"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "SAML, OIDC, LDAP federation.",
+				"fr": "SAML, OIDC, fédération LDAP."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Authentik",
+			"source": {
+				"host": "github",
+				"path": "goauthentik/authentik",
+				"url": "https://github.com/goauthentik/authentik"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Best UI, great with reverse proxies.",
+				"fr": "La meilleure interface, excellent derrière un reverse proxy."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "RAC remote desktop, directory sync, vendor support",
+					"fr": "Bureau distant RAC, synchronisation d’annuaire, support éditeur"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Zitadel",
+			"source": {
+				"host": "github",
+				"path": "zitadel/zitadel",
+				"url": "https://github.com/zitadel/zitadel"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Multi-tenant B2B SSO.",
+				"fr": "SSO B2B multi-tenant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

@@ -1,0 +1,101 @@
+{
+	"slug": "instabug",
+	"name": "Instabug",
+	"domain": "instabug.com",
+	"category": "mobile-development",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "The in-app bug reporter — shake the phone, annotate a screenshot, attach logs and a network trace — has no open equivalent on mobile. The crash and performance halves do.",
+		"fr": "Le rapporteur de bug intégré — secouer le téléphone, annoter une capture, joindre les journaux et une trace réseau — n’a aucun équivalent ouvert sur mobile. Les volets crash et performance, si."
+	},
+	"whatYouLose": [
+		{
+			"en": "Shake-to-report SDK",
+			"fr": "SDK de signalement par secousse"
+		},
+		{
+			"en": "In-app user feedback loop",
+			"fr": "Boucle de retour utilisateur intégrée"
+		},
+		{
+			"en": "Mobile APM traces",
+			"fr": "Traces APM mobiles"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Sentry",
+			"source": {
+				"host": "github",
+				"path": "getsentry/sentry",
+				"url": "https://github.com/getsentry/sentry"
+			},
+			"license": "FSL-1.1-Apache-2.0 (source-available, not open source)",
+			"effort": "ops",
+			"note": {
+				"en": "Covers crashes, performance traces and user feedback prompts on mobile SDKs. Not open source since the FSL move — self-hosting is still permitted for your own use.",
+				"fr": "Couvre les crashs, les traces de performance et les invites de retour utilisateur dans les SDK mobiles. Plus open source depuis le passage à la FSL — l’auto-hébergement pour votre usage reste autorisé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "SSO/SAML, audit logs and data-residency controls, plus the hosted service",
+					"fr": "SSO/SAML, journaux d’audit et contrôles de résidence des données, ainsi que le service hébergé"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenReplay",
+			"source": {
+				"host": "github",
+				"path": "openreplay/openreplay",
+				"url": "https://github.com/openreplay/openreplay"
+			},
+			"license": "AGPL-3.0 outside the ee/ directory",
+			"effort": "ops",
+			"note": {
+				"en": "Session replay for web and, increasingly, mobile. The closest thing to seeing what the user saw without an SDK you pay for.",
+				"fr": "Rejeu de session pour le web et, de plus en plus, le mobile. Ce qui se rapproche le plus de voir ce que l’utilisateur a vu, sans SDK payant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "SSO/SAML, RBAC, audit trail and multi-tenancy are in ee/",
+					"fr": "SSO/SAML, RBAC, piste d’audit et multi-tenant sont dans ee/"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "rrweb",
+			"source": {
+				"host": "github",
+				"path": "rrweb-io/rrweb",
+				"url": "https://github.com/rrweb-io/rrweb"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The recording primitive itself, MIT and dependency-light. You build the reporting UI; there is no mobile-native capture.",
+				"fr": "La primitive d’enregistrement elle-même, en MIT et légère. À vous de bâtir l’interface de rapports ; pas de capture native mobile."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

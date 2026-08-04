@@ -1,0 +1,88 @@
+{
+	"slug": "sketchup",
+	"name": "SketchUp Pro",
+	"domain": "sketchup.com",
+	"category": "3d-cad",
+	"priceMonthly": 33.25,
+	"pricing": {
+		"plan": "Pro, annual billed monthly",
+		"basis": "per-seat",
+		"url": "https://sketchup.trimble.com/en/plans-and-pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Nothing open source matches SketchUp's push-pull speed for a rough building mass — that interface is the product. But if what you actually need is a documented model rather than a fast sketch, FreeCAD's BIM workbench gets you further and keeps the IFC.",
+		"fr": "Rien en open source n’égale la vitesse du push-pull de SketchUp pour une volumétrie rapide de bâtiment — cette interface est le produit. Mais si ce qu’il vous faut est un modèle documenté plutôt qu’un croquis rapide, l’atelier BIM de FreeCAD va plus loin et conserve l’IFC."
+	},
+	"whatYouLose": [
+		{
+			"en": "Push-pull modelling speed",
+			"fr": "Vitesse de modélisation push-pull"
+		},
+		{
+			"en": "3D Warehouse",
+			"fr": "3D Warehouse"
+		},
+		{
+			"en": "LayOut documentation",
+			"fr": "Documentation LayOut"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "FreeCAD",
+			"source": {
+				"host": "github",
+				"path": "FreeCAD/FreeCAD",
+				"url": "https://github.com/FreeCAD/FreeCAD"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "The BIM and Arch workbenches do walls, levels and IFC export. Slower to sketch with, far better at documentation.",
+				"fr": "Les ateliers BIM et Arch gèrent murs, niveaux et export IFC. Plus lent pour esquisser, bien meilleur pour documenter."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Blender",
+			"source": {
+				"host": "gitea",
+				"path": "blender/blender",
+				"url": "https://projects.blender.org/blender/blender"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "With the Bonsai add-on it becomes a real IFC authoring tool. Overkill if you just wanted to block out a house.",
+				"fr": "Avec l’extension Bonsai, il devient un vrai outil de création IFC. Excessif si vous vouliez seulement esquisser une maison."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "SketchUp Go",
+			"url": "https://www.sketchup.com/plans-and-pricing",
+			"priceMonthly": 10,
+			"note": {
+				"en": "iPad and web only, a third of the price, and you keep 3D Warehouse. No extensions, which is half of why people use SketchUp.",
+				"fr": "iPad et web uniquement, trois fois moins cher, et vous gardez 3D Warehouse. Pas d’extensions, ce qui est la moitié de l’intérêt de SketchUp."
+			}
+		}
+	],
+	"priority": 3
+}

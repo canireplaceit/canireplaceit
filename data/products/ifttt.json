@@ -1,0 +1,124 @@
+{
+	"slug": "ifttt",
+	"name": "IFTTT",
+	"domain": "ifttt.com",
+	"category": "automation",
+	"priceMonthly": 3,
+	"pricing": {
+		"plan": "Pro ($2.99/mo, $35.88 billed annually)",
+		"basis": "flat",
+		"url": "https://ifttt.com/plans",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "IFTTT cut its free tier to a handful of applets and now charges for what used to be the whole product. Home Assistant's automation engine and Node-RED both do more, run on a machine you own, and do not count your applets.",
+		"fr": "IFTTT a réduit son offre gratuite à une poignée d’applets et facture désormais ce qui était le produit entier. Le moteur d’automatisation de Home Assistant et Node-RED font tous deux davantage, tournent sur une machine qui vous appartient, et ne comptent pas vos applets."
+	},
+	"whatYouLose": [
+		{
+			"en": "Cloud services with no local API",
+			"fr": "Services cloud sans API locale"
+		},
+		{
+			"en": "Automations that run with your box off",
+			"fr": "Automatisations qui tournent machine éteinte"
+		},
+		{
+			"en": "Setup with no technical knowledge",
+			"fr": "Installation sans connaissance technique"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Home Assistant",
+			"source": {
+				"host": "github",
+				"path": "home-assistant/core",
+				"url": "https://github.com/home-assistant/core"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Its automation engine has quietly become the best personal automation platform there is: triggers, conditions, scripts, and a phone app that can fire them.",
+				"fr": "Son moteur d’automatisation est devenu, discrètement, la meilleure plateforme d’automatisation personnelle qui existe : déclencheurs, conditions, scripts, et une application mobile capable de les lancer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Node-RED",
+			"source": {
+				"host": "github",
+				"path": "node-red/node-red",
+				"url": "https://github.com/node-red/node-red"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Flow-based wiring for anything with an API, from the IBM lineage. Thousands of community nodes and zero per-task pricing.",
+				"fr": "Du câblage par flux pour tout ce qui a une API, héritage IBM. Des milliers de nœuds communautaires et aucune tarification à la tâche."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Huginn",
+			"source": {
+				"host": "github",
+				"path": "huginn/huginn",
+				"url": "https://github.com/huginn/huginn"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Agents that watch the web and act — the original IFTTT-at-home. Rails, a dated UI, and still working after twelve years.",
+				"fr": "Des agents qui surveillent le web et agissent : l’IFTTT-maison originel. En Rails, interface datée, et toujours fonctionnel après douze ans."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "n8n",
+			"source": {
+				"host": "github",
+				"path": "n8n-io/n8n",
+				"url": "https://github.com/n8n-io/n8n"
+			},
+			"license": "Sustainable Use Licence (source-available)",
+			"effort": "docker",
+			"note": {
+				"en": "Far more capable than IFTTT, with hundreds of integrations. But read the LICENSE: the Sustainable Use Licence restricts commercial use, so this is not open source however often it is listed as such.",
+				"fr": "Bien plus capable qu’IFTTT, avec des centaines d’intégrations. Mais lisez le LICENSE : la Sustainable Use Licence restreint l’usage commercial, ce n’est donc pas de l’open source, malgré ce qu’on lit partout."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO, RBAC, environments and log streaming are enterprise-only",
+					"fr": "SSO, RBAC, environnements et streaming de logs sont réservés à l’édition entreprise"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 4
+}

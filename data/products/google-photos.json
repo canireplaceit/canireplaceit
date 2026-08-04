@@ -1,0 +1,124 @@
+{
+	"slug": "google-photos",
+	"name": "Google Photos",
+	"domain": "photos.google.com",
+	"category": "personal-media-libraries",
+	"priceMonthly": 1.99,
+	"pricing": {
+		"plan": "Google One Basic 100 GB (PLN page shows 8.99 zl/mo incl. VAT; 200 GB tier no longer listed)",
+		"basis": "flat",
+		"url": "https://one.google.com/about/plans",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Immich has closed the gap that made this hard: background mobile upload, face recognition, semantic search, shared albums. It is one of the few self-hosted apps people switch to and don't quietly switch back from. You now own the backup problem — take it seriously.",
+		"fr": "Immich a comblé l’écart qui rendait ça difficile : envoi automatique depuis le mobile, reconnaissance faciale, recherche sémantique, albums partagés. C’est l’une des rares applications auto-hébergées qu’on adopte sans revenir discrètement en arrière. En revanche, la sauvegarde devient votre problème — prenez-la au sérieux."
+	},
+	"whatYouLose": [
+		{
+			"en": "Google's off-site redundancy",
+			"fr": "Redondance hors site de Google"
+		},
+		{
+			"en": "Sharing with people who aren't technical",
+			"fr": "Partage avec des gens non techniques"
+		},
+		{
+			"en": "Backups become entirely your job",
+			"fr": "Sauvegarde devient entièrement votre affaire"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Immich",
+			"source": {
+				"host": "github",
+				"path": "immich-app/immich",
+				"url": "https://github.com/immich-app/immich"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The one. Mobile apps are genuinely good and the machine-learning search actually works offline.",
+				"fr": "LA référence. Les applications mobiles sont vraiment bonnes et la recherche par IA fonctionne réellement hors ligne."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ente Photos",
+			"source": {
+				"host": "github",
+				"path": "ente/ente",
+				"url": "https://github.com/ente/ente"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "End-to-end encrypted with a paid hosted tier, so you can skip the server entirely.",
+				"fr": "Chiffré de bout en bout, avec une offre hébergée payante : vous pouvez vous passer totalement de serveur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PhotoPrism",
+			"source": {
+				"host": "github",
+				"path": "photoprism/photoprism",
+				"url": "https://github.com/photoprism/photoprism"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Better as a browser for an existing organised archive than as a phone-backup target.",
+				"fr": "Meilleur comme explorateur d’une archive déjà organisée que comme destination de sauvegarde du téléphone."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "OIDC SSO, extra user roles, user-management UI",
+					"fr": "SSO OIDC, rôles supplémentaires, gestion des utilisateurs"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LibrePhotos",
+			"source": {
+				"host": "github",
+				"path": "LibrePhotos/librephotos",
+				"url": "https://github.com/LibrePhotos/librephotos"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "MIT-licensed and lighter on resources. Smaller community, slower pace.",
+				"fr": "Sous licence MIT et plus léger en ressources. Communauté plus petite, rythme plus lent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 5
+}

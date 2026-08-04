@@ -1,0 +1,99 @@
+{
+	"slug": "zoom",
+	"name": "Zoom",
+	"domain": "zoom.com",
+	"category": "comms",
+	"priceMonthly": 16,
+	"pricing": {
+		"plan": "Workplace Pro, per user (price not machine-readable on Zoom's pricing page; unconfirmed)",
+		"basis": "per-seat",
+		"url": "https://zoom.us/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "low"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Calls work. Reliability on bad networks and the 'send a link to anyone' expectation are the gap.",
+		"fr": "Les appels fonctionnent. L’écart, c’est la fiabilité sur mauvais réseau et l’évidence du « j’envoie un lien à n’importe qui »."
+	},
+	"whatYouLose": [
+		{
+			"en": "Reliability on bad networks",
+			"fr": "Fiabilité sur mauvais réseau"
+		},
+		{
+			"en": "Send a link to anyone",
+			"fr": "Lien qu’on envoie à n’importe qui"
+		},
+		{
+			"en": "Cloud recording and transcripts",
+			"fr": "Enregistrements et transcriptions cloud"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Jitsi Meet",
+			"source": {
+				"host": "github",
+				"path": "jitsi/jitsi-meet",
+				"url": "https://github.com/jitsi/jitsi-meet"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Free public instance, or host your own.",
+				"fr": "Instance publique gratuite, ou auto-hébergée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LiveKit",
+			"source": {
+				"host": "github",
+				"path": "livekit/livekit",
+				"url": "https://github.com/livekit/livekit"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Build your own calls on WebRTC infra.",
+				"fr": "Construisez vos propres appels sur une infra WebRTC."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "BigBlueButton",
+			"source": {
+				"host": "github",
+				"path": "bigbluebutton/bigbluebutton",
+				"url": "https://github.com/bigbluebutton/bigbluebutton"
+			},
+			"license": "LGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Built for teaching, not meetings.",
+				"fr": "Pensé pour l’enseignement, pas pour les réunions."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

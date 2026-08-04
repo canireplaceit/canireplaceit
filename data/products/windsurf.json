@@ -1,0 +1,120 @@
+{
+	"slug": "windsurf",
+	"name": "Windsurf",
+	"domain": "windsurf.com",
+	"category": "ai",
+	"priceMonthly": 20,
+	"pricing": {
+		"plan": "Pro (windsurf.com/pricing now redirects to Cognition's Devin pricing; the editor ships as Devin Desktop)",
+		"basis": "per-seat",
+		"url": "https://devin.ai/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "A VS Code fork plus an agent plus indexing. Two of those three are freely available; the agent quality still tracks whatever frontier model you can pay for.",
+		"fr": "Un fork de VS Code plus un agent plus de l’indexation. Deux de ces trois briques sont librement disponibles ; la qualité de l’agent suit toujours le modèle de pointe que vous pouvez vous offrir."
+	},
+	"whatYouLose": [
+		{
+			"en": "Cascade agent flow",
+			"fr": "Flux d’agent Cascade"
+		},
+		{
+			"en": "Codebase indexing",
+			"fr": "Indexation du dépôt"
+		},
+		{
+			"en": "Included model credits",
+			"fr": "Crédits de modèle inclus"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Cline",
+			"source": {
+				"host": "github",
+				"path": "cline/cline",
+				"url": "https://github.com/cline/cline"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Agentic plan/act editing inside VS Code, bring your own key. Point it at a local endpoint and no code leaves the machine — you still pay in GPU.",
+				"fr": "Édition agentique plan/act dans VS Code, avec votre propre clé. Pointez-la vers un endpoint local et rien ne sort de la machine — vous payez en GPU."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kilo Code",
+			"source": {
+				"host": "github",
+				"path": "Kilo-Org/kilocode",
+				"url": "https://github.com/Kilo-Org/kilocode"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Actively maintained fork lineage of the Roo/Cline family, with modes and orchestration built in. Roo Code's own repo is now archived, so this is the live branch.",
+				"fr": "Fork activement maintenu de la lignée Roo/Cline, avec modes et orchestration intégrés. Le dépôt de Roo Code est désormais archivé : c’est ici que ça vit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Continue",
+			"source": {
+				"host": "github",
+				"path": "continuedev/continue",
+				"url": "https://github.com/continuedev/continue"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The configurable one: completion, chat and agent in VS Code or JetBrains, any model you can reach.",
+				"fr": "Le configurable : complétion, chat et agent dans VS Code ou JetBrains, avec tout modèle accessible."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "opencode",
+			"source": {
+				"host": "github",
+				"path": "anomalyco/opencode",
+				"url": "https://github.com/anomalyco/opencode"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "If you can live in a terminal instead of an IDE fork, this is less software to trust.",
+				"fr": "Si vous acceptez de vivre dans un terminal plutôt que dans un fork d’IDE, c’est moins de logiciel à qui faire confiance."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 4
+}

@@ -1,0 +1,134 @@
+{
+	"slug": "bitly",
+	"name": "Bitly",
+	"domain": "bitly.com",
+	"category": "marketing",
+	"priceMonthly": 35,
+	"pricing": {
+		"plan": "Growth (USD 29/mo if billed annually)",
+		"basis": "flat",
+		"url": "https://bitly.com/pages/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Short links are a redirect table, and four good open source projects do it. The catch is unusual: a self-hosted shortener is the most brittle thing you will ever run, because every printed QR code and every posted link dies permanently the day your domain lapses.",
+		"fr": "Les liens courts sont une table de redirection, et quatre bons projets open source le font. Le piège est inhabituel : un raccourcisseur auto-hébergé est la chose la plus fragile que vous exploiterez, car chaque QR code imprimé et chaque lien publié meurt définitivement le jour où votre domaine expire."
+	},
+	"whatYouLose": [
+		{
+			"en": "Domain reputation with spam filters",
+			"fr": "Réputation du domaine auprès des filtres anti-spam"
+		},
+		{
+			"en": "Links that survive your company",
+			"fr": "Liens qui survivent à votre entreprise"
+		},
+		{
+			"en": "Uptime on the redirect path",
+			"fr": "Disponibilité sur le chemin de redirection"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Dub",
+			"source": {
+				"host": "github",
+				"path": "dubinc/dub",
+				"url": "https://github.com/dubinc/dub"
+			},
+			"license": "AGPL-3.0 core, partner program and admin under a commercial ee licence",
+			"effort": "docker",
+			"note": {
+				"en": "The best-looking one by far: custom domains, QR codes, analytics, link cloaking. Note that the partner/affiliate program and admin app are commercially licensed (ee), not AGPL.",
+				"fr": "De loin le plus soigné : domaines personnalisés, QR codes, statistiques, masquage de liens. Notez que le programme partenaires/affiliation et l’app admin sont sous licence commerciale (ee), pas AGPL."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "The whole partner and affiliate program, the admin app and parts of analytics sit under the commercial (ee) licence",
+					"fr": "Tout le programme partenaires/affiliation, l’app admin et une partie des statistiques sont sous licence commerciale (ee)"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Shlink",
+			"source": {
+				"host": "github",
+				"path": "shlinkio/shlink",
+				"url": "https://github.com/shlinkio/shlink"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The boring, correct choice: a REST API, multi-domain support, QR codes, real geolocation stats, and it has been maintained for years.",
+				"fr": "Le choix ennuyeux et juste : API REST, multi-domaines, QR codes, vraies statistiques géographiques, et maintenu depuis des années."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "YOURLS",
+			"source": {
+				"host": "github",
+				"path": "YOURLS/YOURLS",
+				"url": "https://github.com/YOURLS/YOURLS"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "PHP, one file, runs on the cheapest shared host in existence. Ugly admin, enormous plugin ecosystem.",
+				"fr": "En PHP, un fichier, tourne sur l’hébergement mutualisé le moins cher qui soit. Interface d’admin laide, écosystème de plugins énorme."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kutt",
+			"source": {
+				"host": "github",
+				"path": "thedevs-network/kutt",
+				"url": "https://github.com/thedevs-network/kutt"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Modern, clean, API-first, with password-protected and expiring links.",
+				"fr": "Moderne, propre, API d’abord, avec liens protégés par mot de passe et à expiration."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Short.io",
+			"url": "https://short.io",
+			"priceMonthly": 18,
+			"note": {
+				"en": "Cheaper than Bitly with unlimited branded domains. Smaller company holding your redirect path.",
+				"fr": "Moins cher que Bitly avec des domaines de marque illimités. Une plus petite entreprise détient votre chemin de redirection."
+			}
+		}
+	],
+	"priority": 4
+}

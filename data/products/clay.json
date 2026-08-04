@@ -1,0 +1,117 @@
+{
+	"slug": "clay",
+	"name": "Clay",
+	"domain": "clay.com",
+	"category": "sales-outreach-data",
+	"priceMonthly": 167,
+	"pricing": {
+		"plan": "Launch, from USD 167/mo (15,000 actions/mo)",
+		"basis": "usage",
+		"url": "https://www.clay.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Clay is a spreadsheet that fans a row out to a hundred paid data providers and merges the answers. You can self-host the spreadsheet and the orchestration in a day; the hundred providers are the product, and every one of them still bills you per credit.",
+		"fr": "Clay est un tableur qui envoie chaque ligne vers une centaine de fournisseurs de données payants et fusionne les réponses. Vous pouvez auto-héberger le tableur et l’orchestration en un jour ; les cent fournisseurs sont le produit, et chacun vous facture toujours au crédit."
+	},
+	"whatYouLose": [
+		{
+			"en": "Bundled credits across 100+ providers",
+			"fr": "Crédits groupés chez plus de 100 fournisseurs"
+		},
+		{
+			"en": "Waterfall enrichment logic",
+			"fr": "Logique d’enrichissement en cascade"
+		},
+		{
+			"en": "A spreadsheet a non-engineer can drive",
+			"fr": "Un tableur pilotable sans être développeur"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Windmill",
+			"source": {
+				"host": "github",
+				"path": "windmill-labs/windmill",
+				"url": "https://github.com/windmill-labs/windmill"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Scripts, schedules, retries and a UI over them — a genuine self-hosted substitute for the orchestration half. SSO, audit logs and Git sync are the enterprise tier.",
+				"fr": "Scripts, planifications, réessais et une interface par-dessus — un vrai substitut auto-hébergé pour la partie orchestration. SSO, journaux d’audit et sync Git sont l’offre entreprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO/SAML, audit logs, Git sync and distributed workers are enterprise",
+					"fr": "SSO/SAML, journaux d’audit, sync Git et workers distribués sont réservés à l’entreprise"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "n8n",
+			"source": {
+				"host": "github",
+				"path": "n8n-io/n8n",
+				"url": "https://github.com/n8n-io/n8n"
+			},
+			"license": "Sustainable Use Licence (not OSI-approved)",
+			"effort": "docker",
+			"note": {
+				"en": "The tool everyone reaches for, and it does the job — but it is source-available, not open source, and the .ee files need an enterprise key. Say that out loud before you standardise on it.",
+				"fr": "L’outil vers lequel tout le monde se tourne, et il fait le travail — mais c’est du source-available, pas de l’open source, et les fichiers .ee exigent une clé entreprise. Dites-le tout haut avant d’en faire un standard."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Sustainable Use Licence, not OSI open source: SSO, RBAC, environments, log streaming and every .ee file need an enterprise key",
+					"fr": "Licence Sustainable Use, pas de l’open source OSI : SSO, RBAC, environnements, log streaming et tous les fichiers .ee exigent une clé entreprise"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SpiderFoot",
+			"source": {
+				"host": "github",
+				"path": "smicallef/spiderfoot",
+				"url": "https://github.com/smicallef/spiderfoot"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Free public-source enrichment to put at the top of the waterfall, so you burn fewer paid credits.",
+				"fr": "Enrichissement gratuit depuis des sources publiques, à placer en haut de la cascade pour brûler moins de crédits payants."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Make",
+			"url": "https://www.make.com",
+			"priceMonthly": 9,
+			"note": {
+				"en": "The same fan-out pattern for a tenth of the price if you already hold the provider API keys. No enrichment credits included and a much clumsier table view.",
+				"fr": "Le même schéma d’éclatement pour un dixième du prix si vous avez déjà les clés API des fournisseurs. Aucun crédit d’enrichissement inclus et une vue tableau bien plus rudimentaire."
+			}
+		}
+	],
+	"priority": 4
+}

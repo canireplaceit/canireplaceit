@@ -1,0 +1,103 @@
+{
+	"slug": "muck-rack",
+	"name": "Muck Rack",
+	"domain": "muckrack.com",
+	"category": "marketing",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "not-yet",
+	"why": {
+		"en": "Muck Rack's value is that it knows which journalist covers what, this week, and that the journalists themselves maintain their profiles. That is a two-sided dataset kept fresh by humans — monitoring tools you host yourself replace the reporting, never the rolodex.",
+		"fr": "La valeur de Muck Rack, c’est de savoir quel journaliste couvre quoi, cette semaine, et que les journalistes eux-mêmes tiennent leurs profils à jour. C’est un jeu de données à deux faces entretenu par des humains — les outils de veille que vous hébergez remplacent les rapports, jamais le carnet d’adresses."
+	},
+	"whatYouLose": [
+		{
+			"en": "The journalist database",
+			"fr": "La base de journalistes"
+		},
+		{
+			"en": "Pitch tracking and open rates",
+			"fr": "Suivi des pitchs et des taux d’ouverture"
+		},
+		{
+			"en": "Coverage reports for clients",
+			"fr": "Rapports de retombées pour les clients"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "changedetection.io",
+			"source": {
+				"host": "github",
+				"path": "dgtlmoon/changedetection.io",
+				"url": "https://github.com/dgtlmoon/changedetection.io"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Alerts when your brand shows up on pages you care about. Covers the monitoring, not the outreach.",
+				"fr": "Alerte quand votre marque apparaît sur les pages qui comptent. Couvre la veille, pas la prise de contact."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FreshRSS",
+			"source": {
+				"host": "github",
+				"path": "FreshRSS/FreshRSS",
+				"url": "https://github.com/FreshRSS/FreshRSS"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Follow every publication and journalist that matters through their feeds, for free.",
+				"fr": "Suivez gratuitement, via leurs flux, chaque publication et chaque journaliste qui compte."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mautic",
+			"source": {
+				"host": "github",
+				"path": "mautic/mautic",
+				"url": "https://github.com/mautic/mautic"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Handles the pitch sending and open tracking half. You still assemble the list by hand, which is the actual work.",
+				"fr": "Gère l’envoi des pitchs et le suivi des ouvertures. Vous constituez toujours la liste à la main, ce qui est le vrai travail."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "JustReachOut",
+			"url": "https://justreachout.io",
+			"priceMonthly": 197,
+			"note": {
+				"en": "Journalist search and pitching at a fraction of an agency-tier contract. Much smaller database and no coverage analytics.",
+				"fr": "Recherche de journalistes et pitch pour une fraction d’un contrat de niveau agence. Base bien plus petite et pas d’analyse des retombées."
+			}
+		}
+	],
+	"priority": 2
+}

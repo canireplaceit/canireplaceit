@@ -1,0 +1,113 @@
+{
+	"slug": "nordvpn",
+	"name": "NordVPN",
+	"domain": "nordvpn.com",
+	"category": "networking-vpn",
+	"priceMonthly": 4.99,
+	"pricing": {
+		"plan": "Basic, 1-year term",
+		"basis": "flat",
+		"url": "https://nordvpn.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "low"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "You can stand up your own WireGuard endpoint in ten minutes and it will be faster and more private in the technical sense. It will also be an IP address used by exactly one person: you. Commercial VPNs sell crowd cover, and a crowd is the one thing you cannot self-host.",
+		"fr": "Vous pouvez monter votre propre point de terminaison WireGuard en dix minutes, et il sera plus rapide et plus privé au sens technique. Ce sera aussi une adresse IP utilisée par exactement une personne : vous. Les VPN commerciaux vendent l’anonymat de la foule, et une foule est précisément ce qui ne s’auto-héberge pas."
+	},
+	"whatYouLose": [
+		{
+			"en": "Shared-IP anonymity",
+			"fr": "Anonymat par IP partagée"
+		},
+		{
+			"en": "Exit nodes in 100+ countries",
+			"fr": "Sorties dans 100+ pays"
+		},
+		{
+			"en": "Geo-unblocking that works",
+			"fr": "Déblocage géo qui fonctionne"
+		},
+		{
+			"en": "No-logs audits",
+			"fr": "Audits no-logs"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Algo VPN",
+			"source": {
+				"host": "github",
+				"path": "trailofbits/algo",
+				"url": "https://github.com/trailofbits/algo"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Trail of Bits' Ansible playbook: one command, a hardened WireGuard server on a cloud VM you rent. Perfect for hostile Wi-Fi, useless for anonymity.",
+				"fr": "Le playbook Ansible de Trail of Bits : une commande, un serveur WireGuard durci sur une VM cloud que vous louez. Parfait contre le Wi-Fi hostile, inutile pour l’anonymat."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "AmneziaVPN",
+			"source": {
+				"host": "github",
+				"path": "amnezia-vpn/amnezia-client",
+				"url": "https://github.com/amnezia-vpn/amnezia-client"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Installs an obfuscated VPN on your own VPS from a desktop app, aimed at censored networks where plain WireGuard is fingerprinted and blocked.",
+				"fr": "Installe un VPN obfusqué sur votre propre VPS depuis une application de bureau, pensé pour les réseaux censurés où WireGuard brut est identifié et bloqué."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "wg-easy",
+			"source": {
+				"host": "github",
+				"path": "wg-easy/wg-easy",
+				"url": "https://github.com/wg-easy/wg-easy"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "If you only want to reach your home network from a café, this is the honest answer and it costs nothing.",
+				"fr": "Si vous voulez seulement joindre votre réseau domestique depuis un café, c’est la réponse honnête, et elle ne coûte rien."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Mullvad",
+			"url": "https://mullvad.net/en/pricing",
+			"priceMonthly": 5,
+			"note": {
+				"en": "Flat €5/month, no accounts, no email, cash accepted, and repeatedly audited. If you are buying crowd cover, buy it from the people who ask you for the least.",
+				"fr": "5 €/mois fixes, sans compte, sans e-mail, espèces acceptées, et audité à répétition. Si vous achetez l’anonymat de la foule, achetez-le à ceux qui vous demandent le moins."
+			}
+		}
+	],
+	"priority": 3
+}

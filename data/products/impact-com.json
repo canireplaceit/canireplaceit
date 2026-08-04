@@ -1,0 +1,90 @@
+{
+	"slug": "impact-com",
+	"name": "impact.com",
+	"domain": "impact.com",
+	"category": "advertising-affiliate",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "not-yet",
+	"why": {
+		"en": "The tracking is trivial; the network is not. You are paying for a marketplace of vetted publishers, payouts with tax handling in dozens of countries, and fraud detection. Self-hosting a click tracker gets you none of those three.",
+		"fr": "Le tracking est trivial ; le réseau non. Vous payez pour une place de marché d’éditeurs vérifiés, des paiements avec la fiscalité de dizaines de pays, et la détection de fraude. Auto-héberger un tracker de clics ne vous donne aucun des trois."
+	},
+	"whatYouLose": [
+		{
+			"en": "The publisher marketplace",
+			"fr": "La place de marché d’éditeurs"
+		},
+		{
+			"en": "Global payouts and tax forms",
+			"fr": "Paiements internationaux et fiscalité"
+		},
+		{
+			"en": "Fraud and compliance monitoring",
+			"fr": "Surveillance de la fraude et de la conformité"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Dub",
+			"source": {
+				"host": "github",
+				"path": "dubinc/dub",
+				"url": "https://github.com/dubinc/dub"
+			},
+			"license": "AGPL-3.0 core, partner program under a commercial ee licence",
+			"effort": "docker",
+			"note": {
+				"en": "Dub has the best-looking partner program in open source — except that exact feature lives in the (ee) directory under a commercial licence. The AGPL half gives you tracked links and analytics, not payouts.",
+				"fr": "Dub a le plus beau programme partenaires de l’open source — sauf que cette fonctionnalité précise vit dans le dossier (ee) sous licence commerciale. La moitié AGPL vous donne des liens tracés et des statistiques, pas les paiements."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "The whole partner and affiliate program, the admin app and parts of analytics sit under the commercial (ee) licence",
+					"fr": "Tout le programme partenaires/affiliation, l’app admin et une partie des statistiques sont sous licence commerciale (ee)"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Affiliates for WordPress",
+			"source": {
+				"host": "github",
+				"path": "itthinx/affiliates",
+				"url": "https://github.com/itthinx/affiliates"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Small, old and genuinely GPL. Tracks referrals and commissions on a WordPress site; tiers, coupons and payment integrations are the paid Pro editions.",
+				"fr": "Petit, ancien et réellement GPL. Suit parrainages et commissions sur un site WordPress ; paliers, coupons et intégrations de paiement sont dans les éditions Pro payantes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Tiers, coupon tracking and the payment integrations are in the paid Affiliates Pro/Enterprise editions",
+					"fr": "Les paliers, le suivi des coupons et les intégrations de paiement sont dans les éditions payantes Affiliates Pro/Enterprise"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Rewardful",
+			"url": "https://www.getrewardful.com",
+			"priceMonthly": 49,
+			"note": {
+				"en": "If you only need to pay your own referrers through Stripe, this replaces impact.com entirely for a rounding error. It gives you no network at all.",
+				"fr": "Si vous devez seulement payer vos propres apporteurs via Stripe, ceci remplace impact.com entièrement pour une somme dérisoire. Il ne vous donne aucun réseau."
+			}
+		}
+	],
+	"priority": 3
+}

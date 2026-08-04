@@ -1,0 +1,93 @@
+{
+	"slug": "cisco-ise",
+	"name": "Cisco Identity Services Engine",
+	"domain": "cisco.com",
+	"category": "security",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "PacketFence does 802.1X, MAB, guest portals, profiling and quarantine across mixed-vendor switches — in some ways better than ISE, which is happiest when everything is Cisco. The gap is TrustSec and the deep Cisco fabric integration, plus the fact that nobody was ever fired for buying ISE.",
+		"fr": "PacketFence fait le 802.1X, le MAB, les portails invités, le profilage et la mise en quarantaine sur des commutateurs multi-constructeurs — à certains égards mieux qu’ISE, qui n’est vraiment à l’aise que quand tout est Cisco. L’écart, c’est TrustSec et l’intégration profonde au fabric Cisco, plus le fait que personne n’a jamais été licencié pour avoir acheté ISE."
+	},
+	"whatYouLose": [
+		{
+			"en": "TrustSec / SGT tagging",
+			"fr": "Étiquetage TrustSec / SGT"
+		},
+		{
+			"en": "Cisco fabric integration",
+			"fr": "Intégration au fabric Cisco"
+		},
+		{
+			"en": "Vendor-certified deployment",
+			"fr": "Déploiement certifié éditeur"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "PacketFence",
+			"source": {
+				"host": "github",
+				"path": "inverse-inc/packetfence",
+				"url": "https://github.com/inverse-inc/packetfence"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "A complete NAC: captive portals, device profiling, compliance checks, VLAN enforcement, and support for dozens of switch vendors. Everything is in the GPL build — the vendor sells support, not features.",
+				"fr": "Un NAC complet : portails captifs, profilage d’appareils, contrôles de conformité, application de VLAN, et prise en charge de dizaines de constructeurs. Tout est dans la build GPL — l’éditeur vend du support, pas des fonctionnalités."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FreeRADIUS",
+			"source": {
+				"host": "github",
+				"path": "FreeRADIUS/freeradius-server",
+				"url": "https://github.com/FreeRADIUS/freeradius-server"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The RADIUS server underneath most of the industry, ISE's own competitors included. Raw, text-configured, and it will authenticate anything.",
+				"fr": "Le serveur RADIUS qui sous-tend une bonne partie du secteur, concurrents d’ISE compris. Brut, configuré en texte, et il authentifiera n’importe quoi."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenWISP RADIUS",
+			"source": {
+				"host": "github",
+				"path": "openwisp/openwisp-radius",
+				"url": "https://github.com/openwisp/openwisp-radius"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Adds the parts operators need around FreeRADIUS: self-service registration, social and SAML login for guest Wi-Fi, prepaid sessions and accounting.",
+				"fr": "Ajoute autour de FreeRADIUS ce dont les opérateurs ont besoin : inscription en libre-service, connexion sociale et SAML pour le Wi-Fi invité, sessions prépayées et comptabilisation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

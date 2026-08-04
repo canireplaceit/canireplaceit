@@ -1,0 +1,93 @@
+{
+	"slug": "figshare",
+	"name": "Figshare",
+	"domain": "figshare.com",
+	"category": "research-science",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "A research data repository is a file store, a metadata schema and a DOI. Dataverse and InvenioRDM — the software behind Harvard's and CERN's repositories — do all three and are used by national infrastructures. Budget for a DataCite membership: DOIs are the part you genuinely cannot self-host.",
+		"fr": "Un entrepôt de données de recherche, c’est un stockage de fichiers, un schéma de métadonnées et un DOI. Dataverse et InvenioRDM — les logiciels derrière les entrepôts de Harvard et du CERN — font les trois et équipent des infrastructures nationales. Prévoyez une adhésion DataCite : les DOI sont la seule partie que vous ne pouvez vraiment pas auto-héberger."
+	},
+	"whatYouLose": [
+		{
+			"en": "DOI minting included",
+			"fr": "Attribution de DOI incluse"
+		},
+		{
+			"en": "Preservation guarantees",
+			"fr": "Garanties de pérennisation"
+		},
+		{
+			"en": "Publisher integrations",
+			"fr": "Intégrations avec les éditeurs"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Dataverse",
+			"source": {
+				"host": "github",
+				"path": "IQSS/dataverse",
+				"url": "https://github.com/IQSS/dataverse"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Harvard's repository software, run by dozens of national installations. Deep metadata, versioned datasets, restricted-access workflows. A Java estate to operate.",
+				"fr": "Le logiciel d’entrepôt de Harvard, exploité par des dizaines d’installations nationales. Métadonnées riches, jeux de données versionnés, accès restreints. Un parc Java à opérer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "InvenioRDM",
+			"source": {
+				"host": "github",
+				"path": "inveniosoftware/invenio-app-rdm",
+				"url": "https://github.com/inveniosoftware/invenio-app-rdm"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "The engine under Zenodo. Modern stack, good DOI and ORCID integration, and the closest thing to Figshare's UX in open source.",
+				"fr": "Le moteur sous Zenodo. Pile moderne, bonne intégration DOI et ORCID, et ce qui se rapproche le plus de l’UX de Figshare en open source."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CKAN",
+			"source": {
+				"host": "github",
+				"path": "ckan/ckan",
+				"url": "https://github.com/ckan/ckan"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Built for open government data rather than papers, so weaker on citation metadata — but the easiest of the three to stand up.",
+				"fr": "Conçu pour les données publiques ouvertes plutôt que pour les articles, donc plus faible sur les métadonnées de citation — mais le plus simple des trois à déployer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

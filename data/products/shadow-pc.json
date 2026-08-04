@@ -1,0 +1,120 @@
+{
+	"slug": "shadow-pc",
+	"name": "Shadow PC",
+	"domain": "shadow.tech",
+	"category": "game-hosting-play",
+	"priceMonthly": 54.99,
+	"pricing": {
+		"plan": "Power",
+		"basis": "flat",
+		"url": "https://shadow.tech/us/shadowpc/offers/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Shadow rents you a whole Windows machine in a datacentre, which is genuinely useful if you own no GPU at all. If you do own one, Sunshine and Moonlight stream it to any screen in the house at lower latency and no monthly cost — the hardware is the only thing you were really renting.",
+		"fr": "Shadow vous loue une machine Windows entière en centre de données, ce qui est réellement utile si vous n’avez aucun GPU. Si vous en avez un, Sunshine et Moonlight le diffusent vers n’importe quel écran de la maison avec moins de latence et sans abonnement — le matériel est la seule chose que vous louiez vraiment."
+	},
+	"whatYouLose": [
+		{
+			"en": "A GPU you do not have to buy",
+			"fr": "Un GPU que vous n’avez pas à acheter"
+		},
+		{
+			"en": "Playing far from your own network",
+			"fr": "Jouer loin de votre propre réseau"
+		},
+		{
+			"en": "Windows kept patched for you",
+			"fr": "Windows maintenu à jour pour vous"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Sunshine",
+			"source": {
+				"host": "github",
+				"path": "LizardByte/Sunshine",
+				"url": "https://github.com/LizardByte/Sunshine"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The host half: it turns a PC you already own into a GameStream server. Paired with Moonlight on a decent link it beats GeForce Now on latency at home.",
+				"fr": "La moitié hôte : il transforme un PC que vous possédez déjà en serveur GameStream. Associé à Moonlight sur une bonne liaison, il bat GeForce Now en latence à la maison."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Moonlight",
+			"source": {
+				"host": "github",
+				"path": "moonlight-stream/moonlight-qt",
+				"url": "https://github.com/moonlight-stream/moonlight-qt"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The client half: Windows, macOS, Linux, Android, iOS, Steam Deck, even a Raspberry Pi. HDR and 120Hz where the hardware allows.",
+				"fr": "La moitié client : Windows, macOS, Linux, Android, iOS, Steam Deck, et même un Raspberry Pi. HDR et 120 Hz là où le matériel le permet."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Games on Whales",
+			"source": {
+				"host": "github",
+				"path": "games-on-whales/gow",
+				"url": "https://github.com/games-on-whales/gow"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Containers with GPU passthrough so several people can stream different games off one machine. The closest thing to running your own cloud gaming service.",
+				"fr": "Des conteneurs avec passthrough GPU pour que plusieurs personnes streament des jeux différents depuis une seule machine. Ce qui se rapproche le plus d’un service de cloud gaming maison."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apollo",
+			"source": {
+				"host": "github",
+				"path": "ClassicOldSong/Apollo",
+				"url": "https://github.com/ClassicOldSong/Apollo"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "A Sunshine fork that adds virtual displays and per-client resolution — the fix for streaming to a phone from a headless desktop.",
+				"fr": "Un fork de Sunshine qui ajoute les écrans virtuels et la résolution par client : le correctif pour streamer vers un téléphone depuis un poste sans écran."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

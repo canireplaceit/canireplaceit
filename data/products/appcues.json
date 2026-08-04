@@ -1,0 +1,118 @@
+{
+	"slug": "appcues",
+	"name": "Appcues",
+	"domain": "appcues.com",
+	"category": "comms",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "A product tour is a tooltip library and a JSON file. Appcues charges for the fact that a PM can build one without a deploy — worth real money in a slow release cycle, worth nothing if you ship daily.",
+		"fr": "Un tour produit, c’est une bibliothèque d’infobulles et un fichier JSON. Appcues facture le fait qu’un chef de produit puisse en construire un sans déploiement — cela vaut de l’argent avec un cycle de livraison lent, rien du tout si vous livrez tous les jours."
+	},
+	"whatYouLose": [
+		{
+			"en": "No-code tour building for PMs",
+			"fr": "Création de tours sans code"
+		},
+		{
+			"en": "Tour analytics and goal tracking",
+			"fr": "Statistiques de tours et suivi d’objectifs"
+		},
+		{
+			"en": "Targeting rules without a deploy",
+			"fr": "Règles de ciblage sans déploiement"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "driver.js",
+			"source": {
+				"host": "github",
+				"path": "nilbuild/driver.js",
+				"url": "https://github.com/nilbuild/driver.js"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Five kilobytes, no dependencies, MIT. The whole highlight-and-step-through problem, solved.",
+				"fr": "Cinq kilo-octets, aucune dépendance, MIT. Tout le problème « surligner et guider », résolu."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Shepherd",
+			"source": {
+				"host": "github",
+				"path": "shipshapecode/shepherd",
+				"url": "https://github.com/shipshapecode/shepherd"
+			},
+			"license": "AGPL-3.0 or commercial",
+			"effort": "managed",
+			"note": {
+				"en": "More capable and better-looking than driver.js — but check the licence: it is dual-licensed and commercial closed-source use is not free.",
+				"fr": "Plus complet et plus élégant que driver.js — mais vérifiez la licence : elle est double, et l’usage commercial propriétaire n’est pas gratuit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Intro.js",
+			"source": {
+				"host": "github",
+				"path": "usablica/intro.js",
+				"url": "https://github.com/usablica/intro.js"
+			},
+			"license": "AGPL-3.0 or commercial",
+			"effort": "managed",
+			"note": {
+				"en": "The original, still maintained, same dual-licence catch as Shepherd.",
+				"fr": "L’original, toujours maintenu, avec le même piège de double licence que Shepherd."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Formbricks",
+			"source": {
+				"host": "github",
+				"path": "formbricks/formbricks",
+				"url": "https://github.com/formbricks/formbricks"
+			},
+			"license": "AGPL-3.0 core with a large ee/ directory",
+			"effort": "docker",
+			"note": {
+				"en": "Covers the in-app survey and NPS half that Appcues bundles. Targeting by contact attributes, teams and SSO are in ee/.",
+				"fr": "Couvre la partie enquêtes in-app et NPS qu’Appcues regroupe. Le ciblage par attributs de contact, les équipes et le SSO sont dans ee/."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "SSO, teams and roles, audit logs, contact targeting and white-label are all in apps/web/modules/ee",
+					"fr": "SSO, équipes et rôles, journaux d’audit, ciblage des contacts et marque blanche sont tous dans apps/web/modules/ee"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

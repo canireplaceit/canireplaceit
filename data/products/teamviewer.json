@@ -1,0 +1,103 @@
+{
+	"slug": "teamviewer",
+	"name": "TeamViewer",
+	"domain": "teamviewer.com",
+	"category": "remote-access",
+	"priceMonthly": 25,
+	"pricing": {
+		"plan": "Remote Access, annual billed monthly (page geolocates, no USD figures served)",
+		"basis": "per-seat",
+		"url": "https://www.teamviewer.com/en-us/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "low"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "RustDesk connects to a machine behind NAT through your own relay and feels the same. Read the server licensing carefully though: the OSS server relays and nothing else — the web console, address book, LDAP and 2FA are all in the paid Server Pro.",
+		"fr": "RustDesk se connecte à une machine derrière du NAT via votre propre relais et donne la même sensation. Lisez toutefois attentivement la licence du serveur : le serveur OSS relaie et rien d’autre — la console web, le carnet d’adresses, LDAP et la 2FA sont tous dans le Server Pro payant."
+	},
+	"whatYouLose": [
+		{
+			"en": "Global relay network",
+			"fr": "Réseau mondial de relais"
+		},
+		{
+			"en": "Attended-support polish",
+			"fr": "Finition du support assisté"
+		},
+		{
+			"en": "Commercial-use licence certainty",
+			"fr": "Certitude de licence en usage commercial"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "RustDesk",
+			"source": {
+				"host": "github",
+				"path": "rustdesk/rustdesk",
+				"url": "https://github.com/rustdesk/rustdesk"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The client is fully AGPL and excellent. The self-hosted OSS server does relay and rendezvous only; web console, address book, LDAP/OIDC and 2FA are Server Pro at around $10/month.",
+				"fr": "Le client est entièrement AGPL et excellent. Le serveur OSS auto-hébergé ne fait que relais et rendez-vous ; console web, carnet d’adresses, LDAP/OIDC et 2FA sont dans Server Pro, autour de 10 $/mois."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Web console, address book, LDAP/OIDC SSO, 2FA and audit logs are Server Pro.",
+					"fr": "Console web, carnet d’adresses, SSO LDAP/OIDC, 2FA et journaux d’audit sont dans Server Pro."
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MeshCentral",
+			"source": {
+				"host": "github",
+				"path": "Ylianst/MeshCentral",
+				"url": "https://github.com/Ylianst/MeshCentral"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The most complete free option: remote desktop, terminal, files, wake-on-LAN, Intel AMT and device groups, with OIDC login included. One Node process, no paid tier at all.",
+				"fr": "L’option gratuite la plus complète : bureau distant, terminal, fichiers, wake-on-LAN, Intel AMT et groupes d’appareils, avec connexion OIDC incluse. Un processus Node, aucun palier payant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache Guacamole",
+			"source": {
+				"host": "github",
+				"path": "apache/guacamole-server",
+				"url": "https://github.com/apache/guacamole-server"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Clientless RDP, VNC and SSH in a browser tab with SAML/OIDC extensions. Great for servers, wrong shape for helping a colleague's laptop behind a home router.",
+				"fr": "RDP, VNC et SSH sans client dans un onglet de navigateur, avec extensions SAML/OIDC. Excellent pour des serveurs, inadapté pour dépanner le portable d’un collègue derrière une box."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 4
+}

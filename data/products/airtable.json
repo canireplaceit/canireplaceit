@@ -1,0 +1,111 @@
+{
+	"slug": "airtable",
+	"name": "Airtable",
+	"domain": "airtable.com",
+	"category": "notes-docs",
+	"priceMonthly": 20,
+	"pricing": {
+		"plan": "Team, billed annually",
+		"basis": "per-seat",
+		"url": "https://www.airtable.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Spreadsheet-over-a-database is a solved open source problem now. Automations are the weak spot.",
+		"fr": "Le tableur posé sur une base de données est un problème résolu en open source. Les automatisations restent le point faible."
+	},
+	"whatYouLose": [
+		{
+			"en": "Automations and scripting",
+			"fr": "Automatisations et scripting"
+		},
+		{
+			"en": "Interface Designer",
+			"fr": "Interface Designer"
+		},
+		{
+			"en": "Integration marketplace",
+			"fr": "Place de marché d’intégrations"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "NocoDB",
+			"source": {
+				"host": "github",
+				"path": "nocodb/nocodb",
+				"url": "https://github.com/nocodb/nocodb"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Points at an existing Postgres/MySQL.",
+				"fr": "Se branche sur un Postgres/MySQL existant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO, audit logs, workflows, dashboards, data sync",
+					"fr": "SSO, journaux d’audit, workflows, tableaux de bord, synchronisation"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Teable",
+			"source": {
+				"host": "github",
+				"path": "teableio/teable",
+				"url": "https://github.com/teableio/teable"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Closest to Airtable's grid feel.",
+				"fr": "Le plus proche de la grille d’Airtable."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO, AI features, enterprise admin controls",
+					"fr": "SSO, fonctions IA, contrôles d’administration entreprise"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Baserow",
+			"source": {
+				"host": "github",
+				"path": "bram2w/baserow",
+				"url": "https://github.com/bram2w/baserow"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Mature, plugin ecosystem.",
+				"fr": "Mature, écosystème de plugins."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO/SAML, RBAC, audit log, admin tools",
+					"fr": "SSO/SAML, RBAC, journal d’audit, outils d’administration"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

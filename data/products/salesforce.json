@@ -1,0 +1,82 @@
+{
+	"slug": "salesforce",
+	"name": "Salesforce",
+	"domain": "salesforce.com",
+	"category": "crm",
+	"priceMonthly": 25,
+	"pricing": {
+		"plan": "Sales Cloud Starter Suite",
+		"basis": "per-seat",
+		"url": "https://www.salesforce.com/sales/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "You are not buying software, you are buying a consultant ecosystem and 15 years of compliance checkboxes.",
+		"fr": "Vous n’achetez pas un logiciel, vous achetez un écosystème de consultants et 15 ans de cases de conformité déjà cochées."
+	},
+	"whatYouLose": [
+		{
+			"en": "Consultant ecosystem",
+			"fr": "Écosystème de consultants"
+		},
+		{
+			"en": "Compliance certifications",
+			"fr": "Certifications de conformité"
+		},
+		{
+			"en": "AppExchange",
+			"fr": "AppExchange"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "SuiteCRM",
+			"source": {
+				"host": "github",
+				"path": "salesagility/SuiteCRM",
+				"url": "https://github.com/salesagility/SuiteCRM"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The closest structural match.",
+				"fr": "La correspondance structurelle la plus proche."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Odoo CE",
+			"source": {
+				"host": "github",
+				"path": "odoo/odoo",
+				"url": "https://github.com/odoo/odoo"
+			},
+			"license": "LGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "CRM inside a full ERP.",
+				"fr": "Un CRM au sein d’un ERP complet."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Studio, full accounting, payroll, field service",
+					"fr": "Studio, comptabilité complète, paie, interventions"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

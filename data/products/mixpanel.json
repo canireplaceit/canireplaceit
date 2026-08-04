@@ -1,0 +1,80 @@
+{
+	"slug": "mixpanel",
+	"name": "Mixpanel",
+	"domain": "mixpanel.com",
+	"category": "analytics",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "Event analytics is commoditised. Self-hosting gets expensive at high event volume — that's the real tradeoff.",
+		"fr": "L’analytique d’événements est banalisée. L’auto-hébergement coûte cher à gros volume d’événements — c’est là le vrai arbitrage."
+	},
+	"whatYouLose": [
+		{
+			"en": "Scale without ops",
+			"fr": "Échelle sans exploitation"
+		},
+		{
+			"en": "Fast queries on huge volumes",
+			"fr": "Requêtes rapides sur gros volumes"
+		},
+		{
+			"en": "Polished report builder",
+			"fr": "Générateur de rapports soigné"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "PostHog",
+			"source": {
+				"host": "github",
+				"path": "PostHog/posthog",
+				"url": "https://github.com/PostHog/posthog"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Funnels, cohorts, session replay, flags.",
+				"fr": "Tunnels, cohortes, session replay, feature flags."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SAML SSO, RBAC, audit logs",
+					"fr": "SSO SAML, RBAC, journaux d’audit"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Countly",
+			"source": {
+				"host": "github",
+				"path": "Countly/countly-server",
+				"url": "https://github.com/Countly/countly-server"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Strong mobile SDKs.",
+				"fr": "Des SDK mobiles solides."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Drill, funnels, cohorts, retention, SSO",
+					"fr": "Drill, entonnoirs, cohortes, rétention, SSO"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

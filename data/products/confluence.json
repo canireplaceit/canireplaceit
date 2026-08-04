@@ -1,0 +1,124 @@
+{
+	"slug": "confluence",
+	"name": "Confluence",
+	"domain": "atlassian.com",
+	"category": "notes-docs",
+	"priceMonthly": 5.42,
+	"pricing": {
+		"plan": "Standard, per user",
+		"basis": "per-seat",
+		"url": "https://www.atlassian.com/software/confluence/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "A wiki. It is a wiki. Wikis have been open source since 1995.",
+		"fr": "Un wiki. C’est un wiki. Les wikis sont open source depuis 1995."
+	},
+	"whatYouLose": [
+		{
+			"en": "Jira integration",
+			"fr": "Intégration Jira"
+		},
+		{
+			"en": "Enterprise permissions",
+			"fr": "Permissions entreprise"
+		},
+		{
+			"en": "Macro ecosystem",
+			"fr": "Écosystème de macros"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Outline",
+			"source": {
+				"host": "github",
+				"path": "outline/outline",
+				"url": "https://github.com/outline/outline"
+			},
+			"license": "BSL",
+			"effort": "docker",
+			"note": {
+				"en": "Fast, good search, nice editor.",
+				"fr": "Rapide, bonne recherche, éditeur agréable."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "BookStack",
+			"source": {
+				"host": "codeberg",
+				"path": "bookstack/bookstack",
+				"url": "https://codeberg.org/bookstack/bookstack"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Shelves/books structure, dead simple.",
+				"fr": "Structure étagères/livres, d’une simplicité totale."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Docmost",
+			"source": {
+				"host": "github",
+				"path": "docmost/docmost",
+				"url": "https://github.com/docmost/docmost"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Spaces and permissions like Confluence.",
+				"fr": "Espaces et permissions à la Confluence."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO, granular permissions, audit logs",
+					"fr": "SSO, permissions granulaires, journaux d’audit"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Wiki.js",
+			"source": {
+				"host": "github",
+				"path": "requarks/wiki",
+				"url": "https://github.com/requarks/wiki"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Markdown, git-backed storage.",
+				"fr": "Markdown, stockage adossé à git."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

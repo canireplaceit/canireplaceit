@@ -1,0 +1,99 @@
+{
+	"slug": "cloudflare-load-balancing",
+	"name": "Cloudflare Load Balancing",
+	"domain": "cloudflare.com",
+	"category": "networking-vpn",
+	"priceMonthly": 5,
+	"pricing": {
+		"plan": "Load Balancing add-on, from USD 5/mo",
+		"basis": "usage",
+		"url": "https://www.cloudflare.com/plans/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Failing over between two datacentres is HAProxy plus keepalived and has been for fifteen years. Steering a user in Lagos to your Frankfurt origin because Ashburn is degraded needs health data from everywhere at once — that is what the subscription buys.",
+		"fr": "Basculer entre deux centres de données, c’est HAProxy plus keepalived, et ce depuis quinze ans. Orienter un utilisateur de Lagos vers votre origine de Francfort parce qu’Ashburn est dégradé exige des données de santé venues de partout à la fois — c’est ce que l’abonnement achète."
+	},
+	"whatYouLose": [
+		{
+			"en": "Geo-steering from the edge",
+			"fr": "Routage géographique depuis le edge"
+		},
+		{
+			"en": "Health probes worldwide",
+			"fr": "Sondes de santé mondiales"
+		},
+		{
+			"en": "DNS failover in seconds",
+			"fr": "Bascule DNS en secondes"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "HAProxy",
+			"source": {
+				"host": "github",
+				"path": "haproxy/haproxy",
+				"url": "https://github.com/haproxy/haproxy"
+			},
+			"license": "GPL-2.0 (LGPL-2.1 for libs)",
+			"effort": "ops",
+			"note": {
+				"en": "Layer 4 and 7 balancing with real health checks and circuit breaking. Pair it with keepalived and the VIP moves in under a second.",
+				"fr": "Répartition en couche 4 et 7 avec vrais health checks et coupe-circuit. Associé à keepalived, la VIP bascule en moins d’une seconde."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "keepalived",
+			"source": {
+				"host": "github",
+				"path": "acassen/keepalived",
+				"url": "https://github.com/acassen/keepalived"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "VRRP failover and IPVS director. The unglamorous piece that makes a pair of proxies behave as one address.",
+				"fr": "Bascule VRRP et directeur IPVS. La pièce ingrate qui fait qu’une paire de proxys se comporte comme une seule adresse."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Envoy",
+			"source": {
+				"host": "github",
+				"path": "envoyproxy/envoy",
+				"url": "https://github.com/envoyproxy/envoy"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Outlier detection, zone-aware routing and retries with budgets, driven by a control plane you write. Enormous power, enormous configuration.",
+				"fr": "Détection des anomalies, routage conscient des zones et réessais budgétés, pilotés par un plan de contrôle que vous écrivez. Puissance énorme, configuration énorme."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

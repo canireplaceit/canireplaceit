@@ -1,0 +1,99 @@
+{
+	"slug": "agora",
+	"name": "Agora",
+	"domain": "agora.io",
+	"category": "video",
+	"priceMonthly": null,
+	"pricing": {
+		"plan": "Pay-as-you-go: video calling from $3.99/1,000 min, voice calling and interactive live streaming from $0.99/1,000 min, broadcast streaming from $0.59/1,000 min; first 10,000 min/month free. Signaling from $59/mo, Chat from $349/mo",
+		"basis": "usage",
+		"url": "https://www.agora.io/en/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Agora's differentiator is its SD-RTN overlay: audio that stays intelligible from a bad network in a country with bad peering. You can self-host the SFU with LiveKit and match it in a single region, but 'sounds fine from Jakarta' is a network you would have to buy.",
+		"fr": "Le différenciateur d’Agora est son overlay SD-RTN : un son qui reste intelligible depuis un mauvais réseau dans un pays au peering médiocre. Vous pouvez auto-héberger le SFU avec LiveKit et l’égaler sur une région, mais « ça passe bien depuis Jakarta » est un réseau qu’il faudrait acheter."
+	},
+	"whatYouLose": [
+		{
+			"en": "Software-defined RTN overlay",
+			"fr": "Overlay réseau SD-RTN"
+		},
+		{
+			"en": "China-region delivery",
+			"fr": "Diffusion en Chine"
+		},
+		{
+			"en": "Turnkey mobile SDKs",
+			"fr": "SDK mobiles clés en main"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "LiveKit",
+			"source": {
+				"host": "github",
+				"path": "livekit/livekit",
+				"url": "https://github.com/livekit/livekit"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The realistic replacement for the API surface: rooms, tokens, tracks, recording, and SDKs across web, iOS, Android, Unity and Flutter.",
+				"fr": "Le remplaçant réaliste de la surface d’API : salles, jetons, pistes, enregistrement, et SDK pour web, iOS, Android, Unity et Flutter."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Janus",
+			"source": {
+				"host": "github",
+				"path": "meetecho/janus-gateway",
+				"url": "https://github.com/meetecho/janus-gateway"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "A general-purpose WebRTC gateway with plugins for SFU, streaming and SIP bridging. Battle-tested, C, and expects you to know WebRTC.",
+				"fr": "Une passerelle WebRTC généraliste avec greffons SFU, streaming et pont SIP. Éprouvée, en C, et suppose que vous connaissez WebRTC."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pion WebRTC",
+			"source": {
+				"host": "github",
+				"path": "pion/webrtc",
+				"url": "https://github.com/pion/webrtc"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "The Go WebRTC stack most of these projects are built on. Choose it when the product is the media pipeline itself.",
+				"fr": "La pile WebRTC en Go sur laquelle la plupart de ces projets sont bâtis. À choisir quand le produit, c’est le pipeline média lui-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

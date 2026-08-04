@@ -1,0 +1,115 @@
+{
+	"slug": "optimizely",
+	"name": "Optimizely Web Experimentation",
+	"domain": "optimizely.com",
+	"category": "marketing",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "The statistics are published, the SDKs are commodities, and GrowthBook does server-side experimentation as well as anyone. What survives is the visual editor that lets a marketer change a headline without a deploy — and in open source that is exactly the feature behind the enterprise wall.",
+		"fr": "Les statistiques sont publiées, les SDK sont des commodités, et GrowthBook fait de l’expérimentation côté serveur aussi bien que quiconque. Ce qui subsiste, c’est l’éditeur visuel qui permet à un marketeur de changer un titre sans déploiement — et en open source, c’est précisément la fonctionnalité derrière le mur entreprise."
+	},
+	"whatYouLose": [
+		{
+			"en": "The WYSIWYG visual editor",
+			"fr": "L’éditeur visuel WYSIWYG"
+		},
+		{
+			"en": "Statistics support when results are argued",
+			"fr": "Support stats quand les résultats sont contestés"
+		},
+		{
+			"en": "Personalisation and audience targeting",
+			"fr": "Personnalisation et ciblage d’audience"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "GrowthBook",
+			"source": {
+				"host": "github",
+				"path": "growthbook/growthbook",
+				"url": "https://github.com/growthbook/growthbook"
+			},
+			"license": "MIT core with an enterprise licence over packages/*/enterprise",
+			"effort": "docker",
+			"note": {
+				"en": "Runs experiments against your own warehouse, with a Bayesian engine and SDKs everywhere. SSO, audit logs, custom roles and the visual editor are the enterprise directories.",
+				"fr": "Fait tourner les expériences sur votre propre entrepôt, avec un moteur bayésien et des SDK partout. SSO, journaux d’audit, rôles personnalisés et l’éditeur visuel sont dans les dossiers entreprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO/SAML, audit logs, custom roles and the visual editor live under packages/*/enterprise",
+					"fr": "SSO/SAML, journaux d’audit, rôles personnalisés et l’éditeur visuel vivent sous packages/*/enterprise"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Unleash",
+			"source": {
+				"host": "github",
+				"path": "Unleash/unleash",
+				"url": "https://github.com/Unleash/unleash"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Excellent flag and gradual rollout infrastructure. SSO, RBAC and change requests are enterprise-only.",
+				"fr": "Excellente infrastructure de flags et de déploiements progressifs. SSO, RBAC et demandes de changement sont réservés à l’entreprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO/SAML, RBAC, change requests and approval workflows are enterprise-only",
+					"fr": "SSO/SAML, RBAC, demandes de changement et validations sont réservés à l’édition entreprise"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PostHog",
+			"source": {
+				"host": "github",
+				"path": "PostHog/posthog",
+				"url": "https://github.com/PostHog/posthog"
+			},
+			"license": "MIT core with an ee/ directory",
+			"effort": "docker",
+			"note": {
+				"en": "Experiments, analytics and session replay in one box. Self-hosting is only supported at hobby scale — above that they push you to cloud.",
+				"fr": "Expériences, analytics et rejeu de session dans une seule boîte. L’auto-hébergement n’est soutenu qu’à petite échelle — au-delà, ils vous poussent vers le cloud."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO/SAML, project permissions and advanced roles live under ee/, and self-hosting is only supported at hobby scale",
+					"fr": "SSO/SAML, permissions par projet et rôles avancés vivent sous ee/, et l’auto-hébergement n’est soutenu qu’à petite échelle"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Statsig",
+			"url": "https://statsig.com",
+			"priceMonthly": 0,
+			"note": {
+				"en": "A genuinely generous free tier with a serious stats engine, from the team that built Facebook's. Hosted only, and you are on their infrastructure.",
+				"fr": "Un palier gratuit réellement généreux avec un moteur statistique sérieux, par l’équipe qui a bâti celui de Facebook. Hébergé uniquement, et vous êtes sur leur infrastructure."
+			}
+		}
+	],
+	"priority": 4
+}

@@ -1,0 +1,107 @@
+{
+	"slug": "shopify",
+	"name": "Shopify",
+	"domain": "shopify.com",
+	"category": "e-commerce",
+	"priceMonthly": 39,
+	"pricing": {
+		"plan": "Basic, billed monthly",
+		"basis": "flat",
+		"url": "https://www.shopify.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "The cart is easy. The app store, themes, payments and fraud handling are what $39 actually buys.",
+		"fr": "Le panier est facile. L’app store, les thèmes, les paiements et la gestion de la fraude, voilà ce que 39 $ achètent réellement."
+	},
+	"whatYouLose": [
+		{
+			"en": "App store ecosystem",
+			"fr": "Écosystème d’apps"
+		},
+		{
+			"en": "Payments and fraud handling",
+			"fr": "Paiements et gestion de la fraude"
+		},
+		{
+			"en": "Theme marketplace",
+			"fr": "Galerie de thèmes"
+		},
+		{
+			"en": "PCI compliance handled",
+			"fr": "Conformité PCI prise en charge"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Medusa",
+			"source": {
+				"host": "github",
+				"path": "medusajs/medusa",
+				"url": "https://github.com/medusajs/medusa"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Headless, Node, best DX.",
+				"fr": "Headless, en Node, la meilleure DX."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Saleor",
+			"source": {
+				"host": "github",
+				"path": "saleor/saleor",
+				"url": "https://github.com/saleor/saleor"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "ops",
+			"note": {
+				"en": "GraphQL-first, enterprise scale.",
+				"fr": "GraphQL d’abord, à l’échelle entreprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "WooCommerce",
+			"source": {
+				"host": "github",
+				"path": "woocommerce/woocommerce",
+				"url": "https://github.com/woocommerce/woocommerce"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Boring, huge plugin market.",
+				"fr": "Ennuyeux, énorme marché d’extensions."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Subscriptions, bookings and official extensions",
+					"fr": "Abonnements, réservations et extensions officielles"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

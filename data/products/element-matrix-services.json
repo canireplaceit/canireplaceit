@@ -1,0 +1,93 @@
+{
+	"slug": "element-matrix-services",
+	"name": "Element Matrix Services",
+	"domain": "element.io",
+	"category": "comms",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "This is the rare case where the vendor hands you the server: Synapse is AGPL and is the same code EMS runs. You are buying operations — federation debugging, upgrades, and a database that grows terrifyingly if you join large public rooms.",
+		"fr": "C’est le cas rare où l’éditeur vous donne le serveur : Synapse est en AGPL et c’est le code même qu’exploite EMS. Vous achetez de l’exploitation — débogage de fédération, mises à jour, et une base qui grossit de manière terrifiante si vous rejoignez de grandes salles publiques."
+	},
+	"whatYouLose": [
+		{
+			"en": "Managed upgrades and backups",
+			"fr": "Mises à jour et sauvegardes gérées"
+		},
+		{
+			"en": "Enterprise admin console",
+			"fr": "Console d’admin entreprise"
+		},
+		{
+			"en": "Compliance and support SLA",
+			"fr": "SLA de conformité et support"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Synapse",
+			"source": {
+				"host": "github",
+				"path": "element-hq/synapse",
+				"url": "https://github.com/element-hq/synapse"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "The reference homeserver, with OIDC and SAML in the free build. Relicensed from Apache-2.0 to AGPL in 2023 and moved to element-hq — pin your version and read the licence before you embed it in a product.",
+				"fr": "Le homeserver de référence, avec OIDC et SAML dans la build gratuite. Relicencié d’Apache-2.0 en AGPL en 2023 et déplacé sous element-hq — fixez votre version et lisez la licence avant de l’embarquer dans un produit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dendrite",
+			"source": {
+				"host": "github",
+				"path": "element-hq/dendrite",
+				"url": "https://github.com/element-hq/dendrite"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The Go homeserver: far lighter on RAM than Synapse and pleasant for a small federation, but it still trails on feature completeness.",
+				"fr": "Le homeserver en Go : bien plus léger en RAM que Synapse et agréable pour une petite fédération, mais toujours en retard côté exhaustivité fonctionnelle."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Zulip",
+			"source": {
+				"host": "github",
+				"path": "zulip/zulip",
+				"url": "https://github.com/zulip/zulip"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "If you want a team chat rather than a federated network, Zulip's threading model is better than either, and the self-hosted build has SAML and no seat cap.",
+				"fr": "Si vous voulez un chat d’équipe plutôt qu’un réseau fédéré, le modèle de fils de Zulip surpasse les deux, et la build auto-hébergée offre SAML sans limite d’utilisateurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

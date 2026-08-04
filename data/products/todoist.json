@@ -1,0 +1,145 @@
+{
+	"slug": "todoist",
+	"name": "Todoist",
+	"domain": "todoist.com",
+	"category": "productivity",
+	"priceMonthly": 5,
+	"pricing": {
+		"plan": "Pro",
+		"basis": "per-seat",
+		"url": "https://www.todoist.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "low"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Todoist's moat is natural-language date parsing and apps on every platform, not the data model. Vikunja gives you the same projects, labels, filters and recurring tasks with a real API, and Tasks.org on Android talks to it over CalDAV.",
+		"fr": "Le fossé de Todoist, c’est l’analyse des dates en langage naturel et des applications sur toutes les plateformes, pas le modèle de données. Vikunja vous donne les mêmes projets, étiquettes, filtres et tâches récurrentes avec une vraie API, et Tasks.org sur Android lui parle en CalDAV."
+	},
+	"whatYouLose": [
+		{
+			"en": "\"every 2nd tuesday\" date parsing",
+			"fr": "Analyse de « tous les 2e mardis »"
+		},
+		{
+			"en": "Apps on every platform and watch",
+			"fr": "Applications sur chaque plateforme et montre"
+		},
+		{
+			"en": "Karma and the habit loop",
+			"fr": "Karma et sa boucle d’habitude"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Vikunja",
+			"source": {
+				"host": "github",
+				"path": "go-vikunja/vikunja",
+				"url": "https://github.com/go-vikunja/vikunja"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "List, kanban, gantt and calendar views over the same tasks, with a real API and CalDAV. The most complete self-hosted to-do app there is.",
+				"fr": "Vues liste, kanban, gantt et calendrier sur les mêmes tâches, avec une vraie API et CalDAV. L’application de tâches auto-hébergée la plus complète."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tasks.org",
+			"source": {
+				"host": "github",
+				"path": "tasks/tasks",
+				"url": "https://github.com/tasks/tasks"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The best open source Android task app, and it syncs over any CalDAV server you already run. The F-Droid build is complete; the Play build sells Google Tasks and hosted CalDAV sync.",
+				"fr": "La meilleure application de tâches Android open source, et elle se synchronise via n’importe quel serveur CalDAV que vous gérez déjà. La version F-Droid est complète ; celle du Play Store vend la synchro Google Tasks et CalDAV hébergée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Google Tasks and their hosted CalDAV sync in the Play build",
+					"fr": "La synchro Google Tasks et leur CalDAV hébergé dans la version Play Store"
+				},
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Super Productivity",
+			"source": {
+				"host": "github",
+				"path": "super-productivity/super-productivity",
+				"url": "https://github.com/super-productivity/super-productivity"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Tasks plus time tracking plus a pomodoro timer in one local-first desktop app. The repo moved from johannesjo/ to its own organisation.",
+				"fr": "Tâches, suivi du temps et minuteur pomodoro dans une seule application de bureau local-first. Le dépôt a migré de johannesjo/ vers sa propre organisation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Planify",
+			"source": {
+				"host": "github",
+				"path": "alainm23/planify",
+				"url": "https://github.com/alainm23/planify"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "A beautiful GTK task app that speaks Todoist's, Nextcloud's and CalDAV's protocols. Linux desktop only.",
+				"fr": "Une superbe application de tâches GTK qui parle les protocoles Todoist, Nextcloud et CalDAV. Bureau Linux uniquement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nextcloud Deck",
+			"source": {
+				"host": "github",
+				"path": "nextcloud/deck",
+				"url": "https://github.com/nextcloud/deck"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Kanban inside the Nextcloud you may already run, with the same accounts and the same sharing.",
+				"fr": "Du kanban dans le Nextcloud que vous avez peut-être déjà, avec les mêmes comptes et le même partage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 5
+}

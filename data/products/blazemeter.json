@@ -1,0 +1,107 @@
+{
+	"slug": "blazemeter",
+	"name": "BlazeMeter",
+	"domain": "blazemeter.com",
+	"category": "testing-qa",
+	"priceMonthly": 149,
+	"pricing": {
+		"plan": "Performance Basic",
+		"basis": "flat",
+		"url": "https://www.blazemeter.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "BlazeMeter is a hosted JMeter plus a results UI. JMeter is Apache-2.0 and has been for twenty years; what you are renting is the machines and the graphs.",
+		"fr": "BlazeMeter, c’est un JMeter hébergé avec une interface de résultats. JMeter est en Apache-2.0 depuis vingt ans ; ce que vous louez, ce sont les machines et les graphiques."
+	},
+	"whatYouLose": [
+		{
+			"en": "On-demand load infrastructure",
+			"fr": "Infrastructure de charge à la demande"
+		},
+		{
+			"en": "Shared reporting workspace",
+			"fr": "Espace de rapports partagé"
+		},
+		{
+			"en": "Mock services and test data",
+			"fr": "Services simulés et données de test"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Apache JMeter",
+			"source": {
+				"host": "github",
+				"path": "apache/jmeter",
+				"url": "https://github.com/apache/jmeter"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The engine BlazeMeter runs. Distributed mode works; the GUI is from 2005 and you should only use it to author, never to run.",
+				"fr": "Le moteur qu’exécute BlazeMeter. Le mode distribué fonctionne ; l’interface date de 2005 et ne devrait servir qu’à écrire, jamais à exécuter."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "k6",
+			"source": {
+				"host": "github",
+				"path": "grafana/k6",
+				"url": "https://github.com/grafana/k6"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Nicer to write and far lighter per virtual user. Results to Grafana, which you probably already run.",
+				"fr": "Plus agréable à écrire et bien plus léger par utilisateur virtuel. Résultats vers Grafana, que vous exploitez sans doute déjà."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Managed load zones, hosted result history and team dashboards",
+					"fr": "Zones de charge managées, historique des résultats hébergé et tableaux de bord d’équipe"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Gatling",
+			"source": {
+				"host": "github",
+				"path": "gatling/gatling",
+				"url": "https://github.com/gatling/gatling"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The best free reports of the three, if your team can live with Scala/Java/Kotlin scenarios.",
+				"fr": "Les meilleurs rapports gratuits des trois, si votre équipe accepte des scénarios en Scala/Java/Kotlin."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Distributed injectors, web UI, scheduling and team management are Gatling Enterprise",
+					"fr": "Injecteurs distribués, interface web, planification et gestion d’équipe relèvent de Gatling Enterprise"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

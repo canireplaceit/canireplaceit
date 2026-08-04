@@ -1,0 +1,107 @@
+{
+	"slug": "webflow",
+	"name": "Webflow",
+	"domain": "webflow.com",
+	"category": "website-builders",
+	"priceMonthly": 25,
+	"pricing": {
+		"plan": "Premium site plan, annual billed monthly (Basic $15/mo)",
+		"basis": "flat",
+		"url": "https://webflow.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Visual CSS editing with clean output is genuinely hard. The CMS half is replaceable today.",
+		"fr": "L’édition CSS visuelle avec une sortie propre est réellement difficile. La moitié CMS, elle, est remplaçable dès aujourd’hui."
+	},
+	"whatYouLose": [
+		{
+			"en": "Visual CSS editing",
+			"fr": "Édition CSS visuelle"
+		},
+		{
+			"en": "Clean generated markup",
+			"fr": "Markup généré propre"
+		},
+		{
+			"en": "Managed hosting",
+			"fr": "Hébergement géré"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Webstudio",
+			"source": {
+				"host": "github",
+				"path": "webstudio-is/webstudio",
+				"url": "https://github.com/webstudio-is/webstudio"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The closest visual builder.",
+				"fr": "Le constructeur visuel le plus proche."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Directus",
+			"source": {
+				"host": "github",
+				"path": "directus/directus",
+				"url": "https://github.com/directus/directus"
+			},
+			"license": "BSL",
+			"effort": "docker",
+			"note": {
+				"en": "Replaces the CMS side only.",
+				"fr": "Ne remplace que la partie CMS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Over 3 seats, 25 collections, SSO",
+					"fr": "Au-delà de 3 utilisateurs, 25 collections, SSO"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Payload",
+			"source": {
+				"host": "github",
+				"path": "payloadcms/payload",
+				"url": "https://github.com/payloadcms/payload"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Code-first CMS, great admin UI.",
+				"fr": "CMS code-first, excellente interface d’admin."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO, audit logs, multi-tenancy, visual editing",
+					"fr": "SSO, journaux d’audit, multi-tenance, édition visuelle"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

@@ -1,0 +1,115 @@
+{
+	"slug": "vwo",
+	"name": "VWO",
+	"domain": "vwo.com",
+	"category": "marketing",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "VWO's real product is that a marketer can run a test without an engineer. Every open source alternative assumes you have engineers and a deploy pipeline, which is a perfectly good trade — just be honest that it is a trade, not a saving.",
+		"fr": "Le vrai produit de VWO, c’est qu’un marketeur peut lancer un test sans développeur. Toutes les alternatives open source supposent que vous avez des développeurs et un pipeline de déploiement, ce qui est un très bon compromis — reconnaissez juste que c’est un compromis, pas une économie."
+	},
+	"whatYouLose": [
+		{
+			"en": "Codeless test creation",
+			"fr": "Création de tests sans code"
+		},
+		{
+			"en": "Heatmaps and session replay bundled",
+			"fr": "Heatmaps et rejeu de session inclus"
+		},
+		{
+			"en": "Reporting non-analysts can read",
+			"fr": "Rapports lisibles par des non-analystes"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "GrowthBook",
+			"source": {
+				"host": "github",
+				"path": "growthbook/growthbook",
+				"url": "https://github.com/growthbook/growthbook"
+			},
+			"license": "MIT core with an enterprise licence over packages/*/enterprise",
+			"effort": "docker",
+			"note": {
+				"en": "The most complete open experimentation platform. Enterprise directories hold SSO, custom roles and the visual editor.",
+				"fr": "La plateforme d’expérimentation ouverte la plus complète. Les dossiers entreprise contiennent SSO, rôles personnalisés et l’éditeur visuel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO/SAML, audit logs, custom roles and the visual editor live under packages/*/enterprise",
+					"fr": "SSO/SAML, journaux d’audit, rôles personnalisés et l’éditeur visuel vivent sous packages/*/enterprise"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Flagsmith",
+			"source": {
+				"host": "github",
+				"path": "Flagsmith/flagsmith",
+				"url": "https://github.com/Flagsmith/flagsmith"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Flags, segments and remote config with a clean API. SAML, RBAC, audit logs and scheduled flags sit in proprietary directories.",
+				"fr": "Flags, segments et configuration distante avec une API propre. SAML, RBAC, journaux d’audit et flags programmés sont dans des dossiers propriétaires."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SAML/SSO, RBAC, audit logs and scheduled flags sit in proprietary sub-directories",
+					"fr": "SAML/SSO, RBAC, journaux d’audit et flags programmés sont dans des sous-dossiers propriétaires"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenReplay",
+			"source": {
+				"host": "github",
+				"path": "openreplay/openreplay",
+				"url": "https://github.com/openreplay/openreplay"
+			},
+			"license": "ELv2/MIT mix with an ee/ directory",
+			"effort": "ops",
+			"note": {
+				"en": "Covers the session replay and heatmap half that VWO bundles. SSO, RBAC and the audit trail are under ee/.",
+				"fr": "Couvre la moitié rejeu de session et heatmaps que VWO regroupe. SSO, RBAC et piste d’audit sont sous ee/."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO/SAML, RBAC and the audit trail are under ee/",
+					"fr": "SSO/SAML, RBAC et la piste d’audit sont sous ee/"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Statsig",
+			"url": "https://statsig.com",
+			"priceMonthly": 0,
+			"note": {
+				"en": "Free up to a real volume of events, with warehouse-native mode if you outgrow it. No visual editor for non-engineers.",
+				"fr": "Gratuit jusqu’à un vrai volume d’événements, avec un mode natif entrepôt si vous le dépassez. Pas d’éditeur visuel pour les non-développeurs."
+			}
+		}
+	],
+	"priority": 3
+}

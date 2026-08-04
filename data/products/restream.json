@@ -1,0 +1,109 @@
+{
+	"slug": "restream",
+	"name": "Restream",
+	"domain": "restream.io",
+	"category": "live-streaming-broadcast",
+	"priceMonthly": 19,
+	"pricing": {
+		"plan": "Standard, billed monthly",
+		"basis": "flat",
+		"url": "https://restream.io/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Taking one RTMP feed and fanning it out to eight platforms is a solved problem — datarhei Restreamer or MediaMTX do it from a compose file. The catch is not software, it is upstream: eight destinations at 6 Mbps is 48 Mbps leaving your connection continuously, and most home links and cheap VPS plans fall over. Restream is really selling you their uplink.",
+		"fr": "Prendre un flux RTMP et le redistribuer vers huit plateformes est un problème résolu — datarhei Restreamer ou MediaMTX le font depuis un fichier compose. Le piège n’est pas logiciel mais réseau : huit destinations à 6 Mbps, c’est 48 Mbps sortants en continu, et la plupart des connexions domestiques et des petits VPS s’effondrent. Ce que vend Restream, c’est son lien montant."
+	},
+	"whatYouLose": [
+		{
+			"en": "Their upstream bandwidth",
+			"fr": "Leur bande passante montante"
+		},
+		{
+			"en": "Unified chat across platforms",
+			"fr": "Chat unifié multi-plateformes"
+		},
+		{
+			"en": "Per-destination analytics",
+			"fr": "Statistiques par destination"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "datarhei Restreamer",
+			"source": {
+				"host": "github",
+				"path": "datarhei/restreamer",
+				"url": "https://github.com/datarhei/restreamer"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "One container, a real UI, RTMP and SRT ingest, multi-destination push. The closest like-for-like swap.",
+				"fr": "Un conteneur, une vraie interface, ingestion RTMP et SRT, diffusion multi-destinations. Le remplacement le plus direct."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MediaMTX",
+			"source": {
+				"host": "github",
+				"path": "bluenviron/mediamtx",
+				"url": "https://github.com/bluenviron/mediamtx"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Single Go binary, no UI at all. RTMP, SRT, WebRTC and HLS in and out, configured by one YAML file.",
+				"fr": "Un seul binaire Go, aucune interface. RTMP, SRT, WebRTC et HLS en entrée et sortie, configurés par un fichier YAML."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OBS Studio",
+			"source": {
+				"host": "github",
+				"path": "obsproject/obs-studio",
+				"url": "https://github.com/obsproject/obs-studio"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "With the Multiple RTMP Outputs plugin, OBS pushes to several platforms itself — but it encodes each one separately, so your CPU and your uplink pay twice.",
+				"fr": "Avec le plugin Multiple RTMP Outputs, OBS diffuse lui-même vers plusieurs plateformes — mais il encode chaque sortie séparément, donc le processeur et le lien montant paient deux fois."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Castr",
+			"url": "https://castr.com",
+			"priceMonthly": 16,
+			"note": {
+				"en": "Same multistreaming job, cheaper entry tier, and you keep the cloud uplink you actually wanted. Weaker studio and chat tooling.",
+				"fr": "Le même travail de multidiffusion, une entrée de gamme moins chère, et vous gardez le lien montant cloud que vous vouliez. Studio et chat moins aboutis."
+			}
+		}
+	],
+	"priority": 4
+}

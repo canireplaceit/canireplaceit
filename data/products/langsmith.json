@@ -1,0 +1,113 @@
+{
+	"slug": "langsmith",
+	"name": "LangSmith",
+	"domain": "langchain.com",
+	"category": "ai-infrastructure",
+	"priceMonthly": 39,
+	"pricing": {
+		"plan": "Plus",
+		"basis": "per-seat",
+		"url": "https://www.langchain.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "LLM tracing is spans with prompt and token metadata, and Langfuse does it with an OpenTelemetry-native SDK and no LangChain dependency. Per-seat pricing on a debugging tool is the same mistake New Relic makes.",
+		"fr": "Le traçage LLM, ce sont des spans avec des métadonnées de prompt et de tokens, et Langfuse le fait avec un SDK natif OpenTelemetry, sans dépendance à LangChain. Facturer un outil de débogage à l’utilisateur, c’est la même erreur que New Relic."
+	},
+	"whatYouLose": [
+		{
+			"en": "Native LangChain integration",
+			"fr": "Intégration native à LangChain"
+		},
+		{
+			"en": "Hosted dataset management",
+			"fr": "Gestion de jeux de données hébergée"
+		},
+		{
+			"en": "Zero infrastructure",
+			"fr": "Aucune infrastructure"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Langfuse",
+			"source": {
+				"host": "github",
+				"path": "langfuse/langfuse",
+				"url": "https://github.com/langfuse/langfuse"
+			},
+			"license": "MIT/Ent",
+			"effort": "docker",
+			"note": {
+				"en": "Traces, prompt management, evals and cost tracking in one. Framework-agnostic, unlike LangSmith.",
+				"fr": "Traces, gestion de prompts, évaluations et suivi des coûts réunis. Indépendant du framework, contrairement à LangSmith."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Project-level RBAC, audit logs, retention policies",
+					"fr": "RBAC par projet, journaux d’audit, rétention"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Phoenix",
+			"source": {
+				"host": "github",
+				"path": "Arize-ai/phoenix",
+				"url": "https://github.com/Arize-ai/phoenix"
+			},
+			"license": "Elastic-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Stronger on evaluation and retrieval-quality analysis than on production tracing. Runs in a notebook if you want.",
+				"fr": "Plus fort sur l’évaluation et l’analyse de la qualité de récupération que sur le traçage en production. Tourne dans un notebook si vous voulez."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Helicone",
+			"source": {
+				"host": "github",
+				"path": "Helicone/helicone",
+				"url": "https://github.com/Helicone/helicone"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Sits as a proxy rather than an SDK, so you instrument by changing a base URL. Least invasive option here.",
+				"fr": "Se place en proxy plutôt qu’en SDK : vous instrumentez en changeant une URL de base. L’option la moins invasive."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Langfuse Cloud",
+			"url": "https://langfuse.com/pricing",
+			"priceMonthly": 29,
+			"note": {
+				"en": "The same open source product hosted, with a free tier of 50k observations a month. EU and US regions only.",
+				"fr": "Le même produit open source, hébergé, avec un palier gratuit de 50 000 observations par mois. Régions UE et US seulement."
+			}
+		}
+	],
+	"priority": 3
+}

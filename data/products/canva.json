@@ -1,0 +1,78 @@
+{
+	"slug": "canva",
+	"name": "Canva",
+	"domain": "canva.com",
+	"category": "design",
+	"priceMonthly": 15,
+	"pricing": {
+		"plan": "Canva Pro, billed monthly",
+		"basis": "per-seat",
+		"url": "https://www.canva.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "The templates and the stock library are the product. Penpot and GIMP draw anything Canva draws — what they will not do is hand a non-designer a finished layout in thirty seconds, which is the entire reason Canva exists.",
+		"fr": "Le produit, ce sont les modèles et la banque d’images. Penpot et GIMP dessinent tout ce que Canva dessine — ce qu’ils ne font pas, c’est livrer une mise en page finie à un non-designer en trente secondes, ce qui est toute la raison d’être de Canva."
+	},
+	"whatYouLose": [
+		{
+			"en": "Template library",
+			"fr": "Bibliothèque de modèles"
+		},
+		{
+			"en": "Licensed stock and fonts",
+			"fr": "Photos et polices sous licence"
+		},
+		{
+			"en": "Brand kit and team sharing",
+			"fr": "Brand kit et partage d’équipe"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Penpot",
+			"source": {
+				"host": "github",
+				"path": "penpot/penpot",
+				"url": "https://github.com/penpot/penpot"
+			},
+			"license": "MPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "A full design tool you host yourself: boards, components, shared libraries, export. Bring your own templates — there is no catalogue.",
+				"fr": "Un outil de design complet que vous hébergez : plans de travail, composants, bibliothèques partagées, export. Apportez vos modèles, il n’y a pas de catalogue."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GIMP",
+			"source": {
+				"host": "gitlab",
+				"path": "GNOME/gimp",
+				"url": "https://gitlab.gnome.org/GNOME/gimp"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Different job, but free.",
+				"fr": "Un autre métier, mais gratuit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

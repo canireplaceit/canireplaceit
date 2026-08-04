@@ -1,0 +1,117 @@
+{
+	"slug": "greenhouse",
+	"name": "Greenhouse",
+	"domain": "greenhouse.io",
+	"category": "people-hiring",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "An ATS is only as good as its distribution: one-click posting to LinkedIn, Indeed and the job boards, plus scheduling that talks to everyone's calendar. Open source has databases of candidates. It does not have the job-board integrations, and those are the product.",
+		"fr": "Un ATS ne vaut que par sa diffusion : publication en un clic sur LinkedIn, Indeed et les jobboards, plus une planification connectée aux agendas de tout le monde. L’open source propose des bases de candidats. Il n’a pas les intégrations jobboards — et c’est précisément le produit."
+	},
+	"whatYouLose": [
+		{
+			"en": "One-click job-board distribution",
+			"fr": "Diffusion en un clic sur les jobboards"
+		},
+		{
+			"en": "Structured interview kits and scorecards",
+			"fr": "Kits d’entretien structurés et grilles"
+		},
+		{
+			"en": "Hiring funnel analytics",
+			"fr": "Analyses du tunnel de recrutement"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Odoo Recruitment",
+			"source": {
+				"host": "github",
+				"path": "odoo/odoo",
+				"url": "https://github.com/odoo/odoo"
+			},
+			"license": "LGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Pipeline kanban plus a careers page. Realistically the best open option, because it's maintained.",
+				"fr": "Pipeline kanban et page carrières. En pratique la meilleure option ouverte, parce qu’elle est maintenue."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Referrals, e-signature, Studio customisation",
+					"fr": "Cooptation, signature électronique, Studio"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenCATS",
+			"source": {
+				"host": "github",
+				"path": "opencats/OpenCATS",
+				"url": "https://github.com/opencats/OpenCATS"
+			},
+			"license": "MPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The only standalone open ATS still getting commits. It looks like 2009 because it is from 2009.",
+				"fr": "Le seul ATS ouvert autonome encore maintenu. Il ressemble à 2009 parce qu’il vient de 2009."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Frappe HR",
+			"source": {
+				"host": "github",
+				"path": "frappe/hrms",
+				"url": "https://github.com/frappe/hrms"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Job openings and applicant tracking that flow into onboarding. Light on sourcing.",
+				"fr": "Offres et suivi des candidatures qui alimentent l’onboarding. Faible sur le sourcing."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Zoho Recruit",
+			"url": "https://www.zoho.com/recruit/",
+			"priceMonthly": 25,
+			"note": {
+				"en": "Has the job-board integrations Greenhouse has, at a sixth of the price. Weaker structured interviews and reporting.",
+				"fr": "Dispose des intégrations jobboards de Greenhouse, à un sixième du prix. Entretiens structurés et rapports plus faibles."
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Recruitee",
+			"url": "https://recruitee.com",
+			"priceMonthly": 109,
+			"note": {
+				"en": "Cheaper and pleasant to use; the analytics and interview-kit discipline Greenhouse enforces are missing.",
+				"fr": "Moins cher et agréable ; il manque les analyses et la rigueur des kits d’entretien qu’impose Greenhouse."
+			}
+		}
+	],
+	"priority": 3
+}

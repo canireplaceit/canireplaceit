@@ -1,0 +1,103 @@
+{
+	"slug": "easypost",
+	"name": "EasyPost",
+	"domain": "easypost.com",
+	"category": "shipping-logistics",
+	"priceMonthly": null,
+	"pricing": {
+		"plan": "Pay as you go, per label/shipment",
+		"basis": "usage",
+		"url": "https://www.easypost.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "EasyPost sells one HTTP interface over a hundred carriers, charged per label. Karrio is the same idea, self-hosted, and it is a real replacement for the API surface. The carrier integrations you actually use still need your own accounts and your own maintenance when a carrier changes its schema.",
+		"fr": "EasyPost vend une seule interface HTTP au-dessus d’une centaine de transporteurs, facturée à l’étiquette. Karrio, c’est la même idée en auto-hébergé, et c’est un vrai remplaçant pour la surface d’API. Les intégrations que vous utilisez réellement exigent toujours vos propres comptes et votre propre maintenance quand un transporteur change son schéma."
+	},
+	"whatYouLose": [
+		{
+			"en": "Carrier integration maintenance",
+			"fr": "Maintenance des intégrations transporteurs"
+		},
+		{
+			"en": "Insurance and address verification",
+			"fr": "Assurance et validation d’adresse"
+		},
+		{
+			"en": "Uptime somebody else owns",
+			"fr": "Disponibilité dont un autre répond"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Karrio",
+			"source": {
+				"host": "github",
+				"path": "karrioapi/karrio",
+				"url": "https://github.com/karrioapi/karrio"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The direct equivalent: one API for rates, labels, tracking and manifests, with a plugin per carrier. Self-host and you pay carriers only.",
+				"fr": "L’équivalent direct : une API pour les tarifs, étiquettes, suivi et manifestes, avec un plugin par transporteur. En auto-hébergé, vous ne payez que les transporteurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "The multi-tenant platform app and white-labelling live under ee/",
+					"fr": "L’app plateforme multi-tenant et le marquage blanc sont sous ee/"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Openship",
+			"source": {
+				"host": "github",
+				"path": "openshiporg/openship",
+				"url": "https://github.com/openshiporg/openship"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Solves the layer above — which supplier or warehouse fulfils which order — not the label call itself.",
+				"fr": "Résout la couche du dessus — quel fournisseur ou entrepôt exécute quelle commande — pas l’appel d’étiquette lui-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Medusa",
+			"source": {
+				"host": "github",
+				"path": "medusajs/medusa",
+				"url": "https://github.com/medusajs/medusa"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "If you are building the commerce backend anyway, its fulfilment provider interface lets you wire carriers directly.",
+				"fr": "Si vous construisez déjà le back-end commerce, son interface de fournisseurs d’expédition permet de brancher les transporteurs directement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

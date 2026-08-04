@@ -1,0 +1,103 @@
+{
+	"slug": "anydesk",
+	"name": "AnyDesk",
+	"domain": "anydesk.com",
+	"category": "remote-access",
+	"priceMonthly": 28.9,
+	"pricing": {
+		"plan": "Solo, billed annually (USD 28.90/mo)",
+		"basis": "per-seat",
+		"url": "https://anydesk.com/en/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "AnyDesk's whole pitch is the codec: usable interactivity over a bad connection. RustDesk is genuinely close now, and MeshCentral wins on fleet management, but on a 200ms link with packet loss you will still notice the difference — and the self-hosted relay is yours to size.",
+		"fr": "Tout l’argument d’AnyDesk, c’est le codec : une interactivité utilisable sur une mauvaise connexion. RustDesk s’en approche réellement aujourd’hui, et MeshCentral gagne sur la gestion de parc, mais sur un lien à 200 ms avec perte de paquets vous verrez encore la différence — et le relais auto-hébergé, c’est à vous de le dimensionner."
+	},
+	"whatYouLose": [
+		{
+			"en": "Low-latency codec tuning",
+			"fr": "Réglage du codec basse latence"
+		},
+		{
+			"en": "Relay capacity provided",
+			"fr": "Capacité de relais fournie"
+		},
+		{
+			"en": "Mobile client maturity",
+			"fr": "Maturité des clients mobiles"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "RustDesk",
+			"source": {
+				"host": "github",
+				"path": "rustdesk/rustdesk",
+				"url": "https://github.com/rustdesk/rustdesk"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Closest feel to AnyDesk, hardware encoding on both ends, self-hosted relay in one container. The management layer is the paid Server Pro.",
+				"fr": "La sensation la plus proche d’AnyDesk, encodage matériel des deux côtés, relais auto-hébergé dans un conteneur. La couche de gestion est le Server Pro payant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Web console, address book, LDAP/OIDC SSO and 2FA are Server Pro.",
+					"fr": "Console web, carnet d’adresses, SSO LDAP/OIDC et 2FA sont dans Server Pro."
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MeshCentral",
+			"source": {
+				"host": "github",
+				"path": "Ylianst/MeshCentral",
+				"url": "https://github.com/Ylianst/MeshCentral"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Better than AnyDesk at unattended fleets: agents check in, you get a device tree, remote terminal and file transfer without asking anyone to read out a code.",
+				"fr": "Meilleur qu’AnyDesk pour les parcs sans surveillance : les agents se signalent, vous avez un arbre d’appareils, un terminal distant et le transfert de fichiers sans demander de lire un code."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "xrdp",
+			"source": {
+				"host": "github",
+				"path": "neutrinolabs/xrdp",
+				"url": "https://github.com/neutrinolabs/xrdp"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "If the target is a Linux box you control, plain RDP over a VPN beats any remote-support tool for responsiveness and costs nothing.",
+				"fr": "Si la cible est une machine Linux que vous contrôlez, du RDP simple à travers un VPN bat n’importe quel outil de support distant en réactivité, et ne coûte rien."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

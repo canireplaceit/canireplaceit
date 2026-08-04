@@ -1,0 +1,76 @@
+{
+	"slug": "redcap",
+	"name": "REDCap",
+	"domain": "project-redcap.org",
+	"category": "research-science",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "REDCap is free to consortium institutions but it is not open source — the licence is a bespoke agreement and you cannot redistribute or fork it. If your institution is not a member, LimeSurvey plus Opal covers structured data capture; neither has REDCap's audit trail or its IRB reputation.",
+		"fr": "REDCap est gratuit pour les institutions du consortium mais n’est pas open source — la licence est un accord sur mesure et vous ne pouvez ni le redistribuer ni le forker. Si votre institution n’est pas membre, LimeSurvey plus Opal couvre la saisie structurée ; ni l’un ni l’autre n’a la piste d’audit de REDCap ni sa réputation auprès des comités d’éthique."
+	},
+	"whatYouLose": [
+		{
+			"en": "The IRB-familiar audit trail",
+			"fr": "La piste d’audit connue des comités d’éthique"
+		},
+		{
+			"en": "Longitudinal study designer",
+			"fr": "Concepteur d’études longitudinales"
+		},
+		{
+			"en": "Consortium support network",
+			"fr": "Réseau de support du consortium"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "LimeSurvey",
+			"source": {
+				"host": "github",
+				"path": "LimeSurvey/LimeSurvey",
+				"url": "https://github.com/LimeSurvey/LimeSurvey"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The community edition is the whole survey engine — branching, quotas, panels, 80+ question types. Only the hosted cloud is paid.",
+				"fr": "L’édition communautaire, c’est tout le moteur d’enquête — branchements, quotas, panels, plus de 80 types de questions. Seul le cloud hébergé est payant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "LimeSurvey Cloud hosting and support",
+					"fr": "L’hébergement LimeSurvey Cloud et le support"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OBiBa Opal",
+			"source": {
+				"host": "github",
+				"path": "obiba/opal",
+				"url": "https://github.com/obiba/opal"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Epidemiological data warehouse from Maelstrom Research — variable dictionaries, harmonisation, per-variable access control. Closer to REDCap's data model than any survey tool.",
+				"fr": "Entrepôt de données épidémiologiques de Maelstrom Research — dictionnaires de variables, harmonisation, contrôle d’accès par variable. Plus proche du modèle de REDCap que n’importe quel outil d’enquête."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

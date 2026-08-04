@@ -1,0 +1,99 @@
+{
+	"slug": "mailtrap",
+	"name": "Mailtrap",
+	"domain": "mailtrap.io",
+	"category": "email-deliverability",
+	"priceMonthly": 15,
+	"pricing": {
+		"plan": "Email API Basic, 10k emails/month",
+		"basis": "flat",
+		"url": "https://mailtrap.io/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "A fake SMTP server that captures mail and shows it in a web UI is a solved problem in a single 20MB binary. Mailpit does it, runs in CI, and never leaks a staging email to a real customer because it has nowhere to send it.",
+		"fr": "Un faux serveur SMTP qui capture le courrier et l’affiche dans une interface web est un problème résolu dans un binaire de 20 Mo. Mailpit le fait, tourne en CI, et ne fuitera jamais un e-mail de préproduction vers un vrai client puisqu’il n’a nulle part où l’envoyer."
+	},
+	"whatYouLose": [
+		{
+			"en": "Spam-score checks",
+			"fr": "Analyse du score de spam"
+		},
+		{
+			"en": "Rendering across clients",
+			"fr": "Rendu multi-clients"
+		},
+		{
+			"en": "Shared team inbox",
+			"fr": "Boîte partagée d’équipe"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Mailpit",
+			"source": {
+				"host": "github",
+				"path": "axllent/mailpit",
+				"url": "https://github.com/axllent/mailpit"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The MailHog successor and clearly better: SMTP capture, web UI, API, HTML source and link checking, one static binary.",
+				"fr": "Le successeur de MailHog, nettement meilleur : capture SMTP, interface web, API, inspection du HTML et vérification des liens, un seul binaire statique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MailDev",
+			"source": {
+				"host": "github",
+				"path": "maildev/maildev",
+				"url": "https://github.com/maildev/maildev"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The Node one, trivial to drop into a JS monorepo's compose file. Fewer inspection tools than Mailpit.",
+				"fr": "La version Node, triviale à glisser dans le fichier compose d’un monorepo JS. Moins d’outils d’inspection que Mailpit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Inbucket",
+			"source": {
+				"host": "github",
+				"path": "inbucket/inbucket",
+				"url": "https://github.com/inbucket/inbucket"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Disposable inboxes for any address plus a REST API, which makes end-to-end signup tests genuinely easy.",
+				"fr": "Boîtes jetables pour n’importe quelle adresse plus une API REST, ce qui rend les tests d’inscription de bout en bout réellement simples."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

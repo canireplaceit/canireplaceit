@@ -1,0 +1,107 @@
+{
+	"slug": "routific",
+	"name": "Routific",
+	"domain": "routific.com",
+	"category": "shipping-logistics",
+	"priceMonthly": 150,
+	"pricing": {
+		"plan": "101-1,000 orders/month",
+		"basis": "flat",
+		"url": "https://www.routific.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Routific is a friendly front-end on a vehicle-routing solver. The solver is the hard part and it is open: VROOM handles time windows, capacities and skills and will out-plan most SaaS at the sizes a small fleet cares about. You are buying a spreadsheet importer and a map.",
+		"fr": "Routific est une interface agréable posée sur un solveur de tournées. Le solveur est la partie difficile et il est open source : VROOM gère les fenêtres horaires, les capacités et les compétences, et planifiera mieux que la plupart des SaaS aux tailles qui intéressent une petite flotte. Vous achetez un importeur de tableur et une carte."
+	},
+	"whatYouLose": [
+		{
+			"en": "Spreadsheet-to-route UX",
+			"fr": "Passage tableur-vers-tournée sans effort"
+		},
+		{
+			"en": "Driver mobile app",
+			"fr": "App mobile conducteur"
+		},
+		{
+			"en": "Customer notifications",
+			"fr": "Notifications clients"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "VROOM",
+			"source": {
+				"host": "github",
+				"path": "VROOM-Project/vroom",
+				"url": "https://github.com/VROOM-Project/vroom"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "The same class of solver Routific competes with, free, with a documented JSON API. Feed it OSRM for real drive times.",
+				"fr": "Le même type de solveur que celui auquel Routific se compare, gratuit, avec une API JSON documentée. Alimentez-le avec OSRM pour des temps de trajet réels."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Timefold Solver",
+			"source": {
+				"host": "github",
+				"path": "TimefoldAI/timefold-solver",
+				"url": "https://github.com/TimefoldAI/timefold-solver"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Model your own constraints in Java or Python when routing is only half the problem. Multithreaded solving is Enterprise-only.",
+				"fr": "Modélisez vos propres contraintes en Java ou Python quand le routage n’est que la moitié du problème. Le solveur multithread est réservé à l’Enterprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Multithreaded and partitioned solving are Enterprise Edition only",
+					"fr": "Le solveur multithread et la recherche partitionnée sont réservés à l’Enterprise Edition"
+				},
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Fleetbase",
+			"source": {
+				"host": "github",
+				"path": "fleetbase/fleetbase",
+				"url": "https://github.com/fleetbase/fleetbase"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Gives you the driver app and dispatch UI that VROOM deliberately does not.",
+				"fr": "Fournit l’app conducteur et l’interface de répartition que VROOM ne fournit délibérément pas."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Some marketplace extensions and the hosted console are paid",
+					"fr": "Certaines extensions du marketplace et la console hébergée sont payantes"
+				},
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

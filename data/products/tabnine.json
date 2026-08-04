@@ -1,0 +1,103 @@
+{
+	"slug": "tabnine",
+	"name": "Tabnine",
+	"domain": "tabnine.com",
+	"category": "ai",
+	"priceMonthly": 39,
+	"pricing": {
+		"plan": "Code Assistant Platform, annual billed monthly",
+		"basis": "per-seat",
+		"url": "https://www.tabnine.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Tabnine's differentiator was always 'your code stays private' rather than best-in-class completion — and that is precisely the thing you can now build yourself with one container and a GPU.",
+		"fr": "L’argument de Tabnine a toujours été « votre code reste privé » plutôt que la meilleure complétion du marché — et c’est justement ce que vous pouvez désormais monter vous-même avec un conteneur et un GPU."
+	},
+	"whatYouLose": [
+		{
+			"en": "Vendor-supported air-gapped install",
+			"fr": "Installation coupée du réseau prise en charge par l’éditeur"
+		},
+		{
+			"en": "Tuned proprietary models",
+			"fr": "Modèles propriétaires affinés"
+		},
+		{
+			"en": "IP indemnification",
+			"fr": "Garantie de propriété intellectuelle"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Tabby",
+			"source": {
+				"host": "github",
+				"path": "TabbyML/tabby",
+				"url": "https://github.com/TabbyML/tabby"
+			},
+			"license": "Apache-2.0 with proprietary ee/ directory",
+			"effort": "docker",
+			"note": {
+				"en": "Purpose-built self-hosted completion server with repo context. Core is Apache-2.0; the ee/ directory holding SSO, access control and the admin console is under a separate commercial licence.",
+				"fr": "Serveur de complétion auto-hébergé conçu pour ça, avec contexte du dépôt. Le cœur est en Apache-2.0 ; le répertoire ee/ qui contient le SSO, le contrôle d’accès et la console d’administration relève d’une licence commerciale distincte."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO, access control and the admin console live in the ee/ directory",
+					"fr": "Le SSO, le contrôle d’accès et la console d’administration sont dans le répertoire ee/"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Continue",
+			"source": {
+				"host": "github",
+				"path": "continuedev/continue",
+				"url": "https://github.com/continuedev/continue"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The IDE side. Point it at Tabby, Ollama or vLLM and you have the whole Tabnine value proposition, minus the invoice and plus a GPU bill.",
+				"fr": "Le côté IDE. Pointez-le vers Tabby, Ollama ou vLLM et vous avez toute la proposition de Tabnine, sans la facture mais avec un coût GPU."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "llama.cpp",
+			"source": {
+				"host": "github",
+				"path": "ggml-org/llama.cpp",
+				"url": "https://github.com/ggml-org/llama.cpp"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The inference layer if you would rather not run yet another vendor's server. An OpenAI-compatible endpoint on your own hardware.",
+				"fr": "La couche d’inférence si vous préférez ne pas faire tourner le serveur d’un énième éditeur. Un endpoint compatible OpenAI sur votre propre matériel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

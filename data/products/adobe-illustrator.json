@@ -1,0 +1,98 @@
+{
+	"slug": "adobe-illustrator",
+	"name": "Adobe Illustrator",
+	"domain": "adobe.com",
+	"category": "design",
+	"priceMonthly": 22.99,
+	"pricing": {
+		"plan": "Illustrator single app, annual billed monthly",
+		"basis": "per-seat",
+		"url": "https://www.adobe.com/creativecloud/plans.html",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Inkscape has replaced Illustrator for a lot of working designers — the awkward part is that its canonical repository lives on GitLab, so it is not listed here. Of the GitHub-hosted options, Graphite is the one to watch and Penpot already covers UI vector work.",
+		"fr": "Inkscape a déjà remplacé Illustrator pour beaucoup de designers — l’ennui, c’est que son dépôt canonique est sur GitLab, il n’est donc pas listé ici. Parmi les options hébergées sur GitHub, Graphite est celle à suivre et Penpot couvre déjà le vectoriel d’interface."
+	},
+	"whatYouLose": [
+		{
+			"en": "CMYK and print colour management",
+			"fr": "Gestion des couleurs CMJN et impression"
+		},
+		{
+			"en": ".ai files clients and printers expect",
+			"fr": "Fichiers .ai attendus par clients et imprimeurs"
+		},
+		{
+			"en": "Type on a path and OpenType depth",
+			"fr": "Texte curviligne et richesse OpenType"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Graphite",
+			"source": {
+				"host": "github",
+				"path": "GraphiteEditor/Graphite",
+				"url": "https://github.com/GraphiteEditor/Graphite"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A non-destructive, node-based vector editor — every operation stays editable. Genuinely promising, genuinely not finished.",
+				"fr": "Un éditeur vectoriel non destructif à base de nœuds — chaque opération reste modifiable. Réellement prometteur, réellement inachevé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Penpot",
+			"source": {
+				"host": "github",
+				"path": "penpot/penpot",
+				"url": "https://github.com/penpot/penpot"
+			},
+			"license": "MPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Covers vector work for screens, with real SVG and CSS output. Not a print or illustration tool.",
+				"fr": "Couvre le vectoriel pour les écrans, avec une sortie SVG et CSS réelle. Ce n’est pas un outil d’impression ni d’illustration."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Affinity Designer 2",
+			"url": "https://affinity.serif.com/designer/",
+			"priceMonthly": 0,
+			"note": {
+				"en": "One purchase, no subscription, real CMYK and a vector-plus-raster canvas. It cannot open .ai files natively.",
+				"fr": "Un achat unique, sans abonnement, vrai CMJN et une toile mixte vectoriel-bitmap. Il n’ouvre pas nativement les fichiers .ai."
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Linearity Curve",
+			"url": "https://www.linearity.io/pricing/",
+			"priceMonthly": 10,
+			"note": {
+				"en": "Half the price, excellent on iPad, and a usable free tier. Weak on print output.",
+				"fr": "Deux fois moins cher, excellent sur iPad, avec une offre gratuite utilisable. Faible sur la sortie imprimée."
+			}
+		}
+	],
+	"priority": 4
+}

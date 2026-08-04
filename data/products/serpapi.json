@@ -1,0 +1,109 @@
+{
+	"slug": "serpapi",
+	"name": "SerpApi",
+	"domain": "serpapi.com",
+	"category": "seo-rank-tracking",
+	"priceMonthly": 75,
+	"pricing": {
+		"plan": "Developer",
+		"basis": "flat",
+		"url": "https://serpapi.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "You are paying for someone else to be the one Google blocks. The parsing is easy; the proxy rotation and the legal exposure are not, and that is the entire value — it is real, but it is also the cost you inherit the moment you self-host.",
+		"fr": "Vous payez pour que quelqu’un d’autre soit celui que Google bloque. Le parsing est facile ; la rotation de proxys et l’exposition juridique non, et c’est toute la valeur — bien réelle, mais c’est aussi le coût que vous héritez dès que vous auto-hébergez."
+	},
+	"whatYouLose": [
+		{
+			"en": "Never being the one who gets blocked",
+			"fr": "Ne jamais être celui qui se fait bloquer"
+		},
+		{
+			"en": "Maintained parsers for 20+ engines",
+			"fr": "Parseurs maintenus pour plus de 20 moteurs"
+		},
+		{
+			"en": "Legal cover for scraping",
+			"fr": "Couverture juridique pour le scraping"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "SearXNG",
+			"source": {
+				"host": "github",
+				"path": "searxng/searxng",
+				"url": "https://github.com/searxng/searxng"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted metasearch with a JSON API. Works well from a residential IP, gets rate-limited fast from a datacentre one.",
+				"fr": "Métamoteur auto-hébergé avec API JSON. Fonctionne bien depuis une IP résidentielle, vite limité depuis un datacenter."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ddgs",
+			"source": {
+				"host": "github",
+				"path": "deedy5/ddgs",
+				"url": "https://github.com/deedy5/ddgs"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "One import, results in a dict. No proxy management, so no volume either.",
+				"fr": "Un import, des résultats dans un dict. Aucune gestion de proxys, donc aucun volume non plus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache Nutch",
+			"source": {
+				"host": "github",
+				"path": "apache/nutch",
+				"url": "https://github.com/apache/nutch"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "If what you actually need is your own index rather than someone else's results, this is the grown-up answer.",
+				"fr": "Si ce qu’il vous faut vraiment est votre propre index plutôt que les résultats d’un autre, c’est la réponse sérieuse."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Serper",
+			"url": "https://serper.dev",
+			"priceMonthly": 15,
+			"note": {
+				"en": "Same idea, priced per thousand queries and much cheaper at low volume. Fewer engines and less structured output.",
+				"fr": "Même idée, facturée au millier de requêtes et bien moins chère à faible volume. Moins de moteurs et une sortie moins structurée."
+			}
+		}
+	],
+	"priority": 3
+}

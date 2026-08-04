@@ -1,0 +1,103 @@
+{
+	"slug": "github",
+	"name": "GitHub",
+	"domain": "github.com",
+	"category": "dev-tools",
+	"priceMonthly": 4,
+	"pricing": {
+		"plan": "Team",
+		"basis": "per-seat",
+		"url": "https://github.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Hosting git is trivial. Being where the world's code and every CI integration already lives is not.",
+		"fr": "Héberger du git est trivial. Être l’endroit où vivent déjà le code du monde entier et toutes les intégrations CI, beaucoup moins."
+	},
+	"whatYouLose": [
+		{
+			"en": "Network effect and discoverability",
+			"fr": "Effet de réseau et visibilité"
+		},
+		{
+			"en": "Actions ecosystem",
+			"fr": "Écosystème Actions"
+		},
+		{
+			"en": "Every tool integrates with it",
+			"fr": "Tous les outils s’y branchent"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Forgejo",
+			"source": {
+				"host": "codeberg",
+				"path": "forgejo/forgejo",
+				"url": "https://codeberg.org/forgejo/forgejo"
+			},
+			"license": "MIT/GPL",
+			"effort": "docker",
+			"note": {
+				"en": "Community fork of Gitea. Runs on a Pi.",
+				"fr": "Fork communautaire de Gitea. Tourne sur un Raspberry Pi."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Gitea",
+			"source": {
+				"host": "github",
+				"path": "go-gitea/gitea",
+				"url": "https://github.com/go-gitea/gitea"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Single binary, Actions-compatible CI.",
+				"fr": "Un seul binaire, CI compatible Actions."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GitLab CE",
+			"source": {
+				"host": "gitlab",
+				"path": "gitlab-org/gitlab",
+				"url": "https://gitlab.com/gitlab-org/gitlab"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Full DevOps suite, needs a real server.",
+				"fr": "Suite DevOps complète, exige un vrai serveur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Approvals, security scanning, portfolio, advanced RBAC",
+					"fr": "Approbations, scans sécurité, portefeuille, RBAC avancé"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

@@ -1,0 +1,99 @@
+{
+	"slug": "termius",
+	"name": "Termius",
+	"domain": "termius.com",
+	"category": "developer-tooling",
+	"priceMonthly": 10,
+	"pricing": {
+		"plan": "Pro, annual billed monthly",
+		"basis": "per-seat",
+		"url": "https://www.termius.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "You are paying a subscription for encrypted sync of an SSH config file. That is a git repo with age or a self-hosted vault, and the free terminals do everything else.",
+		"fr": "Vous payez un abonnement pour la synchro chiffrée d’un fichier de config SSH. C’est un dépôt git avec age ou un coffre auto-hébergé, et les terminaux gratuits font tout le reste."
+	},
+	"whatYouLose": [
+		{
+			"en": "Cross-device host sync",
+			"fr": "Synchro des hôtes entre appareils"
+		},
+		{
+			"en": "Polished mobile SSH client",
+			"fr": "Client SSH mobile soigné"
+		},
+		{
+			"en": "Team credential sharing",
+			"fr": "Partage d’identifiants en équipe"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Tabby",
+			"source": {
+				"host": "github",
+				"path": "Eugeny/tabby",
+				"url": "https://github.com/Eugeny/tabby"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The closest match: SSH/serial/telnet manager with a host tree, in a modern terminal. Sync goes to a Gist or your own self-hosted config server.",
+				"fr": "Le plus proche : gestionnaire SSH/série/telnet avec arbre d’hôtes, dans un terminal moderne. La synchro passe par un Gist ou votre propre serveur de config."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "electerm",
+			"source": {
+				"host": "github",
+				"path": "electerm/electerm",
+				"url": "https://github.com/electerm/electerm"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Electron SSH/SFTP client with bookmarks and an optional sync target you choose. Ugly in places, free everywhere.",
+				"fr": "Client SSH/SFTP en Electron, avec favoris et une cible de synchro que vous choisissez. Parfois laid, gratuit partout."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ghostty",
+			"source": {
+				"host": "github",
+				"path": "ghostty-org/ghostty",
+				"url": "https://github.com/ghostty-org/ghostty"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "If your 'SSH client' is really just ssh plus a good terminal, stop here and put the hosts in ~/.ssh/config.",
+				"fr": "Si votre « client SSH » n’est qu’ssh plus un bon terminal, arrêtez-vous là et mettez les hôtes dans ~/.ssh/config."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

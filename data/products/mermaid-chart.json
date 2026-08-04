@@ -1,0 +1,124 @@
+{
+	"slug": "mermaid-chart",
+	"name": "Mermaid Chart",
+	"domain": "mermaidchart.com",
+	"category": "design",
+	"priceMonthly": 9,
+	"pricing": {
+		"plan": "Plus (EUR 8/user/month billed annually, converted)",
+		"basis": "per-seat",
+		"url": "https://mermaid.ai/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "The renderer is MIT and maintained in the open by the same people. You are paying for an editor, a share link and AI generation on top of a syntax you already know.",
+		"fr": "Le moteur de rendu est en MIT et maintenu publiquement par les mêmes personnes. Vous payez un éditeur, un lien de partage et de la génération IA par-dessus une syntaxe que vous connaissez déjà."
+	},
+	"whatYouLose": [
+		{
+			"en": "Visual drag editor",
+			"fr": "Éditeur visuel par glisser-déposer"
+		},
+		{
+			"en": "Team diagram library",
+			"fr": "Bibliothèque de diagrammes d’équipe"
+		},
+		{
+			"en": "AI diagram generation",
+			"fr": "Génération de diagrammes par IA"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Mermaid",
+			"source": {
+				"host": "github",
+				"path": "mermaid-js/mermaid",
+				"url": "https://github.com/mermaid-js/mermaid"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The engine itself. GitHub, GitLab and most static site generators already render it in a fenced code block — no account, no service.",
+				"fr": "Le moteur lui-même. GitHub, GitLab et la plupart des générateurs de sites statiques le rendent déjà dans un bloc de code — sans compte ni service."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "The hosted editor, team diagram library, versioning and AI generation",
+					"fr": "L’éditeur hébergé, la bibliothèque d’équipe, le versionnage et la génération IA"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "D2",
+			"source": {
+				"host": "github",
+				"path": "d2lang/d2",
+				"url": "https://github.com/d2lang/d2"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A better diagram language than Mermaid for anything with layers or containers, with a local watch-mode server.",
+				"fr": "Un meilleur langage de diagrammes que Mermaid dès qu’il y a des couches ou des conteneurs, avec un serveur local en mode watch."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kroki",
+			"source": {
+				"host": "github",
+				"path": "yuzutech/kroki",
+				"url": "https://github.com/yuzutech/kroki"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "One container that renders Mermaid, PlantUML, D2, Graphviz and a dozen others behind a single HTTP API. Run it and your docs pipeline never calls out.",
+				"fr": "Un conteneur qui rend Mermaid, PlantUML, D2, Graphviz et une douzaine d’autres derrière une seule API HTTP. Hébergez-le et votre chaîne de doc n’appelle plus l’extérieur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PlantUML",
+			"source": {
+				"host": "github",
+				"path": "plantuml/plantuml",
+				"url": "https://github.com/plantuml/plantuml"
+			},
+			"license": "LGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Older, uglier, and still the only one that draws a decent sequence diagram with 40 participants.",
+				"fr": "Plus ancien, plus laid, et toujours le seul à dessiner correctement un diagramme de séquence à 40 participants."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

@@ -1,0 +1,127 @@
+{
+	"slug": "simplepractice",
+	"name": "SimplePractice",
+	"domain": "simplepractice.com",
+	"category": "health-care",
+	"priceMonthly": 79,
+	"pricing": {
+		"plan": "Essential, billed monthly",
+		"basis": "per-seat",
+		"url": "https://www.simplepractice.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "OpenEMR is a real electronic health record and it will run a small practice — the software is not the gap. What you give up is a signed data-processing agreement, compliant telehealth and insurance claim submission, and you take on being the practice's IT department and its breach liability. For a solo therapist that is usually a bad trade.",
+		"fr": "OpenEMR est un vrai dossier patient informatisé et il peut faire tourner un petit cabinet — le logiciel n’est pas le problème. Ce que vous perdez : un contrat de sous-traitance signé, une téléconsultation conforme et la télétransmission aux assurances — et vous devenez le service informatique du cabinet, responsable en cas de fuite. Pour un praticien seul, l’échange est rarement bon."
+	},
+	"whatYouLose": [
+		{
+			"en": "A signed data-processing agreement",
+			"fr": "Un accord de sous-traitance signé"
+		},
+		{
+			"en": "Compliant telehealth video",
+			"fr": "Téléconsultation vidéo conforme"
+		},
+		{
+			"en": "Insurance claim submission",
+			"fr": "Télétransmission aux assurances"
+		},
+		{
+			"en": "Someone to blame for a breach",
+			"fr": "Quelqu’un à qui imputer une fuite de données"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "OpenEMR",
+			"source": {
+				"host": "github",
+				"path": "openemr/openemr",
+				"url": "https://github.com/openemr/openemr"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Has behavioural-health templates, but you become the practice's IT department.",
+				"fr": "Propose des modèles pour la santé mentale, mais vous devenez le service informatique du cabinet."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Medplum",
+			"source": {
+				"host": "github",
+				"path": "medplum/medplum",
+				"url": "https://github.com/medplum/medplum"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "If you are building a practice platform rather than running one practice, start here.",
+				"fr": "Si vous construisez une plateforme pour des cabinets plutôt que de gérer un cabinet, commencez par là."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Cal.com",
+			"source": {
+				"host": "github",
+				"path": "calcom/cal.com",
+				"url": "https://github.com/calcom/cal.com"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Covers only the scheduling and reminders half. Keep clinical notes somewhere compliant.",
+				"fr": "Ne couvre que la prise de rendez-vous et les rappels. Gardez les notes cliniques dans un système conforme."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SAML SSO, teams, insights, admin API",
+					"fr": "SSO SAML, équipes, statistiques, API admin"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Carepatron",
+			"url": "https://www.carepatron.com",
+			"priceMonthly": 12,
+			"note": {
+				"en": "A fifth of the price with notes, scheduling and telehealth. Insurance billing is far less mature than SimplePractice's.",
+				"fr": "Cinq fois moins cher, avec notes, agenda et téléconsultation. La facturation aux assurances est bien moins mature que chez SimplePractice."
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "TherapyNotes",
+			"url": "https://www.therapynotes.com",
+			"priceMonthly": 59,
+			"note": {
+				"en": "Slightly cheaper and the note templates are better. The client-facing portal is uglier.",
+				"fr": "Légèrement moins cher et de meilleurs modèles de notes. Le portail patient est plus laid."
+			}
+		}
+	],
+	"priority": 2
+}

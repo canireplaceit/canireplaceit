@@ -1,0 +1,127 @@
+{
+	"slug": "clio",
+	"name": "Clio",
+	"domain": "clio.com",
+	"category": "legal-contracts-signing",
+	"priceMonthly": 49,
+	"pricing": {
+		"plan": "Starter",
+		"basis": "per-seat",
+		"url": "https://www.clio.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "not-yet",
+	"why": {
+		"en": "There is no mature open source legal practice management system — not one. The pieces exist separately (document automation, time and billing, a CRM) and stitching them together produces something that fails the trust-accounting rules your bar association enforces. Do not do this.",
+		"fr": "Il n’existe aucun logiciel libre mature de gestion de cabinet d’avocats — pas un seul. Les briques existent séparément (automatisation documentaire, temps et facturation, CRM) et les assembler donne un ensemble qui ne respecte pas les règles de comptes de tiers imposées par votre ordre. Ne le faites pas."
+	},
+	"whatYouLose": [
+		{
+			"en": "Compliant trust accounting",
+			"fr": "Comptabilité de compte de tiers conforme"
+		},
+		{
+			"en": "Court-rules calendaring",
+			"fr": "Calendrier des délais de procédure"
+		},
+		{
+			"en": "Client portal and intake",
+			"fr": "Portail client et prise de dossier"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "docassemble",
+			"source": {
+				"host": "github",
+				"path": "jhpyle/docassemble",
+				"url": "https://github.com/jhpyle/docassemble"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "The real open legal-tech tool: guided interviews that assemble documents. Used by courts and legal aid.",
+				"fr": "Le véritable outil open source du secteur juridique : des entretiens guidés qui assemblent des documents. Utilisé par des tribunaux et l’aide juridictionnelle."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kimai",
+			"source": {
+				"host": "github",
+				"path": "kimai/kimai",
+				"url": "https://github.com/kimai/kimai"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Covers billable time tracking and invoicing only. Solid at that one job.",
+				"fr": "Ne couvre que le suivi du temps facturable et la facturation. Excellent sur ce seul point."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Some store plugins (expenses, approvals)",
+					"fr": "Certains greffons payants (frais, validations)"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "EspoCRM",
+			"source": {
+				"host": "github",
+				"path": "espocrm/espocrm",
+				"url": "https://github.com/espocrm/espocrm"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Can be shaped into a matter-management CRM. No trust accounting, ever.",
+				"fr": "Peut être modelé en CRM de gestion de dossiers. Aucune comptabilité de compte de tiers, jamais."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Reports, workflows, sales and VoIP packs",
+					"fr": "Rapports, automatisation, packs ventes et VoIP"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "MyCase",
+			"url": "https://www.mycase.com",
+			"priceMonthly": 39,
+			"note": {
+				"en": "Cheaper and has proper trust accounting. Fewer integrations and a smaller app ecosystem than Clio.",
+				"fr": "Moins cher et dispose d’une vraie comptabilité de compte de tiers. Moins d’intégrations et un écosystème plus restreint que Clio."
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Bill4Time",
+			"url": "https://www.bill4time.com",
+			"priceMonthly": 29,
+			"note": {
+				"en": "Time, billing and basic matters at a genuinely low price. Weak document management.",
+				"fr": "Temps, facturation et dossiers de base à un prix réellement bas. Gestion documentaire faible."
+			}
+		}
+	],
+	"priority": 3
+}

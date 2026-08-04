@@ -1,0 +1,64 @@
+name: canireplaceit
+
+services:
+  canireplaceit-mail:
+    image: axllent/mailpit:latest
+    container_name: canireplaceit-mail
+    restart: unless-stopped
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+    environment:
+      MP_DATABASE: /data/mailpit.db
+      MP_MAX_MESSAGES: "500"
+      MP_SMTP_AUTH_ACCEPT_ANY: "true"
+      MP_SMTP_AUTH_ALLOW_INSECURE: "true"
+    volumes:
+      - canireplaceit-mail-data:/data
+    healthcheck:
+      test: ["CMD", "/mailpit", "readyz"]
+      interval: 3s
+      timeout: 3s
+      retries: 10
+
+  canireplaceit-umami:
+    image: ghcr.io/umami-software/umami:postgresql-v2.19.0
+    container_name: canireplaceit-umami
+    restart: unless-stopped
+    ports:
+      - "3002:3000"
+    environment:
+      DATABASE_URL: postgresql://umami:umami@canireplaceit-umami-db:5432/umami
+      APP_SECRET: local-dev-only-not-a-secret
+      DISABLE_TELEMETRY: "1"
+    depends_on:
+      canireplaceit-umami-db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:3000/api/heartbeat || exit 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+      start_period: 40s
+
+  canireplaceit-umami-db:
+    image: postgres:16-alpine
+    container_name: canireplaceit-umami-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: umami
+      POSTGRES_PASSWORD: umami
+      POSTGRES_DB: umami
+    volumes:
+      - canireplaceit-umami-db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U umami"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+volumes:
+  canireplaceit-mail-data:
+    name: canireplaceit-mail-data
+  canireplaceit-umami-db:
+    name: canireplaceit-umami-db

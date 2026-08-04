@@ -1,0 +1,78 @@
+{
+	"slug": "google-home",
+	"name": "Google Home / SmartThings",
+	"domain": "home.google.com",
+	"category": "home-devices",
+	"priceMonthly": 0,
+	"pricing": {
+		"plan": "Google Home app is free; Nest Aware is a separate subscription",
+		"basis": "flat",
+		"url": "https://home.google.com/welcome/",
+		"checkedOn": "2026-08-02",
+		"confidence": "low"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "The price is that your lights stop working when Google deprecates the API, which they have done repeatedly. Home Assistant supports more devices than either platform and keeps working offline. The cost is that you become the person who fixes it at 11pm.",
+		"fr": "Le prix, c’est que vos lampes cessent de fonctionner quand Google abandonne l’API — ce qu’ils ont fait plusieurs fois. Home Assistant prend en charge plus d’appareils que ces deux plateformes et continue de fonctionner hors ligne. Le coût : vous devenez la personne qui répare à 23 h."
+	},
+	"whatYouLose": [
+		{
+			"en": "Voice assistants that just work",
+			"fr": "Assistants vocaux qui fonctionnent d’emblée"
+		},
+		{
+			"en": "Zero setup for non-technical housemates",
+			"fr": "Zéro configuration pour les cohabitants non techniques"
+		},
+		{
+			"en": "You become the on-call sysadmin",
+			"fr": "Vous devenez l’administrateur d’astreinte"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Home Assistant",
+			"source": {
+				"host": "github",
+				"path": "home-assistant/core",
+				"url": "https://github.com/home-assistant/core"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Thousands of integrations and local control of almost everything. The category has one obvious winner.",
+				"fr": "Des milliers d’intégrations et un contrôle local de presque tout. Cette catégorie a un vainqueur évident."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "openHAB",
+			"source": {
+				"host": "github",
+				"path": "openhab/openhab-core",
+				"url": "https://github.com/openhab/openhab-core"
+			},
+			"license": "EPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "JVM-based, rules-engine-first. Preferred by people automating a whole building.",
+				"fr": "Sur la JVM, orienté moteur de règles. Préféré par ceux qui automatisent un bâtiment entier."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 4
+}

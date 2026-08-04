@@ -1,0 +1,113 @@
+{
+	"slug": "imgix",
+	"name": "imgix",
+	"domain": "imgix.com",
+	"category": "storage",
+	"priceMonthly": 75,
+	"pricing": {
+		"plan": "Basic",
+		"basis": "usage",
+		"url": "https://imgix.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "On-the-fly image transformation over a URL signature is exactly what imgproxy and Thumbor do, and they will run on a small VM behind your existing CDN for the price of the VM. The catch is that you now own the cache strategy.",
+		"fr": "La transformation d’images à la volée via une URL signée est exactement ce que font imgproxy et Thumbor, et ils tournent sur une petite VM derrière votre CDN existant pour le prix de la VM. Le revers : la stratégie de cache est désormais la vôtre."
+	},
+	"whatYouLose": [
+		{
+			"en": "A CDN you do not have to think about",
+			"fr": "Un CDN auquel vous n’avez pas à penser"
+		},
+		{
+			"en": "Automatic format and quality negotiation",
+			"fr": "Négociation automatique de format et de qualité"
+		},
+		{
+			"en": "Someone on call for cache misses",
+			"fr": "Quelqu’un d’astreinte pour les défauts de cache"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "imgproxy",
+			"source": {
+				"host": "github",
+				"path": "imgproxy/imgproxy",
+				"url": "https://github.com/imgproxy/imgproxy"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Fast, memory-safe, signed URLs, and it streams straight from S3. The Pro build adds video thumbnails, object detection and unsharp masking.",
+				"fr": "Rapide, sûr en mémoire, URLs signées, et il lit directement depuis S3. La version Pro ajoute les vignettes vidéo, la détection d’objets et le masque flou."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Video thumbnails, object detection, advanced sharpening (imgproxy Pro)",
+					"fr": "Les vignettes vidéo, la détection d’objets, l’accentuation avancée (imgproxy Pro)"
+				},
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Thumbor",
+			"source": {
+				"host": "github",
+				"path": "thumbor/thumbor",
+				"url": "https://github.com/thumbor/thumbor"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Older, Python, and endlessly extensible — smart cropping with detectors is its trick. Slower and heavier than imgproxy.",
+				"fr": "Plus ancien, en Python, et extensible à l’infini — le recadrage intelligent par détecteurs est sa spécialité. Plus lent et plus lourd qu’imgproxy."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "imaginary",
+			"source": {
+				"host": "github",
+				"path": "h2non/imaginary",
+				"url": "https://github.com/h2non/imaginary"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "A tiny libvips HTTP service if all you need is resize and crop. Minimal maintenance, minimal features.",
+				"fr": "Un minuscule service HTTP libvips si vous ne voulez que redimensionner et recadrer. Maintenance minimale, fonctionnalités minimales."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Bunny Optimizer",
+			"url": "https://bunny.net/pricing/",
+			"priceMonthly": 10,
+			"note": {
+				"en": "A flat add-on on an already cheap CDN, an order of magnitude below imgix at volume. Fewer transformation options.",
+				"fr": "Un supplément forfaitaire sur un CDN déjà bon marché, un ordre de grandeur sous imgix en volume. Moins d’options de transformation."
+			}
+		}
+	],
+	"priority": 3
+}

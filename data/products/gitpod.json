@@ -1,0 +1,149 @@
+{
+	"slug": "gitpod",
+	"name": "Gitpod",
+	"domain": "gitpod.io",
+	"category": "developer-tooling",
+	"priceMonthly": 20,
+	"pricing": {
+		"plan": "Core (Ona), from $20/mo per organisation",
+		"basis": "flat",
+		"url": "https://ona.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Gitpod's own AGPL Classic codebase is self-hostable and still public, but the company's attention has moved to the commercial Ona product — so plan on Coder if you want something that is actively aimed at self-hosters. Either way you are trading a URL for a Kubernetes cluster.",
+		"fr": "Le code AGPL de Gitpod Classic est auto-hébergeable et toujours public, mais l’attention de l’entreprise est passée au produit commercial Ona — visez donc Coder si vous voulez un projet réellement pensé pour l’auto-hébergement. Dans tous les cas, vous échangez une URL contre un cluster Kubernetes."
+	},
+	"whatYouLose": [
+		{
+			"en": "Zero-ops hosted workspaces",
+			"fr": "Espaces de travail hébergés sans exploitation"
+		},
+		{
+			"en": "Prebuilds on every push",
+			"fr": "Prébuilds à chaque push"
+		},
+		{
+			"en": "Instant onboarding from a URL",
+			"fr": "Démarrage instantané depuis une URL"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Gitpod Classic",
+			"source": {
+				"host": "github",
+				"path": "gitpod-io/gitpod",
+				"url": "https://github.com/gitpod-io/gitpod"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Gitpod's own self-hosted codebase, still public and AGPL. Kubernetes-only, and development attention has shifted to the commercial Ona product — treat it as maintained, not advancing.",
+				"fr": "Le code auto-hébergé de Gitpod lui-même, toujours public et en AGPL. Kubernetes uniquement, et l’effort de développement s’est déplacé vers le produit commercial Ona — considérez-le comme maintenu, pas comme en progression."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "The hosted gitpod.io/Ona service, its prebuild fleet, org management and SSO",
+					"fr": "Le service hébergé gitpod.io/Ona, son parc de prébuilds, la gestion des organisations et le SSO"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Coder",
+			"source": {
+				"host": "github",
+				"path": "coder/coder",
+				"url": "https://github.com/coder/coder"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "The serious self-hosted answer: Terraform-defined workspaces on your own infrastructure, with browser or local IDE access.",
+				"fr": "La réponse auto-hébergée sérieuse : des espaces de travail définis en Terraform sur votre propre infrastructure, accessibles via navigateur ou IDE local."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "SSO/OIDC group sync, audit logs, quotas, multi-organisation and high availability are Premium",
+					"fr": "La synchro de groupes SSO/OIDC, les journaux d’audit, les quotas, le multi-organisation et la haute disponibilité relèvent de Premium"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "DevPod",
+			"source": {
+				"host": "github",
+				"path": "loft-sh/devpod",
+				"url": "https://github.com/loft-sh/devpod"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Client-only: takes a devcontainer.json and runs it on your laptop, a VM or a cluster. No server to operate at all.",
+				"fr": "Uniquement côté client : prend un devcontainer.json et l’exécute sur votre portable, une VM ou un cluster. Aucun serveur à exploiter."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Eclipse Che",
+			"source": {
+				"host": "github",
+				"path": "eclipse-che/che",
+				"url": "https://github.com/eclipse-che/che"
+			},
+			"license": "EPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Kubernetes-native workspaces, the lineage behind Red Hat's Dev Spaces. Heavy, but nothing is held back.",
+				"fr": "Espaces de travail natifs Kubernetes, la lignée derrière Dev Spaces de Red Hat. Lourd, mais rien n’est retenu."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "devcontainers CLI",
+			"source": {
+				"host": "github",
+				"path": "devcontainers/cli",
+				"url": "https://github.com/devcontainers/cli"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The standard itself. If the goal was reproducible environments rather than remote ones, stop here.",
+				"fr": "Le standard lui-même. Si l’objectif était des environnements reproductibles plutôt que distants, arrêtez-vous là."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

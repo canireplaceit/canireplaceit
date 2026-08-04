@@ -1,0 +1,117 @@
+{
+	"slug": "mindbody",
+	"name": "Mindbody",
+	"domain": "mindbodyonline.com",
+	"category": "bookings-property-events",
+	"priceMonthly": 108,
+	"pricing": {
+		"plan": "Starter (EUR 99/mo per location, converted)",
+		"basis": "flat",
+		"url": "https://www.mindbodyonline.com/business/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Mindbody is class scheduling, memberships, recurring billing and a consumer marketplace app. The first three are replaceable today. The marketplace — people discovering your studio in the Mindbody app — is not, and studios consistently underestimate how many bookings come from it.",
+		"fr": "Mindbody, c’est la planification de cours, les abonnements, les prélèvements récurrents et une application grand public. Les trois premiers sont remplaçables dès aujourd’hui. La place de marché — les gens qui découvrent votre studio dans l’app Mindbody — ne l’est pas, et les studios sous-estiment systématiquement le nombre de réservations qui en viennent."
+	},
+	"whatYouLose": [
+		{
+			"en": "Consumer marketplace discovery",
+			"fr": "Découverte via l’app grand public"
+		},
+		{
+			"en": "Recurring membership billing",
+			"fr": "Prélèvement d’abonnements récurrent"
+		},
+		{
+			"en": "Branded member app",
+			"fr": "App membre à votre marque"
+		},
+		{
+			"en": "Payment processing bundled",
+			"fr": "Encaissement intégré"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "wger",
+			"source": {
+				"host": "github",
+				"path": "wger-project/wger",
+				"url": "https://github.com/wger-project/wger"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Gym and member management with workout plans, body metrics and a REST API. AGPL, no paid tier, and it self-hosts cleanly.",
+				"fr": "Gestion de salle et de membres avec plans d’entraînement, mesures corporelles et API REST. AGPL, sans palier payant, et s’auto-héberge proprement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Easy!Appointments",
+			"source": {
+				"host": "github",
+				"path": "alextselegidis/easyappointments",
+				"url": "https://github.com/alextselegidis/easyappointments"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Class and appointment scheduling with providers, services and customer self-booking. GPL-3.0.",
+				"fr": "Planification de cours et de rendez-vous avec prestataires, prestations et réservation par le client. GPL-3.0."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "EspoCRM",
+			"source": {
+				"host": "github",
+				"path": "espocrm/espocrm",
+				"url": "https://github.com/espocrm/espocrm"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The membership CRM half — contacts, renewals, campaigns. The customer portal is a paid extension.",
+				"fr": "La partie CRM des adhésions — contacts, renouvellements, campagnes. Le portail client est une extension payante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Advanced Pack, Sales Pack and the customer portal are paid extensions",
+					"fr": "Advanced Pack, Sales Pack et le portail client sont des extensions payantes"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Fresha",
+			"url": "https://www.fresha.com/for-business/pricing",
+			"priceMonthly": 0,
+			"note": {
+				"en": "Free software with a marketplace, monetised by commission on new clients and card processing. Read the commission terms carefully.",
+				"fr": "Logiciel gratuit avec place de marché, monétisé par commission sur les nouveaux clients et sur l’encaissement. Lisez attentivement les conditions de commission."
+			}
+		}
+	],
+	"priority": 3
+}

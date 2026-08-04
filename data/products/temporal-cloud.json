@@ -1,0 +1,132 @@
+{
+	"slug": "temporal-cloud",
+	"name": "Temporal Cloud",
+	"domain": "temporal.io",
+	"category": "backend",
+	"priceMonthly": 100,
+	"pricing": {
+		"plan": "Essentials, from $100/mo",
+		"basis": "usage",
+		"url": "https://temporal.io/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "The server is MIT and you can genuinely run it. What you are buying is somebody else operating a multi-cluster Cassandra-or-equivalent persistence layer that must never lose an event — which is a harder job than it looks.",
+		"fr": "Le serveur est en MIT et vous pouvez réellement l’exploiter. Ce que vous achetez, c’est que quelqu’un d’autre opère une couche de persistance multi-cluster qui ne doit jamais perdre un événement — un travail plus dur qu’il n’y paraît."
+	},
+	"whatYouLose": [
+		{
+			"en": "Operated persistence at scale",
+			"fr": "Persistance opérée à grande échelle"
+		},
+		{
+			"en": "Multi-region failover",
+			"fr": "Bascule multi-région"
+		},
+		{
+			"en": "Retention and audit tooling",
+			"fr": "Outillage de rétention et d’audit"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Temporal",
+			"source": {
+				"host": "github",
+				"path": "temporalio/temporal",
+				"url": "https://github.com/temporalio/temporal"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "The same server, fully MIT, including the web UI. Self-hosting means owning Cassandra/PostgreSQL, Elasticsearch for visibility and the upgrade path — budget an engineer.",
+				"fr": "Le même serveur, entièrement MIT, interface web comprise. L’auto-hébergement implique de gérer Cassandra/PostgreSQL, Elasticsearch pour la visibilité et les montées de version — prévoyez un ingénieur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "The hosted Cloud only: multi-region replication, SLAs, usage-based scaling and enterprise SSO/audit",
+					"fr": "Uniquement le Cloud hébergé : réplication multi-région, SLA, mise à l’échelle à l’usage et SSO/audit entreprise"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Cadence",
+			"source": {
+				"host": "github",
+				"path": "cadence-workflow/cadence",
+				"url": "https://github.com/cadence-workflow/cadence"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Uber's original, from which Temporal forked. Still actively developed and slightly simpler to operate.",
+				"fr": "L’original d’Uber, dont Temporal est un fork. Toujours activement développé et un peu plus simple à exploiter."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Hatchet",
+			"source": {
+				"host": "github",
+				"path": "hatchet-dev/hatchet",
+				"url": "https://github.com/hatchet-dev/hatchet"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Postgres-backed durable task queue with DAGs and a UI. Dramatically less to operate if you do not need Temporal's guarantees.",
+				"fr": "File de tâches durable adossée à Postgres, avec DAG et interface. Beaucoup moins lourd à exploiter si vous n’avez pas besoin des garanties de Temporal."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Hatchet Cloud hosting, and some managed scaling and support features",
+					"fr": "L’hébergement Hatchet Cloud, ainsi que certaines fonctions de mise à l’échelle managée et de support"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Windmill",
+			"source": {
+				"host": "github",
+				"path": "windmill-labs/windmill",
+				"url": "https://github.com/windmill-labs/windmill"
+			},
+			"license": "Apache-2.0 / AGPL-3.0 with proprietary enterprise features",
+			"effort": "docker",
+			"note": {
+				"en": "Scripts and flows with durable execution and a good UI. Mixed licensing: core is open, several enterprise features are not.",
+				"fr": "Scripts et flux avec exécution durable et une bonne interface. Licences mixtes : le cœur est ouvert, plusieurs fonctions entreprise ne le sont pas."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "SSO/SAML, audit logs, workers autoscaling, distributed cache and multiplayer editing are enterprise",
+					"fr": "SSO/SAML, journaux d’audit, autoscaling des workers, cache distribué et édition multijoueur sont réservés à l’entreprise"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

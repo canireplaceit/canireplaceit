@@ -1,0 +1,111 @@
+{
+	"slug": "kong-enterprise",
+	"name": "Kong Enterprise / Apigee",
+	"domain": "konghq.com",
+	"category": "api-development",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "The gateway itself is open source in Kong's case and free in APISIX's. The paid tier is the developer portal, the analytics and the multi-workspace RBAC. Most teams buying an API gateway needed rate limiting and auth, and got sold a platform. Both are quote-only, priced on API call volume and gateway count.",
+		"fr": "La passerelle elle-même est open source chez Kong et gratuite chez APISIX. Le palier payant, c’est le portail développeur, l’analytique et le RBAC multi-espaces. La plupart des équipes qui achètent une passerelle d’API avaient besoin de limitation de débit et d’authentification, et se sont fait vendre une plateforme. Les deux sont uniquement sur devis, tarifés au volume d’appels d’API et au nombre de passerelles."
+	},
+	"whatYouLose": [
+		{
+			"en": "Developer portal",
+			"fr": "Portail développeur"
+		},
+		{
+			"en": "Multi-workspace RBAC",
+			"fr": "RBAC multi-espaces"
+		},
+		{
+			"en": "Vendor support and analytics",
+			"fr": "Support et analytique éditeur"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Apache APISIX",
+			"source": {
+				"host": "github",
+				"path": "apache/apisix",
+				"url": "https://github.com/apache/apisix"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Hot-reloads routes without restarting, no database required in standalone mode. Genuinely free where Kong OSS is deliberately limited.",
+				"fr": "Recharge les routes à chaud sans redémarrage, aucune base requise en mode autonome. Réellement gratuit là où Kong OSS est volontairement bridé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kong Gateway (OSS)",
+			"source": {
+				"host": "github",
+				"path": "Kong/kong",
+				"url": "https://github.com/Kong/kong"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The same data plane as the paid product. You lose the portal, RBAC and analytics — check which of those you use.",
+				"fr": "Le même plan de données que le produit payant. Vous perdez le portail, le RBAC et l’analytique — vérifiez lesquels vous utilisez."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "OIDC plugin, RBAC, dev portal, analytics",
+					"fr": "Plugin OIDC, RBAC, portail dev, analytique"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Traefik",
+			"source": {
+				"host": "github",
+				"path": "traefik/traefik",
+				"url": "https://github.com/traefik/traefik"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Not really an API gateway, but if you wanted routing, TLS and rate limits it is a tenth of the configuration.",
+				"fr": "Pas vraiment une passerelle d’API, mais si vous vouliez du routage, du TLS et de la limitation de débit, c’est dix fois moins de configuration."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "OIDC/JWT auth, WAF, API management",
+					"fr": "Authentification OIDC/JWT, WAF, gestion d’API"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Zuplo",
+			"url": "https://zuplo.com/pricing",
+			"priceMonthly": 25,
+			"note": {
+				"en": "Programmable gateway with a developer portal at a startup price, edge-deployed. Much less mature plugin ecosystem and no on-prem story.",
+				"fr": "Passerelle programmable avec portail développeur à prix de startup, déployée en périphérie. Écosystème de plugins bien moins mature et pas d’offre on-premise."
+			}
+		}
+	],
+	"priority": 3
+}

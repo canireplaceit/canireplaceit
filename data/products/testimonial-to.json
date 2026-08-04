@@ -1,0 +1,92 @@
+{
+	"slug": "testimonial-to",
+	"name": "Testimonial.to",
+	"domain": "testimonial.to",
+	"category": "marketing",
+	"priceMonthly": 25,
+	"pricing": {
+		"plan": "Starter, billed monthly ($300/yr annual)",
+		"basis": "flat",
+		"url": "https://testimonial.to/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "This is a form, a video upload and a page of cards. It is a well-made product and it costs almost nothing, but if you are already self-hosting anything else on this list, adding a testimonial form is an afternoon rather than a subscription.",
+		"fr": "C’est un formulaire, un envoi de vidéo et une page de cartes. C’est un produit bien fait qui coûte presque rien, mais si vous auto-hébergez déjà autre chose de cette liste, ajouter un formulaire de témoignage est une après-midi, pas un abonnement."
+	},
+	"whatYouLose": [
+		{
+			"en": "Browser video capture that works everywhere",
+			"fr": "Capture vidéo navigateur qui marche partout"
+		},
+		{
+			"en": "Video transcoding and hosting",
+			"fr": "Transcodage et hébergement vidéo"
+		},
+		{
+			"en": "Import from other review platforms",
+			"fr": "Import depuis d’autres plateformes d’avis"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Formbricks",
+			"source": {
+				"host": "github",
+				"path": "formbricks/formbricks",
+				"url": "https://github.com/formbricks/formbricks"
+			},
+			"license": "AGPL-3.0 core with a large ee/ directory",
+			"effort": "docker",
+			"note": {
+				"en": "Link and in-app forms with logic and file upload — enough to collect testimonials properly. Teams, roles, SSO and white-label live in ee/.",
+				"fr": "Formulaires par lien et in-app avec logique et envoi de fichiers — assez pour collecter des témoignages correctement. Équipes, rôles, SSO et marque blanche vivent dans ee/."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "SSO, teams and roles, audit logs, contact targeting and white-label are all in apps/web/modules/ee",
+					"fr": "SSO, équipes et rôles, journaux d’audit, ciblage des contacts et marque blanche sont tous dans apps/web/modules/ee"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Remark42",
+			"source": {
+				"host": "github",
+				"path": "umputun/remark42",
+				"url": "https://github.com/umputun/remark42"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "If text testimonials are enough, this is fifty megabytes of Go and done.",
+				"fr": "Si des témoignages texte suffisent, c’est cinquante mégaoctets de Go et c’est plié."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Senja",
+			"url": "https://senja.io",
+			"priceMonthly": 19,
+			"note": {
+				"en": "Cheaper, with the same wall-of-love embeds and better imports. Small team, so treat it as a dependency you could outlive.",
+				"fr": "Moins cher, avec les mêmes murs de témoignages intégrables et de meilleurs imports. Petite équipe : traitez-le comme une dépendance à laquelle vous pourriez survivre."
+			}
+		}
+	],
+	"priority": 2
+}

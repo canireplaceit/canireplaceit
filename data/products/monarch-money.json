@@ -1,0 +1,109 @@
+{
+	"slug": "monarch-money",
+	"name": "Monarch Money",
+	"domain": "monarchmoney.com",
+	"category": "money-budgeting",
+	"priceMonthly": 8,
+	"pricing": {
+		"plan": "Premium, $99.99/year (monthly equivalent $8.33)",
+		"basis": "flat",
+		"url": "https://www.monarch.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "The net-worth dashboard and investment tracking port over cleanly. What does not is the bank aggregation that makes these apps effortless. Self-hosted, you either pay for an aggregator yourself or you import statements forever.",
+		"fr": "Le tableau de bord du patrimoine et le suivi des placements se transposent sans problème. Ce qui ne suit pas, c’est l’agrégation bancaire qui rend ces applications si simples. En auto-hébergé, soit vous payez vous-même un agrégateur, soit vous importez des relevés à vie."
+	},
+	"whatYouLose": [
+		{
+			"en": "Bank and brokerage aggregation",
+			"fr": "Agrégation des comptes bancaires et titres"
+		},
+		{
+			"en": "Automatic transaction categorisation",
+			"fr": "Catégorisation automatique des opérations"
+		},
+		{
+			"en": "Shared household views that just work",
+			"fr": "Vues foyer partagées qui marchent d’emblée"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Firefly III",
+			"source": {
+				"host": "github",
+				"path": "firefly-iii/firefly-iii",
+				"url": "https://github.com/firefly-iii/firefly-iii"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The most complete open personal-finance ledger. The rule engine for auto-categorising imports is very good.",
+				"fr": "Le grand livre de finances personnelles open source le plus complet. Le moteur de règles pour catégoriser les imports est excellent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ghostfolio",
+			"source": {
+				"host": "github",
+				"path": "ghostfolio/ghostfolio",
+				"url": "https://github.com/ghostfolio/ghostfolio"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Investment and portfolio side only. Clean, and there's a hosted tier if you don't want a server.",
+				"fr": "Uniquement le volet placements et portefeuille. Épuré, avec une offre hébergée si vous ne voulez pas de serveur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Actual Budget",
+			"source": {
+				"host": "github",
+				"path": "actualbudget/actual",
+				"url": "https://github.com/actualbudget/actual"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "If you actually wanted budgeting rather than net-worth dashboards, use this instead.",
+				"fr": "Si ce que vous vouliez vraiment, c’est budgétiser plutôt que contempler votre patrimoine, prenez plutôt ceci."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Quicken Simplifi",
+			"url": "https://www.quicken.com/simplifi",
+			"priceMonthly": 4,
+			"note": {
+				"en": "A quarter of Monarch's price with the same bank sync. Weaker on shared household accounts and investment detail.",
+				"fr": "Quatre fois moins cher que Monarch, avec la même synchronisation bancaire. Plus faible sur les comptes partagés et le détail des placements."
+			}
+		}
+	],
+	"priority": 4
+}

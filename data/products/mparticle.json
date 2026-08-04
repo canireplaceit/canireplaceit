@@ -1,0 +1,130 @@
+{
+	"slug": "mparticle",
+	"name": "mParticle",
+	"domain": "mparticle.com",
+	"category": "analytics",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "A CDP is a router with SDKs, and the open options are real. Read the licences carefully though — the three tools everyone names here are Elastic Licence, a bespoke limited-use licence and MIT, and only one of those is open source.",
+		"fr": "Un CDP, c’est un routeur avec des SDK, et les options ouvertes sont réelles. Lisez bien les licences : les trois outils que tout le monde cite sont en licence Elastic, en licence maison à usage limité et en MIT, et un seul est réellement open source."
+	},
+	"whatYouLose": [
+		{
+			"en": "Maintained mobile SDKs",
+			"fr": "SDK mobiles maintenus"
+		},
+		{
+			"en": "Hundreds of prebuilt destinations",
+			"fr": "Des centaines de destinations prêtes"
+		},
+		{
+			"en": "Identity resolution across devices",
+			"fr": "Résolution d’identité multi-appareils"
+		},
+		{
+			"en": "Consent and privacy tooling",
+			"fr": "Outillage consentement et vie privée"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Jitsu",
+			"source": {
+				"host": "github",
+				"path": "jitsucom/jitsu",
+				"url": "https://github.com/jitsucom/jitsu"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The one in this list that is actually MIT end to end. Warehouse-first, lighter, fewer destinations — and no licence footnote.",
+				"fr": "Le seul de cette liste réellement MIT de bout en bout. Orienté entrepôt, plus léger, moins de destinations — et aucune note de bas de page sur la licence."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "RudderStack",
+			"source": {
+				"host": "github",
+				"path": "rudderlabs/rudder-server",
+				"url": "https://github.com/rudderlabs/rudder-server"
+			},
+			"license": "Elastic Licence 2.0 (not OSI-approved)",
+			"effort": "docker",
+			"note": {
+				"en": "Segment-compatible and the most feature-complete option — but ELv2 forbids offering it as a managed service, and the transformation library and control plane are commercial.",
+				"fr": "Compatible Segment et l’option la plus complète — mais l’ELv2 interdit de le proposer en service géré, et la bibliothèque de transformations et le control plane sont commerciaux."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Elastic Licence 2.0, not OSI open source: the transformation library, hosted control plane and support are commercial",
+					"fr": "Licence Elastic 2.0, pas de l’open source OSI : la bibliothèque de transformations, le control plane hébergé et le support sont commerciaux"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Snowplow",
+			"source": {
+				"host": "github",
+				"path": "snowplow/snowplow",
+				"url": "https://github.com/snowplow/snowplow"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The best event pipeline in the category and no longer open source: the collector and enrich components moved to the SLULA in 2024. Say it out loud before you commit.",
+				"fr": "Le meilleur pipeline d’événements de la catégorie, et il n’est plus open source : le collecteur et l’enrichissement sont passés sous SLULA en 2024. Dites-le clairement avant de vous engager."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "The collector and enrich components moved to the Snowplow Limited Use Licence in 2024 — not open source; the BDP console and models are commercial",
+					"fr": "Le collecteur et l’enrichissement sont passés sous Snowplow Limited Use License en 2024 — ce n’est plus de l’open source ; la console BDP et les modèles sont commerciaux"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PostHog",
+			"source": {
+				"host": "github",
+				"path": "PostHog/posthog",
+				"url": "https://github.com/PostHog/posthog"
+			},
+			"license": "MIT core with an ee/ directory",
+			"effort": "docker",
+			"note": {
+				"en": "If what you need is analytics plus a few destinations rather than a true CDP, this collapses two vendors into one.",
+				"fr": "Si ce qu’il vous faut est de l’analytics plus quelques destinations plutôt qu’un vrai CDP, cela fusionne deux fournisseurs en un."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO/SAML, project permissions and advanced roles live under ee/, and self-hosting is only supported at hobby scale",
+					"fr": "SSO/SAML, permissions par projet et rôles avancés vivent sous ee/, et l’auto-hébergement n’est soutenu qu’à petite échelle"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

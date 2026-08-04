@@ -1,0 +1,98 @@
+{
+	"slug": "nuke",
+	"name": "Nuke",
+	"domain": "foundry.com",
+	"category": "creative-studio",
+	"priceMonthly": 366,
+	"pricing": {
+		"plan": "Nuke base subscription, EUR 366/month list price (Foundry publishes no USD figure)",
+		"basis": "per-seat",
+		"url": "https://www.foundry.com/products/nuke-family/nuke",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Natron was explicitly modelled on Nuke and the node graph will feel like home. What it does not have is deep 3D, the camera solver, Cara VR, and — decisively — a colour pipeline that a facility's supervisor will sign off on.",
+		"fr": "Natron a été explicitement calqué sur Nuke et son graphe de nœuds vous semblera familier. Ce qu’il n’a pas : la 3D profonde, le solveur de caméra, Cara VR et — c’est décisif — un pipeline colorimétrique qu’un superviseur de studio validera."
+	},
+	"whatYouLose": [
+		{
+			"en": "3D system and camera solver",
+			"fr": "Système 3D et solveur de caméra"
+		},
+		{
+			"en": "Deep compositing",
+			"fr": "Compositing deep"
+		},
+		{
+			"en": "Facility pipeline and gizmo libraries",
+			"fr": "Pipeline de studio et bibliothèques de gizmos"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Natron",
+			"source": {
+				"host": "github",
+				"path": "NatronGitHub/Natron",
+				"url": "https://github.com/NatronGitHub/Natron"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A near-clone of the Nuke graph, OpenFX-compatible so many commercial plugins load. Development is community-led and slow.",
+				"fr": "Un quasi-clone du graphe de Nuke, compatible OpenFX, donc de nombreux plugins commerciaux s’y chargent. Développement communautaire et lent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Blender",
+			"source": {
+				"host": "gitea",
+				"path": "blender/blender",
+				"url": "https://projects.blender.org/blender/blender"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "For 3D-heavy shots, doing the CG and the comp in one place avoids the problem entirely. Not a finishing compositor.",
+				"fr": "Pour les plans à forte composante 3D, faire la CG et le compositing au même endroit évite le problème. Ce n’est pas un compositeur de finition."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Fusion Studio",
+			"url": "https://www.blackmagicdesign.com/products/fusion",
+			"priceMonthly": 0,
+			"note": {
+				"en": "A $295 perpetual licence for a node compositor used on real features. Weaker toolset than Nuke and a smaller talent pool.",
+				"fr": "Une licence perpétuelle à 295 $ pour un compositeur nodal utilisé sur de vrais longs métrages. Boîte à outils plus faible que Nuke et vivier de talents plus restreint."
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Nuke Indie",
+			"url": "https://www.foundry.com/products/nuke-family/nuke",
+			"priceMonthly": 15,
+			"note": {
+				"en": "The real Nuke for a revenue-capped indie, at about one percent of the commercial price. Output is restricted and scripts are locked.",
+				"fr": "Le vrai Nuke pour un indépendant sous plafond de revenus, à environ un pour cent du prix commercial. Sorties restreintes et scripts verrouillés."
+			}
+		}
+	],
+	"priority": 2
+}

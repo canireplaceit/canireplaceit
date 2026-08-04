@@ -1,0 +1,132 @@
+{
+	"slug": "tableplus",
+	"name": "TablePlus",
+	"domain": "tableplus.com",
+	"category": "databases-caches",
+	"priceMonthly": null,
+	"pricing": {
+		"plan": "Basic, one-time $99 perpetual (1 year of updates)",
+		"basis": "one-time",
+		"url": "https://tableplus.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "A very good native GUI with a $99 licence and a nag screen. The open desktop clients are now genuinely fine, and one of them is the same idea with the source attached.",
+		"fr": "Une très bonne interface native avec une licence à 99 $ et un écran de rappel. Les clients bureau ouverts sont désormais tout à fait corrects, et l’un d’eux est la même idée avec le code fourni."
+	},
+	"whatYouLose": [
+		{
+			"en": "Native speed and polish",
+			"fr": "Rapidité et finition natives"
+		},
+		{
+			"en": "Breadth of supported engines",
+			"fr": "Étendue des moteurs pris en charge"
+		},
+		{
+			"en": "SSH tunnelling that just works",
+			"fr": "Tunnels SSH qui fonctionnent d’emblée"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Beekeeper Studio",
+			"source": {
+				"host": "github",
+				"path": "beekeeper-studio/beekeeper-studio",
+				"url": "https://github.com/beekeeper-studio/beekeeper-studio"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The closest match in feel. Community edition is GPL-3.0; the Ultimate build that adds more engines and team features is commercial.",
+				"fr": "Le plus proche en ressenti. L’édition Community est en GPL-3.0 ; la version Ultimate, qui ajoute des moteurs et des fonctions d’équipe, est commerciale."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Oracle/SQL Server/BigQuery drivers, backup-restore and team workspaces are Ultimate-only",
+					"fr": "Les pilotes Oracle/SQL Server/BigQuery, la sauvegarde-restauration et les espaces d’équipe sont réservés à Ultimate"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "DbGate",
+			"source": {
+				"host": "github",
+				"path": "dbgate/dbgate",
+				"url": "https://github.com/dbgate/dbgate"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Desktop or self-hosted web, SQL and NoSQL, no licence key.",
+				"fr": "Bureau ou web auto-hébergé, SQL et NoSQL, sans clé de licence."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Premium adds team collaboration and advanced charting",
+					"fr": "L’édition Premium ajoute la collaboration d’équipe et les graphiques avancés"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Antares SQL",
+			"source": {
+				"host": "github",
+				"path": "antares-sql/antares",
+				"url": "https://github.com/antares-sql/antares"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Small, pleasant, fully MIT with nothing held back. Fewer engines than the others.",
+				"fr": "Petit, agréable, entièrement MIT sans rien retenu. Moins de moteurs que les autres."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "DBeaver Community",
+			"source": {
+				"host": "github",
+				"path": "dbeaver/dbeaver",
+				"url": "https://github.com/dbeaver/dbeaver"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The ugly one that connects to everything. When TablePlus lacks a driver, this has it.",
+				"fr": "Le vilain qui se connecte à tout. Quand TablePlus n’a pas le pilote, lui l’a."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "NoSQL and cloud drivers, AI assistant and support are DBeaver PRO",
+					"fr": "Les pilotes NoSQL et cloud, l’assistant IA et le support relèvent de DBeaver PRO"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

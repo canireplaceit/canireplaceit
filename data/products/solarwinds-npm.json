@@ -1,0 +1,93 @@
+{
+	"slug": "solarwinds-npm",
+	"name": "SolarWinds Network Performance Monitor",
+	"domain": "solarwinds.com",
+	"category": "observability-telemetry",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "SNMP polling, flow collection, topology maps and alerting are all mature open source. LibreNMS auto-discovers a mixed-vendor estate in an afternoon. What survives the switch is the reason people buy SolarWinds: a name on a purchase order and a support contract to point at during an audit.",
+		"fr": "L’interrogation SNMP, la collecte de flux, les cartes de topologie et les alertes sont toutes matures en open source. LibreNMS découvre automatiquement un parc multi-constructeur en une après-midi. Ce qui survit au changement, c’est la raison pour laquelle on achète SolarWinds : un nom sur un bon de commande et un contrat de support à montrer lors d’un audit."
+	},
+	"whatYouLose": [
+		{
+			"en": "Vendor support and audits",
+			"fr": "Support éditeur et audits"
+		},
+		{
+			"en": "NetPath hop-by-hop analysis",
+			"fr": "Analyse saut par saut NetPath"
+		},
+		{
+			"en": "Turnkey vendor templates",
+			"fr": "Modèles constructeurs clés en main"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "LibreNMS",
+			"source": {
+				"host": "github",
+				"path": "librenms/librenms",
+				"url": "https://github.com/librenms/librenms"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Auto-discovery over SNMP with hundreds of device templates, alerting, billing and a decent API. The straightest swap for NPM.",
+				"fr": "Découverte automatique en SNMP avec des centaines de modèles d’équipements, alertes, facturation et une API correcte. L’échange le plus direct pour NPM."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Zabbix",
+			"source": {
+				"host": "bitbucket",
+				"path": "ZBX/zabbix",
+				"url": "https://git.zabbix.com/projects/ZBX/repos/zabbix/browse"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Heavier and more general, but genuinely enterprise-grade: proxies for remote sites, SAML SSO and escalation chains, no licence tiers at all. Relicensed to AGPL-3.0 from version 7.0.",
+				"fr": "Plus lourd et plus généraliste, mais réellement de classe entreprise : proxys pour sites distants, SSO SAML et chaînes d’escalade, sans aucun palier de licence. Relicencié en AGPL-3.0 depuis la version 7.0."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "NetXMS",
+			"source": {
+				"host": "github",
+				"path": "netxms/netxms",
+				"url": "https://github.com/netxms/netxms"
+			},
+			"license": "GPL-2.0/LGPL",
+			"effort": "ops",
+			"note": {
+				"en": "Underrated: real topology discovery at layer 2, a desktop console engineers like, and scripting that can act on an alert rather than just email it.",
+				"fr": "Sous-estimé : véritable découverte de topologie en couche 2, une console de bureau appréciée des ingénieurs, et un scripting qui peut agir sur une alerte au lieu de simplement l’envoyer par e-mail."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

@@ -1,0 +1,117 @@
+{
+	"slug": "bugsnag",
+	"name": "BugSnag",
+	"domain": "bugsnag.com",
+	"category": "mobile-development",
+	"priceMonthly": 23,
+	"pricing": {
+		"plan": "Select, starting at $23/mo billed monthly ($20/mo billed yearly) for 50k events + 1M spans; scales with event/span volume, unlimited users",
+		"basis": "usage",
+		"url": "https://www.bugsnag.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Crash reporting is a solved problem with an unsolved licence problem: the best replacement, Sentry, relicensed to the FSL and is no longer open source. Self-hosting it is still free and still works — just do not call it open.",
+		"fr": "Le rapport de crash est un problème résolu avec un problème de licence non résolu : le meilleur remplaçant, Sentry, est passé sous FSL et n’est plus open source. L’auto-héberger reste gratuit et fonctionnel — mais ne l’appelez plus « ouvert »."
+	},
+	"whatYouLose": [
+		{
+			"en": "Stability score dashboards",
+			"fr": "Tableaux de bord de score de stabilité"
+		},
+		{
+			"en": "Managed symbolication at scale",
+			"fr": "Symbolication managée à grande échelle"
+		},
+		{
+			"en": "Release health gating",
+			"fr": "Contrôle de santé des versions"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Sentry",
+			"source": {
+				"host": "github",
+				"path": "getsentry/sentry",
+				"url": "https://github.com/getsentry/sentry"
+			},
+			"license": "FSL-1.1-Apache-2.0 (source-available, not open source)",
+			"effort": "ops",
+			"note": {
+				"en": "The obvious replacement and the honest caveat: FSL forbids competing offerings until each release ages into Apache-2.0. Self-hosting for your own apps is fine, and the Docker compose stack is heavy.",
+				"fr": "Le remplaçant évident, avec la réserve honnête : la FSL interdit les offres concurrentes jusqu’à ce que chaque version bascule en Apache-2.0. L’auto-hébergement pour vos propres applications est autorisé, et la stack compose est lourde."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "SSO/SAML, audit logs, some relay and data-residency features, plus the whole hosted service",
+					"fr": "SSO/SAML, journaux d’audit, certaines fonctions de relais et de résidence des données, ainsi que tout le service hébergé"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenReplay",
+			"source": {
+				"host": "github",
+				"path": "openreplay/openreplay",
+				"url": "https://github.com/openreplay/openreplay"
+			},
+			"license": "AGPL-3.0 outside the ee/ directory",
+			"effort": "ops",
+			"note": {
+				"en": "Session replay plus error tracking, genuinely AGPL for the core. Stronger on 'what did the user do' than on stack traces.",
+				"fr": "Rejeu de session et suivi des erreurs, cœur réellement en AGPL. Plus fort sur « qu’a fait l’utilisateur » que sur les traces d’appel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "SSO/SAML, RBAC, audit trail and multi-tenancy live in ee/",
+					"fr": "SSO/SAML, RBAC, piste d’audit et multi-tenant sont dans ee/"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Matomo",
+			"source": {
+				"host": "github",
+				"path": "matomo-org/matomo",
+				"url": "https://github.com/matomo-org/matomo"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Not a crash reporter, but if the reason you pay is release-over-release adoption numbers, this covers it without any of the licence drama.",
+				"fr": "Ce n’est pas un outil de crash, mais si vous payez pour les chiffres d’adoption version après version, il fait l’affaire sans le feuilleton des licences."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Firebase Crashlytics",
+			"url": "https://firebase.google.com/pricing",
+			"priceMonthly": 0,
+			"note": {
+				"en": "Free, unlimited, best-in-class symbolication on both platforms. The price is that Google now has your crash data and you are one more step into that ecosystem.",
+				"fr": "Gratuit, illimité, avec la meilleure symbolication sur les deux plateformes. Le prix, c’est que Google détient vos données de crash et que vous êtes un cran plus loin dans cet écosystème."
+			}
+		}
+	],
+	"priority": 3
+}

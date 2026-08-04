@@ -1,0 +1,118 @@
+{
+	"slug": "wiremock-cloud",
+	"name": "WireMock Cloud",
+	"domain": "wiremock.io",
+	"category": "testing-qa",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "The mock server is Apache-2.0 and always has been. The cloud sells a URL, a UI and a team account around it — all of which is one container and a DNS record.",
+		"fr": "Le serveur de mock est en Apache-2.0 depuis toujours. Le cloud vend une URL, une interface et un compte d’équipe autour — soit un conteneur et un enregistrement DNS."
+	},
+	"whatYouLose": [
+		{
+			"en": "Hosted always-on mock URLs",
+			"fr": "URL de mock hébergées et toujours actives"
+		},
+		{
+			"en": "Web UI for non-developers",
+			"fr": "Interface web pour non-développeurs"
+		},
+		{
+			"en": "Team stub sharing",
+			"fr": "Partage de stubs en équipe"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "WireMock",
+			"source": {
+				"host": "github",
+				"path": "wiremock/wiremock",
+				"url": "https://github.com/wiremock/wiremock"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The same engine the cloud runs. Record-and-replay, stateful stubs, fault injection, JSON config in git.",
+				"fr": "Le moteur même que fait tourner le cloud. Enregistrement-rejeu, stubs à état, injection de pannes, config JSON dans git."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "The hosted cloud only: managed mock URLs, the web editor, team accounts and traffic inspection",
+					"fr": "Uniquement le cloud hébergé : URL de mock managées, éditeur web, comptes d’équipe et inspection du trafic"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mockoon",
+			"source": {
+				"host": "github",
+				"path": "mockoon/mockoon",
+				"url": "https://github.com/mockoon/mockoon"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Desktop app plus a CLI for CI. The friendliest of the lot if a non-backend person needs to edit a mock.",
+				"fr": "Application bureau plus une CLI pour la CI. Le plus accessible du lot si une personne non-backend doit modifier un mock."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Prism",
+			"source": {
+				"host": "github",
+				"path": "stoplightio/prism",
+				"url": "https://github.com/stoplightio/prism"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Mocks straight from the OpenAPI spec, including validation that the caller matches the contract. No stub files to maintain.",
+				"fr": "Mocks générés directement depuis la spec OpenAPI, avec validation que l’appelant respecte le contrat. Aucun fichier de stub à maintenir."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Microcks",
+			"source": {
+				"host": "github",
+				"path": "microcks/microcks",
+				"url": "https://github.com/microcks/microcks"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The team-scale option: a shared mock catalogue with contract testing, covering REST, GraphQL, gRPC and async APIs.",
+				"fr": "L’option à l’échelle d’une équipe : catalogue de mocks partagé avec tests de contrat, couvrant REST, GraphQL, gRPC et les API asynchrones."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

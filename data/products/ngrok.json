@@ -1,0 +1,113 @@
+{
+	"slug": "ngrok",
+	"name": "ngrok",
+	"domain": "ngrok.com",
+	"category": "networking-vpn",
+	"priceMonthly": 8,
+	"pricing": {
+		"plan": "Personal, annual billed monthly",
+		"basis": "flat",
+		"url": "https://ngrok.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "A reverse tunnel plus a wildcard DNS record and a TLS certificate. If you already own a VPS and a domain, frp gives you the same thing permanently and with a stable hostname, which the free ngrok tier famously does not.",
+		"fr": "Un tunnel inversé, un enregistrement DNS générique et un certificat TLS. Si vous avez déjà un VPS et un domaine, frp vous donne la même chose de façon permanente et avec un nom d’hôte stable — ce que le palier gratuit de ngrok, notoirement, ne fait pas."
+	},
+	"whatYouLose": [
+		{
+			"en": "Zero setup",
+			"fr": "Aucune configuration"
+		},
+		{
+			"en": "No VPS required",
+			"fr": "Aucun VPS requis"
+		},
+		{
+			"en": "Managed TLS and domains",
+			"fr": "TLS et domaines gérés"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "frp",
+			"source": {
+				"host": "github",
+				"path": "fatedier/frp",
+				"url": "https://github.com/fatedier/frp"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The mature default. TCP, UDP, HTTP, subdomains, auth — one binary each side, one TOML file.",
+				"fr": "Le choix mature par défaut. TCP, UDP, HTTP, sous-domaines, authentification — un binaire de chaque côté, un fichier TOML."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pangolin",
+			"source": {
+				"host": "github",
+				"path": "fosrl/pangolin",
+				"url": "https://github.com/fosrl/pangolin"
+			},
+			"license": "AGPL-3.0/EE",
+			"effort": "docker",
+			"note": {
+				"en": "Tunnels plus a real admin UI, SSO and per-resource access control. Closest to what ngrok's paid tier is actually for.",
+				"fr": "Tunnels plus une vraie interface d’admin, SSO et contrôle d’accès par ressource. Le plus proche de ce à quoi sert réellement le palier payant de ngrok."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "HA, multi-org, SCIM, audit logs",
+					"fr": "HA, multi-org, SCIM, journaux d’audit"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "rathole",
+			"source": {
+				"host": "github",
+				"path": "rathole-org/rathole",
+				"url": "https://github.com/rathole-org/rathole"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Rust, noticeably faster and lighter than frp under many connections. Fewer features.",
+				"fr": "En Rust, nettement plus rapide et léger que frp sous de nombreuses connexions. Moins de fonctionnalités."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Cloudflare Tunnel",
+			"url": "https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/",
+			"priceMonthly": 0,
+			"note": {
+				"en": "Free with any domain on Cloudflare, stable hostnames, TLS handled. You cannot use it for arbitrary TCP without their client, and all traffic goes through Cloudflare.",
+				"fr": "Gratuit avec tout domaine chez Cloudflare, noms d’hôtes stables, TLS géré. Impossible de l’utiliser pour du TCP arbitraire sans leur client, et tout le trafic passe par Cloudflare."
+			}
+		}
+	],
+	"priority": 4
+}

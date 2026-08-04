@@ -1,0 +1,111 @@
+{
+	"slug": "servicetitan",
+	"name": "ServiceTitan",
+	"domain": "servicetitan.com",
+	"category": "field-service-maintenance",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "ServiceTitan is quoted, starts around a thousand a month for a small shop, and locks in for a year. It is also the only system in this list that has genuinely re-engineered the trades business: dynamic pricebooks, in-van financing, call-booking scripts. Open source has the work-order half and none of the revenue half.",
+		"fr": "ServiceTitan se vend sur devis, démarre autour du millier d’euros par mois pour un petit artisan et s’engage sur un an. C’est aussi le seul système de cette liste à avoir réellement réinventé le métier : catalogues de prix dynamiques, financement à bord, scripts de prise de rendez-vous. L’open source a la moitié « ordre de travail » et rien de la moitié « chiffre d’affaires »."
+	},
+	"whatYouLose": [
+		{
+			"en": "Dynamic pricebook and good-better-best",
+			"fr": "Catalogue de prix dynamique et offres à trois niveaux"
+		},
+		{
+			"en": "Consumer financing at the door",
+			"fr": "Financement client sur place"
+		},
+		{
+			"en": "Call booking and marketing attribution",
+			"fr": "Prise d’appel et attribution marketing"
+		},
+		{
+			"en": "Technician mobile app",
+			"fr": "Application mobile technicien"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Dolibarr",
+			"source": {
+				"host": "github",
+				"path": "Dolibarr/dolibarr",
+				"url": "https://github.com/Dolibarr/dolibarr"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The Interventions module is a real field-service module: scheduled visits, time on site, linked to the customer, the quote and the invoice. GPL, nothing held back.",
+				"fr": "Le module Interventions est un vrai module de service sur site : visites planifiées, temps passé, rattaché au client, au devis et à la facture. GPL, rien de retenu."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ERPNext",
+			"source": {
+				"host": "github",
+				"path": "frappe/erpnext",
+				"url": "https://github.com/frappe/erpnext"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Maintenance visits, service contracts and warranty claims are core doctypes, on top of stock so van inventory works.",
+				"fr": "Visites de maintenance, contrats d’entretien et garanties sont des doctypes natifs, au-dessus du stock, donc l’inventaire des camionnettes fonctionne."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Odoo Community",
+			"source": {
+				"host": "github",
+				"path": "odoo/odoo",
+				"url": "https://github.com/odoo/odoo"
+			},
+			"license": "LGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "The dispatching is good — but Odoo's actual Field Service app is Enterprise-only, so Community means building it from Project and Timesheets.",
+				"fr": "La répartition est bonne — mais l’app Services sur site d’Odoo est réservée à l’Enterprise, donc en Community il faut la reconstruire depuis Projet et Feuilles de temps."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Full accounting, Studio, Barcode, Shop Floor, Field Service and Planning are Enterprise-only",
+					"fr": "La comptabilité complète, Studio, Code-barres, Atelier, Services sur site et Planification sont réservés à l’Enterprise"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Housecall Pro",
+			"url": "https://www.housecallpro.com/pricing/",
+			"priceMonthly": 79,
+			"note": {
+				"en": "A quarter of the price with dispatch, invoicing and card payments. Nothing like ServiceTitan's pricebook or reporting.",
+				"fr": "Un quart du prix avec répartition, facturation et paiement carte. Rien à voir avec le catalogue de prix ou les rapports de ServiceTitan."
+			}
+		}
+	],
+	"priority": 3
+}

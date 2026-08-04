@@ -1,0 +1,71 @@
+{
+	"slug": "overleaf",
+	"name": "Overleaf",
+	"domain": "overleaf.com",
+	"category": "creative-studio",
+	"priceMonthly": 21,
+	"pricing": {
+		"plan": "Standard, billed monthly",
+		"basis": "per-seat",
+		"url": "https://www.overleaf.com/user/subscription/plans?currency=USD",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Overleaf publishes its own server under AGPL, so this is the rare case where self-hosting gives you the identical product. You inherit the TeX Live installation and the compile-timeout tuning, which is more annoying than it sounds.",
+		"fr": "Overleaf publie son propre serveur en AGPL : c’est le cas rare où l’auto-hébergement donne exactement le même produit. Vous héritez de l’installation TeX Live et du réglage des délais de compilation, ce qui est plus pénible qu’il n’y paraît."
+	},
+	"whatYouLose": [
+		{
+			"en": "Real-time collaboration and track changes",
+			"fr": "Collaboration en temps réel et suivi des modifications"
+		},
+		{
+			"en": "Journal submission templates",
+			"fr": "Modèles de soumission aux revues"
+		},
+		{
+			"en": "A maintained TeX Live install",
+			"fr": "Une installation TeX Live maintenue"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Overleaf Community Edition",
+			"source": {
+				"host": "github",
+				"path": "overleaf/overleaf",
+				"url": "https://github.com/overleaf/overleaf"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "The actual product. Real-time collaboration and track changes are Pro-only, even self-hosted.",
+				"fr": "Le produit lui-même. La collaboration en temps réel et le suivi des modifications restent réservés au Pro, même auto-hébergé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Track changes, Git, SSO, sandboxed compiles, admin panel",
+					"fr": "Suivi des modifications, Git, SSO, compilation isolée, admin"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Papeeria",
+			"url": "https://papeeria.com",
+			"priceMonthly": 5,
+			"note": {
+				"en": "A quarter of the price with collaboration included. Smaller template library and fewer journal integrations.",
+				"fr": "Quatre fois moins cher, collaboration incluse. Bibliothèque de modèles plus réduite et moins d’intégrations avec les revues."
+			}
+		}
+	],
+	"priority": 3
+}

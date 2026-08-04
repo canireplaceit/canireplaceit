@@ -1,0 +1,99 @@
+{
+	"slug": "karafun",
+	"name": "KaraFun",
+	"domain": "karafun.com",
+	"category": "personal-media-libraries",
+	"priceMonthly": 9,
+	"pricing": {
+		"plan": "Premium (EUR 7.99/mo)",
+		"basis": "flat",
+		"url": "https://www.karafun.com/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Karaoke Eternal is a better party system than any subscription app: guests queue songs from their phones, the TV shows the lyrics, nobody hands the laptop around. The subscription is buying the catalogue, though — 60,000 licensed backing tracks — and you will be assembling yours from CDG files one at a time.",
+		"fr": "Karaoke Eternal est un meilleur système de soirée que n’importe quelle application par abonnement : les invités mettent des morceaux en file depuis leur téléphone, la télé affiche les paroles, personne ne se passe l’ordinateur. Mais l’abonnement achète le catalogue — 60 000 pistes sous licence — et vous, vous constituerez le vôtre fichier CDG par fichier CDG."
+	},
+	"whatYouLose": [
+		{
+			"en": "60,000 licensed backing tracks",
+			"fr": "60 000 playbacks sous licence"
+		},
+		{
+			"en": "Vocal guide and key change",
+			"fr": "Voix témoin et changement de tonalité"
+		},
+		{
+			"en": "Apps on TV and console",
+			"fr": "Applications TV et console"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Karaoke Eternal",
+			"source": {
+				"host": "github",
+				"path": "bhj/KaraokeEternal",
+				"url": "https://github.com/bhj/KaraokeEternal"
+			},
+			"license": "ISC",
+			"effort": "docker",
+			"note": {
+				"en": "Server plus a phone-friendly web queue and a browser player for the TV. Handles CDG and MP3+G libraries. The best party UX in this list.",
+				"fr": "Un serveur, une file d’attente web pensée pour le téléphone et un lecteur navigateur pour la télé. Gère les bibliothèques CDG et MP3+G. La meilleure expérience de soirée de cette liste."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenKJ",
+			"source": {
+				"host": "github",
+				"path": "OpenKJ/OpenKJ",
+				"url": "https://github.com/OpenKJ/OpenKJ"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Aimed at professional KJs: rotation management, singer history, key and tempo shifting. A desktop app, not a web system.",
+				"fr": "Pensé pour les animateurs professionnels : gestion de la rotation, historique des chanteurs, changement de tonalité et de tempo. Application de bureau, pas système web."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Performous",
+			"source": {
+				"host": "github",
+				"path": "performous/performous",
+				"url": "https://github.com/performous/performous"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The SingStar-style option: it scores your pitch and turns the evening into a competition. Song format is its own, so the library is separate work.",
+				"fr": "L’option façon SingStar : elle note votre justesse et transforme la soirée en compétition. Format de morceaux propriétaire au projet, donc bibliothèque à constituer à part."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

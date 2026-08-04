@@ -1,0 +1,1 @@
+ALTER TABLE `sponsor_purchases` ADD `tint` text;

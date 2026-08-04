@@ -1,0 +1,107 @@
+{
+	"slug": "asset-panda",
+	"name": "Asset Panda",
+	"domain": "assetpanda.com",
+	"category": "inventory-warehouse",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "Asset Panda is quote-only and priced per asset, which is a strange way to charge for a database of things you own. Snipe-IT does the same job — assets, custodians, check-outs, depreciation, audits — under AGPL with SAML in the free build.",
+		"fr": "Asset Panda est sur devis et facturé à l’actif, ce qui est une façon curieuse de facturer une base de données des objets que vous possédez. Snipe-IT fait le même travail — actifs, détenteurs, sorties, amortissement, audits — sous AGPL avec le SSO SAML inclus."
+	},
+	"whatYouLose": [
+		{
+			"en": "Configurable mobile app",
+			"fr": "App mobile configurable"
+		},
+		{
+			"en": "Managed hosting and support",
+			"fr": "Hébergement et support gérés"
+		},
+		{
+			"en": "Guided data migration",
+			"fr": "Migration de données accompagnée"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Snipe-IT",
+			"source": {
+				"host": "github",
+				"path": "grokability/snipe-it",
+				"url": "https://github.com/grokability/snipe-it"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The default answer for IT and equipment assets. Depreciation, custody, audits, barcode labels, SAML SSO, no paid tier.",
+				"fr": "La réponse par défaut pour les actifs IT et les équipements. Amortissement, détention, audits, étiquettes code-barres, SSO SAML, sans palier payant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GLPI",
+			"source": {
+				"host": "github",
+				"path": "glpi-project/glpi",
+				"url": "https://github.com/glpi-project/glpi"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Asset management plus a service desk, which is usually what you actually wanted. Some Teclib plugins are paid.",
+				"fr": "Gestion d’actifs plus un centre de services, ce que vous vouliez sans doute vraiment. Certains plugins Teclib sont payants."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Several Teclib plugins and GLPI Network support are paid",
+					"fr": "Plusieurs plugins Teclib et le support GLPI Network sont payants"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "InvenTree",
+			"source": {
+				"host": "github",
+				"path": "inventree/InvenTree",
+				"url": "https://github.com/inventree/InvenTree"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "If your assets are really spare parts and stock, this models them better than an asset register.",
+				"fr": "Si vos actifs sont en réalité des pièces détachées et du stock, il les modélise mieux qu’un registre d’immobilisations."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "EZOfficeInventory",
+			"url": "https://www.ezo.io/ezofficeinventory/pricing/",
+			"priceMonthly": 40,
+			"note": {
+				"en": "Published per-asset pricing and a good mobile scanner. Still a subscription for a list of your own things.",
+				"fr": "Tarif à l’actif affiché et un bon scanner mobile. Cela reste un abonnement pour une liste de vos propres biens."
+			}
+		}
+	],
+	"priority": 3
+}

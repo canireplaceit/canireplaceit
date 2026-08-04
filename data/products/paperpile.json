@@ -1,0 +1,82 @@
+{
+	"slug": "paperpile",
+	"name": "Paperpile",
+	"domain": "paperpile.com",
+	"category": "research-science",
+	"priceMonthly": 4.15,
+	"pricing": {
+		"plan": "Regular, annual billed monthly (list USD 8.30)",
+		"basis": "per-seat",
+		"url": "https://paperpile.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Paperpile's one genuine trick is citing inside Google Docs, and no open source manager does that properly. If you write in Word or LaTeX instead, Zotero plus Better BibTeX is strictly more capable and free.",
+		"fr": "Le seul vrai tour de force de Paperpile, c’est de citer dans Google Docs, et aucun gestionnaire open source ne le fait correctement. Si vous écrivez plutôt dans Word ou LaTeX, Zotero plus Better BibTeX est strictement plus capable, et gratuit."
+	},
+	"whatYouLose": [
+		{
+			"en": "Google Docs citing",
+			"fr": "Citations dans Google Docs"
+		},
+		{
+			"en": "Google Drive-backed PDF store",
+			"fr": "Stockage PDF adossé à Google Drive"
+		},
+		{
+			"en": "Zero-setup sync",
+			"fr": "Synchronisation sans configuration"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Zotero",
+			"source": {
+				"host": "github",
+				"path": "zotero/zotero",
+				"url": "https://github.com/zotero/zotero"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The client is AGPL and does everything EndNote does, including the same CSL style repository. Sync above 300 MB is a paid Zotero service — or point it at your own WebDAV and pay nothing.",
+				"fr": "Le client est en AGPL et fait tout ce que fait EndNote, avec le même dépôt de styles CSL. La synchronisation au-delà de 300 Mo est un service Zotero payant — ou vous la branchez sur votre propre WebDAV et ne payez rien."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Zotero-hosted file storage above 300 MB",
+					"fr": "Le stockage de fichiers hébergé par Zotero au-delà de 300 Mo"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Better BibTeX for Zotero",
+			"source": {
+				"host": "github",
+				"path": "retorquere/zotero-better-bibtex",
+				"url": "https://github.com/retorquere/zotero-better-bibtex"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The plugin that makes Zotero a serious LaTeX citation source: stable citation keys and a .bib file kept in sync on disk.",
+				"fr": "L’extension qui fait de Zotero une vraie source de citations LaTeX : des clés stables et un fichier .bib maintenu à jour sur disque."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

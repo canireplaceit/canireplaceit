@@ -1,0 +1,117 @@
+{
+	"slug": "fastly",
+	"name": "Fastly",
+	"domain": "fastly.com",
+	"category": "networking-vpn",
+	"priceMonthly": null,
+	"pricing": {
+		"plan": "Pay-as-you-go (packages start at $1,500/mo)",
+		"basis": "usage",
+		"url": "https://www.fastly.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "You can run the exact same caching software Fastly runs — their edge is Varnish-derived. What you cannot run is 100 POPs on major peering fabrics, so your cache hit is 4ms away in Frankfurt and 280ms away in São Paulo. A CDN is real estate, not software.",
+		"fr": "Vous pouvez faire tourner exactement le même logiciel de cache que Fastly — leur edge dérive de Varnish. Ce que vous ne pouvez pas exploiter, ce sont 100 POPs sur les grands points de peering : votre hit de cache est à 4 ms de Francfort et à 280 ms de São Paulo. Un CDN, c’est de l’immobilier, pas du logiciel."
+	},
+	"whatYouLose": [
+		{
+			"en": "Global POP footprint",
+			"fr": "Empreinte mondiale de POPs"
+		},
+		{
+			"en": "Instant purge at the edge",
+			"fr": "Purge instantanée au edge"
+		},
+		{
+			"en": "Edge compute (VCL/Wasm)",
+			"fr": "Calcul au edge (VCL/Wasm)"
+		},
+		{
+			"en": "Terabit DDoS capacity",
+			"fr": "Capacité DDoS en térabits"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Apache Traffic Server",
+			"source": {
+				"host": "github",
+				"path": "apache/trafficserver",
+				"url": "https://github.com/apache/trafficserver"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The caching proxy Yahoo donated and Comcast still runs at carrier scale. If you are building your own POPs, start here.",
+				"fr": "Le proxy cache donné par Yahoo et toujours exploité par Comcast à l’échelle opérateur. Si vous montez vos propres POPs, commencez ici."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "nginx",
+			"source": {
+				"host": "github",
+				"path": "nginx/nginx",
+				"url": "https://github.com/nginx/nginx"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "ops",
+			"note": {
+				"en": "proxy_cache does 90% of what a small CDN needs and you already know how to configure it. Note nginx is now an F5 product; the freenginx fork exists because of that.",
+				"fr": "proxy_cache couvre 90 % des besoins d’un petit CDN et vous savez déjà le configurer. Notez que nginx est désormais un produit F5 ; le fork freenginx existe pour cette raison."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Active health checks, sticky sessions and the dashboard are NGINX Plus.",
+					"fr": "Health checks actifs, sessions persistantes et tableau de bord : réservés à NGINX Plus."
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Caddy",
+			"source": {
+				"host": "github",
+				"path": "caddyserver/caddy",
+				"url": "https://github.com/caddyserver/caddy"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Automatic TLS makes multi-origin edge nodes cheap to stand up. Caching needs a third-party module, so it is a starting point, not a Fastly.",
+				"fr": "Le TLS automatique rend les nœuds edge multi-origines faciles à monter. Le cache nécessite un module tiers : c’est un point de départ, pas un Fastly."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Bunny.net",
+			"url": "https://bunny.net/pricing/",
+			"priceMonthly": 1,
+			"note": {
+				"en": "From $0.01/GB on a large anycast network with edge scripting. Fewer POPs than Fastly and a much smaller enterprise story.",
+				"fr": "À partir de 0,01 $/Go sur un grand réseau anycast avec scripting au edge. Moins de POPs que Fastly et une offre entreprise bien plus modeste."
+			}
+		}
+	],
+	"priority": 3
+}

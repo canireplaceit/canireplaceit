@@ -1,0 +1,157 @@
+{
+	"slug": "google-one",
+	"name": "Google One",
+	"domain": "one.google.com",
+	"category": "storage",
+	"priceMonthly": 1.99,
+	"pricing": {
+		"plan": "Basic 100 GB (PLN page shows 8.99 zl/mo incl. VAT; 200 GB tier no longer listed)",
+		"basis": "flat",
+		"url": "https://one.google.com/about/plans",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Google One is storage plus a growing pile of bundled extras designed to make cancelling feel expensive. The storage itself is the easy part to replace: Immich has caught up with Google Photos on face and object search, and Nextcloud covers Drive for a household.",
+		"fr": "Google One, c’est du stockage plus un empilement croissant d’extras conçus pour rendre la résiliation douloureuse. Le stockage lui-même est la partie facile à remplacer : Immich a rattrapé Google Photos sur la recherche de visages et d’objets, et Nextcloud couvre Drive pour un foyer."
+	},
+	"whatYouLose": [
+		{
+			"en": "Photos search across twenty years",
+			"fr": "Recherche photo sur vingt ans"
+		},
+		{
+			"en": "Android device backup",
+			"fr": "Sauvegarde des appareils Android"
+		},
+		{
+			"en": "Sharing with people who have Google",
+			"fr": "Partage avec ceux qui ont Google"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Immich",
+			"source": {
+				"host": "github",
+				"path": "immich-app/immich",
+				"url": "https://github.com/immich-app/immich"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Photo and video backup with face and object search that genuinely rivals Google Photos. The mobile auto-upload is the part that finally works.",
+				"fr": "Sauvegarde photo et vidéo avec recherche de visages et d’objets qui rivalise vraiment avec Google Photos. La sauvegarde automatique mobile est la partie qui fonctionne enfin."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nextcloud",
+			"source": {
+				"host": "github",
+				"path": "nextcloud/server",
+				"url": "https://github.com/nextcloud/server"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Files, calendars, contacts, notes and photos in one AGPL server. Heavier than you want and slower than Dropbox, but it is genuinely all there.",
+				"fr": "Fichiers, agendas, contacts, notes et photos dans un seul serveur AGPL. Plus lourd que souhaité et plus lent que Dropbox, mais tout y est réellement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "A few enterprise-only apps and the support contract",
+					"fr": "Quelques applications réservées à l’édition entreprise et le contrat de support"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Seafile",
+			"source": {
+				"host": "github",
+				"path": "haiwen/seafile",
+				"url": "https://github.com/haiwen/seafile"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Much faster sync than Nextcloud because it stores blocks rather than files. The Community Edition is GPLv2 and complete for a household; Pro adds search, S3 and AD.",
+				"fr": "Synchronisation bien plus rapide que Nextcloud parce qu’il stocke des blocs plutôt que des fichiers. L’édition Community est en GPLv2 et suffit à un foyer ; Pro ajoute la recherche, S3 et AD."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Full-text search, the S3 storage backend and AD/LDAP in Pro",
+					"fr": "Recherche plein texte, le stockage S3 et AD/LDAP dans Pro"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ownCloud Infinite Scale",
+			"source": {
+				"host": "github",
+				"path": "owncloud/ocis",
+				"url": "https://github.com/owncloud/ocis"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The Go rewrite of ownCloud. Apache-2.0, far lighter than the old PHP stack, and it does not need a database.",
+				"fr": "La réécriture d’ownCloud en Go. Apache-2.0, bien plus légère que l’ancienne pile PHP, et sans base de données."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Enterprise add-ons and the support subscription",
+					"fr": "Les modules entreprise et l’abonnement de support"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Cryptomator",
+			"source": {
+				"host": "github",
+				"path": "cryptomator/cryptomator",
+				"url": "https://github.com/cryptomator/cryptomator"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Client-side encryption on top of the drive you already pay for. It does not replace the provider, it removes their ability to read anything. Desktop is free; the mobile apps are a one-off purchase.",
+				"fr": "Chiffrement côté client par-dessus le disque que vous payez déjà. Il ne remplace pas le fournisseur, il lui retire la capacité de lire quoi que ce soit. Le bureau est gratuit ; les applications mobiles sont un achat unique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "The iOS and Android apps are a paid one-off purchase",
+					"fr": "Les applications iOS et Android sont un achat unique payant"
+				},
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 5
+}

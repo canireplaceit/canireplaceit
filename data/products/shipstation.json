@@ -1,0 +1,121 @@
+{
+	"slug": "shipstation",
+	"name": "ShipStation",
+	"domain": "shipstation.com",
+	"category": "shipping-logistics",
+	"priceMonthly": 29.99,
+	"pricing": {
+		"plan": "Standard, from 50 shipments/mo",
+		"basis": "flat",
+		"url": "https://www.shipstation.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "ShipStation is a rules engine, a label buyer and a batch printer. Karrio replicates all three and speaks the same carrier APIs. What it cannot replicate is ShipStation's negotiated postage rates — most small shippers save more on discounted labels than they spend on the subscription.",
+		"fr": "ShipStation, c’est un moteur de règles, un acheteur d’étiquettes et une imprimante par lots. Karrio reproduit les trois et parle les mêmes API transporteurs. Ce qu’il ne peut pas reproduire, ce sont les tarifs postaux négociés de ShipStation — la plupart des petits expéditeurs économisent plus sur les étiquettes remisées qu’ils ne paient d’abonnement."
+	},
+	"whatYouLose": [
+		{
+			"en": "Discounted carrier rates",
+			"fr": "Tarifs transporteurs remisés"
+		},
+		{
+			"en": "Dozens of cart integrations",
+			"fr": "Des dizaines d’intégrations boutiques"
+		},
+		{
+			"en": "Batch label printing UX",
+			"fr": "Ergonomie d’impression par lots"
+		},
+		{
+			"en": "Carrier account onboarding",
+			"fr": "Ouverture des comptes transporteurs"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Karrio",
+			"source": {
+				"host": "github",
+				"path": "karrioapi/karrio",
+				"url": "https://github.com/karrioapi/karrio"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "A genuine multi-carrier shipping API and dashboard: rating, labels, tracking, pickups. Apache-2.0 core; the multi-tenant platform app is under ee/ with a commercial licence.",
+				"fr": "Une véritable API et un tableau de bord multi-transporteurs : tarification, étiquettes, suivi, enlèvements. Cœur Apache-2.0 ; l’app plateforme multi-tenant est sous ee/ avec une licence commerciale."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "The multi-tenant platform app and white-labelling live under ee/",
+					"fr": "L’app plateforme multi-tenant et le marquage blanc sont sous ee/"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Openship",
+			"source": {
+				"host": "github",
+				"path": "openshiporg/openship",
+				"url": "https://github.com/openshiporg/openship"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Order routing and fulfilment matching across channels and suppliers, rather than label buying. Smaller project, moves in bursts.",
+				"fr": "Routage des commandes et appariement des expéditions entre canaux et fournisseurs, plutôt que l’achat d’étiquettes. Projet plus petit, qui avance par à-coups."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Odoo Community",
+			"source": {
+				"host": "github",
+				"path": "odoo/odoo",
+				"url": "https://github.com/odoo/odoo"
+			},
+			"license": "LGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "If you already run Odoo, the delivery-carrier connectors buy labels straight from the picking. Fewer carriers than Karrio.",
+				"fr": "Si vous utilisez déjà Odoo, les connecteurs transporteurs achètent l’étiquette depuis la préparation. Moins de transporteurs que Karrio."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Full accounting, Studio, Barcode, Shop Floor, Field Service and Planning are Enterprise-only",
+					"fr": "La comptabilité complète, Studio, Code-barres, Atelier, Services sur site et Planification sont réservés à l’Enterprise"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Pirate Ship",
+			"url": "https://www.pirateship.com",
+			"priceMonthly": 0,
+			"note": {
+				"en": "Free forever and passes through commercial USPS/UPS rates. US-only and deliberately featureless.",
+				"fr": "Gratuit à vie et répercute les tarifs commerciaux USPS/UPS. États-Unis uniquement et volontairement minimaliste."
+			}
+		}
+	],
+	"priority": 3
+}

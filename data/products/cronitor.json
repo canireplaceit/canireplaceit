@@ -1,0 +1,103 @@
+{
+	"slug": "cronitor",
+	"name": "Cronitor",
+	"domain": "cronitor.io",
+	"category": "observability-telemetry",
+	"priceMonthly": null,
+	"pricing": {
+		"plan": "Business, pay-as-you-go: $2/monitor/mo + $5/extra user/mo",
+		"basis": "usage",
+		"url": "https://cronitor.io/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Dead man's switch monitoring is about fifty lines of logic and a scheduler. Healthchecks does exactly this, is BSD-licensed, and the same team publishes the Docker image.",
+		"fr": "La surveillance par « dead man’s switch », c’est une cinquantaine de lignes de logique et un ordonnanceur. Healthchecks fait exactement cela, sous licence BSD, et la même équipe publie l’image Docker."
+	},
+	"whatYouLose": [
+		{
+			"en": "Hosted uptime probes",
+			"fr": "Sondes de disponibilité hébergées"
+		},
+		{
+			"en": "Bundled alert routing",
+			"fr": "Routage d’alertes intégré"
+		},
+		{
+			"en": "Nothing to keep alive yourself",
+			"fr": "Rien à maintenir en vie soi-même"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Healthchecks",
+			"source": {
+				"host": "github",
+				"path": "healthchecks/healthchecks",
+				"url": "https://github.com/healthchecks/healthchecks"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "The direct replacement, and better documented than the commercial ones. Ping URLs, grace periods, and integrations with everything.",
+				"fr": "Le remplaçant direct, et mieux documenté que les offres commerciales. URL de ping, périodes de grâce, et intégrations avec tout."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Only the vendor's hosted healthchecks.io plans; the self-hosted code is complete",
+					"fr": "Uniquement les offres hébergées healthchecks.io de l’éditeur ; le code auto-hébergé est complet"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Uptime Kuma",
+			"source": {
+				"host": "github",
+				"path": "louislam/uptime-kuma",
+				"url": "https://github.com/louislam/uptime-kuma"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Covers push monitors as well as HTTP checks, so it replaces both halves of Cronitor in one container.",
+				"fr": "Gère les moniteurs push comme les checks HTTP : un seul conteneur remplace les deux moitiés de Cronitor."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Cronicle",
+			"source": {
+				"host": "github",
+				"path": "jhuckaby/Cronicle",
+				"url": "https://github.com/jhuckaby/Cronicle"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "If you actually want to replace cron rather than watch it: a distributed scheduler with a web UI and real logs.",
+				"fr": "Si vous voulez vraiment remplacer cron plutôt que le surveiller : un ordonnanceur distribué avec interface web et vrais journaux."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

@@ -1,0 +1,99 @@
+{
+	"slug": "geneious-prime",
+	"name": "Geneious Prime",
+	"domain": "geneious.com",
+	"category": "research-science",
+	"priceMonthly": 51.67,
+	"pricing": {
+		"plan": "Academic personal, billed annually ($620/yr; Corporate $2,150/yr)",
+		"basis": "per-seat",
+		"url": "https://www.geneious.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Geneious is the GUI a wet-lab biologist can use without a terminal, and that is genuinely worth money. Everything under the hood — alignment, assembly, primer design, tree building — is open source already; UGENE is the closest desktop equivalent and it is rougher.",
+		"fr": "Geneious, c’est l’interface qu’un biologiste de paillasse peut utiliser sans terminal, et ça vaut vraiment de l’argent. Tout ce qu’il y a dessous — alignement, assemblage, conception d’amorces, arbres — est déjà open source ; UGENE en est l’équivalent de bureau le plus proche, en plus rugueux."
+	},
+	"whatYouLose": [
+		{
+			"en": "Polished all-in-one desktop UI",
+			"fr": "Interface de bureau tout-en-un soignée"
+		},
+		{
+			"en": "Licensed commercial algorithms",
+			"fr": "Algorithmes commerciaux sous licence"
+		},
+		{
+			"en": "Cloud sequence sharing",
+			"fr": "Partage de séquences dans le cloud"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "UGENE",
+			"source": {
+				"host": "github",
+				"path": "ugeneunipro/ugene",
+				"url": "https://github.com/ugeneunipro/ugene"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The one open source desktop suite that covers alignment, assembly, cloning design and trees in a single window. Interface shows its age.",
+				"fr": "La seule suite de bureau open source qui couvre alignement, assemblage, conception de clonage et arbres dans une seule fenêtre. L’interface a vieilli."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Biopython",
+			"source": {
+				"host": "github",
+				"path": "biopython/biopython",
+				"url": "https://github.com/biopython/biopython"
+			},
+			"license": "Biopython License (MIT-style)",
+			"effort": "managed",
+			"note": {
+				"en": "If you can write ten lines of Python, this replaces most of what Geneious does in scripts you can version control.",
+				"fr": "Si vous savez écrire dix lignes de Python, ceci remplace l’essentiel de Geneious par des scripts que vous pouvez versionner."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "JBrowse 2",
+			"source": {
+				"host": "github",
+				"path": "GMOD/jbrowse-components",
+				"url": "https://github.com/GMOD/jbrowse-components"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Genome browsing and annotation viewing, in the browser or as a desktop app. Better than Geneious at large genomes.",
+				"fr": "Navigation génomique et visualisation d’annotations, dans le navigateur ou en application de bureau. Meilleur que Geneious sur les grands génomes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

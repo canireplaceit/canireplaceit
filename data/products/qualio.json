@@ -1,0 +1,105 @@
+{
+	"slug": "qualio",
+	"name": "Qualio",
+	"domain": "qualio.com",
+	"category": "manufacturing-quality",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "not-yet",
+	"why": {
+		"en": "An eQMS is a document control system that has been validated — and the validation package, not the software, is what an FDA or notified-body auditor asks for. Mayan EDMS gives you versioned controlled documents with approval workflows and an audit trail; producing IQ/OQ/PQ evidence for it is a project you must budget honestly.",
+		"fr": "Un eQMS est un système de gestion documentaire qui a été validé — et c’est le dossier de validation, pas le logiciel, que réclame un auditeur FDA ou un organisme notifié. Mayan EDMS vous donne des documents contrôlés versionnés avec circuits d’approbation et piste d’audit ; produire les preuves QI/QO/QP est un chantier qu’il faut budgéter honnêtement."
+	},
+	"whatYouLose": [
+		{
+			"en": "Vendor validation package",
+			"fr": "Dossier de validation fourni par l’éditeur"
+		},
+		{
+			"en": "21 CFR Part 11 e-signatures",
+			"fr": "Signatures électroniques 21 CFR Part 11"
+		},
+		{
+			"en": "Pre-built ISO 13485 templates",
+			"fr": "Modèles ISO 13485 prêts à l’emploi"
+		},
+		{
+			"en": "Auditor familiarity with the tool",
+			"fr": "Familiarité des auditeurs avec l’outil"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Mayan EDMS",
+			"source": {
+				"host": "gitlab",
+				"path": "mayan-edms/mayan-edms",
+				"url": "https://gitlab.com/mayan-edms/mayan-edms"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Controlled documents done right: versions, metadata, workflows, retention, full audit log. Apache-2.0, no paid edition. Validation is yours to do.",
+				"fr": "La gestion documentaire contrôlée bien faite : versions, métadonnées, circuits, rétention, journal d’audit complet. Apache-2.0, sans édition payante. La validation vous incombe."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Alfresco Community",
+			"source": {
+				"host": "github",
+				"path": "Alfresco/alfresco-community-repo",
+				"url": "https://github.com/Alfresco/alfresco-community-repo"
+			},
+			"license": "LGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Heavier, and the records-management and governance modules that a QMS needs are exactly the Enterprise-only ones. Read that carefully before committing.",
+				"fr": "Plus lourd, et les modules d’archivage et de gouvernance dont un QMS a besoin sont précisément ceux réservés à l’Enterprise. À lire attentivement avant de s’engager."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Records management, governance, Office integration and support are Enterprise-only",
+					"fr": "Gestion des archives, gouvernance, intégration Office et support sont réservés à l’Enterprise"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenProject",
+			"source": {
+				"host": "github",
+				"path": "opf/openproject",
+				"url": "https://github.com/opf/openproject"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Where CAPAs, deviations and change requests can live as tracked work packages. SSO and several views are Enterprise add-ons.",
+				"fr": "L’endroit où les CAPA, écarts et demandes de modification peuvent vivre comme des lots de travaux suivis. Le SSO et plusieurs vues sont des modules Enterprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SAML/OIDC SSO, team planner, custom theming and portfolio views are Enterprise",
+					"fr": "SSO SAML/OIDC, planificateur d’équipe, thème personnalisé et vues portefeuille sont Enterprise"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

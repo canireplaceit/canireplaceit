@@ -1,0 +1,93 @@
+{
+	"slug": "web-of-science",
+	"name": "Web of Science",
+	"domain": "webofscience.com",
+	"category": "research-science",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "OpenAlex has more indexed works than Web of Science and gives you the whole graph as a CC0 snapshot you can host yourself. What it does not give you is the Journal Impact Factor or a curated selective index — which, for better or worse, is what promotion committees ask for.",
+		"fr": "OpenAlex indexe plus de travaux que Web of Science et vous livre tout le graphe sous forme d’instantané CC0 que vous pouvez héberger. Ce qu’il ne donne pas, c’est le facteur d’impact ni un index sélectif curé — ce que, pour le meilleur ou pour le pire, les commissions de promotion réclament."
+	},
+	"whatYouLose": [
+		{
+			"en": "Journal Impact Factor",
+			"fr": "Facteur d’impact des revues"
+		},
+		{
+			"en": "Curated selective indexing",
+			"fr": "Indexation sélective curée"
+		},
+		{
+			"en": "Cleaned author disambiguation",
+			"fr": "Désambiguïsation d’auteurs nettoyée"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "OpenAlex",
+			"source": {
+				"host": "github",
+				"path": "ourresearch/openalex-guts",
+				"url": "https://github.com/ourresearch/openalex-guts"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "The index itself is CC0 and downloadable — around a terabyte. The API is free at 100k calls a day; self-hosting the snapshot is a real database project.",
+				"fr": "L’index lui-même est en CC0 et téléchargeable — environ un téraoctet. L’API est gratuite jusqu’à 100 000 appels par jour ; héberger l’instantané est un vrai projet de base de données."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pyalex",
+			"source": {
+				"host": "github",
+				"path": "J535D165/pyalex",
+				"url": "https://github.com/J535D165/pyalex"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Thin Python client over the OpenAlex API. This is usually all a bibliometrics project actually needs.",
+				"fr": "Client Python léger sur l’API OpenAlex. C’est en général tout ce dont un projet de bibliométrie a besoin."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "unknown"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenCitations",
+			"source": {
+				"host": "github",
+				"path": "opencitations/oc_meta",
+				"url": "https://github.com/opencitations/oc_meta"
+			},
+			"license": "ISC",
+			"effort": "ops",
+			"note": {
+				"en": "Open citation data with provenance, built for people who need to justify where a citation count came from.",
+				"fr": "Données de citation ouvertes avec provenance, pour ceux qui doivent justifier d’où vient un compte de citations."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

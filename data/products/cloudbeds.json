@@ -1,0 +1,115 @@
+{
+	"slug": "cloudbeds",
+	"name": "Cloudbeds",
+	"domain": "cloudbeds.com",
+	"category": "bookings-property-events",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "A hotel PMS is a room calendar, a folio and a channel manager, and QloApps is a real one — booking engine included. The channel manager is the catch: pushing rates and availability to Booking.com and Expedia needs paid connectivity, and getting it wrong means overbooking on a Friday night.",
+		"fr": "Un PMS hôtelier, c’est un planning de chambres, un folio et un channel manager, et QloApps en est un vrai — moteur de réservation inclus. Le piège, c’est le channel manager : pousser tarifs et disponibilités vers Booking.com et Expedia exige une connectivité payante, et une erreur signifie du surbooking un vendredi soir."
+	},
+	"whatYouLose": [
+		{
+			"en": "Certified OTA channel connectivity",
+			"fr": "Connectivité certifiée aux OTA"
+		},
+		{
+			"en": "Revenue management suggestions",
+			"fr": "Suggestions de yield management"
+		},
+		{
+			"en": "Payment gateway and folio settlement",
+			"fr": "Passerelle de paiement et règlement des folios"
+		},
+		{
+			"en": "24/7 support during a busy season",
+			"fr": "Support 24/7 en pleine saison"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "QloApps",
+			"source": {
+				"host": "github",
+				"path": "Qloapps/QloApps",
+				"url": "https://github.com/Qloapps/QloApps"
+			},
+			"license": "OSL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "A genuine hotel PMS and booking engine built on PrestaShop: rooms, rates, seasons, front desk. OSL-3.0 core; the channel manager and most official add-ons are paid.",
+				"fr": "Un vrai PMS hôtelier et moteur de réservation bâti sur PrestaShop : chambres, tarifs, saisons, réception. Cœur OSL-3.0 ; le channel manager et la plupart des modules officiels sont payants."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "The channel manager and most official add-ons are paid",
+					"fr": "Le channel manager et la plupart des modules officiels sont payants"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Odoo Community",
+			"source": {
+				"host": "github",
+				"path": "odoo/odoo",
+				"url": "https://github.com/odoo/odoo"
+			},
+			"license": "LGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Rental, POS for the bar, and accounting in one place if the property is small and the OTAs matter less than the restaurant.",
+				"fr": "Location, caisse pour le bar et comptabilité au même endroit si l’établissement est petit et que les OTA comptent moins que le restaurant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Full accounting, Studio, Barcode, Shop Floor, Field Service and Planning are Enterprise-only",
+					"fr": "La comptabilité complète, Studio, Code-barres, Atelier, Services sur site et Planification sont réservés à l’Enterprise"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ERPNext",
+			"source": {
+				"host": "github",
+				"path": "frappe/erpnext",
+				"url": "https://github.com/frappe/erpnext"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Not a PMS, but a solid billing and stock backbone behind one, fully GPL with no Enterprise edition.",
+				"fr": "Ce n’est pas un PMS, mais une solide colonne vertébrale de facturation et de stock derrière, entièrement GPL sans édition Enterprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Little Hotelier",
+			"url": "https://www.littlehotelier.com/pricing/",
+			"priceMonthly": 129,
+			"note": {
+				"en": "Cheaper, published pricing, and channel connectivity included because it is a SiteMinder product. Weak beyond 20 rooms.",
+				"fr": "Moins cher, tarifs affichés, et connectivité aux canaux incluse puisque c’est un produit SiteMinder. Faible au-delà de 20 chambres."
+			}
+		}
+	],
+	"priority": 3
+}

@@ -1,0 +1,101 @@
+{
+	"slug": "strongdm",
+	"name": "StrongDM",
+	"domain": "strongdm.com",
+	"category": "secrets-privileged-access",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "Short-lived certificates instead of shared SSH keys, with session recording for the auditors. Teleport does exactly this, is AGPL, and the community edition includes the recording and RBAC that are the entire reason you buy this category.",
+		"fr": "Des certificats à durée de vie courte au lieu de clés SSH partagées, avec enregistrement de session pour les auditeurs. Teleport fait exactement ça, il est en AGPL, et l’édition communautaire inclut l’enregistrement et le RBAC — la raison même d’acheter dans cette catégorie."
+	},
+	"whatYouLose": [
+		{
+			"en": "Vendor-managed control plane",
+			"fr": "Plan de contrôle géré par l’éditeur"
+		},
+		{
+			"en": "Turnkey compliance reports",
+			"fr": "Rapports de conformité clés en main"
+		},
+		{
+			"en": "Support SLA",
+			"fr": "SLA de support"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Teleport",
+			"source": {
+				"host": "github",
+				"path": "gravitational/teleport",
+				"url": "https://github.com/gravitational/teleport"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "SSH, Kubernetes, databases and web apps behind one identity-aware proxy. The community edition is not crippled.",
+				"fr": "SSH, Kubernetes, bases de données et applis web derrière un unique proxy conscient de l’identité. L’édition communautaire n’est pas bridée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SAML/OIDC SSO, access requests",
+					"fr": "SSO SAML/OIDC, demandes d’accès"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Warpgate",
+			"source": {
+				"host": "github",
+				"path": "warp-tech/warpgate",
+				"url": "https://github.com/warp-tech/warpgate"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "One small Rust binary for SSH, HTTP and MySQL with recording. A tenth of Teleport's complexity if that's all you need.",
+				"fr": "Un petit binaire Rust pour SSH, HTTP et MySQL avec enregistrement. Un dixième de la complexité de Teleport si c’est tout ce qu’il vous faut."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Boundary",
+			"source": {
+				"host": "github",
+				"path": "hashicorp/boundary",
+				"url": "https://github.com/hashicorp/boundary"
+			},
+			"license": "BUSL-1.1",
+			"effort": "ops",
+			"note": {
+				"en": "Pairs naturally with Vault. Now BSL like the rest of HashiCorp — factor that into a ten-year decision.",
+				"fr": "S’associe naturellement à Vault. Désormais en BSL comme le reste de HashiCorp — à intégrer dans une décision à dix ans."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Session recording, multi-hop workers",
+					"fr": "Enregistrement de sessions, workers multi-sauts"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

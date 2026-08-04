@@ -1,0 +1,124 @@
+{
+	"slug": "codecov",
+	"name": "Codecov",
+	"domain": "codecov.io",
+	"category": "developer-tooling",
+	"priceMonthly": 12,
+	"pricing": {
+		"plan": "Pro, per user",
+		"basis": "per-seat",
+		"url": "https://about.codecov.io/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Coverage is already produced by your test runner for free. Codecov sells the graph, the PR comment and the ratchet — and diff-cover plus a CI step does the ratchet, which is the only part that changes behaviour.",
+		"fr": "La couverture est déjà produite gratuitement par votre lanceur de tests. Codecov vend le graphique, le commentaire de PR et le cliquet — et diff-cover plus une étape de CI fournit le cliquet, la seule partie qui change réellement les comportements."
+	},
+	"whatYouLose": [
+		{
+			"en": "PR coverage comments",
+			"fr": "Commentaires de couverture sur les PR"
+		},
+		{
+			"en": "Cross-repo coverage trends",
+			"fr": "Tendances de couverture multi-dépôts"
+		},
+		{
+			"en": "Flag and carryforward handling",
+			"fr": "Gestion des flags et du report"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "coverage.py",
+			"source": {
+				"host": "github",
+				"path": "coveragepy/coveragepy",
+				"url": "https://github.com/coveragepy/coveragepy"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "coverage.py itself produces the XML and the HTML report; publishing it as a CI artifact covers most of what people open Codecov for.",
+				"fr": "coverage.py produit lui-même le XML et le rapport HTML ; le publier comme artefact de CI couvre la plupart des usages réels de Codecov."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "diff-cover",
+			"source": {
+				"host": "github",
+				"path": "Bachmann1234/diff_cover",
+				"url": "https://github.com/Bachmann1234/diff_cover"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The important bit: fail the build when the lines this PR touched are not covered. That is the ratchet, in one CI step, free.",
+				"fr": "L’essentiel : faire échouer le build quand les lignes touchées par la PR ne sont pas couvertes. C’est le cliquet, en une étape de CI, gratuitement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gcovr",
+			"source": {
+				"host": "github",
+				"path": "gcovr/gcovr",
+				"url": "https://github.com/gcovr/gcovr"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "The C/C++ equivalent, emitting Cobertura, HTML or SonarQube-format reports.",
+				"fr": "L’équivalent C/C++, produisant des rapports Cobertura, HTML ou au format SonarQube."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SonarQube Community Build",
+			"source": {
+				"host": "github",
+				"path": "SonarSource/sonarqube",
+				"url": "https://github.com/SonarSource/sonarqube"
+			},
+			"license": "LGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "If you want the dashboard and the history in one place, and you can host a container.",
+				"fr": "Si vous voulez le tableau de bord et l’historique au même endroit, et que vous pouvez héberger un conteneur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Branch/PR analysis, extra language analysers, portfolio reporting and SSO",
+					"fr": "Analyse des branches/PR, analyseurs de langages supplémentaires, rapports de portefeuille et SSO"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

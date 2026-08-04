@@ -1,0 +1,117 @@
+{
+	"slug": "ringcentral",
+	"name": "RingCentral",
+	"domain": "ringcentral.com",
+	"category": "comms",
+	"priceMonthly": 30,
+	"pricing": {
+		"plan": "RingEX Core, billed monthly",
+		"basis": "per-seat",
+		"url": "https://www.ringcentral.com/office/plansandpricing.html",
+		"checkedOn": "2026-08-02",
+		"confidence": "low"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Asterisk has run more phone systems than RingCentral ever will and costs nothing. But a PBX is not a phone service: you still buy SIP trunks and DIDs, you still owe E911 address registration, and when the SBC misbehaves at 9am nobody in the company can call anyone.",
+		"fr": "Asterisk a fait tourner plus de systèmes téléphoniques que RingCentral n’en fera jamais, et ne coûte rien. Mais un PBX n’est pas un service téléphonique : vous achetez toujours des trunks SIP et des numéros, vous devez toujours l’enregistrement d’adresse pour les urgences, et quand le SBC déraille à 9 h, plus personne dans la société ne peut appeler."
+	},
+	"whatYouLose": [
+		{
+			"en": "Carrier trunks included",
+			"fr": "Trunks opérateur inclus"
+		},
+		{
+			"en": "E911 and regulatory compliance",
+			"fr": "Urgences et conformité réglementaire"
+		},
+		{
+			"en": "Mobile and desktop softphones",
+			"fr": "Softphones mobile et bureau"
+		},
+		{
+			"en": "24/7 voice support",
+			"fr": "Support voix 24/7"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Asterisk",
+			"source": {
+				"host": "github",
+				"path": "asterisk/asterisk",
+				"url": "https://github.com/asterisk/asterisk"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The engine under most of the industry, including several products sold as cloud PBXs. Dial plans are code — powerful, and unforgiving if nobody owns it.",
+				"fr": "Le moteur sous la plupart du secteur, y compris plusieurs produits vendus comme PBX cloud. Les plans de numérotation sont du code — puissant, et impitoyable si personne n’en est responsable."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FreePBX",
+			"source": {
+				"host": "github",
+				"path": "FreePBX/framework",
+				"url": "https://github.com/FreePBX/framework"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "The web UI that makes Asterisk usable by a human. Be aware that Sangoma sells commercial modules — endpoint manager, sysadmin, higher-end call recording — so the free build stops short of a turnkey system.",
+				"fr": "L’interface web qui rend Asterisk utilisable par un humain. Sachez que Sangoma vend des modules commerciaux — gestionnaire de terminaux, sysadmin, enregistrement avancé — donc la build gratuite n’est pas un système clé en main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Endpoint Manager, SysAdmin Pro, advanced recording and support are paid modules.",
+					"fr": "Endpoint Manager, SysAdmin Pro, l’enregistrement avancé et le support sont des modules payants."
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FreeSWITCH",
+			"source": {
+				"host": "github",
+				"path": "signalwire/freeswitch",
+				"url": "https://github.com/signalwire/freeswitch"
+			},
+			"license": "MPL-1.1",
+			"effort": "ops",
+			"note": {
+				"en": "Better at scale and at video/conferencing than Asterisk, worse documented. Pick it if you are building a platform rather than a phone system.",
+				"fr": "Meilleur à grande échelle et en vidéo/conférence qu’Asterisk, moins bien documenté. À choisir si vous construisez une plateforme plutôt qu’un système téléphonique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "VoIP.ms",
+			"url": "https://voip.ms/en/rates",
+			"priceMonthly": 5,
+			"note": {
+				"en": "Pay-per-minute or cheap flat DIDs feeding your own PBX. No apps, no support desk, and E911 is a form you fill in yourself.",
+				"fr": "À la minute ou numéros à forfait bon marché alimentant votre propre PBX. Pas d’applications, pas de hotline, et les urgences sont un formulaire à remplir soi-même."
+			}
+		}
+	],
+	"priority": 3
+}

@@ -1,0 +1,103 @@
+{
+	"slug": "sendbird",
+	"name": "Sendbird",
+	"domain": "sendbird.com",
+	"category": "comms",
+	"priceMonthly": 399,
+	"pricing": {
+		"plan": "Starter 5K, billed monthly (USD 349/mo billed annually)",
+		"basis": "usage",
+		"url": "https://sendbird.com/pricing/chat",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "The server side of in-app chat is genuinely solved — Matrix and Rocket.Chat both expose full APIs. What Sendbird sells is the client half: maintained iOS, Android, React Native and web SDKs with offline sync and read receipts that survive App Store review. Rebuilding that is a team, not a weekend.",
+		"fr": "Le côté serveur du chat intégré est réellement résolu — Matrix et Rocket.Chat exposent tous deux des API complètes. Ce que vend Sendbird, c’est la moitié cliente : des SDK iOS, Android, React Native et web maintenus, avec synchro hors-ligne et accusés de lecture qui survivent à la validation de l’App Store. Reconstruire cela, c’est une équipe, pas un week-end."
+	},
+	"whatYouLose": [
+		{
+			"en": "Maintained mobile SDKs",
+			"fr": "SDK mobiles maintenus"
+		},
+		{
+			"en": "Moderation tooling",
+			"fr": "Outils de modération"
+		},
+		{
+			"en": "Elastic scale on demand",
+			"fr": "Montée en charge à la demande"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Synapse (Matrix)",
+			"source": {
+				"host": "github",
+				"path": "element-hq/synapse",
+				"url": "https://github.com/element-hq/synapse"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "An open protocol with client SDKs in every language, end-to-end encryption included. Federation is optional — you can run it as a closed backend for one app.",
+				"fr": "Un protocole ouvert avec des SDK clients dans tous les langages, chiffrement de bout en bout inclus. La fédération est facultative — vous pouvez l’exploiter en backend fermé pour une seule application."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Rocket.Chat",
+			"source": {
+				"host": "github",
+				"path": "RocketChat/Rocket.Chat",
+				"url": "https://github.com/RocketChat/Rocket.Chat"
+			},
+			"license": "MIT + proprietary ee/",
+			"effort": "docker",
+			"note": {
+				"en": "Full chat platform with embeddable widgets, but the community build is capped around 100 concurrent users and SAML/SSO sits behind a paid plan. Read the plan table before you commit.",
+				"fr": "Plateforme de chat complète avec widgets intégrables, mais la build communautaire est plafonnée autour de 100 utilisateurs simultanés et SAML/SSO est derrière un forfait payant. Lisez le tableau des offres avant de vous engager."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "Concurrent-user cap, SAML/SSO, RBAC, E2E and moderation are Premium.",
+					"fr": "Plafond d’utilisateurs simultanés, SAML/SSO, RBAC, E2E et modération sont Premium."
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Zulip",
+			"source": {
+				"host": "github",
+				"path": "zulip/zulip",
+				"url": "https://github.com/zulip/zulip"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Excellent REST API and a permissive licence with no seat cap. Its UI model is opinionated, so it suits an internal tool better than a consumer chat widget.",
+				"fr": "Excellente API REST et licence permissive sans plafond d’utilisateurs. Son modèle d’interface est très affirmé : mieux adapté à un outil interne qu’à un widget de chat grand public."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

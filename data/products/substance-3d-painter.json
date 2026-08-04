@@ -1,0 +1,114 @@
+{
+	"slug": "substance-3d-painter",
+	"name": "Adobe Substance 3D Painter",
+	"domain": "adobe.com",
+	"category": "3d-cad",
+	"priceMonthly": 20,
+	"pricing": {
+		"plan": "Substance 3D Texturing, individual (Adobe pricing pages timed out; unconfirmed)",
+		"basis": "per-seat",
+		"url": "https://www.adobe.com/products/substance3d/plans.html",
+		"checkedOn": "2026-08-02",
+		"confidence": "low"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Painting directly on a mesh with smart materials that react to curvature and ambient occlusion is a specific, hard-won piece of engineering, and no open project has caught up. Blender's texture paint is a different, cruder thing.",
+		"fr": "Peindre directement sur un maillage avec des matériaux intelligents qui réagissent à la courbure et à l’occlusion ambiante est une pièce d’ingénierie difficile, et aucun projet open source n’a rattrapé ce niveau. La peinture de texture de Blender est autre chose, et plus rudimentaire."
+	},
+	"whatYouLose": [
+		{
+			"en": "Smart materials and mask generators",
+			"fr": "Matériaux intelligents et générateurs de masques"
+		},
+		{
+			"en": "Substance asset library",
+			"fr": "Bibliothèque d’assets Substance"
+		},
+		{
+			"en": "Studio-standard export presets",
+			"fr": "Préréglages d’export standards des studios"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "ArmorPaint",
+			"source": {
+				"host": "github",
+				"path": "armory3d/armorpaint",
+				"url": "https://github.com/armory3d/armorpaint"
+			},
+			"license": "Zlib",
+			"effort": "managed",
+			"note": {
+				"en": "The closest thing to Painter that exists in the open. The source is complete and buildable; the prebuilt binaries are sold to fund the project, so 'free' means compiling it yourself.",
+				"fr": "Ce qui existe de plus proche de Painter en open source. Le code est complet et compilable ; les binaires précompilés sont vendus pour financer le projet, donc « gratuit » veut dire le compiler soi-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Prebuilt binaries and updates — the source is all there",
+					"fr": "Les binaires précompilés et les mises à jour — le code, lui, est complet"
+				},
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Material Maker",
+			"source": {
+				"host": "github",
+				"path": "RodZill4/material-maker",
+				"url": "https://github.com/RodZill4/material-maker"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A node-based procedural material authoring tool, so it replaces Substance Designer rather than Painter. Exports PBR maps cleanly.",
+				"fr": "Un outil de création de matériaux procéduraux par nœuds : il remplace Substance Designer plutôt que Painter. Export propre des cartes PBR."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Blender",
+			"source": {
+				"host": "gitea",
+				"path": "blender/blender",
+				"url": "https://projects.blender.org/blender/blender"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Texture paint plus baking covers simple assets and costs nothing. It is not a smart-material workflow.",
+				"fr": "La peinture de texture et le baking couvrent les assets simples et ne coûtent rien. Ce n’est pas un flux de matériaux intelligents."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "3DCoat Textura",
+			"url": "https://3dcoat.com/pricing/",
+			"priceMonthly": null,
+			"priceOnce": 183,
+			"note": {
+				"en": "A cheap perpetual licence aimed exactly at this job. Smaller smart-material library.",
+				"fr": "Une licence perpétuelle bon marché visant précisément cette tâche. Bibliothèque de matériaux intelligents plus petite."
+			}
+		}
+	],
+	"priority": 2
+}

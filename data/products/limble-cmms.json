@@ -1,0 +1,107 @@
+{
+	"slug": "limble-cmms",
+	"name": "Limble CMMS",
+	"domain": "limblecmms.com",
+	"category": "field-service-maintenance",
+	"priceMonthly": 28,
+	"pricing": {
+		"plan": "Standard",
+		"basis": "per-seat",
+		"url": "https://limblecmms.com/pricing/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Limble is the nicest CMMS to use and prices per technician, which adds up fast in a plant with thirty maintainers. The functional gap to Atlas CMMS is small and shrinking; the usability gap is real but not $10k-a-year real.",
+		"fr": "Limble est la GMAO la plus agréable à utiliser et se facture par technicien, ce qui monte vite dans une usine de trente agents de maintenance. L’écart fonctionnel avec Atlas CMMS est faible et se réduit ; l’écart d’ergonomie est réel mais ne vaut pas 10 000 € par an."
+	},
+	"whatYouLose": [
+		{
+			"en": "QR-code work request flow",
+			"fr": "Flux de demande par QR code"
+		},
+		{
+			"en": "Polished technician UX",
+			"fr": "Ergonomie technicien soignée"
+		},
+		{
+			"en": "Onboarding and data import service",
+			"fr": "Service de mise en route et d’import"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Atlas CMMS",
+			"source": {
+				"host": "github",
+				"path": "Grashjs/cmms",
+				"url": "https://github.com/Grashjs/cmms"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The closest open equivalent, and it does have QR work requests and a mobile app. AGPL with a paid key for white-labelling.",
+				"fr": "L’équivalent open source le plus proche, et il gère bien les demandes par QR code et l’app mobile. AGPL avec clé payante pour le marquage blanc."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "White-labelling and some advanced features need a paid licence key",
+					"fr": "Le marquage blanc et certaines fonctions avancées exigent une clé de licence payante"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GLPI",
+			"source": {
+				"host": "github",
+				"path": "glpi-project/glpi",
+				"url": "https://github.com/glpi-project/glpi"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "If your assets are IT or facilities rather than production machinery, GLPI's ticketing is more mature than any open CMMS.",
+				"fr": "Si vos actifs relèvent de l’IT ou du facility management plutôt que de machines de production, la billetterie de GLPI est plus mûre que toute GMAO open source."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Several Teclib plugins and GLPI Network support are paid",
+					"fr": "Plusieurs plugins Teclib et le support GLPI Network sont payants"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ERPNext",
+			"source": {
+				"host": "github",
+				"path": "frappe/erpnext",
+				"url": "https://github.com/frappe/erpnext"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Asset maintenance schedules tied to the same items and purchase orders your spares come from.",
+				"fr": "Plans de maintenance des immobilisations reliés aux mêmes articles et commandes d’achat que vos pièces de rechange."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

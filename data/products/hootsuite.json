@@ -1,0 +1,92 @@
+{
+	"slug": "hootsuite",
+	"name": "Hootsuite",
+	"domain": "hootsuite.com",
+	"category": "community-publishing",
+	"priceMonthly": 99,
+	"pricing": {
+		"plan": "Standard, from $99/mo",
+		"basis": "per-seat",
+		"url": "https://www.hootsuite.com/plans",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Hootsuite has been coasting on being the default for a decade while its price climbed and its streams got worse. Self-hosted schedulers now match it feature for feature — the one thing they cannot match is Hootsuite's officially sanctioned API access when a platform tightens the rules.",
+		"fr": "Hootsuite vit sur son statut de choix par défaut depuis dix ans, pendant que son prix montait et que ses flux se dégradaient. Les planificateurs auto-hébergés l’égalent désormais fonctionnalité par fonctionnalité — la seule chose qu’ils ne peuvent égaler, c’est son accès API officiellement sanctionné quand une plateforme resserre ses règles."
+	},
+	"whatYouLose": [
+		{
+			"en": "Sanctioned platform API access",
+			"fr": "Accès API sanctionné par les plateformes"
+		},
+		{
+			"en": "Stream-based monitoring view",
+			"fr": "Vue de surveillance en colonnes"
+		},
+		{
+			"en": "Team approval workflows",
+			"fr": "Circuits de validation en équipe"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Postiz",
+			"source": {
+				"host": "github",
+				"path": "gitroomhq/postiz-app",
+				"url": "https://github.com/gitroomhq/postiz-app"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Modern, actively maintained, genuinely AGPL. Expect to update it whenever a network changes its API, which is the maintenance the subscription was buying.",
+				"fr": "Moderne, activement maintenu, réellement AGPL. Prévoyez de le mettre à jour à chaque changement d’API d’un réseau — c’est la maintenance que l’abonnement achetait."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mixpost",
+			"source": {
+				"host": "github",
+				"path": "inovector/mixpost",
+				"url": "https://github.com/inovector/mixpost"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Calm and self-hosted, but the MIT build is Lite: workspaces, analytics and most networks are the paid Pro edition.",
+				"fr": "Sobre et auto-hébergé, mais la version MIT est Lite : espaces de travail, statistiques et la plupart des réseaux sont dans l’édition Pro payante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"paywalled": {
+					"en": "The MIT repo is Mixpost Lite; multiple workspaces, analytics and most networks are in the paid Pro edition",
+					"fr": "Le dépôt MIT est Mixpost Lite ; espaces multiples, statistiques et la plupart des réseaux sont dans l’édition Pro payante"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Buffer",
+			"url": "https://buffer.com",
+			"priceMonthly": 6,
+			"note": {
+				"en": "Does the 90% of Hootsuite anyone uses, for a sixteenth of the price. No monitoring streams, no approvals.",
+				"fr": "Fait les 90 % de Hootsuite que les gens utilisent, pour un seizième du prix. Pas de flux de surveillance, pas de validations."
+			}
+		}
+	],
+	"priority": 3
+}

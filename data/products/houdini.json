@@ -1,0 +1,77 @@
+{
+	"slug": "houdini",
+	"name": "SideFX Houdini",
+	"domain": "sidefx.com",
+	"category": "creative-studio",
+	"priceMonthly": 292.08,
+	"pricing": {
+		"plan": "Houdini FX, 1-year rental $3,505/yr (Core $1,475/yr)",
+		"basis": "per-seat",
+		"url": "https://www.sidefx.com/buy/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Houdini is a procedural solver collection with a UI attached, and the solvers are the product — pyro, FLIP, Vellum, RBD. Blender's Geometry Nodes is a real procedural system and it still is not close on simulation.",
+		"fr": "Houdini est une collection de solveurs procéduraux avec une interface autour, et les solveurs sont le produit — pyro, FLIP, Vellum, corps rigides. Les Geometry Nodes de Blender forment un vrai système procédural, et restent loin du compte en simulation."
+	},
+	"whatYouLose": [
+		{
+			"en": "Production-grade FX solvers",
+			"fr": "Solveurs FX de niveau production"
+		},
+		{
+			"en": "HDA-based studio pipelines",
+			"fr": "Pipelines de studio basés sur les HDA"
+		},
+		{
+			"en": "Scale on a render farm",
+			"fr": "Montée en charge sur une ferme de rendu"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Blender",
+			"source": {
+				"host": "gitea",
+				"path": "blender/blender",
+				"url": "https://projects.blender.org/blender/blender"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Geometry Nodes covers procedural modelling and scattering well; Mantaflow handles smoke and fluids at a hobby scale, not a feature-film one.",
+				"fr": "Les Geometry Nodes couvrent bien la modélisation procédurale et la dispersion ; Mantaflow gère fumée et fluides à une échelle de loisir, pas de long métrage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Houdini Indie",
+			"url": "https://www.sidefx.com/buy/",
+			"priceMonthly": 27,
+			"note": {
+				"en": "The same software under a revenue cap for the price of a streaming bundle. Limited output resolution and no third-party renderers in some cases.",
+				"fr": "Le même logiciel sous plafond de revenus pour le prix d’un bouquet de streaming. Résolution de sortie limitée et, dans certains cas, pas de moteurs de rendu tiers."
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "EmberGen",
+			"url": "https://jangafx.com/software/embergen",
+			"priceMonthly": null,
+			"note": {
+				"en": "A one-off purchase for real-time volumetric FX. Does one slice of Houdini's job, extremely fast.",
+				"fr": "Un achat unique pour des effets volumétriques en temps réel. Ne fait qu’une tranche du travail de Houdini, mais très vite."
+			}
+		}
+	],
+	"priority": 2
+}

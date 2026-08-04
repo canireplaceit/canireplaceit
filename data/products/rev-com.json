@@ -1,0 +1,99 @@
+{
+	"slug": "rev-com",
+	"name": "Rev",
+	"domain": "rev.com",
+	"category": "audio-podcasting",
+	"priceMonthly": 25.49,
+	"pricing": {
+		"plan": "Essentials, annual billed monthly (USD 29.99 billed monthly)",
+		"basis": "per-seat",
+		"url": "https://www.rev.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Rev bills per minute for transcription and captions. Whisper running on your own machine costs electricity, handles dozens of languages, and on clean audio lands within a few percent of a human transcriptionist. Keep paying humans for legal, medical and broadcast-compliance work where a wrong word is a liability; everything else can be a local job queue.",
+		"fr": "Rev facture à la minute la transcription et le sous-titrage. Whisper sur votre propre machine coûte de l’électricité, gère des dizaines de langues et, sur un son propre, arrive à quelques pour cent d’un transcripteur humain. Continuez à payer des humains pour le juridique, le médical et la conformité broadcast, où un mot faux engage votre responsabilité ; le reste peut devenir une file de tâches locale."
+	},
+	"whatYouLose": [
+		{
+			"en": "99% human-verified accuracy",
+			"fr": "Précision humaine à 99 %"
+		},
+		{
+			"en": "Guaranteed turnaround times",
+			"fr": "Délais garantis"
+		},
+		{
+			"en": "Legal and FCC compliance sign-off",
+			"fr": "Validation de conformité juridique et FCC"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "whisper.cpp",
+			"source": {
+				"host": "github",
+				"path": "ggml-org/whisper.cpp",
+				"url": "https://github.com/ggml-org/whisper.cpp"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Whisper in C++ with GPU and Apple Silicon acceleration. Outputs SRT and VTT directly; fast enough to batch a back catalogue overnight.",
+				"fr": "Whisper en C++ avec accélération GPU et Apple Silicon. Sort du SRT et du VTT directement ; assez rapide pour traiter un catalogue entier la nuit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "WhisperX",
+			"source": {
+				"host": "github",
+				"path": "m-bain/whisperX",
+				"url": "https://github.com/m-bain/whisperX"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "ops",
+			"note": {
+				"en": "Adds word-level timestamps and speaker diarisation, which is what makes captions actually usable. Needs a GPU and a Python environment you maintain.",
+				"fr": "Ajoute l’horodatage au mot et la séparation des locuteurs, ce qui rend les sous-titres réellement exploitables. Exige un GPU et un environnement Python à entretenir."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Subtitle Edit",
+			"source": {
+				"host": "github",
+				"path": "SubtitleEdit/subtitleedit",
+				"url": "https://github.com/SubtitleEdit/subtitleedit"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The editor you need after the machine pass: waveform sync, shot-change detection, reading-speed checks, every subtitle format that exists.",
+				"fr": "L’éditeur nécessaire après la passe machine : synchronisation sur forme d’onde, détection des changements de plan, contrôle de vitesse de lecture, tous les formats de sous-titres existants."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 4
+}

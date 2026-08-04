@@ -1,0 +1,103 @@
+{
+	"slug": "intercom",
+	"name": "Intercom",
+	"domain": "intercom.com",
+	"category": "support",
+	"priceMonthly": 39,
+	"pricing": {
+		"plan": "Essential, monthly billing",
+		"basis": "per-seat",
+		"url": "https://www.intercom.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Live chat plus a help center. Per-resolution AI pricing is pushing everyone to look at this seriously.",
+		"fr": "Un chat en direct plus un centre d’aide. La facturation à la résolution IA pousse tout le monde à regarder ailleurs, sérieusement."
+	},
+	"whatYouLose": [
+		{
+			"en": "AI resolution bot",
+			"fr": "Bot de résolution IA"
+		},
+		{
+			"en": "Product tours and in-app messages",
+			"fr": "Tours produit et messages in-app"
+		},
+		{
+			"en": "Polished mobile SDKs",
+			"fr": "SDK mobiles soignés"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Chatwoot",
+			"source": {
+				"host": "github",
+				"path": "chatwoot/chatwoot",
+				"url": "https://github.com/chatwoot/chatwoot"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Omnichannel inbox, the default pick.",
+				"fr": "Boîte omnicanale, le choix par défaut."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO/SAML, SLAs, audit logs",
+					"fr": "SSO/SAML, SLA, journaux d’audit"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Papercups",
+			"source": {
+				"host": "github",
+				"path": "papercups-io/papercups",
+				"url": "https://github.com/papercups-io/papercups"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Simpler, slower development.",
+				"fr": "Plus simple, développement au ralenti."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Zammad",
+			"source": {
+				"host": "github",
+				"path": "zammad/zammad",
+				"url": "https://github.com/zammad/zammad"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Ticketing-first, very mature.",
+				"fr": "Ticketing d’abord, très mature."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

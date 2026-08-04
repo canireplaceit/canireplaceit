@@ -1,0 +1,78 @@
+{
+	"slug": "heroku",
+	"name": "Heroku",
+	"domain": "heroku.com",
+	"category": "dev-tools",
+	"priceMonthly": 25,
+	"pricing": {
+		"plan": "Standard-1X dyno, $25/mo (Eco $5, Basic $7)",
+		"basis": "usage",
+		"url": "https://www.heroku.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "The buildpack PaaS shape has been fully reimplemented. You trade the bill for being on-call.",
+		"fr": "La forme du PaaS à buildpacks a été entièrement réimplémentée. Vous échangez la facture contre l’astreinte."
+	},
+	"whatYouLose": [
+		{
+			"en": "Someone else on call",
+			"fr": "Astreinte de quelqu’un d’autre"
+		},
+		{
+			"en": "Managed Postgres and backups",
+			"fr": "Postgres et sauvegardes gérés"
+		},
+		{
+			"en": "Add-ons marketplace",
+			"fr": "Place de marché d’add-ons"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Dokku",
+			"source": {
+				"host": "github",
+				"path": "dokku/dokku",
+				"url": "https://github.com/dokku/dokku"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Heroku in a single VPS, git push deploy.",
+				"fr": "Heroku sur un seul VPS, déploiement en git push."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Coolify",
+			"source": {
+				"host": "github",
+				"path": "coollabsio/coolify",
+				"url": "https://github.com/coollabsio/coolify"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Databases + apps + backups in one UI.",
+				"fr": "Bases, applis et sauvegardes dans une seule interface."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

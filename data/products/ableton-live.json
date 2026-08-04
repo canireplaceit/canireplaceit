@@ -1,0 +1,130 @@
+{
+	"slug": "ableton-live",
+	"name": "Ableton Live",
+	"domain": "ableton.com",
+	"category": "creative-studio",
+	"priceMonthly": null,
+	"pricing": {
+		"plan": "Live 12 Standard, EUR 279 one-time (~USD 301); Suite EUR 599",
+		"basis": "one-time",
+		"url": "https://www.ableton.com/en/shop/live/",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Live is a one-off purchase, not a subscription — the monthly figure here is that price spread over a couple of years. Ardour is a better recording tool in some ways, but nothing open source has Session View, the clip-launching workflow that is Live's entire reason to exist.",
+		"fr": "Live s’achète une fois, ce n’est pas un abonnement — le chiffre mensuel affiché est ce prix étalé sur deux ans. Ardour est à certains égards un meilleur outil d’enregistrement, mais rien en open source n’a la Session View, le déclenchement de clips qui est la raison d’être de Live."
+	},
+	"whatYouLose": [
+		{
+			"en": "Session View clip launching",
+			"fr": "Déclenchement de clips en Session View"
+		},
+		{
+			"en": "The bundled instrument and sample library",
+			"fr": "La bibliothèque d’instruments et de samples fournie"
+		},
+		{
+			"en": "Max for Live and its device ecosystem",
+			"fr": "Max for Live et son écosystème de modules"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Ardour",
+			"source": {
+				"host": "gitea",
+				"path": "ardour/ardour",
+				"url": "https://git.ardour.org/ardour/ardour"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Professional multitrack recording and mixing. Linear timeline only, no clip launching.",
+				"fr": "Enregistrement et mixage multipiste professionnels. Timeline linéaire uniquement, pas de déclenchement de clips."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Zrythm",
+			"source": {
+				"host": "gitlab",
+				"path": "zrythm/zrythm",
+				"url": "https://gitlab.zrythm.org/zrythm/zrythm"
+			},
+			"license": "Zrythm License",
+			"effort": "managed",
+			"note": {
+				"en": "The only open audio workstation seriously chasing a Live-style workflow. Check the licence — it is not plain GPL.",
+				"fr": "La seule station audio open source qui vise sérieusement un flux à la Live. Vérifiez la licence — ce n’est pas du GPL classique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LMMS",
+			"source": {
+				"host": "github",
+				"path": "LMMS/lmms",
+				"url": "https://github.com/LMMS/lmms"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Pattern-based, closer to FL Studio. Fine for beats, not for recording a band.",
+				"fr": "Repose sur des motifs, plus proche de FL Studio. Correct pour des beats, pas pour enregistrer un groupe."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Audacity",
+			"source": {
+				"host": "github",
+				"path": "audacity/audacity",
+				"url": "https://github.com/audacity/audacity"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Not a full workstation. Still the fastest way to trim and clean up an audio file.",
+				"fr": "Ce n’est pas une station complète. Reste le moyen le plus rapide de couper et nettoyer un fichier audio."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "REAPER",
+			"url": "https://www.reaper.fm",
+			"priceMonthly": 0,
+			"note": {
+				"en": "A one-time licence around $60, not a subscription, and it is a full professional workstation. No bundled instruments and the default UI is hostile.",
+				"fr": "Une licence unique d’environ 60 $, pas d’abonnement, et c’est une station professionnelle complète. Aucun instrument fourni et l’interface par défaut est rebutante."
+			}
+		}
+	],
+	"priority": 3
+}

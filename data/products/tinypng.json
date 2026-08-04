@@ -1,0 +1,109 @@
+{
+	"slug": "tinypng",
+	"name": "TinyPNG",
+	"domain": "tinypng.com",
+	"category": "design",
+	"priceMonthly": null,
+	"pricing": {
+		"plan": "Developer API: 500 free compressions/mo, then $0.009 each ($0.002 above 10k); Web Pro price only shown at checkout",
+		"basis": "usage",
+		"url": "https://tinify.com/pricing/api",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Smart lossy PNG and JPEG compression is a solved, offline problem, and oxipng or Caesium will match TinyPNG's ratios on your own machine with no upload. The API is the only part worth paying for, and even that is a queue in front of the same codecs.",
+		"fr": "La compression avec perte maîtrisée des PNG et JPEG est un problème résolu et hors ligne : oxipng ou Caesium atteignent les mêmes ratios que TinyPNG sur votre machine, sans téléversement. Seule l’API vaut d’être payée, et ce n’est qu’une file d’attente devant les mêmes codecs."
+	},
+	"whatYouLose": [
+		{
+			"en": "Zero-setup drag and drop",
+			"fr": "Glisser-déposer sans installation"
+		},
+		{
+			"en": "Photoshop plugin",
+			"fr": "Plugin Photoshop"
+		},
+		{
+			"en": "Managed API with no infrastructure",
+			"fr": "API gérée sans infrastructure"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "oxipng",
+			"source": {
+				"host": "github",
+				"path": "oxipng/oxipng",
+				"url": "https://github.com/oxipng/oxipng"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A multithreaded lossless PNG optimiser that beats the old zopfli-era tools and is a single binary in CI.",
+				"fr": "Un optimiseur PNG sans perte multithread qui bat les anciens outils de l’ère zopfli et tient en un binaire dans votre CI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Caesium",
+			"source": {
+				"host": "github",
+				"path": "Lymphatus/caesium-image-compressor",
+				"url": "https://github.com/Lymphatus/caesium-image-compressor"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The desktop app equivalent: drop a folder in, pick a quality, batch out. No account, nothing uploaded.",
+				"fr": "L’équivalent en application de bureau : déposez un dossier, choisissez une qualité, traitement par lot. Sans compte, rien n’est téléversé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Squoosh",
+			"source": {
+				"host": "github",
+				"path": "GoogleChromeLabs/squoosh",
+				"url": "https://github.com/GoogleChromeLabs/squoosh"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Codecs compiled to WebAssembly running in the browser tab — the image never leaves the page. Also a CLI for batch work.",
+				"fr": "Des codecs compilés en WebAssembly dans l’onglet du navigateur — l’image ne quitte jamais la page. Également une CLI pour le traitement par lot."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "ShortPixel",
+			"url": "https://shortpixel.com/pricing",
+			"priceMonthly": 5,
+			"note": {
+				"en": "Cheaper per image at volume with WordPress integration and CDN delivery. Still a third party holding your assets.",
+				"fr": "Moins cher à l’image en volume, avec intégration WordPress et livraison par CDN. Cela reste un tiers qui détient vos ressources."
+			}
+		}
+	],
+	"priority": 2
+}

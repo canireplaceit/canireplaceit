@@ -1,0 +1,103 @@
+{
+	"slug": "chatgpt-plus",
+	"name": "ChatGPT Plus",
+	"domain": "chatgpt.com",
+	"category": "ai",
+	"priceMonthly": 20,
+	"pricing": {
+		"plan": "Plus",
+		"basis": "per-seat",
+		"url": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "almost",
+	"why": {
+		"en": "Local models are good enough for a lot of it now. Frontier reasoning still needs someone else's GPUs.",
+		"fr": "Les modèles locaux suffisent désormais pour une bonne partie des usages. Le raisonnement de pointe demande encore les GPU de quelqu’un d’autre."
+	},
+	"whatYouLose": [
+		{
+			"en": "Frontier reasoning quality",
+			"fr": "Raisonnement de pointe"
+		},
+		{
+			"en": "Voice, images, and browsing",
+			"fr": "Voix, images et navigation web"
+		},
+		{
+			"en": "No GPU to buy",
+			"fr": "Aucun GPU à acheter"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Open WebUI",
+			"source": {
+				"host": "github",
+				"path": "open-webui/open-webui",
+				"url": "https://github.com/open-webui/open-webui"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "The ChatGPT UI, any backend.",
+				"fr": "L’interface de ChatGPT, avec le backend que vous voulez."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Removing branding above 50 users",
+					"fr": "Retrait du branding au-delà de 50 utilisateurs"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LibreChat",
+			"source": {
+				"host": "github",
+				"path": "danny-avila/LibreChat",
+				"url": "https://github.com/danny-avila/LibreChat"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Multi-provider, agents, RAG.",
+				"fr": "Multi-fournisseurs, agents, RAG."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ollama",
+			"source": {
+				"host": "github",
+				"path": "ollama/ollama",
+				"url": "https://github.com/ollama/ollama"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Run models locally in one command.",
+				"fr": "Faire tourner des modèles en local, en une commande."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

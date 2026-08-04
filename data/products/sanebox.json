@@ -1,0 +1,124 @@
+{
+	"slug": "sanebox",
+	"name": "SaneBox",
+	"domain": "sanebox.com",
+	"category": "email-clients",
+	"priceMonthly": 7,
+	"pricing": {
+		"plan": "Snack",
+		"basis": "per-seat",
+		"url": "https://www.sanebox.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "medium"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "SaneBox sorts your inbox by connecting to it from their cloud and reading your headers forever. Every mail server you can run already has a filtering engine that does this locally, and sieve rules do not need a subscription or an OAuth grant that never expires.",
+		"fr": "SaneBox trie votre boîte en s’y connectant depuis leur cloud et en lisant vos en-têtes pour toujours. Tout serveur mail que vous pouvez faire tourner possède déjà un moteur de filtrage qui fait cela localement, et les règles sieve n’exigent ni abonnement ni autorisation OAuth qui n’expire jamais."
+	},
+	"whatYouLose": [
+		{
+			"en": "Sorting that works with no rules written",
+			"fr": "Tri qui marche sans écrire une règle"
+		},
+		{
+			"en": "SaneBlackHole one-click unsubscribing",
+			"fr": "Désabonnement en un clic SaneBlackHole"
+		},
+		{
+			"en": "Works with Gmail without a server",
+			"fr": "Fonctionne avec Gmail sans serveur"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Rspamd",
+			"source": {
+				"host": "github",
+				"path": "rspamd/rspamd",
+				"url": "https://github.com/rspamd/rspamd"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The spam engine every serious self-hosted mail stack uses. Bayesian filtering, fuzzy hashes, greylisting and a rule language you can actually write.",
+				"fr": "Le moteur antispam qu’utilise toute pile mail auto-hébergée sérieuse. Filtrage bayésien, empreintes floues, greylisting, et un langage de règles réellement écrivable."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "imapfilter",
+			"source": {
+				"host": "github",
+				"path": "lefcha/imapfilter",
+				"url": "https://github.com/lefcha/imapfilter"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Server-side filing in a Lua config file. Ugly, unfashionable, and it will outlive every AI inbox startup.",
+				"fr": "Le classement côté serveur dans un fichier Lua. Moche, démodé, et il survivra à toutes les start-up de boîte de réception dopée à l’IA."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Stalwart",
+			"source": {
+				"host": "github",
+				"path": "stalwartlabs/stalwart",
+				"url": "https://github.com/stalwartlabs/stalwart"
+			},
+			"license": "AGPL-3.0 + Stalwart Enterprise Licence",
+			"effort": "docker",
+			"note": {
+				"en": "One Rust binary doing JMAP, IMAP, SMTP and spam filtering — by far the least painful mail server to stand up in 2026. Dual-licensed: the repo ships an AGPL-3.0 licence next to a proprietary Enterprise one.",
+				"fr": "Un seul binaire Rust qui fait JMAP, IMAP, SMTP et antispam : de loin le serveur mail le moins pénible à monter en 2026. Double licence, le dépôt contient une AGPL-3.0 à côté d’une licence Enterprise propriétaire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Clustering, multi-tenancy and the Enterprise admin features",
+					"fr": "Le clustering, la multi-location et les fonctions d’administration Enterprise"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "mailcow",
+			"source": {
+				"host": "github",
+				"path": "mailcow/mailcow-dockerized",
+				"url": "https://github.com/mailcow/mailcow-dockerized"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The pragmatic full mail stack: Postfix, Dovecot, Rspamd, SOGo and a real admin UI in one compose file. Keeping the IP off blocklists is still your job.",
+				"fr": "La pile mail complète et pragmatique : Postfix, Dovecot, Rspamd, SOGo et une vraie interface d’administration dans un seul fichier compose. Garder l’IP hors des listes noires reste votre travail."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

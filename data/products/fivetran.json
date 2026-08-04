@@ -1,0 +1,113 @@
+{
+	"slug": "fivetran",
+	"name": "Fivetran",
+	"domain": "fivetran.com",
+	"category": "data-platform-etl",
+	"priceMonthly": null,
+	"pricing": {
+		"plan": "Standard, consumption-based (Monthly Active Rows)",
+		"basis": "usage",
+		"url": "https://www.fivetran.com/pricing",
+		"checkedOn": "2026-08-02",
+		"confidence": "high"
+	},
+	"verdict": "yes",
+	"why": {
+		"en": "Monthly-active-rows pricing means one chatty table can double your bill overnight, which is exactly why people leave. Airbyte covers the long tail of connectors; dlt covers the ones you'd rather just write yourself.",
+		"fr": "La facturation aux lignes actives mensuelles fait qu’une seule table bavarde peut doubler la facture du jour au lendemain — c’est précisément pour ça que les gens partent. Airbyte couvre la longue traîne de connecteurs ; dlt couvre ceux que vous préférez écrire vous-même."
+	},
+	"whatYouLose": [
+		{
+			"en": "Connector SLAs",
+			"fr": "SLA sur les connecteurs"
+		},
+		{
+			"en": "Automatic schema drift handling",
+			"fr": "Gestion automatique des dérives de schéma"
+		},
+		{
+			"en": "Vendor-maintained connectors",
+			"fr": "Connecteurs maintenus par l’éditeur"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Airbyte",
+			"source": {
+				"host": "github",
+				"path": "airbytehq/airbyte",
+				"url": "https://github.com/airbytehq/airbyte"
+			},
+			"license": "ELv2/MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Largest connector catalogue by far. Connector quality varies wildly and it is a heavy thing to operate.",
+				"fr": "De loin le plus grand catalogue de connecteurs. La qualité varie énormément et c’est lourd à exploiter."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "SSO, RBAC, multiple workspaces and audit logs",
+					"fr": "SSO, RBAC, espaces multiples et journaux d’audit"
+				},
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dlt",
+			"source": {
+				"host": "github",
+				"path": "dlt-hub/dlt",
+				"url": "https://github.com/dlt-hub/dlt"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A Python library, not a platform. Schema evolution and incremental loading handled; you run it in whatever scheduler you already have.",
+				"fr": "Une bibliothèque Python, pas une plateforme. Évolution de schéma et chargement incrémental gérés ; vous l’exécutez dans l’ordonnanceur que vous avez déjà."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Meltano",
+			"source": {
+				"host": "github",
+				"path": "meltano/meltano",
+				"url": "https://github.com/meltano/meltano"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Singer taps in a git-versioned project. Best if you want ELT config reviewed in pull requests.",
+				"fr": "Des taps Singer dans un projet versionné en git. Idéal si vous voulez que la config ELT passe en revue de code."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "cheaper",
+			"name": "Estuary Flow",
+			"url": "https://estuary.dev/pricing/",
+			"priceMonthly": 50,
+			"note": {
+				"en": "Priced per connector and GB rather than per row, so it doesn't explode on high-churn tables. Smaller connector catalogue and a much smaller company behind it.",
+				"fr": "Facturé au connecteur et au Go plutôt qu’à la ligne, donc pas d’explosion sur les tables très mouvantes. Catalogue plus restreint et société bien plus petite derrière."
+			}
+		}
+	],
+	"priority": 3
+}
