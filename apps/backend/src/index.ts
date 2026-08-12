@@ -1,6 +1,6 @@
 import { timingSafeEqual } from "node:crypto";
 import { cors } from "@elysiajs/cors";
-import { collectProjects } from "core/src/content";
+import { collectProjects, projectSlug } from "core/src/content";
 import { DEFAULT_LANG, isLang, type Lang } from "core/src/index";
 import { spendOf } from "core/src/plan";
 import { paths } from "core/src/routes";
@@ -579,10 +579,29 @@ const app = new Elysia()
 
 	/** The whole list, straight from git plus live vote counts — filtering and search happen client-side since the payload is small. */
 	.get("/api/products", async () => {
-		const votes = await voteCounts();
+		const [votes, byProject] = await Promise.all([
+			voteCounts(),
+			projectCounts(),
+		]);
 		return content.products.map((p) => ({
 			...p,
 			switchedCount: votes.get(p.slug) ?? 0,
+			/**
+			 * How many people report switching TO each alternative.
+			 *
+			 * Every vote already records `projectSlug` — "I switched off X to Y" —
+			 * and `projectCounts()` already groups by it for /api/projects. The
+			 * product page never received it, so the one popularity signal this site
+			 * owns could not order the list it was collected on.
+			 *
+			 * Counts are thin (277 votes over 527 products), so this is for ordering,
+			 * not for printing: "1 person switched to this" undersells a good project.
+			 */
+			alternatives: p.alternatives.map((a) =>
+				a.kind === "oss"
+					? { ...a, switchedTo: byProject.get(projectSlug(a.source)) ?? 0 }
+					: a,
+			),
 		}));
 	})
 

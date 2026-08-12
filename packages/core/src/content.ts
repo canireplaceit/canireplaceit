@@ -228,6 +228,60 @@ export const isArchived = (
 ): boolean => health?.archived ?? entry.archived === true;
 
 /**
+ * The order alternatives should be read in — "our pick" — computed rather than
+ * taken from the array.
+ *
+ * Array position is only editorial for the entries someone wrote by hand.
+ * `promote.ts` APPENDS, so on every product the research pass expanded, the tail
+ * is in whatever order the pipeline emitted. Slicing "the first three" off that
+ * shows three arbitrary projects.
+ *
+ * Least work first, then most open, then how many people report switching to it,
+ * then name for stability. Switch counts are thin (277 votes over 527 products)
+ * so they act as a tie-break, not a ranking — and they are deliberately last,
+ * because a project being popular is weaker evidence than it being easy to run
+ * and genuinely free.
+ */
+export const byExitQuality = <
+	T extends {
+		name: string;
+		effort: Effort;
+		license: string;
+		facts: Pick<Facts, "selfHostable" | "openCore">;
+		archived?: boolean;
+		switchedTo?: number;
+	},
+>(
+	alts: T[],
+	/** This project's health reading, when the caller has one. */
+	healthOf?: (alt: T) => Pick<Health, "archived"> | null | undefined,
+): T[] =>
+	[...alts].sort(
+		(a, b) =>
+			Number(isArchived(a, healthOf?.(a))) -
+				Number(isArchived(b, healthOf?.(b))) ||
+			EFFORT_RANK[a.effort] - EFFORT_RANK[b.effort] ||
+			opennessScore(b) - opennessScore(a) ||
+			(b.switchedTo ?? 0) - (a.switchedTo ?? 0) ||
+			(a.name < b.name ? -1 : a.name > b.name ? 1 : 0),
+	);
+
+/**
+ * How open, as one number. Mirrors the `openness` scale in collections.ts, which
+ * cannot be imported here: collections.ts imports THIS module.
+ */
+const opennessScore = (entry: {
+	license: string;
+	facts: Pick<Facts, "selfHostable" | "openCore">;
+}): number => {
+	if (entry.facts.selfHostable === false) return 0;
+	if (classifyLicense(entry.license) === "not-foss") return 1;
+	if (entry.facts.openCore === "major") return 2;
+	if (entry.facts.openCore === "minor") return 3;
+	return 4;
+};
+
+/**
  * The facts that decide whether an "open source alternative" actually frees you.
  * Required: an entry without these is a claim, not information.
  */

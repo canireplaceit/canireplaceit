@@ -6,7 +6,7 @@ import type {
 	Source,
 	Verdict,
 } from "core/src/content";
-import { isArchived, priceState } from "core/src/content";
+import { byExitQuality, isArchived, priceState } from "core/src/content";
 import { paths } from "core/src/routes";
 import { Archive, ExternalLink, Globe, Plus } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
@@ -655,8 +655,9 @@ export function AlternativeList({
 	// well as what exists — but they must not hold the same position as a live
 	// one. Nothing here is dropped; it is moved below the fold of the section and
 	// named for what it is.
-	const dead = allOss.filter((a) => isArchived(a, healthOf(a.source)));
-	const oss = allOss.filter((a) => !isArchived(a, healthOf(a.source)));
+	const ranked = byExitQuality(allOss, (a) => healthOf(a.source));
+	const dead = ranked.filter((a) => isArchived(a, healthOf(a.source)));
+	const oss = ranked.filter((a) => !isArchived(a, healthOf(a.source)));
 	const cheaper = product.alternatives.filter((a) => a.kind === "cheaper");
 	return (
 		<div className="space-y-4">
