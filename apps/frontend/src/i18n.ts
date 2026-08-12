@@ -138,6 +138,7 @@ const dict = {
 		"repo.at": "on",
 		"repo.forgeOther": "another forge",
 		"repo.archived": "Archived",
+		"alt.showAll": "Show all {n}",
 		"alt.archivedHeading": "Archived — {n} kept for the record",
 		"alt.archivedBlurb":
 			"These are done. Listed because knowing a project died is worth as much as knowing it exists — not because we recommend them.",
@@ -953,6 +954,7 @@ const dict = {
 		"repo.at": "sur",
 		"repo.forgeOther": "une autre forge",
 		"repo.archived": "Archivé",
+		"alt.showAll": "Afficher les {n}",
 		"alt.archivedHeading": "Archivés — {n} conservés pour mémoire",
 		"alt.archivedBlurb":
 			"Ces projets sont terminés. Ils figurent ici parce que savoir qu’un projet est mort vaut autant que savoir qu’il existe — pas parce que nous les recommandons.",
