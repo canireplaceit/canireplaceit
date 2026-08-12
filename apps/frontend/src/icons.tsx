@@ -144,7 +144,26 @@ export type FactTone = "plain" | "warn" | "bad" | "unknown" | "vary";
  * module is imported by the components that own the translator, not the other
  * way round — the caller narrows it.
  */
-export type FactMark = { Icon: LucideIcon; label: string; tone: FactTone };
+export type FactMark = {
+	Icon: LucideIcon;
+	label: string;
+	tone: FactTone;
+	/**
+	 * This is the value almost everything has, so saying it teaches nobody
+	 * anything. Measured over the 5992 open source alternatives:
+	 * `selfHostable: true` 99.8%, `dataResidency: "self"` 99.0%,
+	 * `openCore: "none"` 87.0%.
+	 *
+	 * Compact rows (the cards on a product page, where a dozen of these sit
+	 * stacked) drop these; the project page, which is a full account of one
+	 * project rather than a comparison, keeps them via `full`.
+	 *
+	 * The point is not brevity. Six tags that never vary read as decoration, so
+	 * the reader stops looking at the row — including at the two tags that do
+	 * vary and are the reason the row exists.
+	 */
+	unremarkable?: boolean;
+};
 
 /** Fields whose citations disagree render as this instead of as a guess. */
 const varied = (label: string): FactMark => ({
@@ -164,7 +183,12 @@ export const selfHostMark = (
 	vary
 		? varied("facts.varies.selfHost")
 		: selfHostable
-			? { Icon: Server, label: "facts.selfHost", tone: "plain" }
+			? {
+					Icon: Server,
+					label: "facts.selfHost",
+					tone: "plain",
+					unremarkable: true,
+				}
 			: { Icon: ServerOff, label: "facts.noSelfHost", tone: "bad" };
 
 /**
@@ -194,6 +218,7 @@ export const residencyMark = (
 					// A US-only host is a real cost to a reader who came here for GDPR;
 					// an EU option and your own server are not.
 					tone: residency === "us-only" ? "warn" : "plain",
+					unremarkable: residency === "self",
 				};
 
 /**
@@ -231,4 +256,7 @@ export const openCoreMark = (
 				label: `facts.openCore.${openCore}`,
 				tone:
 					openCore === "none" ? "plain" : openCore === "minor" ? "warn" : "bad",
+				// "Fully open" is 87% of the catalogue. What a reader needs to spot is
+				// the 13% that are not.
+				unremarkable: openCore === "none",
 			};

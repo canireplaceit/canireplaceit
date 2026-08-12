@@ -432,7 +432,13 @@ export function AlternativeCard({
 			<p className="mt-2.5 flex flex-wrap gap-1.5 font-mono text-[10px] uppercase tracking-wider text-muted">
 				{alt.kind === "oss" ? (
 					<>
-						<FactTag mark={openCoreMark(alt.facts.openCore)} t={t} />
+						{/* Only when it is not "none" — that is 87% of the catalogue, and
+						    a card wearing "fully open" beside eleven identical cards
+						    says nothing. What matters is spotting the 13% that hold
+						    something back. */}
+						{alt.facts.openCore !== "none" && (
+							<FactTag mark={openCoreMark(alt.facts.openCore)} t={t} />
+						)}
 						<Tag>{t(`effort.${alt.effort}` as Key)}</Tag>
 						<FactMarks facts={alt.facts} license={alt.license} t={t} />
 						<RepoFreshness
@@ -563,7 +569,10 @@ export function FactMarks({
 				</Tag>
 			)}
 			{marks
-				.filter((m) => full || m.tone !== "unknown")
+				// `unremarkable` is the value 87–99.8% of entries share; see FactMark.
+				// A row of tags that never vary is decoration, and it buries the one or
+				// two that do.
+				.filter((m) => full || (m.tone !== "unknown" && !m.unremarkable))
 				.map((m) => (
 					<FactTag key={m.label} mark={m} t={t} />
 				))}
