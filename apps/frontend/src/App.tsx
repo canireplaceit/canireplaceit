@@ -62,6 +62,8 @@ import {
 	ActiveFilters,
 	applyProductFilters,
 	FilterSheet,
+	filtersFromQuery,
+	filtersToQuery,
 	Hidden,
 	isFiltered,
 	NO_FILTERS,
@@ -980,7 +982,14 @@ export function App() {
 	};
 	// Filters live in React state only, never the URL: the pager owns URLs, and
 	// filters are a reading aid on top of whichever page the reader is on.
-	const [filters, setFilters] = useState<ProductFilters>(NO_FILTERS);
+	// Seeded from the URL so a shared link opens the view that was shared. Read
+	// once, at mount: after that the URL follows the state, not the other way
+	// round, or typing in the search box would fight the address bar.
+	const [filters, setFilters] = useState<ProductFilters>(() =>
+		typeof window === "undefined"
+			? NO_FILTERS
+			: filtersFromQuery(window.location.search),
+	);
 	const [voted, setVoted] = useState<Set<string>>(new Set());
 	const [error, setError] = useState(false);
 
@@ -1106,6 +1115,25 @@ export function App() {
 	// A filtered view searches the whole catalogue, not this page — "no
 	// results" has to mean "nowhere", not "not on page 3".
 	const filtering = isFiltered(filters);
+
+	/**
+	 * The URL follows the filters, on the home list only.
+	 *
+	 * `replaceState`, not `push`: a filter is a refinement of the page you are
+	 * on, and pushing one history entry per keystroke would make Back unusable.
+	 * Only on `home` — every other route owns its own query string (the sponsor
+	 * page's `slot`, the features page's `cmp`), and stamping filters over those
+	 * would clobber them.
+	 */
+	useEffect(() => {
+		if (route.name !== "home" || typeof window === "undefined") return;
+		const qs = filtersToQuery(filters);
+		window.history.replaceState(
+			null,
+			"",
+			qs ? `${window.location.pathname}?${qs}` : window.location.pathname,
+		);
+	}, [filters, route.name]);
 	const result = useMemo(
 		() => applyProductFilters(filtering ? ordered : pageProducts, filters),
 		[filtering, ordered, pageProducts, filters],
@@ -1226,12 +1254,26 @@ export function App() {
 						// But it means any misspelling answers 200 with the index — a soft
 						// 404, and an unbounded supply of them. The canonical already
 						// points home; `noindex` is what stops them being indexed at all.
-						noindex: route.name === "unknown",
+						// A filtered URL is a near-duplicate of the index with a subset
+						// of the same rows, and there are thousands of combinations. It
+						// is shareable, never crawlable: the canonical above already
+						// points at the bare path, and this stops the parameterised
+						// state being indexed alongside it.
+						noindex: route.name === "unknown" || filtering,
 					};
 			}
 		})();
 		if (meta) applyMeta(meta, alternateUrls(route));
-	}, [route, products, projects, cats, projectBySlug, lang, catalogueTotal]);
+	}, [
+		route,
+		products,
+		projects,
+		cats,
+		projectBySlug,
+		lang,
+		catalogueTotal,
+		filtering,
+	]);
 
 	// An unknown route still shows the list: a blank screen is worse than the
 	// index, for a reader and for a crawler that followed a stale link.

@@ -186,6 +186,58 @@ export const NO_FILTERS: ProductFilters = {
 	sort: "weight",
 };
 
+/**
+ * The filters as a query string, and back.
+ *
+ * Filters were deliberately client-only state so the combinatorial filter space
+ * could never mint indexable URLs — the right call, and it stays: every
+ * parameterised state is `noindex` and canonicalises to the bare path (see
+ * seo.ts). But it also meant a filtered view could not be sent to anybody, on a
+ * site whose whole job is helping someone decide something and then tell a
+ * colleague. Shareable and crawlable are different problems; this solves the
+ * first without reopening the second.
+ *
+ * `sort` is included: a list in an unexpected order is as confusing to receive
+ * as one missing rows.
+ */
+export const filtersToQuery = (f: ProductFilters): string => {
+	const q = new URLSearchParams();
+	if (f.q.trim()) q.set("q", f.q.trim());
+	if (f.category) q.set("category", f.category);
+	if (f.verdict) q.set("verdict", f.verdict);
+	if (f.openness) q.set("openness", f.openness);
+	if (f.effort) q.set("effort", f.effort);
+	if (f.price) q.set("price", f.price);
+	if (f.sort !== "weight") q.set("sort", f.sort);
+	return q.toString();
+};
+
+/**
+ * Reads them back, rejecting anything not in the vocabulary. A hand-edited
+ * `?effort=banana` must land on the unfiltered list rather than an empty one —
+ * an empty page reads as "we have nothing", which would be a lie told by a
+ * typo.
+ */
+export const filtersFromQuery = (search: string): ProductFilters => {
+	const q = new URLSearchParams(search);
+	const pick = <T extends string>(
+		key: string,
+		allowed: readonly T[],
+	): T | "" => {
+		const v = q.get(key);
+		return v && (allowed as readonly string[]).includes(v) ? (v as T) : "";
+	};
+	return {
+		q: q.get("q") ?? "",
+		category: q.get("category") ?? "",
+		verdict: pick("verdict", VERDICTS),
+		openness: pick("openness", OPENNESS),
+		effort: pick("effort", EFFORTS),
+		price: pick("price", PRICE_BANDS),
+		sort: pick("sort", PRODUCT_SORTS) || "weight",
+	};
+};
+
 export const isFiltered = (f: ProductFilters): boolean =>
 	f.q.trim() !== "" ||
 	f.category !== "" ||
