@@ -277,6 +277,15 @@ export function PriceBlock({
 	);
 }
 
+/**
+ * How many alternatives lead the section before the rest fold away.
+ *
+ * Three, because that is how many fit across the section at desktop width and
+ * still read as recommendations rather than as a list. 389 of 527 products cite
+ * 11–20 alternatives, so folding is the common case, not the edge.
+ */
+const LEAD = 3;
+
 // Below a year, a stale commit date is trivia (plenty of finished tools go quiet); past a year it's the answer readers came for.
 const DORMANT_DAYS = 365;
 
@@ -666,7 +675,7 @@ export function AlternativeList({
 					{t("alt.ossHeading")}
 				</h4>
 				<ul className={`${GRID_1COL} gap-2 sm:grid-cols-2`}>
-					{oss.map((a) => (
+					{oss.slice(0, LEAD).map((a) => (
 						<AlternativeCard
 							key={a.name}
 							alt={a}
@@ -677,6 +686,41 @@ export function AlternativeList({
 						/>
 					))}
 				</ul>
+				{/*
+				 * The rest, behind one control.
+				 *
+				 * Claude Code cites 36 of these and they arrived as one flat wall of
+				 * identical cards, so the three worth trying looked exactly like the
+				 * thirty-third. `byExitQuality` decides which three lead.
+				 *
+				 * A native <details>, not conditional rendering: every card stays in
+				 * the served HTML. This page's own title is "36 open source Claude
+				 * Code alternatives" and the site's traffic is organic landings — a
+				 * title promising 36 over a document containing 3 is the kind of thing
+				 * that gets a catalogue demoted rather than ranked.
+				 */}
+				{oss.length > LEAD && (
+					<details className="group mt-2">
+						<summary className="inline-flex cursor-pointer items-center gap-1.5 rounded-[calc(var(--radius))] border border-border px-3 py-1.5 text-sm transition marker:content-none hover:border-brand">
+							{t("alt.showAll").replace("{n}", String(oss.length))}
+							<span className="inline-block transition-transform group-open:rotate-90">
+								›
+							</span>
+						</summary>
+						<ul className={`${GRID_1COL} mt-2 gap-2 sm:grid-cols-2`}>
+							{oss.slice(LEAD).map((a) => (
+								<AlternativeCard
+									key={a.name}
+									alt={a}
+									t={t}
+									tc={tc}
+									lang={lang}
+									projectHref={projectHref?.(a)}
+								/>
+							))}
+						</ul>
+					</details>
+				)}
 			</section>
 			{dead.length > 0 && (
 				// A <details> rather than conditional rendering: the entries stay in
