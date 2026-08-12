@@ -11,14 +11,15 @@
  * to give for a product nobody has checked yet.
  */
 
+import { openness, opennessRank } from "core/src/collections";
 import type { OssAlternative, Product } from "core/src/content";
-import { healthKey } from "core/src/content";
+import { EFFORT_RANK, healthKey, isArchived } from "core/src/content";
 import type { FeatureFile } from "core/src/features";
 import { compare, decidedCount, featureTier } from "core/src/features";
 import type { Translations } from "core/src/index";
 import { paths } from "core/src/routes";
 import { useEffect, useState } from "react";
-import { bootFeatures } from "./api";
+import { bootFeatures, healthOf } from "./api";
 import type { Key, Lang } from "./i18n";
 import { GLYPH, TONE } from "./ProjectFeatures";
 
@@ -61,11 +62,30 @@ export function ReplaceMatrix({
 
 	if (!file) return null;
 
+	/**
+	 * Columns are picked by how good an exit the alternative is, not by how much
+	 * we happen to know about it.
+	 *
+	 * Sorting on `decidedCount` alone answered a different question — "which
+	 * projects has someone filled in a form about" — and on the Claude Code page
+	 * it produced a table whose four columns did not include opencode, the entry
+	 * the page's own prose calls "the most direct equivalent". Least work first,
+	 * then most open, and decided-count only as the tie-break it should always
+	 * have been. Archived projects sort last: a dead project is not a comparison
+	 * a reader can act on.
+	 */
 	const alts = product.alternatives
 		.filter((a): a is OssAlternative => a.kind === "oss")
 		.map((a) => ({ alt: a, key: healthKey(a.source) }))
 		.filter((x) => decidedCount(file, x.key) > 0)
-		.sort((a, b) => decidedCount(file, b.key) - decidedCount(file, a.key))
+		.sort(
+			(a, b) =>
+				Number(isArchived(a.alt, healthOf(a.alt.source))) -
+					Number(isArchived(b.alt, healthOf(b.alt.source))) ||
+				EFFORT_RANK[a.alt.effort] - EFFORT_RANK[b.alt.effort] ||
+				opennessRank(openness(b.alt)) - opennessRank(openness(a.alt)) ||
+				decidedCount(file, b.key) - decidedCount(file, a.key),
+		)
 		.slice(0, MAX_ALTS);
 
 	// One column cannot disagree with itself, and neither can a product we have
@@ -85,7 +105,52 @@ export function ReplaceMatrix({
 		 * true, but not the question this page asks, and a lead column of dashes
 		 * reads as "nobody knows what you are paying for".
 		 */
-		.filter((r) => r.values[0] !== "unknown");
+		.filter((r) => r.values[0] !== "unknown")
+		/**
+		 * A row has to teach the reader something. `differingOnly` counts a row as
+		 * differing if ANY two columns differ, which the vendor's own cell satisfies
+		 * on its own — so the Claude Code table published
+		 *
+		 *   Has AI features   € Pro   ●   ●   ●   ●
+		 *
+		 * on a page comparing AI coding agents. Every alternative says yes; the row
+		 * is noise dressed as a finding.
+		 *
+		 * Two rows are worth printing, and no others:
+		 *   1. the alternatives disagree with each other — a real choice to make;
+		 *   2. they all agree AND the vendor charges for it — the site's whole
+		 *      argument, and the one case where unanimity IS the point.
+		 */
+		.filter((r) => {
+			const alternativeCells = r.values.slice(1);
+			const decided = alternativeCells.filter((v) => v !== "unknown");
+			if (decided.length === 0) return false;
+			const theyDisagree = new Set(decided).size > 1;
+			if (theyDisagree) return true;
+			/**
+			 * They all agree. That is only worth a row when the vendor charges for
+			 * it — EXCEPT where the feature is the category itself.
+			 *
+			 * The feature keys are `domain.thing`, and when the domain is the
+			 * product's own category the feature is definitional rather than
+			 * distinguishing. Claude Code gating `ai.features` behind Pro is not a
+			 * finding, it is what an AI product is; the row read
+			 *
+			 *   Has AI features   € Pro   ●   ●   ●   ●
+			 *
+			 * on a page whose every column is an AI coding agent. Notion gating
+			 * `auth.sso.saml` IS a finding, because SAML is not what a notes app is.
+			 */
+			const domain = r.key.split(".")[0] ?? "";
+			const definitional =
+				product.category === domain ||
+				product.category.startsWith(`${domain}-`);
+			return (
+				!definitional &&
+				r.values[0] === "paid" &&
+				decided.every((v) => v === "yes")
+			);
+		});
 	if (rows.length === 0) return null;
 
 	return (
