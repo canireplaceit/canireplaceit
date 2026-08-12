@@ -6,7 +6,12 @@ import type {
 	Source,
 	Verdict,
 } from "core/src/content";
-import { byExitQuality, isArchived, priceState } from "core/src/content";
+import {
+	byExitQuality,
+	EFFORTS,
+	isArchived,
+	priceState,
+} from "core/src/content";
 import { paths } from "core/src/routes";
 import { Archive, ExternalLink, Globe, Plus } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
@@ -750,20 +755,40 @@ export function AlternativeList({
 						{/* Three across once there is room. The lead cards stay at two so
 						    they read as recommendations; this list is 27 rows deep on the
 						    biggest products and benefits from the extra column. */}
-						<ul
-							className={`${GRID_1COL} mt-2 gap-2 sm:grid-cols-2 xl:grid-cols-3`}
-						>
-							{shown.slice(LEAD).map((a) => (
-								<AlternativeCard
-									key={a.name}
-									alt={a}
-									t={t}
-									tc={tc}
-									lang={lang}
-									projectHref={projectHref?.(a)}
-								/>
-							))}
-						</ul>
+						{/*
+						 * Grouped by what leaving actually costs, rather than one flat run of
+						 * 27 cards. The three headings are the three answers to "what do I
+						 * have to do" — install it, run one container, or operate a server —
+						 * which is the question a reader is holding while they scroll.
+						 */}
+						{EFFORTS.map((effort) => {
+							const inRung = shown
+								.slice(LEAD)
+								.filter((a) => a.effort === effort);
+							if (inRung.length === 0) return null;
+							return (
+								<div key={effort} className="mt-3">
+									<h5 className="mb-1.5 font-mono text-[10px] text-muted uppercase tracking-[0.16em]">
+										{t(`effort.${effort}` as Key)}
+										<span className="nums ml-1.5">{inRung.length}</span>
+									</h5>
+									<ul
+										className={`${GRID_1COL} gap-2 sm:grid-cols-2 xl:grid-cols-3`}
+									>
+										{inRung.map((a) => (
+											<AlternativeCard
+												key={a.name}
+												alt={a}
+												t={t}
+												tc={tc}
+												lang={lang}
+												projectHref={projectHref?.(a)}
+											/>
+										))}
+									</ul>
+								</div>
+							);
+						})}
 					</details>
 				)}
 			</section>
