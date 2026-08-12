@@ -11,7 +11,10 @@
  * crawler needs to be able to follow. Everything visual comes from tokens.
  */
 
+import type { OssAlternative } from "core/src/content";
+import { EFFORT_RANK, isArchived } from "core/src/content";
 import { paths } from "core/src/routes";
+import { healthOf, type ListedProduct } from "./api";
 import { ProductLogo, VerdictMark } from "./components";
 import {
 	type ListProps,
@@ -23,6 +26,46 @@ import { Link } from "./nav";
 import { InListSponsor } from "./SponsorRails";
 
 export type { ListProps };
+
+/**
+ * The first few names that replace this product, and how many more there are.
+ *
+ * Ordered the way the product page orders them — live before archived, least
+ * work first — so the three shown are the three worth trying, not the three
+ * that happen to sit at the top of the JSON array. A product whose only
+ * alternatives are dead says so rather than naming them.
+ */
+function Escapes({
+	product,
+	t,
+}: {
+	product: ListedProduct;
+	t: ListProps["t"];
+}) {
+	const oss = product.alternatives.filter(
+		(a): a is OssAlternative => a.kind === "oss",
+	);
+	if (oss.length === 0) return null;
+	const live = oss.filter((a) => !isArchived(a, healthOf(a.source)));
+	// Everything it cites is archived — that is the fact, not the names.
+	if (live.length === 0) {
+		return (
+			<span className="mt-1 block truncate text-muted text-xs">
+				{t("row.allArchived")}
+			</span>
+		);
+	}
+	const lead = [...live]
+		.sort((a, b) => EFFORT_RANK[a.effort] - EFFORT_RANK[b.effort])
+		.slice(0, 3);
+	const rest = live.length - lead.length;
+	return (
+		<span className="mt-1 block truncate text-muted text-xs">
+			{lead.map((a) => a.name).join(", ")}
+			{rest > 0 && ` +${rest}`}
+		</span>
+	);
+}
 
 /**
  * An operational status board: one card per product, three across on a laptop.
@@ -72,6 +115,12 @@ export function ProductList(props: ListProps) {
 										</span>
 									)}
 								</span>
+								{/* Who actually replaces it. A directory whose list view never
+								    names one alternative asks every reader to click through to
+								    find out whether there is an answer at all — and this list
+								    is 527 rows deep. The projects index already leads with
+								    "Replaces: …"; this is the same line pointed the other way. */}
+								<Escapes product={item.p} t={t} />
 							</span>
 						</Link>
 					</li>
