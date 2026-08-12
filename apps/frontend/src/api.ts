@@ -514,6 +514,8 @@ const AlternativeSchema = z.discriminatedUnion("kind", [
 		// Zod strips what it does not name, so a field missing here is a field the
 		// UI never sees however well-formed the API's answer was.
 		archived: z.boolean().optional(),
+		/** People who report switching TO this. Server-computed; absent in boot payloads. */
+		switchedTo: z.number().optional(),
 	}),
 	z.object({
 		kind: z.literal("cheaper"),

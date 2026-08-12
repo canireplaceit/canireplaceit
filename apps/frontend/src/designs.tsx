@@ -12,7 +12,7 @@
  */
 
 import type { OssAlternative } from "core/src/content";
-import { EFFORT_RANK, isArchived } from "core/src/content";
+import { byExitQuality, isArchived } from "core/src/content";
 import { paths } from "core/src/routes";
 import { healthOf, type ListedProduct } from "./api";
 import { ProductLogo, VerdictMark } from "./components";
@@ -55,9 +55,7 @@ function Escapes({
 			</span>
 		);
 	}
-	const lead = [...live]
-		.sort((a, b) => EFFORT_RANK[a.effort] - EFFORT_RANK[b.effort])
-		.slice(0, 3);
+	const lead = byExitQuality(live, (a) => healthOf(a.source)).slice(0, 3);
 	const rest = live.length - lead.length;
 	return (
 		<span className="mt-1 block truncate text-muted text-xs">
