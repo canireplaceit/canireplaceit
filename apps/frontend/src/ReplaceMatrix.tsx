@@ -160,7 +160,15 @@ export function ReplaceMatrix({
 			</h2>
 			<p className="mt-1 text-muted text-sm">
 				{t("features.vsBlurb")} ·{" "}
-				<a href={paths.features(lang)} className="hover:underline">
+				{/* Carries the columns across. The features page already reads `cmp`
+				    on load and already writes it when you pick — this link was the
+				    one path in that dropped the selection, landing the reader on 137
+				    features with nothing chosen and no way back to what they were
+				    just looking at. */}
+				<a
+					href={`${paths.features(lang)}?cmp=${encodeURIComponent(keys.join(","))}`}
+					className="hover:underline"
+				>
 					{t("features.compareLink")}
 				</a>
 			</p>
