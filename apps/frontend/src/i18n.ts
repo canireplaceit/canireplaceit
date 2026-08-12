@@ -356,6 +356,18 @@ const dict = {
 		"collection.cheaper.derivation":
 			"Derived from the alternatives themselves: every product here lists at least one “cheaper” entry, which validation requires to undercut the product it replaces.",
 
+		"collection.one-compose.title": "One docker compose away",
+		"collection.one-compose.blurb":
+			"Projects that ship a compose file in the repo root. Not “this could be self-hosted in principle” — clone it, one command, it runs. The shortest path from reading this site to leaving a bill behind.",
+		"collection.one-compose.derivation":
+			"Derived from the repo itself: `bun run health` looks for a compose file in the root of each cited repository. Never authored, so it cannot flatter a project that dropped one.",
+
+		"collection.archived.title": "The graveyard",
+		"collection.archived.blurb":
+			"Projects that are done. They stay in the catalogue because knowing something died is worth as much as knowing it exists — and because the alternative is a directory that only ever describes the present tense.",
+		"collection.archived.derivation":
+			"Derived from the archived flag on each entry, with the forge’s own reading taking precedence where it has one. Nothing here is a judgement about quality: plenty of these were good, and several were replaced by forks that are listed elsewhere on this site.",
+
 		"collection.unresolved": "Citations disagree",
 		"collection.open-core.unresolvedNote":
 			"These projects are cited against several products, and those entries do not agree about this fact. They are left out of the list above rather than counted on a guess — and named here rather than dropped quietly. Each project page shows the split.",
@@ -1172,6 +1184,18 @@ const dict = {
 			"Les produits qui ont une alternative commerciale réellement moins chère. Pour quand l’auto-hébergement n’est pas la réponse, mais la facture l’est.",
 		"collection.cheaper.derivation":
 			"Dérivé des alternatives elles-mêmes : chaque produit ici liste au moins une entrée « moins cher », que la validation oblige à coûter moins que le produit remplacé.",
+
+		"collection.one-compose.title": "À un docker compose près",
+		"collection.one-compose.blurb":
+			"Projets qui livrent un fichier compose à la racine du dépôt. Pas « auto-hébergeable en théorie » : vous clonez, une commande, ça tourne. Le chemin le plus court entre lire ce site et abandonner une facture.",
+		"collection.one-compose.derivation":
+			"Dérivé du dépôt lui-même : `bun run health` cherche un fichier compose à la racine de chaque dépôt cité. Jamais saisi à la main, donc impossible de flatter un projet qui n’en a plus.",
+
+		"collection.archived.title": "Le cimetière",
+		"collection.archived.blurb":
+			"Des projets terminés. Ils restent au catalogue parce que savoir qu’une chose est morte vaut autant que savoir qu’elle existe — et parce que l’alternative, c’est un annuaire qui ne décrit jamais que le présent.",
+		"collection.archived.derivation":
+			"Dérivé du champ « archivé » de chaque entrée, la lecture de la forge primant lorsqu’elle existe. Rien ici n’est un jugement de qualité : beaucoup étaient bons, et plusieurs ont été remplacés par des forks listés ailleurs sur ce site.",
 
 		"collection.unresolved": "Les citations divergent",
 		"collection.open-core.unresolvedNote":

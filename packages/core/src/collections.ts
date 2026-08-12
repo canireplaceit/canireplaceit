@@ -132,6 +132,9 @@ export const COLLECTIONS: readonly CollectionDef[] = [
 	{ slug: "open-core", of: "project" },
 	{ slug: "source-available", of: "project" },
 	{ slug: "cheaper", of: "product" },
+	// Two facts the catalogue holds about every project and never gave a page to.
+	{ slug: "one-compose", of: "project" },
+	{ slug: "archived", of: "project" },
 ];
 
 export const collectionBySlug = new Map(COLLECTIONS.map((c) => [c.slug, c]));
@@ -241,6 +244,40 @@ export function collectionMembers(
 				unresolved: projects.filter(
 					(p) => p.fossVary && classifyLicense(p.license) !== "unknown",
 				),
+			};
+
+		/**
+		 * Ships a compose file in the repo root — `docker compose up` and it runs.
+		 *
+		 * The most actionable slice in here: not "this is theoretically
+		 * self-hostable" but "you can be running this tonight". Detected by
+		 * `bun run health`, never authored.
+		 */
+		case "one-compose":
+			return {
+				of: "project",
+				products: [],
+				projects: projects.filter((p) => p.hasCompose === true),
+				unresolved: [],
+			};
+
+		/**
+		 * Projects that are done.
+		 *
+		 * The owner's rule is that the catalogue records what existed as well as
+		 * what exists, so these are kept and shown everywhere rather than dropped.
+		 * This is the page that makes that a feature instead of a footnote — and
+		 * nobody else publishes it.
+		 *
+		 * No `unresolved`: archived is not a field citations can disagree about in
+		 * a way worth naming. Any citation saying so is enough (see Project.archived).
+		 */
+		case "archived":
+			return {
+				of: "project",
+				products: [],
+				projects: projects.filter((p) => p.archived === true),
+				unresolved: [],
 			};
 
 		default:

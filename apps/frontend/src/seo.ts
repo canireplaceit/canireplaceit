@@ -373,6 +373,30 @@ const COLLECTION_COPY: Record<
 	string,
 	Record<Lang, { title: string; description: string }>
 > = {
+	"one-compose": {
+		en: {
+			title: "{n} self-hosted apps that are one docker compose away",
+			description:
+				"{n} open source projects that ship a compose file in the repo root — clone, one command, running. Detected from the repositories themselves, never authored.",
+		},
+		fr: {
+			title: "{n} applications auto-hébergées à un docker compose près",
+			description:
+				"{n} projets open source qui livrent un fichier compose à la racine du dépôt — clonez, une commande, ça tourne. Détecté depuis les dépôts eux-mêmes, jamais saisi à la main.",
+		},
+	},
+	archived: {
+		en: {
+			title: "The graveyard: {n} open source projects that are done",
+			description:
+				"{n} projects that have been archived or abandoned, kept in the catalogue on purpose. Knowing something died is worth as much as knowing it exists.",
+		},
+		fr: {
+			title: "Le cimetière : {n} projets open source terminés",
+			description:
+				"{n} projets archivés ou abandonnés, conservés volontairement au catalogue. Savoir qu’une chose est morte vaut autant que savoir qu’elle existe.",
+		},
+	},
 	"self-hostable": {
 		en: {
 			title: "Self-hostable: {n} products with a real replacement you run",
