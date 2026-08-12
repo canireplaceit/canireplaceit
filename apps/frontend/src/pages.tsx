@@ -1050,6 +1050,32 @@ export function ProjectsIndexPage({
 /** The index of the derived collections. Six rows, each a real slice. */
 export function CollectionsPage({ ctx }: { ctx: PageCtx }) {
 	const { t, lang } = ctx;
+
+	/**
+	 * The note that explains why `open-source` and `foss` are both here carried
+	 * three numbers written into the translation ("844 of 871 … 642"). The
+	 * catalogue has since quadrupled, so all three were wrong in both locales —
+	 * on a page whose whole promise is that nothing here can quietly go stale.
+	 * Read them from the same counts the cards above use instead.
+	 */
+	const membersOf = (slug: string): number | null =>
+		ctx.collectionCounts.get(slug) ??
+		(ctx.wholeCatalogue
+			? memberCount(collectionMembers(slug, ctx.products, ctx.projects))
+			: null);
+
+	const openCount = membersOf("open-source");
+	const fossCount = membersOf("foss");
+	// Same rule as the cards: with nothing baked and only a slice in hand, the
+	// sentence is dropped rather than printed with a placeholder showing.
+	const rejectedNote =
+		openCount === null || fossCount === null
+			? null
+			: t("collections.rejectedNote")
+					.replace("{all}", String(ctx.projectTotal))
+					.replace("{open}", String(openCount))
+					.replaceAll("{foss}", String(fossCount));
+
 	return (
 		<PageShell
 			measure={MEASURE}
@@ -1108,16 +1134,18 @@ export function CollectionsPage({ ctx }: { ctx: PageCtx }) {
 
 			{/* The one the owner asked for and that is not here. Saying so on the page
 			    is cheaper than letting somebody re-derive the same dead end. */}
-			<p className="mt-8 max-w-2xl text-muted text-xs">
-				{t("collections.rejectedNote")}{" "}
-				<Link
-					href={paths.projects(lang)}
-					className="text-brand hover:underline"
-				>
-					{t("projects.title")}
-				</Link>
-				.
-			</p>
+			{rejectedNote && (
+				<p className="mt-8 max-w-2xl text-muted text-xs">
+					{rejectedNote}{" "}
+					<Link
+						href={paths.projects(lang)}
+						className="text-brand hover:underline"
+					>
+						{t("projects.title")}
+					</Link>
+					.
+				</p>
+			)}
 		</PageShell>
 	);
 }

@@ -1077,6 +1077,13 @@ export function App() {
 		homeRequested,
 	);
 	const ordered = useMemo(() => byWeight(products), [products]);
+	// The catalogue size is a fact, not a string: it was hardcoded as "493" in
+	// both locales and read 34 short next to a stat block saying 527.
+	const searchPlaceholder = t("hero.searchPlaceholder").replace(
+		"{n}",
+		String(catalogueTotal),
+	);
+
 	const pageProducts = wholeCatalogue ? pageSlice(ordered, homePage) : ordered;
 
 	// A filtered view searches the whole catalogue, not this page — "no
@@ -1179,11 +1186,19 @@ export function App() {
 				case "legal":
 					return legalMeta(route.doc, lang);
 				default:
-					return homeMeta(
-						lang,
-						catalogueTotal,
-						route.name === "home" ? (route.page ?? 1) : 1,
-					);
+					return {
+						...homeMeta(
+							lang,
+							catalogueTotal,
+							route.name === "home" ? (route.page ?? 1) : 1,
+						),
+						// An unknown URL still renders the list (see `isHome` below), and
+						// that is the right call for a reader who followed a stale link.
+						// But it means any misspelling answers 200 with the index — a soft
+						// 404, and an unbounded supply of them. The canonical already
+						// points home; `noindex` is what stops them being indexed at all.
+						noindex: route.name === "unknown",
+					};
 			}
 		})();
 		if (meta) applyMeta(meta, alternateUrls(route));
@@ -1214,6 +1229,17 @@ export function App() {
 			<SponsorTape slots={slots} t={t} tc={tc} lang={lang} position="top" />
 			{isHome ? (
 				<main>
+					{/* Showing the index for a dead URL is deliberate, but doing it
+					    silently leaves the reader thinking they landed where they
+					    meant to. One line, above the hero, says otherwise. */}
+					{route.name === "unknown" && (
+						<p
+							className={`mx-auto ${MEASURE} px-4 pt-6 text-muted text-sm`}
+							role="status"
+						>
+							{t("error.noSuchPage")}
+						</p>
+					)}
 					{/* The headline runs on page 1 only, so it isn't repeated on every
 					    paginated URL; the hero showcase below runs on every page. */}
 					{homePage === 1 && (
@@ -1256,8 +1282,8 @@ export function App() {
 									onChange={(e) =>
 										setFilters({ ...filters, q: e.target.value })
 									}
-									placeholder={t("hero.searchPlaceholder")}
-									aria-label={t("hero.searchPlaceholder")}
+									placeholder={searchPlaceholder}
+									aria-label={searchPlaceholder}
 									className="w-full rounded-[calc(var(--radius))] border border-border bg-surface px-3 py-2.5 text-sm outline-none focus:border-brand"
 								/>
 								<div className="mt-2 flex flex-wrap items-center gap-2">

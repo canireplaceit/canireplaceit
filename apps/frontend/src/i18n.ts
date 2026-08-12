@@ -77,7 +77,7 @@ const dict = {
 		"hero.title": "Can I replace",
 		"hero.blurb":
 			"Every SaaS bill, one honest verdict. Not “here are 40 alternatives” — whether the open source one is good enough yet, and what switching costs.",
-		"hero.searchPlaceholder": "Search 493 products — Jira, Figma, Datadog…",
+		"hero.searchPlaceholder": "Search {n} products — Jira, Figma, Datadog…",
 
 		"stats.products": "products reviewed",
 		"stats.alternatives": "open source alternatives",
@@ -303,7 +303,7 @@ const dict = {
 		"collections.blurb":
 			"Cross-sections of the catalogue, each one a query rather than a list somebody keeps. Nothing here is hand-picked, so nothing here can quietly go stale.",
 		"collections.rejectedNote":
-			"“Open source” and “FOSS” are the two big ones on purpose: 844 of 871 projects carry a recognised open source licence, and 642 of those hold nothing back. The gap between them is the point. There is no separate “FOSS and self-hostable” collection, because nothing withheld already means you can run it — it would list the same 642 projects twice. Every project, in every state, is on",
+			"“Open source” and “FOSS” are the two big ones on purpose: {open} of {all} projects carry a recognised open source licence, and {foss} of those hold nothing back. The gap between them is the point. There is no separate “FOSS and self-hostable” collection, because nothing withheld already means you can run it — it would list the same {foss} projects twice. Every project, in every state, is on",
 		"collections.all": "All collections",
 
 		"collection.self-hostable.title": "Self-hostable",
@@ -358,9 +358,10 @@ const dict = {
 		"ads.unpricedNote":
 			"hero positions exist but are not priced yet — get in touch if one interests you.",
 
-		"empty.none": "No match in 493 products.",
+		"empty.none": "No match.",
 		"empty.submit": "Add it →",
 		"error.api": "Something broke on our side. Try again in a minute.",
+		"error.noSuchPage": "That page doesn’t exist — here is the list instead.",
 		"list.disclaimer":
 			"* Prices are typical entry-tier list prices and drift constantly. Verdicts are opinions, argued in the open — disagree via Submit.",
 
@@ -890,7 +891,7 @@ const dict = {
 		"hero.blurb":
 			"Chaque abonnement SaaS, un verdict honnête. Pas « voici 40 alternatives » — mais si l’option open source tient la route, et ce que coûte la migration.",
 		"hero.searchPlaceholder":
-			"Chercher parmi 493 produits — Jira, Figma, Datadog…",
+			"Chercher parmi {n} produits — Jira, Figma, Datadog…",
 
 		"stats.products": "produits évalués",
 		"stats.alternatives": "alternatives open source",
@@ -1110,7 +1111,7 @@ const dict = {
 		"collections.blurb":
 			"Des coupes transversales du catalogue, chacune étant une requête et non une liste tenue à la main. Rien n’est sélectionné manuellement, donc rien ne peut vieillir en silence.",
 		"collections.rejectedNote":
-			"« Open source » et « FOSS » sont volontairement les deux plus grandes : 844 projets sur 871 portent une licence open source reconnue, et 642 d’entre eux ne réservent rien. C’est l’écart entre les deux qui compte. Il n’y a pas de collection « libre et auto-hébergeable » distincte : ne rien réserver implique déjà que vous pouvez l’exécuter, elle listerait donc deux fois les mêmes 642 projets. Tous les projets, dans tous les états, sont sur",
+			"« Open source » et « FOSS » sont volontairement les deux plus grandes : {open} projets sur {all} portent une licence open source reconnue, et {foss} d’entre eux ne réservent rien. C’est l’écart entre les deux qui compte. Il n’y a pas de collection « libre et auto-hébergeable » distincte : ne rien réserver implique déjà que vous pouvez l’exécuter, elle listerait donc deux fois les mêmes {foss} projets. Tous les projets, dans tous les états, sont sur",
 		"collections.all": "Toutes les collections",
 
 		"collection.self-hostable.title": "Auto-hébergeable",
@@ -1165,10 +1166,11 @@ const dict = {
 		"ads.unpricedNote":
 			"emplacements de la vitrine existent mais ne sont pas encore tarifés — écrivez-nous si l'un d'eux vous intéresse.",
 
-		"empty.none": "Aucun résultat parmi 493 produits.",
+		"empty.none": "Aucun résultat.",
 		"empty.submit": "Ajoutez-le →",
 		"error.api":
 			"Quelque chose a cassé de notre côté. Réessayez dans une minute.",
+		"error.noSuchPage": "Cette page n’existe pas — voici la liste à la place.",
 		"list.disclaimer":
 			"* Les prix correspondent à l’offre d’entrée et changent sans cesse. Les verdicts sont des avis, assumés et discutables — contestez via Proposer.",
 
