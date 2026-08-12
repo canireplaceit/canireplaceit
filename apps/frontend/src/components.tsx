@@ -6,7 +6,7 @@ import type {
 	Source,
 	Verdict,
 } from "core/src/content";
-import { priceState } from "core/src/content";
+import { isArchived, priceState } from "core/src/content";
 import { paths } from "core/src/routes";
 import { Archive, ExternalLink, Globe, Plus } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
@@ -280,20 +280,45 @@ export function PriceBlock({
 // Below a year, a stale commit date is trivia (plenty of finished tools go quiet); past a year it's the answer readers came for.
 const DORMANT_DAYS = 365;
 
+/** The one archived badge, so the two paths through `RepoFreshness` agree. */
+function ArchivedBadge({ t }: { t: T }) {
+	return (
+		<span
+			className="inline-flex items-center gap-1 rounded-[calc(var(--radius))] border px-1.5 py-0.5 font-medium"
+			style={{ borderColor: "var(--v-no)", color: "var(--v-no)" }}
+		>
+			<Archive className="size-3" aria-hidden />
+			{t("repo.archived")}
+		</span>
+	);
+}
+
 export function RepoFreshness({
 	source,
 	t,
 	lang,
 	full,
+	archived,
 }: {
 	source: Source;
 	t: T;
 	lang: Lang;
 	/** Compose spelled out rather than abbreviated, for the project's own page. */
 	full?: boolean;
+	/**
+	 * The entry's own reading, for the two-thirds of cited repos with no health
+	 * record. Without it this component returned null for them, so a project we
+	 * knew was dead rendered exactly like a live one.
+	 */
+	archived?: boolean;
 }) {
 	const health = healthOf(source);
-	if (!health) return null;
+	// The forge wins when it has an opinion; the entry covers everything else.
+	const isDead = health?.archived ?? archived === true;
+	// Nothing known from either source is still nothing to say.
+	if (!health) {
+		return isDead ? <ArchivedBadge t={t} /> : null;
+	}
 	const lastPushMs = health.lastPush ? Date.parse(health.lastPush) : Number.NaN;
 	const dormantSince =
 		Number.isFinite(lastPushMs) &&
@@ -302,16 +327,8 @@ export function RepoFreshness({
 			: null;
 	return (
 		<>
-			{health.archived && (
-				<span
-					className="inline-flex items-center gap-1 rounded-[calc(var(--radius))] border px-1.5 py-0.5 font-medium"
-					style={{ borderColor: "var(--v-no)", color: "var(--v-no)" }}
-				>
-					<Archive className="size-3" aria-hidden />
-					{t("repo.archived")}
-				</span>
-			)}
-			{dormantSince && !health.archived && (
+			{isDead && <ArchivedBadge t={t} />}
+			{dormantSince && !isDead && (
 				<Tag>
 					<span className="nums" style={{ color: "var(--v-almost)" }}>
 						{t("repo.dormant")}{" "}
@@ -418,7 +435,12 @@ export function AlternativeCard({
 						<FactTag mark={openCoreMark(alt.facts.openCore)} t={t} />
 						<Tag>{t(`effort.${alt.effort}` as Key)}</Tag>
 						<FactMarks facts={alt.facts} license={alt.license} t={t} />
-						<RepoFreshness source={alt.source} t={t} lang={lang} />
+						<RepoFreshness
+							source={alt.source}
+							t={t}
+							lang={lang}
+							archived={alt.archived}
+						/>
 					</>
 				) : (
 					<>
@@ -616,7 +638,13 @@ export function AlternativeList({
 	/** Where this project's page lives, if it has one. */
 	projectHref?: (alt: Alternative) => string | undefined;
 }) {
-	const oss = product.alternatives.filter((a) => a.kind === "oss");
+	const allOss = product.alternatives.filter((a) => a.kind === "oss");
+	// Archived projects stay on the page — the catalogue records what existed as
+	// well as what exists — but they must not hold the same position as a live
+	// one. Nothing here is dropped; it is moved below the fold of the section and
+	// named for what it is.
+	const dead = allOss.filter((a) => isArchived(a, healthOf(a.source)));
+	const oss = allOss.filter((a) => !isArchived(a, healthOf(a.source)));
 	const cheaper = product.alternatives.filter((a) => a.kind === "cheaper");
 	return (
 		<div className="space-y-4">
@@ -637,6 +665,34 @@ export function AlternativeList({
 					))}
 				</ul>
 			</section>
+			{dead.length > 0 && (
+				// A <details> rather than conditional rendering: the entries stay in
+				// the served HTML, so the page's own "36 alternatives" title still
+				// matches what a crawler can count.
+				<details className="group">
+					<summary className="cursor-pointer font-mono text-[10px] text-muted uppercase tracking-[0.16em] marker:content-none">
+						{t("alt.archivedHeading").replace("{n}", String(dead.length))}
+						<span className="ml-1 inline-block transition-transform group-open:rotate-90">
+							›
+						</span>
+					</summary>
+					<p className="mt-1.5 mb-2 text-muted text-xs">
+						{t("alt.archivedBlurb")}
+					</p>
+					<ul className={`${GRID_1COL} gap-2 opacity-70 sm:grid-cols-2`}>
+						{dead.map((a) => (
+							<AlternativeCard
+								key={a.name}
+								alt={a}
+								t={t}
+								tc={tc}
+								lang={lang}
+								projectHref={projectHref?.(a)}
+							/>
+						))}
+					</ul>
+				</details>
+			)}
 			{cheaper.length > 0 && (
 				<section>
 					<h4 className="mb-2 font-mono text-[10px] uppercase tracking-[0.16em] text-muted">

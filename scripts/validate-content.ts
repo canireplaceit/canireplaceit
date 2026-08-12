@@ -11,6 +11,7 @@ import {
 	type HealthFile,
 	healthKey,
 	type Issue,
+	isArchived,
 	type Product,
 	productLangs,
 	validateCategory,
@@ -109,13 +110,19 @@ for (const file of files) {
  */
 const healthPath = join(DATA, "health.json");
 const archived: string[] = [];
-if (existsSync(healthPath)) {
-	const health = readJson(healthPath) as HealthFile | null;
+{
+	// Health covers about a third of the cited repos, so reading it alone found
+	// 11 of the ~190 dead projects in here and reported the rest as fine. The
+	// entry's own `archived` carries the other two-thirds; the forge still wins
+	// where it has an opinion. Same rule as `isArchived` in core.
+	const health = existsSync(healthPath)
+		? (readJson(healthPath) as HealthFile | null)
+		: null;
 	const repos = health?.repos ?? {};
 	for (const p of products) {
 		for (const a of p.alternatives) {
 			if (a.kind !== "oss") continue;
-			if (repos[healthKey(a.source)]?.archived !== true) continue;
+			if (!isArchived(a, repos[healthKey(a.source)])) continue;
 			archived.push(`${p.slug} → ${a.name} (${a.source.path})`);
 		}
 	}
@@ -137,7 +144,9 @@ console.log(
 console.log(`  ${cheaper} products also list a cheaper commercial option`);
 // Kept and shown, not dropped — the catalogue records what existed too.
 if (archived.length > 0) {
-	console.log(`  ${archived.length} alternatives archived upstream, shown with a badge:`);
+	console.log(
+		`  ${archived.length} alternatives archived upstream, shown with a badge:`,
+	);
 	for (const a of archived) console.log(`    ${a}`);
 }
 for (const lang of SupportedLangs) {

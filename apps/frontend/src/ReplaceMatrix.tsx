@@ -11,10 +11,10 @@
  * to give for a product nobody has checked yet.
  */
 
+import type { OssAlternative, Product } from "core/src/content";
 import { healthKey } from "core/src/content";
 import type { FeatureFile } from "core/src/features";
 import { compare, decidedCount, featureTier } from "core/src/features";
-import type { OssAlternative, Product } from "core/src/content";
 import type { Translations } from "core/src/index";
 import { paths } from "core/src/routes";
 import { useEffect, useState } from "react";
@@ -127,7 +127,8 @@ export function ReplaceMatrix({
 								{r.values.map((v, i) => {
 									// Only the vendor column carries a plan name; the alternatives
 									// are open source and have no tiers to name.
-									const tier = i === 0 ? featureTier(file, keys[0], r.key) : null;
+									const tier =
+										i === 0 ? featureTier(file, keys[0], r.key) : null;
 									return (
 										<td
 											// The feature key and the column index together are the
@@ -136,11 +137,17 @@ export function ReplaceMatrix({
 											className="px-2 py-1.5 text-center"
 										>
 											{v === "unknown" ? (
-												<span className="text-muted" title={t("features.val.unknown")}>
+												<span
+													className="text-muted"
+													title={t("features.val.unknown")}
+												>
 													–
 												</span>
 											) : (
-												<span className={TONE[v]} title={t(`features.val.${v}`)}>
+												<span
+													className={TONE[v]}
+													title={t(`features.val.${v}`)}
+												>
 													{GLYPH[v]}
 												</span>
 											)}

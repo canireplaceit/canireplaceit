@@ -400,7 +400,13 @@ export function ProjectPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 							t={t}
 							full
 						/>
-						<RepoFreshness source={project.source} t={t} lang={lang} full />
+						<RepoFreshness
+							source={project.source}
+							t={t}
+							lang={lang}
+							archived={project.archived}
+							full
+						/>
 					</p>
 				</div>
 			}
@@ -408,7 +414,7 @@ export function ProjectPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 			<article className="space-y-2">
 				{/* Above everything, not beside it: somebody has to see this before
 				    they read a page recommending it. */}
-				{health?.archived && (
+				{(health?.archived ?? project.archived) && (
 					<p
 						className="mb-6 rounded-[calc(var(--radius))] border p-4 text-sm"
 						style={{
@@ -916,7 +922,13 @@ function ProjectRow({ project, ctx }: { project: Project; ctx: PageCtx }) {
 			<p className="mt-2 flex flex-wrap items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider text-muted">
 				<Tag>{project.license}</Tag>
 				<Tag>{t(`effort.${project.effort}` as Key)}</Tag>
-				<RepoFreshness source={project.source} t={t} lang={lang} full />
+				<RepoFreshness
+					source={project.source}
+					t={t}
+					lang={lang}
+					archived={project.archived}
+					full
+				/>
 			</p>
 		</li>
 	);

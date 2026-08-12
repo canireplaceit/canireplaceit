@@ -208,6 +208,26 @@ export const healthKey = (source: Source): string =>
 			})()}/${source.path}`;
 
 /**
+ * Is this project done? One place, so the badge, the ordering and the
+ * collections can never disagree about a project's state.
+ *
+ * The forge wins when it has an opinion: it is checked nightly and we are not.
+ * `archived` on the entry covers the two-thirds of cited repos that have no
+ * health reading at all, and outlives a health file that gets truncated or
+ * goes stale.
+ *
+ * Deliberately NOT read from the note. Prose is where this fact used to live,
+ * and it cannot be trusted for it: of the notes matching /archived/, several
+ * were describing a DIFFERENT project's death ("Roo Code's own repo is now
+ * archived, so this is the live fork") — which is the opposite claim.
+ */
+export const isArchived = (
+	entry: { archived?: boolean },
+	/** This repo's reading, already resolved — `healthOf(source)` in the app. */
+	health?: Pick<Health, "archived"> | null,
+): boolean => health?.archived ?? entry.archived === true;
+
+/**
  * The facts that decide whether an "open source alternative" actually frees you.
  * Required: an entry without these is a claim, not information.
  */
@@ -277,6 +297,19 @@ export type OssAlternative = {
 	 * time by `bun run health`, not authored — see scripts/fetch-health.ts.
 	 */
 	hasCompose?: boolean;
+	/**
+	 * The project is done — the forge says archived, or its maintainers have
+	 * said so. Archived entries are KEPT and shown, because a catalogue that
+	 * silently drops what died only ever describes the present tense; they are
+	 * demoted in the ordering and badged, never hidden.
+	 *
+	 * This is authored on the entry rather than read from `health.json` alone:
+	 * health covers about a third of the cited repos, so reading it as the only
+	 * source left 142 projects we already knew were dead rendering as alive.
+	 * `health.archived` still wins when it disagrees — the forge outranks us —
+	 * see `isArchived`.
+	 */
+	archived?: boolean;
 };
 
 export type CheaperAlternative = {
@@ -416,6 +449,7 @@ const OSS_ONLY_FIELDS = [
 	"effort",
 	"facts",
 	"hasCompose",
+	"archived",
 ] as const;
 const CHEAPER_ONLY_FIELDS = ["url", "priceMonthly", "priceOnce"] as const;
 
@@ -984,6 +1018,12 @@ export type Project = {
 	 */
 	fossVary: boolean;
 	hasCompose?: boolean;
+	/**
+	 * Archived per its citing alternatives. Unlike the facts above this needs no
+	 * `vary` treatment: a repo is archived or it is not, so any citation saying
+	 * so is enough and disagreement just means one citation is out of date.
+	 */
+	archived?: boolean;
 	/** Products this project is offered as a replacement for, best-known first. */
 	replaces: { slug: string; name: string; note: Translations }[];
 };
@@ -1078,6 +1118,8 @@ export function collectProjects(products: Product[]): Project[] {
 				else if (alt.effort === "docker" && existing.effort === "ops") {
 					existing.effort = "docker";
 				}
+				// Any citation saying archived is enough — see the field's comment.
+				if (alt.archived) existing.archived = true;
 				continue;
 			}
 
@@ -1091,6 +1133,7 @@ export function collectProjects(products: Product[]): Project[] {
 				factsVary: [],
 				fossVary: false,
 				hasCompose: alt.hasCompose,
+				archived: alt.archived,
 				replaces: [cite],
 			});
 		}
