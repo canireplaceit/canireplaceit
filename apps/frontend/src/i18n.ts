@@ -384,6 +384,13 @@ export const dict = {
 			"Personal and household software, on your own hardware where possible.",
 		"group.allProducts": "Everything in this theme",
 		"projects.mostReplacing": "Replaces the most",
+		"lede.yes":
+			"You can replace {product}: {best} does the same job under {licence}.",
+		"lede.almost":
+			"You can almost replace {product}: {best} covers most of it under {licence}.",
+		"lede.notYet":
+			"You cannot replace {product} yet — nothing open source covers the job.",
+		"lede.butLose": "What you give up is {lose}.",
 		"spec.heading": "Side by side",
 		"spec.project": "Project",
 		"spec.licence": "Licence",
@@ -1279,6 +1286,13 @@ export const dict = {
 			"Logiciels personnels et domestiques, sur votre propre matériel quand c’est possible.",
 		"group.allProducts": "Tout dans ce thème",
 		"projects.mostReplacing": "Remplacent le plus",
+		"lede.yes":
+			"Vous pouvez remplacer {product} : {best} fait le même travail sous {licence}.",
+		"lede.almost":
+			"Vous pouvez presque remplacer {product} : {best} en couvre l’essentiel sous {licence}.",
+		"lede.notYet":
+			"Vous ne pouvez pas encore remplacer {product} — rien d’open source ne couvre le travail.",
+		"lede.butLose": "Ce que vous perdez : {lose}.",
 		"spec.heading": "Côte à côte",
 		"spec.project": "Projet",
 		"spec.licence": "Licence",
