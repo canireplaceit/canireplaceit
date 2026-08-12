@@ -1164,3 +1164,62 @@ export function SpecStrip({
 		</section>
 	);
 }
+
+/**
+ * The verdict as one sentence that survives being quoted on its own.
+ *
+ * The brand brief names this as a gap: the answer should be the FIRST thing on
+ * the page and phrased so a model or a person can lift it whole. Today the page
+ * opens with `why`, which is good prose but assumes its context — Claude Code's
+ * begins "The terminal-agent space caught up in about a year…", which quoted
+ * alone says nothing about Claude Code.
+ *
+ * Composed from fields the catalogue already holds rather than authored 527
+ * times: the verdict, the best exit and its licence, and the first thing you
+ * give up. Nothing here is a new claim — it is the same three facts the page
+ * makes underneath, arranged so the first line answers the question in the
+ * title.
+ */
+export function VerdictSentence({
+	product,
+	t,
+	tc,
+}: {
+	product: Product;
+	t: T;
+	tc: (v: { en: string }) => string;
+}) {
+	const live = product.alternatives
+		.filter((a): a is Extract<Alternative, { kind: "oss" }> => a.kind === "oss")
+		.filter((a) => !isArchived(a, healthOf(a.source)));
+	if (live.length === 0) return null;
+	const best = byExitQuality(live, (a) => healthOf(a.source))[0];
+	const lose = product.whatYouLose[0];
+
+	// Three verdicts, three shapes. "not-yet" deliberately does not name a
+	// project: the whole claim is that nothing credible exists, and naming one
+	// anyway would contradict the sentence in the same breath.
+	const sentence =
+		product.verdict === "not-yet"
+			? t("lede.notYet").replace("{product}", product.name)
+			: t(product.verdict === "yes" ? "lede.yes" : "lede.almost")
+					.replace("{product}", product.name)
+					.replace("{best}", best.name)
+					.replace("{licence}", best.license);
+
+	return (
+		<p className="text-pretty font-medium text-lg leading-relaxed">
+			{sentence}
+			{/* Only for "almost". On "yes" there is nothing to give up, and on
+			    "not-yet" the clause contradicts the sentence it is attached to —
+			    you cannot be giving something up in a switch we just said you
+			    cannot make. */}
+			{lose && product.verdict === "almost" && (
+				<span className="text-muted">
+					{" "}
+					{t("lede.butLose").replace("{lose}", tc(lose).toLowerCase())}
+				</span>
+			)}
+		</p>
+	);
+}

@@ -81,6 +81,7 @@ import {
 	SpecStrip,
 	Tag,
 	VerdictMark,
+	VerdictSentence,
 	WhatYouLose,
 } from "./components";
 import { CATEGORY_FILE, EditThisPage, productFile } from "./contribute";
@@ -274,9 +275,11 @@ export function ProductPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 			 */}
 			<article className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_17rem] lg:gap-10">
 				<div className="min-w-0 space-y-8">
-					<p className="text-pretty text-lg leading-relaxed">
-						{tc(product.why)}
-					</p>
+					{/* The answer first, then the argument. */}
+					<div className="space-y-3">
+						<VerdictSentence product={product} t={t} tc={tc} />
+						<p className="text-pretty leading-relaxed">{tc(product.why)}</p>
+					</div>
 
 					<WhatYouLose product={product} t={t} tc={tc} />
 
