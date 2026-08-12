@@ -22,10 +22,11 @@ import {
 import type {
 	Alternative,
 	Category,
+	CategoryGroup,
 	CategoryStat,
 	Project,
 } from "core/src/content";
-import { byGroup, projectSlug } from "core/src/content";
+import { byGroup, CATEGORY_GROUPS, projectSlug } from "core/src/content";
 import type { Lang } from "core/src/index";
 import { paths } from "core/src/routes";
 import { ChevronRight, ExternalLink, Globe } from "lucide-react";
@@ -776,7 +777,7 @@ function CategoryRow({ cat, ctx }: { cat: Category; ctx: PageCtx }) {
  * real `<a href="#…">` anchors, so it works with no JavaScript.
  */
 export function CategoriesPage({ ctx }: { ctx: PageCtx }) {
-	const { t, categories, stats } = ctx;
+	const { t, lang, categories, stats } = ctx;
 	// Only the ones that hold something: an empty category has no page.
 	const live = byProductCount(categories, stats).filter(
 		(c) => (stats.get(c.slug)?.products ?? 0) > 0,
@@ -820,7 +821,15 @@ export function CategoriesPage({ ctx }: { ctx: PageCtx }) {
 				>
 					<div className="mb-3 flex flex-wrap items-baseline gap-x-3 border-border border-b pb-2">
 						<h2 className="font-display font-bold text-xl">
-							{t(`catGroup.${g.group}` as Key)}
+							{/* The heading is the link to the theme's own hub — without
+							    this the ten group pages would have no inbound link at
+							    all, which is the exact problem they exist to fix. */}
+							<Link
+								href={paths.group(lang, g.group)}
+								className="hover:underline"
+							>
+								{t(`catGroup.${g.group}` as Key)}
+							</Link>
 						</h2>
 						<p className="nums text-muted text-xs">
 							{g.cats.length} {t("cats.inGroup")} ·{" "}
@@ -838,6 +847,84 @@ export function CategoriesPage({ ctx }: { ctx: PageCtx }) {
 					</ul>
 				</section>
 			))}
+
+			<EditThisPage file={CATEGORY_FILE} t={t} className="mt-10" />
+		</PageShell>
+	);
+}
+
+/**
+ * One theme: the categories filed under it, and every product across them.
+ *
+ * The taxonomy has carried a `group` on every category since it was written and
+ * nothing routed it. Meanwhile 50 of the 85 categories hold five products or
+ * fewer and six hold exactly one — a category page with one product is a dead
+ * end for a reader and for a crawler. The group is the browsable middle level
+ * the data already had.
+ */
+export function GroupPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
+	const { t, tc, lang, categories, products, stats } = ctx;
+	if (!(CATEGORY_GROUPS as readonly string[]).includes(slug)) {
+		return <Pending ctx={ctx} empty={categories.length > 0} />;
+	}
+	const group = slug as CategoryGroup;
+
+	const cats = byProductCount(
+		categories.filter((c) => c.group === group),
+		stats,
+	).filter((c) => (stats.get(c.slug)?.products ?? 0) > 0);
+	if (cats.length === 0)
+		return <Pending ctx={ctx} empty={categories.length > 0} />;
+
+	const slugs = new Set(cats.map((c) => c.slug));
+	const inGroup = byWeight(products.filter((p) => slugs.has(p.category)));
+
+	return (
+		<PageShell
+			measure={MEASURE}
+			trail={[
+				homeCrumb(ctx),
+				{ label: t("page.categories"), href: paths.categories(lang) },
+				{ label: t(`catGroup.${group}` as Key) },
+			]}
+			eyebrow={t("cats.themes")}
+			title={t(`catGroup.${group}` as Key)}
+			lede={t(`catGroupBlurb.${group}` as Key)}
+		>
+			<Section title={t("page.categories")} count={cats.length}>
+				<ul className="space-y-2">
+					{cats.map((c) => (
+						<CategoryRow key={c.slug} cat={c} ctx={ctx} />
+					))}
+				</ul>
+			</Section>
+
+			{/* Every product across the theme, so the hub is a destination rather
+			    than a menu pointing at ten thin pages. */}
+			<Section title={t("group.allProducts")} count={inGroup.length}>
+				<ul className={`${GRID_1COL} gap-2 sm:grid-cols-2`}>
+					{inGroup.map((p) => (
+						<li key={p.slug} className="card card-link">
+							<Link href={paths.product(lang, p.slug)} className="block p-3.5">
+								<span className="flex items-baseline justify-between gap-2">
+									<span className="truncate font-display font-semibold">
+										{p.name}
+									</span>
+									<span className="nums shrink-0 text-muted text-sm">
+										{priceLabel(p, lang, t)}
+									</span>
+								</span>
+								<span className="mt-1.5 flex items-center gap-3">
+									<VerdictMark verdict={p.verdict} t={t} />
+									<span className="nums text-muted text-xs">
+										{p.alternatives.length} {t("group.alternatives")}
+									</span>
+								</span>
+							</Link>
+						</li>
+					))}
+				</ul>
+			</Section>
 
 			<EditThisPage file={CATEGORY_FILE} t={t} className="mt-10" />
 		</PageShell>

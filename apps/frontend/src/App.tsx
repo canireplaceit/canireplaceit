@@ -90,6 +90,7 @@ import {
 	CategoryPage,
 	CollectionPage,
 	CollectionsPage,
+	GroupPage,
 	type PageCtx,
 	ProductPage,
 	ProjectPage,
@@ -104,6 +105,7 @@ import {
 	categoryMeta,
 	collectionMeta,
 	collectionsMeta,
+	groupMeta,
 	homeMeta,
 	legalMeta,
 	productMeta,
@@ -246,6 +248,7 @@ const SECTION_OF: Record<Route["name"], string> = {
 	projects: "projects",
 	category: "categories",
 	categories: "categories",
+	group: "categories",
 	collection: "collections",
 	collections: "collections",
 	features: "features",
@@ -647,6 +650,8 @@ function Page({ ctx, route }: { ctx: PageCtx; route: Route }) {
 			return <ProjectPage ctx={ctx} slug={route.slug} />;
 		case "category":
 			return <CategoryPage ctx={ctx} slug={route.slug} />;
+		case "group":
+			return <GroupPage ctx={ctx} slug={route.slug} />;
 		case "categories":
 			return <CategoriesPage ctx={ctx} />;
 		case "projects":
@@ -1169,6 +1174,18 @@ export function App() {
 								lang,
 							)
 						: null;
+				}
+				case "group": {
+					const inGroup = cats.filter((c) => c.group === route.slug);
+					if (inGroup.length === 0) return null;
+					const slugs = new Set(inGroup.map((c) => c.slug));
+					return groupMeta(
+						route.slug,
+						t(`catGroup.${route.slug}` as Key),
+						products.filter((p) => slugs.has(p.category)).length,
+						inGroup.length,
+						lang,
+					);
 				}
 				case "categories":
 					return categoriesMeta(lang, cats.length, products.length);

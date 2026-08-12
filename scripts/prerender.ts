@@ -43,6 +43,7 @@ import {
 	pageSlice,
 } from "core/src/collections";
 import {
+	CATEGORY_GROUPS,
 	type Category,
 	type CategoryStat,
 	categoryStats,
@@ -99,11 +100,19 @@ const { renderToString } = await import(
 );
 const { App } = await import(join(FE, "src/App.tsx"));
 const { UPDATED: LEGAL_UPDATED } = await import(join(FE, "src/legal.tsx"));
+// Read from the one translation table rather than a second copy here: `meta` is
+// computed outside the React tree, so there is no `t` in scope.
+const { dict } = (await import(join(FE, "src/i18n.ts"))) as {
+	dict: Record<string, Record<string, string>>;
+};
+const groupLabel = (lang: string, group: string): string =>
+	dict[lang]?.[`catGroup.${group}`] ?? dict.en[`catGroup.${group}`] ?? group;
 const {
 	categoriesMeta,
 	categoryMeta,
 	collectionMeta,
 	collectionsMeta,
+	groupMeta,
 	homeMeta,
 	productMeta,
 	projectMeta,
@@ -842,6 +851,32 @@ for (const lang of SupportedLangs) {
 		kind: "categories",
 		lastmod: newest(listed.map((p) => p.slug)),
 	});
+
+	/**
+	 * The ten theme hubs. Emitted BEFORE the categories so the sitemap lists the
+	 * hub above the thin pages it collects — 50 of the 85 categories hold five
+	 * products or fewer, and the hub is what makes those reachable in two clicks
+	 * rather than one long list.
+	 */
+	for (const group of CATEGORY_GROUPS) {
+		const inGroup = liveCategories.filter((c) => c.group === group);
+		if (inGroup.length === 0) continue;
+		const slugs = new Set(inGroup.map((c) => c.slug));
+		const groupProducts = listed.filter((p) => slugs.has(p.category));
+		emit({
+			route: { name: "group", lang, slug: group },
+			meta: groupMeta(
+				group,
+				groupLabel(lang, group),
+				groupProducts.length,
+				inGroup.length,
+				lang,
+			),
+			boot: bootFor(groupProducts),
+			kind: "category",
+			lastmod: newest(groupProducts.map((p) => p.slug)),
+		});
+	}
 
 	for (const category of liveCategories) {
 		const inCat = productsIn(category.slug);
