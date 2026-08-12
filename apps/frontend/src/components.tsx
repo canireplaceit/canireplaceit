@@ -978,3 +978,49 @@ export function SponsorSlot({
 		</a>
 	);
 }
+
+/**
+ * What the escape from this product actually looks like, in four numbers.
+ *
+ * Every figure is derived from fields populated on 100% of alternatives
+ * (`effort`, `openCore`, `licence`) or from the archived flag, so this block
+ * never renders a blank — unlike anything built on the feature data, which is
+ * answered for about a third of cited projects. A stat that cannot be computed
+ * is dropped rather than shown as zero: "0 with no strings" reads as a finding
+ * when it means nobody checked.
+ */
+export function ProductEscapeStats({ product, t }: { product: Product; t: T }) {
+	const oss = product.alternatives.filter(
+		(a): a is Extract<Alternative, { kind: "oss" }> => a.kind === "oss",
+	);
+	if (oss.length === 0) return null;
+
+	const live = oss.filter((a) => !isArchived(a, healthOf(a.source)));
+	if (live.length === 0) return null;
+
+	const easiest = byExitQuality(live, (a) => healthOf(a.source))[0];
+	const noStrings = live.filter((a) => a.facts.openCore === "none").length;
+	const noServer = live.filter((a) => a.effort === "managed").length;
+
+	const cells: { value: string; label: string }[] = [
+		{ value: String(live.length), label: t("escape.live") },
+		{ value: easiest.name, label: t("escape.easiest") },
+		{ value: String(noServer), label: t("escape.noServer") },
+		{ value: String(noStrings), label: t("escape.noStrings") },
+	];
+
+	return (
+		<dl className="grid grid-cols-2 gap-px overflow-hidden rounded-[calc(var(--radius))] border border-border bg-border sm:grid-cols-4">
+			{cells.map((c) => (
+				<div key={c.label} className="bg-surface p-3">
+					<dd className="nums truncate font-display font-semibold text-base">
+						{c.value}
+					</dd>
+					<dt className="mt-0.5 font-mono text-[10px] text-muted uppercase tracking-wider">
+						{c.label}
+					</dt>
+				</div>
+			))}
+		</dl>
+	);
+}

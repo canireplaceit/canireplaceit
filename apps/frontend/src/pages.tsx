@@ -74,6 +74,7 @@ import {
 	hostOf,
 	OpenCorePanel,
 	PriceBlock,
+	ProductEscapeStats,
 	ProductLogo,
 	RepoFreshness,
 	Tag,
@@ -254,6 +255,12 @@ export function ProductPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 					</p>
 
 					<WhatYouLose product={product} t={t} tc={tc} />
+
+					{/* The shape of the escape, before the cards. The category page has
+					    had a strip like this for a while and it is the clearest thing on
+					    the site; the product page — which is where the organic traffic
+					    actually lands — had nothing equivalent. */}
+					<ProductEscapeStats product={product} t={t} />
 
 					<AlternativeList
 						product={product}
