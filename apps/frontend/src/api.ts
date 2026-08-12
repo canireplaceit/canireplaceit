@@ -516,6 +516,8 @@ const AlternativeSchema = z.discriminatedUnion("kind", [
 		archived: z.boolean().optional(),
 		/** People who report switching TO this. Server-computed; absent in boot payloads. */
 		switchedTo: z.number().optional(),
+		/** Forge's top language by bytes, backfilled onto the entry. */
+		language: z.string().optional(),
 	}),
 	z.object({
 		kind: z.literal("cheaper"),

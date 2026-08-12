@@ -356,6 +356,36 @@ const dict = {
 		"collection.cheaper.derivation":
 			"Derived from the alternatives themselves: every product here lists at least one “cheaper” entry, which validation requires to undercut the product it replaces.",
 
+		"collection.under-10.title": "Cheap enough that nobody audits it",
+		"collection.under-10.blurb":
+			"Subscriptions under $10 a month with a drop-in replacement. Individually too small to bother cancelling, which is exactly why they pile up — and leaving costs an install, not a migration.",
+		"collection.under-10.derivation":
+			"Products priced between $0 and $10 a month whose exit ladder rung is “drop-in”. Both halves are derived: the price from its receipt, the rung from the alternatives themselves.",
+
+		"collection.expensive.title": "The expensive ones",
+		"collection.expensive.blurb":
+			"Over $100 a month. Where the money actually is, whatever the exit looks like — and where an afternoon spent reading is worth the most per hour.",
+		"collection.expensive.derivation":
+			"Products whose typical entry-tier price exceeds $100 a month. No judgement about the exit is applied here: some of these are genuinely hard to leave, and the page says so per product.",
+
+		"collection.in-rust.title": "Written in Rust",
+		"collection.in-rust.blurb":
+			"Projects whose largest body of code is Rust. A shortcut for people who would rather run, patch or contribute to something in a language they already know.",
+		"collection.in-rust.derivation":
+			"The forge’s own “top language by bytes”, never a guess. Projects with no reading are absent rather than counted as something else.",
+
+		"collection.in-go.title": "Written in Go",
+		"collection.in-go.blurb":
+			"Projects whose largest body of code is Go — which in practice often means one static binary and no runtime to install first.",
+		"collection.in-go.derivation":
+			"The forge’s own “top language by bytes”, never a guess. Projects with no reading are absent rather than counted as something else.",
+
+		"collection.in-python.title": "Written in Python",
+		"collection.in-python.blurb":
+			"Projects whose largest body of code is Python. The easiest to read and change, and the most likely to want an environment managing before it runs.",
+		"collection.in-python.derivation":
+			"The forge’s own “top language by bytes”, never a guess. Projects with no reading are absent rather than counted as something else.",
+
 		"collection.one-compose.title": "One docker compose away",
 		"collection.one-compose.blurb":
 			"Projects that ship a compose file in the repo root. Not “this could be self-hosted in principle” — clone it, one command, it runs. The shortest path from reading this site to leaving a bill behind.",
@@ -1184,6 +1214,36 @@ const dict = {
 			"Les produits qui ont une alternative commerciale réellement moins chère. Pour quand l’auto-hébergement n’est pas la réponse, mais la facture l’est.",
 		"collection.cheaper.derivation":
 			"Dérivé des alternatives elles-mêmes : chaque produit ici liste au moins une entrée « moins cher », que la validation oblige à coûter moins que le produit remplacé.",
+
+		"collection.under-10.title": "Trop peu cher pour qu’on y regarde",
+		"collection.under-10.blurb":
+			"Abonnements à moins de 10 $ par mois avec un remplaçant immédiat. Chacun trop petit pour qu’on pense à le résilier, et c’est précisément pour ça qu’ils s’accumulent — partir coûte une installation, pas une migration.",
+		"collection.under-10.derivation":
+			"Produits facturés entre 0 et 10 $ par mois dont l’échelon de sortie est « immédiat ». Les deux moitiés sont dérivées : le prix de son justificatif, l’échelon des alternatives elles-mêmes.",
+
+		"collection.expensive.title": "Les gros montants",
+		"collection.expensive.blurb":
+			"Plus de 100 $ par mois. Là où l’argent se trouve vraiment, quelle que soit la difficulté de sortie — et là où une après-midi de lecture rapporte le plus à l’heure.",
+		"collection.expensive.derivation":
+			"Produits dont le tarif d’entrée dépasse 100 $ par mois. Aucun jugement sur la sortie n’est appliqué ici : certains sont réellement difficiles à quitter, et chaque fiche le dit.",
+
+		"collection.in-rust.title": "Écrits en Rust",
+		"collection.in-rust.blurb":
+			"Projets dont le plus gros du code est en Rust. Un raccourci pour qui préfère exécuter, corriger ou contribuer dans un langage qu’il connaît déjà.",
+		"collection.in-rust.derivation":
+			"Le « langage principal en octets » de la forge, jamais une supposition. Les projets sans relevé sont absents plutôt que comptés ailleurs.",
+
+		"collection.in-go.title": "Écrits en Go",
+		"collection.in-go.blurb":
+			"Projets dont le plus gros du code est en Go — ce qui signifie souvent un binaire statique et aucun runtime à installer d’abord.",
+		"collection.in-go.derivation":
+			"Le « langage principal en octets » de la forge, jamais une supposition. Les projets sans relevé sont absents plutôt que comptés ailleurs.",
+
+		"collection.in-python.title": "Écrits en Python",
+		"collection.in-python.blurb":
+			"Projets dont le plus gros du code est en Python. Les plus faciles à lire et à modifier, et les plus susceptibles de demander un environnement avant de démarrer.",
+		"collection.in-python.derivation":
+			"Le « langage principal en octets » de la forge, jamais une supposition. Les projets sans relevé sont absents plutôt que comptés ailleurs.",
 
 		"collection.one-compose.title": "À un docker compose près",
 		"collection.one-compose.blurb":

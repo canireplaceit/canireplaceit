@@ -373,6 +373,66 @@ const COLLECTION_COPY: Record<
 	string,
 	Record<Lang, { title: string; description: string }>
 > = {
+	"under-10": {
+		en: {
+			title: "{n} cheap subscriptions with a drop-in open source replacement",
+			description:
+				"{n} products under $10/mo where leaving costs an install rather than a migration. Individually too small to audit, which is why they accumulate.",
+		},
+		fr: {
+			title: "{n} petits abonnements avec un remplaçant open source immédiat",
+			description:
+				"{n} produits à moins de 10 $/mois où partir coûte une installation, pas une migration. Trop petits pour qu’on y regarde, et c’est pour ça qu’ils s’accumulent.",
+		},
+	},
+	expensive: {
+		en: {
+			title: "{n} SaaS products over $100/mo, and what replaces them",
+			description:
+				"{n} products billed above $100 a month, with an honest verdict on each: whether the open source replacement is good enough yet, and what switching costs.",
+		},
+		fr: {
+			title: "{n} SaaS à plus de 100 $/mois, et ce qui les remplace",
+			description:
+				"{n} produits facturés au-delà de 100 $ par mois, avec un verdict honnête sur chacun : le remplaçant open source tient-il la route, et que coûte la migration ?",
+		},
+	},
+	"in-rust": {
+		en: {
+			title: "{n} self-hosted open source projects written in Rust",
+			description:
+				"{n} open source projects whose largest body of code is Rust, each listed against the paid product it replaces.",
+		},
+		fr: {
+			title: "{n} projets open source auto-hébergeables écrits en Rust",
+			description:
+				"{n} projets open source dont le plus gros du code est en Rust, chacun listé face au produit payant qu’il remplace.",
+		},
+	},
+	"in-go": {
+		en: {
+			title: "{n} self-hosted open source projects written in Go",
+			description:
+				"{n} open source projects whose largest body of code is Go, each listed against the paid product it replaces.",
+		},
+		fr: {
+			title: "{n} projets open source auto-hébergeables écrits en Go",
+			description:
+				"{n} projets open source dont le plus gros du code est en Go, chacun listé face au produit payant qu’il remplace.",
+		},
+	},
+	"in-python": {
+		en: {
+			title: "{n} self-hosted open source projects written in Python",
+			description:
+				"{n} open source projects whose largest body of code is Python, each listed against the paid product it replaces.",
+		},
+		fr: {
+			title: "{n} projets open source auto-hébergeables écrits en Python",
+			description:
+				"{n} projets open source dont le plus gros du code est en Python, chacun listé face au produit payant qu’il remplace.",
+		},
+	},
 	"one-compose": {
 		en: {
 			title: "{n} self-hosted apps that are one docker compose away",
