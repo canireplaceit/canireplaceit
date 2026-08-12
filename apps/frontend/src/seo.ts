@@ -4,6 +4,7 @@
  */
 
 import type { Category, Product, Project } from "core/src/content";
+import { CATEGORY_GROUPS } from "core/src/content";
 import type { Lang } from "core/src/index";
 import {
 	DEFAULT_LANG,
@@ -11,6 +12,7 @@ import {
 	SupportedLangs,
 } from "core/src/index";
 import { type LegalDoc, paths } from "core/src/routes";
+import { dict } from "./i18n";
 import { legalCopy } from "./legal";
 
 export const SITE = "https://canireplaceit.com";
@@ -71,6 +73,23 @@ export const HOME_LABEL: Record<Lang, string> = {
 };
 
 /** The same, for the category index. Kept in step with `page.categories` in i18n.ts. */
+/**
+ * Theme names for structured data, which is built outside the React tree and so
+ * has no `t`. Read from the same `dict` the UI uses — a second hand-written copy
+ * drifted within minutes when the prerenderer tried it.
+ */
+export const GROUP_LABEL: Record<Lang, Record<string, string>> = {
+	en: Object.fromEntries(
+		CATEGORY_GROUPS.map((g) => [g, dict.en[`catGroup.${g}`] ?? g]),
+	),
+	fr: Object.fromEntries(
+		CATEGORY_GROUPS.map((g) => [
+			g,
+			dict.fr[`catGroup.${g}`] ?? dict.en[`catGroup.${g}`] ?? g,
+		]),
+	),
+};
+
 export const CATEGORIES_LABEL: Record<Lang, string> = {
 	en: "All categories",
 	fr: "Toutes les catégories",
@@ -104,6 +123,12 @@ export function productMeta(
 
 	const trail = [{ name: HOME_LABEL[lang], url: paths.home(lang) }];
 	if (category) {
+		// Same three rungs the visible breadcrumb walks, or the structured data
+		// and the page disagree about where this product sits.
+		trail.push({
+			name: GROUP_LABEL[lang][category.group],
+			url: paths.group(lang, category.group),
+		});
 		trail.push({
 			name: resolveTranslation(category.name, lang),
 			url: paths.category(lang, category.slug),
