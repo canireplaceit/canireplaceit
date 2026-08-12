@@ -18,17 +18,21 @@ import type { FeatureFile } from "core/src/features";
 import { compare, decidedCount, featureTier } from "core/src/features";
 import type { Translations } from "core/src/index";
 import { paths } from "core/src/routes";
+import { X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { bootFeatures, healthOf } from "./api";
 import type { Key, Lang } from "./i18n";
 import { GLYPH, TONE } from "./ProjectFeatures";
 
 /**
- * Four columns at most. Some products cite a dozen alternatives, and a table
- * that wide is unreadable on a phone and unreadable on a desktop too. The ones
- * we know most about lead, because a column of dashes teaches nobody anything.
+ * Five columns at most, beside the product itself.
+ *
+ * Six columns is what fits before a table stops being readable — on a phone it
+ * scrolls sideways with a stuck first column, which is fine, and past six the
+ * eye cannot hold a row. Which five is the reader's choice; the default is the
+ * five best exits, not the five we happen to know most about.
  */
-const MAX_ALTS = 4;
+const MAX_ALTS = 5;
 
 export function ReplaceMatrix({
 	product,
@@ -44,6 +48,14 @@ export function ReplaceMatrix({
 	// Same two-source pattern as ProjectFeatures: prerendered slice in production,
 	// a lazy import in dev where no boot payload exists.
 	const [file, setFile] = useState<FeatureFile | null>(() => bootFeatures());
+	/**
+	 * Which columns the reader wants, or null while they have not said.
+	 *
+	 * The picker is the mechanic `FeaturesPage` already has (a `picked` array and
+	 * a toggle) — it just started empty on a page nobody lands on, while this
+	 * page rendered a fixed four with no way to change them.
+	 */
+	const [picked, setPicked] = useState<string[] | null>(null);
 
 	useEffect(() => {
 		if (file) return;
@@ -74,7 +86,7 @@ export function ReplaceMatrix({
 	 * have been. Archived projects sort last: a dead project is not a comparison
 	 * a reader can act on.
 	 */
-	const alts = product.alternatives
+	const candidates = product.alternatives
 		.filter((a): a is OssAlternative => a.kind === "oss")
 		.map((a) => ({ alt: a, key: healthKey(a.source) }))
 		.filter((x) => decidedCount(file, x.key) > 0)
@@ -85,12 +97,23 @@ export function ReplaceMatrix({
 				EFFORT_RANK[a.alt.effort] - EFFORT_RANK[b.alt.effort] ||
 				opennessRank(openness(b.alt)) - opennessRank(openness(a.alt)) ||
 				decidedCount(file, b.key) - decidedCount(file, a.key),
-		)
-		.slice(0, MAX_ALTS);
+		);
 
 	// One column cannot disagree with itself, and neither can a product we have
 	// not checked — in both cases there is no comparison to publish.
-	if (alts.length === 0 || decidedCount(file, product.slug) === 0) return null;
+	if (candidates.length === 0 || decidedCount(file, product.slug) === 0) {
+		return null;
+	}
+
+	const defaults = candidates.slice(0, MAX_ALTS).map((x) => x.key);
+	// `picked === null` means "nobody has touched it", which is different from
+	// "the reader removed every column" — the second must render an empty table
+	// with the add-list under it rather than silently resetting to the default.
+	const chosen = picked ?? defaults;
+	const alts = chosen
+		.map((k) => candidates.find((c) => c.key === k))
+		.filter((x): x is (typeof candidates)[number] => x !== undefined);
+	const rest = candidates.filter((c) => !chosen.includes(c.key));
 
 	const keys = [product.slug, ...alts.map((x) => x.key)];
 	const rows = compare(file, keys, {
@@ -188,7 +211,15 @@ export function ReplaceMatrix({
 									key={x.key}
 									className="px-2 py-2 text-center font-normal text-muted"
 								>
-									{x.alt.name}
+									<button
+										type="button"
+										onClick={() => setPicked(chosen.filter((k) => k !== x.key))}
+										aria-label={`${t("features.removeColumn")}: ${x.alt.name}`}
+										className="inline-flex items-center gap-1 hover:text-text"
+									>
+										{x.alt.name}
+										<X className="size-3 shrink-0 opacity-50" aria-hidden />
+									</button>
 								</th>
 							))}
 						</tr>
@@ -237,6 +268,35 @@ export function ReplaceMatrix({
 					</tbody>
 				</table>
 			</div>
+
+			{/* The rest of the alternatives we know anything about, as one click
+			    each. Capped at MAX_ALTS: past six columns a row stops being
+			    readable, so adding is disabled rather than silently dropping
+			    somebody else's column out from under the reader. */}
+			{rest.length > 0 && (
+				<div className="mt-3">
+					<p className="eyebrow">{t("features.addColumn")}</p>
+					<ul className="mt-1.5 flex flex-wrap gap-1.5">
+						{rest.map((x) => (
+							<li key={x.key}>
+								<button
+									type="button"
+									disabled={alts.length >= MAX_ALTS}
+									onClick={() => setPicked([...chosen, x.key])}
+									className="pill disabled:cursor-not-allowed disabled:opacity-40"
+								>
+									{x.alt.name}
+								</button>
+							</li>
+						))}
+					</ul>
+					{alts.length >= MAX_ALTS && (
+						<p className="mt-1.5 text-[11px] text-muted">
+							{t("features.columnLimit").replace("{n}", String(MAX_ALTS))}
+						</p>
+					)}
+				</div>
+			)}
 
 			<p className="mt-2 text-[11px] text-muted">{t("features.legend")}</p>
 		</section>

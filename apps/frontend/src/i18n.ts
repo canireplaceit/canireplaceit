@@ -384,6 +384,9 @@ export const dict = {
 			"Personal and household software, on your own hardware where possible.",
 		"group.allProducts": "Everything in this theme",
 		"projects.mostReplacing": "Replaces the most",
+		"features.removeColumn": "Remove column",
+		"features.addColumn": "Add a column",
+		"features.columnLimit": "{n} columns is the most a row stays readable at.",
 		"group.alternatives": "alternatives",
 
 		"collection.under-10.title": "Cheap enough that nobody audits it",
@@ -1269,6 +1272,10 @@ export const dict = {
 			"Logiciels personnels et domestiques, sur votre propre matériel quand c’est possible.",
 		"group.allProducts": "Tout dans ce thème",
 		"projects.mostReplacing": "Remplacent le plus",
+		"features.removeColumn": "Retirer la colonne",
+		"features.addColumn": "Ajouter une colonne",
+		"features.columnLimit":
+			"{n} colonnes : au-delà, une ligne devient illisible.",
 		"group.alternatives": "alternatives",
 
 		"collection.under-10.title": "Trop peu cher pour qu’on y regarde",
