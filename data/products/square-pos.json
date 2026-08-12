@@ -115,6 +115,195 @@
 				"en": "Same free-software, paid-per-transaction shape with cheaper hardware and slightly higher card fees in some markets.",
 				"fr": "Même modèle logiciel gratuit / commission par transaction, avec du matériel moins cher et des commissions parfois un peu plus élevées."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Unicenta oPOS",
+			"source": {
+				"host": "github",
+				"path": "herbiehp/unicenta",
+				"url": "https://github.com/herbiehp/unicenta"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Well-known Java desktop POS, still widely deployed but dormant since January 2015. Windows-centric in practice, and no online ordering or payments built in.",
+				"fr": "Caisse Java de bureau réputée, encore largement déployée mais en sommeil depuis janvier 2015. Windows au quotidien, sans commande en ligne ni paiement intégrés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Lemon POS",
+			"source": {
+				"host": "github",
+				"path": "miguelchavez/lemonpos",
+				"url": "https://github.com/miguelchavez/lemonpos"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The classic open-source cash register for Linux, but development stalled in October 2015. Catalog, stock and reports on SQLite or MySQL, with a dated Qt-era interface.",
+				"fr": "La caisse open-source historique pour Linux, mais développement gelé depuis octobre 2015. Catalogue, stock et rapports sur SQLite ou MySQL, avec une interface Qt datée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PHP Point of Sale",
+			"source": {
+				"host": "github",
+				"path": "deenseth/PHP-Point-Of-Sale",
+				"url": "https://github.com/deenseth/PHP-Point-Of-Sale"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Battle-tested web POS with 300k+ downloads and multi-store support, but idle since May 2023. Runs on a CodeIgniter-era stack needing PHP and MySQL, with a dated UI.",
+				"fr": "POS web éprouvé, plus de 300 000 téléchargements et multi-boutiques, mais inactif depuis mai 2023. Architecture CodeIgniter d’une autre époque, LAMP en PHP + MySQL, interface vieillie."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Openbravo POS",
+			"source": {
+				"host": "github",
+				"path": "iMartinezMateu/openbravo-pos",
+				"url": "https://github.com/iMartinezMateu/openbravo-pos"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The ancestor of Chromis and Unicenta, now itself frozen since April 2016 and superseded by its forks. Shared multi-terminal database and XML/REST API behind an ageing Swing UI.",
+				"fr": "L’ancêtre de Chromis et Unicenta, gelé depuis avril 2016 et supplanté par ses propres forks. Base multi-terminaux partagée et API XML/REST derrière une interface Swing vieillissante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenTHC POS",
+			"source": {
+				"host": "github",
+				"path": "openthc/pos",
+				"url": "https://github.com/openthc/pos"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Actively developed web register aimed at compliance-heavy verticals, with inventory tracking and laboratory data hooks. Scope stays niche, and it leans on the separate OpenTHC core stack.",
+				"fr": "Caisse web activement développée, taillée pour les secteurs très réglementés, avec suivi d’inventaire et branchements données laboratoire. Reste un périmètre de niche et une dépendance à la pile OpenTHC séparée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ERPNext",
+			"source": {
+				"host": "github",
+				"path": "frappe/erpnext",
+				"url": "https://github.com/frappe/erpnext"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "A full ERP whose built-in POS module works, backed by a huge community and 38k stars. But you take on Frappe, MariaDB and Redis, and it dwarfs a single small shop.",
+				"fr": "Un ERP complet avec un vrai module POS intégré, une énorme communauté et 38k étoiles. Mais c’est Frappe, MariaDB et Redis à assumer, et trop lourd pour une petite boutique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dolibarr",
+			"source": {
+				"host": "github",
+				"path": "Dolibarr/dolibarr",
+				"url": "https://github.com/Dolibarr/dolibarr"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "A modular ERP/CRM you can trim to just the POS and inventory modules, with an easy Docker install. The register is basic next to dedicated POS, and the UI is dated.",
+				"fr": "Un ERP/CRM modulaire que l’on réduit au module POS et inventaire, installable facilement via Docker. La caisse reste basique face à un POS dédié, et l’interface est datée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "jPOS",
+			"source": {
+				"host": "github",
+				"path": "jpos/jPOS",
+				"url": "https://github.com/jpos/jPOS"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "A developer framework, not a register: you get ISO 8583 services, authorization, refund and settlement APIs, but no cashier screen. Java expertise and your own UI are assumed.",
+				"fr": "Un framework de développement, pas une caisse : services ISO 8583, APIs d’autorisation, remboursement et règlement, mais aucun écran de caisse. Expertise Java et interface à construire exigées."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "python-escpos",
+			"source": {
+				"host": "github",
+				"path": "python-escpos/python-escpos",
+				"url": "https://github.com/python-escpos/python-escpos"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The de-facto Python library for driving ESC/POS receipt printers — text, images and barcodes over USB, network or serial. Not a POS: you build the cashier logic, and it stays hardware-dependent.",
+				"fr": "La bibliothèque Python incontournable pour piloter les imprimantes de reçus ESC/POS — texte, images et codes-barres sur USB, réseau, série. Pas un POS : logique de caisse à écrire, matériel-dépendant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

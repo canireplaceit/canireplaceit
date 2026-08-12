@@ -97,6 +97,174 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ollama",
+			"source": {
+				"host": "github",
+				"path": "ollama/ollama",
+				"url": "https://github.com/ollama/ollama"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Easiest local runner: single binary, one command to pull a model, OpenAI-compatible serve API. No assistant of its own — pair with Continue or Tabby; local-only.",
+				"fr": "Le plus simple des runners locaux : un binaire, une commande pour tirer un modèle, une API compatible OpenAI. Pas d’assistant IDE — associez-le à Continue ou Tabby ; tourne sur votre matériel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GPT4All",
+			"source": {
+				"host": "github",
+				"path": "nomic-ai/gpt4all",
+				"url": "https://github.com/nomic-ai/gpt4all"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "MIT desktop app that runs code models on CPU, no GPU needed; cross-platform chat with a local model store. Chat-first: no inline editor completion and no server API for multi-user setups.",
+				"fr": "App de bureau MIT pour faire tourner les modèles de code sur CPU, sans GPU ; chat multiplateforme avec magasin de modèles local. Orienté chat : ni complétion dans l’éditeur, ni API serveur multi-utilisateurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LocalAI",
+			"source": {
+				"host": "github",
+				"path": "mudler/LocalAI",
+				"url": "https://github.com/mudler/LocalAI"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Drop-in OpenAI-compatible inference server for CPU or GPU, deployed via Docker or binary; model-agnostic. It’s a server to operate, not an install-and-go app, and output quality tracks the models you load.",
+				"fr": "Serveur d’inférence compatible OpenAI sur CPU ou GPU, en Docker ou binaire, indépendant du modèle. À faire tourner, pas installer : la qualité suit les modèles chargés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PrivateGPT",
+			"source": {
+				"host": "github",
+				"path": "zylon-ai/private-gpt",
+				"url": "https://github.com/zylon-ai/private-gpt"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Local LLM with RAG over your own documents, fully offline, web UI and API included — data never leaves the machine. Built for document Q&A, not inline completion, on a heavier Python stack.",
+				"fr": "Stack locale LLM + RAG sur vos documents, entièrement hors ligne — les données ne quittent pas la machine. Pensé pour la Q&A documentaire, pas la complétion de code ; pile Python lourde."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "aichat",
+			"source": {
+				"host": "github",
+				"path": "sigoden/aichat",
+				"url": "https://github.com/sigoden/aichat"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Chat-only: TUI/CLI against any local or remote endpoint, scriptable one-shot mode for shell pipelines. No IDE glue — you need a model endpoint running.",
+				"fr": "Chat uniquement : TUI/CLI contre n’importe quel endpoint local ou distant, mode one-shot scriptable pour les pipelines shell. Pas d’intégration IDE — il faut un endpoint de modèle actif."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Aider",
+			"source": {
+				"host": "github",
+				"path": "Aider-AI/aider",
+				"url": "https://github.com/Aider-AI/aider"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Whole-edit agent, not inline autocomplete — works with any OpenAI-compatible local endpoint and needs a strong model. Terminal pair-programmer with git-integrated diff review.",
+				"fr": "Agent d’édition complet, pas autocomplétion en ligne — compatible avec n’importe quel endpoint local OpenAI, mais exige un modèle solide. Pair-programmer en terminal avec revue de diff git."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LLM",
+			"source": {
+				"host": "github",
+				"path": "simonw/llm",
+				"url": "https://github.com/simonw/llm"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Minimal Apache-2.0 CLI to run and chain LLM prompts, plugin registry for local models and remote APIs; scripts into shell pipelines easily. A utility, not an assistant — text/JSON output, no editor.",
+				"fr": "CLI Apache-2.0 minimale pour lancer et enchaîner des prompts, avec des plugins pour modèles locaux et API distantes, scriptable dans les pipelines shell. Outil utilitaire, pas assistant : sortie texte/JSON, sans éditeur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Codex",
+			"source": {
+				"host": "github",
+				"path": "openai/codex",
+				"url": "https://github.com/openai/codex"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Agentic edits, not inline autocomplete: OpenAI’s Apache-2.0 terminal coding agent, sandboxed execution, custom OpenAI-compatible endpoints. Pointing it at local models needs endpoint configuration.",
+				"fr": "Éditions agentiques, pas d’autocomplétion en ligne : l’agent de codage en terminal d’OpenAI, sous Apache-2.0, exécution sandboxée, endpoints OpenAI personnalisés. Pointer un modèle local exige de configurer un endpoint."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

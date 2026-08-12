@@ -105,6 +105,136 @@
 				"en": "A quarter of the price with dispatch, invoicing and card payments. Nothing like ServiceTitan's pricebook or reporting.",
 				"fr": "Un quart du prix avec répartition, facturation et paiement carte. Rien à voir avec le catalogue de prix ou les rapports de ServiceTitan."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "OCA field-service",
+			"source": {
+				"host": "github",
+				"path": "OCA/field-service",
+				"url": "https://github.com/OCA/field-service"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The most complete open-source field-service suite, run as Odoo modules: work-order stages, timesheets, parts tracking, portals. Not standalone — needs a base Odoo install, and scheduling stays light beside ServiceTitan’s dispatch.",
+				"fr": "La suite open-source la plus complète pour le service terrain, en modules Odoo : étapes, relevés de temps, pièces, portails. Pas autonome, et une planification légère face au dispatch de ServiceTitan."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "EasyDispatch",
+			"source": {
+				"host": "github",
+				"path": "alibaba/easydispatch",
+				"url": "https://github.com/alibaba/easydispatch"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Dispatch board, route optimization and order tracking from Alibaba, API-first. Pair with an ERP — there is no invoicing or CRM. Last commit 2024, effectively dormant.",
+				"fr": "Tableau de dispatch, optimisation de tournées et suivi de commandes, signé Alibaba, orienté API. À coupler avec un ERP — pas d’invoicing ni de CRM. Dernier commit en 2024, en sommeil."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Beveren Field Service Management",
+			"source": {
+				"host": "github",
+				"path": "Beveren-Software-Inc/Field_Service_Management",
+				"url": "https://github.com/Beveren-Software-Inc/Field_Service_Management"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Purpose-built FSM on ERPNext: technician assignment, work-order lifecycle, parts and time tracking, billing into ERPNext invoices. Small and young — 15 stars — and ERPNext must run underneath.",
+				"fr": "Un FSM terrain sur ERPNext : affectation des techniciens, cycle de vie des bons de travail, pièces et temps, facturation branchée sur l’invoicing ERPNext. Petit et jeune — 15 étoiles —, requiert ERPNext dessous."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Fleetbase",
+			"source": {
+				"host": "github",
+				"path": "fleetbase/fleetbase",
+				"url": "https://github.com/fleetbase/fleetbase"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Active logistics-dispatch platform with FSM console, live tracking, fleets and scheduling APIs. Built for logistics, not HVAC or plumbing, and invoicing and CRM need third-party integrations.",
+				"fr": "Plateforme logistique-dispatch active avec console FSM, suivi en direct, flottes et API de planification. Conçue pour la logistique, pas pour le CVC ni la plomberie — l’invoicing et le CRM exigent des tiers."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "few paywalled extras",
+					"fr": "peu d’extras payants"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Taskwarrior",
+			"source": {
+				"host": "github",
+				"path": "GothenburgBitFactory/taskwarrior",
+				"url": "https://github.com/GothenburgBitFactory/taskwarrior"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Serverless CLI engine for solo techs and scripts — priorities, tags, due dates, dependencies, sync. No dispatching, customer records or invoicing, and the team has to live in the terminal.",
+				"fr": "Un moteur en ligne de commande, sans serveur, pour techniciens solos et scripts — priorités, tags, échéances, dépendances, sync. Ni dispatch, ni fiches client, ni invoicing, et il faut adopter le terminal."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Taskwarrior TUI",
+			"source": {
+				"host": "github",
+				"path": "kdheepak/taskwarrior-tui",
+				"url": "https://github.com/kdheepak/taskwarrior-tui"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A full-screen, keyboard-driven work board over Taskwarrior — calendar and list views, fast entry. Frontend only, so the backend must run, and there is no multi-user collaboration or roles.",
+				"fr": "Un tableau plein écran, piloté au clavier, par-dessus Taskwarrior — vues calendrier et liste, saisie rapide. Simple frontend : il faut le backend dessous, et pas de collaboration multi-utilisateur ni de rôles."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

@@ -87,6 +87,186 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenNMS Horizon",
+			"source": {
+				"host": "github",
+				"path": "OpenNMS/opennms",
+				"url": "https://github.com/OpenNMS/opennms"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The closest agentless NPM analog — SNMP provisioning, NetFlow/IPFIX, topology maps, ticketing. The Java/Postgres stack is heavy and reports need configuration.",
+				"fr": "L’analogue sans agent le plus proche de NPM : provisionnement SNMP, NetFlow/IPFIX, cartes de topologie, ticketing. La pile Java/Postgres est lourde et les dashboards demandent de la configuration."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Cacti",
+			"source": {
+				"host": "github",
+				"path": "Cacti/cacti",
+				"url": "https://github.com/Cacti/cacti"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Long-lived RRD graphing engine with a huge SNMP template library. Dated UI, no autodiscovery in core, and alerting lives mostly in plugins.",
+				"fr": "Moteur de graphes RRD ancien à l’énorme bibliothèque de gabarits SNMP. UI datée, pas d’autodécouverte dans le cœur, alertes surtout côté plugins."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Checkmk Raw",
+			"source": {
+				"host": "github",
+				"path": "Checkmk/checkmk",
+				"url": "https://github.com/Checkmk/checkmk"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Full stack with agent+SNMP discovery, auto-dashboards, fast UI — but SAML and distributed features sit behind the paid edition, with a licensing nag.",
+				"fr": "Stack complète : découverte agent+SNMP, dashboards automatiques, UI rapide. Mais SAML et le distribué sont payants, et l’écran de licence du Raw s’invite."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Distributed monitoring and SAML",
+					"fr": "Monitoring distribué et SAML"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ntopng",
+			"source": {
+				"host": "github",
+				"path": "ntop/ntopng",
+				"url": "https://github.com/ntop/ntopng"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Live traffic and flow analysis for the bandwidth niche — but heavy collection needs the proprietary nProbe, and this is no up/down NMS.",
+				"fr": "Analyse de trafic et de flux pour le créneau bande passante — mais la collecte lourde exige nProbe, propriétaire, et ce n’est pas un NMS de supervision up/down."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise pro features",
+					"fr": "Fonctionnalités pro entreprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Netdata",
+			"source": {
+				"host": "github",
+				"path": "netdata/netdata",
+				"url": "https://github.com/netdata/netdata"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Per-second network and host metrics, zero-config discovery, integrated alarms. Node-oriented though: retention needs parent streaming, the cloud portal costs.",
+				"fr": "Métriques réseau et hôte à la seconde, découverte sans config, alarmes intégrées. Orientation nœud toutefois : la rétention passe par le streaming parent, le portail cloud est payant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Grafana",
+			"source": {
+				"host": "github",
+				"path": "grafana/grafana",
+				"url": "https://github.com/grafana/grafana"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Best-in-class dashboards and alerting over any backend — but it is not an NMS, and AGPL bites if you embed. SAML and reporting are paid.",
+				"fr": "Dashboards et alerting de premier ordre sur n’importe quel backend — mais pas un NMS, et l’AGPL contraint l’intégration. SAML et le reporting sont payants."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "SAML and reporting",
+					"fr": "SAML et reporting"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "mtr",
+			"source": {
+				"host": "github",
+				"path": "traviscross/mtr",
+				"url": "https://github.com/traviscross/mtr"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Traceroute plus continuous ping for per-hop loss, scriptable to log and XML. No history, no alerting, and only single-path diagnostics.",
+				"fr": "Traceroute plus ping continu pour la perte par saut, sortie scriptable en log et XML. Pas d’historique ni d’alerting, diagnostic mono-chemin seulement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "bmon",
+			"source": {
+				"host": "github",
+				"path": "Jafaral/bmon",
+				"url": "https://github.com/Jafaral/bmon"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Per-interface throughput graphs in a curses TUI, with ASCII export. Single-host only: no alerting, retention, or SNMP device polling.",
+				"fr": "Graphes de débit par interface dans une TUI curses, export ASCII. Monohôte seulement : pas d’alerting, de rétention ni de polling SNMP."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

@@ -103,6 +103,132 @@
 				"en": "Same shape as NextDNS with more granular per-device profiles. Still someone else seeing every domain you resolve.",
 				"fr": "Même forme que NextDNS avec des profils par appareil plus fins. Toujours quelqu’un d’autre qui voit chaque domaine que vous résolvez."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "dnscrypt-proxy",
+			"source": {
+				"host": "github",
+				"path": "DNSCrypt/dnscrypt-proxy",
+				"url": "https://github.com/DNSCrypt/dnscrypt-proxy"
+			},
+			"license": "ISC",
+			"effort": "managed",
+			"note": {
+				"en": "Binary proxying to DoH, DoT, DNSCrypt or anonymized relays, filtering from local blocklists. Headless, scriptable, at home on a Pi or OpenWrt router. Config is TOML; no dashboard or per-client policy.",
+				"fr": "Binaire unique : DoH, DoT, DNSCrypt ou relais anonymisés, filtrage par blocklists locales. Headless, scriptable, à l’aise sur un Pi ou un routeur OpenWrt. Config TOML, sans dashboard ni politique par client."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dnsproxy",
+			"source": {
+				"host": "github",
+				"path": "AdguardTeam/dnsproxy",
+				"url": "https://github.com/AdguardTeam/dnsproxy"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "AdGuard’s fast Go proxy, a building block: DoH, DoT, DoQ client and server, fallback and optimistic caching. Filters nothing itself — pair it with a blocklist; devices or routers point at it.",
+				"fr": "Proxy Go rapide d’AdGuard : client et serveur DoH, DoT, DoQ, fallback et cache optimiste. Ne filtre rien — à coupler avec une blocklist ; chaque appareil ou routeur doit le pointer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Technitium DNS Server",
+			"source": {
+				"host": "github",
+				"path": "TechnitiumSoftware/DnsServer",
+				"url": "https://github.com/TechnitiumSoftware/DnsServer"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Heavier than a filter proxy, no roaming app — expect zones, DHCP, REST. In return, a self-hosted server in .NET, recursive and authoritative, with blocklist zones, parental controls and web console.",
+				"fr": "Tout-en-un auto-hébergé : récursif et faisant autorité, DoH/DoT/DoQ, blocklists, contrôle parental, console web. Sauf qu’il faut un .NET et ses pièces — zones, DHCP, REST — pas d’app de roaming."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "unbound",
+			"source": {
+				"host": "github",
+				"path": "NLnetLabs/unbound",
+				"url": "https://github.com/NLnetLabs/unbound"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "The reference validating resolver: DNSSEC, QNAME minimization, aggressive caching. Log-lean by default; blocking is manual local-zone directives you write yourself. No dashboard, no bundled blocklists — a component, not a service.",
+				"fr": "Résolveur validateur DNSSEC, minimisation QNAME, cache agressif. Sobre par défaut ; le blocage tient à des directives local-zone. Pas de dashboard ni de blocklists — un composant, pas un service."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dnsdist",
+			"source": {
+				"host": "github",
+				"path": "PowerDNS/pdns",
+				"url": "https://github.com/PowerDNS/pdns"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "No dashboard — blocklists and parental control are Lua you write yourself. In exchange, PowerDNS’s load-balancing front-end: a Lua rule engine for per-client policy, DoH/DoT/DoQ, and a live console running resolver fleets.",
+				"fr": "Pas de dashboard — blocklists et contrôle parental en Lua, à écrire soi-même. En échange : proxy de répartition PowerDNS, moteur de règles Lua, DoH/DoT/DoQ, console interactive, pour des flottes de résolveurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "RethinkDNS",
+			"source": {
+				"host": "github",
+				"path": "celzero/rethink-app",
+				"url": "https://github.com/celzero/rethink-app"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Per-app DNS firewall on Android: a local VPN blocks ads and trackers per-app against your own DoH/DoT servers. Guards only the devices running it, no hosted sync — Android only, no account.",
+				"fr": "Pare-feu DNS par application sur Android : VPN local, pubs et traceurs bloqués app par app, vers vos serveurs DoH/DoT maison. Il ne protège que les appareils qui l’exécutent, sans sync hébergée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

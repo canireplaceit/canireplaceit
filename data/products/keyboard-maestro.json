@@ -114,6 +114,174 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "AutoKey",
+			"source": {
+				"host": "github",
+				"path": "autokey/autokey",
+				"url": "https://github.com/autokey/autokey"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Closest FOSS analog to KM’s hotkey macros and text expansion on Linux and Windows. GUI editor plus Python scripts for conditional automation, though trigger chains are less polished; no macOS support.",
+				"fr": "L’analogue FOSS le plus proche de KM sur Linux et Windows : macros à raccourcis, expansion de texte, éditeur graphique, scripts Python. Les chaînes temporisées restent moins abouties — pas de macOS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SikuliX",
+			"source": {
+				"host": "github",
+				"path": "oculix-org/SikuliX1",
+				"url": "https://github.com/oculix-org/SikuliX1"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Drives the screen by image recognition instead of app hooks, with a recorder and IDE for visual workflows. Cross-platform, but Java-based and heavier than KM — matching also breaks when themes change.",
+				"fr": "Automatise l’écran par reconnaissance d’image, pas par hooks applicatifs, avec enregistreur et IDE pour des flux visuels. Multiplateforme, mais Java, donc plus lourd que KM, et ça casse au changement de thème."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PyAutoGUI",
+			"source": {
+				"host": "github",
+				"path": "asweigart/pyautogui",
+				"url": "https://github.com/asweigart/pyautogui"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "The standard cross-platform Python library for driving mouse, keyboard and screenshots from any script or scheduler. A library only — no GUI editor or trigger engine, and maintenance has slowed since 2024.",
+				"fr": "Bibliothèque Python multiplateforme de référence pour piloter souris, clavier et captures d’écran depuis un script ou un planificateur. Pas d’éditeur graphique ni moteur de déclenchement ; maintenance au ralenti depuis 2024."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "xdotool",
+			"source": {
+				"host": "github",
+				"path": "jordansissel/xdotool",
+				"url": "https://github.com/jordansissel/xdotool"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "The classic CLI for simulating X11 keypresses, mouse moves and window actions — pipes into cron, scripts and window-manager hooks for macro chains. X11 only, no Wayland, and there’s no GUI or editor.",
+				"fr": "Le CLI classique pour simuler frappes X11, souris et actions de fenêtres, branchable sur cron et scripts. X11 seulement, pas de Wayland, et pas de GUI ni d’éditeur de workflow."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ydotool",
+			"source": {
+				"host": "github",
+				"path": "ReimuNotMoe/ydotool",
+				"url": "https://github.com/ReimuNotMoe/ydotool"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Wayland-era counterpart to xdotool, injecting input via uinput to drive key, mouse and touch events headlessly in restricted compositor sessions. Needs root/uinput access and stays lower-level than GUI macro tools.",
+				"fr": "Le pendant Wayland de xdotool, qui injecte des événements via uinput pour piloter clavier, souris et tactile en headless. Nécessite root/uinput et reste plus bas niveau que les outils à GUI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Karabiner-Elements",
+			"source": {
+				"host": "github",
+				"path": "pqrs-org/Karabiner-Elements",
+				"url": "https://github.com/pqrs-org/Karabiner-Elements"
+			},
+			"license": "Unlicense",
+			"effort": "managed",
+			"note": {
+				"en": "macOS alone and remapping only — yet the most powerful key engine there is, covering KM’s keyboard customization and shortcut overrides with per-device, per-app rules, layers, chords, hyper keys and GUI/JSON profiles.",
+				"fr": "macOS uniquement, remapping seulement — mais le moteur le plus puissant qui soit, couvrant personnalisation clavier et raccourcis de KM : règles par appareil et par app, couches, accords, profils GUI/JSON."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "skhd",
+			"source": {
+				"host": "github",
+				"path": "asmvik/skhd",
+				"url": "https://github.com/asmvik/skhd"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A minimal macOS hotkey daemon mapping key chords to shell commands, with restart-free config reload and yabai pairing — the basis of keyboard-driven setups. Dispatch only: no GUI, no macro logic, macOS only.",
+				"fr": "Un daemon de raccourcis macOS qui mappe accords de touches vers commandes shell, recharge sans redémarrage, s’associe à yabai — la base des setups clavier. Distribution seulement, sans GUI ni macro, macOS uniquement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "swhkd",
+			"source": {
+				"host": "github",
+				"path": "waycrate/swhkd",
+				"url": "https://github.com/waycrate/swhkd"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "The X11/Wayland hotkey daemon mirroring skhd: chord-based global hotkeys bound to shell commands or scripts, low latency, simple config. Binding only, no macro editor, smaller community than xdotool stacks.",
+				"fr": "Le pendant X11/Wayland de skhd : accords de touches globaux liés à des commandes ou scripts shell, faible latence, config simple. Liaison seulement, pas d’éditeur de macros, communauté plus petite que xdotool."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

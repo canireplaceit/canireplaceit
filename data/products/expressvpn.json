@@ -124,6 +124,174 @@
 				"en": "Five euros flat, no account email, GPL-3.0 clients and repeatedly audited. Owned by the people who wrote it rather than by an ad-tech holding company.",
 				"fr": "Cinq euros fixes, sans e-mail de compte, clients en GPL-3.0 et audits répétés. Détenu par ceux qui l’ont écrit plutôt que par un holding publicitaire."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "AmneziaVPN",
+			"source": {
+				"host": "gitlab",
+				"path": "amnezia-vpn/amnezia-client",
+				"url": "https://gitlab.com/amnezia-vpn/amnezia-client"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Client apps, desktop and mobile, pointing at a server you provision, with curated protocols and an in-app setup wizard. Clients are the product: the server side stays scripts, not a daemonized distro.",
+				"fr": "Apps clientes, desktop et mobile, branchées sur un serveur que vous fournissez, protocoles choisis et assistant intégré. Les clients sont le produit : le serveur reste des scripts, pas une distribution daemonisée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Firezone",
+			"source": {
+				"host": "github",
+				"path": "firezone/firezone",
+				"url": "https://github.com/firezone/firezone"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted WireGuard access with a web dashboard, SSO and policy-based rules. Built for org access control, not anonymous egress — heavier infrastructure than a bare WireGuard box.",
+				"fr": "Accès WireGuard auto-hébergé, tableau de bord web, SSO et règles d’accès. Pensé pour le contrôle d’accès d’org, pas l’egress anonyme — une infra plus lourde qu’un nœud WireGuard nu."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Innernet",
+			"source": {
+				"host": "github",
+				"path": "tonarino/innernet",
+				"url": "https://github.com/tonarino/innernet"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A CLI that turns a TOML file into a private WireGuard mesh, adding and dropping peers interactively. Linux-only clients, no GUI or official mobile app, and certificates you sign yourself.",
+				"fr": "Un CLI qui transforme un TOML en mesh WireGuard privé, avec ajout et suppression de pairs en interactif. Clients Linux uniquement, sans GUI ni appli mobile officielle, et des certificats auto-signés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nebula",
+			"source": {
+				"host": "github",
+				"path": "slackhq/nebula",
+				"url": "https://github.com/slackhq/nebula"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Dropbox’s overlay mesh, MIT, that crosses NAT without open ports — certificate-based identity, lighthouse nodes instead of a central server. Not a consumer exit VPN; config is hand-written YAML and certs.",
+				"fr": "Le mesh overlay de Dropbox, MIT, traverse le NAT sans port ouvert, avec identité par certificat et nœuds lighthouse. Pas un VPN d’egress grand public ; YAML et certificats à la main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SoftEther VPN",
+			"source": {
+				"host": "github",
+				"path": "SoftEtherVPN/SoftEtherVPN",
+				"url": "https://github.com/SoftEtherVPN/SoftEtherVPN"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "A protocol-agnostic server that serves OpenVPN, L2TP/IPsec, EtherIP and SSTP at once, with bridging, NAT and CPU-accelerated crypto. Management is a thick client, not a web app, over a legacy codebase.",
+				"fr": "Un serveur multi-protocole qui sert OpenVPN, L2TP/IPsec, EtherIP et SSTP en même temps, avec pont, NAT et crypto accélérée CPU. Administration par client lourd, pas une web app, sur un codebase hérité."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ZeroTier",
+			"source": {
+				"host": "github",
+				"path": "zerotier/ZeroTierOne",
+				"url": "https://github.com/zerotier/ZeroTierOne"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A peer-to-peer LAN joining any endpoint, controller self-hostable, official apps on every major OS. Not an exit VPN by default; the free tier relays through ZeroTier servers unless self-hosted.",
+				"fr": "Un LAN peer-to-peer qui rejoint tout endpoint, contrôleur auto-hébergeable, apps officielles sur les principaux OS. Pas un VPN d’egress ; le plan gratuit relaie par les serveurs de ZeroTier sans auto-hébergement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "vopono",
+			"source": {
+				"host": "github",
+				"path": "jamesmcm/vopono",
+				"url": "https://github.com/jamesmcm/vopono"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Linux only, and not a server — you must own the endpoint already. It routes only the apps you pick, in per-app network namespaces, against your WireGuard or OpenVPN endpoints.",
+				"fr": "Linux uniquement, et pas un serveur : l’endpoint doit déjà être à vous. Il achemine uniquement les apps choisies, chacune dans son namespace réseau, vers vos endpoints WireGuard ou OpenVPN."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "wireproxy",
+			"source": {
+				"host": "github",
+				"path": "windtf/wireproxy",
+				"url": "https://github.com/windtf/wireproxy"
+			},
+			"license": "ISC",
+			"effort": "managed",
+			"note": {
+				"en": "A userspace WireGuard client exposing SOCKS5 and HTTP proxies without root or a kernel module. You point apps at it — but you must supply the WireGuard peer yourself.",
+				"fr": "Un client WireGuard userspace qui expose des proxys SOCKS5 et HTTP, sans root ni module noyau. Vous pointez vos apps dessus — à vous de fournir le pair WireGuard."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

@@ -126,6 +126,157 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "GoAccess",
+			"source": {
+				"host": "github",
+				"path": "allinurl/goaccess",
+				"url": "https://github.com/allinurl/goaccess"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Reads nginx or Apache logs into a live TUI, no database, JS, or server. HTML export included. Server logs only: no browser events, per-user insight, or multi-site dashboard.",
+				"fr": "Lit les logs nginx ou Apache dans un TUI temps réel, sans base de données, JS ni serveur. Export HTML inclus. Logs serveur seulement : pas d’événements navigateur, ni insight utilisateur, ni multi-sites."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ackee",
+			"source": {
+				"host": "github",
+				"path": "electerious/Ackee",
+				"url": "https://github.com/electerious/Ackee"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Single binary plus MongoDB gives a minimal, cookie-free dashboard and a REST API. Feature surface is small next to GA: no funnels, no revenue, one admin user.",
+				"fr": "Un seul binaire avec MongoDB : tableau de bord minimal sans cookie, API REST. Peu de fonctions face à GA — pas d’entonnoirs, pas de revenus, un seul admin."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Shynet",
+			"source": {
+				"host": "github",
+				"path": "milesmcc/shynet",
+				"url": "https://github.com/milesmcc/shynet"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Django backend, lightweight snippet, no cookies: pageviews grouped by host across multiple sites. Reporting stays basic — no custom or event tracking — and the community is small.",
+				"fr": "Backend Django, snippet léger, zéro cookie : des vues de pages groupées par hôte sur plusieurs sites. Les rapports restent basiques, sans suivi custom ni événements, et la communauté est petite."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Open Web Analytics",
+			"source": {
+				"host": "github",
+				"path": "Open-Web-Analytics/Open-Web-Analytics",
+				"url": "https://github.com/Open-Web-Analytics/Open-Web-Analytics"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Long-running PHP/MySQL stack tracking pageviews, clicks and ecommerce with visitor segmentation. The UI is dated, development moves slowly, and there is no modern real-time dashboard.",
+				"fr": "Stack PHP/MySQL de longue date : pages vues, clics, ecommerce, segmentation des visiteurs. Interface vieillie, développement lent, et pas de dashboard temps réel moderne."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Swetrix",
+			"source": {
+				"host": "github",
+				"path": "Swetrix/swetrix",
+				"url": "https://github.com/Swetrix/swetrix"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hostable Community Edition: custom events, funnels, UTM, shareable dashboards, API. Some features sit behind the hosted/paid tier, the ecosystem is small, and AGPL copyleft puts some people off.",
+				"fr": "Édition Communauté auto-hébergeable : événements custom, entonnoirs, UTM, dashboards partageables, API. Certaines fonctions restent derrière le tier payant hébergé, l’écosystème est petit et le copyleft AGPL en refroidit certains."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Hosted/paid-tier features",
+					"fr": "Fonctions du tier payant"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Offen",
+			"source": {
+				"host": "github",
+				"path": "offen/offen",
+				"url": "https://github.com/offen/offen"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Visitors opt in to be counted, which keeps you GDPR-clean on a small binary. That choice lowers data completeness, and the report set stays too thin for serious marketing.",
+				"fr": "Les visiteurs choisissent d’être comptés : conforme GDPR, déployable en petit binaire. L’opt-in réduit la complétude des données et les rapports restent trop légers pour du vrai marketing."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Koko Analytics",
+			"source": {
+				"host": "github",
+				"path": "ibericode/koko-analytics",
+				"url": "https://github.com/ibericode/koko-analytics"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "WordPress plugin, cookieless pageviews, no external service and nothing else to run: the dashboard lives in wp-admin. WordPress-only, so no events, goals, funnels, or depth.",
+				"fr": "Un plugin WordPress, des pages vues sans cookie, aucun service externe à installer : le dashboard vit dans wp-admin. WordPress uniquement, donc pas d’événements, d’objectifs, d’entonnoirs ni de profondeur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

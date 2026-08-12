@@ -93,6 +93,282 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Parse Server",
+			"source": {
+				"host": "github",
+				"path": "parse-community/parse-server",
+				"url": "https://github.com/parse-community/parse-server"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The original open-source BaaS, still the safe bet: REST and GraphQL from your schema, OAuth adapters, LiveQuery realtime. You run Mongo or Postgres yourself, and the dashboard shows its age.",
+				"fr": "Le BaaS open-source d’origine, toujours le choix sûr : REST et GraphQL depuis votre schéma, adaptateurs OAuth, temps réel LiveQuery. Mais vous gérez Mongo ou Postgres vous-même, et la console vieillit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nhost",
+			"source": {
+				"host": "github",
+				"path": "nhost/nhost",
+				"url": "https://github.com/nhost/nhost"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Postgres, Hasura GraphQL, auth, storage and functions wired behind one CLI — but it’s a multi-service compose stack, heavier than a single binary, and GraphQL-centric rather than Firestore-like.",
+				"fr": "Postgres, GraphQL Hasura, auth, stockage et fonctions branchés derrière une seule CLI — mais c’est une pile compose multi-services, plus lourde qu’un binaire unique, et tournée GraphQL plutôt que style Firestore."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Cloud conveniences",
+					"fr": "Commodités cloud"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Convex",
+			"source": {
+				"host": "github",
+				"path": "get-convex/convex-backend",
+				"url": "https://github.com/get-convex/convex-backend"
+			},
+			"license": "FSL-1.1-Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Transactional TypeScript functions with auto-indexing and realtime sync, deployed by one CLI — but TypeScript-only, no built-in auth and no self-hosted console yet. FSL source-available license, Apache-2.0 after two years.",
+				"fr": "Fonctions transactionnelles TypeScript à auto-indexation et sync temps réel, déployées par une CLI — mais TypeScript uniquement, pas d’auth intégrée, pas de console self-hosted. Licence FSL source-available, Apache-2.0 après deux ans."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Admin console",
+					"fr": "Console d’administration"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kuzzle",
+			"source": {
+				"host": "github",
+				"path": "kuzzleio/kuzzle",
+				"url": "https://github.com/kuzzleio/kuzzle"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Pub/sub, document storage, auth and hot-reload plugins in a single Docker service — though the community is smaller, SDKs fewer, and docs a French/English hybrid. No hosted tier.",
+				"fr": "Pub/sub, stockage JSON, auth et plugins à hot-reload dans un seul service Docker — mais communauté réduite, peu de SDK, doc hybride français/anglais. Pas de tier managé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Managed cloud tier",
+					"fr": "Tier cloud managé"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Hoodie",
+			"source": {
+				"host": "github",
+				"path": "hoodiehq/hoodie",
+				"url": "https://github.com/hoodiehq/hoodie"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Offline-first BaaS — accounts, per-user data and a dead-simple REST API over CouchDB/PouchDB. Dormant since 2024, no real releases since 2021, and you still bring your own CouchDB.",
+				"fr": "BaaS offline-first — comptes, données par utilisateur et une API REST simple par-dessus CouchDB/PouchDB. Dormant depuis 2024, aucune vraie release depuis 2021, et il faut toujours monter son propre CouchDB."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GUN",
+			"source": {
+				"host": "github",
+				"path": "amark/gun",
+				"url": "https://github.com/amark/gun"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "MIT graph database that syncs peer-to-peer and runs in any JS runtime, browser or server — but eventual consistency only, no ACID, security is DIY via SEA, and there’s no console.",
+				"fr": "Base de graphe MIT à sync pair-à-pair, qui tourne dans tout runtime JS, navigateur ou serveur — mais cohérence éventuelle seulement, pas d’ACID, sécurité à bricoler via SEA et aucune console."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "RethinkDB",
+			"source": {
+				"host": "github",
+				"path": "rethinkdb/rethinkdb",
+				"url": "https://github.com/rethinkdb/rethinkdb"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Changefeeds and a streaming query language, ReQL, with sharding and an admin console. Still community-maintained: no first-party cloud, slow releases, and no built-in auth.",
+				"fr": "Des changefeeds temps réel et ReQL, un langage de requêtes streamables, avec sharding et console d’admin. Toujours maintenu par la communauté : pas de cloud officiel, releases espacées, pas d’auth intégrée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MinIO",
+			"source": {
+				"host": "github",
+				"path": "minio/minio",
+				"url": "https://github.com/minio/minio"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "S3-compatible object storage with console, versioning and replication — but AGPL-3.0, the main repo is archived read-only since April 2026, and it’s storage only, no auth or functions.",
+				"fr": "Stockage d’objets compatible S3 avec console, versioning et réplication — mais licence AGPL-3.0, dépôt principal archivé en lecture seule depuis avril 2026, et c’est du stockage pur, sans auth ni fonctions."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise console features",
+					"fr": "Fonctionnalités console entreprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Keycloak",
+			"source": {
+				"host": "github",
+				"path": "keycloak/keycloak",
+				"url": "https://github.com/keycloak/keycloak"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The standard self-hosted IAM — OIDC and SAML, social login, user federation, admin console. It’s a JVM app, heavier than Firebase Auth, auth-only, and it demands real ops knowledge.",
+				"fr": "Le standard de l’IAM self-hosted — OIDC et SAML, login social, fédération d’utilisateurs, console d’admin. Mais app JVM, plus lourde que Firebase Auth, auth uniquement, et ça exige une culture ops."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Zitadel",
+			"source": {
+				"host": "github",
+				"path": "zitadel/zitadel",
+				"url": "https://github.com/zitadel/zitadel"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "OIDC, SAML, passkeys and per-org administration from a single Docker command, fully AGPL — but AGPL-3.0, needs Postgres plus optional CockroachDB, and a younger ecosystem than Keycloak.",
+				"fr": "OIDC, SAML, passkeys et administration par organisation depuis une seule commande Docker, entièrement AGPL — mais licence AGPL-3.0, Postgres requis plus CockroachDB optionnel, et un écosystème plus jeune que Keycloak."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Logto",
+			"source": {
+				"host": "github",
+				"path": "logto-io/logto",
+				"url": "https://github.com/logto-io/logto"
+			},
+			"license": "MPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The closest DX match to Firebase Auth — OIDC, multi-tenancy and a sign-in experience builder in a polished console. Enterprise SAML SSO sits behind paid Logto Cloud, and the core is MPL-2.0.",
+				"fr": "Le plus proche de Firebase Auth côté DX — OIDC, multi-tenancy et un builder de sign-in dans une console élégante. Le SAML SSO entreprise est réservé au Logto Cloud payant, cœur MPL-2.0."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise SAML SSO",
+					"fr": "SAML SSO entreprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Hasura",
+			"source": {
+				"host": "github",
+				"path": "hasura/graphql-engine",
+				"url": "https://github.com/hasura/graphql-engine"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Instant realtime GraphQL from a Postgres schema, with event triggers replacing Firestore’s realtime layer — though enterprise features are closed-source, there’s no built-in auth, and you run Postgres yourself.",
+				"fr": "GraphQL temps réel instantané depuis un schéma Postgres, event triggers à la place du temps réel Firestore — mais closed-source côté entreprise, pas d’auth intégrée, Postgres à gérer soi-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Advanced enterprise features",
+					"fr": "Fonctionnalités entreprise avancées"
+				}
+			}
 		}
 	],
 	"priority": 3

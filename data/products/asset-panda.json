@@ -101,6 +101,174 @@
 				"en": "Published per-asset pricing and a good mobile scanner. Still a subscription for a list of your own things.",
 				"fr": "Tarif à l’actif affiché et un bon scanner mobile. Cela reste un abonnement pour une liste de vos propres biens."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "grocy",
+			"source": {
+				"host": "github",
+				"path": "grocy/grocy",
+				"url": "https://github.com/grocy/grocy"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Mature MIT self-hosted stock manager: barcode scanning, shopping lists, REST API. Scope is household and small stock, with a UI well short of enterprise suites.",
+				"fr": "Gestionnaire de stock auto-hébergé MIT, avec scan de codes-barres, listes de courses et API REST. Pensé pour le ménage et le petit stock, loin des suites d’entreprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Homebox",
+			"source": {
+				"host": "github",
+				"path": "hay-kot/homebox",
+				"url": "https://github.com/hay-kot/homebox"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Polished AGPL home inventory with photos, locations, labels, QR export. Archived upstream — last release 2024 — and built for a home, not multi-warehouse operations.",
+				"fr": "Inventaire AGPL soigné pour la maison : photos, emplacements, étiquettes, export QR. Archivé par son auteur (dernière release 2024), pensé pour un foyer, pas pour du multi-entrepôt."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PartKeepr",
+			"source": {
+				"host": "github",
+				"path": "partkeepr/PartKeepr",
+				"url": "https://github.com/partkeepr/PartKeepr"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Long-standing GPL parts inventory with distributor stock feeds and barcode labels. Upstream is archived (last release 2023); geared to electronic parts, not general merchandise.",
+				"fr": "Inventaire GPL de longue date avec flux de stock distributeurs et étiquettes codes-barres. Archivé en amont (dernière release 2023) ; orienté composants électroniques, pas marchandise générale."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "NetBox",
+			"source": {
+				"host": "github",
+				"path": "netbox-community/netbox",
+				"url": "https://github.com/netbox-community/netbox"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "De-facto open DCIM: racks, devices, IPAM, circuits, plus a big plugin ecosystem. Built for datacenter assets, not retail stock, and it runs on a heavy Django stack.",
+				"fr": "DCIM open de facto : racks, équipements, IPAM, circuits et un gros écosystème de plugins. Conçu pour les assets datacenter, pas le stock retail, et opéré sur un Django lourd."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "iTop",
+			"source": {
+				"host": "github",
+				"path": "Combodo/iTop",
+				"url": "https://github.com/Combodo/iTop"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "AGPL ITSM/CMDB covering asset and configuration inventory out of the box, with change and incident workflows. The trade is ITSM-centrism over pure warehouse tracking, on an older PHP architecture.",
+				"fr": "ITSM/CMDB AGPL qui couvre l’inventaire d’assets et de configurations dès l’installation, avec workflows de changement et d’incidents. Centré ITSM plutôt que stock pur, sur une architecture PHP datée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "RackTables",
+			"source": {
+				"host": "github",
+				"path": "RackTables/racktables",
+				"url": "https://github.com/RackTables/racktables"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight GPL tracker for racks, objects and IP space — zero frills, reliable. Costs are a dated, non-mobile UI and a minimal API on a slow release cadence.",
+				"fr": "Tracker GPL léger pour racks, objets et plages IP, sans fioritures, fiable. Contrepartie : UI datée, pas mobile, API minimale et cadence de releases lente."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ralph",
+			"source": {
+				"host": "github",
+				"path": "allegro/ralph",
+				"url": "https://github.com/allegro/ralph"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Allegro's Apache-2.0 DCIM covering the asset lifecycle from procure to retire, with rack planning and barcode tags. Tuned to their own datacenter ops, and the admin-heavy UI isn't mobile-first.",
+				"fr": "DCIM Apache-2.0 d’Allegro couvrant le cycle de vie des assets, de l’achat au retrait, avec planification racks et étiquettes codes-barres. Calé sur leurs propres ops datacenter ; UI lourde, pas mobile-first."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Barcode Buddy",
+			"source": {
+				"host": "github",
+				"path": "Forceu/barcodebuddy",
+				"url": "https://github.com/Forceu/barcodebuddy"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "AGPL layer that turns any USB scanner into fast inventory input for a grocy-style backend. Not standalone — it needs that backend, and setup assumes a comfortable self-hoster.",
+				"fr": "Couche AGPL qui transforme n’importe quel scanner USB en saisie d’inventaire rapide pour un backend type grocy. Pas autonome : il lui faut ce backend, et l’installation vise le bricoleur self-host."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

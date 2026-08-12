@@ -93,6 +93,178 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Audacity",
+			"source": {
+				"host": "github",
+				"path": "audacity/audacity",
+				"url": "https://github.com/audacity/audacity"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The standard open-source multitrack recorder for raw podcast takes, with noise reduction and loudness tools. No transcription, and desktop-only — remote sessions need another tool.",
+				"fr": "Le standard open-source de l’enregistrement et de l’édition multitrack. Réduit le bruit et normalise le volume, mais sans transcription ni studio collaboratif — les sessions à distance demandent un autre outil."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tenacity",
+			"source": {
+				"host": "github",
+				"path": "tenacityteam/tenacity",
+				"url": "https://github.com/tenacityteam/tenacity"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "An Audacity fork with the telemetry stripped out — same editing, same noise removal, cleaner privacy story. Community is smaller and releases come slower.",
+				"fr": "Un fork d’Audacity sans télémétrie : même édition, même réduction du bruit, meilleure histoire de confidentialité. En contrepartie, communauté réduite et rythme de sortie plus lent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ardour",
+			"source": {
+				"host": "github",
+				"path": "Ardour/ardour",
+				"url": "https://github.com/Ardour/ardour"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Professional multitrack DAW that takes raw takes to a mastered mix, with plugins and automation. Newcomers face a steep curve, and there is no transcription.",
+				"fr": "DAW multitrack pro qui mène des prises brutes au mix final, avec plugins et automatisation. La courbe d’apprentissage est raide et il n’y a pas de transcription."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mumble",
+			"source": {
+				"host": "github",
+				"path": "mumble-voip/mumble",
+				"url": "https://github.com/mumble-voip/mumble"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted low-latency voice, each participant recording locally — a practical back-end for remote podcast talks. Voice only, no video, no editing, manual per-performer recording.",
+				"fr": "Serveur vocal autohébergé à faible latence, chaque participant enregistre localement : un back-end pratique pour les podcasts à distance. Voix uniquement, pas de vidéo ni d’édition, enregistrement manuel par participant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Janus Gateway",
+			"source": {
+				"host": "github",
+				"path": "meetecho/janus-gateway",
+				"url": "https://github.com/meetecho/janus-gateway"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "A self-hosted WebRTC SFU that captures per-guest streams — the same building block commercial recorders run on. No podcast UI; you build the front-end and tune the recording plugins.",
+				"fr": "SFU WebRTC autohébergé qui capture le flux de chaque invité — la brique sur laquelle reposent les enregistreurs commerciaux. Pas d’interface podcast : vous construisez le front-end et réglez les plugins d’enregistrement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Jitsi Meet",
+			"source": {
+				"host": "github",
+				"path": "jitsi/jitsi-meet",
+				"url": "https://github.com/jitsi/jitsi-meet"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Self-hosted conferencing that records sessions to file — a ready replacement for Riverside studio rooms. The recording is one mixed file, not per-guest tracks, and deployment spans several services.",
+				"fr": "Visio autohébergée qui enregistre la session en fichier, alternative directe aux studios de Riverside. L’enregistrement sort en un fichier mixé, pas en pistes par invité, et le déploiement couvre plusieurs services."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Major feature set behind the open core",
+					"fr": "Ensemble de fonctions majeur derrière le noyau open source"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Castopod",
+			"source": {
+				"host": "github",
+				"path": "ad-aures/castopod",
+				"url": "https://github.com/ad-aures/castopod"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted publishing platform for the distribution side — episodes, RSS, website and monetization. No recording or editing, no transcription; a PHP stack, not a desktop workflow.",
+				"fr": "Plateforme d’édition autohébergée pour la partie distribution : épisodes, flux RSS, site web et monétisation. Rien pour enregistrer ou éditer, pas de transcription — un stack PHP, pas un workflow de bureau."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FFmpeg",
+			"source": {
+				"host": "github",
+				"path": "FFmpeg/FFmpeg",
+				"url": "https://github.com/FFmpeg/FFmpeg"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The CLI backbone for capturing, converting and normalizing podcast media on any platform. No timeline or GUI, error-prone until you know the flags, and no transcripts or publishing.",
+				"fr": "Le socle CLI pour capturer, convertir et normaliser l’audio des podcasts sur n’importe quelle plateforme. Pas de timeline ni d’interface, fragile sans script, pas de transcription ni de publication."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

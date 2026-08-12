@@ -109,6 +109,174 @@
 				"en": "Sequencing, inbox rotation and warmup for a fraction of an Outreach seat. No dialer, no forecasting, no enterprise CRM sync.",
 				"fr": "Séquences, rotation de boîtes et préchauffage pour une fraction d’un utilisateur Outreach. Pas de composeur, pas de prévision, pas de synchro CRM entreprise."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "SuiteCRM",
+			"source": {
+				"host": "github",
+				"path": "SuiteCRM/SuiteCRM",
+				"url": "https://github.com/SuiteCRM/SuiteCRM"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "SugarCRM fork whose mail-merge campaigns and target lists run on your own servers. The UI feels dated and the deployment is heavy; dialer and LinkedIn automation are not included.",
+				"fr": "Fork de SugarCRM qui fait tourner campagnes email, listes cibles et mail merge sur vos serveurs. L’interface est datée et le déploiement lourd, sans dialer ni automatisation LinkedIn."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Krayin",
+			"source": {
+				"host": "github",
+				"path": "krayin/laravel-crm",
+				"url": "https://github.com/krayin/laravel-crm"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Modern Laravel CRM with clean MIT licence; pipeline, mail and quote workflows come built in. Cold-email sequencing does not, so outreach automation lands in custom code.",
+				"fr": "CRM Laravel moderne, licence MIT propre, pipeline, mails et devis inclus. Pas de séquençage d’email froid : l’automatisation d’outreach passe par du code sur mesure."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dolibarr",
+			"source": {
+				"host": "github",
+				"path": "Dolibarr/dolibarr",
+				"url": "https://github.com/Dolibarr/dolibarr"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Modular ERP/CRM whose emailing is one module among many, with targeted recipients and lead and opportunity tracking. The emailing stays basic, no deliverability analytics, and the tool is generalist, not outreach-first.",
+				"fr": "ERP/CRM modulaire où l’emailing n’est qu’un module, destinataires ciblés, leads et opportunités gérés. Le module reste basique, sans analytics de délivrabilité, et l’outil n’est pas pensé outreach avant tout."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Huginn",
+			"source": {
+				"host": "github",
+				"path": "huginn/huginn",
+				"url": "https://github.com/huginn/huginn"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "MIT-licensed agent engine with trigger/action agents for email, webhooks and scraping. You script the outreach yourself — no CRM UI, no reporting.",
+				"fr": "Moteur d’agents déclencheur/action, licence MIT, pour emails, webhooks et scraping. L’outreach s’écrit soi-même, sans UI CRM ni reporting."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Listmonk",
+			"source": {
+				"host": "github",
+				"path": "knadh/listmonk",
+				"url": "https://github.com/knadh/listmonk"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "One static binary, AGPL-3.0, that schedules campaigns and sequences with open and link tracking. Newsletter-shaped, so no dialer, no LinkedIn, no CRM pipeline.",
+				"fr": "Un seul binaire statique, AGPL-3.0, qui planifie campagnes et séquences avec suivi d’ouverture et de clics. Façon newsletter : pas de dialer, de LinkedIn ni de pipeline CRM."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Postal",
+			"source": {
+				"host": "github",
+				"path": "postalserver/postal",
+				"url": "https://github.com/postalserver/postal"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Self-hosted sending backbone: HTTP API for volume, plus bounce and webhook analytics. It is infrastructure — MySQL, Redis, SMTP to operate — and your IP reputation still decides deliverability.",
+				"fr": "Backbone d’envoi auto-hébergé : API HTTP pour le volume, webhooks et analytics de rebonds. C’est de l’infrastructure — MySQL, Redis, SMTP à opérer — et votre réputation IP décide toujours de la délivrabilité."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Himalaya",
+			"source": {
+				"host": "github",
+				"path": "pimalaya/himalaya",
+				"url": "https://github.com/pimalaya/himalaya"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Apache-2.0 terminal client that writes and tracks mail over any SMTP/IMAP server and scripts follow-ups. Personalization is manual, there are no sequences, and it is single-user.",
+				"fr": "Client mail en terminal, Apache-2.0, qui écrit et suit le courrier sur tout SMTP/IMAP et scripte les relances. Personnalisation manuelle, pas de séquences, et c’est un outil mono-utilisateur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "aerc",
+			"source": {
+				"host": "github",
+				"path": "rjarry/aerc",
+				"url": "https://github.com/rjarry/aerc"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Fast vim-keyed TUI mailbox with filters and reply templates over IMAP, SMTP or notmuch. Single-user, so no shared sequences, and tracking lives elsewhere.",
+				"fr": "TUI mail rapide, raccourcis vim, filtres et modèles de réponse sur IMAP, SMTP ou notmuch. Mono-utilisateur : pas de séquences partagées, le suivi se fait ailleurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

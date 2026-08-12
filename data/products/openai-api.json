@@ -101,6 +101,300 @@
 				"en": "One API key across every provider, with cheap open-weight models a routing rule away. You add a hop of latency and a second party to your data path.",
 				"fr": "Une seule clé d’API pour tous les fournisseurs, avec des modèles à poids ouverts bon marché à une règle de routage près. Vous ajoutez un saut de latence et un tiers dans le chemin de vos données."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ollama",
+			"source": {
+				"host": "github",
+				"path": "ollama/ollama",
+				"url": "https://github.com/ollama/ollama"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Simplest on-ramp to local models: one command pulls and serves an OpenAI-compatible API. Single-user friendly, but no batching or load balancing out of the box.",
+				"fr": "Le plus simple pour se mettre au local : une commande télécharge le modèle et sert une API compatible OpenAI. Pensé pour un poste seul, sans batching ni répartition de charge."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Jan",
+			"source": {
+				"host": "github",
+				"path": "janhq/jan",
+				"url": "https://github.com/janhq/jan"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Desktop app that manages local models and exposes an OpenAI-compatible API, with vision and tool calling. Heavier than a CLI runner, and CPU inference only by default.",
+				"fr": "Appli de bureau qui gère les modèles locaux et expose une API compatible OpenAI, avec vision et tool calling. Plus lourde qu’un runner en ligne de commande, inférence CPU par défaut."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GPT4All",
+			"source": {
+				"host": "github",
+				"path": "nomic-ai/gpt4all",
+				"url": "https://github.com/nomic-ai/gpt4all"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Beginner-friendly desktop chat app with a curated set of quantized models tuned for consumer GPUs. The SDK is secondary to the UI, and the model list is smaller than the GGUF ecosystem.",
+				"fr": "Appli de chat de bureau pour débutants, catalogue de modèles quantifiés taillés pour les GPU grand public. L’API reste secondaire face à l’interface, et le catalogue est plus court que l’écosystème GGUF."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LocalAI",
+			"source": {
+				"host": "github",
+				"path": "mudler/LocalAI",
+				"url": "https://github.com/mudler/LocalAI"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Drop-in replacement if you already run containers: no external dependencies, GGUF and safetensors, plus vision and audio. Weaker at high throughput than vLLM, and the docs are scattered.",
+				"fr": "Remplacement direct si vous vivez déjà en containers : zéro dépendance externe, GGUF comme safetensors, vision et audio en prime. Moins bon débit que vLLM, documentation éparpillée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "KoboldCpp",
+			"source": {
+				"host": "github",
+				"path": "LostRuins/koboldcpp",
+				"url": "https://github.com/LostRuins/koboldcpp"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Single-file binary serving GGML-quantized models with a bundled web UI, a favorite among gamers. AGPL forces source disclosure if you modify and distribute, and there’s no scaling story.",
+				"fr": "Binaire unique qui sert des modèles quantifiés GGML, web UI embarquée, le chouchou des gamers. L’AGPL impose de divulguer le code si vous modifiez et redistribuez, et pas de montée en charge."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "text-generation-webui (oobabooga)",
+			"source": {
+				"host": "github",
+				"path": "oobabooga/textgen",
+				"url": "https://github.com/oobabooga/textgen"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Web UI wrapping oobabooga’s engine: chat, training, inference, vision, tool calling in one place. The AGPL forces source disclosure, the API feels bolted on, and it eats more than llama.cpp.",
+				"fr": "Interface web autour du moteur d’oobabooga : chat, entraînement, inférence, vision et tool calling au même endroit. AGPL, API greffée sur l’UI, plus gourmand que llama.cpp."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "TGI (Hugging Face text-generation-inference)",
+			"source": {
+				"host": "github",
+				"path": "huggingface/text-generation-inference",
+				"url": "https://github.com/huggingface/text-generation-inference"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Hugging Face’s serving engine, still behind their Inference API, but archived upstream: no updates, and vLLM covers the same ground with active maintenance.",
+				"fr": "Le moteur de serving de Hugging Face, toujours derrière leur Inference API, mais archivé en amont : plus de mises à jour, et vLLM couvre la même chose avec une maintenance active."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "mlc-llm",
+			"source": {
+				"host": "github",
+				"path": "mlc-ai/mlc-llm",
+				"url": "https://github.com/mlc-ai/mlc-llm"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "ML-compiled inference that targets phones, browsers and desktops alike. You pick a compilation model and tune it, which pays off on edge but is overkill for a datacenter server.",
+				"fr": "Inférence compilée (MLC) pour mobile, web et desktop à la fois. Choisir son modèle de compilation demande du temps, payant sur l’edge, inutile pour un serveur de datacenter."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ExLlamaV2",
+			"source": {
+				"host": "github",
+				"path": "turboderp-org/exllamav2",
+				"url": "https://github.com/turboderp-org/exllamav2"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Fast single-GPU serving for Llama and Mistral, EXL2 quantization keeps models small. But it only speaks Llama-like architectures, and there’s no built-in batching for multiple requests.",
+				"fr": "Serving rapide sur GPU unique pour Llama et Mistral, la quantification EXL2 garde des modèles compacts. Reste limité aux architectures type Llama, sans batching multi-requêtes intégré."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "llamafile",
+			"source": {
+				"host": "github",
+				"path": "mozilla-ai/llamafile",
+				"url": "https://github.com/mozilla-ai/llamafile"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "One executable that is the model and the server at once — download, run, done. Mozilla-backed. The model is baked into a huge binary, and CPU inference caps performance.",
+				"fr": "Un seul exécutable, modèle et serveur compris : on télécharge, on lance, c’est fini. Soutenu par Mozilla. Le modèle est cuit dans un binaire énorme, et l’inférence CPU plafonne la perf."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Sonar (formerly Aphrodite Engine)",
+			"source": {
+				"host": "github",
+				"path": "dphnAI/sonar",
+				"url": "https://github.com/dphnAI/sonar"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Speculative decoding and LoRA support for low-latency multi-GPU serving. AGPL requires source disclosure if you modify and distribute, and the community and docs trail vLLM.",
+				"fr": "Décodage spéculatif et support LoRA pour un serving multi-GPU à faible latence. L’AGPL impose de divulguer le code si vous modifiez et redistribuez, communauté et docs plus minces que vLLM."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SGLang",
+			"source": {
+				"host": "github",
+				"path": "sgl-project/sglang",
+				"url": "https://github.com/sgl-project/sglang"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "RadixAttention caches shared prefixes, so repeated-prefix workloads get dramatically cheaper. Bring a real GPU and patience for tuning — this is a server, not a desktop app.",
+				"fr": "RadixAttention met en cache les préfixes partagés, ce qui rend les workloads répétés nettement moins chers. Vrai GPU et réglages de pro exigés : un serveur, pas une appli."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Xinference",
+			"source": {
+				"host": "github",
+				"path": "xorbitsai/inference",
+				"url": "https://github.com/xorbitsai/inference"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "One OpenAI-shaped endpoint for LLMs, embeddings, rerankers, images and audio — broader coverage than text-only servers. Heavier than a single-purpose engine, with a Python dependency stack.",
+				"fr": "Un seul endpoint façon OpenAI pour LLM, embeddings, rerank, image et audio : couverture plus large que les serveurs texte seul. Plus lourd qu’un moteur mono-tâche, pile de dépendances Python."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "RamaLama",
+			"source": {
+				"host": "github",
+				"path": "containers/ramalama",
+				"url": "https://github.com/containers/ramalama"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A model becomes an OCI image: Podman or Docker runs it and detects the GPU for you, no daemon of its own. Younger and smaller than Ollama, CLI only.",
+				"fr": "Un modèle devient une image OCI : Podman ou Docker l’exécute et détecte le GPU à votre place, sans daemon propre. Plus jeune et plus petit qu’Ollama, en ligne de commande uniquement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 5

@@ -118,6 +118,153 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nextcloud Photos",
+			"source": {
+				"host": "github",
+				"path": "nextcloud/photos",
+				"url": "https://github.com/nextcloud/photos"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Integrated into the Nextcloud ecosystem: it inherits file sync and mobile apps. Requires the full instance; no face recognition or ML search, and backup is less turnkey than Immich.",
+				"fr": "Intégré à Nextcloud, il hérite de la synchro fichiers et des apps mobiles, mais nécessite toute l’instance. Pas de reconnaissance faciale ni de ML ; sauvegarde mobile moins clé en main qu’Immich."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Photoview",
+			"source": {
+				"host": "github",
+				"path": "photoview/photoview",
+				"url": "https://github.com/photoview/photoview"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight folder-organized gallery, fast to browse and easy to stand up with Docker. It only serves what you have on the server: no mobile backup, no ML, no EXIF-based sorting.",
+				"fr": "Galerie légère organisée par dossiers, rapide à parcourir, vite déployée en Docker. Elle ne sert que le contenu du serveur : sans sauvegarde mobile, sans ML ni tri EXIF."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Photonix",
+			"source": {
+				"host": "github",
+				"path": "photonixapp/photonix",
+				"url": "https://github.com/photonixapp/photonix"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Slower development, small community. Photonix runs TensorFlow object and scene recognition with a smaller footprint than PhotoPrism — but no mobile app, no auto-backup, no face recognition.",
+				"fr": "Développement lent, petite communauté. Photonix fait de la reconnaissance d’objets et de scènes via TensorFlow, plus léger que PhotoPrism — mais pas d’appli mobile, ni sauvegarde auto, ni reconnaissance faciale."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Damselfly",
+			"source": {
+				"host": "github",
+				"path": "Webreaper/Damselfly",
+				"url": "https://github.com/Webreaper/Damselfly"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "No mobile app, no backup, no built-in sync. Damselfly is a .NET server for large Windows/Linux collections with YOLO/ML.NET object and face detection, at the cost of portability.",
+				"fr": "Pas d’appli mobile, pas de sauvegarde, pas de synchro intégrée. Damselfly est un serveur .NET pour grosses bibliothèques Windows/Linux, avec détection d’objets et de visages par YOLO/ML.NET, au détriment de la portabilité."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Piwigo",
+			"source": {
+				"host": "github",
+				"path": "Piwigo/Piwigo",
+				"url": "https://github.com/Piwigo/Piwigo"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Twenty years old and still shipping: real albums, granular permissions and a large plugin ecosystem for big curated collections. No silent phone backup, no face recognition, PHP stack with dated admin UI.",
+				"fr": "Vingt ans et toujours en production : vrais albums, permissions fines et gros écosystème de plugins pour les collections triées. Pas de sauvegarde silencieuse, pas de reconnaissance faciale, pile PHP et admin datée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Lychee",
+			"source": {
+				"host": "github",
+				"path": "LycheeOrg/Lychee",
+				"url": "https://github.com/LycheeOrg/Lychee"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "A good-looking gallery: clean album browsing, one-command Docker deploy, password-protected share links. It imports a folder tree but skips phone auto-backup and face or object recognition — a library, not an archive.",
+				"fr": "La plus belle : albums propres, Docker trivial à déployer, liens de partage à mot de passe. Importe un arbre de dossiers, mais pas de sauvegarde ni reconnaissance — une galerie, pas une archive."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nextcloud Memories",
+			"source": {
+				"host": "github",
+				"path": "pulsejet/memories",
+				"url": "https://github.com/pulsejet/memories"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Turns Nextcloud into a real Google Photos: timeline scrubber, map, face and object recognition, with auto-upload via the Nextcloud app. Needs a separate recognition app; lags Immich on very large libraries.",
+				"fr": "Transforme Nextcloud en remplaçant de Google Photos : frise temporelle, carte, visages et objets via l’app Nextcloud. Il faut une app de reconnaissance à part ; plus lent qu’Immich sur les grosses bibliothèques."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 5

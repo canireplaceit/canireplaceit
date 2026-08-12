@@ -91,6 +91,111 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "gLabels (Qt)",
+			"source": {
+				"host": "github",
+				"path": "j-evins/glabels-qt",
+				"url": "https://github.com/j-evins/glabels-qt"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Actively maintained glabels fork: full WYSIWYG designer with BWIPP barcodes, CUPS printing, and standard sheet templates. A desktop app — no central server, no label versioning, no approval workflow.",
+				"fr": "Fork actif de glabels : éditeur WYSIWYG complet, codes-barres via BWIPP, impression CUPS, modèles de feuilles standard. Application de bureau : pas de serveur central, ni versionnage multi-utilisateur, ni workflow d’approbation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "brother_ql",
+			"source": {
+				"host": "github",
+				"path": "pklaus/brother_ql",
+				"url": "https://github.com/pklaus/brother_ql"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "CLI and Python library that render barcode labels and print straight to Brother QL printers over USB or WiFi. Scripted, not drawn — and Brother QL hardware only.",
+				"fr": "CLI et bibliothèque Python : rendu d’étiquettes à codes-barres, impression USB ou WiFi sur QL Brother. Script uniquement, pas de designer ; et Brother QL uniquement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ZPL Label Designer",
+			"source": {
+				"host": "github",
+				"path": "teynon/ZPL-Label-Designer",
+				"url": "https://github.com/teynon/ZPL-Label-Designer"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Browser-based visual designer that emitted native ZPL from XML definitions; self-hosted, no vendor dependency. Dormant since 2020, and it only ever spoke Zebra — no ESC/POS, no Brother.",
+				"fr": "Éditeur visuel dans le navigateur qui générait du ZPL natif à partir de définitions XML ; auto-hébergé, sans dépendance fournisseur. Abandonné depuis 2020, et limité à Zebra : ni ESC/POS, ni Brother."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "BWIPP",
+			"source": {
+				"host": "github",
+				"path": "bwipp/postscriptbarcode",
+				"url": "https://github.com/bwipp/postscriptbarcode"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The de-facto open PostScript barcode writer: 100+ symbologies, pure PostScript/PDF output, backing glabels and Labelary. A library, not an application — no GUI, no templates.",
+				"fr": "Le standard ouvert de génération de codes-barres en PostScript : plus de 100 symbologies en PostScript/PDF pur, derrière glabels et Labelary. Une bibliothèque, pas une application : ni interface, ni modèles."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenBoxes",
+			"source": {
+				"host": "github",
+				"path": "openboxes/openboxes",
+				"url": "https://github.com/openboxes/openboxes"
+			},
+			"license": "EPL-1.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted warehouse system that scans barcodes and prints labels within receiving, shipping, and picking flows. A full WMS, not a label designer — printing lives inside broader workflows.",
+				"fr": "Système d’entrepôt auto-hébergé : scan de codes-barres, impression d’étiquettes dans les flux de réception, expédition et picking. Un WMS complet, pas un éditeur d’étiquettes : l’impression vit dans des workflows plus larges."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

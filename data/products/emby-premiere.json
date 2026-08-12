@@ -72,6 +72,241 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tvheadend",
+			"source": {
+				"host": "github",
+				"path": "tvheadend/tvheadend",
+				"url": "https://github.com/tvheadend/tvheadend"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Open-source DVR/live-TV server covering DVB/ATSC/IPTV tuners, EPG, scheduling and transcoding — the tuner piece a self-hosted stack is missing. TV-only: no movie/music library, no official mobile apps, dated web UI.",
+				"fr": "Serveur DVR/télé open-source : tuners DVB/ATSC/IPTV, EPG, programmation et transcodage — la pièce tuner qu’un stack auto-hébergé attend. Télé uniquement : pas de bibliothèque, ni d’apps mobiles officielles, web UI daté."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MythTV",
+			"source": {
+				"host": "github",
+				"path": "MythTV/mythtv",
+				"url": "https://github.com/MythTV/mythtv"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Mature GPL DVR with tuner recording, scheduling, EPG and commercial skip across split frontend/backend. Steep: MySQL, separate frontend, dated UI, and no general movie/music serving.",
+				"fr": "DVR GPL mûr : enregistrement tuner, programmation, EPG et saut des pubs, frontend/backend séparés. Mise en place costaude : MySQL, frontend dédié, interface datée, et pas de gestion films/musique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "seerr",
+			"source": {
+				"host": "github",
+				"path": "seerr-team/seerr",
+				"url": "https://github.com/seerr-team/seerr"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Active successor to Jellyseerr/Overseerr: a web request app linking Jellyfin, Emby and Plex to Radarr/Sonarr. Request layer only — still needs a server plus arr stack, no native apps, no playback.",
+				"fr": "Successeur actif de Jellyseerr/Overseerr : app web de requêtes reliant Jellyfin, Emby et Plex à Radarr/Sonarr. Couche de requêtes seulement — serveur + stack arr requis, pas d’apps natives ni de lecture."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Overseerr",
+			"source": {
+				"host": "github",
+				"path": "sct/overseerr",
+				"url": "https://github.com/sct/overseerr"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Archived upstream: no further development. The original Plex request app with Radarr/Sonarr hooks — stable and widely deployed, but Plex-only and web-only, with no built-in playback.",
+				"fr": "Archivé côté upstream : plus aucun développement. L’app de requêtes Plex d’origine, branchée sur Radarr/Sonarr — stable et très déployée, mais Plex uniquement, web uniquement, sans lecture intégrée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PeerTube",
+			"source": {
+				"host": "github",
+				"path": "Chocobozzz/PeerTube",
+				"url": "https://github.com/Chocobozzz/PeerTube"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "ActivityPub-federated video server with HLS, transcoding, live streams and PWA — you own it instead of renting. Built for sharing and federation, not a private library; storage and bandwidth are on you.",
+				"fr": "Serveur vidéo fédéré ActivityPub avec HLS, transcodage, direct et PWA — à vous, plutôt que loué. Pensé pour le partage et la fédération, pas une bibliothèque privée ; stockage et bande passante à prévoir."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "yt-dlp",
+			"source": {
+				"host": "github",
+				"path": "yt-dlp/yt-dlp",
+				"url": "https://github.com/yt-dlp/yt-dlp"
+			},
+			"license": "Unlicense",
+			"effort": "docker",
+			"note": {
+				"en": "The de-facto CLI for pulling video from 1000+ sites into a self-hosted library. CLI-first, scriptable, headless — but it fights site anti-bot changes and needs wrappers or cron, not a media server.",
+				"fr": "CLI de facto pour télécharger la vidéo de 1000+ sites vers une bibliothèque auto-hébergée. CLI d’abord, scriptable, headless — mais vulnérable aux anti-bot des sites, à wrapper ou cron, pas un serveur média."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Streamlink",
+			"source": {
+				"host": "github",
+				"path": "streamlink/streamlink",
+				"url": "https://github.com/streamlink/streamlink"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "CLI that pipes live streams from 100+ platforms into VLC/MPV or a file — watch them yourself instead of on their site. CLI-only, not a manager or library; ad-free experience varies by site.",
+				"fr": "CLI qui achemine les directs de 100+ plateformes vers VLC/MPV ou un fichier — regardez chez vous, pas sur leur site. CLI seulement, pas de bibliothèque ; pubs selon le site."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "get_iplayer",
+			"source": {
+				"host": "github",
+				"path": "get-iplayer/get_iplayer",
+				"url": "https://github.com/get-iplayer/get_iplayer"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "CLI downloader for BBC iPlayer, subtitles and original quality included, with scheduled/PVR repeats. UK BBC content only, Perl tooling, and fragile against iPlayer changes.",
+				"fr": "CLI de téléchargement pour BBC iPlayer, sous-titres et qualité d’origine inclus, avec enregistrements programmés (PVR). Contenu BBC UK uniquement, outillage Perl, fragile face aux changements d’iPlayer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Stremio",
+			"source": {
+				"host": "github",
+				"path": "Stremio/stremio-core",
+				"url": "https://github.com/Stremio/stremio-core"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Open-core media center with a self-hostable core: a unified library UI driven by add-ons instead of a proprietary catalog. Content depends on third-party add-ons, defaults lean on vendor servers.",
+				"fr": "Centre média open-core, cœur auto-hébergeable : une bibliothèque unifiée pilotée par add-ons plutôt qu’un catalogue propriétaire. Contenu dépendant d’add-ons tiers, et défaut qui s’appuie sur les serveurs du vendeur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Core (openCore)",
+					"fr": "Cœur (openCore)"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Navidrome",
+			"source": {
+				"host": "github",
+				"path": "navidrome/navidrome",
+				"url": "https://github.com/navidrome/navidrome"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Modern self-hosted music server speaking Subsonic's API, so many third-party clients work against it; very low resource use. Audio only — no video or DVR, and clients are all third-party.",
+				"fr": "Serveur musique auto-hébergé qui parle l’API Subsonic, donc de nombreux clients tiers fonctionnent dessus ; très peu de ressources. Audio uniquement — pas de vidéo ni de DVR, et tous les clients sont tiers."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MediaElch",
+			"source": {
+				"host": "github",
+				"path": "Komet/MediaElch",
+				"url": "https://github.com/Komet/MediaElch"
+			},
+			"license": "LGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Desktop library manager that scrapes metadata and artwork, syncs to Kodi/Emby/Jellyfin — the curation layer. Not a server: plays nothing, streams nothing, needs an existing file library.",
+				"fr": "Gestionnaire de bibliothèque desktop qui moissonne métadonnées et visuels, synchronise Kodi/Emby/Jellyfin — la couche de curation. Pas un serveur : ne joue ni ne diffuse rien, exige une bibliothèque de fichiers existante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

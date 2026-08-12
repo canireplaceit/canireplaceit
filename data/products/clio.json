@@ -121,6 +121,186 @@
 				"en": "Time, billing and basic matters at a genuinely low price. Weak document management.",
 				"fr": "Temps, facturation et dossiers de base à un prix réellement bas. Gestion documentaire faible."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Documenso",
+			"source": {
+				"host": "github",
+				"path": "documenso/documenso",
+				"url": "https://github.com/documenso/documenso"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Polished AGPL e-signature with templates, roles and email signing flows. Self-hosted via Docker or Helm — but SAML/OIDC SSO sits behind paid plans, and the project is young on integrations.",
+				"fr": "Signature électronique AGPL soignée avec modèles, rôles et signature par e-mail, auto-hébergée en Docker ou Helm. Mais le SSO SAML/OIDC est payant et le projet manque encore d’intégrations."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "SAML/OIDC SSO",
+					"fr": "SSO SAML/OIDC"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenSign",
+			"source": {
+				"host": "github",
+				"path": "OpenSignLabs/OpenSign",
+				"url": "https://github.com/OpenSignLabs/OpenSign"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Feature-rich AGPL suite: templates, role-based signing order, audit trail, certificate capture. Heavier to stand up than a SaaS, and AGPL copyleft chills commercial embedding.",
+				"fr": "Suite AGPL complète : modèles, ordre de signature, journal d’audit, certificats. Installation plus lourde qu’un SaaS, et la copyleft AGPL refroidit l’intégration commerciale."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LibreSign",
+			"source": {
+				"host": "github",
+				"path": "LibreSign/libresign",
+				"url": "https://github.com/LibreSign/libresign"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Drops e-signing into an existing Nextcloud, reusing its auth and SSO. Bound to that ecosystem — no standalone portal, no signing outside the Nextcloud instance.",
+				"fr": "Greffe la signature de contrats dans un Nextcloud existant, en réutilisant son authentification et son SSO. Prisonnier de cet écosystème : pas de portail autonome."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SignServer CE",
+			"source": {
+				"host": "github",
+				"path": "Keyfactor/signserver-ce",
+				"url": "https://github.com/Keyfactor/signserver-ce"
+			},
+			"license": "LGPL-2.1",
+			"effort": "docker",
+			"note": {
+				"en": "Keyfactor’s LGPL signing service: documents, code and timestamps over SOAP/REST, HSM-backed. API-centric with a steep Java/PKI setup — no end-user signing room, no roles or email flow.",
+				"fr": "Service de signature LGPL de Keyfactor : documents, code et horodatage en SOAP/REST, adossé aux HSM. Pense API, setup Java/PKI exigeant : pas de salle de signature, ni rôles, ni flux e-mail."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Nothing core",
+					"fr": "Rien de central"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "paperless-ngx",
+			"source": {
+				"host": "github",
+				"path": "paperless-ngx/paperless-ngx",
+				"url": "https://github.com/paperless-ngx/paperless-ngx"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "GPL self-hosted archive with OCR and full-text search — the natural home for scanned contracts. No signing workflow or roles though; it files documents, it does not circulate them.",
+				"fr": "Archive auto-hébergée GPL avec OCR et recherche plein texte : la maison naturelle des contrats scannés. Mais pas de workflow de signature ni de rôles — elle classe, ne fait pas circuler."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mayan EDMS",
+			"source": {
+				"host": "gitlab",
+				"path": "mayan-edms/mayan-edms",
+				"url": "https://gitlab.com/mayan-edms/mayan-edms"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Apache-2.0 document management with a workflow engine, versioning and OCR, plus room for signing integrations. No e-signature or contract templates out of the box, and the Django/Postgres stack needs an admin.",
+				"fr": "GED Apache-2.0 : moteur de workflow, versionnage, OCR, des briques pour brancher la signature. Mais rien en e-signature ni modèles de contrat nativement, et la pile Django/Postgres exige un admin."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Nothing core",
+					"fr": "Rien de central"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "minisign",
+			"source": {
+				"host": "github",
+				"path": "jedisct1/minisign",
+				"url": "https://github.com/jedisct1/minisign"
+			},
+			"license": "ISC",
+			"effort": "managed",
+			"note": {
+				"en": "Single static binary, Ed25519, signs and verifies files locally. No UI, no envelopes, no audit log — it signs blobs, and key management is all on you.",
+				"fr": "Un seul binaire statique, Ed25519, pour signer et vérifier des fichiers en local. Pas d’interface, pas d’enveloppes, pas de journal : il signe des blobs, et la gestion des clés est manuelle."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenSSL",
+			"source": {
+				"host": "github",
+				"path": "openssl/openssl",
+				"url": "https://github.com/openssl/openssl"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Apache-2.0 crypto CLI on every platform: digest, S/MIME, cms for signing and verifying documents. Raw crypto though — no envelopes, roles or audit trail, and certificates need manual handling.",
+				"fr": "Boîte à outils crypto Apache-2.0 présente partout : digest, S/MIME, cms pour signer et vérifier des documents. Crypto brute : pas d’enveloppe, de rôles ni de journal, certificats gérés à la main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

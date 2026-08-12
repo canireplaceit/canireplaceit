@@ -97,6 +97,174 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "GNU R",
+			"source": {
+				"host": "github",
+				"path": "r-devel/r-svn",
+				"url": "https://github.com/r-devel/r-svn"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The standard Stata migration target, with every econometric method reachable through CRAN. haven reads and writes .dta natively. Expect a steeper learning curve than Stata’s menus and different table output.",
+				"fr": "La cible de migration standard depuis Stata, toutes les méthodes économétriques dans CRAN. haven lit et écrit le .dta nativement. Courbe d’apprentissage plus raide que les menus, sorties de tableaux différentes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Julia",
+			"source": {
+				"host": "github",
+				"path": "JuliaLang/julia",
+				"url": "https://github.com/JuliaLang/julia"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Compiled speed for big data and loops, single binary, and .dta support, with DataFrames.jl, GLM.jl and StatsModels.jl analogues. The econometrics ecosystem is newer and smaller than R’s.",
+				"fr": "Vitesse compilée pour les gros volumes et les boucles, avec les équivalents DataFrames.jl, GLM.jl et StatsModels.jl et un .dta natif. L’écosystème économétrique est plus récent et moins documenté que celui de R."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GNU Octave",
+			"source": {
+				"host": "github",
+				"path": "gnu-octave/octave",
+				"url": "https://github.com/gnu-octave/octave"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "GNU numerical-computing suite with a GUI, matrix programming and Octave-forge statistics packages. Oriented to numerical work more than survey econometrics, with fewer canned procedures than Stata.",
+				"fr": "Suite de calcul numérique GNU avec GUI, programmation matricielle et paquets de statistiques Octave-forge. Orientée calcul numérique plus qu’économie de sondage, moins de procédures toutes faites que Stata."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "JASP",
+			"source": {
+				"host": "github",
+				"path": "jasp-stats/jasp-desktop",
+				"url": "https://github.com/jasp-stats/jasp-desktop"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Menu-driven Bayesian and frequentist tests with syntax and an audit-trail output, R-powered and jamovi’s most direct peer. Not built for large do-file-style workflows, econometrics depth below Stata.",
+				"fr": "Tests bayésiens et fréquentistes pilotés par menus, avec syntaxe et journal d’audit, propulsé par R, concurrent direct de jamovi. Pas fait pour les gros workflows type do-file, économétrie en retrait sur Stata."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pandas",
+			"source": {
+				"host": "github",
+				"path": "pandas-dev/pandas",
+				"url": "https://github.com/pandas-dev/pandas"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "The Python data-manipulation engine for Stata-scale tabular work, pairing with statsmodels and reading .dta via pyreadstat. A library only: no data editor, no built-in modeling.",
+				"fr": "Le moteur Python de manipulation de données pour les tableaux à l’échelle de Stata, couplé à statsmodels, lit le .dta via pyreadstat. Simple bibliothèque : sans éditeur de données ni modélisation intégrée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "visidata",
+			"source": {
+				"host": "github",
+				"path": "saulpw/visidata",
+				"url": "https://github.com/saulpw/visidata"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "A terminal TUI covering Stata’s data viewing and light manipulation, with drill-down, sort, filter and freq tables on huge files. No statistical modeling — it’s a viewer/editor, and keyboard-centric.",
+				"fr": "TUI terminal qui couvre la visualisation et la manipulation légère des données de Stata : drill-down, tri, filtre et fréquences sur de gros fichiers. Aucune modélisation : un visualiseur/éditeur, entièrement au clavier."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "xsv",
+			"source": {
+				"host": "github",
+				"path": "BurntSushi/xsv",
+				"url": "https://github.com/BurntSushi/xsv"
+			},
+			"license": "Unlicense",
+			"effort": "managed",
+			"note": {
+				"en": "Ultra-fast CSV munging at the terminal — cat, slice, sort, freq in milliseconds, single static binary, no runtime deps. Archived upstream: complete and stable, but no new features, CSV-only.",
+				"fr": "Munging CSV ultra-rapide au terminal — cat, slice, sort, freq en millisecondes, un seul binaire statique, sans dépendance. Archivé par son auteur : complet et stable, mais sans nouveautés, et CSV uniquement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "csvkit",
+			"source": {
+				"host": "github",
+				"path": "wireservice/csvkit",
+				"url": "https://github.com/wireservice/csvkit"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "in2csv, csvjoin, csvstat, csvsql: a pip-installed CLI suite scripting most of Stata’s data management, with SQL-backed stats. It transforms tables rather than modeling, and has no editor.",
+				"fr": "In2csv, csvjoin, csvstat, csvsql : suite CLI installable par pip qui scripte l’essentiel de la gestion de données de Stata, stats adossées à SQL. Transformation de tableaux, pas de modélisation, pas d’éditeur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

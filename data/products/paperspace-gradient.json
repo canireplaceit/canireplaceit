@@ -101,6 +101,174 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Determined AI",
+			"source": {
+				"host": "github",
+				"path": "determined-ai/determined",
+				"url": "https://github.com/determined-ai/determined"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Closest drop-in: self-hosted notebooks, distributed training, hyperparameter search, and model deployments. You supply the GPU machines — there's no pay-per-GPU metered cloud.",
+				"fr": "Le plus proche d’un remplacement direct, en auto-hébergé : notebooks, entraînement distribué, recherche d’hyperparamètres, déploiement de modèles. Vous fournissez les machines GPU — pas de cloud facturé à la minute."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kubeflow",
+			"source": {
+				"host": "github",
+				"path": "kubeflow/kubeflow",
+				"url": "https://github.com/kubeflow/kubeflow"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The standard Kubernetes ML platform: notebooks, pipeline DSL, and training operators in one. Requires a Kubernetes cluster — the heaviest option to operate.",
+				"fr": "La plateforme ML de référence sur Kubernetes : notebooks, DSL de pipelines et opérateurs d’entraînement au même endroit. Il lui faut un cluster — c’est l’option la plus lourde à exploiter."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ray",
+			"source": {
+				"host": "github",
+				"path": "ray-project/ray",
+				"url": "https://github.com/ray-project/ray"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Plain pip install gets you distributed training, tuning, and model serving with a dashboard and CLI. No notebook product built in, and you provision the machines.",
+				"fr": "Un simple pip install suffit : entraînement et réglage distribués, serveur de modèles, dashboard et CLI. Pas de notebook intégré, et les machines sont à provisionner vous-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Polyaxon",
+			"source": {
+				"host": "github",
+				"path": "polyaxon/polyaxon",
+				"url": "https://github.com/polyaxon/polyaxon"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted MLOps with notebook and experiment UI, pipelines, and hyperparameter search over CLI or dashboard. Needs a cluster to be useful; some enterprise features are commercial.",
+				"fr": "MLOps auto-hébergé : UI de notebooks et d’expériences, pipelines, recherche d’hyperparamètres via CLI ou dashboard. Peu utile sans cluster ; certaines fonctions entreprise sont payantes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ClearML",
+			"source": {
+				"host": "github",
+				"path": "clearml/clearml",
+				"url": "https://github.com/clearml/clearml"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted experiment tracking and comparison, with GPU orchestration via agents, a model registry, and serving. You run the server, and agents still need the GPU machines.",
+				"fr": "Suivi et comparaison d’expériences auto-hébergés, orchestration GPU via agents, registre de modèles et serving. Le serveur est à entretenir, et les agents ont besoin de machines GPU."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MLflow",
+			"source": {
+				"host": "github",
+				"path": "mlflow/mlflow",
+				"url": "https://github.com/mlflow/mlflow"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Pip-installable experiment tracking, model registry, and serving backed by your own storage. No GPU or notebook layer, and the tracking UI is minimal.",
+				"fr": "Tracking d’expériences, registre de modèles et serving installables en un pip, sur votre propre stockage. Pas de couche GPU ni notebooks, et l’UI de suivi est minimale."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "DVC",
+			"source": {
+				"host": "github",
+				"path": "treeverse/dvc",
+				"url": "https://github.com/treeverse/dvc"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Git-like versioning for data and models, experiments managed on Git, reproducible pipelines. Pairs with any storage or compute — but notebooks, GPUs, and serving are yours to bolt on.",
+				"fr": "Versionnage façon Git des données et modèles, expériences gérées dans Git, pipelines reproductibles. S’associe à n’importe quel stockage ou calcul, mais notebooks, GPU et serving restent à ajouter."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ollama",
+			"source": {
+				"host": "github",
+				"path": "ollama/ollama",
+				"url": "https://github.com/ollama/ollama"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Single-binary CLI and server that run open LLMs on your GPUs behind an OpenAI-compatible API. Inference only — no notebooks, no training, no cluster scheduling.",
+				"fr": "CLI et serveur en un seul binaire pour faire tourner des LLM ouverts sur vos GPU, avec une API compatible OpenAI. Inférence uniquement : pas de notebooks, d’entraînement ni d’ordonnancement de cluster."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

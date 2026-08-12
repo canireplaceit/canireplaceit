@@ -109,6 +109,182 @@
 				"en": "Free up to a real volume of events, with warehouse-native mode if you outgrow it. No visual editor for non-engineers.",
 				"fr": "Gratuit jusqu’à un vrai volume d’événements, avec un mode natif entrepôt si vous le dépassez. Pas d’éditeur visuel pour les non-développeurs."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "PostHog",
+			"source": {
+				"host": "github",
+				"path": "PostHog/posthog",
+				"url": "https://github.com/PostHog/posthog"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "MIT analytics suite whose experiments, flags, and session replay cover most of VWO; analytics-first, not a marketer’s no-code editor, and the stack is resource-hungry.",
+				"fr": "Suite analytics MIT dont les expériences, flags et session replay couvrent l’essentiel de VWO, pensée pour les équipes produit plutôt que pour le marketing sans code, et gourmande en ressources."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise features under ee/",
+					"fr": "Fonctions entreprise derrière ee/"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Matomo",
+			"source": {
+				"host": "github",
+				"path": "matomo-org/matomo",
+				"url": "https://github.com/matomo-org/matomo"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Privacy-first self-hosted analytics that adds goal tracking and an official A/B plugin; testing ships as a separate Marketplace plugin with no visual editor.",
+				"fr": "Standard du web analytics auto-hébergé, qui ajoute suivi d’objectifs et plugin A/B ; le test s’achète à part sur le Marketplace, sans éditeur visuel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Intuit Wasabi",
+			"source": {
+				"host": "github",
+				"path": "intuit/wasabi",
+				"url": "https://github.com/intuit/wasabi"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Complete A/B platform with Bayesian auto-stop stats and an assignment API, but dormant since May 2023 and it wants a Cassandra, Node, and MongoDB cluster.",
+				"fr": "Plateforme A/B complète avec stats bayésiennes et arrêt automatique, mais inactive depuis mai 2023 et exige un cluster Cassandra, Node et MongoDB."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mozilla Experimenter",
+			"source": {
+				"host": "github",
+				"path": "mozilla/experimenter",
+				"url": "https://github.com/mozilla/experimenter"
+			},
+			"license": "MPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "MPL-2.0 experiment lifecycle management with approval workflows and enrollment reporting, tuned for the Firefox/Nimbus ecosystem rather than generic marketing sites.",
+				"fr": "Gestion du cycle de vie des expériences, workflows d’approbation et rapports d’enrôlement, calibrée pour l’écosystème Firefox/Nimbus plutôt que pour les sites marketing."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Unleash",
+			"source": {
+				"host": "github",
+				"path": "Unleash/unleash",
+				"url": "https://github.com/Unleash/unleash"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Popular AGPL flag server with gradual rollout, kill switches, and targeted segments; no built-in statistical analysis, and enterprise features sit behind paid tiers.",
+				"fr": "Serveur de flags AGPL populaire, rollout progressif, kill switches et segments ciblés, mais sans moteur statistique intégré et avec des fonctions entreprise derrière un abonnement payant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Pro-tier features",
+					"fr": "Fonctions du palier Pro"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Flagr",
+			"source": {
+				"host": "github",
+				"path": "openflagr/flagr",
+				"url": "https://github.com/openflagr/flagr"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Single Go binary serving multivariate flags with simple rules; minimal UI, developer-facing only.",
+				"fr": "Un binaire Go, un service et une base, pour des flags multivariés aux règles simples ; interface minimale, réservé aux développeurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Featurevisor",
+			"source": {
+				"host": "github",
+				"path": "featurevisor/featurevisor",
+				"url": "https://github.com/featurevisor/featurevisor"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Config-as-code feature management — YAML in git, compiled and validated by a CLI, no server to operate; nothing there for marketers.",
+				"fr": "Gestion de features config-as-code : YAML dans git, CLI qui compile et valide, aucun serveur à opérer — mais rien de visuel pour les marketeurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Abby",
+			"source": {
+				"host": "github",
+				"path": "tryabby/abby",
+				"url": "https://github.com/tryabby/abby"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted A/B testing with a dashboard, feature flags, and multi-variant experiments in docker compose; small community, slow release cadence, AGPL.",
+				"fr": "A/B testing auto-hébergé avec dashboard, flags et variantes multiples, déployé en docker compose ; petite communauté, cadence de sorties lente, AGPL."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

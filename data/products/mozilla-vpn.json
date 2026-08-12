@@ -128,6 +128,178 @@
 				"en": "The same servers Mozilla resells, bought at source, with no account email required.",
 				"fr": "Les mêmes serveurs que Mozilla revend, achetés à la source, sans e-mail de compte requis."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Firezone",
+			"source": {
+				"host": "github",
+				"path": "firezone/firezone",
+				"url": "https://github.com/firezone/firezone"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted zero-trust access over WireGuard: web admin, SSO, clients on every OS. Self-hosting is hobby-supported, app-store clients tie to the managed cloud, and infra spans portal, gateway and relay.",
+				"fr": "Plateforme zero-trust auto-hébergée sur WireGuard : admin web, SSO, clients sur tous les OS. Self-hosting maintenu à titre amateur, clients des stores liés au cloud managé, infra lourde : portal, gateway, relay."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Managed-cloud app-store clients",
+					"fr": "Clients des stores liés au cloud managé"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nebula",
+			"source": {
+				"host": "github",
+				"path": "slackhq/nebula",
+				"url": "https://github.com/slackhq/nebula"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Slack-made mesh that tunnels through NAT with no open ports; certs, not passwords, and lighthouse nodes replace the central server. Config is hand-written YAML and there is no admin UI.",
+				"fr": "Maillage signé Slack qui traverse les NAT sans ouvrir de port : identité par certificats, et les nœuds lighthouse remplacent le serveur central. Configuration YAML à la main, pas d’interface d’admin."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "innernet",
+			"source": {
+				"host": "github",
+				"path": "tonarino/innernet",
+				"url": "https://github.com/tonarino/innernet"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Turns a TOML config into a WireGuard mesh with CIDR ACLs and invitation files for onboarding. Experimental, unaudited, Linux/macOS only; peers can be disabled but never deleted.",
+				"fr": "Construit un maillage WireGuard privé depuis un fichier TOML, avec ACL par CIDR et invitations pour ajouter des pairs. Expérimental, sans audit, Linux/macOS uniquement : un pair se désactive, ne se supprime pas."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PiVPN",
+			"source": {
+				"host": "github",
+				"path": "pivpn/pivpn",
+				"url": "https://github.com/pivpn/pivpn"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "One curl-pipe command turns a Pi or Debian box into a WireGuard or OpenVPN server, with QR codes for phone setup. Raspberry Pi OS and Debian/Ubuntu only, volunteer-maintained, no web admin.",
+				"fr": "Une commande à passer par curl et un Raspberry Pi devient serveur WireGuard ou OpenVPN, configs téléphone par QR code. Réservé à Raspberry Pi OS, Debian, Ubuntu, maintenance bénévole, pas d’admin web."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "wg-access-server",
+			"source": {
+				"host": "github",
+				"path": "freifunkMUC/wg-access-server",
+				"url": "https://github.com/freifunkMUC/wg-access-server"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Single-binary WireGuard server with a web UI, QR device enrollment and OIDC auth; SQLite, Postgres or MySQL under it. A community fork of an abandoned upstream, device- rather than user-centric.",
+				"fr": "Serveur WireGuard en un binaire : UI web, ajout d’appareils par QR code, auth OIDC, stockage SQLite, Postgres ou MySQL. Fork communautaire d’un amont abandonné, centré sur les appareils, pas sur les utilisateurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenVPN",
+			"source": {
+				"host": "gitlab",
+				"path": "OpenVPN/openvpn",
+				"url": "https://gitlab.com/OpenVPN/openvpn"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The battle-tested open-source daemon, the baseline commercial VPNs build on: TLS, remote access and site-to-site, clients everywhere. PKI handled by hand, no user-management UI, slower than WireGuard.",
+				"fr": "Le démon open-source le plus éprouvé, la base des VPN commerciaux : TLS, accès distant et site-to-site, des clients partout. PKI à gérer à la main, pas d’UI utilisateur, plus lent que WireGuard."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "n2n",
+			"source": {
+				"host": "github",
+				"path": "ntop/n2n",
+				"url": "https://github.com/ntop/n2n"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "CLI edges mesh through a minimal supernode to bypass the most stubborn NATs, AES-encrypted communities, fine on embedded gear. One shared key, no per-user ACLs, and the supernode is yours to run.",
+				"fr": "Des nœuds CLI maillés via un supernode minimal qui franchit les NAT les plus tenaces ; communautés AES, ça tourne sur de l’embarqué. Une clé partagée, pas d’ACL par utilisateur, supernode à maintenir."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SoftEther VPN",
+			"source": {
+				"host": "github",
+				"path": "SoftEtherVPN/SoftEtherVPN",
+				"url": "https://github.com/SoftEtherVPN/SoftEtherVPN"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Serves OpenVPN, IPsec, L2TP, SSTP, WireGuard and SSL-VPN from one daemon, with HTML5 admin and JSON-RPC; ICMP/DNS tunneling slips past firewalls. Legacy, feature-heavy codebase; master is experimental, Windows builds trip antivirus scanners.",
+				"fr": "Un seul démon sert OpenVPN, IPsec, L2TP, SSTP, WireGuard et SSL-VPN ; admin HTML5, API JSON-RPC, tunnel ICMP/DNS sous les pare-feux. Codebase pléthorique, master expérimental, faux positifs antivirus sur les builds Windows."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

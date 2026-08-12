@@ -105,6 +105,245 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Cal.diy",
+			"source": {
+				"host": "github",
+				"path": "calcom/cal.diy",
+				"url": "https://github.com/calcom/cal.diy"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted booking pages and team scheduling, strongest when the job is appointments rather than hourly rotas. SSO/SAML stays behind the paid tier; no time clock or payroll.",
+				"fr": "Pages de réservation et disponibilités d’équipe en self-hosting, à choisir quand on planifie des appointments plutôt que des rotas horaires. SSO/SAML derrière l’offre payante, ni pointeuse ni paie."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "SSO/SAML and enterprise features",
+					"fr": "SSO/SAML et fonctions entreprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Easy!Appointments",
+			"source": {
+				"host": "github",
+				"path": "alextselegidis/easyappointments",
+				"url": "https://github.com/alextselegidis/easyappointments"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Polished multi-provider appointment booking with email and SMS reminders, for client appointments rather than staff shifts. No time clock, payroll or labour costing.",
+				"fr": "Prise de rendez-vous multi-praticiens soignée avec rappels e-mail et SMS, pensée pour les créneaux clients plutôt que les shifts. Pas de pointeuse, de paie ni de coût du travail."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LibreBooking",
+			"source": {
+				"host": "github",
+				"path": "LibreBooking/librebooking",
+				"url": "https://github.com/LibreBooking/librebooking"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Bookable resources, rooms and approvals behind a dated interface — a backbone that can model rosters as bookable slots, not a rota or time clock itself. No labour costing or payroll.",
+				"fr": "Réservation de ressources et de salles avec approbations, derrière une interface datée — une ossature qui modèle des rosters en créneaux réservables, pas un planning ni une pointeuse. Ni coût du travail ni paie."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Staffjoy v2",
+			"source": {
+				"host": "github",
+				"path": "Staffjoy/v2",
+				"url": "https://github.com/Staffjoy/v2"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Dormant since December 2022 — MIT code, no security updates. Shift publishing, swaps and availability were its draw as the classic Deputy alternative; several companion services needed to run it.",
+				"fr": "En sommeil depuis décembre 2022 — code MIT, aucun correctif de sécurité. Publication de shifts, échanges et disponibilités en faisaient l’alternative classique à Deputy ; il faut plusieurs services annexes pour le faire tourner."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Grafana OnCall",
+			"source": {
+				"host": "github",
+				"path": "grafana-cold-storage/oncall",
+				"url": "https://github.com/grafana-cold-storage/oncall"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "On-call rotations, escalation policies and alert routing — archived by Grafana and moved to cold storage, though the AGPL stack still installs. Built for incident duty, not retail rotas, over a heavy Django/Redis/Postgres.",
+				"fr": "Rotations d’astreinte, escalades et routage d’alertes — archivé par Grafana et passé au stockage froid, même si le code AGPL s’installe encore. Fait pour les gardes incident, pas les rotas commerce, sur un gros socle Django/Redis/Postgres."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "UniTime",
+			"source": {
+				"host": "github",
+				"path": "UniTime/unitime",
+				"url": "https://github.com/UniTime/unitime"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Enterprise course and instructor timetabling with constraint-aware conflict resolution, on a heavy Java/Tomcat stack. Academic domain — no time clock, payroll or shift swaps.",
+				"fr": "Emploi du temps d’entreprise pour cours et enseignants avec résolution de conflits sous contraintes, sur une pile Java/Tomcat lourde. Domaine académique — ni pointeuse, ni paie, ni échanges de shifts."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Rallly",
+			"source": {
+				"host": "github",
+				"path": "lukevella/rallly",
+				"url": "https://github.com/lukevella/rallly"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted scheduling polls that find a mutually free slot by vote, with booking plugins — a light companion, not a rota builder. No shifts, payroll or attendance.",
+				"fr": "Sondages de planification self-hosted qui dégagent un créneau libre commun au vote, avec plugins de réservation — un compagnon léger, pas un bâtisseur de rotas. Ni shifts, ni paie, ni pointage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Booking and payment plugins",
+					"fr": "Plugins de réservation et paiement"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "khal",
+			"source": {
+				"host": "github",
+				"path": "pimutils/khal",
+				"url": "https://github.com/pimutils/khal"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "CalDAV calendar as a CLI and interactive TUI, recurring events and alarms, syncing any CalDAV server. Single-user, text-first — non-technical staff need not apply.",
+				"fr": "Calendrier CalDAV en CLI et TUI interactif (ikhal), événements récurrents et rappels, synchronisé avec n’importe quel serveur CalDAV. Mono-utilisateur, 100 % texte — à réserver aux gens qui vivent dans un terminal."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "calcurse",
+			"source": {
+				"host": "github",
+				"path": "lfos/calcurse",
+				"url": "https://github.com/lfos/calcurse"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Agenda, appointments, todos and reminders in a C TUI with vim keybindings — solid personal scheduling, and nothing past one user. No multi-user, shifts or time-clock.",
+				"fr": "Agenda, rendez-vous, todos et rappels dans une TUI en C aux raccourcis façon vim — de la planification perso solide, et rien au-delà d’un utilisateur. Pas de multi-utilisateur, de shifts ni de pointeuse."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Employee Scheduling UI",
+			"source": {
+				"host": "github",
+				"path": "martinmicunda/employee-scheduling-ui",
+				"url": "https://github.com/martinmicunda/employee-scheduling-ui"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Mobile-first shift-planning front-end with an open REST backend — a real Deputy-shaped stack, dormant since 2020. Minimal auth and identity, no active maintenance.",
+				"fr": "Front-end de planification de shifts mobile-first adossé à une API REST ouverte — une vraie pile façon Deputy, en sommeil depuis 2020. Auth et identité minimales, aucune maintenance active."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "shift-scheduling",
+			"source": {
+				"host": "github",
+				"path": "lbiedma/shift-scheduling",
+				"url": "https://github.com/lbiedma/shift-scheduling"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Constraint solver that auto-generates fair rotas from CLI or API, with tunable hard/soft constraints. Library-only — you build the UI, data pipeline and app around it. Dormant since May 2024.",
+				"fr": "Solveur de contraintes qui génère des rotas équitables en CLI ou via API, avec contraintes dures/molles réglables. Bibliothèque seule — à vous l’interface, le pipeline de données et l’app. En sommeil depuis mai 2024."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

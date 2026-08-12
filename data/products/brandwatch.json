@@ -101,6 +101,241 @@
 				"en": "A tiny fraction of a Brandwatch contract with real mention monitoring and sentiment. Shallower historical data and fewer sources.",
 				"fr": "Une infime fraction d’un contrat Brandwatch avec une vraie veille de mentions et du sentiment. Historique moins profond et moins de sources."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Postiz",
+			"source": {
+				"host": "github",
+				"path": "gitroomhq/postiz-app",
+				"url": "https://github.com/gitroomhq/postiz-app"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The closest open analogue to Brandwatch’s publishing tools, with scheduling, an AI assistant and a REST API. You bring your own API credentials per network, and the fast-moving surface is still settling.",
+				"fr": "L’analogue open source le plus proche des outils de publication de Brandwatch, avec planification, assistant IA et API REST. À vous les identifiants API par réseau, et l’API, encore jeune, bouge vite."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mixpost",
+			"source": {
+				"host": "github",
+				"path": "inovector/mixpost",
+				"url": "https://github.com/inovector/mixpost"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Laravel-built scheduler with calendar, per-network analytics and team workspaces. Development has slowed since 2025, and the advanced features live in a paid Pro add-on.",
+				"fr": "Planificateur Laravel avec calendrier, analytics par réseau et espaces de travail. Le rythme de commits ralentit depuis 2025, et les fonctions avancées vivent dans l’extension Pro payante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Advanced features: paid Pro add-on",
+					"fr": "Fonctions avancées : extension Pro payante"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Social Analyzer",
+			"source": {
+				"host": "github",
+				"path": "qeeqbox/social-analyzer",
+				"url": "https://github.com/qeeqbox/social-analyzer"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Profile discovery across 1000+ platforms, with username search and sentiment behind a REST API. Scrapers break as platforms tighten access, and handling personal data carries ToS and privacy risk.",
+				"fr": "Trouve les profils d’une marque sur 1000+ plateformes, avec recherche d’identifiant, sentiment et API REST. Les scrapers cassent quand l’accès se verrouille, et les données personnelles appellent à la prudence."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "newsboat",
+			"source": {
+				"host": "github",
+				"path": "newsboat/newsboat",
+				"url": "https://github.com/newsboat/newsboat"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Vim-like terminal reader for RSS and Atom feeds, with filters, macros, search and podcasts. Nothing but feeds — no social networks — and the keybindings take getting used to.",
+				"fr": "Lecteur de flux RSS/Atom en terminal, style vim, avec filtres, macros, recherche et podcasts. RSS/Atom uniquement, pas de réseaux sociaux, et la prise en main du mode vim demande un temps d’adaptation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "tuifeed",
+			"source": {
+				"host": "github",
+				"path": "veeso/tuifeed",
+				"url": "https://github.com/veeso/tuifeed"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Minimal Rust TUI that watches many feeds at once and opens articles in a browser. Small community, slow releases, and RSS/Atom only.",
+				"fr": "TUI Rust minimaliste qui surveille de nombreux flux d’un coup et ouvre les articles dans le navigateur. Petite communauté, rythme de sorties lent, et RSS/Atom seulement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Miniflux",
+			"source": {
+				"host": "github",
+				"path": "miniflux/v2",
+				"url": "https://github.com/miniflux/v2"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Fast, spartan self-hosted reader with full-text search, keyboard navigation and a clean API that third-party mobile apps use. Feeds only — no brand-wide listening.",
+				"fr": "Lecteur auto-hébergé rapide et volontairement dépouillé, avec recherche plein texte, navigation clavier et une API propre exploitée par des apps mobiles tierces. Des flux, rien d’autre — pas d’écoute de marque globale."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Huginn",
+			"source": {
+				"host": "github",
+				"path": "huginn/huginn",
+				"url": "https://github.com/huginn/huginn"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Event-driven agents that watch, scrape and republish to webhooks, email or RSS. Each scenario means building your own agent chain, and the UI is plain.",
+				"fr": "Agents événementiels qui surveillent, scrapent et republient vers des webhooks, de l’email ou du RSS. Chaque scénario exige son propre montage d’agents, et l’interface reste utilitaire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "RSSHub",
+			"source": {
+				"host": "github",
+				"path": "DIYgod/RSSHub",
+				"url": "https://github.com/DIYgod/RSSHub"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Turns 2000+ sites into RSS feeds, with custom routes and filtering; self-hosting dodges public-instance rate limits. Feeds, not analytics, and many routes rely on scraping that can break.",
+				"fr": "Transforme 2000+ sites en flux RSS, avec routes personnalisées et filtrage ; s’auto-héberger évite les limites de l’instance publique. Des flux, pas d’analytics, et beaucoup de routes reposent sur du scraping qui casse."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ghost",
+			"source": {
+				"host": "github",
+				"path": "TryGhost/Ghost",
+				"url": "https://github.com/TryGhost/Ghost"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The publishing half of community outreach: blogs, newsletters and paid memberships with a Content API. It reaches your own audience only — no external listening — and self-hosting needs upkeep.",
+				"fr": "Le volet publication de la veille : blogs, newsletters et abonnements payants, avec une Content API. Il touche votre propre audience seulement — pas d’écoute externe — et l’auto-hébergement demande de l’entretien."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "NetNewsWire",
+			"source": {
+				"host": "github",
+				"path": "Ranchero-Software/NetNewsWire",
+				"url": "https://github.com/Ranchero-Software/NetNewsWire"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Native Mac and iOS reader with iCloud sync, many sync backends, read-later and search. Apple platforms only, and it consumes feeds — it does not publish.",
+				"fr": "Lecteur natif Mac et iOS avec synchronisation iCloud, plusieurs backends de sync, lecture différée et recherche. Apple uniquement, et il consomme des flux — il ne publie rien."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "rss2email",
+			"source": {
+				"host": "github",
+				"path": "rss2email/rss2email",
+				"url": "https://github.com/rss2email/rss2email"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Feeds land in your inbox: a pip-installable daemon emails each new item, no UI at all. Alerts travel one way only — there is no dashboard, no analytics.",
+				"fr": "Chaque nouvel article arrive par email : un démon installable via pip, sans la moindre interface. Les alertes ne vont que dans un sens — pas de tableau de bord, pas d’analytics."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

@@ -84,6 +84,216 @@
 				"en": "If you only need to pay your own referrers through Stripe, this replaces impact.com entirely for a rounding error. It gives you no network at all.",
 				"fr": "Si vous devez seulement payer vos propres apporteurs via Stripe, ceci remplace impact.com entièrement pour une somme dérisoire. Il ne vous donne aucun réseau."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "RefRef",
+			"source": {
+				"host": "github",
+				"path": "amicalhq/refref",
+				"url": "https://github.com/amicalhq/refref"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Active AGPL referral platform for SaaS, shipped as Docker compose. Younger codebase than Dub. Self-hosting still leaves you to wire up your own Stripe payouts.",
+				"fr": "Plateforme de parrainage SaaS sous AGPL, livrée en Docker compose. Plus jeune que Dub. L’auto-hébergement vous laisse quand même câbler vos propres paiements Stripe."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Weferral",
+			"source": {
+				"host": "github",
+				"path": "WeferralHq/weferral",
+				"url": "https://github.com/WeferralHq/weferral"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Popular MIT referral dashboard, customizable and easily self-hosted. No commit since June 2024; README admits it is not production-ready, and there is no official Docker packaging.",
+				"fr": "Tableau de bord MIT de parrainage, personnalisable et simple à auto-héberger. Aucun commit depuis juin 2024 ; le README avoue qu’il n’est pas prêt pour la production, sans packaging Docker officiel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "RefearnApp",
+			"source": {
+				"host": "github",
+				"path": "ZAK123DSFDF/refearnapp",
+				"url": "https://github.com/ZAK123DSFDF/refearnapp"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Modern Next.js/Cloudflare affiliate tracker, Dockerized and AGPL. Handles high-scale tracking. Young single-maintainer project, and full performance assumes a Cloudflare stack.",
+				"fr": "Tracker d’affiliation Next.js/Cloudflare, dockerisé, sous AGPL, pensé pour le haut débit. Jeune projet tenu par un seul mainteneur, et les meilleures perfs supposent une stack Cloudflare."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Simple Kuma",
+			"source": {
+				"host": "github",
+				"path": "kumatrk/initialrelease",
+				"url": "https://github.com/kumatrk/initialrelease"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Self-hosted PHP/MySQL affiliate tracker with GeoIP click tracking, Meta/Google cost sync and a REST API. Single-admin, aimed at media buyers; no self-service publisher portal.",
+				"fr": "Tracker d’affiliation PHP/MySQL auto-hébergeable, avec suivi GeoIP, synchronisation des coûts Meta/Google et API REST. Un seul admin, orienté acheteurs média : pas de portail éditeur en libre-service."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "django-referral-system",
+			"source": {
+				"host": "github",
+				"path": "soldatov-ss/django-referral-system",
+				"url": "https://github.com/soldatov-ss/django-referral-system"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Django referral engine handling promoters, commission payouts and Wise CSV export. An app to integrate, not a turnkey platform, and it is a single-maintainer project.",
+				"fr": "Moteur de parrainage Django gérant promoteurs, commissions et export CSV Wise. Une app à intégrer, pas une plateforme clé en main, et un projet à mainteneur unique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "laravel-affiliate-network",
+			"source": {
+				"host": "github",
+				"path": "padosoft/laravel-affiliate-network",
+				"url": "https://github.com/padosoft/laravel-affiliate-network"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Laravel affiliate-network package: commissions, multi-affiliate management and an admin dashboard. You wire it into an existing Laravel app; there is no standalone UI, and maintenance is sporadic.",
+				"fr": "Paquet réseau d’affiliation Laravel : commissions, gestion multi-affiliés et dashboard admin. Vous l’intégrez dans une app Laravel existante, sans UI autonome, avec une maintenance irrégulière."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PrestaShop referralprogram",
+			"source": {
+				"host": "github",
+				"path": "PrestaShop/referralprogram",
+				"url": "https://github.com/PrestaShop/referralprogram"
+			},
+			"license": "AFL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Official PrestaShop module for customer-referral rewards and vouchers, archived but battle-tested. PrestaShop-only, and it covers referral rewards only — no publisher marketplace.",
+				"fr": "Module officiel PrestaShop pour récompenses et bons de parrainage, archivé mais éprouvé. Limitée à PrestaShop et aux seules récompenses : pas de marketplace d’éditeurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "spree_affiliate",
+			"source": {
+				"host": "github",
+				"path": "spree-contrib/spree_affiliate",
+				"url": "https://github.com/spree-contrib/spree_affiliate"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "BSD affiliate extension for Spree Commerce, tracking referrals and commissions. No commit since May 2014, and it expects an older Spree/Rails stack.",
+				"fr": "Extension BSD d’affiliation pour Spree Commerce, suivi des parrainages et commissions. Aucun commit depuis mai 2014, et elle exige une vieille stack Spree/Rails."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "AffiliateTelegramBot",
+			"source": {
+				"host": "github",
+				"path": "Aritzherrero4/AffiliateTelegramBot",
+				"url": "https://github.com/Aritzherrero4/AffiliateTelegramBot"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "GPL Telegram bot automating affiliate workflows: Amazon link handling and product search. No commit since July 2023. A niche bot workflow — no web dashboard, no multi-network support.",
+				"fr": "Bot Telegram GPL pour automatiser l’affiliation : liens Amazon et recherche produit. Aucun commit depuis juillet 2023. Un workflow de niche, sans dashboard web ni support multi-réseaux."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "discourse-affiliate",
+			"source": {
+				"host": "github",
+				"path": "discourse/discourse-affiliate",
+				"url": "https://github.com/discourse/discourse-affiliate"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Tracks member signups from referral links and rewards them inside a Discourse community. Archived but MIT. Tied to Discourse, and scoped to one community rather than a publisher network.",
+				"fr": "Suit les inscriptions issues de liens de parrainage et les récompense dans une communauté Discourse. Archivé, mais MIT. Lié à Discourse et limité à une seule communauté, pas à un réseau d’éditeurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

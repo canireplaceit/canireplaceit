@@ -82,6 +82,258 @@
 				"en": "Cheaper than Plex Pass with a lifetime option and good TV apps. The server went closed source in 2018, so you are choosing a different landlord, not leaving.",
 				"fr": "Moins cher que Plex Pass, avec une option à vie et de bonnes applications TV. Le serveur est passé en code fermé en 2018 : vous changez de propriétaire, vous ne partez pas."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Universal Media Server",
+			"source": {
+				"host": "github",
+				"path": "UniversalMediaServer/UniversalMediaServer",
+				"url": "https://github.com/UniversalMediaServer/UniversalMediaServer"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Transcodes on the fly so any library reaches TVs and consoles over DLNA/UPnP. No first-party mobile player; playback quality and the dated metadata UI are left to the device.",
+				"fr": "Transcode à la volée pour amener toute bibliothèque vers TV et consoles via DLNA/UPnP. Pas d’appli mobile maison : la qualité de lecture et l’interface de métadonnées datée dépendent du périphérique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MediaMTX",
+			"source": {
+				"host": "github",
+				"path": "bluenviron/mediamtx",
+				"url": "https://github.com/bluenviron/mediamtx"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Static binary that restreams IP cameras and live feeds into any browser via WebRTC or HLS. Live streams only — no library, no metadata, no recording or guide.",
+				"fr": "Binaire statique qui rediffuse caméras IP et flux live dans le navigateur via WebRTC ou HLS. Que du live : pas de bibliothèque, de métadonnées, d’enregistrement ni de guide."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Navidrome",
+			"source": {
+				"host": "github",
+				"path": "navidrome/navidrome",
+				"url": "https://github.com/navidrome/navidrome"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Subsonic-compatible music server; the same API lets your existing mobile client work against it. Music only, and metadata is whatever your tags and last.fm already knew.",
+				"fr": "Serveur musical compatible Subsonic : votre client mobile existant fonctionne tel quel sur sa même API. Musique uniquement, et les métadonnées restent celles de vos tags et de last.fm."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ampache",
+			"source": {
+				"host": "github",
+				"path": "ampache/ampache",
+				"url": "https://github.com/ampache/ampache"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "PHP server streaming both music and video with LDAP login and a Subsonic-compatible API. Mature but dated, and the PHP-plus-database stack is yours to maintain.",
+				"fr": "Serveur PHP qui diffuse musique et vidéo, avec login LDAP et API compatible Subsonic. Mature mais daté, et la pile PHP + base de données reste à entretenir."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Audiobookshelf",
+			"source": {
+				"host": "github",
+				"path": "advplyr/audiobookshelf",
+				"url": "https://github.com/advplyr/audiobookshelf"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Audiobooks and podcasts with cross-device progress sync and official iOS/Android apps — Plex's audiobook gap, covered. Nothing else streams here, and metadata editing stays manual-ish.",
+				"fr": "Livres audio et podcasts synchronisés entre appareils, avec applis iOS/Android officielles — la lacune audiobook de Plex, comblée. Rien d’autre ne diffuse ici, et l’édition des métadonnées reste semi-manuelle."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Musikcube",
+			"source": {
+				"host": "github",
+				"path": "clangen/musikcube",
+				"url": "https://github.com/clangen/musikcube"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Full terminal and desktop music player with a multi-user server and gapless playback. No web UI, music only, and the community is smaller than Navidrome's.",
+				"fr": "Lecteur musical terminal et bureau complet, avec serveur multi-utilisateur et lecture sans coupure. Pas d’interface web : musique seule, et une communauté plus petite que Navidrome."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "beets",
+			"source": {
+				"host": "github",
+				"path": "beetbox/beets",
+				"url": "https://github.com/beetbox/beets"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Auto-tags and reorganizes whole libraries from MusicBrainz, keeping any media server's folders clean. Organizer only — no playback, and the plugin setup lives in config files.",
+				"fr": "Rénomme et réorganise des bibliothèques entières depuis MusicBrainz, gardant les dossiers de n’importe quel serveur propres. Organisateur uniquement : pas de lecture, et la config des plugins reste manuelle."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "mov-cli",
+			"source": {
+				"host": "github",
+				"path": "mov-cli/mov-cli",
+				"url": "https://github.com/mov-cli/mov-cli"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Streams movies and shows from the terminal into mpv or vlc, headless or over SSH. It lives on third-party scrapers — no library, and sources can die when sites change.",
+				"fr": "Diffuse films et séries du terminal vers mpv ou vlc, headless ou via SSH. Dépend de scrapers tiers : pas de bibliothèque, et des sources qui cassent quand les sites changent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "yt-dlp",
+			"source": {
+				"host": "github",
+				"path": "yt-dlp/yt-dlp",
+				"url": "https://github.com/yt-dlp/yt-dlp"
+			},
+			"license": "Unlicense",
+			"effort": "managed",
+			"note": {
+				"en": "Downloads video, audio and subtitles from thousands of sites, scriptable enough to feed any library. A downloader, not a server — scrapers break when sites change, and DRM stays locked.",
+				"fr": "Télécharge vidéo, audio et sous-titres de milliers de sites, assez scriptable pour alimenter toute bibliothèque. Un téléchargeur, pas un serveur : les scrapers cassent au changement de site, le DRM reste fermé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Jellyseerr",
+			"source": {
+				"host": "github",
+				"path": "seerr-team/seerr",
+				"url": "https://github.com/seerr-team/seerr"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "A request and discovery portal for Jellyfin or Emby, wired to Radarr/Sonarr/Prowlarr with SSO. Companion only — it needs the server and the *arr stack, and Plex SSO needs a Plex.",
+				"fr": "Portail de demandes et de découverte pour Jellyfin ou Emby, branché sur Radarr/Sonarr/Prowlarr avec SSO. Simple compagnon : il lui faut serveur et stack *arr, et le SSO Plex exige un Plex."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Bazarr",
+			"source": {
+				"host": "github",
+				"path": "morpheus65535/bazarr",
+				"url": "https://github.com/morpheus65535/bazarr"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Auto-downloads subtitles and matches them to exact releases across Plex, Jellyfin and the *arr stack. It needs an existing library and provider account keys, and plays nothing itself.",
+				"fr": "Télécharge les sous-titres et les aligne sur les releases exactes, synchro Plex/Jellyfin et stack *arr. Exige une bibliothèque existante et des clés providers, et ne lit rien."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Immich",
+			"source": {
+				"host": "github",
+				"path": "immich-app/immich",
+				"url": "https://github.com/immich-app/immich"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Auto-backs up phone photos and videos with face recognition, shared albums and a map view. Photos and videos only, on a heavier Docker stack (DB plus ML) — nothing streams to TV.",
+				"fr": "Sauvegarde auto des photos et vidéos du téléphone, avec reconnaissance faciale et albums partagés. Photos et vidéos seulement, stack Docker lourde (BDD + ML), rien ne part vers la TV."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

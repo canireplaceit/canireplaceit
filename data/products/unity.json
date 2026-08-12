@@ -114,6 +114,400 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Unreal Engine",
+			"source": {
+				"host": "other",
+				"path": "EpicGames/UnrealEngine",
+				"url": "https://www.unrealengine.com/en-US/ue-on-github"
+			},
+			"license": "proprietary source-available (EULA)",
+			"effort": "ops",
+			"note": {
+				"en": "Source-available C++ engine and the industry standard for AAA, with native console export. Modify the engine, if you link GitHub to an Epic account; 5% royalty over $1M quarterly revenue.",
+				"fr": "Moteur C++ à source disponible, standard AAA, export console natif. Code modifiable une fois le compte GitHub lié à Epic ; redevance de 5 % au-delà de 1 M$ de revenus par trimestre."
+			},
+			"facts": {
+				"selfHostable": false,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "us-only"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Defold",
+			"source": {
+				"host": "github",
+				"path": "defold/defold",
+				"url": "https://github.com/defold/defold"
+			},
+			"license": "Defold License 1.0",
+			"effort": "managed",
+			"note": {
+				"en": "Cloud-native 2D engine built for fast iteration: instant feedback, Lua, strong mobile and HTML5 export. Everything needs an account and internet, and 3D is thin.",
+				"fr": "Moteur 2D cloud-native taillé pour l’itération rapide : feedback immédiat, Lua, mobile solide, export HTML5. Le compte et la connexion sont obligatoires, et la 3D reste limitée."
+			},
+			"facts": {
+				"selfHostable": false,
+				"openCore": "minor",
+				"ssoInFree": false,
+				"dataResidency": "unknown",
+				"paywalled": {
+					"en": "proprietary cloud editor",
+					"fr": "éditeur cloud propriétaire"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Flax Engine",
+			"source": {
+				"host": "github",
+				"path": "FlaxEngine/FlaxEngine",
+				"url": "https://github.com/FlaxEngine/FlaxEngine"
+			},
+			"license": "Flax Engine EULA (source-available)",
+			"effort": "managed",
+			"note": {
+				"en": "C# scripting and a full editor — the closest habit match to Unity here. The source is readable but under its own EULA, with a royalty once revenue climbs, and a small ecosystem.",
+				"fr": "Scripting C# et éditeur complet, l’habitude la plus proche de Unity. La source est lisible mais sous EULA maison, redevance une fois les revenus montés, écosystème bien plus petit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Cocos2d-x",
+			"source": {
+				"host": "github",
+				"path": "cocos2d/cocos2d-x",
+				"url": "https://github.com/cocos2d/cocos2d-x"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The C++ engine behind much of the decade’s mobile gaming, royalty-free and proven at scale. Development slowed once Cocos Creator took over, and there is no editor in the box.",
+				"fr": "Le moteur C++ derrière une grosse part du jeu mobile des années 2010, sans redevance, éprouvé à grande échelle. Développement ralenti depuis Cocos Creator, aucun éditeur visuel inclus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Cocos Creator",
+			"source": {
+				"host": "github",
+				"path": "cocos/cocos-engine",
+				"url": "https://github.com/cocos/cocos-engine"
+			},
+			"license": "MIT core with proprietary editor components",
+			"effort": "managed",
+			"note": {
+				"en": "Modern 2D/3D engine, TypeScript, web-native, with a visual editor and free tier; strong in China, growing elsewhere. The backend is closed and official builds need a Cocos account.",
+				"fr": "Moteur 2D/3D moderne en TypeScript, export web natif, éditeur visuel et version gratuite ; très fort en Chine, adoption globale croissante. Le backend est propriétaire et les builds officiels exigent un compte Cocos."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "unknown",
+				"paywalled": {
+					"en": "proprietary backend and build pipeline",
+					"fr": "backend et pipeline de build propriétaires"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LÖVE 2D",
+			"source": {
+				"host": "github",
+				"path": "love2d/love",
+				"url": "https://github.com/love2d/love"
+			},
+			"license": "ZLIB",
+			"effort": "managed",
+			"note": {
+				"en": "Lightweight Lua framework, ZLIB, immediate feedback — you run code and see it. But it is a framework, not an engine: you write the pipeline and design in code, no editor.",
+				"fr": "Framework Lua léger, licence ZLIB, feedback immédiat : on lance le code, on voit le résultat. C’est un framework, pas un moteur : pipeline et design s’écrivent en code, sans éditeur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Raylib",
+			"source": {
+				"host": "github",
+				"path": "raysan5/raylib",
+				"url": "https://github.com/raysan5/raylib"
+			},
+			"license": "Zlib",
+			"effort": "managed",
+			"note": {
+				"en": "A minimal C library, Zlib licensed, built for learning — docs and examples are the best in class. You assemble your own game systems and write everything in code.",
+				"fr": "Bibliothèque C minimale sous licence Zlib, pensée pour apprendre : doc et exemples au-dessus du lot. C’est une librairie, pas un moteur : on monte ses systèmes et on code tout."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MonoGame",
+			"source": {
+				"host": "github",
+				"path": "MonoGame/MonoGame",
+				"url": "https://github.com/MonoGame/MonoGame"
+			},
+			"license": "NOASSERTION (MIT/Ms-RL dual)",
+			"effort": "managed",
+			"note": {
+				"en": "XNA’s C# successor: open, free, cross-platform, with a mature ecosystem. You build the systems yourself — it is a framework, no editor and no asset store.",
+				"fr": "Le successeur C# de XNA : ouvert, gratuit, multiplateforme, écosystème mature. On construit ses systèmes soi-même, c’est un framework : pas d’éditeur, pas d’asset store."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FNA",
+			"source": {
+				"host": "github",
+				"path": "FNA-XNA/FNA",
+				"url": "https://github.com/FNA-XNA/FNA"
+			},
+			"license": "Ms-RL OR MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Drop-in XNA 4.0 replacement, binary-compatible, ideal for resurrecting abandoned XNA projects. Desktop-only with a tiny, niche community.",
+				"fr": "Remplaçant direct de XNA 4.0, binaire-compatible, parfait pour ressusciter de vieux projets XNA. Desktop uniquement, communauté minuscule et de niche."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Heaps",
+			"source": {
+				"host": "github",
+				"path": "HeapsIO/heaps",
+				"url": "https://github.com/HeapsIO/heaps"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Dead Cells and Northgard shipped on this Haxe engine — MIT, royalty-free, exporting to desktop, web, mobile and console. You will have to learn Haxe, with thin docs and no editor.",
+				"fr": "Dead Cells et Northgard sont sortis sur ce moteur Haxe — MIT, sans redevance, export desktop, web, mobile et console. Il faudra apprendre Haxe, avec une doc mince et aucun éditeur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PlayCanvas",
+			"source": {
+				"host": "github",
+				"path": "playcanvas/engine",
+				"url": "https://github.com/playcanvas/engine"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A WebGL engine whose visual editor lives in the browser, with real-time collaboration. Web-only — no desktop or console export — and the editor depends on PlayCanvas’s servers.",
+				"fr": "Moteur WebGL dont l’éditeur visuel vit dans le navigateur, avec collaboration temps réel. Web uniquement, pas d’export desktop ou console, et l’éditeur repose sur les serveurs de PlayCanvas."
+			},
+			"facts": {
+				"selfHostable": false,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "us-only",
+				"paywalled": {
+					"en": "proprietary editor and cloud backend",
+					"fr": "éditeur et backend cloud propriétaires"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Panda3D",
+			"source": {
+				"host": "github",
+				"path": "panda3d/panda3d",
+				"url": "https://github.com/panda3d/panda3d"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Disney’s Python engine, BSD-licensed, fast to prototype and easy for non-C++ programmers. Python caps scale, there is no visual editor, and export stops at the desktop.",
+				"fr": "Le moteur Python de Disney, licence BSD, prototypage rapide, accessible aux non-C++. Python plafonne la performance, aucun éditeur visuel, et l’export s’arrête au desktop."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Torque3D",
+			"source": {
+				"host": "github",
+				"path": "TorqueGameEngines/Torque3D",
+				"url": "https://github.com/TorqueGameEngines/Torque3D"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "MIT, C++, with a real visual editor and good docs. Dormant since around 2020 — the community is quiet, but existing projects still ship.",
+				"fr": "MIT, en C++, avec un vrai éditeur visuel et une bonne doc. Dormant depuis ~2020 : la communauté s’est tue, mais les projets existants restent livrables."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OGRE 3D",
+			"source": {
+				"host": "github",
+				"path": "OGRECave/ogre",
+				"url": "https://github.com/OGRECave/ogre"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "A rendering engine, not a game engine — 25 years of graphics in C++, MIT, actively maintained. Physics, audio, UI and editor are yours to build around it.",
+				"fr": "Un moteur de rendu, pas un moteur de jeu : 25 ans de graphismes en C++, MIT, maintenu activement. Physique, audio, UI et éditeur : tout reste à construire autour."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GDevelop",
+			"source": {
+				"host": "github",
+				"path": "4ian/GDevelop",
+				"url": "https://github.com/4ian/GDevelop"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Build games visually — events replace code, and the engine core is MIT. The editor is proprietary, there is no console export, and 3D stays basic.",
+				"fr": "On crée des jeux visuellement, les événements remplacent le code, et le cœur du moteur est MIT. L’éditeur est propriétaire, pas d’export console, et la 3D reste sommaire."
+			},
+			"facts": {
+				"selfHostable": false,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "us-only",
+				"paywalled": {
+					"en": "proprietary editor platform",
+					"fr": "plateforme d’édition propriétaire"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Solarus",
+			"source": {
+				"host": "github",
+				"path": "solarus-games/solarus",
+				"url": "https://github.com/solarus-games/solarus"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Archived upstream since around 2021 — no active development. For Zelda-like 2D action-RPGs, Lua, GPL-3.0, which forces your game to be GPL too.",
+				"fr": "Archivé en amont depuis ~2021, plus aucun développement actif. Pour des action-RPG 2D façon Zelda, en Lua, GPL-3.0 : votre jeu devra être GPL aussi."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Urho3D",
+			"source": {
+				"host": "github",
+				"path": "urho3d/urho3d",
+				"url": "https://github.com/urho3d/urho3d"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Archived since around 2021, though the rbfx fork keeps it alive. MIT, C++, AngelScript, desktop and mobile — but no usable visual editor remains.",
+				"fr": "Archivé depuis ~2021, mais le fork rbfx le maintient en vie. MIT, C++, AngelScript, desktop et mobile — aucun éditeur visuel réellement utilisable ne subsiste."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "rbfx (Rebel Fork of Urho3D)",
+			"source": {
+				"host": "github",
+				"path": "rbfx/rbfx",
+				"url": "https://github.com/rbfx/rbfx"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The living fork of Urho3D: MIT, actively developed, with C++ and AngelScript scripting. Still a niche code-driven engine with a small community and no editor.",
+				"fr": "Le fork vivant d’Urho3D : MIT, développé activement, scripting C++ et AngelScript. Reste un moteur de niche piloté par le code, petite communauté, aucun éditeur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 5

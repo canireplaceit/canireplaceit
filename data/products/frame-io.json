@@ -82,6 +82,136 @@
 				"en": "Timecoded comments and version stacking on top of storage you probably already pay for. No Camera to Cloud, no editorial panels.",
 				"fr": "Commentaires timecodés et gestion des versions sur un stockage que vous payez déjà sans doute. Pas de Camera to Cloud, pas de panneaux de montage."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "freeframe",
+			"source": {
+				"host": "github",
+				"path": "Techiebutler/freeframe",
+				"url": "https://github.com/Techiebutler/freeframe"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Open-source Frame.io alternative: timecoded video annotations and client review links. Young codebase (155 stars), basic auth, no camera-to-cloud or NLE integration.",
+				"fr": "Alternative open-source à Frame.io : annotations temporelles et liens de revue client. Jeune codebase (155 étoiles), auth basique, pas de camera-to-cloud ni d’intégration NLE."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PeerTube",
+			"source": {
+				"host": "github",
+				"path": "Chocobozzz/PeerTube",
+				"url": "https://github.com/Chocobozzz/PeerTube"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Mature self-hosted, federated video platform with timecoded comments and granular access control. Built for publishing though — no frame-precise annotations, approval workflow, or image/audio lanes.",
+				"fr": "Plateforme vidéo mature auto-hébergée et fédérée, avec commentaires temporels et contrôle d’accès fin. Pensée pour publier, pas pour itérer : pas d’annotations image par image, ni workflow d’approbation, ni pistes image/audio."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ReviewBoard",
+			"source": {
+				"host": "github",
+				"path": "reviewboard/reviewboard",
+				"url": "https://github.com/reviewboard/reviewboard"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Proven code-review tool whose media-review mode adds timecoded comments on uploads. Code-centric — media is a side mode: no transcoding, original plays as uploaded, no expiring or watermarkable links.",
+				"fr": "Outil de revue de code éprouvé dont le mode media permet des commentaires temporels sur les uploads. Centré code, media en mode secondaire : pas de transcodage, pas de liens expirants ni filigranables."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Little beyond the core",
+					"fr": "Peu de choses en dehors du cœur"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MediaDrop",
+			"source": {
+				"host": "github",
+				"path": "mediadrop/mediadrop",
+				"url": "https://github.com/mediadrop/mediadrop"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight self-hosted video CMS with comments and podcast/channel support — fine for small review loops. Dormant since 2021: no timecoded annotations, and it largely overlaps MediaCMS.",
+				"fr": "CMS vidéo léger auto-hébergé, avec commentaires et support podcast/chaine — correct pour de petites revues. Dormant depuis 2021 : pas d’annotations temporelles, et recouvre largement MediaCMS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MediaGoblin",
+			"source": {
+				"host": "sourcehut",
+				"path": "mediagoblin/mediagoblin",
+				"url": "https://git.sr.ht/~mediagoblin/mediagoblin"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "GNU media platform for self-hosted video, photo and audio with comments, collections and media-type plugins. Dormant since 2016: no review or approval, rough installer, small community.",
+				"fr": "Plateforme média du projet GNU pour héberger vidéos, photos et audio, avec commentaires, collections et plugins par type de média. Dormante depuis 2016 : ni revue ni approbation, installateur rugueux, petite communauté."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "mpv",
+			"source": {
+				"host": "github",
+				"path": "mpv-player/mpv",
+				"url": "https://github.com/mpv-player/mpv"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Terminal-first player for frame-accurate local playback and screenshot-based review, scriptable in Lua. Single-user though — no comments, versions or share links; annotations mean writing scripts.",
+				"fr": "Lecteur orienté terminal, précis à l’image, pour revue par captures d’écran, scriptable en Lua. Monoposte : pas de commentaires, de versions ni de liens de partage ; annoter demande d’écrire des scripts."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

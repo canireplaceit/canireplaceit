@@ -82,6 +82,132 @@
 				"en": "A fraction of the price for cloud recording and person detection. Same privacy trade you were trying to escape.",
 				"fr": "Une fraction du prix pour l’enregistrement cloud et la détection de personnes. Le même compromis sur la vie privée que vous vouliez fuir."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Motion",
+			"source": {
+				"host": "github",
+				"path": "Motion-Project/motion",
+				"url": "https://github.com/Motion-Project/motion"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Dependency-free CLI motion daemon, scriptable down to events and control via an HTTP API and MJPEG stream — but there is no review UI, no person detection, and config means hand-editing text files.",
+				"fr": "Daemon CLI de détection de mouvement, sans dépendance, scriptable jusqu’aux événements — mais pas d’interface de relecture, pas de détection de personnes, et une config par fichiers texte."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MotionEye",
+			"source": {
+				"host": "github",
+				"path": "motioneye-project/motioneye",
+				"url": "https://github.com/motioneye-project/motioneye"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Turnkey web frontend over Motion: many cameras, scheduled recording and timelapse from a mobile browser. The fastest route to a no-cloud UI, if you accept Motion’s detection limits — no AI, slow updates.",
+				"fr": "Frontend web clé en main par-dessus Motion : plusieurs caméras, enregistrement planifié, timelapse depuis un navigateur mobile. Rapide à monter sans cloud, mais pas d’IA et peu de mises à jour."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Home Assistant",
+			"source": {
+				"host": "github",
+				"path": "home-assistant/core",
+				"url": "https://github.com/home-assistant/core"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A hub, not an NVR: unified doorbell and camera streams, automations and notifications from first-party mobile apps. Recording history needs add-ons, and the setup has a learning curve.",
+				"fr": "Un hub, pas un NVR : flux de caméra et de sonnette unifiés, automations et notifications dans leurs apps mobiles. L’historique d’enregistrement exige des add-ons, et la prise en main n’est pas immédiate."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "go2rtc",
+			"source": {
+				"host": "github",
+				"path": "AlexxIT/go2rtc",
+				"url": "https://github.com/AlexxIT/go2rtc"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A single static binary that turns any RTSP camera into sub-second WebRTC streams for every consumer app, plus a REST and MQTT API. It stores nothing — glue, not a console.",
+				"fr": "Un binaire statique qui fait de n’importe quelle caméra RTSP un flux WebRTC sous la seconde pour toute app, avec API REST et MQTT. Il ne stocke rien : colle, pas une console."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Viseron",
+			"source": {
+				"host": "github",
+				"path": "roflcoopter/viseron",
+				"url": "https://github.com/roflcoopter/viseron"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Docker-centric setup, fewer cameras handled, and detection demands real CPU or GPU. For that you get on-device person, car and animal detection plus a record-and-review web UI, fully on-prem.",
+				"fr": "Déploiement docker-compose, moins de caméras gérées, détection exigeante en CPU/GPU. Vous obtenez la détection sur l’appareil des personnes, voitures et animaux et une UI web de relecture, tout en local."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kerberos.io",
+			"source": {
+				"host": "github",
+				"path": "kerberos-io/agent",
+				"url": "https://github.com/kerberos-io/agent"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Motion segmentation, object detection and a clip-review dashboard — a whole analytics suite under your control, the catch being a thin community, AI heavy to run and no official mobile app.",
+				"fr": "Segmentation de mouvement, détection d’objets, éditeur de config et tableau de bord de relecture : toute une suite d’analytique sous votre contrôle. Communauté et docs minces, IA lourde, pas d’app mobile officielle."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

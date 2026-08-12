@@ -1,0 +1,303 @@
+{
+	"slug": "kubectl",
+	"name": "kubectl",
+	"domain": "kubernetes.io",
+	"category": "containers-kubernetes",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "Yes, for daily work: k9s exposes the same API in a live UI and stops you retyping context and namespace. Keep kubectl for scripts and one-off commands; both earn their place.",
+		"fr": "Oui, pour le travail quotidien : k9s expose la même API dans une interface vivante et évite de retaper le contexte et le namespace. Gardez kubectl pour les scripts et les commandes ponctuelles ; les deux coexistent."
+	},
+	"whatYouLose": [
+		{
+			"en": "Scripting and one-off automation",
+			"fr": "L’automatisation en scripts"
+		},
+		{
+			"en": "Command muscle memory",
+			"fr": "La mémoire des commandes"
+		},
+		{
+			"en": "Presence on every machine",
+			"fr": "Sa présence sur toutes les machines"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "k9s",
+			"source": {
+				"host": "github",
+				"path": "derailed/k9s",
+				"url": "https://github.com/derailed/k9s"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A live terminal UI over the same API: navigate namespaces, tail logs, exec, port-forward, edit and delete without retyping context and namespace. Wraps kubectl, so scripts still use kubectl.",
+				"fr": "Une interface terminal en direct sur la même API : naviguer entre les namespaces, suivre les logs, exec, port-forward, éditer et supprimer sans retaper le contexte et le namespace. Elle enveloppe kubectl, donc les scripts gardent kubectl."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "kubectx",
+			"source": {
+				"host": "github",
+				"path": "ahmetb/kubectx",
+				"url": "https://github.com/ahmetb/kubectx"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The standard for context and namespace switching, with fzf fuzzy search. A small shell wrapper, not a replacement — it needs kubectl underneath.",
+				"fr": "La référence pour basculer de contexte et de namespace, avec recherche floue via fzf. Simple wrapper shell, pas un remplaçant — il suppose kubectl dessous."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "kubecolor",
+			"source": {
+				"host": "github",
+				"path": "hidetatz/kubecolor",
+				"url": "https://github.com/hidetatz/kubecolor"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Archived upstream — the maintained fork folded back into the original repo, and community forks now carry development. A drop-in wrapper that colorizes output, nothing more.",
+				"fr": "Archivé en amont — le fork maintenu est revenu dans le dépôt d’origine et des forks communautaires prennent le relais. Un wrapper transparent qui colorise la sortie, rien de plus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "kubectl-neat",
+			"source": {
+				"host": "github",
+				"path": "itaysk/kubectl-neat",
+				"url": "https://github.com/itaysk/kubectl-neat"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Strips default fields and runtime cruft from output so manifests diff cleanly. Post-processing only — it can also strip fields you meant to keep.",
+				"fr": "Enlève les champs par défaut et le superflu du runtime pour des manifests diffables. Simple post-traitement — il peut aussi retirer des champs que vous vouliez garder."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "kubie",
+			"source": {
+				"host": "github",
+				"path": "kubie-org/kubie",
+				"url": "https://github.com/kubie-org/kubie"
+			},
+			"license": "Zlib",
+			"effort": "managed",
+			"note": {
+				"en": "Per-shell context isolation with per-context variables, and a prompt override that stops wrong-cluster mistakes. Safer than shared kubectx state, but it does not wrap kubectl for CRUD.",
+				"fr": "Isolation par shell avec variables par contexte, et prompt modifié pour éviter de taper le mauvais cluster. Plus sûr que l’état partagé de kubectx, mais il ne remplace pas kubectl."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "stern",
+			"source": {
+				"host": "github",
+				"path": "stern/stern",
+				"url": "https://github.com/stern/stern"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Tails logs across every pod matching a selector, color-coded per container, with follow and regex filtering. Logs only — nothing beyond what the pod itself retains.",
+				"fr": "Suit les logs de tous les pods qui matchent un sélecteur, colorés par conteneur, avec follow et filtre regex. Que des logs — rien au-delà de ce que le pod conserve."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "kubectl-tree",
+			"source": {
+				"host": "github",
+				"path": "ahmetb/kubectl-tree",
+				"url": "https://github.com/ahmetb/kubectl-tree"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Renders the owner-reference hierarchy as a status-colored tree, so you can see what a workload owns. Read-only, and sparse ownership links leave little to show.",
+				"fr": "Affiche la hiérarchie des owner references en arbre coloré selon l’état, pour voir ce que possède un workload. Lecture seule, et peu à montrer si les liens d’ownership sont rares."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "kube-shell",
+			"source": {
+				"host": "github",
+				"path": "cloudnativelabs/kube-shell",
+				"url": "https://github.com/cloudnativelabs/kube-shell"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Interactive REPL over kubectl with autocomplete, fuzzy search and inline help. Last commit dates to 2022 — three years dormant, and it wraps kubectl rather than replacing it.",
+				"fr": "Un REPL interactif autour de kubectl, avec autocomplétion, recherche floue et aide en ligne. Dernier commit en 2022 — trois ans de silence, et il enveloppe kubectl plutôt que de le remplacer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "kube-prompt",
+			"source": {
+				"host": "github",
+				"path": "c-bata/kube-prompt",
+				"url": "https://github.com/c-bata/kube-prompt"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "An interactive console that keeps the current cluster in the prompt, with command completion. A thin single-user wrapper — no operational power beyond kubectl itself.",
+				"fr": "Une console interactive qui garde le cluster courant dans le prompt, avec complétion de commandes. Un wrapper fin, mono-utilisateur, qui n’ajoute rien à kubectl."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "kubelogin",
+			"source": {
+				"host": "github",
+				"path": "int128/kubelogin",
+				"url": "https://github.com/int128/kubelogin"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The standard exec-credential plugin for OIDC login — device flow and browser sign-in across Azure, Google and Keycloak IdPs. Auth only, and it assumes an OIDC-configured cluster.",
+				"fr": "Le plugin exec-credential standard pour le login OIDC — flux device et connexion navigateur avec les IdP Azure, Google ou Keycloak. Auth uniquement, et il suppose un cluster configuré en OIDC."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "kubespy",
+			"source": {
+				"host": "github",
+				"path": "pulumi/kubespy",
+				"url": "https://github.com/pulumi/kubespy"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Shows live diffs as the control plane reconciles any resource — tracing events and status transitions while debugging operators. Diagnostic only, and its watches add load on big clusters.",
+				"fr": "Montre les diffs en direct pendant que le control plane réconcilie une ressource, pour débugger les opérateurs. Diagnostic uniquement, et ses watches pèsent sur les gros clusters."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "kube-capacity",
+			"source": {
+				"host": "github",
+				"path": "robscott/kube-capacity",
+				"url": "https://github.com/robscott/kube-capacity"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Summarizes CPU and memory requests per node or pod, sorted, so you can see what is actually scheduled. Request-based, read-only — not live utilization.",
+				"fr": "Résume les requêtes CPU et mémoire par nœud ou par pod, triées, pour voir ce qui est réellement schedulé. Basé sur les requêtes, en lecture seule — pas l’utilisation réelle."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "kubeshark",
+			"source": {
+				"host": "github",
+				"path": "kubeshark/kubeshark",
+				"url": "https://github.com/kubeshark/kubeshark"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Deep packet inspection of live cluster traffic, with a Web UI filtering by namespace, service or header. Troubleshooting beyond kubectl logs — but a daemon-set agent runs in-cluster.",
+				"fr": "Inspection de paquets sur le trafic live du cluster, avec une interface web filtrant par namespace, service ou header. Bien au-delà des logs kubectl — mais un agent daemon-set tourne dans le cluster."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

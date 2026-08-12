@@ -1,0 +1,282 @@
+{
+	"slug": "tmux",
+	"name": "tmux",
+	"domain": null,
+	"category": "shell-terminal",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "Yes — you only give up a config you copied and a prefix key you fight. The honest loss is ubiquity: tmux is already on every machine.",
+		"fr": "Oui — vous ne perdez qu’une config copiée et un préfixe que vous combattez. La vraie perte est l’ubiquité : tmux est déjà présent sur toutes les machines."
+	},
+	"whatYouLose": [
+		{
+			"en": "Ubiquity across your servers",
+			"fr": "Ubiquité sur tous vos serveurs"
+		},
+		{
+			"en": "Prefix-key muscle memory",
+			"fr": "Mémoire musculaire du préfixe"
+		},
+		{
+			"en": "Already installed on every machine",
+			"fr": "Déjà installé sur toutes les machines"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Zellij",
+			"source": {
+				"host": "github",
+				"path": "zellij-org/zellij",
+				"url": "https://github.com/zellij-org/zellij"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Keybindings shown on screen, sane defaults, layouts as files, a WASM plugin system, and session persistence included. The trade-off: heavier, and a younger ecosystem.",
+				"fr": "Raccourcis affichés à l’écran, réglages sains par défaut, layouts en fichiers, plugins WASM et persistance de session incluse. En contrepartie : plus lourd, écosystème plus jeune."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GNU Screen",
+			"source": {
+				"host": "savannah",
+				"path": "gnu/screen",
+				"url": "https://savannah.gnu.org/projects/screen"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The original terminal multiplexer: detach/attach, split screens and scrollback predating tmux, packaged on every distro. Splits and keybindings feel clunkier than tmux or zellij, and releases come slowly.",
+				"fr": "Le multiplexeur d’origine : détachement/attachement de sessions, splits et scrollback antérieurs à tmux, présent sur toutes les distributions. Les splits et raccourcis restent moins ergonomiques que tmux ou zellij, et les sorties s’espacent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dvtm",
+			"source": {
+				"host": "github",
+				"path": "martanne/dvtm",
+				"url": "https://github.com/martanne/dvtm"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "dwm-style tiling in a very small C codebase, trivial to build and audit. Dormant two years, it has no detach of its own — pair it with abduco or dtach.",
+				"fr": "Tuileur façon dwm avec un très petit code C, trivial à compiler et auditer. Dormant depuis deux ans, il n’a pas de détachement propre — associez-le à abduco ou dtach."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "abduco",
+			"source": {
+				"host": "github",
+				"path": "martanne/abduco",
+				"url": "https://github.com/martanne/abduco"
+			},
+			"license": "ISC",
+			"effort": "managed",
+			"note": {
+				"en": "A thousand lines of C, zero dependencies: detach and reattach any program to named sessions. Dormant three years, it multiplexes nothing — no panes, no terminal emulation.",
+				"fr": "Mille lignes de C, zéro dépendance : détache/attache n’importe quel programme à des sessions nommées. Dormant depuis trois ans, il ne multiplexe rien — pas de panes, pas d’émulation de terminal."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dtach",
+			"source": {
+				"host": "github",
+				"path": "crigler/dtach",
+				"url": "https://github.com/crigler/dtach"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Detaches and reattaches a single terminal session; one small C file that compiles on any Unix. Multiple concurrent attaches need a configurable escape char, but panes, windows and scrollback are absent.",
+				"fr": "Détache et rattache une seule session terminal ; un petit fichier C qui compile sur n’importe quel Unix. Multi-attaches simultanées via une touche d’échappement, mais pas de panes, de fenêtres ni de scrollback."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pymux",
+			"source": {
+				"host": "github",
+				"path": "prompt-toolkit/pymux",
+				"url": "https://github.com/prompt-toolkit/pymux"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "A tmux clone in Python on prompt_toolkit: familiar windows, panes, sessions and keybindings, zero config, Windows included. Dormant two years, the Python runtime makes it slower and heavier than the C original.",
+				"fr": "Un clone de tmux en Python sur prompt_toolkit : fenêtres, panes, sessions et raccourcis familiers, zéro config, Windows compris. Dormant depuis deux ans, il est plus lent et plus lourd que l’original."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "mtm",
+			"source": {
+				"host": "github",
+				"path": "deadpixi/mtm",
+				"url": "https://github.com/deadpixi/mtm"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Perhaps the smallest useful multiplexer: split panes, scrollback and copy mode in one hand-written C file. Dormant two years, its config is compiled in, and detach needs abduco or dtach.",
+				"fr": "Peut-être le plus petit multiplexeur utile : splits, scrollback et copy mode dans un fichier C unique. Dormant depuis deux ans, config compilée dans le binaire et détachement via abduco ou dtach."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "byobu",
+			"source": {
+				"host": "github",
+				"path": "dustinkirkland/byobu",
+				"url": "https://github.com/dustinkirkland/byobu"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The distro-default frontend, with status bars, notifications and friendlier F1-F12 keys than raw tmux or screen. It needs tmux or screen underneath and adds wrapper overhead, so it is not standalone.",
+				"fr": "Le frontend multiplexeur des distributions, avec barres de statut, notifications et touches F1-F12 plus abordables que tmux ou screen brut. Il exige tmux ou screen dessous et ajoute une surcouche au démarrage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "tmate",
+			"source": {
+				"host": "github",
+				"path": "tmate-io/tmate",
+				"url": "https://github.com/tmate-io/tmate"
+			},
+			"license": "ISC",
+			"effort": "managed",
+			"note": {
+				"en": "A maintained tmux fork that does one-key session sharing over SSH, no cloud service needed. The default flow still points at tmate.io unless you self-host; beyond sharing it is plain tmux.",
+				"fr": "Un fork de tmux pour partager une session en une touche via SSH, sans service cloud. Le flux par défaut pointe vers tmate.io sauf si vous auto-hébergez ; sinon, c’est du tmux pur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "WezTerm",
+			"source": {
+				"host": "github",
+				"path": "wezterm/wezterm",
+				"url": "https://github.com/wezterm/wezterm"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A GPU-accelerated terminal with native panes, tabs and SSH/mux domains, scripted in Lua. It replaces the tmux-plus-terminal pairing, but it is a desktop GUI app and a heavy dependency footprint.",
+				"fr": "Un terminal accéléré GPU avec panes, onglets et domaines SSH/mux natifs, configurable en Lua. Il remplace le duo tmux + terminal, mais c’est une app graphique de bureau à l’empreinte de dépendances lourde."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Terminator",
+			"source": {
+				"host": "github",
+				"path": "gnome-terminator/terminator",
+				"url": "https://github.com/gnome-terminator/terminator"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A GTK terminal that tiles like tmux: drag-and-drop layouts, saved profiles, and broadcast typing to every pane at once. GUI-only, so useless over plain SSH, and heavier on resources than tmux.",
+				"fr": "Un terminal GTK qui découpe en panes comme tmux : layouts par glisser-déposer, profils sauvegardés, saisie diffusée vers toutes les panes. GUI uniquement, donc inutile en SSH nu et plus gourmand en ressources."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tilix",
+			"source": {
+				"host": "github",
+				"path": "gnunn1/tilix",
+				"url": "https://github.com/gnunn1/tilix"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A GTK3/VTE tiling terminal with sync mode echoing commands across panes, custom titles, badges and exportable layouts. GNOME-oriented, GUI-only, and its session persistence cannot match tmux's server model.",
+				"fr": "Un terminal tuilé GTK3/VTE au mode synchro qui rejoue les commandes dans toutes les panes, titres personnalisés, layouts exportables. Orienté GNOME, GUI uniquement ; persistance inférieure au modèle serveur de tmux."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

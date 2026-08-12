@@ -93,6 +93,237 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "SAGA GIS",
+			"source": {
+				"host": "github",
+				"path": "saga-gis/saga-gis",
+				"url": "https://github.com/saga-gis/saga-gis"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Pick this for terrain analysis and geomorphometry — 500+ modules that also run inside QGIS. Development creeps and the UI is dated, with no web or mobile front-end.",
+				"fr": "À choisir pour l’analyse de terrain et la géomorphométrie — plus de 500 modules qui fonctionnent aussi dans QGIS. Le développement avance lentement, l’interface est datée, pas de front-end web ni mobile."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Orfeo ToolBox (OTB)",
+			"source": {
+				"host": "github",
+				"path": "orfeotoolbox/OTB",
+				"url": "https://github.com/orfeotoolbox/OTB"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "For imagery, not general GIS: orthorectification, segmentation and ML classification from CLI or Python bindings. The Monteverdi GUI is utilitarian and there is no web publishing story.",
+				"fr": "Pour l’imagerie, pas pour la géomatique générale : orthorectification, segmentation et classification ML en CLI ou via les bindings Python. La GUI Monteverdi est utilitaire, sans histoire web propre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "WhiteboxTools",
+			"source": {
+				"host": "github",
+				"path": "jblindsay/whitebox-tools",
+				"url": "https://github.com/jblindsay/whitebox-tools"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Not a map authoring tool — a headless engine for raster, vector and LiDAR analysis with 500+ tools, usable from Python, R or the command line. No cartography or print layout, single-maintainer driven.",
+				"fr": "Pas un outil de cartographie : moteur headless, 500+ outils raster, vecteur et LiDAR, pilotable en Python, R ou CLI. Ni cartographie ni mise en page, projet à un seul mainteneur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GMT (Generic Mapping Tools)",
+			"source": {
+				"host": "github",
+				"path": "GenericMappingTools/gmt",
+				"url": "https://github.com/GenericMappingTools/gmt"
+			},
+			"license": "LGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Publication-grade maps from scripts — geodesy, projections, grid interpolation. But script-only: no interactive editing, no attribute management, not a drop-in desktop GIS.",
+				"fr": "Des cartes de qualité publication depuis des scripts — géodésie, projections, interpolation de grilles. Mais script uniquement : ni édition interactive, ni gestion d’attributs, pas un SIG de bureau prêt à l’emploi."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PostGIS",
+			"source": {
+				"host": "github",
+				"path": "postgis/postgis",
+				"url": "https://github.com/postgis/postgis"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The standard open store for spatial data: spatial SQL on PostgreSQL, backing QGIS, GeoServer and web apps. Not a map-making app though — no cartography, and geodatabase-style versioning needs extra tooling.",
+				"fr": "Le stockage spatial standard ouvert : SQL spatial sur PostgreSQL, backend de QGIS, GeoServer et des applis web. Pas de cartographie ni de mise en page, et le versionnement géodatabase exige de l’outillage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GeoServer",
+			"source": {
+				"host": "github",
+				"path": "geoserver/geoserver",
+				"url": "https://github.com/geoserver/geoserver"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Self-hosted OGC publishing — WMS, WFS, WMTS, WCS with SLD styling and role security. Serves rasters and PostGIS stores; not for desktop authoring, and styling is code-driven, not point-and-click.",
+				"fr": "Serveur OGC auto-hébergé — WMS, WFS, WMTS, WCS, styles SLD et sécurité par rôles. Sert rasters et PostGIS, mais pas de création de cartes : le style se code (SLD), ne se clique pas."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "osm2pgsql",
+			"source": {
+				"host": "github",
+				"path": "osm2pgsql-dev/osm2pgsql",
+				"url": "https://github.com/osm2pgsql-dev/osm2pgsql"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Powers openstreetmap.org and routing stacks: loads OSM into PostGIS at scale, with Lua-based processing and live updates. It is an ingestion pipeline, not a GIS — no GUI, PostGIS required.",
+				"fr": "Derrière openstreetmap.org et les stacks de routing : charge OSM dans PostGIS à grande échelle, traitement Lua et mises à jour live. Un pipeline d’ingestion, pas un SIG — sans GUI, et PostGIS obligatoire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "tippecanoe",
+			"source": {
+				"host": "github",
+				"path": "felt/tippecanoe",
+				"url": "https://github.com/felt/tippecanoe"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Build zoom-corrected vector tiles from enormous datasets — MBTiles or PMTiles for MapLibre, Leaflet and Felt. Tile generation only: no symbology authoring, no analysis or editing.",
+				"fr": "Des tuiles vectorielles corrigées par zoom à partir de jeux de données énormes — MBTiles ou PMTiles pour MapLibre, Leaflet et Felt. Génération de tuiles seulement : pas de symbologie, pas d’analyse ni d’édition."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MapSCII",
+			"source": {
+				"host": "github",
+				"path": "rastapasta/mapscii",
+				"url": "https://github.com/rastapasta/mapscii"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "OpenStreetMap in a terminal: ASCII or braille tiles, pan and zoom from the keyboard, works over SSH. A viewer only — no editing or analysis, and it depends on OSM tile servers.",
+				"fr": "OpenStreetMap dans un terminal : tuiles ASCII ou braille, déplacement et zoom au clavier, fonctionne en SSH. Simple visualiseur — pas d’édition ni d’analyse, et dépend des serveurs de tuiles OSM."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Osmium Tool",
+			"source": {
+				"host": "github",
+				"path": "osmcode/osmium-tool",
+				"url": "https://github.com/osmcode/osmium-tool"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Streaming OSM extracts with a low memory footprint — merge, filter, convert, plus diff handling for incremental updates. OSM-centric: no analysis, styling or rendering, command line only.",
+				"fr": "Des extraits OSM en streaming, faible empreinte mémoire — fusion, filtrage, conversion, gestion des diffs. Centré OSM : pas d’analyse, de style ni de rendu, uniquement en ligne de commande."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GeoNode",
+			"source": {
+				"host": "github",
+				"path": "GeoNode/geonode",
+				"url": "https://github.com/GeoNode/geonode"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Self-hosted web GIS for teams: manage, style and publish layers in the browser, with role-based access and map composer. Not a desktop authoring suite — heavier infrastructure, and advanced geoprocessing leans on QGIS.",
+				"fr": "SIG web auto-hébergé pour les équipes : gestion, style et publication des couches dans le navigateur, accès par rôles. Pas une suite de bureau — infrastructure lourde, et le géotraitement avancé passe par QGIS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

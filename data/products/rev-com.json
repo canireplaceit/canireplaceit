@@ -93,6 +93,216 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "faster-whisper",
+			"source": {
+				"host": "github",
+				"path": "SYSTRAN/faster-whisper",
+				"url": "https://github.com/SYSTRAN/faster-whisper"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "CTranslate2 reimplementation of Whisper running up to 4x faster with lower memory; the engine behind most self-host pipelines. Library only: no UI, and output quality matches base Whisper.",
+				"fr": "Réimplémentation CTranslate2 de Whisper, jusqu’à 4x plus rapide, plus léger en mémoire ; moteur de la plupart des pipelines self-host. Bibliothèque sans UI, qualité égale au Whisper de base."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenAI Whisper",
+			"source": {
+				"host": "github",
+				"path": "openai/whisper",
+				"url": "https://github.com/openai/whisper"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "The original general-purpose model; the reference CLI for batch podcast transcription. Multilingual with SRT/VTT/JSON export, but slow without GPU and development has slowed against forks.",
+				"fr": "Le modèle original d’usage général, CLI de référence pour transcrire des podcasts par lots. Multilingue, export SRT/VTT/JSON, mais lent sans GPU et au développement ralenti face aux forks."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Vosk",
+			"source": {
+				"host": "github",
+				"path": "alphacep/vosk-api",
+				"url": "https://github.com/alphacep/vosk-api"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Offline Kaldi-based recognizer built for live streaming, phones and Raspberry Pi, with 20+ languages and a WebSocket server. Accuracy trails Whisper on noisy audio and no word timestamps by default.",
+				"fr": "Reconnaissance Kaldi hors ligne pour le streaming en direct, téléphones et Raspberry Pi, 20+ langues et serveur WebSocket. Précision en retrait sur l’audio bruité, pas de timestamps par mot par défaut."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "DeepSpeech",
+			"source": {
+				"host": "github",
+				"path": "mozilla/DeepSpeech",
+				"url": "https://github.com/mozilla/DeepSpeech"
+			},
+			"license": "MPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Mozilla’s end-to-end ASR engine, archived — no active development. Still installable for simple offline transcription on CPU or GPU, but English-centric and needs manual alignment for subtitles.",
+				"fr": "Moteur ASR de bout en bout signé Mozilla, archivé — plus aucun développement. Toujours installable pour une transcription hors ligne simple, mais centré anglais et nécessite un alignement manuel pour les sous-titres."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Buzz",
+			"source": {
+				"host": "github",
+				"path": "chidiwilliams/buzz",
+				"url": "https://github.com/chidiwilliams/buzz"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Desktop GUI transcribing audio locally with Whisper: drag-and-drop, GPU-accelerated, exports SRT/VTT/TXT and batch files. Desktop only, no server API, and big models eat RAM.",
+				"fr": "Interface desktop qui transcrit l’audio localement via Whisper : glisser-déposer, accélération GPU, export SRT/VTT/TXT et traitement par lots. Desktop uniquement, sans API serveur, et les gros modèles consomment beaucoup de RAM."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "oTranscribe",
+			"source": {
+				"host": "github",
+				"path": "oTranscribe/oTranscribe",
+				"url": "https://github.com/oTranscribe/oTranscribe"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Manual browser transcription with inline media controls and auto-pause; audio never leaves the device. Markdown export and speaker notes, but no speech-to-text and no collaboration.",
+				"fr": "Transcription manuelle dans le navigateur, contrôles média intégrés et pause automatique ; l’audio ne quitte jamais l’appareil. Export markdown et notes locuteur, mais sans reconnaissance vocale ni collaboration."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SpeechRecognition",
+			"source": {
+				"host": "github",
+				"path": "Uberi/speech_recognition",
+				"url": "https://github.com/Uberi/speech_recognition"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Python wrapper exposing Whisper, Vosk, PocketSphinx and cloud engines behind one transcribe() call. Uniform API for scripts, but a wrapper only: no subtitle formatting, quality rides on the chosen engine.",
+				"fr": "Wrapper Python qui expose Whisper, Vosk, PocketSphinx et les moteurs cloud derrière un transcribe() pour scripts. API uniforme, mais enveloppe sans formatage de sous-titres : la qualité dépend du moteur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "whisper-timestamped",
+			"source": {
+				"host": "github",
+				"path": "linto-ai/whisper-timestamped",
+				"url": "https://github.com/linto-ai/whisper-timestamped"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Drop-in Whisper wrapper adding accurate word-level timestamps — the missing piece for auto-subtitles. SRT/VTT export and offset-aware alignment, but AGPL copyleft and slower than plain Whisper.",
+				"fr": "Wrapper Whisper qui ajoute des timestamps par mot précis — la pièce manquante des sous-titres automatiques. Export SRT/VTT aligné et conscient du décalage, mais licence AGPL et plus lent que Whisper seul."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Stable-ts",
+			"source": {
+				"host": "github",
+				"path": "jianfch/stable-ts",
+				"url": "https://github.com/jianfch/stable-ts"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Whisper add-on for stable word timestamps and rolled-up subtitles; archived since 2024 but still used in pipelines. VAD and HTTP audio source support; GPU recommended, CLI only, no UI.",
+				"fr": "Extension Whisper pour des timestamps stables et sous-titres regroupés ; archivée depuis 2024, encore utilisée dans les pipelines. Support VAD et sources audio HTTP ; GPU recommandé, CLI sans interface."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Whisper-WebUI",
+			"source": {
+				"host": "github",
+				"path": "jhj0517/Whisper-WebUI",
+				"url": "https://github.com/jhj0517/Whisper-WebUI"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Gradio web UI for drag-and-drop Whisper transcription with subtitle export and a GPU/CPU toggle. Built for one user at a time: no auth, and GPU speed leans on the NVIDIA stack.",
+				"fr": "Interface web Gradio pour transcrire en glisser-déposer avec Whisper, export de sous-titres et bascule GPU/CPU. Mono-utilisateur, sans authentification, et la vitesse GPU repose sur la pile NVIDIA."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

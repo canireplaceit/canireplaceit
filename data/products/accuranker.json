@@ -82,6 +82,111 @@
 				"en": "A quarter of the price for daily tracking accurate enough for most sites. Fewer SERP features and thinner reporting.",
 				"fr": "Quatre fois moins cher pour un suivi quotidien assez précis pour la plupart des sites. Moins de fonctionnalités SERP et des rapports plus maigres."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "googler",
+			"source": {
+				"host": "github",
+				"path": "jarun/googler",
+				"url": "https://github.com/jarun/googler"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Archived upstream since 2021, but the CLI works: battle-tested Google SERP inspection with site: operators and keyboard-driven mode, scriptable for rank extraction. No history or alerts; automated queries can trip Google blocking.",
+				"fr": "Le dépôt est archivé depuis 2021, mais le CLI fonctionne : inspection SERP Google éprouvée, opérateur site:. Sortie scriptable pour extraire les positions, sans historique ni alertes ; Google peut bloquer les requêtes automatisées."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SEO Panel",
+			"source": {
+				"host": "github",
+				"path": "seopanel/Seo-Panel",
+				"url": "https://github.com/seopanel/Seo-Panel"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted control panel tracking keyword ranks on Google, Bing and Yahoo, with a built-in crawler and email reports. The PHP UI is dated; scraping-based checks can get blocked; the community is small.",
+				"fr": "Panneau de contrôle SEO auto-hébergé, suivi des positions sur Google, Bing et Yahoo, crawler intégré, rapports par e-mail. Le PHP est daté, le scraping peut être bloqué, la communauté est petite."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SEO Rank Tracker",
+			"source": {
+				"host": "github",
+				"path": "GreatStackDev/seo-rank-tracker",
+				"url": "https://github.com/GreatStackDev/seo-rank-tracker"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Modern MIT-licensed React/Next.js keyword tracker with a responsive dashboard and analytics pages, actively developed into 2026. It's young with a small community, lacks SERP-feature data and alerts, and leans on search-API quota.",
+				"fr": "Tracker de mots-clés React/Next.js, MIT, tableau de bord responsive et pages d’analytics, développé activement en 2026. Jeune, petite communauté, pas de données de fonctionnalités SERP ni d’alertes ; dépend d’un quota d’API."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Google SERP Checker PHP Script",
+			"source": {
+				"host": "github",
+				"path": "codingdudecom/search-engine-keyword-position-checker-PHP-script",
+				"url": "https://github.com/codingdudecom/search-engine-keyword-position-checker-PHP-script"
+			},
+			"license": "CC0-1.0",
+			"effort": "managed",
+			"note": {
+				"en": "Single-file CC0 PHP rank checker — zero dependencies, drops into any PHP host. Last commit was 2020, so treat it as frozen: no scheduling or history, and Google's scraper detection can break it.",
+				"fr": "Script PHP CC0 monofichier, zéro dépendance, à poser sur n’importe quel hébergeur. Dernier commit en 2020 : figé, sans planification ni historique, et la détection de scraping de Google peut le casser."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SEO Ranking Engine",
+			"source": {
+				"host": "github",
+				"path": "madmatah/seo-ranking-engine",
+				"url": "https://github.com/madmatah/seo-ranking-engine"
+			},
+			"license": "LGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "LGPL rank tracker built for Google App Engine, checking keyword positions across engines on a schedule. Dormant since 2012, needing migration to modern GAE — minimal UI, no alerts or reports.",
+				"fr": "Tracker LGPL pour Google App Engine : positions des mots-clés sur plusieurs moteurs, vérifications planifiées. Dormant depuis 2012, à migrer vers le GAE moderne ; UI minimale, sans alertes ni rapports."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "us-only"
+			}
 		}
 	],
 	"priority": 2

@@ -72,6 +72,266 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "CapRover",
+			"source": {
+				"host": "github",
+				"path": "caprover/caprover",
+				"url": "https://github.com/caprover/caprover"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted PaaS on Docker Swarm. One-click app catalog, git-push or Dockerfile deploys, Let’s Encrypt SSL out of the box. Trades Kubernetes for Swarm, and the community trails Coolify.",
+				"fr": "PaaS auto-hébergé sur Docker Swarm. Catalogue d’apps en un clic, déploiements par git-push ou Dockerfile, SSL Let’s Encrypt intégré. Swarm au lieu de Kubernetes, et une communauté plus petite que Coolify."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kamal",
+			"source": {
+				"host": "github",
+				"path": "basecamp/kamal",
+				"url": "https://github.com/basecamp/kamal"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "One command deploys a containerized app to any VPS, rolling restarts, Traefik and SSL built in. Plain Docker, no orchestrator, but CLI only, no dashboard, and the servers are yours to run.",
+				"fr": "Une commande déploie une app conteneurisée sur tout VPS : redémarrages progressifs, Traefik et SSL intégrés. Docker brut, sans orchestrateur, mais CLI seule, pas de tableau de bord, et le serveur est vôtre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Piku",
+			"source": {
+				"host": "github",
+				"path": "piku/piku",
+				"url": "https://github.com/piku/piku"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Git-push Heroku for one small VPS, no Docker required: systemd, nginx and uWSGI scale each app on a $5 box. No container isolation, no web UI, a minimal ecosystem.",
+				"fr": "Heroku par git-push sur un petit VPS, sans Docker : systemd, nginx et uWSGI font tourner chaque app sur un serveur à 5 $. Pas d’isolation par conteneur, pas d’interface web, écosystème minimal."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dokploy",
+			"source": {
+				"host": "github",
+				"path": "Dokploy/dokploy",
+				"url": "https://github.com/Dokploy/dokploy"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Open-source PaaS for VPS that deploys from GitHub, GitLab or Bitbucket, with managed databases and templates. Growing fast; the commercial tier hides behind proprietary code, and younger than Coolify or Dokku.",
+				"fr": "PaaS pour VPS : déploiement depuis GitHub, GitLab ou Bitbucket, bases gérées et modèles. Croissance rapide, mais le niveau commercial repose sur du code propriétaire et le projet reste plus jeune que Coolify."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Commercial tier",
+					"fr": "Niveau commercial"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Flynn",
+			"source": {
+				"host": "github",
+				"path": "flynn/flynn",
+				"url": "https://github.com/flynn/flynn"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Archived, no longer maintained. A turnkey Heroku clone with git-push buildpack deploys and built-in Postgres, Redis and Mongo add-ons — single-host at heart, with HA that stayed experimental.",
+				"fr": "Archivé, plus maintenu. Un clone d’Heroku clé en main : déploiements git-push par buildpacks, add-ons Postgres, Redis et Mongo intégrés — monoconteneur d’origine, et une HA restée expérimentale."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tsuru",
+			"source": {
+				"host": "github",
+				"path": "tsuru/tsuru",
+				"url": "https://github.com/tsuru/tsuru"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Git-push Heroku workloads onto Kubernetes: buildpacks or Dockerfiles, a REST API and CLI, scaling and quotas. Needs a Kubernetes cluster to be useful, and its docs trail newer tools.",
+				"fr": "Des workloads Heroku par git-push sur Kubernetes : buildpacks ou Dockerfiles, API REST et CLI, scaling et quotas. Exige un cluster Kubernetes pour servir, et sa doc traîne derrière les outils récents."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kubero",
+			"source": {
+				"host": "github",
+				"path": "kubero-dev/kubero",
+				"url": "https://github.com/kubero-dev/kubero"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "A single binary runs the control plane; apps are CRDs deployed from Git, and an app catalog eases start-up. You bring the Kubernetes cluster; the GPL licence may give pause.",
+				"fr": "Un binaire unique comme plan de contrôle : apps en CRD déployées depuis Git, catalogue intégré. Vous apportez le cluster Kubernetes ; la licence GPL peut en refroidir certains."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nanobox",
+			"source": {
+				"host": "github",
+				"path": "nanobox-io/nanobox",
+				"url": "https://github.com/nanobox-io/nanobox"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Dormant since late 2019, docs and platform links now defunct. It spun up isolated Heroku-like sandboxes locally, then deployed them to your servers, runtimes and databases pre-wired through Docker.",
+				"fr": "En sommeil depuis fin 2019, docs et liens en partie morts. Il montait des sandbox isolées façon Heroku en local, puis les déployait sur vos serveurs, runtimes et bases préconfigurés via Docker."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Waypoint",
+			"source": {
+				"host": "github",
+				"path": "hashicorp/waypoint",
+				"url": "https://github.com/hashicorp/waypoint"
+			},
+			"license": "BSL-1.1",
+			"effort": "docker",
+			"note": {
+				"en": "HashiCorp archived it in 2024. A CLI and server giving one declarative HCL workflow across Kubernetes, Nomad, ECS or Docker, with Pack buildpacks — under the source-available BSL, no less.",
+				"fr": "Archivé par HashiCorp en 2024. Un CLI et un serveur offrant un même workflow déclaratif HCL sur Kubernetes, Nomad, ECS ou Docker, avec les buildpacks Pack — sous licence BSL, source-available."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenShift Origin",
+			"source": {
+				"host": "github",
+				"path": "openshift/origin",
+				"url": "https://github.com/openshift/origin"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Red Hat’s open-source core: a Kubernetes PaaS with a web console, Source-to-Image builds and built-in CI/CD. Heavyweight — you need a real cluster, and Red Hat steers you toward OCP.",
+				"fr": "Le noyau open source d’OpenShift : un PaaS Kubernetes avec console web, builds Source-to-Image et CI/CD intégré. Lourd — il faut un vrai cluster, et Red Hat vous pousse vers OpenShift Container Platform."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Cozystack",
+			"source": {
+				"host": "github",
+				"path": "cozystack/cozystack",
+				"url": "https://github.com/cozystack/cozystack"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Batteries-included Kubernetes PaaS: containers, KubeVirt VMs and databases under one dashboard, installed on bare metal with a single command. Young project, and the platform tooling still has a learning curve.",
+				"fr": "PaaS Kubernetes clé en main : conteneurs, VMs KubeVirt et bases sous un tableau de bord unique, install sur bare metal en une commande. Projet jeune, la plateforme reste à prendre en main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ZaneOps",
+			"source": {
+				"host": "github",
+				"path": "zane-ops/zane-ops",
+				"url": "https://github.com/zane-ops/zane-ops"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Deploys apps and databases to your server with logs, metrics and traces built in; Traefik and auto-SSL included. The commercial EE tier sits behind a separate licence, and the ecosystem trails Coolify.",
+				"fr": "Déploie apps et bases sur votre serveur, logs, métriques et traces intégrés ; Traefik et SSL auto inclus. L’édition EE vit sous une licence séparée, et l’écosystème reste plus petit que Coolify."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise Edition",
+					"fr": "Édition Enterprise"
+				}
+			}
 		}
 	],
 	"priority": 3

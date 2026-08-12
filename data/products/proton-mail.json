@@ -132,6 +132,220 @@
 				"en": "Cheaper, German, and it encrypts subject lines and the address book too, which Proton does not. Its non-standard protocol means no IMAP client will ever talk to it.",
 				"fr": "Moins cher, allemand, et il chiffre aussi les objets et le carnet d’adresses, ce que Proton ne fait pas. Son protocole non standard signifie qu’aucun client IMAP ne lui parlera jamais."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "aerc",
+			"source": {
+				"host": "sourcehut",
+				"path": "rjarry/aerc",
+				"url": "https://git.sr.ht/~rjarry/aerc"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Vim-style terminal client with IMAP, JMAP, Maildir and notmuch backends, actively developed on SourceHut. Terminal-only, and the learning curve is real for anyone who does not vim.",
+				"fr": "Client TUI façon vim, backends IMAP, JMAP, Maildir et notmuch, développement actif sur SourceHut. Terminal uniquement, et l’apprentissage est rude hors culture vim."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "himalaya",
+			"source": {
+				"host": "github",
+				"path": "pimalaya/himalaya",
+				"url": "https://github.com/pimalaya/himalaya"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Fast Rust CLI for IMAP/SMTP with account profiles and static binaries, made for scripts. No calendar or UI, and the ecosystem around it stays thinner than mutt’s.",
+				"fr": "CLI Rust rapide pour IMAP/SMTP, profils multi-comptes et binaires statiques, pensé pour les scripts. Pas de calendrier ni d’interface, et un écosystème plus mince que celui de mutt."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "meli",
+			"source": {
+				"host": "codeberg",
+				"path": "meli/meli",
+				"url": "https://codeberg.org/meli/meli"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Young Rust TUI with embedded SQLite, JMAP/IMAP, GPG and contacts, under active development. Small community, features still maturing, and no notmuch support.",
+				"fr": "TUI Rust récent, SQLite embarqué, JMAP/IMAP, GPG et contacts, en développement actif. Petite communauté, fonctionnalités encore en rodage, pas de notmuch."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "neomutt",
+			"source": {
+				"host": "gitlab",
+				"path": "neomutt/neomutt",
+				"url": "https://gitlab.com/neomutt/neomutt"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Battle-tested mutt fork: IMAP/POP3/Maildir, PGP/SMIME, hugely scriptable. Dated UX and config-heavy, with external tools needed for fetch and send.",
+				"fr": "Le fork mutt éprouvé : IMAP/POP3/Maildir, PGP/SMIME, très scriptable. UX datée, config lourde, et outils externes pour la récupération comme l’envoi."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "alot",
+			"source": {
+				"host": "github",
+				"path": "pazz/alot",
+				"url": "https://github.com/pazz/alot"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Keyboard-driven notmuch frontend: threaded search, tags, hooks, GPG. It is only a frontend — you bring the notmuch indexer and your own sync.",
+				"fr": "Frontend notmuch piloté au clavier : recherche en fils, tags, hooks, GPG. Un frontend seulement — l’indexeur notmuch et la synchro restent à charge."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "mu",
+			"source": {
+				"host": "github",
+				"path": "djcb/mu",
+				"url": "https://github.com/djcb/mu"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Fast Maildir indexing with a query language and a mu4e Emacs frontend, synced via mbsync or offlineimap. Emacs or nothing — and Maildir-only, no built-in IMAP sync.",
+				"fr": "Indexeur Maildir rapide, langage de requête et frontend mu4e pour Emacs, synchro via mbsync ou offlineimap. Emacs ou rien — Maildir uniquement, pas de synchro IMAP intégrée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mailspring",
+			"source": {
+				"host": "github",
+				"path": "Foundry376/Mailspring",
+				"url": "https://github.com/Foundry376/Mailspring"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Polished Electron client — unified inbox, snooze, translation, fast cross-account search. Memory-hungry, and the sync backend and some features depend on the proprietary service.",
+				"fr": "Client Electron soigné — boîte unifiée, snooze, traduction, recherche rapide multi-comptes. Gourmand en mémoire, et le backend de synchro comme certains atouts reposent sur le service propriétaire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Translation and read-receipts behind Mailspring ID",
+					"fr": "Traduction et accusés de lecture derrière Mailspring ID"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "K-9 Mail",
+			"source": {
+				"host": "github",
+				"path": "thunderbird/thunderbird-android",
+				"url": "https://github.com/thunderbird/thunderbird-android"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The de-facto open-source Android client, now Thunderbird’s mobile app. IMAP/POP3 with OpenPGP via OpenKeychain, F-Droid builds. Android-only — no calendar, no desktop side.",
+				"fr": "Le client Android open-source de référence, devenu l’appli mobile de Thunderbird. IMAP/POP3 avec OpenPGP via OpenKeychain, builds F-Droid. Android uniquement — ni calendrier ni version bureau."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "sup",
+			"source": {
+				"host": "github",
+				"path": "sup-heliotrope/sup",
+				"url": "https://github.com/sup-heliotrope/sup"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Ruby TUI built around threaded conversations and Maildir, with incremental search and hooks. Slow-moving and Maildir-centric — a small community keeps it alive.",
+				"fr": "TUI Ruby axé sur les conversations en fil et Maildir, recherche incrémentale et hooks. Le projet avance lentement, reste centré Maildir, porté par une petite communauté."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ElectronMail",
+			"source": {
+				"host": "github",
+				"path": "vladimiry/ElectronMail",
+				"url": "https://github.com/vladimiry/ElectronMail"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Electron wrapper that turns Proton, Tutanota and Gmail into native-feeling desktop apps with tray and notifications. Not standalone, unofficial, and stuck with each service’s account limits.",
+				"fr": "Wrapper Electron qui donne à Proton, Tutanota et Gmail une appli bureau avec notifications et systray. Pas autonome, non officiel, soumis aux mêmes limites de comptes que le service enveloppé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

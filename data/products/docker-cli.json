@@ -1,0 +1,303 @@
+{
+	"slug": "docker-cli",
+	"name": "Docker CLI",
+	"domain": "docker.com",
+	"category": "containers-kubernetes",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "Yes, but it replaces the ergonomics, not the engine. lazydocker talks to the same daemon socket over a single binary, so you keep Docker underneath. The honest verdict: worth it for daily container work, pointless if you only run one container.",
+		"fr": "Oui, mais ça remplace le confort, pas le moteur. lazydocker parle au même socket du daemon via un binaire unique, Docker reste dessous. Verdict honnête : utile au quotidien, inutile si vous ne faites tourner qu’un conteneur."
+	},
+	"whatYouLose": [
+		{
+			"en": "Shell scriptability of CLI output",
+			"fr": "Le scripting des sorties en shell"
+		},
+		{
+			"en": "Availability on every machine",
+			"fr": "La présence sur toute machine"
+		},
+		{
+			"en": "Years of built-up muscle memory",
+			"fr": "Le muscle memory accumulé"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "lazydocker",
+			"source": {
+				"host": "github",
+				"path": "jesseduffield/lazydocker",
+				"url": "https://github.com/jesseduffield/lazydocker"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "One terminal UI instead of several terminals for logs across a compose stack. A second binary to install and update, and one more TUI to learn.",
+				"fr": "Une seule UI dans le terminal au lieu de plusieurs pour les logs d’une stack compose. Un binaire de plus à installer et à mettre à jour, et un TUI de plus à apprendre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "podman",
+			"source": {
+				"host": "github",
+				"path": "podman-container-tools/podman",
+				"url": "https://github.com/podman-container-tools/podman"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Daemonless drop-in; alias docker and the CLI stays familiar. Runs containers rootless and per-user, with systemd and Kubernetes YAML on top. Swarm and orchestration are out, rootless networking has perf caveats.",
+				"fr": "Remplaçant sans démon, `alias docker` et la CLI reste familière. Conteneurs rootless par utilisateur, intégration systemd et Kubernetes YAML. Pas de swarm ni orchestration, réseau rootless avec des limites de perf."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "nerdctl",
+			"source": {
+				"host": "github",
+				"path": "containerd/nerdctl",
+				"url": "https://github.com/containerd/nerdctl"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Docker-compatible CLI straight against containerd, when you leave the daemon. Feature parity plus compose, buildkit, lazy pulling. No build engine of its own, less tooling mindshare than the real CLI.",
+				"fr": "CLI compatible Docker branchée sur containerd, quand on quitte le démon. Parité de fonctionnalités, compose, buildkit, lazy pulling. Pas de moteur de build propre, moins d’outillage que la CLI d’origine."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "colima",
+			"source": {
+				"host": "github",
+				"path": "abiosoft/colima",
+				"url": "https://github.com/abiosoft/colima"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A Docker-compatible VM keeps the real Docker CLI working without Docker Desktop. Docker or containerd runtime, per-VM resource tuning. Linux support is thin, and there is no GUI — config is CLI-driven.",
+				"fr": "Une VM compatible Docker garde la vraie CLI Docker sans Docker Desktop. Runtime Docker ou containerd, ressources de VM réglables finement. Linux supporté de façon limitée, pas de GUI, tout en CLI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "finch",
+			"source": {
+				"host": "github",
+				"path": "runfinch/finch",
+				"url": "https://github.com/runfinch/finch"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "AWS-maintained containerd runtime with a docker-compatible CLI, for CI and desktops alike. The VM self-manages through Lima. macOS-first; Linux is still maturing and the ecosystem is thin.",
+				"fr": "Runtime containerd maintenu par AWS, CLI compatible Docker, pour la CI comme le bureau. VM gérée automatiquement via Lima. Priorité macOS, Linux encore en rodage, écosystème limité."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ctop",
+			"source": {
+				"host": "github",
+				"path": "bcicen/ctop",
+				"url": "https://github.com/bcicen/ctop"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Tiny single binary, the top-style live monitor for CPU, mem and IO over the Docker socket. Dormant since July 2024, though — no commit landed in two years.",
+				"fr": "Binaire unique minuscule, moniteur live façon top (CPU, mémoire, IO) sur le socket Docker. Mais en sommeil depuis juillet 2024, plus aucun commit depuis deux ans."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dive",
+			"source": {
+				"host": "github",
+				"path": "wagoodman/dive",
+				"url": "https://github.com/wagoodman/dive"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The TUI for layer-by-layer size and wasted space before you ship, with an efficiency score in CI. Inspection only — no container management — and it needs the engine or an archive.",
+				"fr": "La TUI pour la taille couche par couche et l’espace perdu avant le ship, avec score d’efficacité en CI. Inspection uniquement, aucune gestion de conteneurs, moteur ou archive requis."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dry",
+			"source": {
+				"host": "github",
+				"path": "moncho/dry",
+				"url": "https://github.com/moncho/dry"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Full dashboard: run, stop, rm and logs from the TUI, with search and mouse navigation. No compose or multi-host orchestration, and creating containers through the UI stays limited.",
+				"fr": "Tableau de bord complet : run, stop, rm, logs depuis la TUI, recherche et souris. Pas de compose ni d’orchestration multi-hôte, et la création de conteneurs reste limitée dans l’interface."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "podman-tui",
+			"source": {
+				"host": "github",
+				"path": "containers/podman-tui",
+				"url": "https://github.com/containers/podman-tui"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Official Podman TUI, pods-first, plus image pull, build and search flows, reachable over SSH on remote hosts. Podman only — Docker engine unsupported, and it is younger than lazydocker.",
+				"fr": "TUI officielle de Podman, orientée pods, avec pull, build et recherche d’images, pilotable en SSH sur des hôtes distants. Podman uniquement, moteur Docker non supporté, et plus jeune que lazydocker."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "podman-compose",
+			"source": {
+				"host": "github",
+				"path": "containers/podman-compose",
+				"url": "https://github.com/containers/podman-compose"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Keeps docker-compose workflows alive on a daemonless host: up, down, scale, logs mapped onto podman pods. Not a full compose spec, and it needs podman underneath, not plain docker.",
+				"fr": "Garde le workflow docker-compose sur un hôte sans démon : up, down, scale, logs remappés sur les pods podman. Spec compose incomplète, et podman requis, pas de docker seul."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "skopeo",
+			"source": {
+				"host": "github",
+				"path": "podman-container-tools/skopeo",
+				"url": "https://github.com/podman-container-tools/skopeo"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Daemon-free registry CLI: copy images between any OCI/Docker registries, inspect raw manifests, sign and verify. Registry ops only — nothing runs or builds, and low-level concepts need learning.",
+				"fr": "CLI registre sans démon : copie d’images entre registres OCI/Docker, inspection brute des manifests, signature et vérification. Opérations registre uniquement, rien pour run ni build, concepts de bas niveau à apprendre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "regclient",
+			"source": {
+				"host": "github",
+				"path": "regclient/regclient",
+				"url": "https://github.com/regclient/regclient"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "regctl, a single-binary registry client for scripting: tagging, copying, diffing, with OCI/Docker v2 and v2-s2. Big in CI for release promotion. Narrow scope though — no compose, no container lifecycle.",
+				"fr": "regctl, client registre monobinaire pour les scripts : tag, copie, diff, OCI/Docker v2 et v2-s2. Très utilisé en CI pour les releases. Périmètre étroit, ni compose ni cycle de vie des conteneurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "docker-ls",
+			"source": {
+				"host": "github",
+				"path": "mayflower/docker-ls",
+				"url": "https://github.com/mayflower/docker-ls"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Simple archived CLI to list registry tags and pull image metadata, JSON output for automation. The repo is archived since 2023, and skopeo or regctl already cover the same ground.",
+				"fr": "CLI simple et archivée pour lister les tags et récupérer les métadonnées d’images, sortie JSON pour l’automatisation. Dépôt archivé depuis 2023, skopeo et regctl couvrent déjà le même terrain."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

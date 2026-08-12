@@ -87,6 +87,174 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Zabbix",
+			"source": {
+				"host": "github",
+				"path": "zabbix/zabbix",
+				"url": "https://github.com/zabbix/zabbix"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Battle-tested network monitoring with native SNMP discovery and a mature alerting engine. The PHP frontend feels dated, and its API trails the Prometheus stack.",
+				"fr": "Plateforme de supervision réseau éprouvée, avec découverte SNMP native et un moteur d’alerting mature. Le frontend PHP date et l’API reste moins moderne que la stack Prometheus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Netdata",
+			"source": {
+				"host": "github",
+				"path": "netdata/netdata",
+				"url": "https://github.com/netdata/netdata"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Per-second telemetry with built-in ML anomaly detection and one-line install straight into auto-built dashboards. Host-centric and weak on device inventory; dashboard customization stays limited.",
+				"fr": "Télémétrie à la seconde, détection d’anomalies ML intégrée, installation en une ligne et tableaux de bord automatiques. Centré sur l’hôte, faible en inventaire réseau ; personnalisation des dashboards limitée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Prometheus",
+			"source": {
+				"host": "github",
+				"path": "prometheus/prometheus",
+				"url": "https://github.com/prometheus/prometheus"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The de-facto metrics backbone: pull-based scraping through SNMP and Blackbox exporters, PromQL, Alertmanager. No UI of its own — Grafana required, and assembling the exporter stack is real work.",
+				"fr": "Le socle métrique de facto : collecte par pull via les exporters SNMP et Blackbox, PromQL, Alertmanager. Pas d’interface propre — il faut Grafana, et monter sa stack d’exporters demande du travail."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Grafana",
+			"source": {
+				"host": "github",
+				"path": "grafana/grafana",
+				"url": "https://github.com/grafana/grafana"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The visualization layer over any telemetry backend — Prometheus, InfluxDB, SQL — with alerting and a deep pool of community dashboards. Visualization only, not a monitor, and AGPL licensing can matter for vendors.",
+				"fr": "La couche de visualisation par-dessus n’importe quel backend de télémétrie — Prometheus, InfluxDB, SQL — avec alerting et un vivier de dashboards communautaires. Visualisation seule, pas un moniteur, l’AGPL pouvant compter pour les éditeurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ntopng",
+			"source": {
+				"host": "github",
+				"path": "ntop/ntopng",
+				"url": "https://github.com/ntop/ntopng"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "NetFlow/sFlow/IPFIX collector with real-time traffic and bandwidth analytics plus host and application classification. Needs mirror ports or flow export enabled; the community edition lacks some enterprise features.",
+				"fr": "Collecteur NetFlow/sFlow/IPFIX, analyse temps réel du trafic et de la bande passante, classification hôtes et applications. Nécessite des ports miroir ou de l’export de flux ; l’édition communautaire manque de fonctions entreprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Telegraf",
+			"source": {
+				"host": "github",
+				"path": "influxdata/telegraf",
+				"url": "https://github.com/influxdata/telegraf"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A swiss-army telemetry collector: 300-plus input plugins covering SNMP and network devices, one static binary, feeding InfluxDB, Prometheus or OpenTelemetry. No UI, no alerting, config-first — and no auto-discovery.",
+				"fr": "Collecteur télémesure couteau-suisse : plus de 300 plugins d’entrée dont SNMP et périphériques réseau, un binaire statique, qui alimente InfluxDB, Prometheus ou OpenTelemetry. Pas d’interface ni d’alerting, config d’abord, et pas d’auto-découverte."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Termshark",
+			"source": {
+				"host": "github",
+				"path": "gcla/termshark",
+				"url": "https://github.com/gcla/termshark"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Wireshark-class pcap inspection in a terminal TUI — display and follow TCP streams via Wireshark dissectors. Dormant since April 2024, file-focused with no live capture; a local single-user tool, not a fleet monitor.",
+				"fr": "Analyseur pcap en TUI : inspection de classe Wireshark et suivi des flux TCP via ses dissectors. Dormant depuis avril 2024, sans capture en direct, outil local mono-utilisateur — pas un moniteur de parc."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MTR",
+			"source": {
+				"host": "github",
+				"path": "traviscross/mtr",
+				"url": "https://github.com/traviscross/mtr"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The go-to WAN diagnostic: continuous traceroute with per-hop loss and latency in a live-updating TUI, plus a report mode for scripting. Single-path only — no storage, no alerting.",
+				"fr": "Le diagnostic WAN par excellence : traceroute continu avec perte et latence par saut dans un TUI en direct, plus un mode rapport pour le scripting. Un seul chemin, sans stockage ni alerting."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

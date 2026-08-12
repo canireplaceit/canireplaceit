@@ -103,6 +103,241 @@
 				"en": "Same multistreaming job, cheaper entry tier, and you keep the cloud uplink you actually wanted. Weaker studio and chat tooling.",
 				"fr": "Le même travail de multidiffusion, une entrée de gamme moins chère, et vous gardez le lien montant cloud que vous vouliez. Studio et chat moins aboutis."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Owncast",
+			"source": {
+				"host": "github",
+				"path": "owncast/owncast",
+				"url": "https://github.com/owncast/owncast"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted streamer with chat, admin UI and fediverse federation. Viewers come to your server, not to YouTube — no auto-publishing to third-party platforms.",
+				"fr": "Serveur de diffusion auto-hébergé avec chat, interface d’admin et fédération Fediverse. Le public vient sur votre serveur, pas sur YouTube ; aucune publication automatique vers des plateformes tierces."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SRS (Simple Realtime Server)",
+			"source": {
+				"host": "github",
+				"path": "ossrs/srs",
+				"url": "https://github.com/ossrs/srs"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Ingest one RTMP feed, forward to many RTMP/HLS/WebRTC targets with sub-second playback. Configuration-heavy, aimed at operators — no publisher UI out of the box.",
+				"fr": "Reçoit un flux RTMP et le relaie vers de multiples cibles RTMP/HLS/WebRTC, lecture en moins d’une seconde. Orienté opérateurs, config lourde ; pas d’interface d’édition multi-plateformes prête à l’emploi."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "nginx-rtmp-module",
+			"source": {
+				"host": "github",
+				"path": "arut/nginx-rtmp-module",
+				"url": "https://github.com/arut/nginx-rtmp-module"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "ops",
+			"note": {
+				"en": "Dormant since 2024, but proven: one nginx.conf push directive fans a stream to every RTMP target, plus HLS/DASH. No web UI, no transcoding, yours to maintain.",
+				"fr": "En sommeil depuis 2024 mais éprouvé : une directive push relaie un flux vers toutes les cibles RTMP, plus HLS/DASH. Pas d’interface web ni transcodage, maintenance à votre charge."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "go2rtc",
+			"source": {
+				"host": "github",
+				"path": "AlexxIT/go2rtc",
+				"url": "https://github.com/AlexxIT/go2rtc"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Single binary bridging RTSP, RTMP, HLS, WebRTC and MJPEG, with in-browser playback and deep Home Assistant integration. Camera-oriented — no publisher console, scheduling or analytics.",
+				"fr": "Un binaire unique qui relie RTSP, RTMP, HLS, WebRTC et MJPEG, avec lecture navigateur et intégration poussée Home Assistant. Orienté caméras plutôt que console de diffusion ; ni programmation ni analytique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OvenMediaEngine",
+			"source": {
+				"host": "github",
+				"path": "OvenMediaLabs/OvenMediaEngine",
+				"url": "https://github.com/OvenMediaLabs/OvenMediaEngine"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Sub-second LLHLS and WebRTC playback at scale from RTMP, SRT or MPEG-TS ingest. A destination server, not a relay: heavy infrastructure, AGPL obligations.",
+				"fr": "Lecture LLHLS et WebRTC en moins d’une seconde, à l’échelle, depuis RTMP, SRT ou MPEG-TS. Serveur de destination plutôt que relais multi-plateformes ; infrastructure lourde et obligations AGPL."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Livepeer",
+			"source": {
+				"host": "github",
+				"path": "livepeer/go-livepeer",
+				"url": "https://github.com/livepeer/go-livepeer"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Run the node, push RTMP in, get network-transcoded streams back on your own HLS/CDN. Decentralized, but blockchain-dependent — fees, staking, niche for casual restreaming.",
+				"fr": "Vous faites tourner le nœud : RTMP entrant, transcodage réseau, HLS servi sur votre CDN. Décentralisé mais adossé à une blockchain, avec frais et staking ; marginal pour du restreaming occasionnel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ant Media Server (Community Edition)",
+			"source": {
+				"host": "github",
+				"path": "ant-media/Ant-Media-Server",
+				"url": "https://github.com/ant-media/Ant-Media-Server"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "WebRTC sub-second latency with WebRTC ingest, plus RTMP/SRT/HLS/CMAF and adaptive transcoding. Community edition cuts many enterprise features; heavy Java to run and tune.",
+				"fr": "Latence WebRTC inférieure à la seconde, ingest WebRTC, RTMP/SRT/HLS/CMAF et transcodage adaptatif. L’édition communauté retire nombre de fonctions entreprise ; infrastructure Java lourde à régler."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Open-core: enterprise features and scaling sit behind the paid build.",
+					"fr": "Open-core : fonctions entreprise et scaling réservées à la version payante."
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FFmpeg",
+			"source": {
+				"host": "github",
+				"path": "FFmpeg/FFmpeg",
+				"url": "https://github.com/FFmpeg/FFmpeg"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "One command, several -f outputs: a single input fanned out to many RTMP servers, with transcoding, filtering and recording in the same pipeline. Pure CLI — you build every restream by hand.",
+				"fr": "Une commande, plusieurs sorties -f : une seule source fanée vers de nombreux serveurs RTMP, transcodage, filtrage et enregistrement dans le même pipeline. CLI pure, vous montez chaque restream à la main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "EasyDarwin",
+			"source": {
+				"host": "github",
+				"path": "EasyDarwin/EasyDarwin",
+				"url": "https://github.com/EasyDarwin/EasyDarwin"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Pulls one source and relays it to many RTSP/RTMP/HLS targets, with ARM builds and companion console apps. Camera/NVR-focused, thin docs and community, no transcoding.",
+				"fr": "Tire un flux d’une source et le relaie vers de multiples cibles RTSP/RTMP/HLS, avec builds ARM et consoles compagnons. Centré caméras/NVR, documentation et communauté minces, pas de transcodage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MistServer",
+			"source": {
+				"host": "github",
+				"path": "DDVTECH/mistserver",
+				"url": "https://github.com/DDVTECH/mistserver"
+			},
+			"license": "Unlicense",
+			"effort": "docker",
+			"note": {
+				"en": "Multiprotocol ingest and playback with a web controller, REST API and live rewind of ongoing streams. Smaller user base and thin docs; high load takes serious tuning.",
+				"fr": "Ingest et lecture multi-protocoles, avec contrôleur web, API REST et rembobinage des flux en cours. Base d’utilisateurs réduite, doc mince ; la forte charge exige un réglage avancé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "VLC media player",
+			"source": {
+				"host": "github",
+				"path": "videolan/vlc",
+				"url": "https://github.com/videolan/vlc"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The desktop player doubles as a restreamer: sout chains duplicate one source to many RTMP outputs, re-encoding anything. Fiddly to configure, and no scheduling, analytics or integrations.",
+				"fr": "Le lecteur de bureau se double d’un relais : les chaînes sout dupliquent une source vers de nombreuses sorties RTMP, tout se re-encode. Configuration délicate, sans programmation, analytique ni intégrations."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

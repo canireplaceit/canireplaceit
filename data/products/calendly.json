@@ -36,8 +36,8 @@
 			"name": "Cal.com",
 			"source": {
 				"host": "github",
-				"path": "calcom/cal.com",
-				"url": "https://github.com/calcom/cal.com"
+				"path": "calcom/cal.diy",
+				"url": "https://github.com/calcom/cal.diy"
 			},
 			"license": "MIT",
 			"effort": "docker",
@@ -75,6 +75,174 @@
 				"openCore": "none",
 				"ssoInFree": false,
 				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Rallly",
+			"source": {
+				"host": "github",
+				"path": "lukevella/rallly",
+				"url": "https://github.com/lukevella/rallly"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "A polished self-hosted Doodle-style poll for finding group times. Timezone-aware responses, open or invite-only. No 1:1 booking links, calendar sync, or public API.",
+				"fr": "Sondage Doodle épuré, auto-hébergé, pour dégager un créneau commun ; réponses gérées par fuseau horaire, ouvert ou sur invitation. Mais pas de lien de réservation personnel : ni synchro calendrier ni API publique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dudle",
+			"source": {
+				"host": "github",
+				"path": "kellerben/dudle",
+				"url": "https://github.com/kellerben/dudle"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Dated interface and sporadic upkeep, but it runs on plain CGI plus a database. Participants, comments, open or closed polls. Polls only — no booking links, no calendar sync, no team administration.",
+				"fr": "Sondages façon Doodle sur CGI et base de données. Participants, commentaires, sondages ouverts ou fermés. Interface datée, maintenance sporadique ; pas de liens de réservation, de synchro calendrier ni d’administration d’équipe."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LibreBooking",
+			"source": {
+				"host": "github",
+				"path": "LibreBooking/librebooking",
+				"url": "https://github.com/LibreBooking/librebooking"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Actively maintained open-source booking with official Docker images. Rooms, resources and appointments, recurring reservations and approval workflows. Built for rooms rather than personal links; dated UI, no payments or video.",
+				"fr": "Gestionnaire open source actif avec images Docker officielles. Salles, ressources et rendez-vous, réservations récurrentes, approbations par workflow. Vise les salles plutôt que les liens personnels ; interface vieillie, pas de paiement ni vidéo."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CloudMeet",
+			"source": {
+				"host": "github",
+				"path": "dennisklappe/CloudMeet",
+				"url": "https://github.com/dennisklappe/CloudMeet"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Calendly-style booking links that run on Cloudflare’s free tier, syncing Google Calendar and Outlook. Customizable form and availability. Tied to Cloudflare; real sync needs Google or Outlook accounts, no CalDAV.",
+				"fr": "Liens de réservation façon Calendly, gratuits sur Cloudflare, avec synchro Google Agenda et Outlook. Formulaire et disponibilités personnalisables. Verrouillé sur Cloudflare ; la synchro exige un compte Google ou Outlook, pas de CalDAV."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "us-only"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Someday",
+			"source": {
+				"host": "github",
+				"path": "rbbydotdev/someday",
+				"url": "https://github.com/rbbydotdev/someday"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Availability booking links for Gmail users, free to host on Google Apps Script. React/TypeScript client that reads Google Calendar. Google-locked: no standalone server, no CalDAV or Nextcloud, single-user.",
+				"fr": "Liens de disponibilité pour utilisateurs Gmail, hébergés gratuitement sur Google Apps Script. Client React/TypeScript branché sur Google Agenda. Écosystème Google seulement : pas de serveur autonome, ni CalDAV ni Nextcloud, usage mono-utilisateur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "us-only"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "calcurse",
+			"source": {
+				"host": "github",
+				"path": "lfos/calcurse",
+				"url": "https://github.com/lfos/calcurse"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Keyboard-driven terminal calendar: agenda, appointments, todos, recurrence, iCalendar in and out. Light and fast. Personal only — no shareable links, no CalDAV, no multi-user.",
+				"fr": "Calendrier terminal piloté au clavier : agenda, rendez-vous, tâches, récurrence, iCalendar en lecture et écriture. Léger et rapide. Strictement personnel : pas de liens partageables, pas de CalDAV, pas de multi-utilisateur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "khal",
+			"source": {
+				"host": "github",
+				"path": "pimutils/khal",
+				"url": "https://github.com/pimutils/khal"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Python CLI calendar that talks CalDAV — Radicale, Nextcloud, any server. Agenda, quick-add, recurrence, iCalendar read/write. Terminal only: bring your own CalDAV server, no links, no team features.",
+				"fr": "Calendrier CLI Python qui parle CalDAV — Radicale, Nextcloud, n’importe quel serveur. Agenda, ajout rapide, récurrence, iCalendar en lecture/écriture. 100 % terminal : apportez votre serveur CalDAV, pas de liens ni fonctionnalités d’équipe."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gcalcli",
+			"source": {
+				"host": "github",
+				"path": "insanum/gcalcli",
+				"url": "https://github.com/insanum/gcalcli"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Battle-tested Google Calendar CLI: agenda, quick-add, shared-calendar queries to find free time, import/export for scripting, multiple accounts. Google-only — no links, no CalDAV, no self-hosting.",
+				"fr": "CLI éprouvée pour Google Agenda : agenda, ajout rapide, requêtes sur calendriers partagés pour trouver un créneau libre, import/export scriptable, plusieurs comptes. Google seulement : pas de liens, pas de CalDAV, pas d’auto-hébergement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "us-only"
 			}
 		}
 	],

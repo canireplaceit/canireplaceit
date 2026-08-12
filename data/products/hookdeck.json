@@ -101,6 +101,161 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Huginn",
+			"source": {
+				"host": "github",
+				"path": "huginn/huginn",
+				"url": "https://github.com/huginn/huginn"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Mature MIT self-hosted automation platform: webhook endpoints fire into configurable agents for transform and dispatch. Ruby agents carry a real learning curve, and there's no managed-delivery SLA or built-in retry store.",
+				"fr": "Plateforme d’automatisation self-hosted MIT mature : des endpoints webhook déclenchent des agents configurables qui transforment et dispatchent les événements. Les agents Ruby demandent un vrai apprentissage, et pas de SLA de livraison ni de store de retry intégré."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kong Gateway",
+			"source": {
+				"host": "github",
+				"path": "Kong/kong",
+				"url": "https://github.com/Kong/kong"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Battle-tested Apache-2.0 API gateway in front of webhook endpoints: auth, rate limiting, transformation via plugins, declarative decK. It's not a webhook queue — no built-in retry or dead-letter delivery.",
+				"fr": "Passerelle API Apache-2.0 éprouvée à placer devant des endpoints webhook : auth, rate limiting, transformation via plugins, config déclarative avec decK. Ce n’est pas une file webhook — pas de retry ni de dead-letter intégré."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise HA and plugin suites",
+					"fr": "HA et plugins de l’édition enterprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Activepieces",
+			"source": {
+				"host": "github",
+				"path": "activepieces/activepieces",
+				"url": "https://github.com/activepieces/activepieces"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Apache-2.0 Zapier-style engine: webhook triggers into a visual builder with connectors and retry-on-failure. Enterprise SSO and RBAC are closed-source EE; it's built for automation flows, not raw delivery guarantees.",
+				"fr": "Moteur façon Zapier en Apache-2.0 : triggers webhook vers un builder visuel, connecteurs et retry en cas d’échec. SSO et RBAC enterprise sont en EE closed-source ; pensé pour les flows d’automatisation, pas pour des garanties de livraison brutes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise SSO and RBAC",
+					"fr": "SSO et RBAC enterprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "webhookd",
+			"source": {
+				"host": "github",
+				"path": "ncarlier/webhookd",
+				"url": "https://github.com/ncarlier/webhookd"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Minimal MIT server that turns any POST into a shell-script run — an admin API, an SSE stream, one small static binary. No delivery queue, no retries, no multi-tenancy: glue and glue-testing, not infrastructure.",
+				"fr": "Serveur MIT minimal qui transforme chaque POST en exécution d’un script shell — API admin, flux SSE, un binaire statique tout petit. Pas de file, pas de retry, pas de multi-tenant : c’est de la colle, pas une plateforme d’infrastructure."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Webhook Relay Operator",
+			"source": {
+				"host": "github",
+				"path": "webhookrelay/webhookrelay-operator",
+				"url": "https://github.com/webhookrelay/webhookrelay-operator"
+			},
+			"license": "MPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "MPL-2.0 Kubernetes operator that received webhooks in-cluster and forwarded them to services without a public IP. Uncommitted since late 2022, effectively dormant, and it needs Kubernetes plus a small community.",
+				"fr": "Operator Kubernetes MPL-2.0 qui recevait les webhooks in-cluster et les forwardait aux services sans IP publique. Aucun commit depuis fin 2022, donc dormant en pratique ; exige Kubernetes et une petite communauté."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "WebhookDB",
+			"source": {
+				"host": "github",
+				"path": "webhookdb/webhookdb",
+				"url": "https://github.com/webhookdb/webhookdb"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Apache-2.0 webhook ingestion that lands events straight into a database with retries, queried over SQL — a CLI-first capture layer. No multi-destination routing; young, small community.",
+				"fr": "Ingestion Apache-2.0 qui dépose les événements directement en base avec retries, interrogable en SQL — une couche de capture orientée CLI. Pas de routage multi-destination ; projet jeune à petite communauté."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "RequestBin",
+			"source": {
+				"host": "github",
+				"path": "requestbin/requestbin.net",
+				"url": "https://github.com/requestbin/requestbin.net"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "MIT request inspector: every payload hitting a bin gets captured for debugging, shared bins for team work, self-hostable. Inspection only — no delivery, retries or fan-out.",
+				"fr": "Inspecteur de requêtes MIT : chaque payload qui atteint un bin est capturé pour le debug, bins partagés pour le travail en équipe, self-hostable. Inspection seulement — pas de livraison, de retry ni de fan-out."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

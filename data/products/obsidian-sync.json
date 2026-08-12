@@ -103,6 +103,266 @@
 				"en": "Obsidian will happily keep a vault in any synced folder. Free-with-a-privacy-cost on iCloud, or a couple of euros for a WebDAV box. Neither handles conflicts as well as the paid Sync.",
 				"fr": "Obsidian gère volontiers un coffre dans n’importe quel dossier synchronisé. Gratuit mais au prix de la vie privée sur iCloud, ou quelques euros pour un hébergement WebDAV. Aucun des deux ne gère les conflits aussi bien que la synchro payante."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Joplin",
+			"source": {
+				"host": "github",
+				"path": "laurent22/joplin",
+				"url": "https://github.com/laurent22/joplin"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Most complete open Evernote/Obsidian-style answer. E2E-encrypted sync to your own Joplin Server or WebDAV/S3, with clients on every platform. Not a plain vault of files, and no real-time multi-device collaboration.",
+				"fr": "La réponse open source la plus complète façon Evernote/Obsidian : sync E2E vers son Joplin Server ou du WebDAV/S3. Format propriétaire, pas un coffre de fichiers, ni collaboration temps réel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Logseq",
+			"source": {
+				"host": "github",
+				"path": "logseq/logseq",
+				"url": "https://github.com/logseq/logseq"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Outliner that stores plain Markdown/Org files locally and syncs over git — the vault stays fully portable. Official cross-device sync is paid and proprietary; mobile leans on iCloud or Logseq's cloud.",
+				"fr": "Outliner qui stocke du Markdown/Org brut en local, sync via git : coffre entièrement portable. La sync officielle multi-appareils est payante ; le mobile passe par iCloud ou le cloud Logseq."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Cross-device sync",
+					"fr": "Sync multi-appareils"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Standard Notes",
+			"source": {
+				"host": "github",
+				"path": "standardnotes/app",
+				"url": "https://github.com/standardnotes/app"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Privacy-first notes with E2E encryption and a self-hostable sync server. Notes live in their own encrypted format, not plain Markdown; some editors and features sit behind paid plans.",
+				"fr": "Le plus proche d’Obsidian Sync sur le principe : notes chiffrées de bout en bout, serveur de sync auto-hébergeable. Mais format chiffré propriétaire, pas de Markdown brut ; certains éditeurs payants."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Trilium Notes",
+			"source": {
+				"host": "github",
+				"path": "TriliumNext/Trilium",
+				"url": "https://github.com/TriliumNext/Trilium"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Hierarchical note tree with full-text search, scripting and E2E-encrypted sync to your own server. Original project was abandoned; the TriliumNext fork is now canonical, though mobile support is thin.",
+				"fr": "Arborescence hiérarchique de notes, recherche plein texte, scripting et sync chiffrée vers son serveur. Projet d’origine abandonné ; le fork TriliumNext fait office de référence, mais le support mobile est limité."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SiYuan",
+			"source": {
+				"host": "github",
+				"path": "siyuan-note/siyuan",
+				"url": "https://github.com/siyuan-note/siyuan"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Local-first Markdown block editor (WYSIWYG plus source mode); E2E-encrypted sync to any S3 endpoint or your own server. Own workspace format; official cloud sync is paywalled.",
+				"fr": "Éditeur Markdown par blocs, local-first, en WYSIWYG ou source ; sync chiffrée vers tout endpoint S3 ou son serveur. Espace de travail propriétaire, sync cloud officielle payante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "AppFlowy",
+			"source": {
+				"host": "github",
+				"path": "AppFlowy-IO/AppFlowy",
+				"url": "https://github.com/AppFlowy-IO/AppFlowy"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Open Notion-style workspace, local-first, with optional self-hosted sync via AppFlowy Cloud — though that backend is only partially open. Web and mobile clients still maturing; not a plain-files markdown vault.",
+				"fr": "Espace de travail open source façon Notion, local-first, avec sync auto-hébergeable via AppFlowy Cloud — backend qu’à moitié ouvert. Clients web et mobile encore immatures ; pas un coffre de fichiers Markdown."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Cloud sync backend",
+					"fr": "Backend de sync cloud"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "AFFiNE",
+			"source": {
+				"host": "github",
+				"path": "toeverything/AFFiNE",
+				"url": "https://github.com/toeverything/AFFiNE"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Local-first docs plus whiteboard, MIT-licensed, syncing through your own self-hosted AFFiNE instance. Not markdown-file based, mobile apps still in development, and large canvases make sync heavy.",
+				"fr": "Docs et tableau blanc local-first, licence MIT, qui se sync via votre instance AFFiNE auto-hébergée. Pas de fichiers Markdown, apps mobiles en développement, gros canvases : sync lourde."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SilverBullet",
+			"source": {
+				"host": "github",
+				"path": "silverbulletmd/silverbullet",
+				"url": "https://github.com/silverbulletmd/silverbullet"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Markdown PWA served by a small server you host — plain files, edit from any device. Single-user by design, no collaboration; sync is space-based, and the ecosystem is smaller than Obsidian's.",
+				"fr": "PWA Markdown servie par un petit serveur chez vous — fichiers bruts, édition depuis n’importe quel appareil. Mono-utilisateur par conception, pas de collaboration ; sync par espaces et écosystème plus petit qu’Obsidian."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nextcloud Notes",
+			"source": {
+				"host": "github",
+				"path": "nextcloud/notes",
+				"url": "https://github.com/nextcloud/notes"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Plain Markdown files under a Notes directory inside your own Nextcloud, synced to web, iOS, Android and QOwnNotes clients. Needs the whole Nextcloud server; rendering is simpler than Obsidian.",
+				"fr": "App de notes Markdown dans votre propre Nextcloud, stockées en fichiers bruts sous Notes, clients web, iOS, Android et QOwnNotes. Implique tout le serveur Nextcloud ; rendu plus simple qu’Obsidian."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Notesnook",
+			"source": {
+				"host": "github",
+				"path": "streetwriters/notesnook",
+				"url": "https://github.com/streetwriters/notesnook"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "E2E-encrypted by default, fully open stack including the sync server, self-hostable via docker. Own data format, not plain files; the sync server is a separate repo you run.",
+				"fr": "Chiffré de bout en bout par défaut, pile open source complète, serveur de sync inclus, auto-hébergeable en docker. Format propriétaire ; le serveur de sync est un dépôt séparé à opérer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "TiddlyWiki",
+			"source": {
+				"host": "github",
+				"path": "TiddlyWiki/TiddlyWiki5",
+				"url": "https://github.com/TiddlyWiki/TiddlyWiki5"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "ops",
+			"note": {
+				"en": "Single-file personal wiki that lives anywhere you can sync a file — git, Syncthing or WebDAV. Conflicts go to whoever syncs last; steep learning curve and idiosyncratic conventions.",
+				"fr": "Wiki personnel en un seul fichier, qui vit partout où on peut sync un fichier — git, Syncthing ou WebDAV. Les conflits se règlent au dernier venu ; courbe d’apprentissage raide, conventions idiosyncratiques."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "VimWiki",
+			"source": {
+				"host": "github",
+				"path": "vimwiki/vimwiki",
+				"url": "https://github.com/vimwiki/vimwiki"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "TUI personal wiki inside vim; sync is plain files over git — zero server, zero cloud. Terminal-only with no phone app or graphical conflict resolution, and git is on you.",
+				"fr": "Wiki TUI dans vim ; sync : fichiers bruts via git — zéro serveur, zéro cloud. Terminal uniquement : pas d’appli mobile ni résolution graphique des conflits ; git reste sur toi."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

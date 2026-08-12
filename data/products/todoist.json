@@ -139,6 +139,174 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nextcloud Tasks",
+			"source": {
+				"host": "github",
+				"path": "nextcloud/tasks",
+				"url": "https://github.com/nextcloud/tasks"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "CalDAV-based task manager inside Nextcloud, lighter than Deck, and it complements it rather than replacing it. Mobile CalDAV sync works; a simple list is the only view, no native desktop apps.",
+				"fr": "Gestionnaire de tâches CalDAV dans Nextcloud, plus léger que Deck, qu’il complète sans le remplacer. La synchro mobile passe par les clients CalDAV ; seule une liste simple est offerte, pas d’applications desktop."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Taskwarrior",
+			"source": {
+				"host": "github",
+				"path": "GothenburgBitFactory/taskwarrior",
+				"url": "https://github.com/GothenburgBitFactory/taskwarrior"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Fills the CLI gap: 15+ years of development, filtering, custom attributes, JSON export. Sync is not built in — Taskd and third-party apps stand in — and the learning curve is steep.",
+				"fr": "Comble le vide du CLI : 15 ans de développement, filtres avancés, attributs personnalisés, export JSON. La synchro n’est pas intégrée — Taskd et des applis tierces — et la courbe d’apprentissage est raide."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dstask",
+			"source": {
+				"host": "github",
+				"path": "naggie/dstask",
+				"url": "https://github.com/naggie/dstask"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Simpler than Taskwarrior, written in Go, tasks stored in Git: sync is whatever you already push to. The interface is approachable; the community small, no web UI, no mobile app.",
+				"fr": "Plus simple que Taskwarrior, en Go, tâches stockées dans Git : la synchro, c’est ce que vous poussez déjà. L’interface est abordable ; la communauté petite, pas d’UI web ni d’appli mobile."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ultralist",
+			"source": {
+				"host": "github",
+				"path": "gammons/ultralist",
+				"url": "https://github.com/gammons/ultralist"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Last commit May 2023, three years dormant — use it as-is, not a project that still moves. Keyboard-driven CLI with natural-language entry, projects and contexts, all in JSON.",
+				"fr": "Dernier commit en mai 2023, dormante depuis trois ans — à prendre telle quelle. CLI pilotée au clavier, saisie en langage naturel, projets et contextes, le tout en JSON."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Topydo",
+			"source": {
+				"host": "github",
+				"path": "topydo/topydo",
+				"url": "https://github.com/topydo/topydo"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The todo.txt format in Python, with a plugin system and both CLI and TUI modes. Nothing else though — no sync, and development is slower than Taskwarrior’s.",
+				"fr": "Le format todo.txt en Python, avec un système de plugins et des modes CLI et TUI. Rien d’autre : pas de synchro, et le développement est plus lent que celui de Taskwarrior."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Donetick",
+			"source": {
+				"host": "github",
+				"path": "donetick/donetick",
+				"url": "https://github.com/donetick/donetick"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Recurring and rotating chores assigned to household members, web app and mobile clients from one Go binary. The catch: built for chores, not GTD projects, and still young — 2.5k stars.",
+				"fr": "Corvées récurrentes ou tournantes assignées aux membres du foyer, appli web et clients mobiles dans un seul binaire Go. Mais c’est pour les corvées, pas le GTD, et encore jeune — 2,5k étoiles."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "todo.txt-cli",
+			"source": {
+				"host": "github",
+				"path": "todotxt/todo.txt-cli",
+				"url": "https://github.com/todotxt/todo.txt-cli"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "One plain-text file, readable in thirty years, syncable by whatever you already use, works over ssh. No reminders, no notifications — sync and structure are your problems, as with the format itself.",
+				"fr": "Un seul fichier texte, lisible dans trente ans, synchronisable avec ce que vous avez déjà, fonctionne en ssh. Ni rappels ni notifications — synchro et structure, c’est à vous."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "VIT",
+			"source": {
+				"host": "github",
+				"path": "vit-project/vit",
+				"url": "https://github.com/vit-project/vit"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Vim keys over your existing Taskwarrior data, live-updating, no more retyping filters. It is only a front end though: Taskwarrior required, terminal only, a small project at 579 stars.",
+				"fr": "Des raccourcis vim sur vos données Taskwarrior existantes, liste en temps réel, fini de retaper les filtres. Ce n’est qu’une interface : Taskwarrior requis, terminal uniquement, petit projet à 579 étoiles."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 5

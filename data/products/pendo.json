@@ -120,6 +120,266 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Matomo",
+			"source": {
+				"host": "github",
+				"path": "matomo-org/matomo",
+				"url": "https://github.com/matomo-org/matomo"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Flagship self-hosted analytics; plugins bring events, funnels, heatmaps and session recording. No in-app guidance, and the product-analytics depth is plugin-driven — some plugins are paid.",
+				"fr": "La plateforme d’analytics web auto-hébergée de référence : plugins pour events, objectifs, funnels, heatmaps et session recording. Rien pour le guidage in-app, et la profondeur analytics repose sur des plugins, dont certains payants."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Paid analytics plugins",
+					"fr": "Plugins analytics payants"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Countly",
+			"source": {
+				"host": "github",
+				"path": "Countly/countly-server",
+				"url": "https://github.com/Countly/countly-server"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Purpose-built for product analytics — funnels, retention, cohorts, feedback — and the closest open answer to Pendo’s usage analytics. Core is AGPL with a gated ee/ tier; replay and deep analytics are enterprise.",
+				"fr": "Pensé pour la product analytics — funnels, rétention, cohortes, feedback — la réponse open la plus proche de Pendo. Cœur AGPL avec tier ee/ payant ; replay et analytics poussées en entreprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Deep analytics and session replay",
+					"fr": "Analytics avancées et session replay"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Plausible Analytics",
+			"source": {
+				"host": "github",
+				"path": "plausible/analytics",
+				"url": "https://github.com/plausible/analytics"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Cookieless traffic analytics with goals and funnels — the lean swap when you only need visits and basic conversion. No event-level product analytics, no user journeys, and nothing for in-app guidance.",
+				"fr": "Analytics de trafic sans cookies, objectifs et funnels : le remplaçant léger quand seuls des visites et une conversion basique suffisent. Pas d’analytics d’événements ni de parcours, rien pour le guidage in-app."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "eu-option"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Umami",
+			"source": {
+				"host": "github",
+				"path": "umami-software/umami",
+				"url": "https://github.com/umami-software/umami"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "MIT and a single-command Docker deploy; custom events and dashboards cover basic usage counts. No funnels or retention built in, and large datasets hit the database hard.",
+				"fr": "MIT, déploiement Docker en une commande ; events custom et dashboards couvrent les comptages d’usage simples. Pas de funnels ni de rétention natifs, et les gros volumes chargent la base."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GoAccess",
+			"source": {
+				"host": "github",
+				"path": "allinurl/goaccess",
+				"url": "https://github.com/allinurl/goaccess"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Real-time traffic from your access logs, in the terminal, with zero server side — a single static binary. But log-based only: no client-side events, no retention, no funnels.",
+				"fr": "Trafic temps réel depuis vos logs d’accès, dans le terminal, sans aucun composant serveur : un binaire statique. Mais uniquement log-based : pas d’events côté client, ni rétention, ni funnels."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GoatCounter",
+			"source": {
+				"host": "github",
+				"path": "arp242/goatcounter",
+				"url": "https://github.com/arp242/goatcounter"
+			},
+			"license": "EUPL-1.2",
+			"effort": "docker",
+			"note": {
+				"en": "One Go binary, cookie-less pageviews and a small event API — simple usage counting with minimal ops. No funnels, retention or cohorts, and few integrations.",
+				"fr": "Un binaire Go, pageviews sans cookies et une petite API d’events : du comptage d’usage simple, peu d’ops. Pas de funnels, rétention ou cohortes, et peu d’intégrations."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ackee",
+			"source": {
+				"host": "github",
+				"path": "electerious/Ackee",
+				"url": "https://github.com/electerious/Ackee"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Node self-host with a clean REST API and dashboard, Do-Not-Track respected, anonymous by design. Light on product analytics — no funnels, no retention — and a small, slow-moving community.",
+				"fr": "Self-host Node avec une API REST propre, respect du Do-Not-Track, anonyme par conception. Léger en product analytics, sans funnels ni rétention ; petite communauté, rythme lent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Offen",
+			"source": {
+				"host": "github",
+				"path": "offen/offen",
+				"url": "https://github.com/offen/offen"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Consent-first analytics with a dual-consent model — visitors opt in before anything is stored. That ethic costs depth: no funnels, retention or session replay, and a small community.",
+				"fr": "Analytics à consentement préalable, modèle à double consentement : le visiteur opte avant tout stockage. Cette éthique a un prix — pas de funnels, rétention ou session replay, et une petite communauté."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Shynet",
+			"source": {
+				"host": "github",
+				"path": "milesmcc/shynet",
+				"url": "https://github.com/milesmcc/shynet"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Django and Python, so it is the one you can hack into custom Pendo-style tracking. Hash-based, cookie-less, visitor-focused — but minimal features and the dev pace has slowed.",
+				"fr": "Django/Python : le seul qu’on peut bidouiller pour du tracking façon Pendo. Hashs, sans cookies, centré visiteurs uniques — mais fonctionnalités minimales et développement au ralenti."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Snowplow",
+			"source": {
+				"host": "github",
+				"path": "snowplow/snowplow",
+				"url": "https://github.com/snowplow/snowplow"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Collects, enriches and loads events into your warehouse, so you build Pendo-grade analytics in SQL. No user-facing UI — you query the warehouse, and the ops (Kafka, EMR, Iglu) are heavy.",
+				"fr": "Collecte, enrichit et charge vos events en entrepôt, puis vous construisez une analytics digne de Pendo en SQL. Pas d’interface utilisateur : on requête l’entrepôt, et l’ops (Kafka, EMR, Iglu) est lourde."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Aptabase",
+			"source": {
+				"host": "github",
+				"path": "aptabase/aptabase",
+				"url": "https://github.com/aptabase/aptabase"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "A tiny self-hosted server and per-platform SDKs for app usage counts, grounded in DuckDB so cheap to run. Basic only — no funnels, no replay — and young, with a small community.",
+				"fr": "Un serveur self-host minuscule et des SDK par plateforme pour compter l’usage, sur DuckDB donc bon marché à faire tourner. Basique — pas de funnels ni de replay — et jeune, petite communauté."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Intro.js",
+			"source": {
+				"host": "github",
+				"path": "usablica/intro.js",
+				"url": "https://github.com/usablica/intro.js"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Step-through product tours in your own codebase, defined as JSON. AGPL — proprietary apps need a commercial licence — and there is no analytics or hosted management; you wire it all in.",
+				"fr": "Des parcours produit pas à pas définis en JSON, branchés dans votre code. AGPL — licence commerciale pour une app propriétaire — et pas d’analytics ni de gestion hébergée : vous câblez tout vous-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

@@ -1,6 +1,8 @@
+import { paths } from "core/src/routes";
 import type { SiteStats } from "./api";
 import { formatDate } from "./api";
 import type { Key, Lang } from "./i18n";
+import { PageShell } from "./shell";
 
 type T = (k: Key) => string;
 
@@ -232,15 +234,17 @@ export function StatsPage({
 	};
 
 	return (
-		<main className="mx-auto max-w-3xl px-4 py-10">
-			<p className="font-mono text-[10px] text-muted uppercase tracking-[0.2em]">
-				{t("sitestats.eyebrow")}
-			</p>
-			<h1 className="mt-2 font-bold font-display text-2xl tracking-tight sm:text-3xl">
-				{t("sitestats.title")}
-			</h1>
-			<p className="mt-2 max-w-2xl text-muted">{t("sitestats.blurb")}</p>
+		<PageShell
+			measure="max-w-3xl"
+			trail={[
+				{ label: t("page.home"), href: paths.home(lang) },
+				{ label: t("nav.stats") },
+			]}
+			eyebrow={t("sitestats.eyebrow")}
+			title={t("sitestats.title")}
+			lede={t("sitestats.blurb")}
+		>
 			{body()}
-		</main>
+		</PageShell>
 	);
 }

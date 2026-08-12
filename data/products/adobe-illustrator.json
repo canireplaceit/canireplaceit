@@ -92,6 +92,174 @@
 				"en": "Half the price, excellent on iPad, and a usable free tier. Weak on print output.",
 				"fr": "Deux fois moins cher, excellent sur iPad, avec une offre gratuite utilisable. Faible sur la sortie imprimée."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Inkscape",
+			"source": {
+				"host": "gitlab",
+				"path": "inkscape/inkscape",
+				"url": "https://gitlab.com/inkscape/inkscape"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The free vector editor by default. SVG-native, paths, boolean ops, live effects, headless CLI. Dated UI; no collaboration or cloud.",
+				"fr": "L’éditeur vectoriel libre de référence. Natif SVG, chemins, opérations booléennes, effets dynamiques, CLI sans interface. Interface datée, ni collaboration ni cloud."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Krita",
+			"source": {
+				"host": "github",
+				"path": "KDE/krita",
+				"url": "https://github.com/KDE/krita"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Mature painting studio whose vector layers cover Illustrator-adjacent illustration. Strong for concept art and comics; weak for technical drawing, no print focus.",
+				"fr": "Studio de peinture mûr dont les calques vectoriels couvrent l’illustration proche d’Illustrator. Solide pour concept art et BD, faible en dessin technique, pas de chaîne d’impression."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "VGC",
+			"source": {
+				"host": "github",
+				"path": "vgc/vgc",
+				"url": "https://github.com/vgc/vgc"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Node-based, non-destructive procedural vector editing on a fast canvas. Free for personal and commercial use, but early-stage: maturing features and docs, small community.",
+				"fr": "Édition vectorielle procédurale non destructive par nœuds, canvas fluide. Gratuit en perso comme en pro, mais jeune : fonctions et docs en maturation, petite communauté."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SVG-Edit",
+			"source": {
+				"host": "github",
+				"path": "SVG-Edit/svgedit",
+				"url": "https://github.com/SVG-Edit/svgedit"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Browser SVG editor that self-hosts as static files. Extensible via plugins; toolset stays basic and single-user per session.",
+				"fr": "Éditeur SVG dans le navigateur, hébergeable en fichiers statiques. Extensible par plugins, mais outillage sommaire et un seul utilisateur par session."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Method Draw",
+			"source": {
+				"host": "github",
+				"path": "methodofaction/Method-Draw",
+				"url": "https://github.com/methodofaction/Method-Draw"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Derived from SVG-Edit, the quickest browser drop-in for icon and shape tweaks, no build step. Feature surface small; dormant since 2024-05-07.",
+				"fr": "Issu de SVG-Edit, le drop-in navigateur le plus simple pour retoucher icônes et formes, sans étape de build. Petite surface de fonctionnalités ; inactif depuis le 2024-05-07."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "svgo",
+			"source": {
+				"host": "github",
+				"path": "svg/svgo",
+				"url": "https://github.com/svg/svgo"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The standard CLI SVG optimizer, dozens of plugins for build pipelines. Not an editor, and aggressive defaults can alter hand-authored files.",
+				"fr": "L’optimiseur SVG standard en CLI, des dizaines de plugins pour les pipelines. Pas un éditeur, et des réglages agressifs par défaut peuvent modifier les fichiers écrits à la main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Scour",
+			"source": {
+				"host": "github",
+				"path": "scour-project/scour",
+				"url": "https://github.com/scour-project/scour"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Python CLI cleaning and minifying exported SVGs, pip-installable. Preserves structure better than lossy tools; no GUI, quality varies by input.",
+				"fr": "CLI Python qui nettoie et minifie les SVG exportés, s’installe en pip. Préserve mieux la structure que les outils destructifs ; sans GUI, qualité variable selon l’entrée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "vpype",
+			"source": {
+				"host": "github",
+				"path": "abey79/vpype",
+				"url": "https://github.com/abey79/vpype"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Scriptable vector pipeline: layout, scaling, optimization, plotter output via HPGL/AxiDraw. Geared to plotters and generative work, not print or interactive editing.",
+				"fr": "Pipeline vectoriel scriptable : mise en page, échelle, optimisation, sortie traceur HPGL/AxiDraw. Orienté traceurs et travail génératif, pas l’impression ni l’édition interactive."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

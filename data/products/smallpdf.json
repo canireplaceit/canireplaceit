@@ -107,6 +107,182 @@
 				"en": "Free, including an offline Windows toolkit that covers the same operations. Ad-supported and closed source.",
 				"fr": "Gratuit, avec une boîte à outils Windows hors ligne couvrant les mêmes opérations. Financé par la publicité et à code fermé."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "qpdf",
+			"source": {
+				"host": "github",
+				"path": "qpdf/qpdf",
+				"url": "https://github.com/qpdf/qpdf"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The standard CLI for structural PDF repair and encryption — most other PDF tools sit on top of it. No GUI, and page editing stops at object level.",
+				"fr": "La CLI standard de réparation, chiffrement et transformation structurelle du PDF, à laquelle s’adosse la plupart des autres outils. Pas d’interface graphique, et l’édition des pages reste au niveau des objets."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pdfcpu",
+			"source": {
+				"host": "github",
+				"path": "pdfcpu/pdfcpu",
+				"url": "https://github.com/pdfcpu/pdfcpu"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "One Go binary that edits, annotates, fills forms and signs — merging and watermarking included. No GUI; signing is still marked experimental.",
+				"fr": "Un seul binaire Go qui édite, annote, remplit les formulaires et signe, avec fusion et filigrane inclus. Pas de GUI, et la signature reste marquée expérimentale."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Sejda",
+			"source": {
+				"host": "github",
+				"path": "torakiki/sejda",
+				"url": "https://github.com/torakiki/sejda"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Full desktop and console PDF suite — merge, compress, sign and fill forms offline, plus a headless console for automation. AGPL-3.0 may block commercial embedding, and it is Java-heavy.",
+				"fr": "Suite PDF complète, desktop et console : fusion, compression, signature et formulaires hors ligne, avec une console headless pour l’automatisation. L’AGPL-3.0 peut gêner l’embarquement commercial, et le Java est lourd."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "minor; the core stays free",
+					"fr": "mineur ; le cœur reste gratuit"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PDFsam",
+			"source": {
+				"host": "github",
+				"path": "torakiki/pdfsam",
+				"url": "https://github.com/torakiki/pdfsam"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Twenty-year-old desktop merge, split and rotate tool with visual preview and a CLI for batch jobs. Editing stays basic; heavy work needs the separate Enhanced product, AGPL-3.0.",
+				"fr": "Outil desktop de fusion, scission et rotation vieux de vingt ans, avec aperçu visuel et CLI pour les lots. L’édition reste basique ; les manipulations lourdes passent par Enhanced, séparé, sous AGPL-3.0."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "only the separate Enhanced product",
+					"fr": "seulement le produit Enhanced, séparé"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OCRmyPDF",
+			"source": {
+				"host": "github",
+				"path": "ocrmypdf/OCRmyPDF",
+				"url": "https://github.com/ocrmypdf/OCRmyPDF"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Adds a searchable OCR text layer to scans, with deskew and clean built in — the OCR half of the Smallpdf stack. Needs external Tesseract; command line only.",
+				"fr": "Ajoute une couche texte OCR interrogeable aux scans, avec redressement et nettoyage intégrés — la moitié OCR de la pile Smallpdf. Nécessite Tesseract en externe ; ligne de commande uniquement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ghostscript",
+			"source": {
+				"host": "github",
+				"path": "ArtifexSoftware/ghostpdl",
+				"url": "https://github.com/ArtifexSoftware/ghostpdl"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The de facto PDF/PostScript interpreter: renders, repairs and compresses, and powers most other PDF tools. AGPL-3.0, no GUI, and low-level — not a document editor.",
+				"fr": "L’interpréteur PDF/PostScript de facto : rend, répare et compresse, et alimente la plupart des autres outils PDF. AGPL-3.0, pas de GUI, et sémantique bas niveau — pas un éditeur de documents."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MuPDF (mutool)",
+			"source": {
+				"host": "github",
+				"path": "ArtifexSoftware/mupdf",
+				"url": "https://github.com/ArtifexSoftware/mupdf"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "A small-footprint engine that renders, extracts and, via mutool, merges, splits and cleans with OCR on top. Low-level toolkit with no polished UX; AGPL-3.0.",
+				"fr": "Moteur à faible empreinte qui rend, extrait et, via mutool, fusionne, scinde et nettoie, avec OCR en prime. Boîte à outils bas niveau, UX brute, AGPL-3.0."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Paperless-ngx",
+			"source": {
+				"host": "github",
+				"path": "paperless-ngx/paperless-ngx",
+				"url": "https://github.com/paperless-ngx/paperless-ngx"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted archive that ingests scans, OCRs, auto-tags and full-text-searches your whole document pile. It manages documents, not pages — and the Docker stack runs several services.",
+				"fr": "Archive auto-hébergée qui ingère vos scans, les OCRise, les auto-tague et les recherche en texte intégral. Elle gère des documents, pas des pages — et la pile Docker compte plusieurs services."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

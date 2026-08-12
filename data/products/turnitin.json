@@ -66,6 +66,195 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "jscpd",
+			"source": {
+				"host": "github",
+				"path": "kucherenko/jscpd",
+				"url": "https://github.com/kucherenko/jscpd"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Copy/paste detector for 150+ languages with a CLI and library API, heavy CI use. Token fingerprinting catches exact and near-miss duplicates, but there is no web dashboard or overall similarity score.",
+				"fr": "Détecteur de copier-coller pour 150+ langages, CLI et API, très utilisé en CI. Repère les doublons par empreinte de tokens, sans tableau de bord web ni score global."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "compare50",
+			"source": {
+				"host": "github",
+				"path": "cs50/compare50",
+				"url": "https://github.com/cs50/compare50"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Harvard CS50’s plagiarism detector, maintained by the course team. Web interface for per-pair comparisons across dozens of languages; course-sized by design, so it needs submissions paired within a cohort.",
+				"fr": "Détecteur de plagiat de CS50, maintenu par l’équipe du cours. Vue web de comparaison par paires en dizaines de langages, mais pensé pour une cohorte de cours dont on apparie les rendus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "copydetect",
+			"source": {
+				"host": "github",
+				"path": "blingenf/copydetect",
+				"url": "https://github.com/blingenf/copydetect"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Python winnowing-based similarity with floating-window reporting, HTML reports of matched regions, and database caching across runs. Dormant since April 2024; single-machine CLI/library, a smaller feature set than JPlag.",
+				"fr": "Similarité par winnowing à fenêtres flottantes, rapports HTML des zones correspondantes, cache en base pour les relances. Dormant depuis avril 2024 ; CLI locale, fonctionnalités plus réduites que JPlag."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "noplag-engine",
+			"source": {
+				"host": "github",
+				"path": "NoplagLabs/noplag-engine",
+				"url": "https://github.com/NoplagLabs/noplag-engine"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Closest open-source analog to Turnitin’s essay checking: document similarity for natural-language text with a REST API and structured reports of matched passages. Engine only — no submission-management UI, community-driven.",
+				"fr": "L’analogue open source le plus proche de la vérification d’essais de Turnitin : similarité de textes naturels, API REST et rapports des passages concordants. Moteur seulement, sans UI de soumission, communauté restreinte."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ac2",
+			"source": {
+				"host": "github",
+				"path": "manuel-freire/ac2",
+				"url": "https://github.com/manuel-freire/ac2"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "MOSS-tradition source-code similarity for student submissions, with parallel pair comparison and HTML reports. Dormant since February 2024; code-focused, no prose similarity, a smaller community than JPlag.",
+				"fr": "Similarité de code source façon MOSS pour des rendus d’étudiants, comparaison par paires et rapports HTML. Dormant depuis février 2024 ; code uniquement, pas de similarité de prose, communauté plus petite que JPlag."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SourcererCC",
+			"source": {
+				"host": "github",
+				"path": "Mondego/SourcererCC",
+				"url": "https://github.com/Mondego/SourcererCC"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Research-grade token-based clone detector, scalable to millions of lines for large corpora. Dormant since May 2022; a research tool with C/C++/Java support but no web UI.",
+				"fr": "Détecteur de clones par tokens de niveau recherche, scalable jusqu’à des millions de lignes pour les gros corpus. Dormant depuis mai 2022 ; outil de recherche, C/C++/Java, mais pas d’interface web."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "jieplag",
+			"source": {
+				"host": "github",
+				"path": "thu-cs-lab/jieplag",
+				"url": "https://github.com/thu-cs-lab/jieplag"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Plagiarism detection over uploaded documents, code and text alike, with a web UI for the results. Chinese-friendly and MIT licensed, but documentation is largely in Chinese and the community is small.",
+				"fr": "Détection de plagiat sur documents téléversés, code comme texte, avec une interface web pour les résultats. Orienté chinois, MIT, toujours maintenu, mais une doc surtout en chinois et une communauté réduite."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pycode_similar",
+			"source": {
+				"host": "github",
+				"path": "fyrestone/pycode_similar",
+				"url": "https://github.com/fyrestone/pycode_similar"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Tiny pip-installable Python library that compares AST-token frequency and prints similarity ratios per file pair. Dormant since June 2023; Python-only with basic output and no report generation.",
+				"fr": "Petite bibliothèque Python pip-installable, compare les fréquences de tokens AST et affiche des ratios par paire de fichiers. Dormant depuis juin 2023 ; Python uniquement, sortie brute, pas de génération de rapports."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "copy-spotter",
+			"source": {
+				"host": "github",
+				"path": "Wazzabeee/copy-spotter",
+				"url": "https://github.com/Wazzabeee/copy-spotter"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Local prose-similarity CLI that fingerprints essays and prints matched chunks without sending data anywhere. Dormant since June 2024; single-computer, no multi-user workflow, and a small community.",
+				"fr": "CLI locale de similarité de prose qui empreinte les essais et sort les passages concordants sans rien envoyer. Dormant depuis juin 2024 ; outil mono-machine, pas de flux multi-utilisateurs, petite communauté."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

@@ -87,6 +87,153 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Uptime Kuma",
+			"source": {
+				"host": "github",
+				"path": "louislam/uptime-kuma",
+				"url": "https://github.com/louislam/uptime-kuma"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted status dashboard with HTTP/TCP/ping/DNS/push probes, a status page and 80+ notification integrations. Agents probe from remote boxes. Simpler than transaction scripts, and no BGP or path analytics.",
+				"fr": "Auto-hébergé, avec sondes HTTP/TCP/ping/DNS/push, page de statut et plus de 80 intégrations de notification. Les agents sondent depuis d’autres machines. Plus simple qu’un script de transaction, sans BGP ni analyse de chemin."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Gatus",
+			"source": {
+				"host": "github",
+				"path": "TwiN/gatus",
+				"url": "https://github.com/TwiN/gatus"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "GitOps health checks in YAML — HTTP/TCP/ICMP/DNS/SQL — with badges, a status page and built-in alerting, at home in Kubernetes. No traceroute or BGP visibility, no metrics store, single-host vantage.",
+				"fr": "Contrôles de santé déclarés en YAML — HTTP/TCP/ICMP/DNS/SQL — avec badges, page de statut et alertes intégrées, pour Kubernetes. Pas de traceroute ni de visibilité BGP, pas d’historique de métriques, un seul point d’observation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Monika",
+			"source": {
+				"host": "github",
+				"path": "hyperjumptech/monika",
+				"url": "https://github.com/hyperjumptech/monika"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Headless synthetic monitor: HTTP probes with assertions in YAML/JSON, Slack or email alerts, run as CLI, service or CI job from any box. No UI or history, no BGP or path analytics.",
+				"fr": "Moniteur synthétique headless : sondes HTTP avec assertions en YAML/JSON, alertes Slack ou e-mail, en CLI, service ou job CI. Pas d’interface ni d’historique, ni BGP ni analyse de chemin."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "mtr",
+			"source": {
+				"host": "github",
+				"path": "traviscross/mtr",
+				"url": "https://github.com/traviscross/mtr"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The classic traceroute-and-ping TUI, packaged in every distro: real-time loss and latency per hop, from one host only. No persistence, no alerting, no BGP data.",
+				"fr": "Le classique TUI traceroute + ping, présent dans toutes les distros : pertes et latence en temps réel par saut, depuis un seul hôte. Pas de persistance, pas d’alertes, pas de données BGP."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Netdata",
+			"source": {
+				"host": "github",
+				"path": "netdata/netdata",
+				"url": "https://github.com/netdata/netdata"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Per-second telemetry across hosts from thousands of metric types, with anomaly detection and alerts in real-time dashboards. Covers the internal metrics side only — no external path quality, no BGP or route monitoring.",
+				"fr": "Télémétrie à la seconde sur des milliers de types de métriques par hôte, anomalies et alertes en temps réel. Couvre le volet interne seulement — pas de chemin externe, ni BGP ni routage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Zabbix",
+			"source": {
+				"host": "github",
+				"path": "zabbix/zabbix",
+				"url": "https://github.com/zabbix/zabbix"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Agent and agentless monitoring with discovery, SLA, alerting and distributed proxies for multi-site vantage, plus RBAC and SSO. Heavy to operate for a small probe; path analysis stays limited, no BGP visibility.",
+				"fr": "Supervision par agent ou sans agent, découverte, SLA, alertes, proxies distribués multi-sites, RBAC et SSO. Lourd à exploiter pour une petite sonde ; analyse de chemin limitée, pas de visibilité BGP."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenBMP",
+			"source": {
+				"host": "github",
+				"path": "SNAS/openbmp",
+				"url": "https://github.com/SNAS/openbmp"
+			},
+			"license": "EPL-1.0",
+			"effort": "ops",
+			"note": {
+				"en": "The one real open BGP monitoring platform: RIB and update streams from routers, route and prefix alerting, Grafana dashboards. Dormant since April 2021, needs router feeds and Kafka wiring — no turnkey UI.",
+				"fr": "Seul monitoring BGP open source : flux RIB et updates, alertes de routes et de préfixes, dashboards Grafana. Dormant depuis 2021 ; exige des feeds routeurs et du Kafka, pas d’UI clé en main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

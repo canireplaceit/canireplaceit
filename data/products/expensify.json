@@ -111,6 +111,182 @@
 				"en": "Cheaper and the OCR is comparable. No corporate card programme of its own.",
 				"fr": "Moins cher, OCR comparable. Pas de programme de carte corporate maison."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Invoice Ninja",
+			"source": {
+				"host": "github",
+				"path": "invoiceninja/invoiceninja",
+				"url": "https://github.com/invoiceninja/invoiceninja"
+			},
+			"license": "Elastic-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Invoicing and expense tracking with receipt attachments in one self-hosted app, backed by a client portal and webhooks. Elastic License 2.0 is not OSI-open, and expense approval stays lighter than Expensify.",
+				"fr": "Facturation et dépenses avec reçus joints dans une app auto-hébergée, plus portail client et webhooks. Licence Elastic-2.0 non reconnue OSI, et l’approbation des dépenses reste légère."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Pro edition extras",
+					"fr": "Extras de l’édition Pro"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Firefly III",
+			"source": {
+				"host": "codeberg",
+				"path": "firefly-iii/firefly-iii",
+				"url": "https://codeberg.org/firefly-iii/firefly-iii"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Personal-finance only: no invoicing, reimbursements or approval chain. Within that scope, rule-based auto-categorization plus a bank/CSV importer and REST API make it the strongest self-hosted tracker.",
+				"fr": "Perso uniquement : pas de facturation ni de chaîne d’approbation. Mais la catégorisation par règles, l’importeur banque/CSV et l’API REST en font le suivi auto-hébergé le plus complet."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Actual Budget",
+			"source": {
+				"host": "github",
+				"path": "actualbudget/actual",
+				"url": "https://github.com/actualbudget/actual"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Envelope budgeting with bank sync via SimpleFIN or GoCardless, plus a native desktop app and reports. It budgets and tracks spending — invoicing, approvals and reimbursements are out of scope.",
+				"fr": "Budget par enveloppes avec synchronisation bancaire via SimpleFIN ou GoCardless, app de bureau native et rapports. C’est un outil de budget : facturation, approbations et remboursements n’existent pas."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Crater",
+			"source": {
+				"host": "github",
+				"path": "crater-invoice-inc/crater",
+				"url": "https://github.com/crater-invoice-inc/crater"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Development has been dormant since mid-2024, and it is a heavier Laravel install. Still, invoicing with payments, receipts and a client portal come in one app — no approval workflow, though.",
+				"fr": "Développement en sommeil depuis mi-2024, et l’installation Laravel est lourde. Mais facturation avec paiements, reçus et portail client tiennent dans une seule app — sans workflow d’approbation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Akaunting",
+			"source": {
+				"host": "github",
+				"path": "akaunting/akaunting",
+				"url": "https://github.com/akaunting/akaunting"
+			},
+			"license": "BUSL-1.1",
+			"effort": "docker",
+			"note": {
+				"en": "Double-entry accounting with invoicing, expenses, reports and mobile companions, self-hosted. But it ships under Business Source License: the free edition is for non-commercial use only.",
+				"fr": "Comptabilité en partie double avec facturation, dépenses, rapports et apps mobiles, en auto-hébergement. Mais licence Business Source : l’édition gratuite est réservée à un usage non commercial."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Commercial use",
+					"fr": "Usage commercial"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "beancount",
+			"source": {
+				"host": "github",
+				"path": "beancount/beancount",
+				"url": "https://github.com/beancount/beancount"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Plain-text double-entry ledger, deterministic and Git-friendly, with a query language and importers. No GUI and no invoice workflow — expect to edit text and know your accounting.",
+				"fr": "Grand livre en partie double, texte brut, déterministe, compatible Git, avec langage de requêtes et importeurs. Pas d’interface ni de facturation : éditer des fichiers texte et connaître la comptabilité."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "hledger",
+			"source": {
+				"host": "github",
+				"path": "simonmichael/hledger",
+				"url": "https://github.com/simonmichael/hledger"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The terminal-first plain-text option: hledger-ui TUI, hledger-web and a JSON API on top of the ledger, with budget and forecast reports. Manual text editing throughout, no receipts or approval flow.",
+				"fr": "L’option terminal d’abord : TUI hledger-ui, hledger-web et une API JSON autour du grand livre, avec rapports de budget et prévisions. Saisie manuelle en texte, sans reçus ni circuit d’approbation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Money Manager EX",
+			"source": {
+				"host": "github",
+				"path": "moneymanagerex/moneymanagerex",
+				"url": "https://github.com/moneymanagerex/moneymanagerex"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Cross-platform desktop expense tracking that runs fully offline — accounts, categories, payees, budgets, reports. Single-user and local only: no sync, no invoicing, no approvals, no receipt OCR.",
+				"fr": "Suivi de dépenses desktop, sur Windows/macOS/Linux, 100 % hors ligne — comptes, catégories, tiers, budgets, rapports. Mono-utilisateur et local uniquement : pas de synchronisation, ni facturation, ni approbations, ni OCR de reçus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

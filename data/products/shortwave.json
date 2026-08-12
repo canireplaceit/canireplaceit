@@ -118,6 +118,178 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "aerc",
+			"source": {
+				"host": "sourcehut",
+				"path": "rjarry/aerc",
+				"url": "https://git.sr.ht/~rjarry/aerc"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Terminal-only mail client with Vim-style bindings and tabbed accounts; IMAP, SMTP and notmuch backends. Fast, but keybinding learning curve and no calendars or contacts.",
+				"fr": "Client mail de terminal uniquement, raccourcis façon Vim et comptes en onglets ; IMAP, SMTP et backend notmuch. Rapide, mais la courbe d’apprentissage des touches et pas de calendriers ni de contacts."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "himalaya",
+			"source": {
+				"host": "github",
+				"path": "pimalaya/himalaya",
+				"url": "https://github.com/pimalaya/himalaya"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Modern Rust CLI/TUI mail client, single binary with multi-account profiles and JSON output. Search is plain IMAP search, not a local index, and there’s no GUI or contacts.",
+				"fr": "Client mail Rust moderne en CLI/TUI, binaire unique avec profils multi-comptes et sortie JSON. La recherche est une recherche IMAP basique, pas un index local, et sans interface graphique ni contacts."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "NeoMutt",
+			"source": {
+				"host": "gitlab",
+				"path": "neomutt/neomutt",
+				"url": "https://gitlab.com/neomutt/neomutt"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Actively maintained Mutt fork for the terminal: server-side Gmail-style labels, limit/search patterns, scripts, sidebar. The cost is a steep config and, on its own, no calendars or contacts.",
+				"fr": "Fork maintenu de Mutt pour le terminal : labels côté serveur façon Gmail, motifs de recherche/limite, scripts et sidebar. Seul, sans calendriers ni contacts, et une configuration à la courbe raide."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "notmuch",
+			"source": {
+				"host": "github",
+				"path": "notmuch/notmuch",
+				"url": "https://github.com/notmuch/notmuch"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Tag-based CLI indexer giving fast full-text search over the whole archive, with notmuch.el and vim frontends. It indexes but doesn’t read mail, so you still add an MUA and mbsync.",
+				"fr": "Indexeur CLI à base de tags, recherche plein-texte rapide sur tout l’archive ; frontends notmuch.el et vim. Il indexe mais ne lit pas le mail : il faut lui adjoindre un MUA et mbsync."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "mu (mu4e)",
+			"source": {
+				"host": "github",
+				"path": "djcb/mu",
+				"url": "https://github.com/djcb/mu"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Xapian-backed indexer with mu4e, an Emacs client giving Gmail-style search, labels and org-mode tasks from mail. The main UX is Emacs, and mail must first be pulled locally with mbsync.",
+				"fr": "Indexeur Xapian avec mu4e, client Emacs : recherche façon Gmail, labels et tâches org-mode depuis le mail. L’interface principale est Emacs, et il faut tirer le courrier en local via mbsync."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Geary",
+			"source": {
+				"host": "github",
+				"path": "GNOME/geary",
+				"url": "https://github.com/GNOME/geary"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "GTK desktop client with conversation view and Gmail label support over IMAP, locally stored. Linux-only and IMAP-only, and the project moves slowly.",
+				"fr": "Client de bureau GTK à conversation en fil et support des labels Gmail sur IMAP, avec stockage local. Linux seulement, IMAP uniquement, et le projet avance lentement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Evolution",
+			"source": {
+				"host": "github",
+				"path": "GNOME/evolution",
+				"url": "https://github.com/GNOME/evolution"
+			},
+			"license": "LGPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "GNOME groupware bundling mail, calendar, tasks and contacts with Exchange/EWS support and encryption. Linux-only, heavyweight next to terminal clients, and lighter on Gmail-style mail polish.",
+				"fr": "Groupware GNOME qui regroupe mail, calendrier, tâches et contacts, avec support Exchange/EWS et chiffrement. Linux uniquement, lourd à côté des clients terminal, et moins soigné côté mail à la Gmail."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SnappyMail",
+			"source": {
+				"host": "github",
+				"path": "the-djmaze/snappymail",
+				"url": "https://github.com/the-djmaze/snappymail"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight self-hosted webmail (a RainLoop fork) with 2FA and PGP, no database needed. Calendars and contacts live in paid apps, and you still supply the IMAP backend.",
+				"fr": "Webmail autohébergé léger, fork de RainLoop, avec 2FA et PGP, sans base de données. Calendriers et contacts sont dans des apps payantes, et le backend IMAP reste à fournir."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Apps suite (contacts, basic calendar) — a minor add-on.",
+					"fr": "Suite d’apps (contacts, calendrier basique) — ajout mineur."
+				}
+			}
 		}
 	],
 	"priority": 2

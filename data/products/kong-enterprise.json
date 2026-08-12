@@ -105,6 +105,186 @@
 				"en": "Programmable gateway with a developer portal at a startup price, edge-deployed. Much less mature plugin ecosystem and no on-prem story.",
 				"fr": "Passerelle programmable avec portail développeur à prix de startup, déployée en périphérie. Écosystème de plugins bien moins mature et pas d’offre on-premise."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tyk",
+			"source": {
+				"host": "github",
+				"path": "TykTechnologies/tyk",
+				"url": "https://github.com/TykTechnologies/tyk"
+			},
+			"license": "other",
+			"effort": "docker",
+			"note": {
+				"en": "Most complete OSS stack: gateway, per-key and per-plan access, multi-gateway control plane in one. Dashboard, dev portal and SSO are commercial; newer versions are BSL, OSS frozen at older releases.",
+				"fr": "Stack OSS la plus complète : gateway, contrôle par clé et par plan, plan de contrôle multi-gateways. Dashboard, portail et SSO commerciaux ; versions récentes en BSL, OSS figé aux anciennes versions."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Dashboard, dev portal and SSO",
+					"fr": "Dashboard, portail et SSO"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Gravitee",
+			"source": {
+				"host": "github",
+				"path": "gravitee-io/gravitee-api-management",
+				"url": "https://github.com/gravitee-io/gravitee-api-management"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The whole APIM in the CE — gateway, management API, admin console, developer portal. OpenAPI publishing, API-key self-service, OIDC SSO all open. Costs a heavier footprint: several Java services to operate.",
+				"fr": "L’APIM complet en CE : gateway, API de gestion, console admin, portail développeur. Publication OpenAPI, API keys en self-service, SSO OIDC, tout open source. Au prix de plusieurs services Java à opérer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Advanced policies, EE plugins",
+					"fr": "Policies avancées, plugins EE"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "WSO2 API Manager",
+			"source": {
+				"host": "github",
+				"path": "wso2/api-manager",
+				"url": "https://github.com/wso2/api-manager"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Closest to Apigee on features, fully Apache-2.0: publisher, dev portal, gateway, analytics in one product, with OAuth2, SAML and API-key flows. Costs a resource-hungry Java/Carbon stack and a learning curve above Kong.",
+				"fr": "Le plus proche d’Apigee, entièrement Apache-2.0 : publisher, portail, gateway et analytics dans un produit, avec OAuth2, SAML et clés API, moyennant une stack Java/Carbon gourmande et une courbe d’apprentissage rude."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "KrakenD",
+			"source": {
+				"host": "github",
+				"path": "krakend/krakend-ce",
+				"url": "https://github.com/krakend/krakend-ce"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Declarative Go gateway aggregating many backends into one API: single static binary, high throughput, JWT and rate limiting built in. But gateway only — no portal, no key-management UI, no admin API.",
+				"fr": "Gateway Go déclaratif, agrège des backends en une API : binaire unique, haut débit, JWT et rate limiting intégrés. Mais rien d’autre : pas de portail, ni analytics, ni gestion de clés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise plugins",
+					"fr": "Plugins Enterprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Higress",
+			"source": {
+				"host": "github",
+				"path": "higress-group/higress",
+				"url": "https://github.com/higress-group/higress"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Cloud-native Envoy/Istio gateway from Alibaba with a Wasm plugin ecosystem in Go and Rust and a built-in admin console. Not a plain-binary install: Kubernetes-centric, gateway-focused, younger than Kong.",
+				"fr": "Gateway cloud-natif Envoy/Istio d’Alibaba, écosystème de plugins Wasm (Go et Rust) et console d’admin intégrée. Mais pas d’installation binaire simple : pensé Kubernetes, orienté gateway uniquement, plus jeune que Kong."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Envoy Gateway",
+			"source": {
+				"host": "github",
+				"path": "envoyproxy/gateway",
+				"url": "https://github.com/envoyproxy/gateway"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "CNCF-endorsed Envoy-as-gateway via the K8s Gateway API: policy-driven L7 traffic, egctl to inspect config. Not turnkey APIM — requires Kubernetes, no portal, policies assembled as CRDs.",
+				"fr": "Envoy en gateway via l’API Gateway Kubernetes, porté par la CNCF : trafic L7 piloté par politiques. Pas un APIM clé en main : Kubernetes requis, pas de portail, CRDs à assembler."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Express Gateway",
+			"source": {
+				"host": "github",
+				"path": "ExpressGateway/express-gateway",
+				"url": "https://github.com/ExpressGateway/express-gateway"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Simple Node/Express gateway with a CLI and plugins — pragmatic for a small API surface. Dormant two years: no commit since May 2024, no release since 2021; Node, not Envoy/Nginx throughput.",
+				"fr": "Gateway Node/Express, CLI et plugins — pragmatique pour une petite surface d’API. Mais inactif depuis deux ans : aucun commit depuis mai 2024, aucune release depuis 2021. Node, sans le débit d’Envoy/Nginx."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Prism",
+			"source": {
+				"host": "github",
+				"path": "stoplightio/prism",
+				"url": "https://github.com/stoplightio/prism"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "CLI mock server from OpenAPI or AsyncAPI specs: request validation, proxy to a live backend. A dev tool, not a production gateway — no auth, rate limiting or key management.",
+				"fr": "Mock server en CLI généré depuis les specs OpenAPI : validation des requêtes, proxy vers un backend. Pas un gateway de prod : ni auth, ni rate limiting, ni gestion de clés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

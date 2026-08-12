@@ -93,6 +93,174 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Funkwhale",
+			"source": {
+				"host": "gitea",
+				"path": "funkwhale/funkwhale",
+				"url": "https://dev.funkwhale.audio/funkwhale/funkwhale"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Polished self-hosted streaming with federation, podcasts and an official Android app on F-Droid. Heavy Docker stack (Nginx, Celery, Redis, Postgres), no broadcast automation or licensed commercial catalog.",
+				"fr": "Serveur de streaming auto-hébergé soigné, avec fédération, podcasts et app Android officielle sur F-Droid. Grosse pile Docker (Nginx, Celery, Redis, Postgres), pas de diffusion programmée ni de catalogue commercial sous licence."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Koel",
+			"source": {
+				"host": "github",
+				"path": "koel/koel",
+				"url": "https://github.com/koel/koel"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Elegant Spotify-like web interface with collaborative playlists. Music only — no broadcast automation, no native mobile apps, and it needs an MP3/FLAC library you supply.",
+				"fr": "Interface web élégante façon Spotify et playlists collaboratives. Musique uniquement, pas d’automatisation de diffusion ni d’apps mobiles natives, et il vous faut fournir votre bibliothèque MP3/FLAC."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ampache",
+			"source": {
+				"host": "github",
+				"path": "ampache/ampache",
+				"url": "https://github.com/ampache/ampache"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Mature web server streaming music and video via a Subsonic-compatible API, with LDAP login and radio modes. Dated interface on a PHP stack, no licensed commercial catalog.",
+				"fr": "Serveur web mûr qui diffuse musique et vidéo via une API compatible Subsonic, avec connexion LDAP et modes radio. Interface datée, pile PHP à maintenir, pas de catalogue commercial sous licence."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Gonic",
+			"source": {
+				"host": "github",
+				"path": "sentriz/gonic",
+				"url": "https://github.com/sentriz/gonic"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Single Go binary serving the Subsonic API, transcoding and scrobbling, tiny memory footprint for low-end boxes. No web UI — pair it with DSub, play:Sub or similar.",
+				"fr": "Un seul binaire Go qui sert l’API Subsonic, avec transcodage et scrobble, empreinte mémoire minuscule pour les petites machines. Pas d’interface web, il faut le coupler à DSub, play:Sub ou équivalent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "beets",
+			"source": {
+				"host": "github",
+				"path": "beetbox/beets",
+				"url": "https://github.com/beetbox/beets"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "CLI organizer that auto-tags from MusicBrainz and renames whole libraries for whatever streams them. No playback of its own; plugins need config.",
+				"fr": "Organiseur en CLI qui tag automatiquement via MusicBrainz et renomme toute la bibliothèque pour le serveur qui la diffuse. Pas de lecture propre, et les plugins demandent de la config."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mopidy",
+			"source": {
+				"host": "github",
+				"path": "mopidy/mopidy",
+				"url": "https://github.com/mopidy/mopidy"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Headless music daemon speaking MPD protocol, so any MPD client works; extensions bolt on web UIs, Spotify, SoundCloud. No built-in interface, no user accounts, and playlists for venues are DIY.",
+				"fr": "Démon headless qui parle le protocole MPD, donc n’importe quel client MPD marche ; les extensions ajoutent web, Spotify, SoundCloud. Pas d’interface intégrée ni de comptes utilisateurs, playlists de fond à bricoler."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MPD",
+			"source": {
+				"host": "github",
+				"path": "MusicPlayerDaemon/MPD",
+				"url": "https://github.com/MusicPlayerDaemon/MPD"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Tiny daemon whose MPD protocol drives hundreds of clients, from ncmpcpp TUIs to HTTP output. No metadata or cover-art server; config is a text file.",
+				"fr": "Petit démon MPD qui pilote des centaines de clients, des TUI ncmpcpp à la sortie HTTP. Pas de serveur de métadonnées ni de pochettes ; la config est un fichier texte."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "cmus",
+			"source": {
+				"host": "github",
+				"path": "cmus/cmus",
+				"url": "https://github.com/cmus/cmus"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Fast TUI player with vim-style keys, tabbed library views and cmus-remote scripting. Plays a local library only — no streaming server, no multi-user, mouse-less.",
+				"fr": "Lecteur TUI rapide aux raccourcis façon vim, vues de bibliothèque à onglets, scriptable via cmus-remote. Lecture locale uniquement : pas de serveur de streaming, pas de multi-utilisateurs, ni de souris."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

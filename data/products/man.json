@@ -1,0 +1,303 @@
+{
+	"slug": "man",
+	"name": "man",
+	"domain": null,
+	"category": "shell-terminal",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "You can replace man for everyday lookups, but not as the definitive reference: nothing here documents every flag. Treat the alternatives as complements and keep man for the corner cases.",
+		"fr": "Vous pouvez remplacer man pour les consultations courantes, mais pas comme référence définitive : rien ici ne documente tous les flags. Les alternatives complètent man sans le remplacer ; gardez-le pour les cas limites."
+	},
+	"whatYouLose": [
+		{
+			"en": "The manual present on every machine",
+			"fr": "Le manuel présent sur toutes les machines"
+		},
+		{
+			"en": "A muscle memory that works anywhere",
+			"fr": "Un réflexe qui fonctionne partout"
+		},
+		{
+			"en": "The exhaustive list of every flag",
+			"fr": "L’inventaire exhaustif de tous les flags"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "tldr",
+			"source": {
+				"host": "github",
+				"path": "tldr-pages/tldr",
+				"url": "https://github.com/tldr-pages/tldr"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Five common invocations instead of forty screens, but it complements man rather than replacing it: no exhaustive flag list.",
+				"fr": "Cinq invocations courantes au lieu de quarante écrans, mais il complète man plutôt qu’il ne le remplace : pas de liste exhaustive des flags."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "navi",
+			"source": {
+				"host": "github",
+				"path": "denisidoro/navi",
+				"url": "https://github.com/denisidoro/navi"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Interactive cheatsheet that fills in the arguments and runs the command for you; its value depends on you maintaining your snippet files.",
+				"fr": "Cheatsheet interactive qui remplit les arguments et exécute la commande à votre place ; son intérêt dépend des fichiers de snippets que vous entretenez."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "cheat",
+			"source": {
+				"host": "github",
+				"path": "cheat/cheat",
+				"url": "https://github.com/cheat/cheat"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Plain-text cheatsheets you own and edit, versioned in git; the lowest-magic option, at the cost of writing your own pages.",
+				"fr": "Des cheatsheets en texte brut que vous possédez et éditez, versionnables dans git ; l’option la moins magique, mais c’est à vous de rédiger les pages."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "tealdeer",
+			"source": {
+				"host": "github",
+				"path": "tealdeer-rs/tealdeer",
+				"url": "https://github.com/tealdeer-rs/tealdeer"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Rust tldr client with sub-10ms lookups and a fully offline cached store. Same tldr corpus as its siblings, so same brevity, and no interactive snippet execution like navi.",
+				"fr": "Client tldr en Rust, lookups sous 10 ms et cache intégralement hors ligne. Même corpus que ses confrères, donc même brièveté, et pas d’exécution interactive de snippets comme navi."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "tlrc",
+			"source": {
+				"host": "github",
+				"path": "tldr-pages/tlrc",
+				"url": "https://github.com/tldr-pages/tlrc"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A ratatui fuzzy-search TUI over the full cached corpus, picking the variant that fits the command’s context. Content stays tldr-brief, not man-depth, with a smaller community than the Node client.",
+				"fr": "TUI ratatui de recherche floue sur tout le cache, choisissant la variante selon le contexte. Contenu tldr-bref, pas la profondeur de man, communauté moindre que le client Node."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "tldr-python-client",
+			"source": {
+				"host": "github",
+				"path": "tldr-pages/tldr-python-client",
+				"url": "https://github.com/tldr-pages/tldr-python-client"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The official Python tldr client, pip-installable anywhere, auto-downloading and caching pages. Requires a Python runtime and offers a plain CLI, no interactive TUI.",
+				"fr": "Client tldr officiel en Python, installable via pip partout, téléchargeant et mettant en cache les pages. Exige un runtime Python et reste un simple CLI, sans TUI interactif."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "cheat.sh",
+			"source": {
+				"host": "github",
+				"path": "chubin/cheat.sh",
+				"url": "https://github.com/chubin/cheat.sh"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Curl cheat.sh/COMMAND from any machine: tldr, man pages, Stack Overflow and wiki examples aggregated. Needs network unless you self-host, and output is text, not a TUI.",
+				"fr": "Un simple curl cheat.sh/COMMANDE depuis n’importe quelle machine : exemples tldr, man, Stack Overflow et wiki agrégés. Nécessite le réseau sauf à s’auto-héberger, et sort du texte, pas une TUI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "eg",
+			"source": {
+				"host": "github",
+				"path": "srsudar/eg",
+				"url": "https://github.com/srsudar/eg"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Pulls the real example sections out of the man pages you already have, with instant Rust startup. Only as good as those installed pages, and releases come slowly.",
+				"fr": "Extrait les vrais exemples des pages man déjà installées, démarrage instantané en Rust. Ne vaut que les pages locales, et les sorties se font rares."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "howdoi",
+			"source": {
+				"host": "github",
+				"path": "gleitz/howdoi",
+				"url": "https://github.com/gleitz/howdoi"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Full Stack Overflow answers in the terminal for ‘how do I…’ questions, no browser needed. Requires network, scrapes Stack Overflow, so it breaks when they change.",
+				"fr": "Réponses complètes de Stack Overflow directement dans le terminal, pour les questions du genre « comment… », sans navigateur. Exige réseau, scrape Stack Overflow, donc casse dès que ça bouge."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "how2",
+			"source": {
+				"host": "github",
+				"path": "santinic/how2",
+				"url": "https://github.com/santinic/how2"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A Go single binary that answers natural-language command questions from Stack Overflow. Dormant since March 2023 and not archived, plus it depends on Stack Overflow being reachable.",
+				"fr": "Binaire unique en Go qui répond en langage naturel aux questions de commandes depuis Stack Overflow. Dormant depuis mars 2023, non archivé, et tributaire de l’accès à Stack Overflow."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "bropages",
+			"source": {
+				"host": "github",
+				"path": "pombadev/bropages",
+				"url": "https://github.com/pombadev/bropages"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Maintained Ruby reimplementation of the classic ‘bro’ client, giving readable community-submitted examples. Corpus stays small and niche next to the tldr ecosystem.",
+				"fr": "Réimplémentation Ruby maintenue du client « bro », avec des exemples lisibles soumis par la communauté. Corpus restreint, marginal face à l’écosystème tldr."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "explainshell",
+			"source": {
+				"host": "github",
+				"path": "idank/explainshell",
+				"url": "https://github.com/idank/explainshell"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Breaks a command into every flag and argument, annotated with man-page and online help text. Browser-based, so you self-host the Python app rather than running it in the terminal.",
+				"fr": "Découpe une commande en chaque drapeau et argument, annotés avec les pages man et l’aide en ligne. Pensé pour le navigateur, donc à auto-héberger, pas un outil de terminal."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "shell_gpt",
+			"source": {
+				"host": "github",
+				"path": "TheR1D/shell_gpt",
+				"url": "https://github.com/TheR1D/shell_gpt"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Natural-language command generation and explanation over OpenAI or any compatible self-hosted endpoint. Needs an API key or your own model, and output is non-deterministic, not man’s fixed truth.",
+				"fr": "Génère et explique des commandes en langage naturel, via OpenAI ou un endpoint auto-hébergé. Clé API ou modèle requis, et la sortie non déterministe n’égale pas la vérité fixe de man."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "unknown"
+			}
+		}
+	],
+	"priority": 3
+}

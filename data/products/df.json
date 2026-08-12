@@ -1,0 +1,198 @@
+{
+	"slug": "df",
+	"name": "df",
+	"domain": null,
+	"category": "shell-terminal",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "Yes for everyday use: duf groups mounts, colours the near-full ones and hides the noise by default. The honest verdict: it is an extra install, so df stays the dependable baseline on machines that do not have it.",
+		"fr": "Oui pour l’usage quotidien : duf regroupe les montages, colore ceux qui sont presque pleins et masque le bruit par défaut. Verdict honnête : c’est une installation supplémentaire, df reste donc la base fiable sur les machines qui ne l’ont pas."
+	},
+	"whatYouLose": [
+		{
+			"en": "Present on every Unix system",
+			"fr": "Présent sur tous les systèmes Unix"
+		},
+		{
+			"en": "Muscle memory of df’s flags",
+			"fr": "Réflexe des options de df"
+		},
+		{
+			"en": "Availability in rescue environments",
+			"fr": "Disponibilité en environnement de secours"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "duf",
+			"source": {
+				"host": "github",
+				"path": "muesli/duf",
+				"url": "https://github.com/muesli/duf"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Groups local, network and special mounts, colours the near-full ones and hides the noise by default. Costs an install, but can emit JSON for scripts.",
+				"fr": "Regroupe les montages locaux, réseau et spéciaux, colore ceux qui sont presque pleins et masque le bruit par défaut. Coûte une installation, mais sait émettre du JSON pour les scripts."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dysk",
+			"source": {
+				"host": "github",
+				"path": "Canop/dysk",
+				"url": "https://github.com/Canop/dysk"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "True df replacement from the broot author: sortable, filterable filesystem table with JSON/CSV export. Linux and macOS only, and no interactive UI.",
+				"fr": "Le vrai remplaçant de df, signé par l’auteur de broot : table des systèmes de fichiers triable et filtrable, export JSON/CSV, colonnes filtrables une à une. Linux et macOS seulement, pas d’interface interactive."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dfc",
+			"source": {
+				"host": "github",
+				"path": "rolinh/dfc",
+				"url": "https://github.com/rolinh/dfc"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "The veteran df with style: color-coded usage, inline graphs, HTML/JSON/CSV export, mount filtering. Must be built from source via cmake — no binaries, and development is slow.",
+				"fr": "Le vétéran du df stylé : usage coloré, graphiques en ligne, export HTML/JSON/CSV et filtrage des montages. À compiler soi-même via cmake, sans binaires prêts à l’emploi, maintenance au point mort."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gdu",
+			"source": {
+				"host": "github",
+				"path": "dundee/gdu",
+				"url": "https://github.com/dundee/gdu"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Fast parallel disk analyzer whose -d flag lists mounted disks, bridging du and df. JSON export, ncdu import — but still a du-style TUI, not a df table, and it needs a TTY.",
+				"fr": "Analyseur parallèle et rapide : son drapeau -d liste les montages, pont entre du et df. Export JSON, import ncdu — reste une TUI de du, pas une table df, et requiert un TTY."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dua",
+			"source": {
+				"host": "github",
+				"path": "Byron/dua-cli",
+				"url": "https://github.com/Byron/dua-cli"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Parallel Rust scanner that maxes out SSDs; interactive browser with guarded multi-step deletion. Du-oriented though — no df mount table — and the TUI wants a dark terminal.",
+				"fr": "Scanner Rust parallèle qui sature les SSD : navigateur interactif avec suppression multi-étapes sécurisée. Orienté du, pas de table des montages, et la TUI exige un terminal sombre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dust",
+			"source": {
+				"host": "github",
+				"path": "bootandy/dust",
+				"url": "https://github.com/bootandy/dust"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The most popular intuitive du: instant largest-dir overview with bars, JSON output, regex filtering. Lists no filesystems, and the snap build is confined to /home.",
+				"fr": "Le du intuitif le plus populaire : vue immédiate des plus gros dossiers avec barres, sortie JSON, filtres regex. N’affiche aucun système de fichiers, et la version snap est confinée à /home."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pdu",
+			"source": {
+				"host": "github",
+				"path": "KSXGitHub/parallel-disk-usage",
+				"url": "https://github.com/KSXGitHub/parallel-disk-usage"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Highly parallel Rust tree analyzer: optional hardlink dedup, JSON in and out for scripting. No mount listing, and it skips symlinks and reflinks.",
+				"fr": "Analyseur d’arborescence Rust très parallèle : déduplication des liens physiques, JSON en entrée et sortie pour le scripting. Pas de liste de montages, ignore les symlinks et reflinks."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ncdu",
+			"source": {
+				"host": "forgejo",
+				"path": "yorhel/ncdu",
+				"url": "https://code.blicky.net/yorhel/ncdu"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The reference ncurses disk browser, packaged everywhere and now parallel-scanning: JSON/binary export, deletion, hardlink detection. A du browser, not a df table, with no official Windows build.",
+				"fr": "Le navigateur ncurses de référence, empaqueté partout et désormais à scan parallèle : export JSON/binaire, suppression, détection des liens. Un navigateur du, pas une table df, sans binaires Windows officiels."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

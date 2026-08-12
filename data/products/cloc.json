@@ -1,0 +1,177 @@
+{
+	"slug": "cloc",
+	"name": "cloc",
+	"domain": null,
+	"category": "developer-tooling",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "Yes. tokei and scc count faster across more languages and output JSON/YAML for CI. cloc is the slow, safe default already on the machine; replace it if the monorepo wait is real.",
+		"fr": "Oui. tokei et scc comptent plus vite, sur plus de langages, avec du JSON/YAML pour la CI. cloc reste le choix lent mais sûr, déjà installé ; à remplacer si l’attente sur le monorepo est réelle."
+	},
+	"whatYouLose": [
+		{
+			"en": "The Perl script on any Unix box",
+			"fr": "Le script Perl présent sur tout Unix"
+		},
+		{
+			"en": "The muscle memory for its flags",
+			"fr": "Le réflexe de ses flags exacts"
+		},
+		{
+			"en": "A tool needing no Rust toolchain",
+			"fr": "L’outil qui tourne sans toolchain Rust"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "tokei",
+			"source": {
+				"host": "github",
+				"path": "XAMPPRocky/tokei",
+				"url": "https://github.com/XAMPPRocky/tokei"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Counts in seconds rather than minutes, and emits JSON or YAML straight into CI. You are installing a Rust binary where cloc already sat.",
+				"fr": "Compte en secondes plutôt qu’en minutes, et sort du JSON ou du YAML directement pour la CI. Reste qu’il faut installer un binaire Rust là où cloc était déjà là."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "scc",
+			"source": {
+				"host": "github",
+				"path": "boyter/scc",
+				"url": "https://github.com/boyter/scc"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "As fast as tokei and adds complexity and COCOMO cost estimates. Useful if you read them, slide fodder if you don’t.",
+				"fr": "Aussi rapide que tokei et estime en plus la complexité et le coût COCOMO. Utile si vous les lisez, bon pour une slide sinon."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gocloc",
+			"source": {
+				"host": "github",
+				"path": "hhatto/gocloc",
+				"url": "https://github.com/hhatto/gocloc"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Actively maintained Go port of cloc. Reads .gitignore, ships as one cross-platform binary, and prints JSON, XML, TOML or YAML. Fewer bundled languages than cloc, and no diff or complexity metrics.",
+				"fr": "Port Go de cloc, maintenu activement : gitignore respecté, binaire multiplateforme, sorties JSON, XML, TOML ou YAML. Moins de langages par défaut que cloc, pas de diff ni de métriques de complexité."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "loc",
+			"source": {
+				"host": "github",
+				"path": "cgag/loc",
+				"url": "https://github.com/cgag/loc"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "2.4k stars but no commit since April 2024. Counts code, comments and blanks in parallel via per-extension rules that extend easily. Slower-moving, coarser reporting than cloc, and no git-ignore support.",
+				"fr": "2,4k étoiles mais aucun commit depuis avril 2024. Compte code, commentaires et lignes vides en parallèle, règles par extension faciles à étendre. Développement lent, sortie plus grossière que cloc, sans git-ignore."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "sloc",
+			"source": {
+				"host": "github",
+				"path": "flosse/sloc",
+				"url": "https://github.com/flosse/sloc"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Node.js counter built on linguist’s definitions — a fit for JS/TS-heavy repos. CLI plus library API, comments and blanks handled per language. Needs a Node runtime, output options are slimmer than cloc’s.",
+				"fr": "Compteur Node.js fondé sur les définitions de linguist, idéal pour les repos JS/TS. CLI et API de bibliothèque, commentaires et vides gérés par langage. Requiert un runtime Node, sorties plus maigres que cloc."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ohcount",
+			"source": {
+				"host": "github",
+				"path": "blackducksoftware/ohcount",
+				"url": "https://github.com/blackducksoftware/ohcount"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Black Duck’s long-running counter behind Ohloh stats, recently revived. Own language detection, CSV and HTML reports, small embeddable C library. GPL-2.0 can deter commercial use, and coverage and docs trail cloc.",
+				"fr": "Compteur de Black Duck derrière les stats Ohloh, ressuscité récemment. Détection de langages propre, rapports CSV et HTML, bibliothèque C intégrable. GPL-2.0 refroidit l’usage commercial, couverture et docs en retrait sur cloc."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "go-enry",
+			"source": {
+				"host": "github",
+				"path": "go-enry/go-enry",
+				"url": "https://github.com/go-enry/go-enry"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Language detection tuned to GitHub’s linguist accuracy, with line counts per detected language — `enry` CLI and an embeddable Go library. Detection-led, so comment and blank breakdown stays coarse, not a cloc drop-in.",
+				"fr": "Détection de langages à la précision du linguist de GitHub, avec comptage de lignes par langage détecté — CLI `enry`, bibliothèque Go intégrable. À dominante détection, donc commentaires/vides grossiers, ne remplace pas cloc."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 1
+}

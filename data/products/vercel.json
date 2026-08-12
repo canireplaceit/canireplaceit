@@ -97,6 +97,174 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dokku",
+			"source": {
+				"host": "github",
+				"path": "dokku/dokku",
+				"url": "https://github.com/dokku/dokku"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Git-push deploys with herokuish buildpacks on any Docker VPS, plus Let's Encrypt and a CI API. CLI-only: no dashboard, no previews, and the box is yours to run.",
+				"fr": "Le mini-Heroku open source : git-push sur buildpacks herokuish, Let’s Encrypt et une API pour les hooks CI. Tout en CLI — pas de dashboard, pas de previews, et le VPS est à toi."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kamal",
+			"source": {
+				"host": "github",
+				"path": "basecamp/kamal",
+				"url": "https://github.com/basecamp/kamal"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "You own the servers and the Docker runtime, but Basecamp's MIT CLI scripts zero-downtime rolling deploys over SSH with one-command rollback. No web UI or managed HTTPS — pair with a proxy.",
+				"fr": "Tu gardes les serveurs et le runtime Docker, mais ce CLI MIT scripte des deploys rolling zéro-downtime en SSH, rollback en une commande. Ni web UI ni HTTPS managé, un proxy devant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Piku",
+			"source": {
+				"host": "github",
+				"path": "piku/piku",
+				"url": "https://github.com/piku/piku"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "One small script turns a Raspberry Pi into a git-push deploy target for Python, Node or static, with Let's Encrypt TLS. No isolation: apps share the host OS, and there's no dashboard.",
+				"fr": "Un petit script transforme un Raspberry Pi en cible de déploiement git-push pour Python, Node, statique, avec TLS Let’s Encrypt. Pas d’isolation : les apps partagent l’OS hôte, et pas de dashboard."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Fission",
+			"source": {
+				"host": "github",
+				"path": "fission/fission",
+				"url": "https://github.com/fission/fission"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Kubernetes-native serverless for functions in any language, autoscaled, fired by HTTP, cron or Kafka, low cold-start via executor pools. Functions only — no static hosting or build pipeline — on a cluster you run.",
+				"fr": "Serverless Kubernetes-native : fonctions dans n’importe quelle langue, auto-scaling, triggers HTTP, cron, Kafka, cold-start faible via pools d’executors. Fonctions uniquement — pas de statique ni de pipeline — cluster à opérer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenWhisk",
+			"source": {
+				"host": "github",
+				"path": "apache/openwhisk",
+				"url": "https://github.com/apache/openwhisk"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Apache's serverless engine needs its own cluster, then delivers event-driven functions in Node, Python, Swift or Go, chained into sequences and fed by Kafka. No static hosting or CDN — ops-heavy by default.",
+				"fr": "Le moteur serverless d’Apache exige son propre cluster, mais fournit des fonctions event-driven en Node, Python, Swift ou Go, chaînées en séquences, alimentées par Kafka. Pas d’hébergement statique ni de CDN."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Capistrano",
+			"source": {
+				"host": "github",
+				"path": "capistrano/capistrano",
+				"url": "https://github.com/capistrano/capistrano"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The veteran Ruby deploy tool: repeatable SSH deploys with rollback across multi-server, multi-stage targets. It only orchestrates deploys — no runtime, HTTPS or static hosting.",
+				"fr": "Le vétéran Ruby du déploiement : deploys SSH répétables avec rollback sur cibles multi-serveurs et multi-stages. Il orchestre juste le déploiement — pas de runtime, de HTTPS ni d’hébergement statique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Deployer",
+			"source": {
+				"host": "github",
+				"path": "deployphp/deployer",
+				"url": "https://github.com/deployphp/deployer"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A single PHP phar, zero dependencies, that turns declarative recipes into atomic, parallel, rollback-capable deploys across servers. PHP-ecosystem focus and deploy pipeline only — no hosting, TLS or dashboard.",
+				"fr": "Un phar PHP unique, zéro dépendance, qui transforme des recettes déclaratives en deploys atomiques, parallèles et réversibles sur plusieurs serveurs. Orienté écosystème PHP, rien que le pipeline : ni hébergement, TLS ni dashboard."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "lazydocker",
+			"source": {
+				"host": "github",
+				"path": "jesseduffield/lazydocker",
+				"url": "https://github.com/jesseduffield/lazydocker"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A terminal UI with live container, network, log and stats panels, mouse or keyboard driven. It manages the Docker host you already run — no deploy tooling, single-machine view.",
+				"fr": "Un TUI avec vues live des conteneurs, réseaux, logs et stats, piloté à la souris ou au clavier. Il gère l’hôte Docker existant — aucun outil de déploiement, vue mono-machine."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

@@ -66,6 +66,182 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenReview",
+			"source": {
+				"host": "github",
+				"path": "openreview/openreview-web",
+				"url": "https://github.com/openreview/openreview-web"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The default review platform for ML conferences: AGPL web UI, published API, double/triple-blind forums, reviewer matching. Self-host the open UI, but the core API runs only on hosted OpenReview.net; venues skew conference-style.",
+				"fr": "Plateforme d’évaluation de référence des conférences ML : web UI AGPL, API publiée, double/triple aveugle, forums. L’UI s’auto-héberge, mais l’API centrale tourne sur OpenReview.net hébergé ; orientée conférences, pas desk éditorial."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "us-only",
+				"paywalled": {
+					"en": "Core hosting service",
+					"fr": "Service d’évaluation hébergé"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "HotCRP",
+			"source": {
+				"host": "github",
+				"path": "kohler/hotcrp",
+				"url": "https://github.com/kohler/hotcrp"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Fast double-blind review, the conference-and-journal standard, MIT, actively maintained. Powerful reviewer search and conflict handling, but copyediting is thin and the PHP+MySQL install is manual — no turnkey Compose.",
+				"fr": "Référence de la relecture en double aveugle, MIT, toujours maintenu. Recherche de relecteurs et gestion des conflits solides, mais l’édition reste mince et l’install PHP+MySQL est manuelle, sans Compose clé en main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PubPub (Underscore)",
+			"source": {
+				"host": "github",
+				"path": "knowledgefutures/pubpub",
+				"url": "https://github.com/knowledgefutures/pubpub"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Community publishing from Knowledge Futures: journals, preprints, living documents with versioning, Crossref DOIs, real-time co-editing. Review is community-style, not formal assignments, and self-hosting means a full Node/Postgres stack tuned for pubpub.org.",
+				"fr": "Publication communautaire de Knowledge Futures : revues, preprints, documents vivants versionnés, DOI Crossref, co-édition en temps réel. L’évaluation reste communautaire, pas d’affectations formelles, et l’auto-hébergement exige une stack Node/Postgres complète, calibrée pour pubpub.org."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Managed hosting",
+					"fr": "Hébergement géré"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kotahi",
+			"source": {
+				"host": "github",
+				"path": "eLifePathways/Kotahi",
+				"url": "https://github.com/eLifePathways/Kotahi"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Modern MIT journal platform from Coko and eLife, successor to OJS/xPub: single-page submission dashboard, configurable workflows. Small install base, docs for capable devs, JATS/XML-first production rather than a fixed review pipeline.",
+				"fr": "Plateforme MIT de Coko et eLife, successeur d’OJS/xPub : dashboard de soumission et d’édition en une page, workflows configurables. Petite base d’install, docs pour devs confirmés, production JATS/XML plutôt qu’un pipeline d’évaluation fixe."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Episciences",
+			"source": {
+				"host": "github",
+				"path": "CCSDForge/episciences",
+				"url": "https://github.com/CCSDForge/episciences"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "CCSD’s GPL-3.0 overlay-journal platform: screen, review, and publish preprints already on arXiv/HAL, with per-journal editorial boards. Not for in-house submission, and the community and docs run mostly in French.",
+				"fr": "Plateforme de revues overlay de la CCSD, en GPL-3.0 : sélection, évaluation et publication de preprints arXiv/HAL, comités éditoriaux par revue. Pas pour la soumission maison ; communauté et docs surtout en français."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "eLife Xpub",
+			"source": {
+				"host": "github",
+				"path": "elifesciences/elife-xpub",
+				"url": "https://github.com/elifesciences/elife-xpub"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Archived: eLife abandoned this MIT submission-and-peer-review implementation, built on Coko’s PubSweet framework. Author submission UI and editor assignment remain reusable, but it assumed a single journal and needs adaptation for multi-journal offices.",
+				"fr": "Archivé : eLife a abandonné cette implémentation MIT de soumission-relecture, bâtie sur PubSweet. L’UI de soumission et l’affectation des éditeurs sont réutilisables, mais le modèle restait mono-revue, à adapter pour le multi-revues."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Libero Reviewer",
+			"source": {
+				"host": "github",
+				"path": "libero/reviewer",
+				"url": "https://github.com/libero/reviewer"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Archived: eLife’s standalone MIT review-step tool with editorial and reviewer dashboards and an API-driven, decoupled frontend. Superseded by the move to Kotahi, and it covers review only — no submission-to-publication.",
+				"fr": "Archivé : outil MIT autonome d’eLife, dashboards éditeur et relecteur, frontend découplé piloté par API. Dépassé par le passage à Kotahi, il ne couvre que la relecture, pas la soumission à la publication."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Open Conference Systems",
+			"source": {
+				"host": "github",
+				"path": "pkp/ocs",
+				"url": "https://github.com/pkp/ocs"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Archived: PKP retired this GPL-3.0 OJS companion in 2021 — conference submission, peer review, proceedings, same install model. Conference hosting now sits on OJS or Janeway, smaller surface than a journal system.",
+				"fr": "Archivé : PKP a retiré ce compagnon de OJS en 2021 (GPL-3.0) : soumission de conférence, relecture, actes, même modèle d’install. L’hébergement de conférences passe par OJS ou Janeway, surface moindre qu’une revue."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

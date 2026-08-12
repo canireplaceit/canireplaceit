@@ -91,6 +91,266 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Envoy Proxy",
+			"source": {
+				"host": "github",
+				"path": "envoyproxy/envoy",
+				"url": "https://github.com/envoyproxy/envoy"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "CNCF proxy built for service-mesh scale — circuit breaking, retries, xDS config as standard. The config model is steeper than nginx.conf and there is no UI: bring your own Prometheus and Grafana.",
+				"fr": "Proxy CNCF pensé pour l’échelle des service meshes — circuit breaking, retries et config xDS de série. Config plus raide que nginx.conf, pas d’UI : il faut apporter Prometheus et Grafana."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache HTTP Server",
+			"source": {
+				"host": "github",
+				"path": "apache/httpd",
+				"url": "https://github.com/apache/httpd"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The longest-running modular web server; mod_proxy_balancer makes it a genuine nginx stand-in. Per-request thread tuning is fiddly next to nginx’s event model, and health checks still need extra modules.",
+				"fr": "Le serveur web modulaire le plus ancien ; mod_proxy_balancer en fait un vrai remplaçant de nginx. Réglage des threads par requête délicat, et les health checks demandent des modules en plus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kong Gateway",
+			"source": {
+				"host": "github",
+				"path": "Kong/kong",
+				"url": "https://github.com/Kong/kong"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Plugin-based API gateway on OpenResty — auth, rate limiting and transforms out of the box, plus an admin API. Plugin-heavy setups usually pull in Postgres unless you go DB-less.",
+				"fr": "Gateway d’API à plugins sur OpenResty — auth, rate limiting et transformations inclus, avec une admin API. Le monde des plugins tire souvent vers Postgres, sauf en mode DB-less."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise-edition extras (minor)",
+					"fr": "Extras de l’édition entreprise (mineurs)"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenResty",
+			"source": {
+				"host": "github",
+				"path": "openresty/openresty",
+				"url": "https://github.com/openresty/openresty"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "ops",
+			"note": {
+				"en": "nginx plus embedded LuaJIT — script auth, routing and aggregation with the resty.* ecosystem. You patch and package your own build; there is no managed distribution or support line.",
+				"fr": "nginx plus LuaJIT embarqué — auth, routage et agrégation scriptés grâce aux modules resty.*. Vous patchez et empaquetez votre propre build : ni distribution managée ni ligne de support."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "NGINX (open source)",
+			"source": {
+				"host": "github",
+				"path": "nginx/nginx",
+				"url": "https://github.com/nginx/nginx"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "ops",
+			"note": {
+				"en": "The upstream nginx itself — identical nginx.conf and the same event-driven core, free under BSD. Active health checks, the dynamic reconfig API and the live dashboard are Plus-only.",
+				"fr": "nginx en amont, tout court — même nginx.conf, même cœur événementiel, libre sous BSD. Les health checks actifs, l’API de reconfig dynamique et le dashboard temps réel restent du ressort de Plus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Active health checks, dashboard, official support",
+					"fr": "Checks actifs, dashboard, support officiel"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache Traffic Server",
+			"source": {
+				"host": "github",
+				"path": "apache/trafficserver",
+				"url": "https://github.com/apache/trafficserver"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Event-driven caching and reverse proxy built for CDN scale — remap routing and a plugin API, proven on major CDNs. records.config feels more enterprise than nginx.conf, and the community is smaller.",
+				"fr": "Cache et reverse proxy événementiels taillés pour le CDN — routage par remap et API de plugins, éprouvé sur les gros CDN. records.config sent plus l’entreprise que nginx.conf ; communauté plus discrète."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tengine",
+			"source": {
+				"host": "github",
+				"path": "alibaba/tengine",
+				"url": "https://github.com/alibaba/tengine"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "ops",
+			"note": {
+				"en": "Alibaba’s actively maintained nginx fork — runtime module loading plus upstream checks and hashing built in. Third-party module compatibility varies, docs lead with Chinese, and the community stays smaller.",
+				"fr": "Le fork nginx d’Alibaba, maintenu — modules chargés à chaud, checks upstream et hashing en prime. Compatibilité des modules tiers variable, docs d’abord en chinois, communauté plus réduite."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "H2O",
+			"source": {
+				"host": "github",
+				"path": "h2o/h2o",
+				"url": "https://github.com/h2o/h2o"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "DeNA’s HTTP/2-first server in C, built for raw speed, with a pluggable reverse proxy handler. The ecosystem is thin and it stays a server — not a full gateway feature set.",
+				"fr": "Le serveur HTTP/2-first de DeNA, écrit en C pour la vitesse brute, avec un handler de reverse proxy pluggable. Écosystème mince, et avant tout un serveur — pas un gateway complet."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Varnish Cache",
+			"source": {
+				"host": "github",
+				"path": "varnishcache/varnish-cache",
+				"url": "https://github.com/varnishcache/varnish-cache"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "ops",
+			"note": {
+				"en": "Archived upstream. Still the gold standard HTTP cache — VCL request logic with unmatched hit-rate performance. It caches before it proxies, so load balancing is on you.",
+				"fr": "Projet archivé en amont. Toujours la référence du cache HTTP — logique de requête en VCL, hit rate imbattable. C’est un cache avant tout : le load balancing, c’est vous qui l’ajoutez."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "YARP",
+			"source": {
+				"host": "github",
+				"path": "dotnet/yarp",
+				"url": "https://github.com/dotnet/yarp"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Microsoft’s .NET reverse proxy as in-process middleware — sessions, gRPC and websockets with ASP.NET hooks. You write and host the app yourself, and the profile is .NET, not a C event loop.",
+				"fr": "Le reverse proxy .NET de Microsoft en middleware in-process — sessions, gRPC et websockets branchés sur ASP.NET. Vous écrivez et hébergez l’app vous-même, profil .NET, pas de boucle en C."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "lighttpd",
+			"source": {
+				"host": "github",
+				"path": "lighttpd/lighttpd1.4",
+				"url": "https://github.com/lighttpd/lighttpd1.4"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "ops",
+			"note": {
+				"en": "The lean, low-memory event-driven server — proxy, FastCGI, cache and TLS in one small binary. The feature set and community stay well below nginx.",
+				"fr": "Le serveur événementiel léger, à mémoire minimale — proxy, FastCGI, cache et TLS dans un seul petit binaire. Écosystème et fonctionnalités bien en deçà de nginx."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "mitmproxy",
+			"source": {
+				"host": "github",
+				"path": "mitmproxy/mitmproxy",
+				"url": "https://github.com/mitmproxy/mitmproxy"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The interactive TUI proxy for live inspection — scriptable in Python, replay and capture built in. A debugging companion, not a traffic front: no load balancing, no cache.",
+				"fr": "Le proxy en TUI interactive pour l’inspection en direct — scriptable en Python, replay et capture inclus. Un outil de debug, pas un front de production : ni load balancing, ni cache."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

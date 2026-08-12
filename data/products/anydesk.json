@@ -97,6 +97,258 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache Guacamole",
+			"source": {
+				"host": "github",
+				"path": "apache/guacamole-server",
+				"url": "https://github.com/apache/guacamole-server"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Web gateway serving RDP, VNC and SSH in any browser, no client to install, LDAP/SAML included. Needs its own Tomcat/Docker stack; streaming lags native clients on slow links.",
+				"fr": "Passerelle web qui sert RDP, VNC et SSH dans un navigateur, sans installation côté client, LDAP/SAML inclus. Elle exige sa propre infra Tomcat/Docker ; streaming moins réactif qu’un client natif sur liens lents."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FreeRDP",
+			"source": {
+				"host": "github",
+				"path": "FreeRDP/FreeRDP",
+				"url": "https://github.com/FreeRDP/FreeRDP"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The reference open-source RDP client and library; xfreerdp scripts headless connections and powers many third-party apps. No central management, no built-in NAT traversal or unattended relay.",
+				"fr": "Le client et la bibliothèque RDP de référence ; xfreerdp enchaîne les connexions headless et alimente nombre d’applications tierces. Uniquement un client : pas de gestion centralisée, ni traversée NAT, ni relais non surveillé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Remmina",
+			"source": {
+				"host": "github",
+				"path": "FreeRDP/Remmina",
+				"url": "https://github.com/FreeRDP/Remmina"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "One GUI for RDP, VNC, SSH and SPICE, plugins per protocol, built for managing a fleet of Linux boxes. Linux-first — official Windows/macOS support is thin and there are no mobile apps.",
+				"fr": "Une seule interface pour RDP, VNC, SSH et SPICE, des plugins par protocole, pensé pour gérer un parc de machines Linux. D’abord Linux : support Windows/macOS officiel mince et aucune app mobile."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "TigerVNC",
+			"source": {
+				"host": "github",
+				"path": "TigerVNC/tigervnc",
+				"url": "https://github.com/TigerVNC/tigervnc"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "No file transfer, no audio, no printer redirect — but battle-tested RFB client/server with TLS and veNCrypt, headless via x0vncserver. Remote access takes manual port forwarding.",
+				"fr": "Pas de transfert de fichiers, ni audio, ni redirection d’imprimante ; en revanche un client/serveur RFB éprouvé avec TLS et veNCrypt, headless via x0vncserver. L’accès distant exige une redirection de ports manuelle."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "x11vnc",
+			"source": {
+				"host": "github",
+				"path": "LibVNC/x11vnc",
+				"url": "https://github.com/LibVNC/x11vnc"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "X11/Xorg only, no native Wayland — and it mirrors your existing X11 desktop over VNC with a single command, TLS available. Encryption off by default.",
+				"fr": "X11/Xorg uniquement, pas de Wayland natif — mais reflète un bureau X11 existant en VNC en une seule commande, TLS disponible. Le chiffrement n’est pas activé par défaut."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "wayvnc",
+			"source": {
+				"host": "github",
+				"path": "any1/wayvnc",
+				"url": "https://github.com/any1/wayvnc"
+			},
+			"license": "ISC",
+			"effort": "ops",
+			"note": {
+				"en": "Wayland-native VNC server, headless screencopy mirroring, clipboard and drag-and-drop included. Wayland compositors only, and no built-in TLS or auth — pair with SSH or a VPN.",
+				"fr": "Serveur VNC natif Wayland, miroir headless par screencopy, presse-papiers et glisser-déposer inclus. Ne parle qu’aux compositeurs Wayland et ne propose ni TLS ni authentification : à associer avec SSH ou un VPN."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Xpra",
+			"source": {
+				"host": "github",
+				"path": "Xpra-org/xpra",
+				"url": "https://github.com/Xpra-org/xpra"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Forward single apps or whole desktops over SSH; sessions survive flaky links. Setup is heavier than click-to-connect, it's Linux-centric, Windows/macOS server support limited.",
+				"fr": "Fait passer des applications isolées ou des bureaux entiers par SSH, sessions qui survivent aux connexions instables. Configuration plus lourde qu’un clic-pour-connecter, orienté Linux, et le support serveur Windows/macOS est limité."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Neko",
+			"source": {
+				"host": "github",
+				"path": "m1k1o/neko",
+				"url": "https://github.com/m1k1o/neko"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Streams a containerized desktop, not your physical machine — virtual rooms in Docker to any browser over WebRTC, multi-user permissions included. Resource-heavy and browser-only.",
+				"fr": "Diffuse un bureau conteneurisé, pas votre machine : des bureaux virtuels Docker dans un navigateur via WebRTC, salles multi-utilisateurs avec permissions. Lourd en ressources, navigateur uniquement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Deskflow",
+			"source": {
+				"host": "github",
+				"path": "deskflow/deskflow",
+				"url": "https://github.com/deskflow/deskflow"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Shares input, not screens — a Synergy fork for one keyboard and mouse across Windows, macOS and Linux, with TLS, clipboard sync and drag-and-drop files. LAN/VPN only, no NAT traversal.",
+				"fr": "Fork de Synergy partageant un clavier et une souris entre Windows, macOS et Linux, avec TLS, presse-papiers et fichiers par glisser-déposer. Il partage l’entrée, pas l’écran : pas de contrôle visuel, LAN/VPN uniquement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mosh",
+			"source": {
+				"host": "github",
+				"path": "mobile-shell/mosh",
+				"url": "https://github.com/mobile-shell/mosh"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "A roaming UDP shell surviving network changes; local echo tames high-latency links; nothing to manage on the client. Terminal only — no GUI, no file transfer — UDP can be blocked on corporate networks.",
+				"fr": "Shell UDP itinérant, survit aux changements de réseau, écho local intelligent pour les liens lents. Terminal seulement : pas de GUI, pas de transfert de fichiers, et l’UDP peut être bloqué en entreprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ttyd",
+			"source": {
+				"host": "github",
+				"path": "tsl0922/ttyd",
+				"url": "https://github.com/tsl0922/ttyd"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Shares a terminal in the browser from a single static binary, with SSL and basic auth, works on any browser. Terminal only, no GUI, and auth stays basic — no per-user SSO.",
+				"fr": "Un seul binaire statique partage un terminal dans le navigateur, avec SSL et authentification basique, fonctionne sur n’importe quel navigateur. Terminal uniquement, pas de GUI ; l’authentification reste sommaire, sans SSO par utilisateur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "sshx",
+			"source": {
+				"host": "github",
+				"path": "ekzhang/sshx",
+				"url": "https://github.com/ekzhang/sshx"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Share a terminal over a URL for real-time multi-user collaboration, relay self-hostable. Terminal sharing only, no GUI control, and internet use needs a relay unless you run the hosted one.",
+				"fr": "Partage de terminal par URL pour une collaboration multi-utilisateurs en temps réel, relais auto-hébergeable. Partage de terminal uniquement, pas de contrôle graphique ; pour Internet il faut un relais, sauf à utiliser l’hébergé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

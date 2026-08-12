@@ -82,8 +82,8 @@
 			"name": "Stalwart Mail",
 			"source": {
 				"host": "github",
-				"path": "stalwartlabs/mail-server",
-				"url": "https://github.com/stalwartlabs/mail-server"
+				"path": "stalwartlabs/stalwart",
+				"url": "https://github.com/stalwartlabs/stalwart"
 			},
 			"license": "AGPL-3.0",
 			"effort": "ops",
@@ -99,6 +99,266 @@
 					"fr": "OIDC externe, restauration, antispam IA"
 				},
 				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mailcow",
+			"source": {
+				"host": "github",
+				"path": "mailcow/mailcow-dockerized",
+				"url": "https://github.com/mailcow/mailcow-dockerized"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Full mail stack in a docker-compose, with SOGo webmail, rspamd and an admin API — the fast path to owning Gmail. Needs a Docker host, real DNS, and single-node scaling limits.",
+				"fr": "Toute la pile mail en docker-compose — webmail SOGo, rspamd, API d’admin — le chemin rapide vers son propre Gmail. Exige un hôte Docker, du vrai DNS, limité au nœud unique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Zimbra",
+			"source": {
+				"host": "github",
+				"path": "Zimbra/zm-mailbox",
+				"url": "https://github.com/Zimbra/zm-mailbox"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Full Java groupware — mail, calendar, contacts and briefcase in one server, the classic Workspace analogue. Heavy to administer, and the modern features sit in the paid Network Edition.",
+				"fr": "Groupware Java complet — mail, calendrier, contacts et briefcase dans un serveur, l’analogue classique de Workspace. Lourd à administrer, et les fonctions modernes vivent dans l’édition Network payante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Network Edition features",
+					"fr": "Fonctionnalités de l’édition Network"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SnappyMail",
+			"source": {
+				"host": "github",
+				"path": "the-djmaze/snappymail",
+				"url": "https://github.com/the-djmaze/snappymail"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "RainLoop successor — a lightweight PHP webmail that turns any IMAP server into a Gmail-like app. Client only: no server, no calendar, no native mobile apps.",
+				"fr": "Successeur de RainLoop — un webmail PHP léger qui transforme n’importe quel serveur IMAP en appli proche de Gmail. Client uniquement : pas de serveur, pas de calendrier, pas d’appli native."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Radicale",
+			"source": {
+				"host": "github",
+				"path": "Kozea/Radicale",
+				"url": "https://github.com/Kozea/Radicale"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Single-process Python CalDAV/CardDAV server — a calendar-plus-contacts replacement that syncs with any client. Pairs with a mail server, but the web UI is minimal and there is no meeting scheduling.",
+				"fr": "Serveur CalDAV/CardDAV Python monoprocessus — un remplaçant calendrier + contacts qui synchronise tout client. À coupler avec un serveur mail ; l’interface web est minimale, pas de planification de réunions."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mattermost",
+			"source": {
+				"host": "github",
+				"path": "mattermost/mattermost",
+				"url": "https://github.com/mattermost/mattermost"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted Slack-style chat — channels, threads, DMs, video calls and screen share across desktop and mobile. Calls are less polished than Meet, and SCIM plus advanced compliance stay paywalled.",
+				"fr": "Chat auto-hébergé façon Slack — canaux, threads, MP, appels vidéo et partage d’écran en desktop et mobile. Des appels moins aboutis que Meet, et SCIM et la conformité avancée restent payants."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "SCIM and advanced compliance",
+					"fr": "SCIM et conformité avancée"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Zulip",
+			"source": {
+				"host": "github",
+				"path": "zulip/zulip",
+				"url": "https://github.com/zulip/zulip"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Topic-threaded chat built for async teams, fully open under Apache-2.0. Threading is a learning curve, the install is heavier than a chat app suggests, and there are no built-in video calls.",
+				"fr": "Chat à sujets pensé pour les équipes asynchrones, entièrement ouvert en Apache-2.0. Le threading s’apprend, l’installation pèse plus que l’apparence d’un chat, et aucun appel vidéo intégré."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Jitsi Meet",
+			"source": {
+				"host": "github",
+				"path": "jitsi/jitsi-meet",
+				"url": "https://github.com/jitsi/jitsi-meet"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Unlimited WebRTC meetings on your own infra — screen share, recording, live streaming — from a docker-compose stack. Quality hinges on your bandwidth and SFU sizing; webcam-heavy groups need a beefy bridge.",
+				"fr": "Réunions WebRTC illimitées sur votre infra — partage d’écran, enregistrement, streaming live — en une pile docker-compose. La qualité dépend de la bande passante et du dimensionnement du SFU ; les groupes chargés en webcam exigent un bridge costaud."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Cryptpad",
+			"source": {
+				"host": "github",
+				"path": "cryptpad/cryptpad",
+				"url": "https://github.com/cryptpad/cryptpad"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "End-to-end encrypted real-time docs, sheets, slides, forms and kanban in a drive-like suite. Sparser than Google Docs, and the crypto blocks some integrations and search.",
+				"fr": "Suite chiffrée de bout en bout — docs, feuilles, slides, formulaires et kanban en temps réel, avec une gestion de fichiers façon drive. Plus dépouillée que Google Docs, et le chiffrement bloque certaines intégrations et la recherche."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "AppFlowy",
+			"source": {
+				"host": "github",
+				"path": "AppFlowy-IO/AppFlowy",
+				"url": "https://github.com/AppFlowy-IO/AppFlowy"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Block-based docs and databases, local-first with an optional self-hosted cloud — covers Keep and Docs needs. No spreadsheets or slides, and it replaces neither Gmail nor the calendar.",
+				"fr": "Docs et bases en blocs, local-first avec cloud auto-hébergé optionnel — couvre les besoins Keep et Docs. Pas de tableur ni de slides, et ça ne remplace ni Gmail ni le calendrier."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Joplin",
+			"source": {
+				"host": "github",
+				"path": "laurent22/joplin",
+				"url": "https://github.com/laurent22/joplin"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Markdown notes, tags, notebooks and todos with end-to-end sync over your own Nextcloud or WebDAV — desktop, mobile, CLI. No real-time shared editing, and the sync server is whatever you bring.",
+				"fr": "Notes Markdown, tags, carnets et todos, synchronisés de bout en bout sur votre Nextcloud ou WebDAV — desktop, mobile, CLI. Pas d’édition partagée en temps réel, et le serveur de sync, c’est vous qui l’amenez."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "himalaya",
+			"source": {
+				"host": "github",
+				"path": "pimalaya/himalaya",
+				"url": "https://github.com/pimalaya/himalaya"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Fast Rust CLI mail client — read and send over IMAP/SMTP, multi-account profiles, PGP, JSON output. Terminal only, no built-in full-text index, and threading and search are yours to manage.",
+				"fr": "Client mail CLI en Rust, rapide — lire et envoyer en IMAP/SMTP, profils multi-comptes, PGP, sortie JSON. Terminal uniquement, pas d’index plein-texte intégré, et le threading comme la recherche restent à votre charge."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "neomutt",
+			"source": {
+				"host": "github",
+				"path": "neomutt/neomutt",
+				"url": "https://github.com/neomutt/neomutt"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Battle-tested mutt fork for keyboard-only IMAP and Maildir workflows, with PGP/SMIME, threading and filters. Terminal-only with a real config learning curve, and fetch/search rely on mbsync and notmuch.",
+				"fr": "Le fork de mutt éprouvé pour les flux IMAP et Maildir au clavier seul, avec PGP/SMIME, threading et filtres. Terminal uniquement, courbe d’apprentissage de config réelle, et la récupération comme la recherche passent par mbsync et notmuch."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
 				"dataResidency": "self"
 			}
 		}

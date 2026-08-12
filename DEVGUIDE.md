@@ -133,7 +133,7 @@ forbids Actions from creating pull requests — a PAT acts as you, so the policy
 does not apply.
 
 **Repository variables:** `APP_DIR`, `SITE_DOMAIN`, `NGINX_CONF_DIR`,
-`NGINX_CONTAINER`, `UMAMI_HOST`, `PUBLIC_UMAMI_WEBSITE_ID`.
+`NGINX_CONTAINER`, `UMAMI_UPSTREAM`, `PUBLIC_UMAMI_WEBSITE_ID`.
 
 Releasing and deploying are two separate decisions.
 
@@ -156,7 +156,7 @@ A release records what the code is. A deploy decides when it goes live. Keeping
 them apart means a bad release can simply not be deployed, and a deploy can be
 repeated without cutting a version.
 
-The nginx config is templated at deploy time: `SITE_DOMAIN` and `UMAMI_HOST` are
+The nginx config is templated at deploy time: `SITE_DOMAIN` and `UMAMI_UPSTREAM` are
 substituted into `nginx/canireplaceit.conf`, installed into `NGINX_CONF_DIR` and
 reloaded. Its `/u/` block proxies both `/u/script.js` and `/u/api/send` — the
 tracker derives its event endpoint from its own `src`, so proxying only the

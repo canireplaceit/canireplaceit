@@ -82,6 +82,132 @@
 				"en": "Less than half the price with the same Content ID clearance, and a free tier that only needs credit. Much smaller catalogue.",
 				"fr": "Moins de la moitié du prix avec la même levée Content ID, et une offre gratuite qui n’exige qu’un crédit. Catalogue bien plus petit."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Audiocraft",
+			"source": {
+				"host": "github",
+				"path": "facebookresearch/audiocraft",
+				"url": "https://github.com/facebookresearch/audiocraft"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Meta's MusicGen and AudioGen produce royalty-clear tracks and SFX from a text prompt on your own hardware. Serious GPU needed, and outputs want curation — quality lags a curated library.",
+				"fr": "MusicGen et AudioGen de Meta produisent musiques et bruitages libres de droits depuis un texte, sur votre machine. Grosse carte graphique exigée, sorties à curer — qualité inégale face à une bibliothèque curatée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Riffusion Hobby",
+			"source": {
+				"host": "github",
+				"path": "riffusion/riffusion-hobby",
+				"url": "https://github.com/riffusion/riffusion-hobby"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Two years dormant — no commit since July 2024. Text becomes tracks, stems separate, all local — no cloud upload. It ships a heavy model stack, output below a curated library.",
+				"fr": "Deux ans sans commit depuis juillet 2024. Génère des morceaux depuis un texte et sépare les stems, en local, sans upload. Gros stack de modèles embarqué, qualité sous celle d’une bibliothèque curatée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Magenta",
+			"source": {
+				"host": "github",
+				"path": "magenta/magenta",
+				"url": "https://github.com/magenta/magenta"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Archived upstream since 2023, so expect little maintenance. Google's Melody RNN, MusicVAE and Magenta Studio produce note-level MIDI you edit per note on-device — composition, not finished mixes.",
+				"fr": "Archivé upstream depuis 2023, maintenance minimale à prévoir. Melody RNN, MusicVAE et Magenta Studio de Google produisent un MIDI symbolique éditable note à note, sur machine — composition, pas mixes finis."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Hydrogen",
+			"source": {
+				"host": "github",
+				"path": "hydrogen-music/hydrogen",
+				"url": "https://github.com/hydrogen-music/hydrogen"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "No sample library? Pattern-based drum machine builds beats and percussion from open formats. Drums only — and the samples are up to you, no licensed music inside.",
+				"fr": "Boîte à rythmes par motifs quand on n’a pas de bibliothèque de samples. Batterie et percussions seulement, et les samples sont à trouver soi-même — aucun catalogue sous licence embarqué."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Navidrome",
+			"source": {
+				"host": "github",
+				"path": "navidrome/navidrome",
+				"url": "https://github.com/navidrome/navidrome"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted Subsonic server, browsable on every device. API and a first-party iOS app cover most clients — but it only streams music you own or generated, no licensed source.",
+				"fr": "Serveur Subsonic auto-hébergé : votre musique, possédée ou générée, consultable partout. API et app iOS officielle couvrent les clients ; il ne fait que streamer votre collection, sans source de musique sous licence."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ampache",
+			"source": {
+				"host": "github",
+				"path": "ampache/ampache",
+				"url": "https://github.com/ampache/ampache"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Ampache, long-running and self-hosted: smart playlists, radio, iOS/Android clients. Dated interface and setup overhead — and it manages your library rather than creating one.",
+				"fr": "Un catalogue auto-hébergé de longue date — playlists intelligentes, radio, clients iOS/Android — mais une interface datée et une installation lourde ; il gère votre bibliothèque, il ne la crée pas."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

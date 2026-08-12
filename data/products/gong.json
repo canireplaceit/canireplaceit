@@ -101,6 +101,174 @@
 				"en": "Recording, transcripts and summaries with CRM push for a twentieth of a Gong seat. No coaching analytics or forecasting.",
 				"fr": "Enregistrement, transcriptions et résumés avec envoi au CRM pour un vingtième d’un utilisateur Gong. Pas d’analyse de coaching ni de prévision."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Buzz",
+			"source": {
+				"host": "github",
+				"path": "chidiwilliams/buzz",
+				"url": "https://github.com/chidiwilliams/buzz"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Polished desktop GUI over Whisper: record or drop in a call, get a local transcript with summaries, export to txt/srt/vtt. No speaker diarization — needs WhisperX — no auto-join or CRM logging.",
+				"fr": "GUI soignée autour de Whisper : enregistrez ou importez un appel, obtenez un transcript local avec résumés, export en txt/srt/vtt. Pas de diarisation — il faut WhisperX — ni d’auto-join ni de journalisation CRM."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Vibe",
+			"source": {
+				"host": "github",
+				"path": "thewh1teagle/vibe",
+				"url": "https://github.com/thewh1teagle/vibe"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Real-time transcriber: open mic during the call, live transcript, local AI summaries you can query like a chat. Personal tool — no shared pipeline, no deal history, analytics stop at the call.",
+				"fr": "Transcription en temps réel : votre micro ouvert pendant l’appel, transcript live, résumés locaux interrogables comme un chat. Outil perso — pas de pipeline d’équipe, pas d’historique de deals, l’analyse s’arrête à l’appel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "WhisperX",
+			"source": {
+				"host": "github",
+				"path": "m-bain/whisperX",
+				"url": "https://github.com/m-bain/whisperX"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Word-level timestamps plus speaker diarization over Whisper — the raw material for talk-to-listen ratios. CLI/library only: no UI, no capture, and diarization model download adds setup friction.",
+				"fr": "Horodatages par mot et diarisation des locuteurs par-dessus Whisper — la matière première des ratios parole/écoute. CLI ou bibliothèque seulement : pas d’UI, pas de capture, téléchargement du modèle à gérer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "whisper.cpp",
+			"source": {
+				"host": "github",
+				"path": "ggml-org/whisper.cpp",
+				"url": "https://github.com/ggml-org/whisper.cpp"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The most portable engine for call review: dependency-free C++ Whisper CLI transcribing on CPU from a Pi to a server. Raw transcription only — no diarization, no summaries — teams wire their own pipeline.",
+				"fr": "Le plus portable des moteurs : un CLI Whisper en C++, sans dépendance, qui transcrit sur CPU, du Pi au serveur. Transcription brute — pas de diarisation, pas de résumés, pipeline à câbler soi-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Vosk",
+			"source": {
+				"host": "github",
+				"path": "alphacep/vosk-api",
+				"url": "https://github.com/alphacep/vosk-api"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Streaming offline speech-to-text with tiny models and a ready server — always-on call transcription on a Pi or old laptop. Accuracy trails Whisper-large on hard audio; no diarization, summaries or analytics.",
+				"fr": "Précision en retrait face à Whisper-large sur l’audio difficile, mais streaming hors ligne, petits modèles et serveur prêt : de la transcription d’appels en continu sur un Pi. Pas de diarisation ni d’analyses."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "faster-whisper",
+			"source": {
+				"host": "github",
+				"path": "SYSTRAN/faster-whisper",
+				"url": "https://github.com/SYSTRAN/faster-whisper"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The CTranslate2 rewrite that makes Whisper ~4x faster, VAD included, lower RAM/VRAM — the engine Vexa and similar stacks run. Library only: no CLI, no UI; you build the recorder and CRM glue.",
+				"fr": "La réécriture CTranslate2 qui rend Whisper ~4x plus rapide, VAD intégrée, RAM/VRAM réduites — le moteur que fait tourner Vexa. Bibliothèque seulement : pas de CLI, pas d’UI, à vous l’enregistreur et la glue CRM."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OBS Studio",
+			"source": {
+				"host": "github",
+				"path": "obsproject/obs-studio",
+				"url": "https://github.com/obsproject/obs-studio"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The standard way to capture the call yourself: lossless on-device audio/video, scene and mic isolation, plugin-based auto-start. A recorder, not an analyst — zero transcription, and manual start/stop unless you script it.",
+				"fr": "La manière standard de capturer l’appel soi-même : audio/vidéo locale sans perte, isolation des scènes et des micros, plugins pour l’auto-start. Un enregistreur, pas un analyste — zéro transcription, démarrage manuel sauf script."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "mlx-whisper",
+			"source": {
+				"host": "github",
+				"path": "ml-explore/mlx-examples",
+				"url": "https://github.com/ml-explore/mlx-examples"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Whisper CLI built for Apple Silicon — fast local transcription on the laptops most sales teams carry, no cloud involved. macOS-only, and it transcribes nothing else: no capture, no summaries, no CRM glue.",
+				"fr": "Un CLI Whisper natif Apple Silicon : transcription locale rapide sur les laptops que la plupart des commerciaux portent déjà. macOS seulement, sans capture, sans résumés ni glue CRM."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

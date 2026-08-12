@@ -101,6 +101,174 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Weaviate",
+			"source": {
+				"host": "github",
+				"path": "weaviate/weaviate",
+				"url": "https://github.com/weaviate/weaviate"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Vectorizes text and images at ingestion, with hybrid search and multi-tenancy. One-click docker-compose ships the vectorizers, but you must run a server — no embedded mode — and GraphQL-first APIs feel verbose for lookups.",
+				"fr": "Vectorise textes et images à l’ingestion, avec recherche hybride et multi-tenant. Le docker-compose embarque les vectoriseurs, mais il faut un serveur — pas de mode embarqué — et l’API GraphQL-first est verbeuse."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Chroma",
+			"source": {
+				"host": "github",
+				"path": "chroma-core/chroma",
+				"url": "https://github.com/chroma-core/chroma"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Simplest drop-in embedded DB: pip install, one-line client, in-process or server via `chroma run`. HNSW-backed with metadata filtering. Python-centric — Go and Rust clients are younger, and scale-out trails Milvus and Qdrant.",
+				"fr": "Le drop-in le plus simple : pip install, client en une ligne, en mémoire ou serveur (`chroma run`). HNSW avec filtrage métadonnées. Python d’abord — clients Go/Rust moins mûrs, scale-out derrière Milvus et Qdrant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LanceDB",
+			"source": {
+				"host": "github",
+				"path": "lancedb/lancedb",
+				"url": "https://github.com/lancedb/lancedb"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Serverless and embedded: a Rust core over columnar Lance files, so full-text, vector and SQL joins share one format — DuckDB plugs straight in. Younger than Milvus/Qdrant, not built for high-QPS shared loads.",
+				"fr": "Sans serveur, embarqué : noyau Rust sur fichiers columnaires Lance — plein-texte, vecteurs et jointures SQL dans un seul format, DuckDB intégré. Plus jeune que Milvus/Qdrant, pas fait pour charges partagées à haut QPS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Vespa",
+			"source": {
+				"host": "github",
+				"path": "vespa-engine/vespa",
+				"url": "https://github.com/vespa-engine/vespa"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The open engine behind LinkedIn: HNSW ANN, rank profiles and ML model serving across a multi-node cluster. It scales — you pay with cluster ops, Java plumbing and steep curve for small workloads.",
+				"fr": "Le moteur open source derrière LinkedIn : HNSW, profils de rang, serving ML sur cluster multi-nœuds. Ça scale, mais on paie : exploitation de cluster, Java, et une courbe rude pour les petits volumes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "txtai",
+			"source": {
+				"host": "github",
+				"path": "neuml/txtai",
+				"url": "https://github.com/neuml/txtai"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "One pip install: embeddings, vector index and RAG from a real CLI, with SQLite on HNSW or Faiss backends and optional API server. Library-centric — not a high-concurrency server, index bounded by node memory.",
+				"fr": "Un pip install : embeddings, index vectoriel et RAG depuis un vrai CLI, SQLite avec HNSW ou Faiss, serveur API optionnel. Bibliothèque d’abord — pas un serveur haute concurrence, index borné par la RAM."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "USearch",
+			"source": {
+				"host": "github",
+				"path": "unum-cloud/USearch",
+				"url": "https://github.com/unum-cloud/USearch"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "SIMD-accelerated ANN in a ~1KB dependency, bindings for 10+ languages plus CLI and MCP tooling. HNSW, brute-force and clustering, billion-scale on one server. No persistence — bring your own storage, single-node and in-memory.",
+				"fr": "ANN SIMD dans une dépendance d’~1KB, bindings pour 10+ langages, CLI et MCP. HNSW, brute force, clustering, échelle milliard sur un serveur. Sans persistance — apportez votre stockage, mono-nœud, en mémoire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "faiss",
+			"source": {
+				"host": "github",
+				"path": "facebookresearch/faiss",
+				"url": "https://github.com/facebookresearch/faiss"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Meta’s reference ANN library — HNSW, IVF, PQ and binary indexes at billion scale, GPU or CPU SIMD. The engine for custom vector infrastructure: no CRUD, transactions or server; you bring orchestration, persistence.",
+				"fr": "La lib ANN de référence de Meta — HNSW, IVF, PQ, index binaires, SIMD CPU/GPU. Un moteur pour monter sa propre infra : pas de CRUD ni serveur, orchestration et persistance à vous."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenSearch",
+			"source": {
+				"host": "github",
+				"path": "opensearch-project/OpenSearch",
+				"url": "https://github.com/opensearch-project/OpenSearch"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The k-NN plugin runs HNSW and IVF (Lucene, Faiss or NMSLIB) alongside full-text in one REST API. Natural swap if you’re on Elasticsearch — heavy JVM for vector-only work, defaults tuned for text.",
+				"fr": "Le plugin k-NN gère HNSW et IVF (Lucene, Faiss ou NMSLIB) à côté du plein-texte, même API REST. Remplaçant naturel pour qui vient d’Elasticsearch — JVM lourde si vectoriel pur, réglages pensés texte."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

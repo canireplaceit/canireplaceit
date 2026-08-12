@@ -105,6 +105,182 @@
 				"en": "Outbound sequencing and warmup for the price of a coffee round. No dialer and no manager tooling.",
 				"fr": "Séquences sortantes et préchauffage pour le prix d’une tournée de café. Pas de composeur ni d’outils pour les managers."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Twenty",
+			"source": {
+				"host": "github",
+				"path": "twentyhq/twenty",
+				"url": "https://github.com/twentyhq/twenty"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Modern AGPL CRM with a sequence-friendly data model and clean UI. Pipeline views, API-first, enterprise modules marked in-tree. A few features sit behind @license Enterprise files; still maturing against Salesloft’s depth.",
+				"fr": "CRM AGPL moderne, modèle orienté séquences, UI épurée. Vues pipeline, API-first, modules entreprise marqués dans l’arbre. Certaines fonctions derrière @license Enterprise ; encore jeune face à Salesloft."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise modules",
+					"fr": "Modules Enterprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SuiteCRM",
+			"source": {
+				"host": "github",
+				"path": "SuiteCRM/SuiteCRM",
+				"url": "https://github.com/SuiteCRM/SuiteCRM"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "SugarCRM fork with target lists, email campaigns and mail-merge outreach; cases and leads self-hosted alongside your marketing. Dated UI, heavyweight deployment, and no native dialer or LinkedIn automation.",
+				"fr": "Fork de SugarCRM : listes cibles, campagnes mail, publipostage ; leads et dossiers hébergés avec vos actifs marketing. UI datée, déploiement lourd, pas de dialer natif ni d’automatisation LinkedIn."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dolibarr",
+			"source": {
+				"host": "github",
+				"path": "Dolibarr/dolibarr",
+				"url": "https://github.com/Dolibarr/dolibarr"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Modular ERP/CRM where emailing is one module among many — campaigns, leads, opportunities. Email module stays basic, no deliverability analytics, and the tool is generalist rather than outreach-first.",
+				"fr": "ERP/CRM modulaire où l’emailing n’est qu’un module parmi d’autres : campagnes, leads, opportunités. Le module reste basique, sans analytics de délivrabilité, et l’outil est généraliste, pas pensé prospection."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Fat Free CRM",
+			"source": {
+				"host": "github",
+				"path": "fatfreecrm/fat_free_crm",
+				"url": "https://github.com/fatfreecrm/fat_free_crm"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight Rails CRM: opportunity pipeline, task-driven follow-ups, REST API for automation. Lean outbound teams hit a wall on cold-email sequences — none built in — and a small community slows the feature cadence.",
+				"fr": "CRM Rails léger : pipeline d’opportunités, suivi par tâches, API REST. Les équipes outbound butent sur les séquences d’emails à froid — absentes — et la petite communauté ralentit la cadence."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Listmonk",
+			"source": {
+				"host": "github",
+				"path": "knadh/listmonk",
+				"url": "https://github.com/knadh/listmonk"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Single static binary that schedules campaigns and sequences with open-rate and link tracking, relaying through any SMTP. Newsletter-grade though: no dialer, no LinkedIn, no CRM pipeline.",
+				"fr": "Binaire statique unique : campagnes et séquences planifiées, tracking d’ouverture et de clics, relais SMTP. Outil de newsletter avant tout — pas de dialer, de LinkedIn ni de pipeline CRM."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Keila",
+			"source": {
+				"host": "github",
+				"path": "pentacent/keila",
+				"url": "https://github.com/pentacent/keila"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted newsletter and drip sender: scheduled sends, tagging, segmentation, and an API for programmatic outreach. Built for newsletters rather than engagement — no dialer, LinkedIn, or pipeline reporting.",
+				"fr": "Newsletter et drip auto-hébergés : envois planifiés, taggage, segmentation, API pour l’outreach programmatique. Pensé pour la newsletter plus que pour l’engagement — pas de dialer, de LinkedIn ni de reporting pipeline."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "theHarvester",
+			"source": {
+				"host": "github",
+				"path": "laramies/theHarvester",
+				"url": "https://github.com/laramies/theHarvester"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "CLI reconnaissance: harvests emails from search engines and APIs, maps domains and hosts into prospecting lists. Research only — nothing sends or sequences — and accuracy follows the sources; mind the TOS.",
+				"fr": "Reconnaissance en CLI : emails récupérés depuis moteurs et APIs, domaines et hôtes cartographiés en listes de prospection. Recherche uniquement, rien n’envoie ni n’enchaîne ; la fiabilité suit les sources, attention aux CGU."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Odoo",
+			"source": {
+				"host": "github",
+				"path": "odoo/odoo",
+				"url": "https://github.com/odoo/odoo"
+			},
+			"license": "LGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "ERP combining a CRM pipeline, lead scoring, shared inbox and a mailout module. Several useful modules sit in paid Enterprise, the stack is heavy, and nothing is outreach-specialized.",
+				"fr": "ERP qui combine pipeline CRM, scoring de leads, boîte de réception partagée et module d’envois. Les modules utiles vivent en Enterprise payant, la pile est lourde, rien n’est spécialisé prospection."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Sales and marketing modules",
+					"fr": "Modules ventes et marketing"
+				}
+			}
 		}
 	],
 	"priority": 3

@@ -139,6 +139,157 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Trivy",
+			"source": {
+				"host": "codeberg",
+				"path": "aquasecurity/trivy",
+				"url": "https://codeberg.org/aquasecurity/trivy"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Broadest open scanner — containers, k8s, IaC, secrets, SBOMs and license scanning in one binary. That breadth means results need triage; not a policy or compliance platform.",
+				"fr": "Le scanner open source le plus complet — conteneurs, k8s, IaC, secrets, SBOM et licences dans un seul binaire. Autant de surface à trier ; pas une plateforme de politiques ni de conformité."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Grype",
+			"source": {
+				"host": "github",
+				"path": "anchore/grype",
+				"url": "https://github.com/anchore/grype"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "EPSS and KEV prioritization, direct SBOM scanning — Grype is Anchore’s Syft companion. Coverage rests on Anchore’s database, and scope is containers and filesystems.",
+				"fr": "Priorisation EPSS et KEV, scan direct des SBOM — Grype est le compagnon de Syft chez Anchore. La couverture tient à la base d’Anchore, et le périmètre se limite aux conteneurs et fichiers."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OSV-Scanner",
+			"source": {
+				"host": "github",
+				"path": "google/osv-scanner",
+				"url": "https://github.com/google/osv-scanner"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Guided fix mode, offline operation, license checks — Google’s scanner over the open OSV database. OSV coverage varies by ecosystem, and there’s no policy engine or dashboard.",
+				"fr": "Remédiation guidée, mode hors ligne, vérification des licences — le scanner de Google adossé à la base OSV ouverte. Couverture OSV inégale selon l’écosystème, et ni politique ni tableau de bord."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OWASP Dependency-Track",
+			"source": {
+				"host": "github",
+				"path": "DependencyTrack/dependency-track",
+				"url": "https://github.com/DependencyTrack/dependency-track"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Closest self-hosted analog to FOSSA’s dashboard: SBOM-driven analysis, advisory aggregator, policy engine. Carries an app server and database, and needs an SBOM generator feeding it.",
+				"fr": "L’analogue auto-hébergé le plus proche du tableau de bord FOSSA : analyse par SBOM, agrégateur d’avis, moteur de politique. Lourd : serveur applicatif, base de données, et un générateur de SBOM qui doit l’alimenter."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OWASP Dependency-Check",
+			"source": {
+				"host": "github",
+				"path": "dependency-check/DependencyCheck",
+				"url": "https://github.com/dependency-check/DependencyCheck"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Classic OWASP SCA: known CVEs via CPE matching, plus Maven, Gradle and Jenkins plugins. NVD rate limits make an API key near-mandatory, CPE is less precise than SBOM scanners; scans are slow.",
+				"fr": "L’utilitaire SCA historique d’OWASP : CVE connues par correspondance CPE, avec plugins Maven, Gradle et Jenkins. Quotas NVD qui rendent la clé API quasi obligatoire, CPE moins précis que les scans SBOM, scans lents."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "DefectDojo",
+			"source": {
+				"host": "github",
+				"path": "DefectDojo/django-DefectDojo",
+				"url": "https://github.com/DefectDojo/django-DefectDojo"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "OWASP’s flagship ASPM: ingests findings from 200+ tools for dedup, triage and tracking. Not a scanner — needs SCA/SBOM tools feeding it, and the Django stack brings a lot to operate.",
+				"fr": "L’ASPM flagship d’OWASP : ingère les résultats de 200+ outils pour dédoublonner, trier, suivre. Pas un scanner — il lui faut des outils SCA/SBOM en amont, et la pile Django est lourde à opérer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Premium automation and UI features",
+					"fr": "Automatisations et UI de l’édition Pro"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CycloneDX CLI",
+			"source": {
+				"host": "github",
+				"path": "CycloneDX/cyclonedx-cli",
+				"url": "https://github.com/CycloneDX/cyclonedx-cli"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The BOM utility for pipelines: convert, validate, diff, merge, sign — CycloneDX and SPDX, via stdin/stdout. BOM handling only; no vulnerability detection, and it assumes SBOMs come from upstream tools.",
+				"fr": "L’utilitaire BOM pour les pipelines : convertir, valider, diff, fusionner, signer — CycloneDX et SPDX, par stdin/stdout. Manipulation de BOM uniquement ; pas de détection de vulnérabilités, et il suppose des SBOM produits en amont."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

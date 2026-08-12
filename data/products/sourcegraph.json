@@ -87,6 +87,174 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "livegrep",
+			"source": {
+				"host": "github",
+				"path": "livegrep/livegrep",
+				"url": "https://github.com/livegrep/livegrep"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "High-throughput RE2 regex search over indexed corpora, with a web UI and JSON API; the engine grep.app-style tools run on. Rebuild the index when repos change, and there's no symbol navigation.",
+				"fr": "Recherche regex RE2 haute cadence sur des corpus indexés, UI web et API JSON — le moteur des outils façon grep.app. Index à reconstruire quand les repos changent, pas de navigation par symboles."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ripgrep",
+			"source": {
+				"host": "github",
+				"path": "BurntSushi/ripgrep",
+				"url": "https://github.com/BurntSushi/ripgrep"
+			},
+			"license": "Unlicense",
+			"effort": "managed",
+			"note": {
+				"en": "The de-facto fast search CLI: SIMD-accelerated regex over any tree, .gitignore-aware, PCRE2, JSON output. No index, no server, no UI — pipe it into something else.",
+				"fr": "Le CLI de recherche par excellence : regex SIMD sur n’importe quel arbre, filtre .gitignore, PCRE2, sortie JSON. Ni index ni serveur ni UI — branchez-le sur autre chose."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ast-grep",
+			"source": {
+				"host": "github",
+				"path": "ast-grep/ast-grep",
+				"url": "https://github.com/ast-grep/ast-grep"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Tree-sitter structural search: match patterns by syntax in 20+ languages, with codemod rewrites and YAML rules reusable in CI. Patterns are language-specific, not free-text regex, and there's no hosted cross-repo search.",
+				"fr": "Recherche structurelle par arbre syntaxique : motifs syntaxiques sur 20+ langages, codemods et règles YAML réutilisables en CI. Les motifs sont spécifiques à chaque langage, pas du regex libre, et aucun index cross-repo."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "csearch",
+			"source": {
+				"host": "github",
+				"path": "google/codesearch",
+				"url": "https://github.com/google/codesearch"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Google Code Search engine in Go: index the corpus once, then answers queries in milliseconds offline. Needs an index build rather than streaming, regex is constrained by trigram design, no web UI.",
+				"fr": "Moteur de Google Code Search en Go : indexez une fois, répondez ensuite en millisecondes hors ligne. Index à construire, pas de grep streaming ; regex bridée par les trigrammes, pas d’UI web."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Sourcetrail",
+			"source": {
+				"host": "github",
+				"path": "CoatiSoftware/Sourcetrail",
+				"url": "https://github.com/CoatiSoftware/Sourcetrail"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Desktop interactive source explorer building symbol graphs with call and type dependencies — the closest FOSS analog to Sourcegraph code intelligence. Archived upstream since 2021: local, single-developer, no web UI.",
+				"fr": "Explorateur de code desktop : graphe de symboles avec dépendances d’appels et de types — l’analogue FOSS le plus proche de l’intelligence de code de Sourcegraph. Archivé depuis 2021, usage local, pas d’UI web."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "universal-ctags",
+			"source": {
+				"host": "github",
+				"path": "universal-ctags/ctags",
+				"url": "https://github.com/universal-ctags/ctags"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The maintained Exuberant Ctags successor: symbol indexes for 100+ languages feeding editor navigation, CTAGS or JSON output. Definition-only, index goes stale until regenerated, no server.",
+				"fr": "Le successeur maintenu d’Exuberant Ctags : index de symboles pour 100+ langages qui alimentent la navigation des éditeurs, sortie CTAGS ou JSON. Définitions uniquement, index figé jusqu’à régénération, pas de serveur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kythe",
+			"source": {
+				"host": "github",
+				"path": "kythe/kythe",
+				"url": "https://github.com/kythe/kythe"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Google's cross-repository code-intelligence pipeline: extractors and indexers producing definition-reference graphs with a serving API. The cost is a heavy build and ops burden — no polished web UI out of the box.",
+				"fr": "Pipeline d’intelligence de code cross-repo de Google : extracteurs et indexeurs produisent des graphes définition-référence, API de service à la clé. Contrepartie : lourd en build et en ops, pas d’UI web soignée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "semgrep",
+			"source": {
+				"host": "github",
+				"path": "semgrep/semgrep",
+				"url": "https://github.com/semgrep/semgrep"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "Pattern-based search and static analysis across 30+ languages, scriptable in CI with JSON/SARIF output and a public rules registry. Oriented to rules and security patterns, not free-text exploration; no cross-repo index.",
+				"fr": "Recherche par motifs et analyse statique sur 30+ langages, scriptable en CI, sortie JSON/SARIF, registre de règles public. Pensé pour les règles de sécurité, pas l’exploration en texte libre ; aucun index cross-repo."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

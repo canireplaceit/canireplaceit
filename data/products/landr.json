@@ -93,6 +93,174 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "SoX",
+			"source": {
+				"host": "github",
+				"path": "chirlu/sox",
+				"url": "https://github.com/chirlu/sox"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Dormant since November 2023, the GPL command-line swiss-army knife for batch conversion and loudness effects. No waveform preview, no target-LUFS matching — you tune the chain blind.",
+				"fr": "Dormant depuis novembre 2023, le couteau suisse GPL du traitement audio par lot. Pas d’aperçu de forme d’onde ni de correspondance LUFS cible : on règle la chaîne à l’aveugle."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FFmpeg",
+			"source": {
+				"host": "github",
+				"path": "FFmpeg/FFmpeg",
+				"url": "https://github.com/FFmpeg/FFmpeg"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "EBU R128 loudnorm delivers standards-compliant loudness normalization at CLI scale. The filter-graph syntax is steep and there is no GUI, but nothing matches it for batch work.",
+				"fr": "Le filtre loudnorm EBU R128 donne une normalisation conforme aux normes à l’échelle CLI. La syntaxe du graphe de filtres est rude et il n’y a pas d’interface, mais rien ne le bat en lot."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Demucs",
+			"source": {
+				"host": "github",
+				"path": "facebookresearch/demucs",
+				"url": "https://github.com/facebookresearch/demucs"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Archived upstream, but still the state-of-the-art in open stem separation, powering LANDR's source-split. Good on music, usable on podcasts; expects Python and a GPU.",
+				"fr": "Archivé en amont, mais toujours l’état de l’art de la séparation de pistes, au cœur de la fonction source-split de LANDR. Bon sur la musique, correct sur le podcast ; il exige Python et une carte graphique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Spleeter",
+			"source": {
+				"host": "github",
+				"path": "deezer/spleeter",
+				"url": "https://github.com/deezer/spleeter"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Deezer's production-tested splitter with 2, 4, and 5-stem models and a simple CLI. Quality lags newer Demucs releases and development has stalled since 2021.",
+				"fr": "Le séparateur de Deezer, éprouvé en production, avec des modèles 2, 4 et 5 pistes et une CLI simple. La qualité reste en retrait des derniers Demucs et le développement est à l’arrêt depuis 2021."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Audacity",
+			"source": {
+				"host": "github",
+				"path": "audacity/audacity",
+				"url": "https://github.com/audacity/audacity"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The default open-source editor for podcast cleanup, loudness, and export, hosting VST plugins. Desktop-only, no collaborative review flow, no AI-assisted edits.",
+				"fr": "L’éditeur open source par défaut pour le nettoyage, la normalisation et l’export de podcasts, avec hébergement de plugins VST. Desktop uniquement, pas de flux de relecture collaboratif, pas d’édition assistée par IA."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Zrythm",
+			"source": {
+				"host": "github",
+				"path": "zrythm/zrythm",
+				"url": "https://github.com/zrythm/zrythm"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "An actively developed, fully-free DAW with a mastering chain, mixer, and automation under AGPL. Copyleft through and through; the community and plugin ecosystem trail Ardour.",
+				"fr": "Un DAW entièrement libre, activement développé, avec chaîne de mastering, mixeur et automatisation sous AGPL. Copyleft jusqu’au bout ; communauté et écosystème de plugins restent en dessous d’Ardour."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gPodder",
+			"source": {
+				"host": "github",
+				"path": "gpodder/gpodder",
+				"url": "https://github.com/gpodder/gpodder"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Covers the consumption side of podcasting: subscriptions, downloads, playback, synced across devices via the gpodder.net protocol. A client, not a mastering tool — and sync leans on third-party servers.",
+				"fr": "Il couvre le versant consommation du podcast : abonnements, téléchargements, lecture, synchronisés entre appareils via le protocole gpodder.net. Un client, pas un outil de mastering — la synchro repose sur des serveurs tiers."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Podgrab",
+			"source": {
+				"host": "github",
+				"path": "akhilrex/podgrab",
+				"url": "https://github.com/akhilrex/podgrab"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Fills the listen-catalog-and-download workflow with one docker command: subscriptions, auto-download, in-browser playback, full-text search. No audio processing at all, and no team SSO out of the box.",
+				"fr": "Occupe le créneau écouter, classer, télécharger avec une commande docker : abonnements, téléchargement auto, lecture dans le navigateur, recherche plein texte. Aucun traitement audio, et pas de SSO d’équipe intégré."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

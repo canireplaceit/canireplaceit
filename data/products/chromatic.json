@@ -118,6 +118,157 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Lost Pixel",
+			"source": {
+				"host": "github",
+				"path": "lost-pixel/lost-pixel",
+				"url": "https://github.com/lost-pixel/lost-pixel"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Archived upstream — the free core moved to the paid Lost Pixel Platform. Storybook, Playwright and Cypress regression with S3/GCS baselines; review diffs land as PR comments.",
+				"fr": "Archivé en amont — le noyau gratuit est parti vers la Lost Pixel Platform payante. Régression visuelle Storybook, Playwright et Cypress avec stockage S3/GCS ; les diffs sont revus en commentaires de PR."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Hosted review dashboard",
+					"fr": "Dashboard de revue hébergé"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "BackstopJS",
+			"source": {
+				"host": "github",
+				"path": "garris/BackstopJS",
+				"url": "https://github.com/garris/BackstopJS"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Config-driven regression across viewports with session cookies for stateful pages; the browser-based report UI approves or rejects each diff. Slower and heavier than screenshot-first tools, quiet since 2024.",
+				"fr": "Régression par scénarios et viewports, cookies de session pour les pages authentifiées ; l’UI de rapport approuve ou rejette chaque diff. Plus lent et plus lourd que les outils simples, inactif depuis 2024."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pixelmatch",
+			"source": {
+				"host": "github",
+				"path": "mapbox/pixelmatch",
+				"url": "https://github.com/mapbox/pixelmatch"
+			},
+			"license": "ISC",
+			"effort": "managed",
+			"note": {
+				"en": "Dependency-free, antialiasing-aware pixel diff with bounding boxes; a tiny CLI emits the mask. It is a library, so capture and reporting are yours to wire up.",
+				"fr": "Diff pixel par pixel, sans dépendance, conscient de l’antialiasing avec boîtes englobantes ; un petit CLI émet le masque. C’est une bibliothèque : capture et reporting restent à câbler soi-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "reg-suit",
+			"source": {
+				"host": "github",
+				"path": "reg-viz/reg-suit",
+				"url": "https://github.com/reg-viz/reg-suit"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Storybook-aware regression with pluggable S3/GCS storage and reg-preview generating a static review site. Setup is heavier than point tools, and the UI stays generated, not hosted.",
+				"fr": "Régression orientée Storybook avec stockage S3/GCS enfichable et reg-preview qui génère un site de revue statique. Config plus lourde que les outils ponctuels ; l’UI reste statique, pas hébergée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Testplane",
+			"source": {
+				"host": "github",
+				"path": "gemini-testing/testplane",
+				"url": "https://github.com/gemini-testing/testplane"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Yandex’s actively maintained WebDriver runner, a hermione successor, with assertView screenshot checks built in. Harder learning curve and Yandex-era docs; not storybook-specific.",
+				"fr": "Runner WebDriver de Yandex, successeur d’hermione, toujours maintenu, avec les vérifications screenshot assertView intégrées. Courbe d’apprentissage raide, docs d’époque Yandex ; rien de spécifique à Storybook."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "cypress-visual-regression",
+			"source": {
+				"host": "github",
+				"path": "cypress-visual-regression/cypress-visual-regression",
+				"url": "https://github.com/cypress-visual-regression/cypress-visual-regression"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Cypress plugin bundling pixelmatch and pngjs; cy.visualSnapshot() with a configurable threshold slots into your existing suite and CI. Cypress-only, and diffs are plain files — no hosted review.",
+				"fr": "Plugin Cypress qui embarque pixelmatch et pngjs ; cy.visualSnapshot() avec seuil configurable se glisse dans vos suites et votre CI existants. Cypress uniquement, diffs en fichiers plats, sans revue hébergée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "odiff",
+			"source": {
+				"host": "github",
+				"path": "dmtrKovalenko/odiff",
+				"url": "https://github.com/dmtrKovalenko/odiff"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "SIMD/SSE/AVX2 pixel comparison that keeps big screenshot suites fast enough for daily CI, with anti-aliasing and region ignores. Engine only — you build the whole pipeline around it.",
+				"fr": "Comparaison pixel SIMD/SSE/AVX2 qui rend les grosses suites de screenshots assez rapides pour la CI quotidienne, avec antialiasing et zones ignorées. Moteur uniquement : le reste du pipeline est à monter."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

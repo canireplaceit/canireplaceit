@@ -93,6 +93,174 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Games on Whales",
+			"source": {
+				"host": "github",
+				"path": "games-on-whales/gow",
+				"url": "https://github.com/games-on-whales/gow"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Needs a dedicated NVIDIA host with a fiddly DRI3/Xorg setup — in return, one GPU-accelerated container per game, streamed to the browser over WebRTC.",
+				"fr": "Exige un hôte NVIDIA dédié et une config DRI3/Xorg capricieuse — en échange, un conteneur GPU par jeu, diffusé dans le navigateur via WebRTC."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Steam Headless",
+			"source": {
+				"host": "github",
+				"path": "Steam-Headless/docker-steam-headless",
+				"url": "https://github.com/Steam-Headless/docker-steam-headless"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Full Steam client in Docker, one container per account, streamed via Remote Play or Sunshine. Needs GPU and /dev/dri passthrough, no web UI, and games stay tied to your Steam account.",
+				"fr": "Client Steam dans Docker, un conteneur par compte, diffusé via Remote Play ou Sunshine. Exige un GPU et un passthrough /dev/dri, pas d’interface web, jeux liés à votre compte Steam."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "chiaki-ng",
+			"source": {
+				"host": "github",
+				"path": "streetpea/chiaki-ng",
+				"url": "https://github.com/streetpea/chiaki-ng"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Only streams from your own console, which must be registered to your account. Otherwise: active fork of archived Chiaki with hardware decoding on Linux, Windows, macOS and Android.",
+				"fr": "Ne diffuse que votre console, enregistrée sur votre compte. Sinon : fork actif du Chiaki archivé, décodage matériel sur Linux, Windows, macOS et Android."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Looking Glass",
+			"source": {
+				"host": "github",
+				"path": "gnif/LookingGlass",
+				"url": "https://github.com/gnif/LookingGlass"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Shared-memory, sub-10ms stream of a Windows gaming VM display onto your Linux desktop at near-native framerate. Requires same-machine KVM with GPU passthrough and a Windows guest — no remote streaming.",
+				"fr": "Flux zéro-latence par mémoire partagée, de la VM Windows vers votre bureau Linux, framerate quasi natif. Exige KVM local, passthrough GPU et invité Windows — rien à distance."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OBS Studio",
+			"source": {
+				"host": "github",
+				"path": "obsproject/obs-studio",
+				"url": "https://github.com/obsproject/obs-studio"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Game capture, compositing and encoding you pair with WebRTC or RTMP, scriptable via obs-websocket. No remote input or control — it only ships the video, and latency tuning is yours.",
+				"fr": "Capture de jeu, composition et encodage à coupler avec du WebRTC ou RTMP, scriptable via obs-websocket. Pas de saisie ni contrôle à distance, et la latence se règle à la main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MediaMTX",
+			"source": {
+				"host": "github",
+				"path": "bluenviron/mediamtx",
+				"url": "https://github.com/bluenviron/mediamtx"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Just video transport: no launcher, no input — you wire up capture to relay yourself. The payoff: one binary speaking RTSP, RTMP, HLS, SRT and WebRTC, with WHIP/WHEP sub-second browser playback.",
+				"fr": "Que du transport : pas de lanceur ni de saisie, vous montez la chaîne capture-relais. En échange, un seul binaire : RTSP, RTMP, HLS, SRT et WebRTC, WHIP/WHEP, lecture navigateur en moins d’une seconde."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Neko",
+			"source": {
+				"host": "github",
+				"path": "m1k1o/neko",
+				"url": "https://github.com/m1k1o/neko"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Docker-based rooms where viewers and hosts share a browser or desktop over WebRTC, audio, clipboard and control included. Gamepad support lags desktop remote-play, and hardware acceleration needs host tuning.",
+				"fr": "Salles Docker où spectateurs et hôtes partagent navigateur ou bureau en WebRTC, avec audio, presse-papiers et contrôle. Gamepad en retard sur le remote-play, et accélération matérielle à régler sur l’hôte."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "cloud-morph",
+			"source": {
+				"host": "github",
+				"path": "giongto35/cloud-morph",
+				"url": "https://github.com/giongto35/cloud-morph"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Windows VM streamed to the browser over WebRTC from a single Go binary, with a decentralized peer model for multi-node setups. Small community and thin docs, and input support stays basic.",
+				"fr": "VM Windows diffusée dans le navigateur en WebRTC depuis un binaire Go, avec un modèle pair à pair décentralisé multi-nœuds. Petite communauté, docs minces, et le support manette reste basique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

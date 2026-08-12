@@ -66,6 +66,258 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "git-secrets",
+			"source": {
+				"host": "github",
+				"path": "awslabs/git-secrets",
+				"url": "https://github.com/awslabs/git-secrets"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "AWS’s shell pre-commit/pre-push hook. Blocks secrets before they land. Huge adoption, but regex-based detection and no CI or repo-wide scanning.",
+				"fr": "Hook shell d’AWS en pré-commit/pre-push qui bloque les secrets avant qu’ils n’atterrissent. Adoption massive, mais détection par regex, sans scan CI ni à l’échelle du dépôt."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "detect-secrets",
+			"source": {
+				"host": "github",
+				"path": "Yelp/detect-secrets",
+				"url": "https://github.com/Yelp/detect-secrets"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Yelp’s entropy-plus-plugin scanner. A baseline allowlist file turns CI secret gates into something practical; the price is a Python toolchain and no org-wide reporting.",
+				"fr": "Scanneur de Yelp par entropie et plugins. Le fichier baseline, allowlist d’exceptions relues, rend les gates secrets CI praticables ; en contrepartie, toolchain Python exigée et pas de reporting org-wide."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "shhgit",
+			"source": {
+				"host": "github",
+				"path": "eth0izzle/shhgit",
+				"url": "https://github.com/eth0izzle/shhgit"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Streams public GitHub events to surface credentials the moment they are committed. High-signal heuristics, but public repos only and effectively unmaintained.",
+				"fr": "Draine les événements publics GitHub pour exposer les identifiants dès leur commit. Heuristiques à fort signal, mais uniquement dépôts publics et développement quasi arrêté."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "git-hound",
+			"source": {
+				"host": "github",
+				"path": "ezekg/git-hound",
+				"url": "https://github.com/ezekg/git-hound"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Pattern hunter that sweeps full git history and GitHub orgs for exposed secrets. Dormant since late 2020 — no commit in five years, no management features.",
+				"fr": "Chasseur de motifs qui ratisse l’historique git et les orgs GitHub à la recherche de secrets exposés. Dormant depuis fin 2020 — aucun commit depuis cinq ans, sans fonctions de gestion."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gitrob",
+			"source": {
+				"host": "github",
+				"path": "michenriksen/gitrob",
+				"url": "https://github.com/michenriksen/gitrob"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Org-wide GitHub auditor with a local web dashboard for triaging exposed credentials. Archived since 2022; read-only tokens make it weakest on private repos.",
+				"fr": "Auditeur GitHub à l’échelle d’une org, avec dashboard web local pour trier les identifiants exposés. Archivé depuis 2022 ; ses tokens en lecture seule le rendent plus faible sur les dépôts privés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Talisman",
+			"source": {
+				"host": "github",
+				"path": "thoughtworks/talisman",
+				"url": "https://github.com/thoughtworks/talisman"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "ThoughtWorks’ pre-commit/pre-push hook rejects secrets and risky patterns before code lands. Entropy plus file checksums, but every contributor machine must run it.",
+				"fr": "Le hook pre-commit/pre-push de ThoughtWorks refuse secrets et motifs risqués avant le déploiement du code. Entropie et checksums de fichiers, mais à installer sur chaque machine de dev."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "secretlint",
+			"source": {
+				"host": "github",
+				"path": "secretlint/secretlint",
+				"url": "https://github.com/secretlint/secretlint"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Extensible Node.js secret linter; per-provider rules drop into CI with clean exit codes and masked output. Needs a Node toolchain, no history or org-wide scanning.",
+				"fr": "Linter de secrets Node.js extensible ; des règles par fournisseur s’intègrent aux gates CI avec codes de sortie propres et sortie masquée. Toolchain Node requise, pas de scan historique ni org-wide."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Deepfence SecretScanner",
+			"source": {
+				"host": "github",
+				"path": "deepfence/SecretScanner",
+				"url": "https://github.com/deepfence/SecretScanner"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Filesystem and container secret finder that digs into Docker image layers. Usable standalone, but the workflow is container-centric and the dashboard only ships with full Deepfence.",
+				"fr": "Chercheur de secrets sur fichiers et conteneurs, qui inspecte aussi les couches d’images Docker. Utilisable seul, mais workflow orienté conteneur et dashboard réservé au stack Deepfence complet."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Checkov",
+			"source": {
+				"host": "github",
+				"path": "bridgecrewio/checkov",
+				"url": "https://github.com/bridgecrewio/checkov"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "IaC security scanner with built-in secret detection for Terraform, CloudFormation, Helm and more. Great where IaC is the surface; it does not sweep git history.",
+				"fr": "Scanneur de sécurité IaC avec détection de secrets intégrée pour Terraform, CloudFormation, Helm et plus. Idéal quand l’IaC est la surface d’attaque, mais il ne fouille pas l’historique git."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Trivy",
+			"source": {
+				"host": "github",
+				"path": "aquasecurity/trivy",
+				"url": "https://github.com/aquasecurity/trivy"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "All-in-one scanner whose secret module finds hardcoded credentials in filesystems, repos and images. One static binary for CI; secrets are just one module, output has no dashboard.",
+				"fr": "Scanner tout-en-un dont le module secrets repère les identifiants en dur dans fichiers, dépôts et images. Binaire statique pour le CI ; les secrets n’y sont qu’un module parmi d’autres, sans dashboard."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "DevSkim",
+			"source": {
+				"host": "github",
+				"path": "microsoft/DevSkim",
+				"url": "https://github.com/microsoft/DevSkim"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Microsoft’s in-IDE and CLI linter flagging secrets and insecure patterns. Works in Visual Studio and VS Code; narrower ruleset and no org-wide monitoring.",
+				"fr": "Linter de sécurité Microsoft, dans l’IDE et en CLI, qui signale secrets et motifs non sécurisés. Extensions Visual Studio et VS Code ; règles plus limitées et pas de monitoring org-wide."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "repo-supervisor",
+			"source": {
+				"host": "github",
+				"path": "okta-graveyard/repo-supervisor",
+				"url": "https://github.com/okta-graveyard/repo-supervisor"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Okta’s scanner for risky patterns and secrets across a repo or an entire GitHub org. Archived and dormant since 2023; config examples skew Okta-specific.",
+				"fr": "Scanneur d’Okta pour motifs risqués et secrets, sur un dépôt ou une org GitHub entière. Archivé et dormant depuis 2023 ; exemples de config taillés pour Okta."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

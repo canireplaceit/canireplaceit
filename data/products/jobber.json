@@ -111,6 +111,178 @@
 				"en": "Same category, a third of the price, published tiers. Smaller integration list and a plainer mobile app.",
 				"fr": "Même catégorie, un tiers du prix, tarifs affichés. Moins d’intégrations et une app mobile plus rudimentaire."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Odoo",
+			"source": {
+				"host": "github",
+				"path": "odoo/odoo",
+				"url": "https://github.com/odoo/odoo"
+			},
+			"license": "LGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Open ERP whose Field Service app dispatches and invoices on a mature stack. Stock Odoo gates the app behind Enterprise, so free builds rely on the OCA community module and implementation effort.",
+				"fr": "ERP complet, l’app Field Service gère dispatch et facturation sur une stack mature. Elle est réservée à l’Enterprise : côté gratuit, module OCA et effort d’implémentation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Field Service app (Enterprise; OCA module on the free build)",
+					"fr": "App Field Service (Enterprise ; module OCA sur le build gratuit)"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ERPNext",
+			"source": {
+				"host": "github",
+				"path": "frappe/erpnext",
+				"url": "https://github.com/frappe/erpnext"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "No drag-drop dispatch board, no native field-worker app; it still runs a solo service business end to end — schedules, timesheets, invoicing — behind a learning curve steeper than Jobber’s.",
+				"fr": "Pas de tableau de dispatch glisser-déposer ni d’app terrain native ; il gère pourtant toute une petite entreprise de services — plannings, temps, facturation — mais exige plus d’apprentissage que Jobber."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Snipe-IT",
+			"source": {
+				"host": "github",
+				"path": "grokability/snipe-it",
+				"url": "https://github.com/grokability/snipe-it"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Asset tracker strong for the maintenance half of field service — scheduled maintenance, checklists, service history — but it tracks assets, not crews: no dispatch, invoicing or routing.",
+				"fr": "Tracker d’actifs, fort pour le volet maintenance du terrain — maintenance planifiée, checklists, historique — mais il suit des actifs, pas des techniciens : ni dispatch, ni facturation, ni routage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Grocy",
+			"source": {
+				"host": "github",
+				"path": "grocy/grocy",
+				"url": "https://github.com/grocy/grocy"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight self-hosted tracker of chores, tasks and stock for a solo operator who wants far less than an ERP. It leans household: no client/project workflow, no invoicing, no field dispatch.",
+				"fr": "Tracker auto-hébergé léger de tâches ménagères, corvées et stock, pour un solo qui veut beaucoup moins qu’un ERP. Côté maison : pas de workflow projet, pas de facturation, pas de dispatch terrain."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "InvoicePlane",
+			"source": {
+				"host": "github",
+				"path": "InvoicePlane/InvoicePlane",
+				"url": "https://github.com/InvoicePlane/InvoicePlane"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Quote-to-invoice tool for the billing half of a service business — client records, estimates, payments. The other half is missing entirely: no scheduling, no dispatch, no timesheets.",
+				"fr": "L’outil devis-vers-facture pour la moitié facturation d’un métier de services — clients, devis, paiements. L’autre moitié manque entièrement : pas d’ordonnancement, pas de dispatch, pas de feuilles de temps."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Timewarrior",
+			"source": {
+				"host": "github",
+				"path": "GothenburgBitFactory/timewarrior",
+				"url": "https://github.com/GothenburgBitFactory/timewarrior"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Terminal time tracker with tags and billing reports — the timekeeping half of a one-person service business. Single-user, no scheduling, no dispatch, no invoicing.",
+				"fr": "Chrono en terminal avec tags et rapports de facturation — la moitié temps d’un métier de services en solo. Mono-utilisateur : pas d’ordonnancement, pas de dispatch, pas de facture."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Taskwarrior",
+			"source": {
+				"host": "github",
+				"path": "GothenburgBitFactory/taskwarrior",
+				"url": "https://github.com/GothenburgBitFactory/taskwarrior"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Fast CLI job manager with priorities, due dates and urgency scoring — a solo tech can drive the queue from the terminal. Default single-user: no client records, no invoicing, no scheduling board.",
+				"fr": "Gestionnaire de jobs CLI, rapide, avec priorités, échéances et score d’urgence. En mono-utilisateur par défaut : pas de dossiers clients, de facturation ni de board web."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "khal",
+			"source": {
+				"host": "github",
+				"path": "pimutils/khal",
+				"url": "https://github.com/pimutils/khal"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "TUI calendar with vi keybindings for scheduling jobs and recurring visits, syncing iCal. It is calendar only: no jobs, no invoicing, no realtime multi-user sync — terminal skill assumed.",
+				"fr": "Calendrier TUI avec raccourcis vi pour planifier jobs et visites récurrentes, synchronisé en iCal. Calendrier uniquement : pas de jobs, pas de facturation, pas de sync temps réel multi-utilisateur ; terminal requis."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

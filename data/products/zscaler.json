@@ -91,6 +91,174 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pi-hole",
+			"source": {
+				"host": "github",
+				"path": "pi-hole/pi-hole",
+				"url": "https://github.com/pi-hole/pi-hole"
+			},
+			"license": "EUPL-1.2",
+			"effort": "docker",
+			"note": {
+				"en": "Most-deployed self-hosted DNS blocker; gives a SWG stack its network-wide domain/ad filtering layer in minutes. DNS only: no HTTP inspection, SSO policy, or content-level blocking.",
+				"fr": "Bloqueur DNS auto-hébergé le plus déployé ; donne à un stack SWG le filtrage réseau par domaines en quelques minutes. DNS uniquement : ni inspection HTTP, ni politique SSO, ni blocage de contenu."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "AdGuard Home",
+			"source": {
+				"host": "github",
+				"path": "AdguardTeam/AdGuardHome",
+				"url": "https://github.com/AdguardTeam/AdGuardHome"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Single-binary DNS filter with clean UI and per-client tracking; easy self-hosted stand-in for Zscaler’s DNS tier. DNS only, no web proxy, TLS inspection, or sandboxing; policy is per-device, not per-identity.",
+				"fr": "Filtre DNS en un binaire, interface propre, suivi par client ; l’équivalent auto-hébergé du niveau DNS de Zscaler. Ni proxy web, ni inspection TLS ; politique par appareil, pas par identité."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "mitmproxy",
+			"source": {
+				"host": "github",
+				"path": "mitmproxy/mitmproxy",
+				"url": "https://github.com/mitmproxy/mitmproxy"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Scriptable TLS-interception proxy for inspecting, replaying and rewriting HTTPS traffic; the deep-inspection layer of a ZIA stack. An operator tool, not a transparent user gateway — no policy engine, DLP, or sandboxing.",
+				"fr": "Proxy d’interception TLS scriptable pour inspecter, rejouer et réécrire le trafic HTTPS. La couche d’inspection d’un stack ZIA, mais outil d’opérateur, pas une passerelle : ni politique, ni DLP, ni sandbox."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OPNsense",
+			"source": {
+				"host": "github",
+				"path": "opnsense/core",
+				"url": "https://github.com/opnsense/core"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Open-source firewall/UTM appliance — web proxy, Suricata IDS/IPS, filtering plugins — the SWG as a box. Single appliance, not a distributed cloud; no built-in malware sandbox; you run updates and rules.",
+				"fr": "Appliance pare-feu/UTM open source : proxy web, Suricata IDS/IPS, plugins de filtrage — le SWG en boîtier. Un seul appareil, pas un cloud distribué, sans sandbox ; à vous les mises à jour et règles."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pfSense",
+			"source": {
+				"host": "github",
+				"path": "pfsense/pfsense",
+				"url": "https://github.com/pfsense/pfsense"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "No managed cloud plane, no native DLP or sandboxing; manual setup and updates. A veteran BSD firewall whose package manager (Squid, pfBlockerNG, Suricata) assembles the stack.",
+				"fr": "Pas de contrôle cloud géré, ni DLP, ni sandbox natifs ; configuration et mises à jour manuelles. Un pare-feu BSD vétéran dont le gestionnaire de paquets (Squid, pfBlockerNG, Suricata) monte le stack."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenSnitch",
+			"source": {
+				"host": "github",
+				"path": "evilsocket/opensnitch",
+				"url": "https://github.com/evilsocket/opensnitch"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Interactive per-application egress firewall for Linux: prompts on outbound connections, rule engine, stats UI. Host-level only, Linux only, per-host rules with no central management.",
+				"fr": "Pare-feu egress Linux interactif, par application : demandes sur les connexions sortantes, moteur de règles, statistiques. Niveau hôte uniquement, Linux uniquement, règles par machine sans gestion centralisée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Technitium DNS Server",
+			"source": {
+				"host": "github",
+				"path": "TechnitiumSoftware/DnsServer",
+				"url": "https://github.com/TechnitiumSoftware/DnsServer"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted recursive and authoritative DNS with built-in blocklists and filtering zones; a DNS-security pillar for a SWG stack. DNS layer only — no HTTP filtering, TLS inspection, or DLP; single-server by design.",
+				"fr": "DNS récursif et autoritatif auto-hébergé, blocklists et zones de filtrage intégrées ; un pilier DNS d’un stack SWG. DNS uniquement : ni HTTP, ni TLS, ni DLP ; pensé pour un serveur unique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Privoxy",
+			"source": {
+				"host": "other",
+				"path": "ijbswa/privoxy",
+				"url": "https://www.privoxy.org/"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Filtering proxy that strips ads and trackers and applies header/URL rules inline. No TLS interception, so most modern traffic passes untouched; rule files also need upkeep.",
+				"fr": "Proxy de filtrage qui supprime publicités et traqueurs et applique règles URL/en-têtes en ligne. Sans interception TLS, l’essentiel du trafic moderne lui échappe, et les fichiers de règles demandent entretien."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

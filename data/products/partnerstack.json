@@ -84,6 +84,165 @@
 				"en": "A flat monthly fee instead of a cut of partner revenue, which is the whole difference. No marketplace, B2B SaaS only.",
 				"fr": "Un forfait mensuel au lieu d’un pourcentage du revenu partenaire, c’est toute la différence. Pas de place de marché, uniquement du SaaS B2B."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "refref",
+			"source": {
+				"host": "github",
+				"path": "amicalhq/refref",
+				"url": "https://github.com/amicalhq/refref"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "A genuinely open (AGPL-3.0) referral-and-affiliate platform in a box: signup, tracking, rewards. Younger than PartnerStack, smaller feature surface — payouts and reward rules sit in your own business logic.",
+				"fr": "Plateforme d’affiliation et de parrainage ouverte (AGPL-3.0), clé en main : inscription, suivi, récompenses. Plus jeune que PartnerStack, surface réduite — récompenses et paiements restent dans votre logique métier."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kutt",
+			"source": {
+				"host": "github",
+				"path": "thedevs-network/kutt",
+				"url": "https://github.com/thedevs-network/kutt"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The affiliate-link layer of a programme: MIT shortener with user accounts, custom aliases, per-link stats and a REST API. No commissions, payouts or partner portal; Postgres + Redis to run.",
+				"fr": "Shortener MIT : comptes, alias, stats par lien, API REST pour les liens d’affiliation. Rien que la couche lien — pas de commissions ni de portail partenaire ; Postgres + Redis à faire tourner."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Shlink",
+			"source": {
+				"host": "github",
+				"path": "shlinkio/shlink",
+				"url": "https://github.com/shlinkio/shlink"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "API-first MIT shortener with an official CLI and headless REST client — built for scripting affiliate-link workflows. No program, commission or payout features though, and the web UI ships separately.",
+				"fr": "Shortener MIT pensé API d’abord, avec CLI officielle et client REST headless — taillé pour script l’affiliation. Pas de programme, de commissions ni de paiements, et l’interface web s’installe à part."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Revive Adserver",
+			"source": {
+				"host": "github",
+				"path": "revive-adserver/revive-adserver",
+				"url": "https://github.com/revive-adserver/revive-adserver"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The long-standing GPL-2.0 ad server: campaigns, banner zones, click and conversion tracking, self-hosted with an admin UI. It tracks ads, not affiliate commissions — no partner portal, payouts or tiered commissions.",
+				"fr": "Le serveur publicitaire GPL-2.0 de longue date : campagnes, bannières, suivi des clics et conversions, auto-hébergé. Il compte des publicités, pas des commissions d’affiliation — pas de portail partenaire, de paiements ni de paliers."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Matomo",
+			"source": {
+				"host": "github",
+				"path": "matomo-org/matomo",
+				"url": "https://github.com/matomo-org/matomo"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted, privacy-first analytics — GPL-3.0, data stays on your server — with an Affiliate Tracking plugin for campaign attribution. Attribution and goals only: no commission or payout workflow.",
+				"fr": "Analytics auto-hébergés, respectueux de la vie privée — GPL-3.0, les données restent chez vous — avec un plugin Affiliate Tracking pour l’attribution. Attribution et objectifs seulement : pas de commission ni de paiement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Paid plugins (SAML SSO)",
+					"fr": "Plugins payants (SAML SSO)"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Snowplow",
+			"source": {
+				"host": "github",
+				"path": "snowplow/snowplow",
+				"url": "https://github.com/snowplow/snowplow"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Build your referral attribution on your data: the Apache-2.0 schema-driven event pipeline into your warehouse. Self-hosted but heavy ops — collectors, enrichers, loaders — and raw events only, no partner UI.",
+				"fr": "Pipeline d’événements Apache-2.0 : événements typés par schéma pour l’attribution, jusqu’à votre entrepôt de données. Auto-hébergé mais lourd en ops — collectors, enrichers, loaders — et que des événements bruts, pas d’interface partenaire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Minor paid extras",
+					"fr": "Options payantes mineures"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "WooCommerce",
+			"source": {
+				"host": "github",
+				"path": "woocommerce/woocommerce",
+				"url": "https://github.com/woocommerce/woocommerce"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "A GPL-3.0 store: coupon and referral-credit tracking, a large affiliate-plugin ecosystem, a REST API. It sells, it doesn’t run a partner programme — plugins for parity, heavy WordPress/PHP to maintain.",
+				"fr": "Boutique GPL-3.0 : suivi des coupons et crédits de parrainage, écosystème de plugins d’affiliation, API REST. Elle vend, elle n’est pas une plateforme partenaire — plugins pour la parité, WordPress/PHP lourd à maintenir."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Affiliate plugins (third-party add-ons)",
+					"fr": "Plugins d’affiliation (add-ons tiers)"
+				}
+			}
 		}
 	],
 	"priority": 2

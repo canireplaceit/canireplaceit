@@ -107,6 +107,174 @@
 				"en": "Same job, cheaper credits, and it bundles sending. Accuracy is a notch below Hunter on European domains.",
 				"fr": "Même travail, crédits moins chers, et l’envoi est inclus. Précision un cran en dessous de Hunter sur les domaines européens."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "theHarvester",
+			"source": {
+				"host": "github",
+				"path": "laramies/theHarvester",
+				"url": "https://github.com/laramies/theHarvester"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Battle-tested CLI harvesting emails, names and domains from search engines and 15+ public sources. Raw OSINT though — search engines rate-limit it, and there's no dedupe or verification at scale.",
+				"fr": "CLI rodé qui moissonne emails, noms et domaines depuis les moteurs de recherche et 15+ sources publiques. De l’OSINT brut, sans déduplication ni vérification, et les moteurs limitent le rythme."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "recon-ng",
+			"source": {
+				"host": "github",
+				"path": "lanmaster53/recon-ng",
+				"url": "https://github.com/lanmaster53/recon-ng"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Modular recon framework with 150+ modules for contacts, emails, vhosts and geo discovery in an interactive console. Community modules go stale and paid sources need API keys.",
+				"fr": "Framework de recon modulaire : 150+ modules pour contacts, emails, vhosts et géolocalisation dans une console interactive. Les modules de la communauté vieillissent et les sources payantes exigent des clés API."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "sherlock",
+			"source": {
+				"host": "github",
+				"path": "sherlock-project/sherlock",
+				"url": "https://github.com/sherlock-project/sherlock"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Footprints a username across 400+ sites to map a prospect's social presence before outreach. Needs a starting handle and yields profiles, not emails; some sites rate-limit or block.",
+				"fr": "Relève l’empreinte sociale d’un prospect à partir d’un seul pseudo, sur 400+ sites. Il faut un identifiant de départ, et on récupère des profils, pas des emails — certains sites limitent ou bloquent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GHunt",
+			"source": {
+				"host": "github",
+				"path": "mxrch/GHunt",
+				"url": "https://github.com/mxrch/GHunt"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Resolves emails and profile data through Google's own people-search endpoints, turning a name into contact info. Needs fresh Google cookies and breaks whenever Google changes internals; ToS gray area.",
+				"fr": "Résout emails et profils via les endpoints de recherche de personnes de Google, un nom devient des coordonnées. Exige des cookies frais, casse à chaque évolution interne, zone grise côté CGU."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Photon",
+			"source": {
+				"host": "github",
+				"path": "s0md3v/Photon",
+				"url": "https://github.com/s0md3v/Photon"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Crawls a target site to mine emails, social links, files and URLs, with replay for repeat scans. Scope is one site and only what's public; no name-to-email guessing.",
+				"fr": "Crawle un site cible pour en extraire emails, liens sociaux, fichiers et URLs, avec replay des scans. Limité à un seul site et au contenu public ; aucune déduction nom-vers-email."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "social-analyzer",
+			"source": {
+				"host": "github",
+				"path": "qeeqbox/social-analyzer",
+				"url": "https://github.com/qeeqbox/social-analyzer"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Analyzes social profiles via web UI or CLI, turning a name or username into profile and contact signals. Presence, not B2B emails; heavy JS crawling is slow, and no verification.",
+				"fr": "Analyse des profils sociaux via web UI ou CLI, un pseudo devient des signaux de contact. Présence, pas emails B2B ; crawl JS lent, rien de vérifié."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Infoga",
+			"source": {
+				"host": "github",
+				"path": "The404Hacking/Infoga",
+				"url": "https://github.com/The404Hacking/Infoga"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Dormant since 2017, but simple to install and still works for basic email collection from web sources. The verifier is basic and often wrong; legacy Python dependencies.",
+				"fr": "Dormant depuis 2017, mais simple à installer et encore fonctionnel pour collecter des emails sur le web. Vérificateur sommaire, souvent faux ; dépendances Python héritées."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "EmailFinder",
+			"source": {
+				"host": "github",
+				"path": "Josue87/EmailFinder",
+				"url": "https://github.com/Josue87/EmailFinder"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The closest OSS analog to Hunter's Email Finder: guesses corporate addresses from name and domain. Archived and unmaintained since 2023; pattern-based guessing with low hit rate, no SMTP verification.",
+				"fr": "Équivalent OSS le plus proche de l’Email Finder de Hunter : devine des adresses pro depuis nom et domaine. Archivé depuis 2023 ; devinette par motifs, succès faible, sans vérification SMTP."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

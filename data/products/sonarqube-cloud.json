@@ -101,6 +101,174 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Gitleaks",
+			"source": {
+				"host": "github",
+				"path": "gitleaks/gitleaks",
+				"url": "https://github.com/gitleaks/gitleaks"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Default choice for leaking credentials: regex and entropy scan across full git history, wired into pre-commit or CI with SARIF output. Secrets only — no code smells, no web UI.",
+				"fr": "Le scanner de secrets de référence : regex et entropie sur tout l’historique git, en hook pre-commit ou en CI, sortie SARIF. Secrets uniquement — ni code smells, ni interface web."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "TruffleHog",
+			"source": {
+				"host": "github",
+				"path": "trufflesecurity/trufflehog",
+				"url": "https://github.com/trufflesecurity/trufflehog"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "High-signal secret scanning: candidate credentials are verified against 700+ live APIs, cutting false positives, across git, filesystems, S3, GitHub, GitLab, Jira. Findings need your own triage; AGPL-3.0.",
+				"fr": "Vérification contre plus de 700 API live : les credentials suspects sont confirmés avant remontée, sur git, fichiers, S3, GitHub, GitLab, Jira. Triage à organiser soi-même, licence AGPL-3.0."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Trivy",
+			"source": {
+				"host": "github",
+				"path": "aquasecurity/trivy",
+				"url": "https://github.com/aquasecurity/trivy"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "One CLI for image, filesystem, IaC and SBOM vulnerabilities plus misconfiguration checks, with SARIF/GitHub/Slack output. No code-quality metrics or long-lived gates; rules coarser than language analysers.",
+				"fr": "Un seul CLI : images, fichiers, IaC et SBOM en vulnérabilités et misconfiguration, sorties SARIF/GitHub/Slack. Ni métriques qualité ni gates durables ; règles moins fines qu’un analyseur de langage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Grype",
+			"source": {
+				"host": "github",
+				"path": "anchore/grype",
+				"url": "https://github.com/anchore/grype"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Fast CVE scanner with a local SQLite database: no cloud round-trip, air-gapped friendly, SBOM-driven via Syft. Dependencies only — no SAST, and no built-in dashboard, so pair it with an aggregator.",
+				"fr": "Scanner CVE rapide avec base SQLite locale : pas d’aller-retour cloud, utilisable en air-gapped, piloté par SBOM via Syft. Dépendances uniquement, pas de SAST, et pas de dashboard — à brancher sur un agrégateur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Gosec",
+			"source": {
+				"host": "github",
+				"path": "securego/gosec",
+				"url": "https://github.com/securego/gosec"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Go-only static security analyser with a solid built-in rule set, AST-based, dropped into CI in minutes. Single language, and reports land in CI logs — no dashboard, no trend metrics.",
+				"fr": "Analyseur statique de sécurité propre au Go : règles solides embarquées, basé sur l’AST, intégré à la CI en cinq minutes. Un seul langage, pas de dashboard ni de tendances."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Bandit",
+			"source": {
+				"host": "github",
+				"path": "PyCQA/bandit",
+				"url": "https://github.com/PyCQA/bandit"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Standard AST-based security linter for Python: ~200 check types, include/exclude rules, JUnit or SARIF out. Python only, and findings live in CI logs — there is no portal.",
+				"fr": "Linter de sécurité standard pour Python, basé sur l’AST, ~200 types de checks, filtres include/exclude, rapports JUnit ou SARIF. Python uniquement, et les findings restent dans les logs de CI, sans portail."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CodeQL",
+			"source": {
+				"host": "github",
+				"path": "github/codeql",
+				"url": "https://github.com/github/codeql"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The query-driven semantic engine behind GitHub code scanning: maintained CWE query packs plus custom queries, in Actions or standalone CLI. Writing good queries takes practice, and there is no hosted review UI.",
+				"fr": "Le moteur d’analyse sémantique par requêtes derrière GitHub code scanning : packs CWE maintenus, requêtes custom, en Actions ou autonome. Écrire de bonnes requêtes s’apprend, pas d’UI de revue hébergée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "DefectDojo",
+			"source": {
+				"host": "github",
+				"path": "DefectDojo/django-DefectDojo",
+				"url": "https://github.com/DefectDojo/django-DefectDojo"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted vulnerability-management platform that pulls results from 100+ scanners into dashboards, dedup and trackers, with SSO. It aggregates — a SAST tool has to feed it, and a Django stack to run.",
+				"fr": "Plateforme d’agrégation self-hosted qui avale les rapports de 100+ scanners (SARIF, Semgrep, Trivy…) en dashboards et suivi, avec SSO. Ce n’est pas un scanner : il faut l’alimenter, et opérer la stack Django."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

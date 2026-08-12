@@ -99,6 +99,286 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "HeyForm",
+			"source": {
+				"host": "github",
+				"path": "heyform/heyform",
+				"url": "https://github.com/heyform/heyform"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Drop-in open-source Typeform-style builder with logic, embeddable forms, one-command Docker deploy. AGPL copyleft; AI/analytics are cloud-only, and there's no research tooling like quotas or crosstabs.",
+				"fr": "Constructeur open source à la Typeform : logique conditionnelle, formulaires embarquables, déploiement Docker en une commande. Licence AGPL ; l’IA et l’analytique restent cloud-only, pas de quotas ni de crosstabs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Cloud-only AI and analytics.",
+					"fr": "IA et analytique cloud-only."
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "TellForm",
+			"source": {
+				"host": "github",
+				"path": "tellform/tellform",
+				"url": "https://github.com/tellform/tellform"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Archived and unmaintained since 2019, this MIT-licensed form builder with logic, themes, and stored submissions still runs self-hosted. Aging Node/Express stack, no security patches for newer CVEs.",
+				"fr": "Archivé et abandonné depuis 2019, ce constructeur de formulaires MIT (logique conditionnelle, thèmes, stockage des réponses) reste exécutable en auto-hébergement. Pile Node/Express vieillissante, aucun patch pour les CVE récentes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OhMyForm",
+			"source": {
+				"host": "github",
+				"path": "ohmyform/ohmyform",
+				"url": "https://github.com/ohmyform/ohmyform"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Archived community fork of TellForm that kept it alive, with logic, webhooks, CSV/JSON export, and partial save. Development stopped in 2024; AGPL copyleft, small community.",
+				"fr": "Fork communautaire archivé de TellForm qui a prolongé son existence : logique conditionnelle, webhooks, export CSV/JSON et sauvegarde partielle. Développement stoppé en 2024, licence AGPL, petite communauté."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Baserow",
+			"source": {
+				"host": "github",
+				"path": "baserow/baserow",
+				"url": "https://github.com/baserow/baserow"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted no-code database whose drag-drop form view feeds a table — a practical form backend, not survey software. No quotas or advanced skip logic, no built-in survey analytics.",
+				"fr": "Base de données no-code auto-hébergeable dont la vue formulaire alimente une table : un backend de formulaires, pas un logiciel d’enquête. Ni quotas ni logique de saut avancée, pas d’analytique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Premium and enterprise modules — closed source.",
+					"fr": "Modules premium et entreprise — source fermée."
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "KoboToolbox KPI",
+			"source": {
+				"host": "github",
+				"path": "kobotoolbox/kpi",
+				"url": "https://github.com/kobotoolbox/kpi"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "De-facto standard for complex field surveys: XLSForm logic, quotas, offline Android collection via KoboCollect. Two services (kpi + kobocat) plus Postgres/Redis; XLSForm-centric, not a visual builder or research analytics.",
+				"fr": "Référence en enquêtes de terrain complexes : logique XLSForm, quotas, collecte Android hors ligne via KoboCollect. Deux services (kpi + kobocat) plus Postgres/Redis ; centré XLSForm, ni builder visuel ni analytique d’études."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Nothing notable — AGPL core stays fully open.",
+					"fr": "Rien de notable — cœur AGPL entièrement ouvert."
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenForms",
+			"source": {
+				"host": "github",
+				"path": "open-formulieren/open-forms",
+				"url": "https://github.com/open-formulieren/open-forms"
+			},
+			"license": "EUPL-1.2",
+			"effort": "docker",
+			"note": {
+				"en": "Dutch government-backed platform for multi-step forms with logic, prefill from registries, PDFs, payments, and WCAG-grade accessibility. Heavy multi-service stack; docs lean Dutch; not built for research analytics.",
+				"fr": "Plateforme soutenue par le gouvernement néerlandais : formulaires multi-étapes avec logique, pré-remplissage depuis des registres, PDF, paiements, accessibilité WCAG. Pile multi-services lourde, docs orientées néerlandais, pas conçue pour l’analytique d’études."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Orbeon Forms",
+			"source": {
+				"host": "github",
+				"path": "orbeon/orbeon-forms",
+				"url": "https://github.com/orbeon/orbeon-forms"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "Mature Java/XForms engine for complex repeatable business forms, active after years. XForms/XML feels dated; PDF, email, databases need paid PE; ships as a WAR, not containers.",
+				"fr": "Moteur Java/XForms éprouvé pour formulaires métier répétables, actif depuis des années. XForms/XML daté ; PDF, e-mail, bases de données exigent la PE payante ; livré en WAR Java, pas en conteneur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "PDF, email, and database connectors.",
+					"fr": "Connecteurs PDF, e-mail et bases de données."
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ODK Central",
+			"source": {
+				"host": "github",
+				"path": "getodk/central",
+				"url": "https://github.com/getodk/central"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Central server for offline-first field surveys — XLSForm logic, versioning, encryption, OAuth API, ODK Collect on Android. Offline truly needs the Android app; no analytics or dashboards.",
+				"fr": "Serveur central pour enquêtes de terrain offline-first : logique XLSForm, versionnage, chiffrement, API OAuth, app Android ODK Collect. Le hors-ligne exige réellement l’app Android ; pas d’analytique ni de tableaux de bord."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "forms-flow-ai",
+			"source": {
+				"host": "github",
+				"path": "AOT-Technologies/forms-flow-ai",
+				"url": "https://github.com/AOT-Technologies/forms-flow-ai"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Forms-plus-workflow platform bundling a form builder with Camunda BPM, Keycloak multi-tenancy, dashboards. Heavy stack, more BPM than survey analytics; the operational overhead is real.",
+				"fr": "Plateforme formulaires + workflow : builder drag-drop, Camunda BPM, multi-tenant Keycloak, tableaux de bord. Pile lourde, orientée BPM plutôt qu’analytique d’enquête ; coût d’exploitation élevé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Nothing major — core stays Apache-2.0 open.",
+					"fr": "Rien de majeur — cœur Apache-2.0 ouvert."
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Grist",
+			"source": {
+				"host": "github",
+				"path": "gristlabs/grist-core",
+				"url": "https://github.com/gristlabs/grist-core"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hostable spreadsheet-plus-forms with a formula language, widgets, and a simple public form per table. The form view has no logic, quotas, or piping; enterprise SSO lives in a separate closed repo.",
+				"fr": "Tableur auto-hébergeable à langage de formules et vue formulaire publique par table. Vue simple : ni logique, ni quotas, ni piping ; le SSO entreprise vit dans un repo fermé séparé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise SSO and pro features — separate closed repo.",
+					"fr": "SSO entreprise et fonctions pro — repo fermé séparé."
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Teable",
+			"source": {
+				"host": "github",
+				"path": "teableio/teable",
+				"url": "https://github.com/teableio/teable"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Fast Airtable alternative on PostgreSQL with a form view, realtime sync, and a solid REST API. The form lacks survey logic and reporting; AGPL with brand restrictions, advanced tiers paid.",
+				"fr": "Alternative Airtable rapide sur PostgreSQL : vue formulaire, sync temps réel, API REST. La vue formulaire n’a ni logique d’enquête ni reporting ; AGPL avec restrictions de marque, fonctions avancées payantes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Advanced features — paid tiers.",
+					"fr": "Fonctions avancées — abonnements payants."
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gum",
+			"source": {
+				"host": "github",
+				"path": "charmbracelet/gum",
+				"url": "https://github.com/charmbracelet/gum"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The go-to TUI toolkit for scriptable CLI prompts — terminal-native for light surveys. Cross-platform single binary, pipes into shell. No storage, UI, or analytics; you script the data handling yourself.",
+				"fr": "Le TUI de référence pour invites CLI scriptables — natif terminal. Binaire unique multiplateforme, s’intègre aux pipelines shell. Ni stockage, ni UI, ni analytique : gérez les données par script."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

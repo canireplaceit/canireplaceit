@@ -76,6 +76,278 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenProject",
+			"source": {
+				"host": "github",
+				"path": "opf/openproject",
+				"url": "https://github.com/opf/openproject"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Full enterprise PM: Gantt, sprints, kanban, time tracking, REST API. Less snappy than Linear; SSO and several enterprise features are paid.",
+				"fr": "Gestion de projet d’entreprise complète : Gantt, sprints, kanban, suivi du temps, API REST. Moins nerveux que Linear ; le SSO et plusieurs fonctions d’entreprise restent payants."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "SSO and several enterprise features",
+					"fr": "SSO et plusieurs fonctions d’entreprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Vikunja",
+			"source": {
+				"host": "github",
+				"path": "go-vikunja/vikunja",
+				"url": "https://github.com/go-vikunja/vikunja"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Clean todo app with kanban, list, and Gantt views backed by a single Go binary. Open API feeds third-party mobile clients; no built-in chat or docs.",
+				"fr": "Appli todo propre avec vues kanban, liste et Gantt sur un binaire Go unique. L’API ouverte alimente des clients mobiles tiers ; pas de chat ni de docs intégrés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Taiga",
+			"source": {
+				"host": "github",
+				"path": "taigaio/taiga-back",
+				"url": "https://github.com/taigaio/taiga-back"
+			},
+			"license": "MPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Scrum-first tracker with backlog, sprint planning, kanban, and issue workflows, plus wiki and imports. Premium features split to a commercial tier; Django is heavier to run than Linear.",
+				"fr": "Tracker orienté Scrum : backlog, planification de sprint, kanban, workflows d’issues, wiki et imports. Le premium part au commercial ; la pile Django pèse plus lourd que Linear."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Premium features",
+					"fr": "Fonctions premium"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Focalboard",
+			"source": {
+				"host": "github",
+				"path": "mattermost-community/focalboard",
+				"url": "https://github.com/mattermost-community/focalboard"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Linear/Trello-style boards with table and card views, native desktop apps, and a Mattermost plugin. Mattermost dropped it — community-maintained now, with fewer workflow and cycle features.",
+				"fr": "Boards façon Linear/Trello avec vues tableau et cartes, apps desktop natives et plugin Mattermost. Abandonné par Mattermost, maintenu par la communauté ; moins de cycles et de workflows que Linear."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Planka",
+			"source": {
+				"host": "github",
+				"path": "plankanban/planka",
+				"url": "https://github.com/plankanban/planka"
+			},
+			"license": "LicenseRef-PLANKA-Community",
+			"effort": "docker",
+			"note": {
+				"en": "Fast Trello/Linear-style kanban in one docker-compose, with real-time collaboration and comments. Now under a custom community licence, not AGPL — Pro and enterprise features are commercial.",
+				"fr": "Kanban façon Trello/Linear rapide dans un seul docker-compose, avec collaboration et commentaires en temps réel. Passé sous licence communautaire custom, plus AGPL ; le Pro et l’entreprise sont commerciaux."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Pro and enterprise features",
+					"fr": "Fonctions Pro et entreprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Redmine",
+			"source": {
+				"host": "github",
+				"path": "redmine/redmine",
+				"url": "https://github.com/redmine/redmine"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Battle-tested multi-project tracker with Gantt, wiki, forums, time tracking, and hundreds of plugins. Dated, not mobile-friendly, and no native apps.",
+				"fr": "Tracker multi-projets éprouvé : Gantt, wiki, forums, suivi du temps et des centaines de plugins. Interface datée, pas adaptée au mobile, zéro app native."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Leantime",
+			"source": {
+				"host": "github",
+				"path": "Leantime/leantime",
+				"url": "https://github.com/Leantime/leantime"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Accessibility-first PM for small teams: idea board, kanban, Gantt, goals, milestones, built-in docs. SSO needs a paid tier, and feature depth trails enterprise tools.",
+				"fr": "PM accessible en priorité, pour petites équipes : idées, kanban, Gantt, objectifs, jalons, docs intégrées. Le SSO passe par un abonnement payant ; moins de profondeur que l’entreprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "SSO",
+					"fr": "SSO"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kanboard",
+			"source": {
+				"host": "github",
+				"path": "kanboard/kanboard",
+				"url": "https://github.com/kanboard/kanboard"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Minimal, fast kanban on a single PHP setup, with automation rules, subtasks, REST API, and webhooks. Kanban only — no Gantt or cycles, and it is single-project focused.",
+				"fr": "Kanban minimal et rapide sur un setup PHP unique, avec règles d’automatisation, sous-tâches, API REST et webhooks. Kanban seulement : pas de Gantt ni de cycles, un projet à la fois."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Wekan",
+			"source": {
+				"host": "github",
+				"path": "wekan/wekan",
+				"url": "https://github.com/wekan/wekan"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Trello-style kanban with swimlanes, checklists, labels, due dates, and Trello/CSV import. Kanban only — no cycles or issue tracking, and the Meteor stack is resource-heavy.",
+				"fr": "Kanban façon Trello avec couloirs, checklists, labels, échéances et import Trello/CSV. Kanban seulement, pas de cycles ni de suivi d’issues ; la pile Meteor est gourmande."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GitLab",
+			"source": {
+				"host": "github",
+				"path": "gitlabhq/gitlabhq",
+				"url": "https://github.com/gitlabhq/gitlabhq"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Self-host issue boards, epics, milestones, native apps, glab CLI, and SAML/OIDC SSO free. Heavy to run, and epics sit in the paid tier.",
+				"fr": "Boards, epics, jalons en self-host, apps natives, CLI glab et SSO SAML/OIDC gratuits. Lourd à héberger, et les epics sont réservés au payant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Epics",
+					"fr": "Epics"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Taskwarrior",
+			"source": {
+				"host": "github",
+				"path": "GothenburgBitFactory/taskwarrior",
+				"url": "https://github.com/GothenburgBitFactory/taskwarrior"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Terminal-first GTD task manager: tags, priorities, dependencies, UDAs, synced via Taskwarrior Server. Single-user — no sharing UI, no web UI, no mobile app out of the box.",
+				"fr": "Gestionnaire de tâches GTD dans le terminal : tags, priorités, dépendances, UDA, synchronisé via Taskwarrior Server. Mono-utilisateur, sans UI de partage, sans web UI, sans app mobile."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Taskell",
+			"source": {
+				"host": "github",
+				"path": "smallhadroncollider/taskell",
+				"url": "https://github.com/smallhadroncollider/taskell"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "TUI kanban that reads and writes markdown, keyboard-driven, with Trello import/export. Archived upstream — unmaintained, local-only, with no sync or team sharing.",
+				"fr": "Kanban en TUI, clavier, qui lit/écrit du markdown, avec import/export Trello. Archivé en amont : plus maintenu, local seulement, ni sync ni partage d’équipe."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

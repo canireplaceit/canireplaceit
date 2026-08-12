@@ -112,6 +112,174 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "ClearML",
+			"source": {
+				"host": "github",
+				"path": "clearml/clearml",
+				"url": "https://github.com/clearml/clearml"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Full self-hosted MLOps suite — experiment tracking, pipeline orchestration, serving, datasets — closest to Domino in scope. Monolithic server stack; UI heavier than lightweight CLI tools.",
+				"fr": "Suite MLOps auto-hébergée, la plus proche de Domino : tracking, orchestration, serving et datasets, le tout dans une UI. Un stack serveur monolithique, une interface plus lourde qu’un outil CLI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "DVC",
+			"source": {
+				"host": "github",
+				"path": "treeverse/dvc",
+				"url": "https://github.com/treeverse/dvc"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Git-style version control for data, models and pipelines, straight from the CLI — DAG caching, remote storage, dvc repro. No collaborative UI, no experiment browser, no serving.",
+				"fr": "Contrôle de version façon Git pour les données, modèles et pipelines, en CLI — cache DAG, stockage distant, dvc repro. Pas d’UI collaborative ni de navigateur d’expériences, pas de serving."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dagster",
+			"source": {
+				"host": "github",
+				"path": "dagster-io/dagster",
+				"url": "https://github.com/dagster-io/dagster"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Asset-centric orchestration with a rich web UI: software-defined assets, sensors, lineage. Replaces Domino’s job and pipeline layer; notebooks, model registry and serving are out of scope.",
+				"fr": "Orchestration centrée assets avec une UI web riche : assets définis en code, capteurs, lignage. Il remplace la couche jobs/pipelines de Domino ; notebooks, registry et serving en sont hors périmètre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Metaflow",
+			"source": {
+				"host": "github",
+				"path": "Netflix/metaflow",
+				"url": "https://github.com/Netflix/metaflow"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Netflix’s human-friendly data science framework: steps and flows, artifact versioning, resume from checkpoint, local-to-cloud. No serving, no notebooks, and the web UI ships separately.",
+				"fr": "Framework data science de Netflix, pensé pour le CLI : steps, DAG, versioning des artefacts, reprise au checkpoint, du local au cloud. Pas de serving ni de notebooks, l’UI s’installe à part."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "BentoML",
+			"source": {
+				"host": "github",
+				"path": "bentoml/BentoML",
+				"url": "https://github.com/bentoml/BentoML"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Turns models into OCI containers: Bento pack format, adaptive batching, model runners, REST/gRPC. Deployment-focused — experiment tracking, notebooks and orchestration are out of scope.",
+				"fr": "Transforme les modèles en conteneurs OCI : format Bento, batching adaptatif, runners de modèle, REST/gRPC. Orienté déploiement — pas de tracking, de notebooks ni d’orchestration."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kedro",
+			"source": {
+				"host": "github",
+				"path": "kedro-org/kedro",
+				"url": "https://github.com/kedro-org/kedro"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Reproducible project scaffolding: standard template, versioned DataCatalog, modular pipelines, Kedro-Viz. No model registry or serving, no collaborative cloud UI.",
+				"fr": "Échafaude un projet de pipeline reproductible : template standard, DataCatalog versionné, pipelines modulaires, Kedro-Viz. Pas de registry ni de serving de modèles, pas d’UI cloud collaborative."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "KServe",
+			"source": {
+				"host": "github",
+				"path": "kserve/kserve",
+				"url": "https://github.com/kserve/kserve"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Standardized inference on Kubernetes: the InferenceService CRD, autoscaling on Istio/Knative, modelmesh multi-model serving, transformers. Serving only — no tracking or orchestration, and Kubernetes is mandatory.",
+				"fr": "Inférence standardisée sur Kubernetes : CRD InferenceService, autoscaling Istio/Knative, multi-modèles modelmesh, transformers. Serving uniquement — pas de tracking ni d’orchestration, et Kubernetes est obligatoire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MLRun",
+			"source": {
+				"host": "github",
+				"path": "mlrun/mlrun",
+				"url": "https://github.com/mlrun/mlrun"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Serverless ML function runs, a built-in feature store, artifact and model tracking — all under one end-to-end UI. Smaller community than Dagster or Flyte, and Kubernetes is recommended at scale.",
+				"fr": "Exécution serverless de fonctions ML, feature store intégré, suivi d’artefacts et de modèles, le tout dans une UI complète. Communauté plus petite que Dagster ou Flyte ; Kubernetes recommandé à l’échelle."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

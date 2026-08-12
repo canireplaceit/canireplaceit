@@ -107,6 +107,266 @@
 				"en": "Same database, roughly a third of Atlas for a small cluster, backups included. No Atlas Search, no serverless tier, fewer regions.",
 				"fr": "Même base, environ le tiers d’Atlas pour un petit cluster, sauvegardes incluses. Pas d’Atlas Search, pas de niveau serverless, moins de régions."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "MongoDB Community Server",
+			"source": {
+				"host": "github",
+				"path": "mongodb/mongo",
+				"url": "https://github.com/mongodb/mongo"
+			},
+			"license": "SSPL-1.0",
+			"effort": "ops",
+			"note": {
+				"en": "The engine Atlas runs, self-hosted: replica sets, sharding, the full aggregation pipeline, no Atlas Search or Vector. Backups, monitoring, upgrades are yours to run, under SSPL-1.0.",
+				"fr": "Le moteur qu’Atlas fait tourner, auto-hébergé : replica sets, sharding, pipeline d’agrégation complet, mais ni Atlas Search ni Vector. Sauvegardes, supervision, montées de version : à vous de jouer, sous SSPL-1.0."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Percona Backup for MongoDB",
+			"source": {
+				"host": "github",
+				"path": "percona/percona-backup-mongodb",
+				"url": "https://github.com/percona/percona-backup-mongodb"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Physical and logical backups with point-in-time recovery to S3-compatible stores — the Atlas backup equivalent. Not a database though; you schedule, run, and verify it against your servers.",
+				"fr": "Sauvegardes physiques et logiques avec restauration point-in-time vers des stockages S3-compatibles — l’équivalent des backups Atlas. Pas une base de données : à vous de planifier, exécuter et vérifier sur vos serveurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "mongosh",
+			"source": {
+				"host": "github",
+				"path": "mongodb-js/mongosh",
+				"url": "https://github.com/mongodb-js/mongosh"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The official MongoDB shell: an interactive JS/TS REPL with autocomplete. Client only — it needs a server to connect to.",
+				"fr": "Le shell officiel de MongoDB : REPL JS/TS interactif avec autocomplétion. Client uniquement — il lui faut un serveur au bout."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MongoDB Database Tools",
+			"source": {
+				"host": "github",
+				"path": "mongodb/mongo-tools",
+				"url": "https://github.com/mongodb/mongo-tools"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "mongodump and mongorestore, mongoimport and mongoexport, mongostat and mongotop — the CLI toolbox for backup, migration, monitoring. No GUI, and all of it needs a running server.",
+				"fr": "mongodump/mongorestore, mongoimport/mongoexport, mongostat/mongotop : la boîte à outils CLI pour sauvegarde, migration, supervision. Pas de GUI, et tout suppose un serveur qui tourne."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mongo Express",
+			"source": {
+				"host": "github",
+				"path": "mongo-express/mongo-express",
+				"url": "https://github.com/mongo-express/mongo-express"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight self-hosted web admin — CRUD, index management, dumps — a browser stand-in for the Atlas console. Simple UI, basic HTTP auth only, and it points at your own server.",
+				"fr": "Admin web léger auto-hébergé : CRUD, gestion des index, dumps, un seul conteneur — un ersatz de console Atlas. UI simple, auth HTTP basique, et il se branche sur votre propre serveur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "DBeaver",
+			"source": {
+				"host": "github",
+				"path": "dbeaver/dbeaver",
+				"url": "https://github.com/dbeaver/dbeaver"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Cross-platform database GUI — MongoDB among 80+ engines — with an aggregation-pipeline editor and data visualization. A client, not a server; Pro and Enterprise features are paid.",
+				"fr": "GUI base de données multiplateforme — MongoDB parmi 80+ moteurs — avec éditeur de pipeline d’agrégation et visualisation des données. C’est un client, pas un serveur ; les fonctions Pro et Enterprise sont payantes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Pro and Enterprise features",
+					"fr": "Fonctions Pro et Enterprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "mtools",
+			"source": {
+				"host": "github",
+				"path": "rueckstiess/mtools",
+				"url": "https://github.com/rueckstiess/mtools"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Log-analysis toolkit — mloginfo/mlogfilter parse logs, mplotqueries plots them, mlaunch spins up local clusters. Dormant since mid-2024, and its docs target older MongoDB versions.",
+				"fr": "Kit d’analyse de logs : mloginfo/mlogfilter décortiquent les logs, mplotqueries les trace, mlaunch monte des clusters locaux. Dormant depuis mi-2024, et la doc vise d’anciennes versions de MongoDB."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "RethinkDB",
+			"source": {
+				"host": "github",
+				"path": "rethinkdb/rethinkdb",
+				"url": "https://github.com/rethinkdb/rethinkdb"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Document DB with first-class ReQL and real-time changefeeds — a different data model from MongoDB. The company folded; it survives on community maintenance with a smaller ecosystem.",
+				"fr": "Base document avec ReQL au premier plan et changefeeds en temps réel — un autre modèle de données que MongoDB. L’entreprise a fermé ; il survit par la communauté, avec un écosystème plus restreint."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache CouchDB",
+			"source": {
+				"host": "github",
+				"path": "apache/couchdb",
+				"url": "https://github.com/apache/couchdb"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Apache document DB over a pure HTTP/JSON API, with multi-master replication and Fauxton built in. Queries go through views, not ad-hoc aggregation, and there’s no MongoDB wire compatibility.",
+				"fr": "Base document Apache sur API pure HTTP/JSON, réplication multi-maître et Fauxton intégré. Requêtes par vues plutôt qu’agrégation à la volée, et aucune compatibilité wire avec MongoDB."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ArangoDB",
+			"source": {
+				"host": "github",
+				"path": "arangodb/arangodb",
+				"url": "https://github.com/arangodb/arangodb"
+			},
+			"license": "BUSL-1.1",
+			"effort": "ops",
+			"note": {
+				"en": "Multi-model — document, graph, key-value — with AQL and a built-in web UI, a different shape from Atlas’s document store. Source-available under BUSL, not pure OSS; enterprise features cost extra.",
+				"fr": "Multi-modèle — document, graphe, clé-valeur — avec AQL et une interface web intégrée, une autre forme que le store document d’Atlas. Code disponible sous BUSL, pas vraiment open source ; fonctions Enterprise payantes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise features",
+					"fr": "Fonctions Enterprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OrientDB",
+			"source": {
+				"host": "github",
+				"path": "orientechnologies/orientdb",
+				"url": "https://github.com/orientechnologies/orientdb"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Multi-model document and graph database with SQL-like queries and distributed clustering, Apache-licensed. Expect a different API than MongoDB, a smaller community, and no wire compatibility.",
+				"fr": "Base document et graphe multi-modèle avec requêtes façon SQL et clustering distribué, sous licence Apache. Attendez-vous à une autre API que MongoDB, une communauté plus réduite et aucune compatibilité wire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Robo3T",
+			"source": {
+				"host": "github",
+				"path": "Studio3T/robomongo",
+				"url": "https://github.com/Studio3T/robomongo"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Free GPL desktop GUI, formerly Robomongo, with a visual shell and autocomplete. Discontinued since 2022, GUI-only, and thinner than Studio 3T.",
+				"fr": "GUI desktop gratuite sous GPL, ex-Robomongo, avec shell visuel et autocomplétion. Abandonnée depuis 2022, rien que le GUI, et moins riche que Studio 3T."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

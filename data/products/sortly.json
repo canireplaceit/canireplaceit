@@ -93,6 +93,174 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Part-DB",
+			"source": {
+				"host": "github",
+				"path": "Part-DB/Part-DB-server",
+				"url": "https://github.com/Part-DB/Part-DB-server"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Electronics-leaning parts database with barcode/QR labels, suppliers, and per-location stock. Granular permissions cover multi-user teams; no production or build tracking is built in.",
+				"fr": "Base de pièces à dominante électronique : étiquettes code-barres/QR, fournisseurs, stock par emplacement. Permissions fines pour les équipes ; pas de suivi de production intégré."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "HomeBox",
+			"source": {
+				"host": "github",
+				"path": "hay-kot/homebox",
+				"url": "https://github.com/hay-kot/homebox"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Simple self-hosted inventory close to Sortly’s model — QR codes, mobile barcode scanning, multi-user homes and an API in one Go binary. Archived upstream; community forks continue.",
+				"fr": "Inventaire auto-hébergé proche du modèle de Sortly — codes QR, scan de codes-barres mobile, foyers multi-utilisateurs et API dans un seul binaire Go. Dépôt archivé ; des forks communautaires prennent le relais."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GLPI",
+			"source": {
+				"host": "github",
+				"path": "glpi-project/glpi",
+				"url": "https://github.com/glpi-project/glpi"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "IT asset inventory with agents, contracts, locations, LDAP/SSO, and a bundled helpdesk. Agent-based collection beats barcode scanning for a fleet, but it is no warehouse stock manager.",
+				"fr": "Inventaire de parc IT par agents, contrats, sites, LDAP/SSO, avec helpdesk intégré. La collecte par agent convient aux flottes ; pas un gestionnaire de stock d’entrepôt."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "NetBox",
+			"source": {
+				"host": "github",
+				"path": "netbox-community/netbox",
+				"url": "https://github.com/netbox-community/netbox"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Device and IPAM inventory with a first-class REST+GraphQL API, change logging, and plugin-based barcode labels. Strong for network gear, awkward for pantry stock, and no native scanning app.",
+				"fr": "Registre d’infrastructure — sites, baies, équipements, IPAM — avec API REST+GraphQL complète, journalisation des changements et étiquettes via plugins. Pensé réseau/DCIM, pas stock de réserve ; pas d’appli de scan native."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "RackTables",
+			"source": {
+				"host": "github",
+				"path": "RackTables/racktables",
+				"url": "https://github.com/RackTables/racktables"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Zero-dependency LAMP DCIM for racks, patch panels, and network gear, with object and IP records. Runs anywhere on minimal maintenance; UI is dated, no mobile or barcode scanning.",
+				"fr": "DCIM LAMP sans dépendances pour baies, panneaux et câblage : objets, emplacements, fiches IP. Tourne partout avec peu de maintenance ; interface datée, pas de mobile ni de scan code-barres."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PartKeepr",
+			"source": {
+				"host": "github",
+				"path": "partkeepr/PartKeepr",
+				"url": "https://github.com/partkeepr/PartKeepr"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Established parts inventory with barcodes, suppliers, parametric attributes, and per-location stock. Archived upstream — development stopped in favor of Part-DB, no security updates.",
+				"fr": "Inventaire de pièces établi : codes-barres, fournisseurs, attributs paramétriques, stock par emplacement. Dépôt archivé — développement stoppé au profit de Part-DB, plus de mises à jour de sécurité."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OCS Inventory NG",
+			"source": {
+				"host": "github",
+				"path": "OCSInventory-NG/OCSInventory-Server",
+				"url": "https://github.com/OCSInventory-NG/OCSInventory-Server"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Agent-driven hardware and software discovery of fleets, with deployment tools and a self-hosted reporting console. Made for fleet inventory — no stock or ordering, and it wants a MySQL backend.",
+				"fr": "Découverte matérielle et logicielle de parcs par agents, outils de déploiement, console web auto-hébergée. Pensé pour les flottes : pas de stock ni de commandes, un backend MySQL à prévoir."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Binner",
+			"source": {
+				"host": "github",
+				"path": "replaysMike/Binner",
+				"url": "https://github.com/replaysMike/Binner"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Active parts inventory with barcode scanning, low-stock alerts, supplier and order management, plus roles. Biased toward parts catalogs over general items, and a small community next to Snipe-IT or InvenTree.",
+				"fr": "Inventaire de pièces maintenu : scan code-barres, alertes de stock bas, gestion fournisseurs et commandes, rôles. Orienté catalogue de pièces plutôt que biens généraux ; communauté plus petite que Snipe-IT ou InvenTree."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

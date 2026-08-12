@@ -14,10 +14,12 @@ import type {
 	Verdict,
 } from "core/src/content";
 import { categoryStats, collectProjects } from "core/src/content";
+import type { FeatureFile } from "core/src/features";
 import { isLang, type Lang } from "core/src/index";
 import {
 	alternateUrls,
 	buildProjectSlugs,
+	LEGAL_DOCS,
 	parseRoute,
 	paths,
 	type Route,
@@ -73,8 +75,10 @@ import { REPO } from "./contribute";
 import { Dashboard } from "./Dashboard";
 import { ProductList } from "./designs";
 import { EstimatePage } from "./Estimate";
+import { FeaturesPage } from "./FeaturesPage";
 import { AdsSection, ContactSection, SubmitSection } from "./Forms";
 import { detectLang, type Key, useI18n, useTheme } from "./i18n";
+import { LegalIndexPage, LegalPage, legalCopy } from "./legal";
 import { MEASURE } from "./listShared";
 import { Mark } from "./Mark";
 import { Link, navigate } from "./nav";
@@ -99,6 +103,7 @@ import {
 	collectionMeta,
 	collectionsMeta,
 	homeMeta,
+	legalMeta,
 	productMeta,
 	projectMeta,
 	projectsMeta,
@@ -125,6 +130,11 @@ type Boot = {
 	/** Repo liveness for the repos THIS page cites, not all of them. Read
 	 *  through `healthOf` in api.ts, which falls back to disk when absent. */
 	health?: HealthFile;
+	/** The feature values for THIS page's projects only, same slicing rule as
+	 *  `health`. Present so the block is in the prerendered HTML rather than
+	 *  appearing after hydration — on an SEO-driven site a fact only a browser
+	 *  can see is a fact crawlers and LLM answers never quote. */
+	features?: FeatureFile;
 	/** Pre-derived rows for an index page whose rows are PROJECTS (the
 	 *  alternatives index, the open-core collection) — cannot be reconstructed
 	 *  from a product payload since products cite projects outside the set. */
@@ -209,6 +219,38 @@ const COLLECTION_ICONS: Record<
 	cheaper: PiggyBank,
 };
 
+/**
+ * Which nav entry owns each route.
+ *
+ * A detail page belongs to its index — a reader on `/en/tools/appflowy` is in
+ * "Alternatives" — so the header marks the section they are browsing rather than
+ * only the eight URLs that are themselves nav destinations. Routes with no entry
+ * in the nav (the dashboard, the legal pages) map to nothing on purpose: marking
+ * a link the reader is not under is worse than marking none.
+ */
+const SECTION_OF: Record<Route["name"], string> = {
+	home: "list",
+	product: "list",
+	// An unknown URL renders the list, so the header has to agree with the body.
+	unknown: "list",
+	project: "projects",
+	projects: "projects",
+	category: "categories",
+	categories: "categories",
+	collection: "collections",
+	collections: "collections",
+	features: "features",
+	stats: "stats",
+	sponsor: "sponsor",
+	submit: "submit",
+	estimate: "",
+	contact: "",
+	signin: "",
+	dashboard: "",
+	admin: "",
+	legal: "",
+};
+
 function Header({
 	t,
 	tc,
@@ -255,25 +297,59 @@ function Header({
 		count: collectionCounts.get(c.slug),
 	}));
 
+	/** Which nav entry the current URL belongs under. */
+	const section = SECTION_OF[route.name];
+
 	/** The links that are just links. Shared by the row and the sheet. */
 	const plainLinks = [
-		{ href: paths.home(lang), label: t("nav.list") },
-		{ href: paths.projects(lang), label: t("nav.projects") },
-		{ href: paths.stats(lang), label: t("nav.stats") },
+		{
+			href: paths.home(lang),
+			label: t("nav.list"),
+			current: section === "list",
+		},
+		{
+			href: paths.projects(lang),
+			label: t("nav.projects"),
+			current: section === "projects",
+		},
+		{
+			href: paths.features(lang),
+			label: t("nav.features"),
+			current: section === "features",
+		},
+		{
+			href: paths.stats(lang),
+			label: t("nav.stats"),
+			current: section === "stats",
+		},
 		{
 			href: signedIn ? paths.dashboard(lang) : paths.signin(lang),
 			label: signedIn ?? t("nav.signin"),
+			current: route.name === "dashboard" || route.name === "signin",
 		},
-		{ href: paths.sponsor(lang), label: t("nav.sponsor") },
-		{ href: paths.submit(lang), label: t("nav.submit") },
+		{
+			href: paths.sponsor(lang),
+			label: t("nav.sponsor"),
+			current: section === "sponsor",
+		},
+		{
+			href: paths.submit(lang),
+			label: t("nav.submit"),
+			current: section === "submit",
+		},
 	];
 
+	// The two icon-only controls in the action cluster. Same box, so they read as
+	// a pair rather than as two unrelated buttons that happen to be adjacent.
+	const iconBtn =
+		"grid size-9 shrink-0 place-items-center rounded-[calc(var(--radius))] border border-border bg-surface text-muted transition hover:border-brand hover:text-text";
+
 	return (
-		<header className="sticky top-0 z-40 border-b border-border bg-bg/85 backdrop-blur">
-			<div className="mx-auto flex max-w-6xl items-center gap-4 px-4 py-3">
+		<header className="sticky top-0 z-40 border-border border-b bg-bg/80 backdrop-blur-md">
+			<div className="mx-auto flex max-w-6xl items-center gap-3 px-4 py-2.5 xl:gap-5">
 				<Link
 					href={paths.home(lang)}
-					className="group flex items-center gap-2 font-display text-base font-bold tracking-tight"
+					className="group flex shrink-0 items-center gap-2 font-bold font-display text-base tracking-tight"
 				>
 					<Mark className="size-6 shrink-0" />
 					{/* "replace" is the verb the whole site is about, so it carries the
@@ -283,103 +359,144 @@ function Header({
 						<span style={{ color: "var(--brand)" }}>replace</span>it
 					</span>
 				</Link>
-				{/* `lg` and not `md`: seven links, a language switch and a theme
+
+				{/* `lg` and not `md`: eight links, a language switch and a theme
 				    toggle beside the wordmark don't fit the 768px `md:` viewport.
-				    Below `lg` the sheet beside this carries the same links and more. */}
+				    Below `lg` the sheet at the end carries the same links and more. */}
+				{/* gap-3 below xl: the French labels are the widest — at 1024px a
+				    gap-4 wrapped "La liste" onto two lines. */}
 				<nav
 					aria-label={t("nav.menu")}
-					className="ml-auto hidden items-center gap-4 text-muted text-sm lg:flex xl:gap-5"
+					className="ml-auto hidden items-center gap-3 whitespace-nowrap text-muted text-sm lg:flex xl:gap-5"
 				>
-					<Link href={paths.home(lang)} className="hover:text-text">
+					<Link
+						href={paths.home(lang)}
+						className="nav-link"
+						data-current={section === "list"}
+					>
 						{t("nav.list")}
 					</Link>
-					<Link href={paths.projects(lang)} className="hover:text-text">
+					<Link
+						href={paths.projects(lang)}
+						className="nav-link"
+						data-current={section === "projects"}
+					>
 						{t("nav.projects")}
+					</Link>
+					{/* Beside Alternatives on purpose: the feature explorer's rows ARE
+					    the projects, so the reader who wants "which of these does SSO"
+					    is the reader who just came from that index. */}
+					<Link
+						href={paths.features(lang)}
+						className="nav-link"
+						data-current={section === "features"}
+					>
+						{t("nav.features")}
 					</Link>
 					<NavMenu
 						label={t("nav.categories")}
 						items={topCats}
 						allHref={paths.categories(lang)}
 						allLabel={t("cats.all")}
+						current={section === "categories"}
 					/>
 					<NavMenu
 						label={t("nav.collections")}
 						items={collectionItems}
 						allHref={paths.collections(lang)}
 						allLabel={t("collections.all")}
+						current={section === "collections"}
 					/>
-					<Link href={paths.stats(lang)} className="hover:text-text">
+					<Link
+						href={paths.stats(lang)}
+						className="nav-link"
+						data-current={section === "stats"}
+					>
 						{t("nav.stats")}
 					</Link>
-					<Link href={paths.sponsor(lang)} className="hover:text-text">
-						{t("nav.sponsor")}
-					</Link>
-					<Link href={paths.submit(lang)} className="hover:text-text">
+					{/* Ruled off from the eight: these two are what a reader can GIVE the
+					    site, not another part of the catalogue to read. */}
+					<span className="h-5 w-px bg-border" aria-hidden />
+					<Link
+						href={paths.submit(lang)}
+						className="nav-link"
+						data-current={section === "submit"}
+					>
 						{t("nav.submit")}
 					</Link>
+					<Link
+						href={paths.sponsor(lang)}
+						className="btn-primary px-3 py-1.5 text-xs"
+						data-current={section === "sponsor"}
+					>
+						{t("nav.sponsor")}
+					</Link>
 				</nav>
-				{/* An advertiser has no other way in — the dashboard URL is not
-				    something anyone guesses — so this lives on every page. */}
-				<Link
-					href={signedIn ? paths.dashboard(lang) : paths.signin(lang)}
-					className="ml-auto hidden max-w-[14rem] items-center gap-1.5 truncate rounded-[calc(var(--radius))] border border-border px-2.5 py-1.5 text-xs lg:flex"
-					title={signedIn ?? undefined}
-				>
-					<UserRound className="size-3.5 shrink-0" aria-hidden />
-					<span className="min-w-0 truncate">
-						{signedIn ?? t("nav.signin")}
-					</span>
-				</Link>
-				{/* The locale lives in the path, so switching it is a navigation to the
-				    same page under the other language — never a state flip. */}
-				<a
-					href={alternateUrls(route)[other]}
-					onClick={(e) => {
-						if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-						e.preventDefault();
-						// The query carries page state the path does not (e.g. the estimate
-						// page's `?plan=`); `href` stays bare so prerender and first client
-						// render agree, and only the click preserves the query.
-						navigate(alternateUrls(route)[other] + location.search);
-					}}
-					aria-label={t("ui.language")}
-					className="flex items-center gap-1.5 rounded-[calc(var(--radius))] border border-border px-2.5 py-1.5 text-xs uppercase lg:ml-0"
-				>
-					<Languages className="size-3.5" aria-hidden />
-					{other}
-				</a>
-				<button
-					type="button"
-					onClick={toggleTheme}
-					aria-label={t("theme.toggle")}
-					className="rounded-[calc(var(--radius))] border border-border p-1.5"
-				>
-					{theme === "dark" ? (
-						<Sun className="size-4" aria-hidden />
-					) : (
-						<Moon className="size-4" aria-hidden />
-					)}
-				</button>
-				{/* Everything the row above holds, for every width the row does not
-				    fit. Below `lg` this is the whole nav; there used to be none. */}
-				<NavSheet
-					label={t("nav.menu")}
-					links={plainLinks}
-					groups={[
-						{
-							title: t("nav.categories"),
-							items: topCats,
-							allHref: paths.categories(lang),
-							allLabel: t("cats.all"),
-						},
-						{
-							title: t("nav.collections"),
-							items: collectionItems,
-							allHref: paths.collections(lang),
-							allLabel: t("collections.all"),
-						},
-					]}
-				/>
+
+				<div className="ml-auto flex shrink-0 items-center gap-2 lg:ml-0">
+					{/* An advertiser has no other way in — the dashboard URL is not
+					    something anyone guesses — so this lives on every page. */}
+					<Link
+						href={signedIn ? paths.dashboard(lang) : paths.signin(lang)}
+						className="hidden max-w-[12rem] items-center gap-1.5 truncate rounded-[calc(var(--radius))] border border-border bg-surface px-2.5 py-2 text-xs transition hover:border-brand lg:flex"
+						title={signedIn ?? undefined}
+					>
+						<UserRound className="size-3.5 shrink-0" aria-hidden />
+						<span className="min-w-0 truncate">
+							{signedIn ?? t("nav.signin")}
+						</span>
+					</Link>
+					{/* The locale lives in the path, so switching it is a navigation to
+					    the same page under the other language — never a state flip. */}
+					<a
+						href={alternateUrls(route)[other]}
+						onClick={(e) => {
+							if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+							e.preventDefault();
+							// The query carries page state the path does not (e.g. the
+							// estimate page's `?plan=`); `href` stays bare so prerender and
+							// first client render agree, and only the click preserves it.
+							navigate(alternateUrls(route)[other] + location.search);
+						}}
+						aria-label={t("ui.language")}
+						className={`${iconBtn} w-auto gap-1.5 px-2.5 text-xs uppercase`}
+					>
+						<Languages className="size-3.5" aria-hidden />
+						{other}
+					</a>
+					<button
+						type="button"
+						onClick={toggleTheme}
+						aria-label={t("theme.toggle")}
+						className={iconBtn}
+					>
+						{theme === "dark" ? (
+							<Sun className="size-4" aria-hidden />
+						) : (
+							<Moon className="size-4" aria-hidden />
+						)}
+					</button>
+					{/* Everything the row above holds, for every width the row does not
+					    fit. Below `lg` this is the whole nav; there used to be none. */}
+					<NavSheet
+						label={t("nav.menu")}
+						links={plainLinks}
+						groups={[
+							{
+								title: t("nav.categories"),
+								items: topCats,
+								allHref: paths.categories(lang),
+								allLabel: t("cats.all"),
+							},
+							{
+								title: t("nav.collections"),
+								items: collectionItems,
+								allHref: paths.collections(lang),
+								allLabel: t("collections.all"),
+							},
+						]}
+					/>
+				</div>
 			</div>
 		</header>
 	);
@@ -413,7 +530,7 @@ function Hero({
 	names: string[];
 	stats: Stats | null;
 	t: (k: Key) => string;
-	lang: string;
+	lang: Lang;
 }) {
 	const [i, setI] = useState(0);
 	useEffect(() => {
@@ -424,65 +541,81 @@ function Hero({
 	}, [names.length]);
 
 	return (
-		<section
-			id="top"
-			className="mx-auto max-w-4xl px-4 pt-16 pb-10 text-center"
-		>
-			<h1 className="font-display text-4xl font-bold tracking-tight text-balance sm:text-5xl">
-				{t("hero.title")}{" "}
-				{/* All names stack in one grid cell, hidden but the current one, so
+		<section id="top" className="page-head">
+			<div className="mx-auto max-w-4xl px-4 pt-14 pb-12 text-center sm:pt-20 sm:pb-16">
+				{/* Clamped rather than two breakpoints: the headline holds a cycling
+			    product name, so its length changes while the reader is looking at it,
+			    and a step change in size at 640px is the one thing that would make
+			    that obvious. */}
+				<h1 className="text-balance font-bold font-display text-[clamp(2rem,1.2rem+3.6vw,3.25rem)] leading-[1.1]">
+					{t("hero.title")}{" "}
+					{/* All names stack in one grid cell, hidden but the current one, so
 				    the cell is always as wide as the longest and cycling can't reflow. */}
-				<span
-					className="inline-grid border-b-2 px-1 align-baseline"
-					style={{ color: "var(--brand)", borderColor: "var(--brand)" }}
-				>
-					{names.map((n, k) => (
-						<span
-							key={n}
-							aria-hidden={k !== i}
-							className={`col-start-1 row-start-1 ${k === i ? "" : "invisible"}`}
-						>
-							{n}
-						</span>
-					))}
-				</span>
-				{/* French puts a non-breaking space before a question mark; English does not. */}
-				{lang === "fr" ? " ?" : "?"}
-			</h1>
-			<p className="mx-auto mt-4 max-w-2xl text-pretty text-muted">
-				{t("hero.blurb")}
-			</p>
+					<span
+						className="inline-grid border-b-[3px] px-1 align-baseline"
+						style={{ color: "var(--brand)", borderColor: "var(--brand)" }}
+					>
+						{names.map((n, k) => (
+							<span
+								key={n}
+								aria-hidden={k !== i}
+								className={`col-start-1 row-start-1 ${k === i ? "" : "invisible"}`}
+							>
+								{n}
+							</span>
+						))}
+					</span>
+					{/* French puts a non-breaking space before a question mark; English does not. */}
+					{lang === "fr" ? " ?" : "?"}
+				</h1>
+				<p className="mx-auto mt-5 max-w-2xl text-pretty text-lg text-muted leading-relaxed">
+					{t("hero.blurb")}
+				</p>
 
-			{/* A published 0 would read as "broken", not "new", so the switches
+				{/* Two ways in, and they are genuinely different questions: "show me the
+			    catalogue" and "tell me what my stack costs". The planner had exactly
+			    one inbound link on the whole site — a footer row — which is not a
+			    front door for the page that turns a reader into a lead. */}
+				<div className="mt-7 flex flex-wrap items-center justify-center gap-3">
+					<a href="#list" className="btn-primary">
+						{t("nav.list")}
+					</a>
+					<Link href={paths.estimate(lang)} className="btn-ghost">
+						{t("plan.eyebrow")}
+					</Link>
+				</div>
+
+				{/* A published 0 would read as "broken", not "new", so the switches
 			    tile only exists once there's a switch to report. */}
-			<dl
-				className={`mx-auto mt-8 grid max-w-2xl grid-cols-2 gap-px overflow-hidden rounded-[calc(var(--radius))] border border-border bg-border ${stats?.switches ? "sm:grid-cols-4" : "grid-cols-3"}`}
-			>
-				{(
-					[
-						["stats.products", stats?.products],
-						["stats.alternatives", stats?.ossAlternatives],
-						["stats.noAnswer", stats?.notYet],
-						...(stats?.switches
-							? ([
-									[
-										stats.switches === 1
-											? "stats.switchesOne"
-											: "stats.switches",
-										stats.switches,
-									],
-								] as const)
-							: []),
-					] as const
-				).map(([key, value]) => (
-					<div key={key} className="bg-surface px-3 py-4">
-						<dd className="nums text-xl font-bold">{value ?? "—"}</dd>
-						<dt className="mt-1 text-[10px] uppercase tracking-widest text-muted">
-							{t(key)}
-						</dt>
-					</div>
-				))}
-			</dl>
+				<dl
+					className={`mx-auto mt-10 grid max-w-2xl gap-px overflow-hidden rounded-[calc(var(--radius))] border border-border bg-border shadow-[var(--shadow-sm)] ${stats?.switches ? "grid-cols-2 sm:grid-cols-4" : "grid-cols-3"}`}
+				>
+					{(
+						[
+							["stats.products", stats?.products],
+							["stats.alternatives", stats?.ossAlternatives],
+							["stats.noAnswer", stats?.notYet],
+							...(stats?.switches
+								? ([
+										[
+											stats.switches === 1
+												? "stats.switchesOne"
+												: "stats.switches",
+											stats.switches,
+										],
+									] as const)
+								: []),
+						] as const
+					).map(([key, value]) => (
+						<div key={key} className="bg-surface px-3 py-4">
+							<dd className="nums font-bold text-2xl">{value ?? "—"}</dd>
+							<dt className="mt-1 text-[10px] text-muted uppercase tracking-widest">
+								{t(key)}
+							</dt>
+						</div>
+					))}
+				</dl>
+			</div>
 		</section>
 	);
 }
@@ -540,8 +673,21 @@ function Page({ ctx, route }: { ctx: PageCtx; route: Route }) {
 		case "submit":
 			return (
 				<main>
-					<SubmitSection t={ctx.t} />
+					<SubmitSection t={ctx.t} lang={ctx.lang} />
 				</main>
+			);
+		case "features":
+			return (
+				<FeaturesPage
+					products={ctx.products}
+					categories={ctx.categories}
+					t={ctx.t}
+					tc={ctx.tc}
+					trail={[
+						{ label: ctx.t("page.home"), href: paths.home(ctx.lang) },
+						{ label: ctx.t("nav.features") },
+					]}
+				/>
 			);
 		case "stats":
 			return <StatsPage stats={ctx.siteStats} t={ctx.t} lang={ctx.lang} />;
@@ -569,6 +715,12 @@ function Page({ ctx, route }: { ctx: PageCtx; route: Route }) {
 					<ContactSection t={ctx.t} lang={ctx.lang} />
 				</main>
 			);
+		case "legal":
+			return route.doc ? (
+				<LegalPage lang={ctx.lang} doc={route.doc} />
+			) : (
+				<LegalIndexPage lang={ctx.lang} />
+			);
 		default:
 			return null;
 	}
@@ -587,10 +739,8 @@ function FooterColumn({
 }) {
 	return (
 		<div>
-			<h2 className="font-mono text-[10px] uppercase tracking-[0.2em] text-text">
-				{title}
-			</h2>
-			<ul className={`mt-3 ${GRID_1COL} gap-2 text-sm`}>{children}</ul>
+			<h2 className="eyebrow text-text">{title}</h2>
+			<ul className={`mt-3.5 ${GRID_1COL} gap-2.5 text-sm`}>{children}</ul>
 		</div>
 	);
 }
@@ -612,13 +762,13 @@ function SiteFooter({ route, t }: { route: Route; t: (k: Key) => string }) {
 	const other: Lang = lang === "fr" ? "en" : "fr";
 
 	return (
-		<footer className="border-t border-border">
-			<div className={`mx-auto ${MEASURE} px-4 py-12`}>
+		<footer className="mt-auto border-border border-t bg-[var(--surface-2)]">
+			<div className={`mx-auto ${MEASURE} px-4 py-14`}>
 				{/* The positioning statement. It is the promise the whole catalogue
 				    rests on, so it is the first thing in the footer and the only line
 				    here at reading size. */}
 				<p
-					className="max-w-3xl border-l-2 pl-4 text-base font-medium text-pretty sm:text-lg"
+					className="max-w-3xl text-pretty border-l-[3px] pl-5 font-medium text-base leading-relaxed sm:text-lg"
 					style={{ borderColor: "var(--brand)" }}
 				>
 					{t("footer.policy")}{" "}
@@ -630,7 +780,7 @@ function SiteFooter({ route, t }: { route: Route; t: (k: Key) => string }) {
 					</Link>
 				</p>
 
-				<div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-4">
+				<div className="mt-12 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4 lg:grid-cols-5">
 					<FooterColumn title={t("footer.browse")}>
 						<li>
 							<Link href={paths.home(lang)} className={fLink}>
@@ -716,9 +866,21 @@ function SiteFooter({ route, t }: { route: Route; t: (k: Key) => string }) {
 							</a>
 						</li>
 					</FooterColumn>
+					{/* Required pages, so they are linked from every page rather than
+					    buried on one. LEGAL_DOCS drives the list: adding a document is
+					    one line in routes.ts and it appears here. */}
+					<FooterColumn title={t("footer.legal")}>
+						{LEGAL_DOCS.map((doc) => (
+							<li key={doc}>
+								<Link href={paths.legal(lang, doc)} className={fLink}>
+									{legalCopy(doc, lang).title}
+								</Link>
+							</li>
+						))}
+					</FooterColumn>
 				</div>
 
-				<div className="mt-10 flex flex-wrap items-center justify-between gap-2 border-t border-border pt-6 text-xs text-muted">
+				<div className="mt-12 flex flex-wrap items-center justify-between gap-2 border-border border-t pt-6 text-muted text-xs">
 					<p>canireplaceit — {t("footer.tagline")}</p>
 					<p className="flex items-center gap-1">
 						{t("footer.madeWith")}
@@ -1017,6 +1179,8 @@ export function App() {
 					return standingMeta(route.name, route.lang, products.length);
 				case "contact":
 					return standingMeta(route.name, lang, products.length);
+				case "legal":
+					return legalMeta(route.doc, lang);
 				default:
 					return homeMeta(
 						lang,
@@ -1033,7 +1197,10 @@ export function App() {
 	const isHome = route.name === "home" || route.name === "unknown";
 
 	return (
-		<>
+		// A column the height of the window, so a short page (a 404, a one-product
+		// category) still pins its footer to the bottom instead of leaving a band
+		// of empty background under it.
+		<div className="flex min-h-dvh flex-col">
 			<Header
 				t={t}
 				tc={tc}
@@ -1063,138 +1230,157 @@ export function App() {
 					<section id="list" className="px-4 pb-16">
 						{homePage > 1 && (
 							<h1
-								className={`mx-auto ${MEASURE} mb-4 font-display text-2xl font-bold tracking-tight`}
+								className={`mx-auto ${MEASURE} mb-4 font-bold font-display text-2xl`}
 							>
 								{t("home.pagedTitle").replace("{n}", String(homePage))}
 							</h1>
 						)}
 
-						{/* Below `lg` the six-control bar doesn't fit, so this is a trigger
-						    row instead: full-width search, verdict pills, and the rest
-						    behind one button that opens a sheet. See `FilterSheet` in
-						    browse.tsx. */}
-						<div className={`mx-auto ${MEASURE} mb-2 lg:hidden`}>
-							<input
-								value={filters.q}
-								onChange={(e) => setFilters({ ...filters, q: e.target.value })}
-								placeholder={t("hero.searchPlaceholder")}
-								aria-label={t("hero.searchPlaceholder")}
-								className="w-full rounded-[calc(var(--radius))] border border-border bg-surface px-2.5 py-2 text-sm outline-none focus:border-brand"
-							/>
-							<div className="mt-2 flex flex-wrap items-center gap-2">
-								<VerdictPills
-									t={t}
+						{/*
+						 * Sticky, and the one piece of chrome on the page that is: the
+						 * list is 48 rows deep and the controls that narrow it were at the
+						 * top of a document the reader had already scrolled past. `top-14`
+						 * clears the header, which is the only other sticky thing here.
+						 *
+						 * The wrapper carries the background because a sticky element with
+						 * a transparent one lets rows scroll visibly underneath it.
+						 */}
+						<div className="-mx-4 sticky top-[3.4rem] z-30 mb-4 border-border border-b bg-bg/90 px-4 py-2.5 backdrop-blur-md">
+							{/* Below `lg` the six-control bar doesn't fit, so this is a
+							    trigger row instead: full-width search, verdict pills, and
+							    the rest behind one button that opens a sheet. See
+							    `FilterSheet` in browse.tsx. */}
+							<div className={`mx-auto ${MEASURE} lg:hidden`}>
+								<input
+									value={filters.q}
+									onChange={(e) =>
+										setFilters({ ...filters, q: e.target.value })
+									}
+									placeholder={t("hero.searchPlaceholder")}
+									aria-label={t("hero.searchPlaceholder")}
+									className="w-full rounded-[calc(var(--radius))] border border-border bg-surface px-3 py-2.5 text-sm outline-none focus:border-brand"
+								/>
+								<div className="mt-2 flex flex-wrap items-center gap-2">
+									<VerdictPills
+										t={t}
+										value={filters.verdict}
+										onChange={(v) => setFilters({ ...filters, verdict: v })}
+									/>
+									<FilterSheet
+										t={t}
+										tc={tc}
+										cats={cats}
+										filters={filters}
+										setFilters={setFilters}
+										// Not `shown.length`: unfiltered, `result` is only this
+										// page's slice, which would undercount the true match
+										// total.
+										resultCount={filtering ? shown.length : ordered.length}
+									/>
+								</div>
+							</div>
+
+							{/* Search owns the first row; the six controls share the next. */}
+							<div
+								className={`mx-auto ${MEASURE} hidden flex-wrap items-center gap-2 lg:flex`}
+							>
+								<input
+									value={filters.q}
+									onChange={(e) =>
+										setFilters({ ...filters, q: e.target.value })
+									}
+									placeholder={t("hero.searchPlaceholder")}
+									aria-label={t("hero.searchPlaceholder")}
+									className="w-full min-w-0 rounded-[calc(var(--radius))] border border-border bg-surface px-2.5 py-2 text-sm outline-none focus:border-brand sm:w-auto sm:min-w-52 sm:flex-1"
+								/>
+								<Choice
+									label={t("filter.category")}
+									value={filters.category}
+									onChange={(v) => setFilters({ ...filters, category: v })}
+								>
+									<option value="">{t("filter.allCategories")}</option>
+									{cats.map((c) => (
+										<option key={c.slug} value={c.slug}>
+											{tc(c.name)}
+										</option>
+									))}
+								</Choice>
+								<Choice
+									label={t("filter.verdict")}
 									value={filters.verdict}
 									onChange={(v) => setFilters({ ...filters, verdict: v })}
-								/>
-								<FilterSheet
-									t={t}
-									tc={tc}
-									cats={cats}
-									filters={filters}
-									setFilters={setFilters}
-									// Not `shown.length`: unfiltered, `result` is only this
-									// page's slice, which would undercount the true match total.
-									resultCount={filtering ? shown.length : ordered.length}
-								/>
-							</div>
-						</div>
-
-						{/* Search owns the first row; the six controls share the next. */}
-						<div
-							className={`mx-auto ${MEASURE} mb-2 hidden flex-wrap items-center gap-2 lg:flex`}
-						>
-							<input
-								value={filters.q}
-								onChange={(e) => setFilters({ ...filters, q: e.target.value })}
-								placeholder={t("hero.searchPlaceholder")}
-								aria-label={t("hero.searchPlaceholder")}
-								className="w-full min-w-0 rounded-[calc(var(--radius))] border border-border bg-surface px-2.5 py-2 text-sm outline-none focus:border-brand sm:w-auto sm:min-w-52 sm:flex-1"
-							/>
-							<Choice
-								label={t("filter.category")}
-								value={filters.category}
-								onChange={(v) => setFilters({ ...filters, category: v })}
-							>
-								<option value="">{t("filter.allCategories")}</option>
-								{cats.map((c) => (
-									<option key={c.slug} value={c.slug}>
-										{tc(c.name)}
-									</option>
-								))}
-							</Choice>
-							<Choice
-								label={t("filter.verdict")}
-								value={filters.verdict}
-								onChange={(v) => setFilters({ ...filters, verdict: v })}
-							>
-								<option value="">{t("filter.anyVerdict")}</option>
-								{VERDICTS.map((v) => (
-									<option key={v} value={v}>
-										{t(`verdict.${v}` as Key)}
-									</option>
-								))}
-							</Choice>
-							<Choice
-								label={t("filter.openness")}
-								value={filters.openness}
-								onChange={(v) =>
-									setFilters({
-										...filters,
-										openness: v as ProductFilters["openness"],
-									})
-								}
-							>
-								<option value="">{t("filter.anyOpenness")}</option>
-								{opennessOptions(t)}
-							</Choice>
-							<Choice
-								label={t("filter.effort")}
-								value={filters.effort}
-								onChange={(v) =>
-									setFilters({
-										...filters,
-										effort: v as ProductFilters["effort"],
-									})
-								}
-							>
-								<option value="">{t("filter.anyEffort")}</option>
-								{effortOptions(t)}
-							</Choice>
-							<Choice
-								label={t("filter.price")}
-								value={filters.price}
-								onChange={(v) =>
-									setFilters({
-										...filters,
-										price: v as ProductFilters["price"],
-									})
-								}
-							>
-								<option value="">{t("filter.anyPrice")}</option>
-								{priceOptions(t)}
-							</Choice>
-							<Choice
-								label={t("filter.sort")}
-								value={filters.sort}
-								onChange={(v) =>
-									setFilters({ ...filters, sort: v as ProductFilters["sort"] })
-								}
-							>
-								<option value="weight">{t("filter.sortWeight")}</option>
-								{/* "most switched", never "most popular" — most products sit
+								>
+									<option value="">{t("filter.anyVerdict")}</option>
+									{VERDICTS.map((v) => (
+										<option key={v} value={v}>
+											{t(`verdict.${v}` as Key)}
+										</option>
+									))}
+								</Choice>
+								<Choice
+									label={t("filter.openness")}
+									value={filters.openness}
+									onChange={(v) =>
+										setFilters({
+											...filters,
+											openness: v as ProductFilters["openness"],
+										})
+									}
+								>
+									<option value="">{t("filter.anyOpenness")}</option>
+									{opennessOptions(t)}
+								</Choice>
+								<Choice
+									label={t("filter.effort")}
+									value={filters.effort}
+									onChange={(v) =>
+										setFilters({
+											...filters,
+											effort: v as ProductFilters["effort"],
+										})
+									}
+								>
+									<option value="">{t("filter.anyEffort")}</option>
+									{effortOptions(t)}
+								</Choice>
+								<Choice
+									label={t("filter.price")}
+									value={filters.price}
+									onChange={(v) =>
+										setFilters({
+											...filters,
+											price: v as ProductFilters["price"],
+										})
+									}
+								>
+									<option value="">{t("filter.anyPrice")}</option>
+									{priceOptions(t)}
+								</Choice>
+								<Choice
+									label={t("filter.sort")}
+									value={filters.sort}
+									onChange={(v) =>
+										setFilters({
+											...filters,
+											sort: v as ProductFilters["sort"],
+										})
+									}
+								>
+									<option value="weight">{t("filter.sortWeight")}</option>
+									{/* "most switched", never "most popular" — most products sit
 								    at zero or one, and "popular" would overclaim. */}
-								<option value="switched">{t("filter.sortVotes")}</option>
-								<option value="price">{t("filter.sortPrice")}</option>
-								<option value="name">{t("filter.sortName")}</option>
-							</Choice>
+									<option value="switched">{t("filter.sortVotes")}</option>
+									<option value="price">{t("filter.sortPrice")}</option>
+									<option value="name">{t("filter.sortName")}</option>
+								</Choice>
+							</div>
 						</div>
 
 						<div className={`mx-auto ${MEASURE} mb-5`}>
 							{/* What a filter had to set aside, and why. Never silent. */}
 							<Hidden result={result} t={t} />
 							{filtering && (
-								<p className="nums mt-2 flex flex-wrap items-center gap-2 text-xs text-muted">
+								<p className="nums mt-2 flex flex-wrap items-center gap-2 text-muted text-xs">
 									<span>
 										{result.shown.length} {t("stats.products")} ·{" "}
 										{t("filter.filteredNote")}
@@ -1202,7 +1388,7 @@ export function App() {
 									<button
 										type="button"
 										onClick={() => setFilters(NO_FILTERS)}
-										className="rounded-[calc(var(--radius))] border border-border px-2 py-0.5 hover:border-brand"
+										className="pill px-2 py-0.5 text-xs"
 									>
 										{t("filter.clear")}
 									</button>
@@ -1262,11 +1448,16 @@ export function App() {
 							</div>
 						)}
 
+						{/* The key to the three dots above it, and the caveat the whole
+						    list is read under. A panel rather than two loose lines: it is
+						    a legend, and a legend that reads as body copy gets skipped. */}
 						<div
-							className={`mx-auto ${MEASURE} mt-6 flex flex-wrap items-center justify-between gap-3 text-xs text-muted`}
+							className={`panel mx-auto ${MEASURE} mt-8 flex flex-wrap items-center justify-between gap-x-6 gap-y-3 p-4 text-muted text-xs`}
 						>
-							<p className="max-w-2xl">{t("list.disclaimer")}</p>
-							<p className="flex items-center gap-3">
+							<p className="max-w-2xl leading-relaxed">
+								{t("list.disclaimer")}
+							</p>
+							<p className="flex flex-wrap items-center gap-x-4 gap-y-2">
 								{VERDICTS.map((v) => (
 									<VerdictMark key={v} verdict={v} t={t} />
 								))}
@@ -1290,6 +1481,6 @@ export function App() {
 			<SponsorTape slots={slots} t={t} tc={tc} lang={lang} position="bottom" />
 
 			<SiteFooter route={route} t={t} />
-		</>
+		</div>
 	);
 }

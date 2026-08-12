@@ -70,6 +70,132 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "JATOS",
+			"source": {
+				"host": "github",
+				"path": "JATOS/JATOS",
+				"url": "https://github.com/JATOS/JATOS"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted server that runs and stores jsPsych/OpenSesame studies. Manages participant auth, redirects, batteries and pools. You must recruit participants yourself — no payment or screening marketplace.",
+				"fr": "Serveur autohébergé qui exécute et stocke les études jsPsych/OpenSesame. Gère l’authentification, les redirections, les batteries et les pools. Recrutement à votre charge — aucune place de marché de paiement ou de pré-screening."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenSesame",
+			"source": {
+				"host": "github",
+				"path": "open-cogsci/OpenSesame",
+				"url": "https://github.com/open-cogsci/OpenSesame"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Desktop experiment builder you operate by drag-and-drop, with Python for stimuli. Browser delivery goes through osweb hosting on JATOS. No recruitment built in.",
+				"fr": "Constructeur d’expériences de bureau, montées par glisser-déposer, avec Python pour les stimuli. La diffusion navigateur passe par osweb hébergé sur JATOS. Aucun recrutement intégré."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "expfactory",
+			"source": {
+				"host": "github",
+				"path": "expfactory/expfactory",
+				"url": "https://github.com/expfactory/expfactory"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "CLI and container toolchain that builds a reproducible battery of experiments and surveys. Dormant since 2023 — no commits in three years. No recruitment, no results analytics.",
+				"fr": "Outillage CLI et conteneurs qui monte une batterie reproductible d’expériences et de sondages. Dormant depuis 2023 — aucun commit depuis trois ans. Ni recrutement ni analyse des résultats."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "KoboToolbox",
+			"source": {
+				"host": "github",
+				"path": "kobotoolbox/kpi",
+				"url": "https://github.com/kobotoolbox/kpi"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted survey server aimed at field data collection, with offline mobile apps. Skip-logic forms, exports, reports, a REST API. Not built for timing-critical experiments, and deployment pulls in several services.",
+				"fr": "Serveur autohébergé de collecte de données terrain, avec applis mobiles hors ligne, exports, rapports et API REST. Taillé pour les sondages, pas les expériences à contrainte de temps ; déploiement multi-services."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Expyriment",
+			"source": {
+				"host": "github",
+				"path": "expyriment/expyriment",
+				"url": "https://github.com/expyriment/expyriment"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Lightweight Python library for timing-critical lab studies: millisecond stimulus control across audio, visual and input devices. Desktop-only, so nothing runs online, and no surveys or recruitment.",
+				"fr": "Bibliothèque Python légère pour les expériences à contrainte de temps : stimuli milliseconde, audio, visuel, souris, clavier, joystick. Bureau uniquement — rien ne tourne en ligne, pas de sondages ni de recrutement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "docassemble",
+			"source": {
+				"host": "github",
+				"path": "jhpyle/docassemble",
+				"url": "https://github.com/jhpyle/docassemble"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted interview engine for structured data collection and consent flows. Branching interviews in YAML/Markdown, forms, persistence, API and SSO. Built for documents, not reaction-time studies, and no participant marketplace.",
+				"fr": "Moteur d’interviews guidées autohébergé pour la collecte structurée et le consentement. Interviews à branchement en YAML/Markdown, persistance, API, SSO. Fait pour les documents — ni temps de réaction ni marché de participants."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

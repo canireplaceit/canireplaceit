@@ -87,6 +87,237 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "DSpace",
+			"source": {
+				"host": "github",
+				"path": "DSpace/DSpace",
+				"url": "https://github.com/DSpace/DSpace"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "ops",
+			"note": {
+				"en": "A battle-tested repository with REST API and DOI minting — if you can live with the Java/PostgreSQL ops and datasets stored as generic items without science schemas.",
+				"fr": "Référentiel éprouvé avec API REST et minting de DOI — si vous assumez l’ops Java/PostgreSQL et des jeux de données stockés comme items génériques, sans schémas scientifiques."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OSF",
+			"source": {
+				"host": "github",
+				"path": "CenterForOpenScience/osf.io",
+				"url": "https://github.com/CenterForOpenScience/osf.io"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Open-science hub with a real API and self-hosting via docker-compose. Production runs are niche — the elife-unsupervised fork — and shared infrastructure is heavy.",
+				"fr": "Hub open science avec une vraie API et une installation via docker-compose. Les déploiements en production restent marginaux, à travers le fork elife-unsupervised, et l’infrastructure partagée est lourde."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "DataLad",
+			"source": {
+				"host": "github",
+				"path": "datalad/datalad",
+				"url": "https://github.com/datalad/datalad"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Closest command-line match to Figshare: git-based data versioning with large-file support and JSON-LD metadata. No landing pages or DOIs, and it demands git discipline from everyone.",
+				"fr": "Le plus proche équivalent en CLI de Figshare : versionnage git des données, gros fichiers via git-annex, métadonnées JSON-LD. Ni page web ni DOI, et chaque utilisateur doit maîtriser git."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "git-annex",
+			"source": {
+				"host": "sourcehut",
+				"path": "joeyh/git-annex",
+				"url": "https://git.sr.ht/~joeyh/git-annex"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Keeps large files out of git while syncing across remotes, with a local webapp for browsing. Extensively used in science, but no citation layer and a steep learning curve.",
+				"fr": "Garde les gros fichiers hors de git, synchronise entre remotes, webapp locale de consultation. Répandu en science, mais sans couche de citation et à la courbe d’apprentissage raide."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "DVC",
+			"source": {
+				"host": "github",
+				"path": "treeverse/dvc",
+				"url": "https://github.com/treeverse/dvc"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Git-style versioning for datasets and pipelines, pushing to any remote, with a huge ML ecosystem. Built for ML workflows, not general publishing — no landing pages or persistent IDs.",
+				"fr": "Versionnage des jeux de données et pipelines façon git, push vers tout remote, vaste écosystème ML. Fait pour les workflows ML, pas pour la publication : pas de landing pages ni d’identifiants persistants."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Hyrax",
+			"source": {
+				"host": "github",
+				"path": "samvera/hyrax",
+				"url": "https://github.com/samvera/hyrax"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Rails repository with a workflow engine, role-based deposit, IIIF APIs and shaped metadata profiles. Assembling Fedora, Solr and Valkyrie is real ops effort, and DOI minting is not built in.",
+				"fr": "Référentiel Rails avec moteur de workflows, dépôt par rôles et profils de métadonnées sur mesure. Assembler Fedora, Solr et Valkyrie est un effort d’ops réel, sans minting de DOI intégré."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Islandora",
+			"source": {
+				"host": "github",
+				"path": "Islandora/islandora",
+				"url": "https://github.com/Islandora/islandora"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "IIIF and OCFL on a Drupal front-end, with migration tooling and ISLE docker-compose builds. The multi-container stack is steep and assumes libraries fluent in Drupal, with metadata tied to its conventions.",
+				"fr": "IIIF et OCFL sur un front Drupal, avec outillage de migration et builds ISLE en docker-compose. Pile multi-conteneurs raide, pensé pour des bibliothèques à l’aise avec Drupal, métadonnées aux conventions Drupal."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "DKAN",
+			"source": {
+				"host": "github",
+				"path": "GetDKAN/dkan",
+				"url": "https://github.com/GetDKAN/dkan"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Drupal open-data portal with harvesting, REST endpoints and a datastore with visualization. Geared to open government rather than research, and a smaller community than CKAN.",
+				"fr": "Portail open data en Drupal avec harvesting, endpoints REST et datastore visualisable. Orienté open government plus que recherche, avec une communauté plus petite que CKAN."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Fedora",
+			"source": {
+				"host": "github",
+				"path": "fcrepo/fcrepo",
+				"url": "https://github.com/fcrepo/fcrepo"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Preservation core with OCFL storage, an HTTP API for objects and binaries, and RDF metadata. Not a front-end: no citation or DOI services, and you must build the UI around it.",
+				"fr": "Cœur de préservation avec stockage OCFL, API HTTP pour objets et binaires, métadonnées RDF. Pas un front-end : aucun service de citation ni de DOI, il faut construire l’UI autour."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "EPrints",
+			"source": {
+				"host": "github",
+				"path": "eprints/eprints3.4",
+				"url": "https://github.com/eprints/eprints3.4"
+			},
+			"license": "LGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Classic self-hosted repository with fine-grained metadata, OAI-PMH and REST, proven in data archives. The Perl codebase is aging, the UI dated against Figshare, and contributors are few.",
+				"fr": "Référentiel classique auto-hébergé aux métadonnées fines, OAI-PMH et REST, éprouvé dans les archives de données. Le code Perl vieillit, l’UI a vieilli face à Figshare, et les contributeurs actifs sont rares."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "B2SHARE",
+			"source": {
+				"host": "github",
+				"path": "EUDAT-B2SHARE/b2share",
+				"url": "https://github.com/EUDAT-B2SHARE/b2share"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "EUDAT sharing service with community-specific metadata schemas and a REST API for deposit. Built around European infrastructure, with a small community and sparse docs for single-instance setups.",
+				"fr": "Service de partage d’EUDAT avec schémas de métadonnées par communauté et API REST pour le dépôt. Pensé autour de l’infrastructure européenne : petite communauté et docs rares pour une instance unique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

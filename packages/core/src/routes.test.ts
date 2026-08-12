@@ -46,7 +46,7 @@ test("every builder round-trips through parseRoute in every language", () => {
 
 test("the standing pages round-trip, and take nothing after the segment", () => {
 	for (const lang of SupportedLangs) {
-		for (const name of ["estimate", "submit", "contact"] as const) {
+		for (const name of ["estimate", "submit", "contact", "features"] as const) {
 			expect(at(paths[name](lang))).toEqual({ name, lang });
 			expect(at(`${paths[name](lang)}/extra`)).toEqual({
 				name: "unknown",
@@ -56,6 +56,21 @@ test("the standing pages round-trip, and take nothing after the segment", () => 
 	}
 	// Unaccented in French, like every other segment.
 	expect(paths.contact("fr")).toBe("/fr/contact");
+});
+
+test("the feature explorer is one URL per language, and filters never mint more", () => {
+	expect(paths.features("en")).toBe("/en/features");
+	expect(paths.features("fr")).toBe("/fr/fonctionnalites");
+	// Filter state lives in the query string on purpose: 137 feature keys would
+	// otherwise generate a combinatorial space of near-duplicate indexable URLs.
+	// parseRoute must ignore the query entirely and resolve to the same route.
+	expect(at("/en/features?need=auth.sso.oidc&license=permissive")).toEqual({
+		name: "features",
+		lang: "en",
+	});
+	// A segment from the other locale still resolves, like every other route.
+	expect(at("/fr/features")).toEqual({ name: "features", lang: "fr" });
+	expect(at("/en/fonctionnalites")).toEqual({ name: "features", lang: "en" });
 });
 
 test("the French URLs are the ones the brief asked for", () => {

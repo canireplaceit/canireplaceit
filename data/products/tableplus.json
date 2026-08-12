@@ -126,6 +126,178 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "usql",
+			"source": {
+				"host": "github",
+				"path": "xo/usql",
+				"url": "https://github.com/xo/usql"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "One binary that speaks Postgres, MySQL, SQLite, Oracle and more — built for scripts and quick queries, cross-database COPY included. The cost is terminal-only: no visual editor, no ER diagrams.",
+				"fr": "Un seul binaire pour Postgres, MySQL, SQLite, Oracle et plus, pensé pour les scripts et requêtes jetables. Le COPY inter-bases passe, mais on reste au terminal : ni éditeur visuel ni schémas ER."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CloudBeaver",
+			"source": {
+				"host": "github",
+				"path": "dbeaver/cloudbeaver",
+				"url": "https://github.com/dbeaver/cloudbeaver"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted web app wrapping the DBeaver engine: any browser becomes a DB manager with SQL editor and admin tools. You run the server; advanced features stay in the paid EE build.",
+				"fr": "La web app DBeaver, hébergée sur votre serveur : tout navigateur devient un gestionnaire de bases de données, éditeur SQL compris. Vous hébergez ; le reste exige la version EE payante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "SSO, RBAC and other enterprise extras",
+					"fr": "SSO, RBAC et les options entreprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Adminer",
+			"source": {
+				"host": "github",
+				"path": "vrana/adminer",
+				"url": "https://github.com/vrana/adminer"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "One PHP file dropped on any PHP server gets you MySQL, MariaDB, Postgres, SQLite and SQL Server administration. It stays minimal though: no query history, no ERD, rougher than desktop clients.",
+				"fr": "Un seul fichier PHP posé sur n’importe quel serveur gère MySQL, MariaDB, Postgres, SQLite et SQL Server. Reste sommaire, sans historique de requêtes ni ERD, moins soigné que les clients de bureau."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "DB Browser for SQLite",
+			"source": {
+				"host": "github",
+				"path": "sqlitebrowser/sqlitebrowser",
+				"url": "https://github.com/sqlitebrowser/sqlitebrowser"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The reference desktop GUI for SQLite files, cross-platform and actively maintained. It ships a visual table designer and CSV import, but it only talks to SQLite — no network databases, no server use.",
+				"fr": "Le GUI de bureau de référence pour les fichiers SQLite, multi-plateforme et maintenu. Créateur de tables visuel et import CSV, mais il ne parle qu’à SQLite : ni bases réseau ni usage serveur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pgcli",
+			"source": {
+				"host": "github",
+				"path": "dbcli/pgcli",
+				"url": "https://github.com/dbcli/pgcli"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Terminal power-user Postgres client with smart autocomplete, syntax highlighting and fuzzy table/column search. Nothing but Postgres, and nothing but a terminal — no visual editing, no ERD or import wizards.",
+				"fr": "Le client Postgres du terminaliste exigeant : autocomplétion intelligente, coloration syntaxique et recherche floue sur les tables et colonnes. Mais rien que du Postgres, et rien qu’un terminal — ni édition visuelle ni ERD."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "litecli",
+			"source": {
+				"host": "github",
+				"path": "dbcli/litecli",
+				"url": "https://github.com/dbcli/litecli"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "The sqlite3 CLI brought up to date by the dbcli project: autocomplete, syntax highlighting, tab-completion for tables and columns. Still terminal-bound and SQLite-bound — a comfort upgrade, not a GUI replacement.",
+				"fr": "Le CLI sqlite3 dépoussiéré par le projet dbcli : autocomplétion, coloration syntaxique, complétion par tab des tables et colonnes. Ça reste du terminal et du SQLite — un confort, pas un remplaçant du GUI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "HeidiSQL",
+			"source": {
+				"host": "github",
+				"path": "HeidiSQL/HeidiSQL",
+				"url": "https://github.com/HeidiSQL/HeidiSQL"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Mature Windows-native GUI for MySQL, MariaDB, SQL Server and Postgres, with session tabs, bulk table tools and import/export. It does not leave Windows: no macOS, no Linux, no web.",
+				"fr": "GUI natif Windows et éprouvé pour MySQL, MariaDB, SQL Server et Postgres, avec onglets de sessions, outils de masse et import/export. Il ne quitte pas Windows : ni macOS, ni Linux, ni web."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SQLPad",
+			"source": {
+				"host": "github",
+				"path": "sqlpad/sqlpad",
+				"url": "https://github.com/sqlpad/sqlpad"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Archived upstream — development has stopped, though the self-hosted web SQL editor still runs for Postgres, MySQL, SQL Server, SQLite and Snowflake. Saved queries and shareable dashboards; no admin tools or DDL wizards.",
+				"fr": "Archivé en amont — le développement a cessé, même si l’éditeur SQL web auto-hébergé tourne pour plusieurs bases. Requêtes sauvegardées et dashboards partageables, mais pas d’outils d’admin ni d’assistants DDL."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

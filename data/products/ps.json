@@ -1,0 +1,198 @@
+{
+	"slug": "ps",
+	"name": "ps",
+	"domain": null,
+	"category": "shell-terminal",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "Yes, in a pinch. procs covers the common day-to-day, but ps is the fallback on every machine and its BSD/System V flag split means scripts may not port cleanly.",
+		"fr": "Oui, pour l’essentiel. procs couvre le quotidien, mais ps reste le recours sur toutes les machines et la dualité des drapeaux BSD/System V fait que vos scripts ne portent pas toujours tels quels."
+	},
+	"whatYouLose": [
+		{
+			"en": "A binary on every system",
+			"fr": "Un binaire présent partout"
+		},
+		{
+			"en": "Familiar flag syntax",
+			"fr": "La syntaxe des drapeaux connue"
+		},
+		{
+			"en": "POSIX scripting compatibility",
+			"fr": "La compatibilité POSIX des scripts"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "procs",
+			"source": {
+				"host": "github",
+				"path": "dalance/procs",
+				"url": "https://github.com/dalance/procs"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Searches by name, port, or user with no grep pipeline, and adds ports, docker container names, and I/O throughput as columns. Payoff: one more tool to install, versus ps that ships everywhere.",
+				"fr": "Recherche par nom, port ou utilisateur sans passer par grep, et ajoute les ports, les noms de conteneurs docker et le débit lecture/écriture en colonnes. Contrepartie : un outil de plus à installer, là où ps est déjà là."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "htop",
+			"source": {
+				"host": "github",
+				"path": "htop-dev/htop",
+				"url": "https://github.com/htop-dev/htop"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The classic process viewer: tree view, signals, load graphs. TUI only, no web interface.",
+				"fr": "Le classique parmi les visionneurs de processus : arborescence, envoi de signaux, graphes de charge. TUI uniquement, pas d’interface web."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "btop",
+			"source": {
+				"host": "github",
+				"path": "aristocratos/btop",
+				"url": "https://github.com/aristocratos/btop"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Modern resource monitor with per-process graphs, GPU stats, and a mouse-driven UI. Still TUI-only, no web.",
+				"fr": "Moniteur moderne avec graphes par processus, stats GPU et interface pilotée à la souris. Toujours en TUI, pas de web."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "glances",
+			"source": {
+				"host": "github",
+				"path": "nicolargo/glances",
+				"url": "https://github.com/nicolargo/glances"
+			},
+			"license": "LGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Cross-platform monitor with CLI, TUI and server modes, plugins, and a REST API. Costs a Python stack and a heavier runtime.",
+				"fr": "Moniteur multiplateforme en CLI, TUI ou serveur, avec plugins et API REST, au prix d’une pile Python et d’un runtime plus lourd."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "psdash",
+			"source": {
+				"host": "github",
+				"path": "Jahaja/psdash",
+				"url": "https://github.com/Jahaja/psdash"
+			},
+			"license": "CC0-1.0",
+			"effort": "managed",
+			"note": {
+				"en": "Self-hosted web dashboard for process inspection: per-PID files and connections, log tailing. Four years dormant and basic-auth only.",
+				"fr": "Tableau de bord web auto-hébergé pour l’inspection des processus : fichiers et connexions par PID, suivi de logs. Dormant depuis quatre ans, simple auth uniquement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "vtop",
+			"source": {
+				"host": "github",
+				"path": "MrRio/vtop",
+				"url": "https://github.com/MrRio/vtop"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Node terminal dashboard charting Unix processes on a single screen, keyboard-driven. Unmaintained since 2020 and requires Node.",
+				"fr": "Tableau de bord terminal Node qui trace les processus Unix sur un seul écran, au clavier. Non maintenu depuis 2020 et dépendant de Node."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gotop",
+			"source": {
+				"host": "github",
+				"path": "cjbassi/gotop",
+				"url": "https://github.com/cjbassi/gotop"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Snappy Rust TUI with custom widget layouts, battery/network/temp meters. Archived upstream; you build it from source.",
+				"fr": "TUI Rust rapide avec agencements de widgets libres, jauges batterie/réseau/température. Archivé en amont ; à compiler soi-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ytop",
+			"source": {
+				"host": "github",
+				"path": "cjbassi/ytop",
+				"url": "https://github.com/cjbassi/ytop"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Lightweight Rust TUI with process tree, filtering and custom themes. Archived upstream, and slimmer than htop.",
+				"fr": "TUI Rust légère avec arborescence des processus, filtres et thèmes personnalisés. Archivé en amont, et plus pauvre que htop."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

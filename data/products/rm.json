@@ -1,0 +1,177 @@
+{
+	"slug": "rm",
+	"name": "rm",
+	"domain": null,
+	"category": "shell-terminal",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "Yes, with care. trash-cli moves files to the freedesktop.org trash instead of unlinking them, so restoring is a click. Honest verdict: fine as a daily alias, but it cannot replace rm on every machine or in scripts where permanent deletion is the point.",
+		"fr": "Oui, avec prudence. trash-cli déplace les fichiers vers la corbeille freedesktop.org au lieu de les détacher, la restauration se fait d’un clic. Verdict honnête : bon comme alias quotidien, mais ça ne remplace pas rm sur toutes les machines ni dans les scripts où la suppression définitive est le but."
+	},
+	"whatYouLose": [
+		{
+			"en": "Instant permanent unlink",
+			"fr": "Suppression définitive immédiate"
+		},
+		{
+			"en": "Presence on every machine",
+			"fr": "Présence sur toutes les machines"
+		},
+		{
+			"en": "Rmd muscle memory",
+			"fr": "La mémoire musculaire de rm"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "trash-cli",
+			"source": {
+				"host": "github",
+				"path": "andreafrancia/trash-cli",
+				"url": "https://github.com/andreafrancia/trash-cli"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Moves files to the freedesktop.org trash your desktop already uses; restoring is a click. Aliasing rm to it is the one-line change that saves an afternoon.",
+				"fr": "Déplace les fichiers dans la corbeille freedesktop.org déjà utilisée par ton bureau ; la restauration se fait d’un clic. Aliaser rm vers trash-cli est la modification d’une ligne qui sauve un après-midi."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "trash",
+			"source": {
+				"host": "github",
+				"path": "sindresorhus/trash",
+				"url": "https://github.com/sindresorhus/trash"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Node CLI that moves files to each OS’s native trash — macOS, Windows, Linux (GIO). Doubles as a safe rm alias with a JS API. Costs a Node.js runtime; Linux depends on gvfs/gio.",
+				"fr": "CLI Node qui déplace les fichiers dans la corbeille native de chaque OS — macOS, Windows, Linux (GIO). Alias sûr de rm, API JS en plus. Demande un runtime Node.js ; Linux exige gvfs/gio."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "trashy",
+			"source": {
+				"host": "github",
+				"path": "oberblastmeister/trashy",
+				"url": "https://github.com/oberblastmeister/trashy"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Rust drop-in for trash-cli, shipped as one static binary, with sensible default confirmations. FreeDesktop trash, list/restore, configurable force-delete for large paths. Dormant since January 2024; smaller community than trash-cli, Linux-focused.",
+				"fr": "Alternative Rust à trash-cli : un seul binaire statique, confirmations par défaut raisonnables. Corbeille FreeDesktop avec list/restore, force-delete configurable. Dormant depuis janvier 2024 ; communauté plus petite, Linux surtout."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gomi",
+			"source": {
+				"host": "github",
+				"path": "babarot/gomi",
+				"url": "https://github.com/babarot/gomi"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Rust tool that trashes via the FreeDesktop spec and restores through an interactive TUI, so accidental deletes stay undoable. One binary. Unix/Linux-focused; the restore flow departs from trash-cli’s scripts.",
+				"fr": "Outil Rust qui met en corbeille via la spec FreeDesktop et dispose d’un TUI interactif de restauration : les suppressions restent annulables. Un seul binaire. Unix/Linux ; la restauration diffère des scripts de trash-cli."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "safe-rm",
+			"source": {
+				"host": "github",
+				"path": "kaelzhang/shell-safe-rm",
+				"url": "https://github.com/kaelzhang/shell-safe-rm"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "rm wrapper that blacklists critical paths — /, /etc, /home — configurable, and drops in via alias or PATH. It refuses, doesn’t trash: no restore, and it guards only while the wrapper is used.",
+				"fr": "Aucune corbeille : safe-rm refuse juste de toucher les chemins critiques — /, /etc, /home — liste personnalisable, posé via alias ou PATH. Efficace seulement si on l’utilise vraiment."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "rmlint",
+			"source": {
+				"host": "github",
+				"path": "sahib/rmlint",
+				"url": "https://github.com/sahib/rmlint"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Space reclaimer, the most-starred tool in the rm family: finds duplicates and broken files, then bulk-deletes or hardlinks/reflinks them, warning before reclaiming. For batch cleanup, not everyday rm; results need manual review.",
+				"fr": "Récupérateur d’espace, l’outil le plus étoilé de la famille rm : repère doublons et fichiers cassés, supprime ou hardlink, avertit avant de libérer. Nettoyage par lot, pas du rm quotidien ; revue manuelle requise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "autotrash",
+			"source": {
+				"host": "github",
+				"path": "bneijt/autotrash",
+				"url": "https://github.com/bneijt/autotrash"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Stops trash-based rm replacements from filling the disk by purging files older than N days; cron-friendly, minimal Python deps. A maintenance companion, not a delete tool, and FreeDesktop trash only.",
+				"fr": "Évite que la corbeille ne sature le disque : purge les fichiers de plus de N jours, compatible cron. Compagnon de maintenance, pas un outil de suppression, limité à la corbeille FreeDesktop."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

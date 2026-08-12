@@ -93,6 +93,174 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Statping",
+			"source": {
+				"host": "github",
+				"path": "statping/statping",
+				"url": "https://github.com/statping/statping"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Go status page with a mobile-style UI and plugin system. Upstream has had no commit since July 2024, so take the statping-ng fork; no native SSO either.",
+				"fr": "Page de statut en Go avec UI façon mobile et plugins. Aucun commit en amont depuis juillet 2024, donc passez par le fork statping-ng; pas d’SSO natif non plus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CState",
+			"source": {
+				"host": "github",
+				"path": "cstate/cstate",
+				"url": "https://github.com/cstate/cstate"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Static Go generator emitting a zero-JS page deployable as a Git artifact. No runtime backend, but incidents only change on rebuild and monitoring stays external.",
+				"fr": "Générateur statique en Go qui produit une page sans JS, déployable en artefact Git. Pas de backend à l’exécution, mais les incidents ne bougent qu’à la reconstruction et la supervision reste externe."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Vigil",
+			"source": {
+				"host": "github",
+				"path": "valeriansaliou/vigil",
+				"url": "https://github.com/valeriansaliou/vigil"
+			},
+			"license": "MPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Rust monitoring with distributed probes and scripting, plus a polished UI. Smaller community and docs, no native SSO or team features, page polish below commercial tools.",
+				"fr": "Supervision en Rust avec sondes distribuées et scripting, plus une UI soignée. Communauté et docs réduites, pas d’SSO ni de fonctions équipe natives, finition en deçà des offres commerciales."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kener",
+			"source": {
+				"host": "github",
+				"path": "rajnandan1/kener",
+				"url": "https://github.com/rajnandan1/kener"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "React status page with incident management, public API and heavy configurability in one container. Single maintainer, browser-only, SSO needs an auth proxy.",
+				"fr": "Page de statut React avec gestion d’incidents, API publique et grande configurabilité, le tout dans un seul conteneur. Un seul mainteneur, uniquement navigateur, l’SSO exige un proxy d’authentification."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenStatus",
+			"source": {
+				"host": "github",
+				"path": "openstatusHQ/openstatus",
+				"url": "https://github.com/openstatusHQ/openstatus"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Multi-region monitors, incident timeline, public API and Slack/email alerts, self-hosted via compose. AGPL puts off some orgs, and self-hosting outweighs a single container.",
+				"fr": "Moniteurs multi-régions, chronologie d’incidents, API publique et alertes Slack/e-mail, auto-hébergeable en compose. L’AGPL rebute certaines orgs et l’auto-hébergement pèse plus lourd qu’un seul conteneur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OneUptime",
+			"source": {
+				"host": "github",
+				"path": "OneUptime/oneuptime",
+				"url": "https://github.com/OneUptime/oneuptime"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Observability suite whose status-page module covers probes, incidents, metrics and a public API. A real microservice cluster: k8s for production, overkill for a status page alone.",
+				"fr": "Suite d’observabilité dont le module page de statut couvre sondes, incidents, métriques et API publique. Un vrai cluster de microservices: k8s en production, surdimensionné pour une simple page de statut."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Statusnook",
+			"source": {
+				"host": "github",
+				"path": "goksan/statusnook",
+				"url": "https://github.com/goksan/statusnook"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "CLI/TUI you drive from the terminal, exporting a static page for any host. Quiet since late 2024, fewer features than full platforms, hosting still yours to sort out.",
+				"fr": "CLI/TUI pilotée depuis le terminal, qui exporte une page statique pour n’importe quel hébergeur. Calme depuis fin 2024, moins de fonctions que les vraies plateformes, l’hébergement reste à votre charge."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Monika",
+			"source": {
+				"host": "github",
+				"path": "hyperjumptech/monika",
+				"url": "https://github.com/hyperjumptech/monika"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "CLI synthetic monitor running HTTP/TCP/DNS probes that can serve its own status page. Page is secondary to monitoring: no team or incident workflow, alerting tuned for microservices.",
+				"fr": "Moniteur synthétique en CLI qui lance des sondes HTTP/TCP/DNS et peut servir sa propre page de statut. La page passe après la supervision: pas de workflow équipe ni incidents, alerting calibré pour les microservices."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

@@ -124,6 +124,190 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Matomo",
+			"source": {
+				"host": "github",
+				"path": "matomo-org/matomo",
+				"url": "https://github.com/matomo-org/matomo"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The proven GA alternative, self-hosted with a big plugin marketplace and on-prem data via SQL API. Still web-analytics-first, not a full CDP; premium plugins and SSO are paid.",
+				"fr": "L’alternative GA éprouvée en auto-hébergement, gros marché de plugins, données on-prem via API SQL. Reste de l’analyse web, pas un vrai CDP : plugins premium et SSO payants."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": false,
+				"dataResidency": "eu-option",
+				"paywalled": {
+					"en": "Advanced plugins and SSO",
+					"fr": "Plugins avancés et SSO"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Umami",
+			"source": {
+				"host": "github",
+				"path": "umami-software/umami",
+				"url": "https://github.com/umami-software/umami"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Installs in minutes and stays trivial to run. Privacy-first, cookie-free, with teams and a SQL API — but analytics only: no CDP, no identity layer, no mobile SDK.",
+				"fr": "S’installe en quelques minutes et reste trivial à maintenir. Privacy-first, sans cookies, équipes et API SQL — mais de l’analyse web uniquement : ni CDP, ni identité, ni SDK mobile."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Plausible",
+			"source": {
+				"host": "github",
+				"path": "plausible/analytics",
+				"url": "https://github.com/plausible/analytics"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Cookie-free, GDPR-clean tracking and a fully open Community Edition. The catch: it ships cloud features twice a year, funnels and SSO are premium, and there is no CDP or identity layer.",
+				"fr": "Tracking sans cookies, conforme GDPR, Community Edition entièrement ouverte. Le revers : cloud livré deux fois par an, entonnoirs et SSO premium, ni CDP ni identité."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": false,
+				"dataResidency": "eu-option",
+				"paywalled": {
+					"en": "Funnels, SSO and the sites API",
+					"fr": "Entonnoirs, SSO et API de sites"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Countly",
+			"source": {
+				"host": "github",
+				"path": "Countly/countly-server",
+				"url": "https://github.com/Countly/countly-server"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Analytics plus engagement — push, crash reporting, in-app feedback — fully on-prem. But the community edition is non-commercial, enterprise features cost, and the Node.js/MongoDB stack is heavy.",
+				"fr": "De l’analyse et de l’engagement — push, crash reporting, feedback in-app — entièrement on-prem. Mais l’édition communauté est non-commerciale, les fonctions enterprise sont payantes et la stack Node.js/MongoDB est lourde."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Advanced dashboards and enterprise features",
+					"fr": "Dashboards avancés et fonctions enterprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GoAccess",
+			"source": {
+				"host": "github",
+				"path": "allinurl/goaccess",
+				"url": "https://github.com/allinurl/goaccess"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Real-time log analysis in your terminal, zero setup, one C binary. It only reads server access logs though: no client-side tracking, no identity, and reports are per-request, not per-user.",
+				"fr": "Analyse de logs en temps réel dans le terminal, zéro config, un seul binaire C. Mais uniquement des logs serveur : pas de tracking client, ni identité, ni vues par utilisateur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GrowthBook",
+			"source": {
+				"host": "github",
+				"path": "growthbook/growthbook",
+				"url": "https://github.com/growthbook/growthbook"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Feature flags and A/B tests with CUPED and sequential stats, warehouse-native across 11 sources. You supply the event data: experimentation-first, not an event CDP, and no destination marketplace.",
+				"fr": "Feature flags et tests A/B avec stats CUPED et séquentielles, analytics warehouse-native sur 11 sources. À vous de fournir les données d’événements : l’expérimentation d’abord, pas un CDP d’événements, sans marketplace de destinations."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise features",
+					"fr": "Fonctionnalités enterprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ackee",
+			"source": {
+				"host": "github",
+				"path": "electerious/Ackee",
+				"url": "https://github.com/electerious/Ackee"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Privacy-first Node.js analytics with a GraphQL API — ideal when you want total control on a small site. The price: single-admin, a very minimal feature set, and no CDP or mobile SDKs.",
+				"fr": "Analytics Node.js privacy-first avec API GraphQL — parfait pour les petits sites qui veulent le contrôle total. Le prix : admin unique, fonctionnalités très minimales, ni CDP ni SDK mobile."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Shynet",
+			"source": {
+				"host": "github",
+				"path": "milesmcc/shynet",
+				"url": "https://github.com/milesmcc/shynet"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Privacy-friendly analytics that works without JavaScript, via a tracking pixel, deployable as a single container. The project is small though: limited features, low maintenance, no event CDP or mobile SDK.",
+				"fr": "Analytics privacy-friendly qui fonctionne sans JavaScript, via un pixel de suivi, déployable en un seul conteneur. Petit projet toutefois : peu de fonctionnalités, maintenance peu active, ni CDP d’événements ni SDK mobile."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

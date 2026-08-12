@@ -82,6 +82,174 @@
 				"en": "Usage-based and roughly an order of magnitude below ElevenLabs per hour of audio. No voice cloning and a handful of fixed voices.",
 				"fr": "Facturé à l’usage, environ dix fois moins cher qu’ElevenLabs par heure d’audio. Pas de clonage vocal et une poignée de voix fixes."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kokoro",
+			"source": {
+				"host": "github",
+				"path": "hexgrad/kokoro",
+				"url": "https://github.com/hexgrad/kokoro"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "An 82M-parameter model whose quality rivals big commercial TTS, installable in one pip command. No built-in voice cloning, and English is the focus.",
+				"fr": "Un modèle de 82M de paramètres dont la qualité rivalise avec les gros TTS commerciaux, installé en une commande pip. Pas de clonage vocal intégré, et l’anglais reste le focus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Coqui TTS",
+			"source": {
+				"host": "github",
+				"path": "coqui-ai/TTS",
+				"url": "https://github.com/coqui-ai/TTS"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The home of XTTS-v2, the reference zero-shot cloning model across 17+ languages, wrapped in library, server and CLI. The company is gone, so the project sits dormant and GPU helps.",
+				"fr": "La maison de XTTS-v2, clonage zero-shot multilingue en 17+ langues, livré en bibliothèque, serveur et CLI. La société a fermé, le projet est dormant, et un GPU est recommandé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Orpheus",
+			"source": {
+				"host": "github",
+				"path": "canopyai/Orpheus-TTS",
+				"url": "https://github.com/canopyai/Orpheus-TTS"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Expressive, emotion-driven narration with voice cloning behind an OpenAI-compatible API. The vLLM setup and GPU requirement make it the heaviest lift here.",
+				"fr": "Un narrateur expressif et émotionnel avec clonage vocal, servi par une API compatible OpenAI. Entre l’installation de vLLM et le GPU obligatoire, c’est le plus lourd à opérer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GPT-SoVITS",
+			"source": {
+				"host": "github",
+				"path": "RVC-Boss/GPT-SoVITS",
+				"url": "https://github.com/RVC-Boss/GPT-SoVITS"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Clones a voice from one minute of audio via a polished web UI and Docker image. Weights are not fully open, training wants a GPU, and the docs lean Chinese.",
+				"fr": "Clone une voix à partir d’une minute d’audio, via une interface web soignée et une image Docker. Poids pas entièrement ouverts, GPU requis pour l’entraînement, doc orientée chinois."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ChatTTS",
+			"source": {
+				"host": "github",
+				"path": "2noise/ChatTTS",
+				"url": "https://github.com/2noise/ChatTTS"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Lively, conversational prosody for chat and narration voices. AGPL and the usage terms block commercial embedding, and the model speaks English and Chinese only.",
+				"fr": "Une prosodie vive et conversationnelle pour voix de chat et de narration. L’AGPL et les conditions d’usage interdisent l’intégration commerciale ; l’anglais et le chinois seulement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenVoice",
+			"source": {
+				"host": "github",
+				"path": "myshell-ai/OpenVoice",
+				"url": "https://github.com/myshell-ai/OpenVoice"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Instant tone-color cloning that keeps the base model's accents, light enough for a CPU. It copies timbre, not full prosody, and there is no streaming API.",
+				"fr": "Clone instantané de timbre en gardant les accents du modèle de base, assez léger pour un CPU. Il ne copie que le timbre, pas la prosodie, et pas d’API de streaming."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Zonos",
+			"source": {
+				"host": "github",
+				"path": "Zyphra/Zonos",
+				"url": "https://github.com/Zyphra/Zonos"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "A 200k-hour multilingual model that matches the top commercial providers when served via vLLM. You need a GPU cluster, the weights are research-only, and there is no UI.",
+				"fr": "Un modèle multilingue entraîné sur 200k+ heures qui rivalise avec les meilleurs TTS commerciaux, servi via vLLM. Il exige un cluster GPU, des poids réservés à la recherche et pas d’interface."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "eSpeak NG",
+			"source": {
+				"host": "github",
+				"path": "espeak-ng/espeak-ng",
+				"url": "https://github.com/espeak-ng/espeak-ng"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "A dependency-free CLI that runs on anything and speaks 100+ languages, shipped in every distro's package manager. The voice is robotic: no cloning, no emotion.",
+				"fr": "Un binaire minuscule sans dépendance, présent dans tous les gestionnaires de paquets, qui parle 100+ langues sur n’importe quelle machine. La voix reste robotique : pas de clonage, pas d’émotion."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

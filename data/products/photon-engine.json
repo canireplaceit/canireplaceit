@@ -97,6 +97,216 @@
 					"fr": "Le clustering multi-nœuds et la montée en charge horizontale ne sont que dans Nakama Enterprise ; la version Apache-2.0 est mono-nœud."
 				}
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Lidgren.Network",
+			"source": {
+				"host": "github",
+				"path": "lidgren/lidgren-network-gen3",
+				"url": "https://github.com/lidgren/lidgren-network-gen3"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Canonical C# reliable-UDP, backbone of MonoGame networking, proven across hundreds of shipped indie titles. No commit since January 2021, so budget for self-maintenance. Replication and matchmaking are on you.",
+				"fr": "Le standard C# de l’UDP fiable, éprouvé dans des centaines de titres indie. Aucun commit depuis janvier 2021 : prévoyez d’en assurer la maintenance, réplication et matchmaking à la main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Forge Networking Remastered",
+			"source": {
+				"host": "github",
+				"path": "BeardedManStudios/ForgeNetworkingRemastered",
+				"url": "https://github.com/BeardedManStudios/ForgeNetworkingRemastered"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Archived upstream — no active maintenance. Server-authoritative Unity networking with a standalone headless server, RPCs and networked variables; the closest shape to Photon’s custom-server model. Unity-centric, WebGL unsupported.",
+				"fr": "Archivé en amont, plus aucune maintenance. Réseau Unity server-authoritative avec serveur headless autonome, RPC et variables réseau : le modèle le plus proche du serveur custom de Photon. Centré Unity, WebGL non supporté."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ENet",
+			"source": {
+				"host": "github",
+				"path": "lsalzman/enet",
+				"url": "https://github.com/lsalzman/enet"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Tiny C reliable-UDP transport, embedded in Godot and countless engines. Packets ordered, sequenced or unreliable; nothing else — no matchmaking, lobby or server framework, serialization by hand.",
+				"fr": "Transport UDP fiable en C, minuscule, embarqué dans Godot et d’innombrables engines. Paquets fiables, ordonnés ou non, et rien d’autre : ni matchmaking, ni lobby, ni framework serveur, sérialisation à la main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GameNetworkingSockets",
+			"source": {
+				"host": "github",
+				"path": "ValveSoftware/GameNetworkingSockets",
+				"url": "https://github.com/ValveSoftware/GameNetworkingSockets"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Valve’s production transport, the layer behind Dota 2 and CS:GO: reliable UDP framing with built-in encryption and optional Steam relay. C++ and complex; no matchmaking, and the relay leans on Steam.",
+				"fr": "Le transport de Valve, celui de Dota 2 et CS:GO : UDP fiable chiffré, avec relais Steam optionnel. C++ uniquement, API complexe, pas de matchmaking, et le relais dépend de Steam."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "yojimbo",
+			"source": {
+				"host": "github",
+				"path": "mas-bandwidth/yojimbo",
+				"url": "https://github.com/mas-bandwidth/yojimbo"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Glenn Fiedler’s server-authoritative layer on GameNetworkingSockets: replication, simulation, encryption out of the box. C++ desktop-first — mobile is DIY, and you invest in serialization before anything ships.",
+				"fr": "La couche server-authoritative de Glenn Fiedler par-dessus GameNetworkingSockets : réplication, simulation, chiffrement inclus. C++ orienté desktop, mobile à faire soi-même, et un gros investissement en sérialisation avant de livrer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GGRS",
+			"source": {
+				"host": "github",
+				"path": "gschup/ggrs",
+				"url": "https://github.com/gschup/ggrs"
+			},
+			"license": "MIT OR Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The open rollback standard for fighting games, in Rust with full wasm support. Deterministic P2P — no dedicated server. No server-authoritative mode, and matchmaking is yours to build.",
+				"fr": "La référence du rollback pour les jeux de combat, en Rust avec support wasm complet. P2P déterministe, sans serveur dédié. Pas de mode server-authoritative, matchmaking à construire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "KCP",
+			"source": {
+				"host": "github",
+				"path": "skywind3000/kcp",
+				"url": "https://github.com/skywind3000/kcp"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The reliable-UDP ARQ protocol behind major MMOs and MOBAs, with a C core and official bindings in 30-plus languages. Transport only: pair it with your own auth, matchmaking and tuning effort.",
+				"fr": "UDP fiable à base d’ARQ, le protocole des gros MMO et MOBA : cœur C, bindings officiels dans 30+ langages. Transport seulement — ajoutez auth, matchmaking, et un réglage fin qui demande du temps."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Netcode (netcode.io)",
+			"source": {
+				"host": "github",
+				"path": "mas-bandwidth/netcode",
+				"url": "https://github.com/mas-bandwidth/netcode"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Glenn Fiedler’s reference client-server UDP protocol: encrypted, reliable, spec-driven — the building block for custom engines. Pair it with yojimbo or similar; there’s no game layer and no P2P.",
+				"fr": "Le protocole client-serveur signé Glenn Fiedler : chiffré, fiable, piloté par spec, une brique pour engines custom. À combiner avec yojimbo ou équivalent — pas de couche de jeu, pas de P2P."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Open Match",
+			"source": {
+				"host": "github",
+				"path": "googleforgames/open-match",
+				"url": "https://github.com/googleforgames/open-match"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Google’s Kubernetes-native matchmaking, aimed at self-hosted server stacks: pluggable match functions, autoscaling, Agones integration. Requires Kubernetes and a real learning curve — matchmaking only, not transport.",
+				"fr": "Le matchmaking Kubernetes-native de Google pour les stacks auto-hébergées : match functions pluggables, autoscaling, intégration Agones. Exige Kubernetes et une vraie courbe d’apprentissage — du matchmaking, pas du transport."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Geckos.io",
+			"source": {
+				"host": "github",
+				"path": "geckosio/geckos.io",
+				"url": "https://github.com/geckosio/geckos.io"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "The browser-native Photon alternative: WebRTC data channels, encrypted by default, with first-class Phaser and JS support. Over WebRTC, not raw UDP, and the community is smaller than Photon’s.",
+				"fr": "L’alternative native navigateur à Photon : data channels WebRTC chiffrés par défaut, bien intégrés à Phaser et JS. Pas d’UDP brut — WebRTC seulement — et une communauté plus petite que Photon."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

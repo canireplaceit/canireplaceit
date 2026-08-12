@@ -72,6 +72,119 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "TACTIC",
+			"source": {
+				"host": "github",
+				"path": "Southpaw-TACTIC/TACTIC",
+				"url": "https://github.com/Southpaw-TACTIC/TACTIC"
+			},
+			"license": "EPL-1.0",
+			"effort": "docker",
+			"note": {
+				"en": "Python server for VFX asset and production management, running since 2008. Pipeline triggers and asset versioning included — pay in a dated UI and a steep setup, with a small community.",
+				"fr": "Serveur Python de gestion d’assets et de production VFX, actif depuis 2008. Moteur de pipeline et versioning des assets inclus — on paie en UI datée et installation ardue, communauté réduite."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CGRU",
+			"source": {
+				"host": "github",
+				"path": "CGRU/cgru",
+				"url": "https://github.com/CGRU/cgru"
+			},
+			"license": "LGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "A VFX pipeline suite rather than a focused tracker: Keeper manages assets, Afanasy schedules a render farm. Dated interfaces, and Windows builds get less maintenance.",
+				"fr": "Plus une suite de pipeline qu’un tracker dédié : Keeper gère les assets, Afanasy ordonnance la ferme de rendu. Interfaces datées, builds Windows moins suivis."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Prism",
+			"source": {
+				"host": "github",
+				"path": "PrismPipeline/Prism",
+				"url": "https://github.com/PrismPipeline/Prism"
+			},
+			"license": "LGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Tracks shots and assets on a shared drive, no central server — each artist installs a client. Needs a real filesystem, review is thin, and extra plugins cost money.",
+				"fr": "Suit plans et assets sur un dossier partagé, sans serveur central — chaque artiste installe son client. Il exige un vrai filesystem, la revue reste sommaire, et des plugins sont payants."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Extra DCC plugins",
+					"fr": "Plugins DCC supplémentaires"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenPype",
+			"source": {
+				"host": "github",
+				"path": "ynput/OpenPype",
+				"url": "https://github.com/ynput/OpenPype"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Archived upstream: read-only since September 2024 and superseded by Ayon. Before that, an MIT pipeline hub with tracking UI, DCC publishing and a MongoDB backend.",
+				"fr": "Archivé en amont : en lecture seule depuis septembre 2024, remplacé par Ayon. Avant ça, un hub de pipeline MIT avec UI de suivi, publication DCC et backend MongoDB."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ayon",
+			"source": {
+				"host": "github",
+				"path": "ynput/ayon-backend",
+				"url": "https://github.com/ynput/ayon-backend"
+			},
+			"license": "FSL-1.1-ALV2",
+			"effort": "docker",
+			"note": {
+				"en": "OpenPype’s successor, rebuilt around add-ons with a REST API and CLI, self-hostable. Young project with a small community, an involved add-on cluster, and a source-available license.",
+				"fr": "Successeur d’OpenPype, repensé autour d’add-ons, API REST et CLI, auto-hébergeable. Projet jeune, petite communauté, cluster d’add-ons lourd à monter, licence source-available."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Minor closed-source conveniences",
+					"fr": "Quelques commodités en source fermée"
+				}
+			}
 		}
 	],
 	"priority": 2

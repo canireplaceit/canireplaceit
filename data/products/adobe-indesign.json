@@ -61,6 +61,153 @@
 				"en": "A one-off purchase, no subscription, and typographically it is close to InDesign. It cannot open .indd files.",
 				"fr": "Un achat unique, sans abonnement, et typographiquement proche d’InDesign. Il ne peut pas ouvrir les fichiers .indd."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Typst",
+			"source": {
+				"host": "github",
+				"path": "typst/typst",
+				"url": "https://github.com/typst/typst"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Markup typesetting with built-in scripting and fast incremental PDF builds; no drag-and-drop, and the ecosystem trails LaTeX’s.",
+				"fr": "Composition en markup avec script intégré et compilation PDF incrémentale rapide ; pas de mise en page interactive, et l’écosystème reste plus jeune que celui de LaTeX."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SILE",
+			"source": {
+				"host": "codeberg",
+				"path": "sile-typesetter/sile",
+				"url": "https://codeberg.org/sile-typesetter/sile"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "TeX-grade typography driven by Lua scripting, but command-line only and a community small enough that docs run thin.",
+				"fr": "Qualité typographique classique de TeX, pilotée par des scripts Lua ; workflow en ligne de commande uniquement, et une communauté trop petite pour une documentation fournie."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Vivliostyle CLI",
+			"source": {
+				"host": "github",
+				"path": "vivliostyle/vivliostyle-cli",
+				"url": "https://github.com/vivliostyle/vivliostyle-cli"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Lays out HTML and CSS via Paged Media into print-ready PDFs, which buys you the web stack but no drag-and-drop, under AGPL.",
+				"fr": "Met en page du HTML/CSS via Paged Media pour produire des PDF imprimables : l’écosystème web en échange d’un layout piloté par CSS et de la licence AGPL."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "WeasyPrint",
+			"source": {
+				"host": "gitlab",
+				"path": "Kozea/WeasyPrint",
+				"url": "https://gitlab.com/Kozea/WeasyPrint"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Headless HTML/CSS rendering you script straight into CI; you give up any visual editing and stay inside CSS’s layout model.",
+				"fr": "Rendu HTML/CSS sans interface, scriptable dans vos pipelines CI ; en contrepartie, pas d’éditeur visuel et un modèle de mise en page limité au CSS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pandoc",
+			"source": {
+				"host": "github",
+				"path": "jgm/pandoc",
+				"url": "https://github.com/jgm/pandoc"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Converts between dozens of formats and powers markdown-to-PDF pipelines, but it never typesets itself — page design lands in your templates.",
+				"fr": "Convertisseur universel qui alimente les pipelines markdown-to-PDF, mais qui ne compose pas lui-même : la mise en page complexe retombe sur vos templates."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tectonic",
+			"source": {
+				"host": "github",
+				"path": "tectonic-typesetting/tectonic",
+				"url": "https://github.com/tectonic-typesetting/tectonic"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A self-contained LaTeX that fetches packages on demand for reproducible PDFs; you still carry full LaTeX complexity and zero live editing.",
+				"fr": "LaTeX autonome qui télécharge les paquets à la demande pour des PDF reproductibles ; il garde toute la complexité de LaTeX et aucune édition interactive."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pressbooks",
+			"source": {
+				"host": "github",
+				"path": "pressbooks/pressbooks",
+				"url": "https://github.com/pressbooks/pressbooks"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "A collaborative, self-hostable WordPress pipeline that exports EPUB, PDF and MOBI — but frames and pixel-level design are off the table.",
+				"fr": "Pipeline WordPress auto-hébergeable de production de livres, qui exporte EPUB, PDF et MOBI ; mais pas de mise en page par cadres ni de contrôle au pixel près."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

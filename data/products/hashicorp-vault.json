@@ -101,6 +101,253 @@
 				"en": "About $0.40 per secret per month with IAM and rotation built in. No transit encryption engine, no dynamic credentials for arbitrary backends, and it only works inside AWS.",
 				"fr": "Environ 0,40 $ par secret et par mois, avec IAM et rotation intégrés. Pas de moteur de chiffrement transit, pas d’identifiants dynamiques pour des backends arbitraires, et uniquement au sein d’AWS."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Vaultwarden",
+			"source": {
+				"host": "github",
+				"path": "dani-garcia/vaultwarden",
+				"url": "https://github.com/dani-garcia/vaultwarden"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "One Rust binary reimplements the Bitwarden server; official apps and CLI just work against it. No dynamic secrets, PKI or transit engines — it is a password store, not Vault.",
+				"fr": "Un binaire Rust réimplémente le serveur Bitwarden, les applis officielles fonctionnent telles quelles. Pas de secrets dynamiques, de PKI ni d’engines de transit : un coffre, pas Vault."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Conjur",
+			"source": {
+				"host": "github",
+				"path": "cyberark/conjur",
+				"url": "https://github.com/cyberark/conjur"
+			},
+			"license": "LGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "CyberArk’s open-source secrets service with policy-as-code and dynamic, rotated credentials. A Ruby server, so heavier ops than a single binary; the interesting scale features live in paid enterprise.",
+				"fr": "Le service de secrets open source de CyberArk : policy-as-code et identifiants dynamiques et rotatifs. Serveur Ruby, plus lourd qu’un binaire unique, et l’essentiel des fonctions avancées reste dans l’offre payante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Scale features, HA and enterprise support",
+					"fr": "Fonctions d’échelle, HA et support"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Passbolt",
+			"source": {
+				"host": "github",
+				"path": "passbolt/passbolt_api",
+				"url": "https://github.com/passbolt/passbolt_api"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted OpenPGP-encrypted team vault with a web UI, extension and CLI. But it manages passwords, not Vault-style engines, and SSO, LDAP and AD sit behind the paid Pro edition.",
+				"fr": "Coffre d’équipe auto-hébergé, chiffré OpenPGP, avec interface web, extension et CLI. Il gère des mots de passe, pas des engines façon Vault — SSO, LDAP et AD restent en Pro payant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "SSO, LDAP and AD integration",
+					"fr": "SSO, LDAP et AD"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gopass",
+			"source": {
+				"host": "github",
+				"path": "gopasspw/gopass",
+				"url": "https://github.com/gopasspw/gopass"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "GPG-encrypted secrets in a git repo you own, with a TUI and scriptable CLI. No server, API or dynamic secrets, and team keys still hinge on PGP, which many find fiddly.",
+				"fr": "GPG chiffre vos secrets dans un dépôt git que vous possédez, avec TUI et CLI. Pas de serveur, d’API ni de secrets dynamiques ; le partage d’équipe reste du PGP, souvent pénible."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "age",
+			"source": {
+				"host": "github",
+				"path": "FiloSottile/age",
+				"url": "https://github.com/FiloSottile/age"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "The clean file-encryption primitive SOPS builds on — audited, single-binary, X25519 plus ChaCha20-Poly1305. No store, sync or sharing; you own the keys and the workflow.",
+				"fr": "La primitive de chiffrement de fichiers sur laquelle SOPS s’appuie : audité, binaire unique, X25519 et ChaCha20-Poly1305. Ni stockage, ni synchronisation, ni partage — à vous les clés et le workflow."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "git-crypt",
+			"source": {
+				"host": "github",
+				"path": "AGWA/git-crypt",
+				"url": "https://github.com/AGWA/git-crypt"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Encrypts on commit, decrypts on checkout, driven by .gitattributes — secrets stay in git with no server. But access is GPG keys without granular revocation, and this never becomes a secret service.",
+				"fr": "Chiffre au commit, déchiffre au checkout, piloté par .gitattributes — les secrets restent dans git, sans serveur. L’accès tient à des clés GPG, sans révocation fine : jamais un service de secrets."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "step-ca",
+			"source": {
+				"host": "github",
+				"path": "smallstep/certificates",
+				"url": "https://github.com/smallstep/certificates"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Smallstep’s self-hosted ACME CA issuing and auto-renewing certs, with a CLI and cert-manager support. It covers only Vault’s PKI slice — no API keys or dynamic DB credentials — and insights/monitoring are paid.",
+				"fr": "CA ACME auto-hébergé de Smallstep : certificats émis et renouvelés, CLI et cert-manager inclus. Il couvre le PKI de Vault seulement — pas de clés d’API ni d’identifiants dynamiques — et insights/monitoring sont payants."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Insights and monitoring",
+					"fr": "Insights et monitoring"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Teleport",
+			"source": {
+				"host": "github",
+				"path": "gravitational/teleport",
+				"url": "https://github.com/gravitational/teleport"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "SSO-gated SSH, Kubernetes and database access with session recording and just-in-time certs. Heavier than a secrets-only server, and it does access control, not general secret engines.",
+				"fr": "Accès SSH, K8s et bases de données filtrés par SSO, avec enregistrement et certificats just-in-time. Voué au contrôle d’accès, pas aux engines de secrets — un cluster plus lourd qu’un serveur de secrets."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Advanced access features",
+					"fr": "Fonctions d’accès avancées"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Secretive",
+			"source": {
+				"host": "github",
+				"path": "maxgoedjen/secretive",
+				"url": "https://github.com/maxgoedjen/secretive"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "SSH keys live in the macOS Secure Enclave, unlocked by Touch ID — auto-detected by git and SSH. macOS only, and strictly SSH keys: no API tokens, secrets or dynamic credentials.",
+				"fr": "Clés SSH dans la Secure Enclave macOS, déverrouillées par Touch ID, repérées par git et SSH. macOS seulement — et rien que des clés SSH, pas de tokens, de secrets ni d’identifiants dynamiques."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Psono",
+			"source": {
+				"host": "github",
+				"path": "psono/psono-server",
+				"url": "https://github.com/psono/psono-server"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted team vault with client-side encryption — server, fileserver and web client all open. Zero-knowledge but password-manager-shaped, with a small community and a slower release cadence.",
+				"fr": "Coffre d’équipe auto-hébergé, chiffrement côté client — serveur, fileserver et client web ouverts. Zero-knowledge, mais gestionnaire de mots de passe, avec une petite communauté et des sorties plus lentes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Keywhiz",
+			"source": {
+				"host": "github",
+				"path": "square/keywhiz",
+				"url": "https://github.com/square/keywhiz"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Square’s archived secrets server — static secrets, group ACLs, a CLI and REST API, once scaled for Square. Archived since 2023: no fixes, no support, no new integrations, no dynamic or PKI engines.",
+				"fr": "Serveur de secrets archivé de Square : secrets statiques, ACL par groupe, CLI et API REST, tenu à l’échelle de Square. Archivé en 2023, sans correctifs ni support, ni engines dynamiques ou PKI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

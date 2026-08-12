@@ -80,6 +80,132 @@
 				"en": "Cross-cloud cost visibility with a free tier, and it sees the spend outside Kubernetes too. Less pod-level granularity than Kubecost.",
 				"fr": "Visibilité des coûts multi-cloud avec palier gratuit, et elle voit aussi les dépenses hors Kubernetes. Moins de granularité au niveau des pods que Kubecost."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Infracost",
+			"source": {
+				"host": "github",
+				"path": "infracost/infracost",
+				"url": "https://github.com/infracost/infracost"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Battle-tested CLI that prices Terraform at plan or diff time, with CI comments and multi-cloud pricing. Its estimates cover IaC planning, not live cluster runtime, and it needs cloud credentials to run.",
+				"fr": "CLI éprouvé qui chiffre l’infra Terraform au plan ou au diff, commentaires CI et tarifs multi-cloud. Il estime l’IaC planifiée, pas le runtime du cluster, et exige des identifiants cloud."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Goldilocks",
+			"source": {
+				"host": "github",
+				"path": "FairwindsOps/goldilocks",
+				"url": "https://github.com/FairwindsOps/goldilocks"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Recommends CPU and memory sizes per namespace via VPA, aiming at over-provisioned spend. It suggests, it does not allocate cost, and without VPA metrics it is noise.",
+				"fr": "Recommande tailles CPU/mémoire par namespace via VPA, pour tailler dans le gaspillage de surprovisionnement. Il conseille, il n’alloue pas le coût, et sans métriques VPA il ne vaut rien."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "kube-resource-report",
+			"source": {
+				"host": "github",
+				"path": "hjacobs/kube-resource-report",
+				"url": "https://github.com/hjacobs/kube-resource-report"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Archived upstream. Still works as a lightweight, Prometheus-backed HTML report of namespace usage and cost, but the snapshots are static — no live dashboard — and there was one maintainer.",
+				"fr": "Archivé côté amont. Il reste un générateur léger de rapport HTML, alimenté par Prometheus, usage et coût par namespace — mais instantané figé, pas de tableau de bord vivant, et un seul mainteneur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "kubectl-cost",
+			"source": {
+				"host": "github",
+				"path": "kubecost/kubectl-cost",
+				"url": "https://github.com/kubecost/kubectl-cost"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A kubectl plugin: namespace and deployment cost, right in the terminal, backed by OpenCost data. Querying is instant, but it is CLI-only — no dashboard or alerting — and needs OpenCost or Kubecost running.",
+				"fr": "Plugin kubectl : coût par namespace et deployment, dans le terminal, adossé à OpenCost. Instantané, mais pur CLI, sans tableau de bord ni alerting, et nécessite OpenCost ou Kubecost en service."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Cloud Carbon Footprint",
+			"source": {
+				"host": "github",
+				"path": "cloud-carbon-footprint/cloud-carbon-footprint",
+				"url": "https://github.com/cloud-carbon-footprint/cloud-carbon-footprint"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Cost plus carbon estimates across AWS, GCP and Azure — a wider finops lens than Kubecost. It is not Kubernetes-native and demands full cloud billing exports before it shows anything.",
+				"fr": "Estime coût et carbone sur AWS, GCP et Azure — un angle finops plus large que Kubecost. Pas natif Kubernetes, et exige l’export complet des factures cloud pour sortir quoi que ce soit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "kube-green",
+			"source": {
+				"host": "github",
+				"path": "kube-green/kube-green",
+				"url": "https://github.com/kube-green/kube-green"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "An operator that sleeps idle workloads out of hours, so it actually cuts spend instead of reporting it. The catch: scheduled unavailability, meant for non-production namespaces.",
+				"fr": "Opérateur qui met en sommeil les workloads inactifs hors horaires, coupant la facture au lieu de la chiffrer. La contrepartie : une indisponibilité programmée, pour de la non-production."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

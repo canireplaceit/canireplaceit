@@ -101,6 +101,178 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Headscale",
+			"source": {
+				"host": "github",
+				"path": "juanfont/headscale",
+				"url": "https://github.com/juanfont/headscale"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Open-source control plane that stands in for ZeroTier Central's coordination role, speaking Tailscale's protocol to all official clients. Nodes, keys, ACLs are CLI-managed; dashboard and clients come from Tailscale, not headscale.",
+				"fr": "Plan de contrôle open source reprenant la coordination de ZeroTier Central, parlant le protocole Tailscale aux clients officiels. Nœuds, clés, ACL en CLI ; tableau de bord et clients viennent de Tailscale."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tailscale",
+			"source": {
+				"host": "github",
+				"path": "tailscale/tailscale",
+				"url": "https://github.com/tailscale/tailscale"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Polished WireGuard mesh client; pair the open-source client with headscale and the stack is fully self-hosted. NAT traversal, DERP relays, apps on every platform, but the control plane stays proprietary without headscale.",
+				"fr": "Client maille WireGuard soigné ; couplez le client open source à headscale et tout s’auto-héberge. Traversée NAT, relais DERP, applis sur toutes les plateformes, mais le plan de contrôle reste propriétaire sans headscale."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "us-only",
+				"paywalled": {
+					"en": "Device limits and SSO",
+					"fr": "Limites d’appareils et SSO"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nebula",
+			"source": {
+				"host": "github",
+				"path": "slackhq/nebula",
+				"url": "https://github.com/slackhq/nebula"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Manual certificates, no dashboard, no dynamic ACL engine — the price of Slack's MIT mesh VPN. Lighthouse nodes handle discovery and relay; the node daemon is a single static binary.",
+				"fr": "Certificats manuels, pas de tableau de bord ni d’ACL dynamique : le prix du VPN maille MIT de Slack. Nœuds phares pour découverte et relais ; un seul binaire statique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "n2n",
+			"source": {
+				"host": "github",
+				"path": "ntop/n2n",
+				"url": "https://github.com/ntop/n2n"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Long-running P2P VPN, still on config files and a small community. Supernodes only handle discovery; edge daemons talk over encrypted P2P tunnels, light enough for embedded boxes.",
+				"fr": "Vieux VPN P2P, toujours géré par fichiers de config et une petite communauté. Les supernodes font juste la découverte ; les daemons edge forment des tunnels chiffrés, assez légers pour des boîtiers embarqués."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SoftEther VPN",
+			"source": {
+				"host": "github",
+				"path": "SoftEtherVPN/SoftEtherVPN",
+				"url": "https://github.com/SoftEtherVPN/SoftEtherVPN"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "A classic VPN server that speaks L2TP/IPsec and OpenVPN, with a browser admin console and built-in NAT — but hub-and-spoke, no zero-config mesh.",
+				"fr": "Un VPN classique qui parle L2TP/IPsec et OpenVPN, console d’admin dans le navigateur et NAT intégré — mais hub-and-spoke, pas de maille zéro-config."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ZeroTier Controller UI (ztncui)",
+			"source": {
+				"host": "github",
+				"path": "key-networks/ztncui",
+				"url": "https://github.com/key-networks/ztncui"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Browser UI for a self-hosted ZeroTier controller — networks, members, routes, plus a REST API. The closest drop-in to Central's dashboard, but untouched since August 2023.",
+				"fr": "Interface web pour un contrôleur ZeroTier auto-hébergé : réseaux, membres, routes, et une API REST. Le plus proche du tableau de bord de Central, mais plus aucune mise à jour depuis août 2023."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Firezone",
+			"source": {
+				"host": "github",
+				"path": "firezone/firezone",
+				"url": "https://github.com/firezone/firezone"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "WireGuard access platform run by Docker, with an admin portal for per-user policy and groups. More moving parts than a mesh — gateway plus manager — and full SSO sits behind the paid tier.",
+				"fr": "Plateforme d’accès WireGuard pilotée par Docker, avec portail d’admin pour politiques par utilisateur et groupes. Plus de pièces qu’un maille — passerelle plus manager — et le SSO complet reste derrière l’offre payante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenZiti",
+			"source": {
+				"host": "github",
+				"path": "openziti/ziti",
+				"url": "https://github.com/openziti/ziti"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Zero-trust overlay network keyed to identities rather than IPs, so some apps need an SDK or tunnel. Controller, routers and an edge tunnel with CLI plus console — heavier than a plain mesh.",
+				"fr": "Réseau overlay zero-trust indexé sur les identités, pas les IP : certaines applis exigent un SDK ou un tunnel. Contrôleur, routeurs et edge tunnel avec CLI et console — plus lourd qu’un simple maille."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

@@ -97,6 +97,174 @@
 				"en": "A quarter of the price for the broadcast half, streaming to YouTube or LinkedIn. No registration or attendance analytics.",
 				"fr": "Quatre fois moins cher pour la partie diffusion, vers YouTube ou LinkedIn. Pas d’inscription ni de statistiques de présence."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "LiveKit",
+			"source": {
+				"host": "github",
+				"path": "livekit/livekit",
+				"url": "https://github.com/livekit/livekit"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted WebRTC SFU — build a Livestorm-style product on it. Sub-second latency, SDKs for every platform, egress agents for recording. No turnkey webinar UI: you build room flows and plan TURN.",
+				"fr": "SFU WebRTC auto-hébergé, socle pour bâtir un produit façon Livestorm : latence sous la seconde, SDK partout, enregistrement via agents d’egress. Pas de webinaire clé en main, salles et TURN à construire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MiroTalk",
+			"source": {
+				"host": "github",
+				"path": "miroslavpejic85/mirotalk",
+				"url": "https://github.com/miroslavpejic85/mirotalk"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Closest OSS drop-in for Livestorm: guests join from a link, no install. Screen share, chat, whiteboard, recording, webhooks. P2P scales with participant bandwidth; mobile is PWA-only; no audience analytics.",
+				"fr": "Le remplaçant OSS de Livestorm le plus proche : invités rejoignent via un lien, sans installation. Partage d’écran, chat, enregistrement, webhooks. P2P plafonné par la bande passante, mobile en PWA, pas d’analytics."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Galène",
+			"source": {
+				"host": "github",
+				"path": "jech/galene",
+				"url": "https://github.com/jech/galene"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Tiny MIT videoconference server on modest hardware: one Go binary, no database for basic use. Streams to media servers, records. Minimalist — basic chat, no scheduling or analytics, sparse docs.",
+				"fr": "Minuscule serveur de visioconférence MIT sur matériel modeste : un binaire Go, sans base de données. Stream vers serveurs média, enregistrement. Minimaliste : chat sommaire, pas de planification ni d’analytics, docs rares."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenVidu",
+			"source": {
+				"host": "github",
+				"path": "OpenVidu/openvidu",
+				"url": "https://github.com/OpenVidu/openvidu"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted Apache-2.0 WebRTC platform for Livestorm-style browser studios: SDKs for web, iOS, Android, broadcast to YouTube and RTMP. You assemble the studio UX, the Kurento stack is heavy, enterprise features are paid.",
+				"fr": "Plateforme WebRTC Apache-2.0 auto-hébergée pour un studio navigateur façon Livestorm : SDK web, iOS, Android, diffusion YouTube et RTMP. UX du studio à assembler soi-même, pile Kurento lourde, fonctions entreprise payantes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SRS",
+			"source": {
+				"host": "github",
+				"path": "ossrs/srs",
+				"url": "https://github.com/ossrs/srs"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Battle-tested MIT streaming server for HLS, WebRTC, and RTMP ingest and delivery to thousands. A delivery backbone, not a product: no room UI, chat, or scheduling; config-heavy, largely Chinese docs.",
+				"fr": "Serveur de streaming MIT éprouvé : HLS, WebRTC et RTMP, diffusion à des milliers de spectateurs. Backbone, pas un produit : sans interface salle, chat ni planification, config lourde, docs en chinois."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OBS Studio",
+			"source": {
+				"host": "github",
+				"path": "obsproject/obs-studio",
+				"url": "https://github.com/obsproject/obs-studio"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Standard open-source desktop studio: unlimited scenes, sources, filters, transitions, streams to YouTube, Twitch, any RTMP target, WebSocket automation. Needs a capable local machine; no guest-invite, chat moderation, or audience analytics.",
+				"fr": "Studio desktop open-source de référence : scènes, sources, filtres, transitions illimités, streaming vers YouTube, Twitch, tout RTMP, automatisation WebSocket. Machine locale costaude requise, sans invitation de guests, modération de chat ni analytics."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gomuks",
+			"source": {
+				"host": "github",
+				"path": "gomuks/gomuks",
+				"url": "https://github.com/gomuks/gomuks"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Terminal-first Matrix client: E2EE chat, image previews, keyboard-driven rooms, invites, mentions, against your own Synapse or Dendrite. Text and voice only — no video from terminal, no audience/broadcast features.",
+				"fr": "Client Matrix terminal-first : chat E2EE, aperçus d’images, salles, invitations, mentions au clavier, sur votre Synapse ou Dendrite. Texte et voix seulement, pas de vidéo depuis le terminal, sans audience ni diffusion."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ssh-chat",
+			"source": {
+				"host": "github",
+				"path": "shazow/ssh-chat",
+				"url": "https://github.com/shazow/ssh-chat"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Attendees just run ssh chat@host — zero-install text chat from any terminal, with offline messages, history, and usernames in one small Go binary. Text-only: no audio, video, or files; terminal comfort required.",
+				"fr": "Simple ssh chat@host suffit : chat texte sans installation, messages hors ligne, historique, pseudos, un binaire Go. Texte seulement — ni audio, ni vidéo, ni fichiers ; il faut connaître le terminal."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

@@ -101,6 +101,258 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Socket.IO",
+			"source": {
+				"host": "github",
+				"path": "socketio/socket.io",
+				"url": "https://github.com/socketio/socket.io"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Default self-hosted realtime engine: rooms, namespaces, broadcast, the largest client ecosystem. A library, not a service — no presence, auth or replay; you run it inside your Node app.",
+				"fr": "Le moteur temps réel auto-hébergé par défaut : rooms, namespaces, broadcast, le plus gros écosystème de clients. Bibliothèque, pas service : ni présence, ni auth, ni replay ; à exécuter dans votre app Node."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Supabase Realtime",
+			"source": {
+				"host": "github",
+				"path": "supabase/realtime",
+				"url": "https://github.com/supabase/realtime"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "WebSocket channels, presence, broadcast and Postgres change streaming in one Apache-2.0 server. Auth is Postgres RLS-centric, not Pusher-style tokens; Elixir is heavy for pub/sub alone.",
+				"fr": "Canaux WebSocket, présence, broadcast et streaming des changements Postgres dans un serveur Apache-2.0. L’auth passe par les RLS de Postgres, pas des tokens ; Elixir reste lourd pour du simple pub/sub."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Fastly Pushpin",
+			"source": {
+				"host": "github",
+				"path": "fastly/pushpin",
+				"url": "https://github.com/fastly/pushpin"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "A reverse proxy that turns a plain HTTP backend into a realtime API via hold-then-release over GRIP. You still build the pub/sub yourself — no presence, history or admin console.",
+				"fr": "Un reverse proxy qui transforme un simple backend HTTP en API temps réel, hold-then-release via GRIP. Le pub/sub reste à construire : pas de présence, d’historique ni de console d’admin."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "uWebSockets",
+			"source": {
+				"host": "github",
+				"path": "uNetworking/uWebSockets",
+				"url": "https://github.com/uNetworking/uWebSockets"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The highest-throughput WebSocket library around — topics give you a pub/sub primitive, C++ or Node. A raw building block: no presence, auth, history or admin, and you assemble the service yourself.",
+				"fr": "La bibliothèque WebSocket au débit le plus élevé : topics en pub/sub, C++ ou Node. Un bloc de base : pas de présence, d’auth, d’historique ni d’admin ; service à assembler soi-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Phoenix Channels",
+			"source": {
+				"host": "github",
+				"path": "phoenixframework/phoenix",
+				"url": "https://github.com/phoenixframework/phoenix"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Erlang/OTP-scale pub/sub, presence and multiplexed WebSockets baked into the Phoenix framework. You adopt the whole Elixir/Phoenix stack — a framework, not a point solution.",
+				"fr": "Pub/sub à l’échelle d’Erlang/OTP, présence et WebSockets multiplexés dans le framework Phoenix. Vous adoptez toute la pile Elixir/Phoenix : un framework, pas une solution ponctuelle."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SocketCluster",
+			"source": {
+				"host": "github",
+				"path": "SocketCluster/socketcluster",
+				"url": "https://github.com/SocketCluster/socketcluster"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Standalone Node engine: channels, presence and a built-in load balancer for horizontal scaling. Smaller ecosystem than Socket.IO, everything custom-built, and updates have slowed since 2024.",
+				"fr": "Moteur Node autonome : canaux, présence et load balancer intégré pour le passage à l’échelle. Écosystème plus petit que Socket.IO, tout est maison, et les mises à jour ralentissent depuis 2024."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Laravel Websockets",
+			"source": {
+				"host": "github",
+				"path": "beyondcode/laravel-websockets",
+				"url": "https://github.com/beyondcode/laravel-websockets"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Archived, but still a useful proof: a pure-PHP Pusher-protocol server, drop-in for Laravel Broadcast. Choose Laravel Reverb for a maintained replacement; no multi-node clustering, presence limited to the Pusher surface.",
+				"fr": "Archivé, mais preuve utile : un serveur 100 % PHP compatible protocole Pusher, en drop-in pour Laravel Broadcast. Préférez Laravel Reverb, maintenu ; pas de clustering multi-nœuds, présence limitée à la surface Pusher."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "websocketd",
+			"source": {
+				"host": "github",
+				"path": "joewalnes/websocketd",
+				"url": "https://github.com/joewalnes/websocketd"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "One binary turns any command-line program’s stdin/stdout into a WebSocket endpoint — instant push from scripts. Point-to-point only: no channels, presence, auth or fan-out; fine for dev, not a production bus.",
+				"fr": "Un binaire transforme le stdin/stdout d’un programme en endpoint WebSocket : push instantané depuis vos scripts. Point à point : ni canaux, ni présence, ni auth ; bon en dev, pas en bus de production."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "websocat",
+			"source": {
+				"host": "github",
+				"path": "vi/websocat",
+				"url": "https://github.com/vi/websocat"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Swiss-army WebSocket CLI: connect with headers, auth and TLS, pipe between file, process, TCP and WebSocket for relays and tunnels. A client, not a server — no pub/sub channels or presence.",
+				"fr": "Couteau suisse WebSocket en CLI : connexion avec headers, auth et TLS, relais et tunnels en pipant entre fichier, process, TCP et WebSocket. Un client, pas un serveur : ni canaux pub/sub, ni présence."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "wscat",
+			"source": {
+				"host": "github",
+				"path": "websockets/wscat",
+				"url": "https://github.com/websockets/wscat"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Canonical WebSocket test client from the ws ecosystem: connect and exchange messages with any endpoint in one command. Test tool only — raw exchange, no scripting model, releases slowed since 2025.",
+				"fr": "Client de test WebSocket de référence, issu de l’écosystème ws : connexion et échange de messages avec n’importe quel endpoint. Outil de test seulement, sans scripting ; peu de releases depuis 2025."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ws",
+			"source": {
+				"host": "github",
+				"path": "websockets/ws",
+				"url": "https://github.com/websockets/ws"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The de-facto Node.js WebSocket library that everything else builds on — per-message deflate, ping/pong, no dependencies. Raw primitives: channels, presence and auth are yours to build.",
+				"fr": "La bibliothèque WebSocket Node.js de fait, sur laquelle tout le monde s’appuie : deflate par message, ping/pong, zéro dépendance. Primitives brutes : canaux, présence et auth sont à construire vous-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gorilla/websocket",
+			"source": {
+				"host": "github",
+				"path": "gorilla/websocket",
+				"url": "https://github.com/gorilla/websocket"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Most-used Go WebSocket library, proven in production proxies and gateways, with fine-grained frame control. Still a bare library: no channels, presence or auth, you assemble the service — upkeep now read-only.",
+				"fr": "La bibliothèque WebSocket Go la plus utilisée, éprouvée dans les proxies et passerelles de production. Simple bibliothèque : ni canaux, ni présence, ni auth ; service à assembler, maintenance en lecture seule."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

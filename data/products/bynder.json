@@ -76,6 +76,270 @@
 				"en": "Mid-market DAM at roughly half of Bynder's contract value. Still quote-only and still a per-seat contract.",
 				"fr": "DAM milieu de gamme à environ la moitié du contrat Bynder. Toujours sur devis et toujours par utilisateur."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "ResourceSpace",
+			"source": {
+				"host": "github",
+				"path": "resourcespace/resourcespace",
+				"url": "https://github.com/resourcespace/resourcespace"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "The most established self-hosted DAM, deployed by museums and enterprises. Full metadata, collections, workflows — but a dated PHP/MySQL stack, and some plugins and SSO sit behind paid ResourceSpace Cloud.",
+				"fr": "Le DAM open source le plus éprouvé, utilisé par musées et entreprises. Métadonnées, collections, workflows complets, mais stack PHP/MySQL datée et certains plugins et SSO réservés au payant ResourceSpace Cloud."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Plugins and SSO",
+					"fr": "Plugins et SSO"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PhotoPrism",
+			"source": {
+				"host": "github",
+				"path": "photoprism/photoprism",
+				"url": "https://github.com/photoprism/photoprism"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted photo library with AI auto-tagging, face recognition, and filters. Single-user by default — SSO and multi-user need the paid Plus tier, and there's no brand governance.",
+				"fr": "Bibliothèque photo auto-hébergée avec auto-tagging IA, reconnaissance faciale et filtres. Mono-utilisateur par défaut — SSO et multi-utilisateur exigent le Plus payant, et aucune gouvernance de marque."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "SSO and multi-user",
+					"fr": "SSO et multi-utilisateur"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Immich",
+			"source": {
+				"host": "github",
+				"path": "immich-app/immich",
+				"url": "https://github.com/immich-app/immich"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Fast photo/video DAM with official mobile and desktop apps, ML search, and OAuth. Consumer focus, no brand governance; moving fast enough that APIs break between releases.",
+				"fr": "DAM photo/vidéo rapide avec apps mobiles et desktop officielles, recherche ML et OAuth. Axé grand public, sans gouvernance de marque ; projet mouvant, API cassées entre deux versions."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Piwigo",
+			"source": {
+				"host": "github",
+				"path": "Piwigo/Piwigo",
+				"url": "https://github.com/Piwigo/Piwigo"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Long-lived self-hosted gallery with a large plugin and theme ecosystem, multilingual metadata, and official Android/iOS apps. Gallery-oriented — weaker DAM governance, older architecture and UI.",
+				"fr": "Galerie auto-hébergée à la longévité rare, gros écosystème de plugins et thèmes, métadonnées multilingues et apps Android/iOS officielles. Pensé galerie, pas DAM — gouvernance faible, architecture et UI vieillissantes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Lychee",
+			"source": {
+				"host": "github",
+				"path": "LycheeOrg/Lychee",
+				"url": "https://github.com/LycheeOrg/Lychee"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Trivial to deploy — one-command docker — with a clean UI, albums, sharing, and EXIF. The trade is a light feature set: no AI, no deep metadata, no official mobile apps.",
+				"fr": "Déploiement trivial — un seul conteneur docker — UI épurée, albums, partage, EXIF. En échange, fonctionnalités légères : pas d’IA, pas de métadonnées profondes, pas d’apps mobiles officielles."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "digiKam",
+			"source": {
+				"host": "gitlab",
+				"path": "graphics/digikam",
+				"url": "https://invent.kde.org/graphics/digikam"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Archived upstream. A single-user offline desktop DAM with raw import, tags, geolocation, face tagging, and batch metadata editing — no server, no web sharing.",
+				"fr": "Archivé en amont. DAM desktop hors ligne, mono-utilisateur : import raw, tags, géolocalisation, visages, édition de métadonnées en lot — pas de serveur, pas de partage web."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pimcore",
+			"source": {
+				"host": "github",
+				"path": "pimcore/pimcore",
+				"url": "https://github.com/pimcore/pimcore"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "PIM/DAM/CMS platform built around a combined asset and product data model, with versioning, thumbnails, and REST/GraphQL APIs. Expect a complex enterprise admin UI; SSO and enterprise features cost extra.",
+				"fr": "Plateforme PIM/DAM/CMS autour d’un modèle de données unifié asset et produit : versioning, vignettes, API REST/GraphQL. UI d’admin entreprise complexe ; SSO et fonctions entreprise payantes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "SSO and enterprise features",
+					"fr": "SSO et fonctions entreprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Paperless-ngx",
+			"source": {
+				"host": "github",
+				"path": "paperless-ngx/paperless-ngx",
+				"url": "https://github.com/paperless-ngx/paperless-ngx"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Document DAM: OCR, full-text search, rules-based auto-tagging, and email or folder ingestion. Built for PDFs and office files — not imagery, no collections or brand portals.",
+				"fr": "DAM centré documents : OCR, recherche plein texte, auto-classement par règles, ingestion par email ou dossier. Fait pour PDF et fichiers bureautiques, pas pour l’imagerie — ni collections ni portails de marque."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ExifTool",
+			"source": {
+				"host": "github",
+				"path": "exiftool/exiftool",
+				"url": "https://github.com/exiftool/exiftool"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The standard CLI for reading and writing EXIF, IPTC, and XMP across image, video, and audio formats, scriptable in pipelines. It's plumbing, not a DAM — no UI, no search, no collaboration.",
+				"fr": "CLI de référence pour lire et écrire EXIF, IPTC et XMP sur formats image, vidéo, audio, scriptable en pipeline. De la tuyauterie, pas un DAM : sans UI, sans recherche, sans collaboration."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gallery-dl",
+			"source": {
+				"host": "codeberg",
+				"path": "mikf/gallery-dl",
+				"url": "https://codeberg.org/mikf/gallery-dl"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "CLI importer that pulls from 800+ galleries and social sites into your library, with archive filters and filename templates. One-way import, not a management layer — and scraping may breach third-party ToS.",
+				"fr": "Importeur CLI qui déverse plus de 800 galeries et sites sociaux dans votre bibliothèque. À sens unique, pas une couche de gestion — et le scraping peut violer les CGU."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LibrePhotos",
+			"source": {
+				"host": "github",
+				"path": "LibrePhotos/librephotos",
+				"url": "https://github.com/LibrePhotos/librephotos"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Auto-organized self-hosted photo library with face recognition, event clustering, object detection, and an official Android app. The ML stack wants 8GB+ RAM, and iOS support is weak.",
+				"fr": "Bibliothèque photo auto-hébergée et auto-organisée : reconnaissance faciale, regroupement par événements, détection d’objets, app Android officielle. La stack ML exige 8 Go+ de RAM, et l’iOS est faible."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MediaGoblin",
+			"source": {
+				"host": "savannah",
+				"path": "gnu/mediagoblin",
+				"url": "https://savannah.gnu.org/projects/mediagoblin"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "GNU federated publishing over ActivityPub for photos, videos, audio, and docs, with OpenID. DAM-adjacent at best: release cadence is glacial, the community tiny, and the Python/WSGI stack deploys painfully.",
+				"fr": "Publication fédérée GNU via ActivityPub pour photos, vidéos, audio et documents, identité OpenID. Tout au plus voisin du DAM : cadence de sortie lente, communauté minuscule, stack Python/WSGI datée, déploiement douloureux."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

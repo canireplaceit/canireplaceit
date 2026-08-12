@@ -82,6 +82,132 @@
 				"en": "Cheaper, and the AI masking is good. Subscription-flavoured pricing with a perpetual option that keeps changing.",
 				"fr": "Moins cher, avec un bon masquage par IA. Tarification à saveur d’abonnement avec une option perpétuelle qui change sans cesse."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Real-ESRGAN",
+			"source": {
+				"host": "github",
+				"path": "xinntao/Real-ESRGAN",
+				"url": "https://github.com/xinntao/Real-ESRGAN"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "The standard open-source AI upscaler for real-world photos, also denoising and deblurring via BSRGAN weights. Batch CLI, prebuilt binary, Docker. No face recovery, no degradation auto-detection, GPU recommended. Dormant since 2024.",
+				"fr": "La référence open-source de l’upscaling IA de photos réelles, qui débruite et défloute via BSRGAN. CLI, binaire, Docker. Ni restauration de visages ni détection auto, le GPU reste conseillé. Dormant depuis 2024."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GFPGAN",
+			"source": {
+				"host": "github",
+				"path": "TencentARC/GFPGAN",
+				"url": "https://github.com/TencentARC/GFPGAN"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Face-restoration companion for Real-ESRGAN, filling the gap Topaz covers with face recovery. Blind face enhancement via CLI. Dormant since 2024, and it does faces only — no whole-image enhancement.",
+				"fr": "Le maillon restauration de visages qui complète un upscaler type Real-ESRGAN, en CLI. Que des visages, pas d’amélioration globale de l’image. Dormant depuis 2024."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Real-ESRGAN-ncnn-vulkan",
+			"source": {
+				"host": "github",
+				"path": "xinntao/Real-ESRGAN-ncnn-vulkan",
+				"url": "https://github.com/xinntao/Real-ESRGAN-ncnn-vulkan"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Prebuilt binaries for Windows, macOS and Linux make this the easiest way to run Real-ESRGAN. Vulkan-accelerated, no PyTorch dependency. Main model only, no face recovery. Dormant since 2024.",
+				"fr": "Des binaires précompilés Windows, macOS et Linux : la façon la plus simple de lancer Real-ESRGAN. Accélération Vulkan, sans PyTorch. Modèle principal uniquement, pas de visages. Dormant depuis 2024."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "waifu2x",
+			"source": {
+				"host": "github",
+				"path": "nagadomi/waifu2x",
+				"url": "https://github.com/nagadomi/waifu2x"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Lightweight CLI upscaler and denoiser with released models, CPU-friendly, MIT-licensed. Tuned for anime art, so photo quality trails ESRGAN. Dormant since 2023.",
+				"fr": "Upscaler et débruiteur CLI léger, modèles fournis, qui tourne même sans GPU, licence MIT. Conçu pour l’anime : en photo, le rendu reste en retrait face à l’ESRGAN. Dormant depuis 2023."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SwinIR",
+			"source": {
+				"host": "github",
+				"path": "JingyunLiang/SwinIR",
+				"url": "https://github.com/JingyunLiang/SwinIR"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Super-resolution, denoise and deblur in one transformer family, with released weights per task. Research-grade: no app or GUI, GPU required, models trained on benchmarks rather than consumer photos. Dormant since 2024.",
+				"fr": "Super-résolution, débruitage et défloutage dans une même famille de transformeurs, avec poids publiés par tâche. Aucune interface, GPU requis, modèles entraînés sur benchmarks plutôt que sur photos réelles. Dormant depuis 2024."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "darktable",
+			"source": {
+				"host": "github",
+				"path": "darktable-org/darktable",
+				"url": "https://github.com/darktable-org/darktable"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Open-source RAW processor whose wavelet and on-demand AI denoise plus sharpening cover Topaz’s non-upscale half. No AI upscaling, no one-click auto-enhance, and a steep learning curve.",
+				"fr": "Processeur RAW open-source dont le débruitage par ondelettes et IA à la demande, plus l’accentuation, couvre la moitié non-upscale de Topaz. Pas d’upscaling IA ni d’amélioration en un clic, courbe d’apprentissage raide."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

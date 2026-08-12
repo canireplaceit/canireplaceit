@@ -101,6 +101,186 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "MLflow",
+			"source": {
+				"host": "github",
+				"path": "mlflow/mlflow",
+				"url": "https://github.com/mlflow/mlflow"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The de-facto standard for tracking and registry, self-hostable and drop-in wherever experiments run. Default file store degrades at scale, so budget for Postgres.",
+				"fr": "Standard de facto du suivi d’expériences et du registre, auto-hébergeable et compatible partout. Le stockage fichier par défaut dégrade à l’échelle : prévoir Postgres."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dolt",
+			"source": {
+				"host": "github",
+				"path": "dolthub/dolt",
+				"url": "https://github.com/dolthub/dolt"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A MySQL-compatible database where tables branch, merge and diff like code. Drop-in for existing apps, but you must fit your data into a relational model.",
+				"fr": "Base SQL compatible MySQL où tables se commitent, se branchent et se mergent comme du code. Drop-in pour vos apps, mais vos données doivent tenir dans un modèle relationnel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ClearML",
+			"source": {
+				"host": "github",
+				"path": "clearml/clearml",
+				"url": "https://github.com/clearml/clearml"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The broadest open stack — tracking, datasets, queues and serving in one install. Heavier to run than focused tools, and some advanced features sit in the commercial edition.",
+				"fr": "La plus large suite open : tracking, datasets, files de tâches et serving en une seule install. Plus lourde que les outils ciblés, et certaines fonctions avancées restent en édition commerciale."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Advanced features",
+					"fr": "Fonctions avancées"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Determined AI",
+			"source": {
+				"host": "github",
+				"path": "determined-ai/determined",
+				"url": "https://github.com/determined-ai/determined"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Near-drop-in for TF and PyTorch training, with cluster scheduling, tracking and hyperparameter search built in. Only worthwhile on a real cluster, and releases have slowed since HPE.",
+				"fr": "Presque drop-in pour l’entraînement TF/PyTorch, avec planification de cluster, tracking et recherche d’hyperparamètres intégrés. Ne sert que sur un vrai cluster, rythme de sorties ralenti depuis HPE."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ZenML",
+			"source": {
+				"host": "github",
+				"path": "zenml-io/zenml",
+				"url": "https://github.com/zenml-io/zenml"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Composable pipelines whose steps are cached and versioned, with a pluggable stack of trackers and orchestrators. You write against it as a framework, and cloud conveniences lean on paid ZenML Cloud.",
+				"fr": "Pipelines composables, étapes mises en cache et versionnées, stack de trackers et d’orchestrateurs interchangeable. On écrit contre lui comme un framework ; le cloud pratique penche vers le ZenML Cloud payant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Cloud orchestration conveniences",
+					"fr": "Services d’orchestration cloud"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Evidently",
+			"source": {
+				"host": "github",
+				"path": "evidentlyai/evidently",
+				"url": "https://github.com/evidentlyai/evidently"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Solid drift detection and quality checks that ship as shareable HTML reports. It is a monitoring library, not a platform — you wire up the scheduling and alerting.",
+				"fr": "Détection de dérive solide et contrôles qualité livrés en rapports HTML partageables. C’est une bibliothèque de monitoring, pas une plateforme — câblez vous-même la planification et les alertes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "git-annex",
+			"source": {
+				"host": "other",
+				"path": "joeyh/git-annex",
+				"url": "https://git-annex.branchable.com/"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Keeps large datasets in git while content lives in any of dozens of remotes, S3 to encrypted. Content sits outside the repo, so annex sync discipline — and a steep CLI learning curve.",
+				"fr": "Garde les gros datasets dans git, le contenu vivant dans des dizaines de remotes, du S3 au chiffré. Hors du repo, il demande une discipline de sync annex et une CLI rude."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Hopsworks",
+			"source": {
+				"host": "github",
+				"path": "logicalclocks/hopsworks",
+				"url": "https://github.com/logicalclocks/hopsworks"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "An online/offline feature store with serving, jobs and registry in one multi-tenant platform. Deployment is heavy — Kubernetes and many services — and enterprise tiers are commercial open-core.",
+				"fr": "Feature store online/offline avec serving, jobs et registre dans une plateforme multi-tenant. Déploiement lourd — Kubernetes et beaucoup de services — et les niveaux entreprise relèvent de l’open-core commercial."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise-tier capabilities",
+					"fr": "Capacités niveau entreprise"
+				}
+			}
 		}
 	],
 	"priority": 2

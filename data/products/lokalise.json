@@ -103,6 +103,178 @@
 				"en": "An order of magnitude cheaper with a real free tier. Fewer integrations and no serious workflow automation.",
 				"fr": "Un ordre de grandeur moins cher, avec une vraie offre gratuite. Moins d’intégrations et pas de véritable automatisation des flux."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pontoon",
+			"source": {
+				"host": "github",
+				"path": "mozilla/pontoon",
+				"url": "https://github.com/mozilla/pontoon"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Mozilla’s own in-page localization UI, battle-tested at scale and free. VCS-backed stores, per-locale workflows. Setup is heavier than Lokalise’s, and the project discourages production Docker.",
+				"fr": "L’outil de localisation en page de Mozilla, gratuit et éprouvé à grande échelle, stockage via Git/HG. Setup plus lourd que Lokalise et Docker de production déconseillé par le projet."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pootle",
+			"source": {
+				"host": "github",
+				"path": "translate/pootle",
+				"url": "https://github.com/translate/pootle"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Django translation editor with offline PO round-trips and translation memory. Effectively dormant, seeking maintainers: Python2-era code makes installation painful and format coverage thin.",
+				"fr": "Éditeur de traduction Django avec aller-retour de fichiers PO hors ligne et mémoire de traduction. Dormant, recherche des mainteneurs : code hérité Python2, installation douloureuse, formats moins bien couverts."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MateCat",
+			"source": {
+				"host": "github",
+				"path": "matecat/MateCat",
+				"url": "https://github.com/matecat/MateCat"
+			},
+			"license": "LGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Open CAT for machine-translation post-editing, with TM, XLIFF and outsourcing. Aimed at documents, not app key-value strings — and a multi-service PHP stack to run.",
+				"fr": "CAT open-source pour la post-édition de traduction automatique, mémoire, XLIFF, sous-traitance. Vise les documents, pas les chaînes clé-valeur d’une app, et demande une pile PHP multi-services."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Zanata",
+			"source": {
+				"host": "github",
+				"path": "zanata/zanata-platform",
+				"url": "https://github.com/zanata/zanata-platform"
+			},
+			"license": "LGPL-2.1",
+			"effort": "docker",
+			"note": {
+				"en": "Red Hat’s web translation with TM, REST API and Maven/CLI clients for docs and software. Discontinued: no active development, a heavy Java/JBoss stack, and only experimental Docker.",
+				"fr": "Traduction web de Red Hat avec mémoire, API REST et clients Maven/CLI pour docs et logiciels. Abandonné : plus aucun développement actif, pile Java/JBoss lourde, Docker seulement expérimental."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OmegaT",
+			"source": {
+				"host": "github",
+				"path": "omegat-org/omegat",
+				"url": "https://github.com/omegat-org/omegat"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Desktop CAT with fuzzy matching, glossaries and a console mode for batch jobs — no server needed. But no web collaboration, no key-value management, and it wants a Java runtime.",
+				"fr": "CAT de bureau avec correspondances approximatives, glossaires et mode console pour les lots — sans serveur. Pas de collaboration web, pas de gestion clé-valeur, et il exige un runtime Java."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Translate Toolkit",
+			"source": {
+				"host": "github",
+				"path": "translate/translate",
+				"url": "https://github.com/translate/translate"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "CLI suite converting, counting and QA-checking gettext and XLIFF files, with 40+ checks and a Python API. No UI or collaboration — a file toolkit, not a platform.",
+				"fr": "Suite CLI pour convertir, compter et vérifier les fichiers gettext et XLIFF, 40+ contrôles, API Python. Ni UI ni collaboration : un outillage, pas une plateforme."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Fluent",
+			"source": {
+				"host": "github",
+				"path": "projectfluent/fluent",
+				"url": "https://github.com/projectfluent/fluent"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "FTL format with reference parsers and CLI tooling, powering Firefox; plurals, genders and variables live in the spec. It’s a spec, not a platform — you build the review workflow.",
+				"fr": "Format FTL avec son parser et outils CLI, qui fait tourner Firefox ; pluriels, genres et variables dans la spec. Une spec, pas une plateforme : à vous de construire outils et revue."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Crowdin CLI",
+			"source": {
+				"host": "github",
+				"path": "crowdin/crowdin-cli",
+				"url": "https://github.com/crowdin/crowdin-cli"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Open-source CLI pushing and pulling localization files in CI (GitHub/GitLab, new Bun rewrite). But it needs Crowdin SaaS — translations live in their cloud, so it complements, never replaces.",
+				"fr": "CLI open-source pour pousser et récupérer les fichiers de localisation en CI (GitHub/GitLab, réécriture Bun). Mais exige le SaaS Crowdin : les traductions vivent dans son cloud, un complément, pas un remplaçant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "unknown",
+				"paywalled": {
+					"en": "Minor: the platform half remains a paid SaaS.",
+					"fr": "Mineur : la plateforme reste un SaaS payant."
+				}
+			}
 		}
 	],
 	"priority": 3

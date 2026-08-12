@@ -87,6 +87,153 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "privacyIDEA",
+			"source": {
+				"host": "github",
+				"path": "privacyidea/privacyidea",
+				"url": "https://github.com/privacyidea/privacyidea"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted MFA server for FreeRADIUS — TOTP, WebAuthn, Yubikey, policy engine on users and tokens. No NAC or 802.1X enforcement, so it only matters behind a RADIUS front-end.",
+				"fr": "Serveur MFA autonome branché sur FreeRADIUS : TOTP, WebAuthn, Yubikey, moteur de politique sur utilisateurs et jetons. Pas de NAC ni d’802.1X : il ne sert qu’en amont d’un front RADIUS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "daloradius",
+			"source": {
+				"host": "github",
+				"path": "lirantal/daloradius",
+				"url": "https://github.com/lirantal/daloradius"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Web admin for FreeRADIUS users, groups, billing and hotspot plans — the ISE admin-panel story. UI only: it sits on FreeRADIUS, a PHP codebase kept alive by the community.",
+				"fr": "GUI d’administration pour FreeRADIUS : utilisateurs, groupes, facturation, plans hotspot — le panneau d’admin façon ISE. Simple interface : elle dépend de FreeRADIUS et d’un code PHP maintenu par la communauté."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "tac_plus-ng",
+			"source": {
+				"host": "github",
+				"path": "MarcJHuber/event-driven-servers",
+				"url": "https://github.com/MarcJHuber/event-driven-servers"
+			},
+			"license": "BSD-4-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "TACACS+ daemon for network-device admin: per-user privilege levels, ACL rules, PAM backends. Covers ISE's TACACS+ side and little else — no 802.1X, no dashboard, and a BSD-4-Clause that GPL projects avoid.",
+				"fr": "Démon TACACS+ pour l’admin des équipements : privilèges et ACL par utilisateur, backends PAM. Couvre le volet TACACS+ d’ISE, pas plus — ni 802.1X, ni tableau de bord, BSD-4 qui rebute les projets GPL."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "radsecproxy",
+			"source": {
+				"host": "github",
+				"path": "radsecproxy/radsecproxy",
+				"url": "https://github.com/radsecproxy/radsecproxy"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "RADIUS/TACACS+ over TLS, multi-hop chains for federated eduroam-style AAA, client/server certificate auth. Transport only: no policy, no user store — point it at FreeRADIUS to mean anything.",
+				"fr": "RADIUS/TACACS+ chiffré en TLS, chaînes multi-hop pour du AAA fédéré style eduroam, certifiats TLS client/serveur. Transport seulement : ni politique ni magasin d’utilisateurs — il ne vaut qu’adossé à FreeRADIUS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pyrad",
+			"source": {
+				"host": "github",
+				"path": "pyradius/pyrad",
+				"url": "https://github.com/pyradius/pyrad"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Python library for RADIUS packets — client/server classes, example servers, CLI. Not a product: you build the policy and the UI yourself, but it glues custom AAA into scripts cleanly.",
+				"fr": "Bibliothèque Python de paquets RADIUS : classes client/serveur, serveurs d’exemple, CLI. Pas un produit — politique et UI restent à écrire, mais l’AAA maison se branche proprement dans vos scripts."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "wifidog",
+			"source": {
+				"host": "github",
+				"path": "wifidog/wifidog-gateway",
+				"url": "https://github.com/wifidog/wifidog-gateway"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Captive portal gateway with RADIUS auth for guest onboarding — token flows, traffic redirection, MAC allowlist. The splash page only: pair it with a policy backend, and it's community-maintained.",
+				"fr": "Passerelle de portail captif avec auth RADIUS pour l’onboarding invité : jetons, redirection, liste blanche MAC. Juste la page de garde — à associer à un backend de politique, maintenance communautaire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CoovaChilli",
+			"source": {
+				"host": "github",
+				"path": "coova/coova-chilli",
+				"url": "https://github.com/coova/coova-chilli"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Hotspot and captive portal controller: RADIUS AAA, session accounting, per-user VLAN assignment, runs on OpenWrt. An edge daemon — it needs a RADIUS policy backend and lacks ISE's profiling or posture.",
+				"fr": "Contrôleur de hotspot et portail captif : AAA RADIUS, comptabilité de session, VLAN par utilisateur, tourne sur OpenWrt. Démon de bordure — sans backend RADIUS il ne fait rien, pas de profiling ni posture."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

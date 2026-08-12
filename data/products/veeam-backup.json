@@ -97,6 +97,178 @@
 				"en": "Unlimited per-machine backup at a flat price, restore-by-mail included. Endpoints only — no servers, no VMs, no application-consistent database snapshots.",
 				"fr": "Sauvegarde illimitée par machine à prix fixe, restauration par courrier incluse. Postes de travail uniquement — pas de serveurs, pas de VM, pas d’instantanés de base cohérents applicatifs."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Proxmox Backup Server",
+			"source": {
+				"host": "github",
+				"path": "proxmox/proxmox-backup",
+				"url": "https://github.com/proxmox/proxmox-backup"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Closest free-OSS analog to Veeam's core job: incremental-forever image backups with dedup, compression and encrypted off-site sync. Dormant since June 2024. Only backs up Proxmox VE guests, from a dedicated appliance.",
+				"fr": "L’analogue libre le plus proche du cœur de Veeam : sauvegardes image incrémentales à durée illimitée, déduplication, compression et sync chiffrée hors site. Dormant depuis juin 2024. Ne sauvegarde que les invités Proxmox VE, via un serveur dédié."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Bareos",
+			"source": {
+				"host": "github",
+				"path": "bareos/bareos",
+				"url": "https://github.com/bareos/bareos"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Bacula's better-maintained fork: director, scheduler and catalog with native Windows/Linux daemons. Steep director/storage/file-daemon config, and file-level only — no native VM image backup.",
+				"fr": "Fork mieux maintenu de Bacula : directeur, planificateur et catalogue, avec des démons natifs Windows/Linux. Configuration lourde (directeur, stockage, file daemon) et niveau fichier uniquement — pas de sauvegarde d’image VM native."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "BackupPC",
+			"source": {
+				"host": "github",
+				"path": "backuppc/backuppc",
+				"url": "https://github.com/backuppc/backuppc"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Agentless network backups over rsync/ssh with dedup pooled across every host. File-level only — no whole-VM images or bare-metal restore, and the Perl stack is aging.",
+				"fr": "Sauvegardes réseau sans agent via rsync/ssh, avec déduplication mutualisée sur tout le parc. Niveau fichier seulement — pas d’image VM ni de restauration bare-metal, et le code Perl vieillit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "UrBackup",
+			"source": {
+				"host": "github",
+				"path": "uroni/urbackup_backend",
+				"url": "https://github.com/uroni/urbackup_backend"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "VSS image-level Windows backups alongside plain file backups, run from a central web UI. Needs an agent per machine, image restore is whole-disk only, and the ecosystem is smaller than Veeam-class.",
+				"fr": "Sauvegardes Windows niveau image (VSS) en plus des fichiers, pilotées depuis une interface web centrale. Nécessite un agent par machine, restauration d’image disque entier seulement, écosystème plus modeste que le Veeam."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Duplicati",
+			"source": {
+				"host": "github",
+				"path": "duplicati/duplicati",
+				"url": "https://github.com/duplicati/duplicati"
+			},
+			"license": "LGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Encrypted, deduplicated backups straight to S3, B2, Azure, Google Drive and more from a browser UI. File-level only, occasional restore-path bugs on large archives, and no fleet management.",
+				"fr": "Sauvegardes chiffrées et dédupliquées directement vers S3, B2, Azure, Google Drive et autres, via une interface navigateur. Niveau fichier uniquement, bugs de restauration sporadiques sur gros volumes, et pas de gestion de parc."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Burp",
+			"source": {
+				"host": "github",
+				"path": "grke/burp",
+				"url": "https://github.com/grke/burp"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Scheduler-free client/server backups with hash-plus-delta dedup and end-to-end TLS. CLI and daemon only — no official web UI — and file-level, not VM images.",
+				"fr": "Sauvegardes client/serveur sans planificateur, déduplication hash + delta et TLS de bout en bout. CLI et démon seulement, sans interface web officielle, et niveau fichier plutôt qu’images VM."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Amanda (Advanced Maryland Automatic Network Disk Archiver)",
+			"source": {
+				"host": "github",
+				"path": "zmanda/amanda",
+				"url": "https://github.com/zmanda/amanda"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Decades-old enterprise backup server: central scheduler, cross-platform agents, tape and disk archives. Dormant since January 2024, no modern web UI in the community edition, and file-level only.",
+				"fr": "Serveur de sauvegarde d’entreprise vieux de plusieurs décennies : planificateur central, agents multiplateformes, archives bande et disque. Dormant depuis janvier 2024, pas d’interface web moderne en édition communautaire, niveau fichier seulement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Xen Orchestra",
+			"source": {
+				"host": "github",
+				"path": "vatesfr/xen-orchestra",
+				"url": "https://github.com/vatesfr/xen-orchestra"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Veeam-style VM backup and continuous replication for XCP-ng/XenServer, restored from a web UI. Protects only that hypervisor — no VMware, Hyper-V or bare metal — and the best features sit in paid XOA.",
+				"fr": "Sauvegarde VM et réplication continue façon Veeam pour XCP-ng/XenServer, restauration depuis une interface web. Ne protège que cet hyperviseur — pas de VMware, Hyper-V ni bare-metal — et les meilleures fonctions sont dans la XOA payante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Advanced features gated to paid XOA",
+					"fr": "Fonctions avancées réservées à la XOA payante"
+				}
+			}
 		}
 	],
 	"priority": 3

@@ -128,6 +128,178 @@
 				"en": "Buy the numbers and recording directly and write the twenty lines of insertion script. You lose the reporting UI and the attribution model.",
 				"fr": "Achetez les numéros et l’enregistrement en direct et écrivez les vingt lignes de script d’insertion. Vous perdez l’interface de rapports et le modèle d’attribution."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "FreeSWITCH",
+			"source": {
+				"host": "github",
+				"path": "signalwire/freeswitch",
+				"url": "https://github.com/signalwire/freeswitch"
+			},
+			"license": "MPL-1.1",
+			"effort": "ops",
+			"note": {
+				"en": "High-capacity softswitch with built-in call recording and CDR — the engine under jambonz and most self-hosted call tracking. XML config is complex, there's no analytics dashboard, and operating it takes real effort.",
+				"fr": "Softswitch haute capacité avec enregistrement d’appels et CDR intégrés — le moteur de jambonz et de la plupart des suivis d’appels auto-hébergés. Config XML complexe, aucun dashboard d’analytique, et une vraie charge d’exploitation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kamailio",
+			"source": {
+				"host": "github",
+				"path": "kamailio/kamailio",
+				"url": "https://github.com/kamailio/kamailio"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Open SIP router/proxy that maps campaign numbers to agents and emits the call data CallRail tracks. It's routing core only — no media, no UI, just config — so you build the tracking glue.",
+				"fr": "Routeur/proxy SIP qui mappe les numéros de campagne vers les agents et émet les données que CallRail suit. Uniquement du routage, pas de média ni d’UI : le câblage du suivi vous revient."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FusionPBX",
+			"source": {
+				"host": "github",
+				"path": "fusionpbx/fusionpbx",
+				"url": "https://github.com/fusionpbx/fusionpbx"
+			},
+			"license": "MPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "FreeSWITCH management platform with web CDR, call recording and per-domain numbers — the closest all-in-one PBX for call tracking. But no marketing attribution, community-driven updates, and still no packaged analytics.",
+				"fr": "Plateforme de gestion FreeSWITCH avec CDR web, enregistrement d’appels et numéros par domaine — le tout-en-un le plus proche du tracking d’appels. Pas d’attribution marketing, pas d’analytique packagée, des mises à jour communautaires."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Fonoster",
+			"source": {
+				"host": "github",
+				"path": "fonoster/fonoster",
+				"url": "https://github.com/fonoster/fonoster"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "A self-hostable base for call tracking: MIT Twilio-style voice/SMS API with numbers, recording and gRPC control. Young project with API churn, no analytics; SIP trunk and media server are yours to supply.",
+				"fr": "Base auto-hébergeable de tracking d’appels : API MIT façon Twilio pour voix et SMS, numéros, enregistrement et contrôle gRPC. Projet jeune, API instable, pas d’analytique ; trunk SIP et serveur média à fournir."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ViciDial",
+			"source": {
+				"host": "github",
+				"path": "vicidial/vicidial",
+				"url": "https://github.com/vicidial/vicidial"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Call-center suite with predictive dialing, campaign tracking, call recording and live wallboards, purpose-built for sales outreach. Dormant since April 2023 — dated UI, heavy multi-server deployment, no attribution layer.",
+				"fr": "Suite complète de centre d’appels avec prédialer, tracking de campagnes, enregistrement et wallboards en direct, conçue pour la prospection. Aucun commit depuis avril 2023 — UI datée, déploiement multi-serveur lourd, aucune couche d’attribution."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kazoo",
+			"source": {
+				"host": "github",
+				"path": "2600hz/kazoo",
+				"url": "https://github.com/2600hz/kazoo"
+			},
+			"license": "MPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Carrier-grade telecom platform with call recording, CDR, IVR, conference and REST APIs for building tracking apps. Big Erlang/FreeSWITCH footprint, hard ops, and some GUI parts are paid 2600Hz products.",
+				"fr": "Plateforme télécom carrier-grade avec enregistrement d’appels, CDR, IVR, conférence et API REST pour bâtir des apps de tracking. Grosse empreinte Erlang/FreeSWITCH, ops dures, certaines interfaces sont des produits 2600Hz payants."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "GUI pieces behind paid 2600Hz products",
+					"fr": "briques d’UI derrière des produits 2600Hz payants"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "sngrep",
+			"source": {
+				"host": "github",
+				"path": "irontec/sngrep",
+				"url": "https://github.com/irontec/sngrep"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Not a tracker: no recording, no analytics, and it needs packet-capture access — it's the diagnostic TUI that live-traces SIP/RTP calls and exports PCAP.",
+				"fr": "Pas un tracker : ni enregistrement ni analytique, et il faut la capture de paquets — c’est le TUI de diagnostic qui trace en direct les appels SIP/RTP et exporte en PCAP."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SIPp",
+			"source": {
+				"host": "github",
+				"path": "SIPp/sipp",
+				"url": "https://github.com/SIPp/sipp"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "CLI SIP call generator and load tester — proves your tracking numbers, dialer and trunks actually handle the traffic. A test tool only: no tracking, no analytics, and scenarios are written by hand.",
+				"fr": "Générateur d’appels SIP et testeur de charge en CLI — vérifie que vos numéros, dialer et trunks encaissent le trafic. Outil de test uniquement : ni tracking ni analytique, scénarios écrits à la main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

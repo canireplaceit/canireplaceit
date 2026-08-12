@@ -16,6 +16,7 @@ import { CONTACT_EMAIL, REPO } from "./contribute";
 import type { Key, Lang } from "./i18n";
 import { Link } from "./nav";
 import { SponsorStats } from "./SponsorStats";
+import { type Crumb, Trail } from "./shell";
 
 const TERMS = SPONSOR_TERMS.map((term) => ({
 	...term,
@@ -28,6 +29,9 @@ type TC = (v: { en: string }) => string;
 // Not every deploy carries every placement; AdsSection filters this against
 // the placements actually present in `slots`, so it only fixes tab order.
 const TAB_ORDER = ["hero", "rail", "category"] as const;
+
+/** Indexed by step number − 1; see the `at` clamp in AdsSection. */
+const STEP_LABELS: Key[] = ["ads.step1", "ads.step2", "ads.step3"];
 
 const PLACEMENT_LABEL: Record<string, Key> = {
 	rail: "ads.chipRail",
@@ -132,6 +136,7 @@ const Section = ({
 	tinted,
 	headingHidden,
 	headingLevel = "h2",
+	trail,
 }: {
 	id: string;
 	eyebrow: string;
@@ -144,38 +149,74 @@ const Section = ({
 	headingHidden?: boolean;
 	/** "h1" for callers that own the whole document (sponsor, submit, contact). */
 	headingLevel?: "h1" | "h2";
-}) => (
-	<section
-		id={id}
-		className={tinted ? "border-y border-border bg-surface" : undefined}
-	>
-		<div
-			className={`mx-auto max-w-4xl px-4 ${headingHidden ? "py-12" : "py-20"}`}
-		>
+	/**
+	 * Set only by the three callers that ARE a page. It turns the heading block
+	 * into the same banded page head every other route renders, so a reader
+	 * landing on `/en/sponsor` gets the wayfinding the catalogue pages have
+	 * rather than a headline floating on the background.
+	 */
+	trail?: Crumb[];
+}) => {
+	const head = (
+		<>
 			<div className={headingHidden ? "sr-only" : undefined}>
-				<p
-					className="font-mono text-[10px] uppercase tracking-[0.2em]"
-					style={{ color: "var(--accent)" }}
-				>
+				{trail && !headingHidden && (
+					<div className="mb-4">
+						<Trail items={trail} />
+					</div>
+				)}
+				<p className="eyebrow" style={{ color: "var(--accent)" }}>
 					{eyebrow}
 				</p>
 				{headingLevel === "h1" ? (
-					<h1 className="mt-3 font-bold font-display text-3xl tracking-tight">
+					<h1 className="mt-3 text-balance font-bold font-display text-[clamp(1.65rem,1.15rem+2vw,2.4rem)] leading-[1.15]">
 						{title}
 					</h1>
 				) : (
-					<h2 className="mt-3 font-bold font-display text-3xl tracking-tight">
-						{title}
-					</h2>
+					<h2 className="mt-3 font-bold font-display text-3xl">{title}</h2>
 				)}
 			</div>
 			{blurb && !headingHidden && (
-				<p className="mt-3 max-w-2xl text-pretty text-muted">{blurb}</p>
+				<p className="mt-3 max-w-2xl text-pretty text-muted leading-relaxed">
+					{blurb}
+				</p>
 			)}
-			{children}
-		</div>
-	</section>
-);
+		</>
+	);
+
+	// Banded: the head spans the window while its text stays on the body's
+	// measure. Unbanded: exactly what this component always rendered.
+	if (trail)
+		return (
+			<section id={id}>
+				{!headingHidden && (
+					<div className="page-head">
+						<div className="mx-auto max-w-4xl px-4 pt-5 pb-8 sm:pt-6 sm:pb-10">
+							{head}
+						</div>
+					</div>
+				)}
+				<div className="mx-auto max-w-4xl px-4 pt-8 pb-20">
+					{headingHidden && head}
+					{children}
+				</div>
+			</section>
+		);
+
+	return (
+		<section
+			id={id}
+			className={tinted ? "border-y border-border bg-surface" : undefined}
+		>
+			<div
+				className={`mx-auto max-w-4xl px-4 ${headingHidden ? "py-12" : "py-20"}`}
+			>
+				{head}
+				{children}
+			</div>
+		</section>
+	);
+};
 
 export function AdsSection({
 	onPurchased,
@@ -228,6 +269,8 @@ export function AdsSection({
 			"hero",
 	);
 	const [categoryQuery, setCategoryQuery] = useState("");
+	/** Wizard position. Clamped by `at` below — never read this directly. */
+	const [step, setStep] = useState(1);
 
 	// biome-ignore lint/correctness/useExhaustiveDependencies: fires once per collected creative
 	useEffect(() => {
@@ -489,238 +532,327 @@ export function AdsSection({
 	const undiscountedCents = orderUndiscountedCents(rates, months);
 	const saving = undiscountedCents - totalCents;
 
+	// Steps 2 and 3 price and describe a selection, so an empty basket has
+	// nothing for them to show — the summary's own remove buttons can empty it.
+	const at = chosen.length === 0 ? 1 : step;
+	// Everything after the money has moved replaces the wizard rather than
+	// appearing under it: the buyer is done choosing.
+	const settled = buy.step === "done" || buy.step === "creative";
+
 	return (
 		<Section
 			id="sponsor"
 			eyebrow={t("ads.eyebrow")}
 			title={t("ads.title")}
 			blurb={t("ads.blurb")}
-			tinted
 			headingLevel="h1"
+			trail={[
+				{ label: t("page.home"), href: paths.home(lang) },
+				{ label: t("nav.sponsor") },
+			]}
 		>
-			<p className="mt-4 font-mono text-sm" style={{ color: "var(--accent)" }}>
-				{open}/{slots.length} {t("ads.availableCount")}
-			</p>
-			{unpriced > 0 && (
-				<p className="mt-1 text-xs text-muted">
-					{unpriced} {t("ads.unpricedNote")}
-				</p>
-			)}
-
-			<SponsorStats stats={adStats} t={t} lang={lang} />
-
-			<p className="mt-6 text-sm text-muted">{t("ads.pickRule")}</p>
-			{swapped && (
-				<p className="mt-1 text-xs" style={{ color: "var(--accent)" }}>
-					{t(swapKey(swapped.placement)).replace("{label}", swapped.label)}
-				</p>
-			)}
-
-			<div className="mt-4 flex flex-wrap items-center gap-2">
-				{chips.map((chip, i) => (
-					<span
-						// biome-ignore lint/suspicious/noArrayIndexKey: two category chips are identical and unordered — the index is the only thing that tells them apart.
-						key={`${chip.placement}-${i}`}
-						className="rounded-full border px-2.5 py-1 text-xs"
-						style={{
-							borderColor: chip.filled
-								? "var(--accent)"
-								: "var(--color-border)",
-							color: chip.filled ? "var(--accent)" : "var(--muted)",
-						}}
-					>
-						{chip.filled ? "✓" : "+"} {t(PLACEMENT_LABEL[chip.placement])}
-					</span>
-				))}
-				<span className="nums text-xs text-muted">
-					{t("ads.chosenCount")
-						.replace("{n}", String(chosen.length))
-						.replace("{max}", String(ORDER_MAX_SLOTS))}
-				</span>
-			</div>
-
-			<div
-				role="tablist"
-				aria-label={t("ads.tabListLabel")}
-				className="mt-4 flex flex-wrap gap-1 border-border border-b"
-			>
-				{tabPlacements.map((p) => {
-					// Same "sellable" test SlotRow uses; a sold-out placement reads
-					// "(0)" rather than the tab vanishing.
-					const count = slots.filter(
-						(s) => s.placement === p && s.available && s.priceCents !== null,
-					).length;
-					return (
-						<button
-							key={p}
-							type="button"
-							role="tab"
-							id={`ads-tab-${p}`}
-							aria-selected={tab === p}
-							aria-controls={`ads-panel-${p}`}
-							onClick={() => setTab(p)}
-							className="border-b-2 px-3 py-2 text-sm transition"
-							style={{
-								borderColor: tab === p ? "var(--accent)" : "transparent",
-								color: tab === p ? "var(--accent)" : undefined,
-							}}
-						>
-							{t(tabLabel(p))} <span className="text-muted">({count})</span>
-						</button>
-					);
-				})}
-			</div>
-
-			{tabPlacements.map((p) => {
-				if (p !== tab) return null;
-				const rows =
-					p === "category"
-						? slots
-								.filter((s) => s.placement === "category")
-								.filter((s) =>
-									tc(s.categoryName ?? s.label)
-										.toLowerCase()
-										.includes(categoryQuery.toLowerCase()),
-								)
-						: slots.filter((s) => s.placement === p);
-				return (
-					<div
-						key={p}
-						id={`ads-panel-${p}`}
-						role="tabpanel"
-						aria-labelledby={`ads-tab-${p}`}
-						className="mt-3"
-					>
-						{p === "category" && (
-							<input
-								type="search"
-								value={categoryQuery}
-								onChange={(e) => setCategoryQuery(e.currentTarget.value)}
-								placeholder={t("ads.categorySearch")}
-								className={`${field} mb-2`}
-							/>
-						)}
-						{rows.length === 0 ? (
-							<p className="text-sm text-muted">{t("ads.noCategoryMatches")}</p>
-						) : (
-							<ul className="max-h-[200px] divide-y divide-border overflow-y-auto rounded-[calc(var(--radius))] border border-border">
-								{rows.map((s) => (
-									<SlotRow
-										key={s.id}
-										slot={s}
-										selected={basket.has(s.id)}
-										onToggle={toggle}
-										t={t}
-										tc={tc}
-										lang={lang}
-									/>
-								))}
-							</ul>
-						)}
-					</div>
-				);
-			})}
-
-			{/* Lock-in term. The slot prices are the 30-day rate; three and twelve
-			    months are paid up front and discounted for it. */}
-			<div className="mt-6">
-				<p className="text-sm text-muted">{t("ads.termHeading")}</p>
-				<div className="mt-2 flex flex-wrap gap-2">
-					{TERMS.map((term) => (
-						<button
-							key={term.months}
-							type="button"
-							onClick={() => setMonths(term.months)}
-							className="rounded-[calc(var(--radius))] border px-3 py-2 text-left text-sm"
-							style={{
-								borderColor:
-									months === term.months
-										? "var(--accent)"
-										: "var(--color-border)",
-							}}
-						>
-							<span className="block font-medium">
-								{term.months}{" "}
-								{t(term.months === 1 ? "ads.month" : "ads.months")}
-							</span>
-							<span className="nums block text-xs text-muted">
-								{chosen.length > 0
-									? money(orderTotalCents(rates, term.months), lang)
-									: `×${term.multiplier}`}
-								{term.discountPct > 0 && (
-									<span style={{ color: "var(--accent)" }}>
-										{" "}
-										−{term.discountPct}%
-									</span>
-								)}
-							</span>
-						</button>
-					))}
-				</div>
-			</div>
-
-			{chosen.length > 0 && (
-				<div
-					className="mt-6 rounded-[calc(var(--radius))] border p-4"
-					style={{ borderColor: "var(--accent)" }}
+			{/* The three steps, doubling as back-navigation: a step already passed is
+			    a button, one not yet reached is inert. */}
+			{!settled && (
+				<ol
+					aria-label={t("ads.steps")}
+					className="mt-6 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm"
 				>
-					<p className="font-mono text-[10px] uppercase tracking-widest text-muted">
-						{t("ads.basket")} · {chosen.length}
-					</p>
-					<ul className="mt-3 divide-y divide-border">
-						{chosen.map((s) => (
-							<li key={s.id} className="flex items-center gap-3 py-2 text-sm">
-								<span className="min-w-0 flex-1 truncate">{tc(s.label)}</span>
-								<span className="nums shrink-0 text-xs text-muted">
-									{money(price(s), lang)}/30d
+					{STEP_LABELS.map((label, i) => (
+						<li key={label} className="flex items-center gap-2">
+							{i > 0 && (
+								<span aria-hidden className="text-muted">
+									›
 								</span>
-								<button
-									type="button"
-									onClick={() => toggle(s)}
-									aria-label={`${t("ads.remove")} — ${tc(s.label)}`}
-									className="shrink-0 rounded-[calc(var(--radius))] border border-border px-2 py-0.5 text-xs text-muted transition hover:text-text"
-								>
-									×
-								</button>
-							</li>
-						))}
-					</ul>
-					<div className="mt-3 flex items-baseline justify-between border-t border-border pt-3">
-						<span className="text-sm text-muted">
-							{t("ads.totalFor")} {months}{" "}
-							{t(months === 1 ? "ads.month" : "ads.months")}
-						</span>
-						<span
-							className="nums text-lg font-bold"
-							style={{ color: "var(--accent)" }}
-						>
-							{money(totalCents, lang)}
-						</span>
-					</div>
-					{saving > 0 && (
-						<p className="nums mt-1 text-right text-xs text-muted">
-							{t("ads.saving").replace("{amount}", money(saving, lang))}
+							)}
+							<button
+								type="button"
+								disabled={i + 1 > at}
+								aria-current={i + 1 === at ? "step" : undefined}
+								onClick={() => setStep(i + 1)}
+								className="rounded-[calc(var(--radius))] px-1 disabled:opacity-40"
+								style={{
+									color: i + 1 === at ? "var(--accent)" : undefined,
+									fontWeight: i + 1 === at ? 600 : undefined,
+								}}
+							>
+								<span className="nums font-mono text-xs">{i + 1}</span>{" "}
+								{t(label)}
+							</button>
+						</li>
+					))}
+				</ol>
+			)}
+
+			{settled || at !== 1 ? null : (
+				<>
+					<p
+						className="mt-4 font-mono text-sm"
+						style={{ color: "var(--accent)" }}
+					>
+						{open}/{slots.length} {t("ads.availableCount")}
+					</p>
+					{unpriced > 0 && (
+						<p className="mt-1 text-xs text-muted">
+							{unpriced} {t("ads.unpricedNote")}
 						</p>
 					)}
 
-					{/* Same preview components the creative form uses after payment, with
-					    empty copy, so the shape a buyer sees is the shape that goes live. */}
-					<div className="mt-5 border-border border-t pt-4">
-						<p className="font-mono text-[10px] text-muted uppercase tracking-widest">
-							{t("ads.previewTitle")}
+					<SponsorStats stats={adStats} t={t} lang={lang} />
+
+					<p className="mt-6 text-sm text-muted">{t("ads.pickRule")}</p>
+					{swapped && (
+						<p className="mt-1 text-xs" style={{ color: "var(--accent)" }}>
+							{t(swapKey(swapped.placement)).replace("{label}", swapped.label)}
 						</p>
-						<div className="mt-3 grid gap-3">
-							{chosen.map((s) => (
-								<SlotPreviews
-									key={s.id}
-									slot={{ id: s.id, placement: s.placement, label: s.label }}
-									t={t}
-									tc={tc}
-								/>
+					)}
+
+					<div className="mt-4 flex flex-wrap items-center gap-2">
+						{chips.map((chip, i) => (
+							<span
+								// biome-ignore lint/suspicious/noArrayIndexKey: two category chips are identical and unordered — the index is the only thing that tells them apart.
+								key={`${chip.placement}-${i}`}
+								className="rounded-full border px-2.5 py-1 text-xs"
+								style={{
+									borderColor: chip.filled
+										? "var(--accent)"
+										: "var(--color-border)",
+									color: chip.filled ? "var(--accent)" : "var(--muted)",
+								}}
+							>
+								{chip.filled ? "✓" : "+"} {t(PLACEMENT_LABEL[chip.placement])}
+							</span>
+						))}
+						{/* The count itself lives in the sticky bar, which does not scroll away. */}
+					</div>
+
+					<div
+						role="tablist"
+						aria-label={t("ads.tabListLabel")}
+						className="mt-4 flex flex-wrap gap-1 border-border border-b"
+					>
+						{tabPlacements.map((p) => {
+							// Same "sellable" test SlotRow uses; a sold-out placement reads
+							// "(0)" rather than the tab vanishing.
+							const count = slots.filter(
+								(s) =>
+									s.placement === p && s.available && s.priceCents !== null,
+							).length;
+							return (
+								<button
+									key={p}
+									type="button"
+									role="tab"
+									id={`ads-tab-${p}`}
+									aria-selected={tab === p}
+									aria-controls={`ads-panel-${p}`}
+									onClick={() => setTab(p)}
+									className="border-b-2 px-3 py-2 text-sm transition"
+									style={{
+										borderColor: tab === p ? "var(--accent)" : "transparent",
+										color: tab === p ? "var(--accent)" : undefined,
+									}}
+								>
+									{t(tabLabel(p))} <span className="text-muted">({count})</span>
+								</button>
+							);
+						})}
+					</div>
+
+					{tabPlacements.map((p) => {
+						if (p !== tab) return null;
+						const rows =
+							p === "category"
+								? slots
+										.filter((s) => s.placement === "category")
+										.filter((s) =>
+											tc(s.categoryName ?? s.label)
+												.toLowerCase()
+												.includes(categoryQuery.toLowerCase()),
+										)
+								: slots.filter((s) => s.placement === p);
+						return (
+							<div
+								key={p}
+								id={`ads-panel-${p}`}
+								role="tabpanel"
+								aria-labelledby={`ads-tab-${p}`}
+								className="mt-3"
+							>
+								{p === "category" && (
+									<input
+										type="search"
+										value={categoryQuery}
+										onChange={(e) => setCategoryQuery(e.currentTarget.value)}
+										placeholder={t("ads.categorySearch")}
+										className={`${field} mb-2`}
+									/>
+								)}
+								{rows.length === 0 ? (
+									<p className="text-sm text-muted">
+										{t("ads.noCategoryMatches")}
+									</p>
+								) : (
+									<ul className="max-h-[min(60vh,26rem)] divide-y divide-border overflow-y-auto rounded-[calc(var(--radius))] border border-border">
+										{rows.map((s) => (
+											<SlotRow
+												key={s.id}
+												slot={s}
+												selected={basket.has(s.id)}
+												onToggle={toggle}
+												t={t}
+												tc={tc}
+												lang={lang}
+											/>
+										))}
+									</ul>
+								)}
+							</div>
+						);
+					})}
+
+					{/* Nothing open? Capture the intent rather than losing it. Step one
+					    only: past it, the buyer already found something to buy. */}
+					<form
+						className="mt-6 flex flex-wrap gap-2 border-t border-border pt-6"
+						onSubmit={(e) => {
+							e.preventDefault();
+							const f = new FormData(e.currentTarget);
+							sendWait({ email: f.get("email"), slotId: chosen[0]?.id });
+						}}
+					>
+						<p className="w-full text-sm text-muted">{t("ads.waitlist")}</p>
+						<input
+							name="email"
+							type="email"
+							required
+							placeholder={t("ads.billingEmail")}
+							className={`${field} max-w-xs flex-1`}
+						/>
+						<button
+							type="submit"
+							className="rounded-[calc(var(--radius))] border border-border px-4 text-sm"
+						>
+							{waitState === "done" ? "✓" : t("ads.waitlistCta")}
+						</button>
+					</form>
+				</>
+			)}
+
+			{settled || at !== 2 ? null : (
+				<>
+					{/* Lock-in term. The slot prices are the 30-day rate; three and
+					    twelve months are paid up front and discounted for it. */}
+					<div className="mt-6">
+						<p className="text-sm text-muted">{t("ads.termHeading")}</p>
+						<div className="mt-2 flex flex-wrap gap-2">
+							{TERMS.map((term) => (
+								<button
+									key={term.months}
+									type="button"
+									onClick={() => setMonths(term.months)}
+									className="rounded-[calc(var(--radius))] border px-3 py-2 text-left text-sm"
+									style={{
+										borderColor:
+											months === term.months
+												? "var(--accent)"
+												: "var(--color-border)",
+									}}
+								>
+									<span className="block font-medium">
+										{term.months}{" "}
+										{t(term.months === 1 ? "ads.month" : "ads.months")}
+									</span>
+									<span className="nums block text-xs text-muted">
+										{chosen.length > 0
+											? money(orderTotalCents(rates, term.months), lang)
+											: `×${term.multiplier}`}
+										{term.discountPct > 0 && (
+											<span style={{ color: "var(--accent)" }}>
+												{" "}
+												−{term.discountPct}%
+											</span>
+										)}
+									</span>
+								</button>
 							))}
 						</div>
 					</div>
-				</div>
+
+					{chosen.length > 0 && (
+						<div
+							className="mt-6 rounded-[calc(var(--radius))] border p-4"
+							style={{ borderColor: "var(--accent)" }}
+						>
+							<p className="font-mono text-[10px] uppercase tracking-widest text-muted">
+								{t("ads.basket")} · {chosen.length}
+							</p>
+							<ul className="mt-3 divide-y divide-border">
+								{chosen.map((s) => (
+									<li
+										key={s.id}
+										className="flex items-center gap-3 py-2 text-sm"
+									>
+										<span className="min-w-0 flex-1 truncate">
+											{tc(s.label)}
+										</span>
+										<span className="nums shrink-0 text-xs text-muted">
+											{money(price(s), lang)}/30d
+										</span>
+										<button
+											type="button"
+											onClick={() => toggle(s)}
+											aria-label={`${t("ads.remove")} — ${tc(s.label)}`}
+											className="shrink-0 rounded-[calc(var(--radius))] border border-border px-2 py-0.5 text-xs text-muted transition hover:text-text"
+										>
+											×
+										</button>
+									</li>
+								))}
+							</ul>
+							<div className="mt-3 flex items-baseline justify-between border-t border-border pt-3">
+								<span className="text-sm text-muted">
+									{t("ads.totalFor")} {months}{" "}
+									{t(months === 1 ? "ads.month" : "ads.months")}
+								</span>
+								<span
+									className="nums text-lg font-bold"
+									style={{ color: "var(--accent)" }}
+								>
+									{money(totalCents, lang)}
+								</span>
+							</div>
+							{saving > 0 && (
+								<p className="nums mt-1 text-right text-xs text-muted">
+									{t("ads.saving").replace("{amount}", money(saving, lang))}
+								</p>
+							)}
+
+							{/* Same preview components the creative form uses after payment,
+							    with empty copy, so the shape a buyer sees is the shape that
+							    goes live. */}
+							<div className="mt-5 border-border border-t pt-4">
+								<p className="font-mono text-[10px] text-muted uppercase tracking-widest">
+									{t("ads.previewTitle")}
+								</p>
+								<div className="mt-3 grid gap-3">
+									{chosen.map((s) => (
+										<SlotPreviews
+											key={s.id}
+											slot={{
+												id: s.id,
+												placement: s.placement,
+												label: s.label,
+											}}
+											t={t}
+											tc={tc}
+										/>
+									))}
+								</div>
+							</div>
+						</div>
+					)}
+				</>
 			)}
 
 			{buy.step === "done" ? (
@@ -758,7 +890,7 @@ export function AdsSection({
 						}}
 					/>
 				</>
-			) : chosen.length === 0 ? null : (
+			) : at !== 3 ? null : (
 				// The creative form doubles as the pay form: email + pay controls are
 				// its footer, so submitting once buys the slot and supplies the ad.
 				<CreativeForm
@@ -769,9 +901,11 @@ export function AdsSection({
 					}))}
 					t={t}
 					tc={tc}
-					submitLabel={t(
-						chosen.length === 1 ? "ads.submit" : "ads.submitPlural",
-					).replace("{n}", String(chosen.length))}
+					// The amount, not a slot count: this button charges the card.
+					submitLabel={t("ads.payNow").replace(
+						"{amount}",
+						money(totalCents, lang),
+					)}
 					onCollect={(draft) => {
 						const { perSlot, ...shared } = draft;
 						setCreative({
@@ -807,30 +941,50 @@ export function AdsSection({
 				</CreativeForm>
 			)}
 
-			{/* Nothing open? Capture the intent rather than losing it. */}
-			<form
-				className="mt-6 flex flex-wrap gap-2 border-t border-border pt-6"
-				onSubmit={(e) => {
-					e.preventDefault();
-					const f = new FormData(e.currentTarget);
-					sendWait({ email: f.get("email"), slotId: chosen[0]?.id });
-				}}
-			>
-				<p className="w-full text-sm text-muted">{t("ads.waitlist")}</p>
-				<input
-					name="email"
-					type="email"
-					required
-					placeholder={t("ads.billingEmail")}
-					className={`${field} max-w-xs flex-1`}
-				/>
-				<button
-					type="submit"
-					className="rounded-[calc(var(--radius))] border border-border px-4 text-sm"
-				>
-					{waitState === "done" ? "✓" : t("ads.waitlistCta")}
-				</button>
-			</form>
+			{/* The running order, pinned so it survives a scroll through a long slot
+			    list. `bottom-14` clears the mobile sponsor tape, which is fixed at
+			    the foot of the viewport until 1560px, where it stops rendering. */}
+			{!settled && (
+				<div className="sticky bottom-14 z-20 -mx-4 mt-6 flex flex-wrap items-center gap-3 border-border border-t bg-bg/95 px-4 py-3 backdrop-blur min-[1560px]:bottom-0">
+					{at > 1 && (
+						<button
+							type="button"
+							onClick={() => setStep(at - 1)}
+							className="rounded-[calc(var(--radius))] border border-border px-3 py-2 text-sm"
+						>
+							← {t("ads.back")}
+						</button>
+					)}
+					<span className="nums min-w-0 flex-1 text-sm text-muted">
+						{t("ads.chosenCount")
+							.replace("{n}", String(chosen.length))
+							.replace("{max}", String(ORDER_MAX_SLOTS))}
+						{at > 1 && (
+							<>
+								{" · "}
+								<span className="font-bold" style={{ color: "var(--accent)" }}>
+									{money(totalCents, lang)}
+								</span>{" "}
+								{t("ads.totalFor").toLowerCase()} {months}{" "}
+								{t(months === 1 ? "ads.month" : "ads.months")}
+							</>
+						)}
+					</span>
+					{/* Step three's own submit is the pay button — a second primary
+					    action here would be two ways to do one thing. */}
+					{at < 3 && (
+						<button
+							type="button"
+							disabled={chosen.length === 0}
+							onClick={() => setStep(at + 1)}
+							className={button}
+							style={{ background: "var(--accent)", color: "var(--bg)" }}
+						>
+							{t("ads.continue")} →
+						</button>
+					)}
+				</div>
+			)}
 
 			{/* biome-ignore lint/a11y/useKeyWithClickEvents: detects a backdrop
 			    click to dismiss; the keyboard equivalent is Escape, which a
@@ -982,7 +1136,7 @@ export function ContactSection({ t, lang }: { t: T; lang: Lang }) {
 }
 
 /** Contributions go through GitHub, so there is no moderation queue to build. */
-export function SubmitSection({ t }: { t: T }) {
+export function SubmitSection({ t, lang }: { t: T; lang: Lang }) {
 	return (
 		<Section
 			id="submit"
@@ -990,6 +1144,10 @@ export function SubmitSection({ t }: { t: T }) {
 			title={t("submit.title")}
 			blurb={t("submit.blurb")}
 			headingLevel="h1"
+			trail={[
+				{ label: t("page.home"), href: paths.home(lang) },
+				{ label: t("nav.submit") },
+			]}
 		>
 			<div className="mt-6 flex flex-wrap gap-3">
 				<a

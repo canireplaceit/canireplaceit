@@ -93,6 +93,258 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "WhisperX",
+			"source": {
+				"host": "github",
+				"path": "m-bain/whisperX",
+				"url": "https://github.com/m-bain/whisperX"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Word-level timestamps and speaker diarization bring transcript-driven podcast editing to the CLI, but a Python/GPU setup precedes it and the output still lands in an NLE — no filler-word removal either.",
+				"fr": "Diarisation par locuteur et horodatages au mot près font de la transcription un guide d’édition en CLI, mais exigent un setup Python/GPU et un NLE ; aucun filtrage des tics de langage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "faster-whisper",
+			"source": {
+				"host": "github",
+				"path": "SYSTRAN/faster-whisper",
+				"url": "https://github.com/SYSTRAN/faster-whisper"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "CTranslate2 makes Whisper run four times faster on CPU with a small memory footprint, yet it stays a library and CLI — word-level alignment only, ffmpeg still preps the audio.",
+				"fr": "L’accélération CTranslate2 fait tourner Whisper quatre fois plus vite sur CPU, faible empreinte mémoire, mais ce n’est qu’une bibliothèque et un CLI : alignement au mot près et ffmpeg encore nécessaire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LosslessCut",
+			"source": {
+				"host": "github",
+				"path": "mifi/lossless-cut",
+				"url": "https://github.com/mifi/lossless-cut"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "No re-encode: slice silences and mistakes out with a waveform view, and export the FFmpeg commands — you still pick every cut yourself, with no transcription to lean on.",
+				"fr": "Sans ré-encodage, découper silences et scories d’un podcast à la vue d’onde et exporter les commandes FFmpeg ; reste à choisir chaque coupe soi-même, sans transcription pour guider."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ardour",
+			"source": {
+				"host": "github",
+				"path": "Ardour/ardour",
+				"url": "https://github.com/Ardour/ardour"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Multitrack DAW that takes a podcast from raw tracks to a mastered mix with buses and automation; newcomers pay a steep learning curve and get no transcription or serious video.",
+				"fr": "Station audionumérique multitrack qui mène un podcast de pistes brutes à un mix masterisé, buses et automation comprises ; l’apprentissage est raide et il n’y a ni transcription ni vidéo sérieuse."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kdenlive",
+			"source": {
+				"host": "github",
+				"path": "KDE/kdenlive",
+				"url": "https://github.com/KDE/kdenlive"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "One timeline handles audio mix and video version, rendering to podcast and YouTube formats; a video editor first, it skips transcription and runs heavier than pure audio tools.",
+				"fr": "Une seule timeline porte le mix audio et la version vidéo, export podcast et YouTube ; éditeur vidéo avant tout, sans transcription, plus lourd que des outils audio purs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Shotcut",
+			"source": {
+				"host": "github",
+				"path": "mltframework/shotcut",
+				"url": "https://github.com/mltframework/shotcut"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Broad FFmpeg codec support and multi-track audio with EQ and level meters, regularly released and free; the audio tooling is shallower than a DAW and there is no transcript editing.",
+				"fr": "Support codec large via FFmpeg et pistes audio multiples avec égaliseur et vumètres, versions régulières et gratuites ; l’outillage audio reste moins profond qu’une DAW et l’édition par transcription n’existe pas."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tenacity",
+			"source": {
+				"host": "github",
+				"path": "tenacityteam/tenacity",
+				"url": "https://github.com/tenacityteam/tenacity"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A telemetry-free Audacity fork for recording and waveform editing, with noise removal and effect chains; the trade-off is a smaller community, no collaboration, and no transcription.",
+				"fr": "Fork d’Audacity sans télémétrie pour enregistrer et éditer des prises en forme d’onde, débruiteur et chaînes d’effets inclus ; en échange, une communauté plus restreinte, pas de collaboration ni de transcription."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pyannote-audio",
+			"source": {
+				"host": "github",
+				"path": "pyannote/pyannote-audio",
+				"url": "https://github.com/pyannote/pyannote-audio"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "State-of-the-art speaker diarization that tells who spoke when, feeding Whisper pipelines; models sit behind gated Hugging Face access and long files lean on a GPU.",
+				"fr": "Diarisation par locuteur à l’état de l’art — qui parle quand — qui alimente les pipelines Whisper ; modèles gated sur Hugging Face, et un GPU aide pour les longs fichiers."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Buzz",
+			"source": {
+				"host": "github",
+				"path": "chidiwilliams/buzz",
+				"url": "https://github.com/chidiwilliams/buzz"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Drag-and-drop Whisper transcription with word timestamps and subtitle export on all three desktops, no timeline to edit in and no diarization; the GUI is not scriptable.",
+				"fr": "Transcription Whisper par glisser-déposer, horodatages et export de sous-titres sur les trois OS ; pas de timeline pour éditer, pas de diarisation, et le GUI ne se scripte pas."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Whisper-WebUI",
+			"source": {
+				"host": "github",
+				"path": "jhj0517/Whisper-WebUI",
+				"url": "https://github.com/jhj0517/Whisper-WebUI"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted browser UI that transcribes and subtitles long episodes in many languages without the audio leaving your machine; transcription only, and a young project with a workmanlike Gradio interface.",
+				"fr": "Interface navigateur auto-hébergée qui transcrit et sous-titre les longs épisodes en plusieurs langues sans que l’audio quitte la machine ; transcription seulement, jeune projet, et un Gradio fonctionnel sans plus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Podgrab",
+			"source": {
+				"host": "github",
+				"path": "akhilrex/podgrab",
+				"url": "https://github.com/akhilrex/podgrab"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "A self-hosted library that auto-downloads episodes and re-serves them with web playback and search; a downloader and player, not a publishing platform, and effectively single-user.",
+				"fr": "Bibliothèque auto-hébergée qui télécharge les nouveaux épisodes et les re-sert en lecture web avec recherche ; un outil de récupération et de lecture, pas une plateforme de diffusion, et essentiellement mono-utilisateur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Vosk",
+			"source": {
+				"host": "github",
+				"path": "alphacep/vosk-api",
+				"url": "https://github.com/alphacep/vosk-api"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Offline speech-to-text in twenty-plus languages with a streaming server and light CPU models; accuracy trails the big Whisper models and raw output still needs cleanup, with no diarization.",
+				"fr": "Hors ligne, dans plus de 20 langues, avec serveur de streaming et modèles légers sur CPU ; précision sous celle des gros Whisper, sortie brute à nettoyer, pas de diarisation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

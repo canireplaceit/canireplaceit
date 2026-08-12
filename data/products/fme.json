@@ -87,6 +87,111 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "WhiteboxTools",
+			"source": {
+				"host": "github",
+				"path": "jblindsay/whitebox-tools",
+				"url": "https://github.com/jblindsay/whitebox-tools"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A single-maintainer Rust library and CLI with 500+ raster, vector and LiDAR tools. It analyses data rather than converting formats, and offers no visual designer.",
+				"fr": "Une bibliothèque et CLI Rust à un seul mainteneur, avec plus de 500 outils raster, vecteur et LiDAR. Elle analyse les données plutôt que de convertir les formats, sans designer visuel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PROJ",
+			"source": {
+				"host": "github",
+				"path": "OSGeo/PROJ",
+				"url": "https://github.com/OSGeo/PROJ"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The reprojection core of FME, offered standalone: datum shifts and geoid grids via the proj pipeline language, cs2cs CLI, C/Python APIs. Reprojection only, no GUI, and high-accuracy grids must be downloaded.",
+				"fr": "Le cœur de reprojection de FME, en version autonome : décalages de datum et grilles géoïdales via le langage de pipeline proj, CLI cs2cs, API C/Python. Reprojection uniquement, pas d’interface, et les grilles haute précision restent à télécharger."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "osm2pgsql",
+			"source": {
+				"host": "github",
+				"path": "osm2pgsql-dev/osm2pgsql",
+				"url": "https://github.com/osm2pgsql-dev/osm2pgsql"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A high-throughput OSM-to-PostGIS loader: flexible tagging into schemas, incremental diffs, memory-efficient parallel loads. Input is OSM files only, the target must be PostGIS, and it will not do general ETL.",
+				"fr": "Un chargeur OSM vers PostGIS à haut débit : balisage souple vers des schémas, mises à jour incrémentales, chargements parallèles économes en mémoire. N’accepte que des fichiers OSM, exige PostGIS, et ne fait pas d’ETL généraliste."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PostGIS",
+			"source": {
+				"host": "github",
+				"path": "postgis/postgis",
+				"url": "https://github.com/postgis/postgis"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The transform workhorse and ETL target: 4,000+ spatial SQL functions, raster and topology types, GIST indexes for fast joins. Logic lives in SQL with no visual canvas, and you must run a PostgreSQL cluster.",
+				"fr": "Le cheval de trait de la transformation et la cible de l’ETL : plus de 4 000 fonctions SQL spatiales, types raster et topologie, index GIST pour des jointures rapides. La logique vit en SQL, sans canevas visuel, et il faut un cluster PostgreSQL."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GeoServer",
+			"source": {
+				"host": "github",
+				"path": "geoserver/geoserver",
+				"url": "https://github.com/geoserver/geoserver"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted spatial server exposing WMS/WFS/WCS/WPS with SLD styling and a REST config API — the FME Server publishing substitute. It serves rather than orchestrates ETL, has no transform canvas, and GPL-2.0 complicates SaaS.",
+				"fr": "Serveur spatial auto-hébergé exposant WMS/WFS/WCS/WPS, style SLD et API REST de configuration — le substitut de publication de FME Server. Il publie plutôt qu’il n’orchestre l’ETL, sans canevas de transformation, et la GPL-2.0 complique le SaaS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

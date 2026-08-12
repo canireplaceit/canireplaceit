@@ -93,6 +93,182 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "cal.diy (Cal.com)",
+			"source": {
+				"host": "github",
+				"path": "calcom/cal.diy",
+				"url": "https://github.com/calcom/cal.diy"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Massive scheduling platform with embeddable links, CalDAV sync, and a real self-hosted Docker path. Built for 1:1 appointments, not group classes or paid events; SAML and advanced workflows are paid.",
+				"fr": "Planification massive auto-hébergée : liens intégrables, sync CalDAV, chemin Docker réel. Taillée pour les rendez-vous 1:1, pas les cours de groupe ni les événements payants ; SSO SAML et workflows avancés sont payants."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Advanced workflows, enterprise SSO.",
+					"fr": "Workflows avancés, SSO entreprise."
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pretix",
+			"source": {
+				"host": "github",
+				"path": "pretix/pretix",
+				"url": "https://github.com/pretix/pretix"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Serious event ticketing with box office, check-in, and a full API, all self-hosted. One-off events and tickets, not recurring memberships; part of the plugin ecosystem is commercial.",
+				"fr": "Billetterie événementielle sérieuse : box office, check-in, plugin et API complète, le tout en auto-hébergé. Taillée pour les événements ponctuels, pas les adhésions récurrentes ; une partie des plugins est commerciale."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gancio",
+			"source": {
+				"host": "codeberg",
+				"path": "gancio/gancio",
+				"url": "https://codeberg.org/gancio/gancio"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight community calendar for publishing and aggregating events; easy Docker self-host. Listing and promotion only — no booking, payments, or attendance, and no membership or billing.",
+				"fr": "Calendrier communautaire léger pour publier et agréger des événements, facile à auto-héberger en Docker. Mise en avant et promotion uniquement, pas de réservation, paiement ni présence ; pas d’adhésion ni de facturation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mobilizon",
+			"source": {
+				"host": "gitlab",
+				"path": "framasoft/mobilizon",
+				"url": "https://framagit.org/framasoft/mobilizon"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Federated event planning and group coordination from Framasoft, with meeting tools built in. Community event focus — no ticket sales or payment, no recurring memberships or gym-specific scheduling.",
+				"fr": "Planification d’événements fédérée et coordination de groupes par Framasoft, réunions incluses. Orientée communautaire : pas de vente de billets ni de paiement, pas d’adhésion récurrente ni de planification de salle de sport."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ERPNext",
+			"source": {
+				"host": "github",
+				"path": "frappe/erpnext",
+				"url": "https://github.com/frappe/erpnext"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Full open-source ERP that can replace the whole back-office: appointments, events, CRM, billing, payroll. Heavy platform, real ops commitment; gym flows like attendance kiosks need custom doctypes.",
+				"fr": "ERP open source complet qui peut remplacer tout le back-office : rendez-vous, événements, CRM, facturation, paie. Plateforme lourde, coûteuse en ops ; les flux gym, bornes de présence, exigent des doctypes custom."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Paid marketplace apps.",
+					"fr": "Apps payantes du marketplace."
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "khal",
+			"source": {
+				"host": "github",
+				"path": "pimutils/khal",
+				"url": "https://github.com/pimutils/khal"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Terminal only — no member-facing UI or payments. A standards-based CLI calendar that reads and writes CalDAV so bookings can be scheduled from the shell; you supply the calendar server and sync.",
+				"fr": "Terminal uniquement : pas d’interface pour les membres ni de paiement. Un calendrier CLI aux standards ouverts qui lit et écrit en CalDAV : réservez depuis le shell ; serveur et sync à fournir soi-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "calcurse",
+			"source": {
+				"host": "github",
+				"path": "lfos/calcurse",
+				"url": "https://github.com/lfos/calcurse"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Local single-user scheduling — no bookings, no sharing. A full-featured TUI calendar and scheduler for terminal-first daily planning without a GUI; no sync story unless paired with a CalDAV tool.",
+				"fr": "Agenda local mono-utilisateur : pas de réservation ni de partage. Un calendrier TUI complet pour la planification quotidienne en terminal, sans interface graphique ; pas de sync sans l’associer à un outil CalDAV."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kimai",
+			"source": {
+				"host": "github",
+				"path": "kimai/kimai",
+				"url": "https://github.com/kimai/kimai"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Not bookings — it tracks time after the fact. Self-hosted with invoicing and export, the billing side of booked hours for service businesses; no events, memberships, or attendance.",
+				"fr": "Aucune réservation : les heures sont comptées après coup. Auto-hébergé avec facturation et export, le volet facturation des heures réservées pour les métiers de service ; pas d’événements, d’adhésions ni de présence."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

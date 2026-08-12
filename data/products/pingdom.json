@@ -103,6 +103,153 @@
 				"en": "Free tier with 10 monitors, global probes and a status page. You are still trusting an external service, which for uptime checking is the point.",
 				"fr": "Palier gratuit avec 10 sondes, des points de contrôle mondiaux et une page de statut. Vous faites toujours confiance à un service externe, ce qui pour la supervision de disponibilité est justement l’objectif."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Healthchecks",
+			"source": {
+				"host": "github",
+				"path": "healthchecks/healthchecks",
+				"url": "https://github.com/healthchecks/healthchecks"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted cron, job and API heartbeat monitor with the richest alert set here — 70+ channels. It pings, it doesn’t probe continuously from multiple regions, and dashboards stay simpler than Pingdom’s.",
+				"fr": "Auto-hébergé, il surveille cron, jobs et API par heartbeat, avec le plus riche choix d’intégrations d’alertes (70+). Modèle ping, pas de sondage multi-régions ; tableaux de bord plus simples que Pingdom."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Vigil",
+			"source": {
+				"host": "github",
+				"path": "valeriansaliou/vigil",
+				"url": "https://github.com/valeriansaliou/vigil"
+			},
+			"license": "MPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Real-time Rust uptime monitor with the status page baked in, and a single low-memory binary. TOML checks as code. Smaller ecosystem and slower cadence than Pingdom, and community-maintained.",
+				"fr": "Moniteur d’uptime Rust temps réel, page de statut incluse, binaire unique économe en mémoire. Checks en TOML. Écosystème plus petit, cadence plus lente que Pingdom, maintenu par la communauté."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Statping",
+			"source": {
+				"host": "github",
+				"path": "statping/statping",
+				"url": "https://github.com/statping/statping"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Classic self-hosted uptime monitor with hosted status pages, user roles and a single Go binary. Dormant since July 2024 — prefer the statping-ng fork; fewer features than a modern Pingdom.",
+				"fr": "Classique du genre, moniteur d’uptime auto-hébergé avec pages de statut, rôles utilisateurs et binaire Go unique. Dormant depuis juillet 2024 — préférez le fork statping-ng ; moins de fonctionnalités qu’un Pingdom moderne."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Upptime",
+			"source": {
+				"host": "github",
+				"path": "upptime/upptime",
+				"url": "https://github.com/upptime/upptime"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Status page and checks run on GitHub Actions — a public site with zero infra of your own. Graphs and incident history included. Bound to GHA quotas and per-repo limits, not real-time alerting.",
+				"fr": "Page de statut et checks tournent sur GitHub Actions — un site public sans aucune infra. Graphes et historique d’incidents inclus. Plafonné par quotas GHA et limites par repo, pas d’alerte temps réel."
+			},
+			"facts": {
+				"selfHostable": false,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "us-only"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Monika",
+			"source": {
+				"host": "github",
+				"path": "hyperjumptech/monika",
+				"url": "https://github.com/hyperjumptech/monika"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The CLI pick: config-first synthetic checks with assertions for endpoints and APIs, plus 30+ notification channels. Daemon or CI-friendly. No status page, no multi-user UI — you bring the dashboard.",
+				"fr": "Le choix CLI : checks synthétiques config-first avec assertions, 30+ canaux de notification. En daemon ou en CI. Pas de page de statut ni d’UI multi-utilisateurs — le dashboard, c’est vous."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SmokePing",
+			"source": {
+				"host": "github",
+				"path": "oetiker/SmokePing",
+				"url": "https://github.com/oetiker/SmokePing"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Legendary fping/RRD latency prober with unmatched loss and latency graphs. Distributed master/slave probes, threshold email alerts. Network-layer only — no HTTP assertions or API checks, and a dated CGI UI.",
+				"fr": "Sondeur de latence fping/RRD légendaire, aux graphes perte/latence inégalés. Sondes distribuées maître/esclave, alertes email par seuil. Couche réseau uniquement — pas d’assertions HTTP ni de checks API, UI CGI vieillissante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gping",
+			"source": {
+				"host": "github",
+				"path": "orf/gping",
+				"url": "https://github.com/orf/gping"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Multi-host ping in the terminal with live latency graphs, from a single Rust binary. ICMP only — no HTTP checks, alerting or history. A quick complement, not a Pingdom replacement.",
+				"fr": "Ping multi-hôtes en terminal, graphes de latence en direct, un seul binaire Rust. Une ligne suffit. ICMP uniquement — pas de checks HTTP, d’alertes ni d’historique. Un complément, pas un remplaçant de Pingdom."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

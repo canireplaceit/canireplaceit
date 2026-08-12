@@ -93,6 +93,224 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Aider",
+			"source": {
+				"host": "github",
+				"path": "Aider-AI/aider",
+				"url": "https://github.com/Aider-AI/aider"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The most mature terminal pair-programmer, with auto-commits, diff review, and 100+ models including local Ollama. But it is interactive single-agent: it edits your working tree directly, with no sandboxed remote workspace.",
+				"fr": "Le pair-programmer terminal le plus mûr : auto-commits, revue de diff, plus de 100 modèles dont Ollama local. Mais il reste mono-agent interactif : il édite votre arbre de travail, sans sandbox distante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenCode",
+			"source": {
+				"host": "github",
+				"path": "anomalyco/opencode",
+				"url": "https://github.com/anomalyco/opencode"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "TUI-first agentic CLI — the tool this research runs in — with plan/act modes, multi-agent subagent orchestration, and lint/typecheck verification loops. Terminal-native: you bring the model; no web GUI or built-in cloud sandbox.",
+				"fr": "Agent de codage en TUI — l’outil dans lequel tourne cette recherche — avec modes plan/act et orchestration multi-agents. Entièrement terminal : vous apportez le modèle, pas de GUI web ni de sandbox cloud."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Cline",
+			"source": {
+				"host": "github",
+				"path": "cline/cline",
+				"url": "https://github.com/cline/cline"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Plan/Act agent inside VS Code or Cursor: it edits files and runs terminal commands behind human approval gates, with MCP. Bound to an Electron editor, so execution context depends on it.",
+				"fr": "Agent Plan/Act dans VS Code ou Cursor : il édite des fichiers et exécute des commandes terminal après validation humaine, avec MCP. Lié à un éditeur Electron — le contexte d’exécution en dépend."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Hosted add-ons",
+					"fr": "Add-ons hébergés"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Roo Code",
+			"source": {
+				"host": "github",
+				"path": "RooCodeInc/Roo-Code",
+				"url": "https://github.com/RooCodeInc/Roo-Code"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Cline fork with specialized agent modes (Architect, Code, Debug) and custom skills, proven in production. Archived upstream in 2026 — development ended, though community successors continue the work.",
+				"fr": "Fork de Cline avec des rôles d’agent spécialisés (Architect, Code, Debug) et des skills custom, éprouvé en production. Dépôt archivé en 2026 — le développement s’est arrêté, des successeurs communautaires poursuivent le travail."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Codex",
+			"source": {
+				"host": "github",
+				"path": "openai/codex",
+				"url": "https://github.com/openai/codex"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "OpenAI’s open-source CLI agent: local TUI mode, with an optional cloud sandbox that runs code in OpenAI’s infra — data leaves your machine. Tuned for OpenAI models; best experience needs an OpenAI key.",
+				"fr": "Agent CLI open-source d’OpenAI : TUI local, sandbox cloud optionnel qui exécute le code dans l’infra OpenAI — les données quittent votre machine. Taillé pour les modèles OpenAI, qui demandent une clé OpenAI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Gemini CLI",
+			"source": {
+				"host": "github",
+				"path": "google-gemini/gemini-cli",
+				"url": "https://github.com/google-gemini/gemini-cli"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Google’s terminal agent with a polished TUI, context management, and local-model support. Sweet spot is Gemini models — others need configuration, and no self-hosted serving or cloud workspace is included.",
+				"fr": "Agent terminal de Google : TUI soignée, gestion de contexte, modèles locaux supportés. Taillé pour les modèles Gemini — le reste demande de la configuration, sans serveur auto-hébergé ni workspace cloud."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Continue",
+			"source": {
+				"host": "github",
+				"path": "continuedev/continue",
+				"url": "https://github.com/continuedev/continue"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Self-hostable open-source assistant — chat, autocomplete, agents — for VS Code, JetBrains, and CLI, with config and history under your control. Assistant-style, not a fully autonomous task agent; best value lives inside an editor.",
+				"fr": "Assistant open-source auto-hébergeable — chat, autocomplétion, agents — pour VS Code, JetBrains et un CLI, config et historique sous votre contrôle. Style assistant, pas d’autonomie à la Devin : le meilleur rendu dans un éditeur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Cloud extras",
+					"fr": "Extras cloud"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Void",
+			"source": {
+				"host": "github",
+				"path": "voideditor/void",
+				"url": "https://github.com/voideditor/void"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Open-source Cursor alternative — a VS Code fork with built-in AI chat, composer, and agentic editing, bring-your-own model. Archived upstream in 2026; a successor project continues the line, and it is desktop-only.",
+				"fr": "Alternative open-source à Cursor — un fork de VS Code avec chat IA, composer et édition agentique intégrés, modèle à votre clé. Dépôt archivé en 2026, un successeur poursuit ; bureau uniquement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Devika",
+			"source": {
+				"host": "github",
+				"path": "stitionai/devika",
+				"url": "https://github.com/stitionai/devika"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The most popular open Devin imitation: a planner + browser + coding pipeline in a web dashboard, bring-your-own LLM. Development halted in 2025 and effectively abandoned — plumbing-heavy next to maintained alternatives.",
+				"fr": "L’imitation open la plus populaire de Devin : planificateur + navigateur + pipeline de codage dans un dashboard, LLM à votre clé. Développement arrêté depuis 2025 — lourd en tuyauterie face aux alternatives maintenues."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mentat",
+			"source": {
+				"host": "github",
+				"path": "AbanteAI/archive-old-cli-mentat",
+				"url": "https://github.com/AbanteAI/archive-old-cli-mentat"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Abandoned CLI coding agent that planned and executed multi-file edits autonomously — early and historically influential. Archived upstream: repo and pip package are no longer maintained. A historical artifact, not something to adopt.",
+				"fr": "Agent CLI de codage abandonné qui planifiait et exécutait des édits multi-fichiers en autonomie — précurseur influent. Dépôt archivé : repo et paquet pip plus maintenus. Un artefact historique, pas un outil à adopter."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

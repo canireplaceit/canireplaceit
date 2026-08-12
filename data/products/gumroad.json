@@ -96,6 +96,182 @@
 				"en": "0% fees on the paid tier. Built for creators taking tips, not for a real product catalogue.",
 				"fr": "0 % de commission sur l’offre payante. Pensé pour les pourboires aux créateurs, pas pour un vrai catalogue produit."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Medusa",
+			"source": {
+				"host": "github",
+				"path": "medusajs/medusa",
+				"url": "https://github.com/medusajs/medusa"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The popular open headless commerce engine with a native digital-products module and custom checkout. You wire Stripe via plugins, build the storefront yourself, and enterprise plugins stay out of MIT.",
+				"fr": "Le moteur headless e-commerce open source le plus populaire, avec module produits numériques et checkout sur mesure. Stripe branché par plugins, storefront à construire soi-même, plugins enterprise exclus de la licence MIT."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise plugins",
+					"fr": "Plugins enterprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Vendure",
+			"source": {
+				"host": "github",
+				"path": "vendurehq/vendure",
+				"url": "https://github.com/vendurehq/vendure"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "TypeScript/GraphQL commerce where digital goods and streamable media are first-class, self-hosted under MIT. You assemble the storefront, accept a smaller community, and skip any built-in affiliate network.",
+				"fr": "Commerce TypeScript/GraphQL où produits numériques et médias diffusables sont nativement gérés, auto-hébergé sous MIT. Storefront à assembler, communauté plus restreinte que Medusa, pas de réseau d’affiliation intégré."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Saleor",
+			"source": {
+				"host": "github",
+				"path": "saleor/saleor",
+				"url": "https://github.com/saleor/saleor"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "ops",
+			"note": {
+				"en": "GraphQL commerce with downloadable products on variants and a rich app ecosystem, BSD-3-Clause. Real ops burden in the multi-service stack, storefront not included, and payments ride on Stripe or external processors.",
+				"fr": "Commerce GraphQL, produits numériques téléchargeables sur les variantes et riche écosystème d’apps, licence BSD-3-Clause. Le stack multi-services demande de vraies compétences ops, pas de storefront inclus, paiements via Stripe ou processeurs externes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenCart",
+			"source": {
+				"host": "github",
+				"path": "opencart/opencart",
+				"url": "https://github.com/opencart/opencart"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Mature self-hosted PHP store shipping downloadable products, coupons, and PayPal/Stripe out of the box. The admin and storefront look dated, creator payouts and tax tooling are absent, and you own security.",
+				"fr": "Boutique PHP auto-hébergée et mûre : produits téléchargeables, coupons, PayPal/Stripe prêts à l’emploi. Admin et storefront vieillissants, pas de payouts ni fiscalité créateurs, sécurité à ta charge."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "WooCommerce",
+			"source": {
+				"host": "github",
+				"path": "woocommerce/woocommerce",
+				"url": "https://github.com/woocommerce/woocommerce"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The dominant open ecommerce on WordPress with downloadable goods and subscriptions. You host the WordPress stack, paid extensions decide the polish, and it is not a Gumroad-style link store by default.",
+				"fr": "L’e-commerce open dominant, sur WordPress, avec produits téléchargeables et abonnements. Stack WordPress à héberger, finition qui dépend d’extensions payantes, et pas de boutique par lien façon Gumroad par défaut."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "BTCPay Server",
+			"source": {
+				"host": "github",
+				"path": "btcpayserver/btcpayserver",
+				"url": "https://github.com/btcpayserver/btcpayserver"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted crypto payment processor, no middleman and zero fees, with buttons, invoices, refunds, docker-compose included. Cards and PayPal are out, it is not a storefront, and you run the node stack.",
+				"fr": "Processeur de paiement crypto auto-hébergé, sans intermédiaire ni frais, avec boutons, factures, remboursements et docker-compose inclus. Cartes et PayPal exclus, pas un storefront, et le stack Bitcoin/Lightning est à faire tourner."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ghost",
+			"source": {
+				"host": "github",
+				"path": "TryGhost/Ghost",
+				"url": "https://github.com/TryGhost/Ghost"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted publishing with members and paid tiers, the standard open path for paywalled creator content. Stripe is required, one-off digital-product checkout is absent, and it is not a file store.",
+				"fr": "Publication auto-hébergée avec membres et abonnements payants, le chemin open standard du contenu paywall créateur. Stripe obligatoire, pas de checkout produit numérique à l’unité, pas un coffre de fichiers."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Invoice Ninja",
+			"source": {
+				"host": "github",
+				"path": "invoiceninja/invoiceninja",
+				"url": "https://github.com/invoiceninja/invoiceninja"
+			},
+			"license": "Elastic-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted invoicing with a client portal and 50+ payment gateways for selling services and items. Billing-first, so no storefront or digital delivery; Elastic-2.0 lets you self-host but not resell as a service.",
+				"fr": "Facturation auto-hébergée avec portail client et 50+ passerelles de paiement. Billing d’abord : pas de storefront ni de livraison numérique, et l’Elastic-2.0 interdit la revente en service."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Feature set split across paid tiers",
+					"fr": "Fonctionnalités réparties sur paliers payants"
+				}
+			}
 		}
 	],
 	"priority": 4

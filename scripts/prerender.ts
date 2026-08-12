@@ -56,6 +56,7 @@ import {
 	priceFreshness,
 	projectSlug,
 } from "core/src/content";
+import type { FeatureFile } from "core/src/features";
 import {
 	DEFAULT_LANG,
 	type Lang,
@@ -63,7 +64,7 @@ import {
 	SupportedLangs,
 } from "core/src/index";
 import type { Route } from "core/src/routes";
-import { alternateUrls, buildProjectSlugs } from "core/src/routes";
+import { alternateUrls, buildProjectSlugs, LEGAL_DOCS } from "core/src/routes";
 
 const ROOT = join(import.meta.dir, "..");
 const FE = join(ROOT, "apps/frontend");
@@ -97,6 +98,7 @@ const { renderToString } = await import(
 	Bun.resolveSync("react-dom/server", FE)
 );
 const { App } = await import(join(FE, "src/App.tsx"));
+const { UPDATED: LEGAL_UPDATED } = await import(join(FE, "src/legal.tsx"));
 const {
 	categoriesMeta,
 	categoryMeta,
@@ -107,6 +109,7 @@ const {
 	projectMeta,
 	projectsMeta,
 	standingMeta,
+	legalMeta,
 	OG_IMAGE,
 	OG_LOCALE,
 } = await import(join(FE, "src/seo.ts"));
@@ -349,6 +352,20 @@ const healthFile: HealthFile = (() => {
 })();
 
 /**
+ * The feature matrix. Read once; sliced per page below, exactly like health.
+ * Absent or unreadable is not fatal — the block simply does not render, which
+ * is the correct behaviour for a project we hold no features for anyway.
+ */
+const featureFile: FeatureFile = (() => {
+	try {
+		return JSON.parse(readFileSync(join(DATA, "features.json"), "utf8"));
+	} catch {
+		console.warn("  ! no data/features.json — run annex/promote-features.ts");
+		return { taxonomyVersion: 0, domains: [], projects: {} };
+	}
+})();
+
+/**
  * Only the repos THIS page cites.
  *
  * The whole file is 170 KB and would be 14 kB gzipped on the critical path of
@@ -357,6 +374,35 @@ const healthFile: HealthFile = (() => {
  * a shared cached bundle the wrong trade and a per-page slice the right one. A
  * product page carries about 700 bytes of this.
  */
+/**
+ * The feature values for a set of projects — the same slicing discipline as
+ * `healthFor`. Returns null when we hold nothing for any of them, so the boot
+ * payload carries no empty object and the component renders nothing rather
+ * than an empty "Features" heading.
+ */
+const featuresForProjects = (
+	sources: Source[],
+	/** Product slugs this page shows — the proprietary column of ReplaceMatrix. */
+	slugs: string[] = [],
+): FeatureFile | null => {
+	const projects: FeatureFile["projects"] = {};
+	for (const s of sources) {
+		const v = featureFile.projects[healthKey(s)];
+		if (v) projects[healthKey(s)] = v;
+	}
+	const products: NonNullable<FeatureFile["products"]> = {};
+	const productTiers: NonNullable<FeatureFile["productTiers"]> = {};
+	for (const slug of slugs) {
+		const v = featureFile.products?.[slug];
+		if (v) products[slug] = v;
+		const t = featureFile.productTiers?.[slug];
+		if (t) productTiers[slug] = t;
+	}
+	const n = Object.keys(projects).length + Object.keys(products).length;
+	if (n === 0) return null;
+	return { ...featureFile, projects, products, productTiers };
+};
+
 const healthFor = (subset: Listed[]): HealthFile => {
 	const repos: Record<string, Health> = {};
 	for (const p of subset) {
@@ -405,6 +451,13 @@ const bootFor = (subset: Listed[]): Boot => ({
 	freshness,
 	categoryStats: allCategoryStats,
 	health: healthFor(subset),
+	features:
+		featuresForProjects(
+			subset.flatMap((p) =>
+				p.alternatives.filter((x) => x.kind === "oss").map((x) => x.source),
+			),
+			subset.map((p) => p.slug),
+		) ?? undefined,
 	collectionCounts,
 });
 
@@ -511,7 +564,8 @@ type Page = {
 		| "categories"
 		| "collections"
 		| "collection"
-		| "standing";
+		| "standing"
+		| "legal";
 	lastmod: string;
 	noindex: boolean;
 	alternates: Record<Lang, string>;
@@ -734,6 +788,12 @@ for (const lang of SupportedLangs) {
 		// standingMeta marks them noindex — which is also what keeps them out of
 		// the sitemap shards.
 		"stats",
+		// The feature explorer. ONE document per locale and no payload: the
+		// dataset is code-split and fetched on demand, and the filter state is
+		// query params rather than paths, so this route can never mint a second
+		// URL no matter how many of the 130 keys a reader ticks. That is why it is
+		// safe to index the bare path — see the comment in FeaturesPage.tsx.
+		"features",
 		"signin",
 		"dashboard",
 		// The operator's console, on the same terms: one document of labels, its
@@ -750,6 +810,21 @@ for (const lang of SupportedLangs) {
 			boot: bootFor(page === "estimate" ? listed : []),
 			kind: "standing",
 			lastmod: iso(new Date()),
+		});
+	}
+
+	// The legal pages: the index plus one document each. Static copy, no payload,
+	// and indexable — a legal notice nobody can find is not a published one.
+	// `lastmod` is the documents' own revision date, not the build date: these
+	// change when the text changes, and claiming otherwise in a sitemap is the
+	// kind of small lie that gets a whole sitemap distrusted.
+	for (const doc of [undefined, ...LEGAL_DOCS] as const) {
+		emit({
+			route: { name: "legal", lang, ...(doc ? { doc } : {}) },
+			meta: legalMeta(doc, lang),
+			boot: bootFor([]),
+			kind: "legal",
+			lastmod: LEGAL_UPDATED,
 		});
 	}
 
@@ -828,6 +903,7 @@ const shards: string[] = [];
 for (const kind of [
 	"home",
 	"standing",
+	"legal",
 	"categories",
 	"category",
 	"collections",
@@ -892,7 +968,7 @@ console.log(
 		`${byKind("projects")} project index, ${byKind("category")} category, ` +
 		`${byKind("categories")} category index, ${byKind("collections")} collection index, ` +
 		`${byKind("collection")} collection, ` +
-		`${byKind("standing")} standing, ${byKind("home")} home)`,
+		`${byKind("standing")} standing, ${byKind("legal")} legal, ${byKind("home")} home)`,
 );
 console.log(
 	`noindex: ${noindexProjects.size}/${projects.length} projects, ` +

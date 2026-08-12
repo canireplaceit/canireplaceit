@@ -36,14 +36,14 @@
 			"name": "Focalboard",
 			"source": {
 				"host": "github",
-				"path": "mattermost/focalboard",
-				"url": "https://github.com/mattermost/focalboard"
+				"path": "mattermost-community/focalboard",
+				"url": "https://github.com/mattermost-community/focalboard"
 			},
 			"license": "MIT",
 			"effort": "docker",
 			"note": {
-				"en": "Archived upstream but stable and standalone.",
-				"fr": "Abandonné en amont mais stable et autonome."
+				"en": "Handed to the community after Mattermost stopped shipping it as a product; still maintained and standalone. Kanban and board views, no cards-as-conversations.",
+				"fr": "Confié à la communauté après que Mattermost a cessé d’en faire un produit ; toujours maintenu et autonome. Vues kanban et tableaux, sans conversations attachées aux cartes."
 			},
 			"facts": {
 				"selfHostable": true,
@@ -95,6 +95,182 @@
 					"fr": "Panneau admin, suivi du temps, journaux d’audit"
 				},
 				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kanboard",
+			"source": {
+				"host": "github",
+				"path": "kanboard/kanboard",
+				"url": "https://github.com/kanboard/kanboard"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Mature self-hosted kanban with swimlanes, a JSON-RPC API and plugins. Costs you a dated, dense UI, and there are no native mobile apps.",
+				"fr": "Kanban auto-hébergé mature avec swimlanes, API JSON-RPC et plugins. En échange, une interface dense et datée, et aucune application mobile native."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenProject",
+			"source": {
+				"host": "github",
+				"path": "opf/openproject",
+				"url": "https://github.com/opf/openproject"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Full project-management suite — boards, gantt, budgets, time tracking, free SAML/OIDC/LDAP SSO. Heavier install than a Trello clone, overkill if you only want simple kanban.",
+				"fr": "Suite complète de gestion de projet : tableaux, gantt, budgets, suivi du temps, SSO SAML, OIDC et LDAP inclus. Mais bien plus lourde à installer qu’un clone de Trello."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise extras, paid",
+					"fr": "Extensions entreprise mineures, payantes"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Leantime",
+			"source": {
+				"host": "github",
+				"path": "Leantime/leantime",
+				"url": "https://github.com/Leantime/leantime"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Goal and task management for small teams — boards, sprints, timeline, idea canvases, LDAP SSO. Full PM rather than a pure Trello clone, UI heavier than Trello.",
+				"fr": "Gestion des objectifs et des tâches pour petites équipes : tableaux, sprints, timeline, canvas d’idées, SSO LDAP. C’est un vrai PM, pas un clone pur de Trello, et l’interface est plus lourde."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Taiga (legacy OSS)",
+			"source": {
+				"host": "github",
+				"path": "kaleidos-ventures/taiga",
+				"url": "https://github.com/kaleidos-ventures/taiga"
+			},
+			"license": "MPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Polished scrum/kanban with backlog, sprints, epics, issues and wiki. The repo has been dormant since 2023 — development moved to closed-core Taiga.",
+				"fr": "Scrum/kanban soigné avec backlog, sprints, epics, issues et wiki. Le dépôt est en sommeil depuis 2023 — le développement a rejoint le Taiga propriétaire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Closed-core updates, paid",
+					"fr": "Mises à jour du cœur fermé, payantes"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kanri",
+			"source": {
+				"host": "github",
+				"path": "kanriapp/kanri",
+				"url": "https://github.com/kanriapp/kanri"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Fast, keyboard-friendly offline kanban desktop app built on Tauri. No server: data lives on one machine, with no web or mobile access.",
+				"fr": "Kanban de bureau hors ligne, rapide et pensé pour le clavier, bâti sur Tauri. Pas de serveur : les données restent sur une machine, sans accès web ni mobile."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Taskwarrior",
+			"source": {
+				"host": "github",
+				"path": "GothenburgBitFactory/taskwarrior",
+				"url": "https://github.com/GothenburgBitFactory/taskwarrior"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Terminal-first task manager: fast and scriptable, with hooks and a rich filter language, syncing via Taskserver. No board UI built in, and team work needs add-ons.",
+				"fr": "Gestionnaire de tâches en CLI, rapide et scriptable : hooks, langage de filtrage riche, synchronisation via Taskserver. Pas d’interface tableau intégrée, et le travail d’équipe demande des add-ons."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Taskwarrior TUI",
+			"source": {
+				"host": "github",
+				"path": "kdheepak/taskwarrior-tui",
+				"url": "https://github.com/kdheepak/taskwarrior-tui"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A rich TUI frontend that turns Taskwarrior into a visual board — vim keybindings, reports, contexts. Text-only, and it needs Taskwarrior installed underneath.",
+				"fr": "Frontend TUI riche qui transforme Taskwarrior en tableau visuel : raccourcis façon vim, rapports, contextes. En texte seul, et il exige Taskwarrior en dessous."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Super Productivity",
+			"source": {
+				"host": "github",
+				"path": "super-productivity/super-productivity",
+				"url": "https://github.com/super-productivity/super-productivity"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Desktop task boards with time tracking built in, plus gantt, calendar and Jira sync. Single-user: sharing requires a companion server, not a hosted team board.",
+				"fr": "Tableaux de tâches sur bureau avec suivi du temps intégré, plus gantt, calendrier et sync Jira. Pensé mono-utilisateur : le partage passe par un serveur compagnon, pas un board d’équipe hébergé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
 				"dataResidency": "self"
 			}
 		}

@@ -97,6 +97,178 @@
 				"en": "Argo CD with a commercial control plane on top, free for small teams. You are still adopting Argo, so the lock-in is thin — which is the point.",
 				"fr": "Argo CD avec un plan de contrôle commercial par-dessus, gratuit pour les petites équipes. Vous adoptez quand même Argo, donc le verrouillage est faible — c’est justement l’intérêt."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Jenkins",
+			"source": {
+				"host": "github",
+				"path": "jenkinsci/jenkins",
+				"url": "https://github.com/jenkinsci/jenkins"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "The default self-hosted CI: 1,800+ plugins, pipeline-as-code, free SSO via LDAP/CAS/OIDC. Groovy and Java config, plugin upkeep and a JVM footprint make it feel heavy next to YAML-native rivals.",
+				"fr": "Le CI auto-hébergé par défaut : 1 800+ plugins, pipeline-as-code, SSO gratuit via LDAP/CAS/OIDC. Config Groovy/Java, maintenance des plugins et empreinte JVM : lourd à côté des CI natives YAML."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GoCD",
+			"source": {
+				"host": "github",
+				"path": "gocd/gocd",
+				"url": "https://github.com/gocd/gocd"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "CD-first: explicit fan-in/fan-out modelled in visual dependency graphs and value-stream maps. The Java server is heavier to run and the XML/JSON config verbose, with a smaller community than Jenkins.",
+				"fr": "CD d’abord : fan-in/fan-out modélisés en graphes de dépendances visuels et value-stream maps. Serveur Java plus lourd à opérer, config XML/JSON verbeuse, communauté plus petite que Jenkins."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Concourse",
+			"source": {
+				"host": "github",
+				"path": "concourse/concourse",
+				"url": "https://github.com/concourse/concourse"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Pipelines as static YAML, resources-as-primitives proven at cloud-foundry scale, with built-in OIDC SSO. The resources/containers model has a real learning curve and the web/worker/postgres footprint is ops-heavy; there is no hosted option.",
+				"fr": "Pipelines en YAML statique, primitives de ressources prouvées à l’échelle de Cloud Foundry, SSO OIDC intégré. Le modèle ressources/conteneurs demande un vrai apprentissage et la pile web/worker/postgres est lourde à opérer ; aucune option hébergée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tekton",
+			"source": {
+				"host": "github",
+				"path": "tektoncd/pipeline",
+				"url": "https://github.com/tektoncd/pipeline"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Kubernetes-native pipelines as reusable CRDs, CNCF-graduated, with a shared catalog of community tasks. It needs a cluster and heavy CRD authoring — overkill for one VPS or a small team.",
+				"fr": "Pipelines Kubernetes natifs en CRD réutilisables, diplômé CNCF, avec un catalogue de tâches communautaires. Exige un cluster et une écriture CRD lourde — surdimensionné pour un VPS ou une petite équipe."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kargo",
+			"source": {
+				"host": "github",
+				"path": "akuity/kargo",
+				"url": "https://github.com/akuity/kargo"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "GitOps promotion engine: warehouses pull image/git/chart artifacts, multi-stage delivery gated by verification, freezes and rollbacks included. Delivery only — it needs existing Kubernetes plus Argo CD, and the docs are still maturing.",
+				"fr": "Moteur de promotion GitOps : des warehouses consomment images/git/charts, livraison multi-stages avec portes de vérification, freezes et rollback intégrés. Livraison uniquement — requiert Kubernetes et Argo CD existants, docs encore en maturation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PipeCD",
+			"source": {
+				"host": "github",
+				"path": "pipe-cd/pipecd",
+				"url": "https://github.com/pipe-cd/pipecd"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Declarative CD for k8s, ECS, Lambda and CloudRun with policy-engine drift detection via a Piped agent. Community clusters around Cybozu in Japan, docs are thinner, and some targets mean running extra agents.",
+				"fr": "CD déclaratif pour k8s, ECS, Lambda et CloudRun, dérive détectée par policy engine via un agent Piped. Communauté surtout japonaise autour de Cybozu, docs plus minces, certaines cibles exigent des agents supplémentaires."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Earthly",
+			"source": {
+				"host": "github",
+				"path": "earthly/earthly",
+				"url": "https://github.com/earthly/earthly"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Earthfile DSL builds hermetically in containers with BuildKit caching, locally or inside any CI as a step. Needs a BuildKit daemon, a new DSL to learn, and the web console is commercial.",
+				"fr": "Le DSL Earthfile build en conteneurs hermétiques avec cache BuildKit, en local ou dans n’importe quel CI. Nécessite un daemon BuildKit, un nouveau DSL à apprendre, et la console web est commerciale."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Cloud/web console",
+					"fr": "Console cloud/web"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Woodpecker CI",
+			"source": {
+				"host": "github",
+				"path": "woodpecker-ci/woodpecker",
+				"url": "https://github.com/woodpecker-ci/woodpecker"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight Docker-native self-hosting: YAML pipelines, forge-first OAuth with GitHub/GitLab/Gitea/Forgejo, small footprint. The integration marketplace is small, executors are not hosted, and docs lag releases.",
+				"fr": "Self-hosting Docker léger : pipelines YAML, OAuth forge-first avec GitHub/GitLab/Gitea/Forgejo, petite empreinte. Marketplace d’intégrations restreinte, pas d’exécuteurs hébergés, docs parfois en retard sur les releases."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

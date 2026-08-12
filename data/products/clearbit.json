@@ -101,6 +101,174 @@
 				"en": "Enrichment credits at a small fraction of the Clearbit rate. Company data is thinner and the IP lookup is weaker.",
 				"fr": "Des crédits d’enrichissement à une petite fraction du tarif Clearbit. Données d’entreprise plus maigres et identification par IP plus faible."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "theHarvester",
+			"source": {
+				"host": "github",
+				"path": "laramies/theHarvester",
+				"url": "https://github.com/laramies/theHarvester"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Workhorse CLI for self-built email discovery: harvests emails, hosts, subdomains and names from search engines and public sources. Output is raw OSINT, undeduped and unverified, and engines rate-limit the crawl.",
+				"fr": "Le cheval de trait du scraping d’emails maison : ce CLI moissonne emails, hôtes, sous-domaines et noms depuis les moteurs de recherche. Sortie brute, ni dédupliquée ni vérifiée ; les moteurs limitent la cadence."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Amass",
+			"source": {
+				"host": "github",
+				"path": "owasp-amass/amass",
+				"url": "https://github.com/owasp-amass/amass"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Maps the company’s attack surface — subdomains, IPs, ASNs — through passive and active OSINT. Infrastructure, not contacts: no email or phone, and full passive coverage needs API keys.",
+				"fr": "Cartographie la surface d’attaque — sous-domaines, IP, ASN — en OSINT passif et actif. C’est de l’infrastructure, pas des contacts : ni email ni téléphone, et le passif complet exige des clés API."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Twenty",
+			"source": {
+				"host": "github",
+				"path": "twentyhq/twenty",
+				"url": "https://github.com/twentyhq/twenty"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "A modern AGPL CRM whose GraphQL API and enrichment-provider hooks slot Clearbit-style enrichment into self-hosted contact storage. It stores data; it isn’t a vendor — enrichment still needs a provider or scrapers.",
+				"fr": "CRM AGPL à l’API GraphQL dont les hooks d’enrichissement acceptent un provider et replacent Clearbit Enrichment dans votre hébergement. Il stocke, il ne vend pas : l’enrichissement reste à fournir ou à scraper."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "EspoCRM",
+			"source": {
+				"host": "github",
+				"path": "espocrm/espocrm",
+				"url": "https://github.com/espocrm/espocrm"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Mature AGPL CRM for the whole outreach loop — leads, campaigns, workflows — over REST, self-hosted. It ships no enrichment, the UI predates Twenty, and the core is AGPL.",
+				"fr": "CRM AGPL mature pour tout le cycle d’outreach — leads, campagnes, workflows — via REST, auto-hébergé. Aucune donnée d’enrichissement embarquée, une UI antérieure à Twenty et le cœur en AGPL."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mautic",
+			"source": {
+				"host": "github",
+				"path": "mautic/mautic",
+				"url": "https://github.com/mautic/mautic"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Marketing automation — scoring, segments, email sequences — running the campaign half that Prospector feeds. Heavy PHP/MySQL ops, and it ships no contact data: leads must come from elsewhere.",
+				"fr": "L’automatisation marketing — scoring, segmentation, séquences d’emails — qui porte le versant campagnes alimenté par Prospector. Ops lourdes en PHP/MySQL, et aucune donnée de contact embarquée : il faut sourcer les leads ailleurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "holehe",
+			"source": {
+				"host": "github",
+				"path": "megadose/holehe",
+				"url": "https://github.com/megadose/holehe"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Shows which of 120+ sites an email is registered on, turning one address into cross-platform signal. Volume needs proxies or Tor, and per-site checks are only as good as the site.",
+				"fr": "Dit sur lesquels de 120+ sites une adresse est inscrite, transformant un email en signal multi-sites. En volume il faut des proxies ou Tor, et la fiabilité du test dépend du site."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "maigret",
+			"source": {
+				"host": "github",
+				"path": "soxoj/maigret",
+				"url": "https://github.com/soxoj/maigret"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Needs a starting handle, but from one username builds a profile report across 3000+ sites. Some sites rate-limit, and the result is footprint, not contact data.",
+				"fr": "Tire un rapport de profil sur 3000+ sites à partir d’un pseudo, en CLI ou TUI. Certains sites limitent le débit, et le résultat est une empreinte, pas des contacts."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "recon-ng",
+			"source": {
+				"host": "github",
+				"path": "lanmaster53/recon-ng",
+				"url": "https://github.com/lanmaster53/recon-ng"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Interactive recon console with 150+ modules spanning contacts, emails, vhosts and geo. Community modules drift stale, paid sources want API keys, and there’s no B2B database bundled.",
+				"fr": "Console de recon interactive et ses 150+ modules pour contacts, emails, vhosts et géo. Les modules communautaires vieillissent, les sources payantes veulent des clés API, et aucune base B2B n’est fournie."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

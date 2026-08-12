@@ -128,6 +128,266 @@
 				"en": "Same engine, someone else's on-call, and it idles down. You still inherit ClickHouse's hostility to mutable data.",
 				"fr": "Même moteur, l’astreinte de quelqu’un d’autre, et il se met en veille. Vous héritez toujours de l’hostilité de ClickHouse aux données mutables."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache Doris",
+			"source": {
+				"host": "github",
+				"path": "apache/doris",
+				"url": "https://github.com/apache/doris"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Closest Apache-licensed OLAP drop-in: MySQL wire protocol, real-time and batch ingestion, high-concurrency point queries. You deploy and tune the cluster yourself — no managed compute.",
+				"fr": "Remplacement OLAP sous licence Apache le plus proche : protocole filaire MySQL, ingestion temps réel et par lots, requêtes ponctuelles à forte concurrence. Cluster à déployer et régler soi-même, sans compute managé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Databend",
+			"source": {
+				"host": "github",
+				"path": "databendlabs/databend",
+				"url": "https://github.com/databendlabs/databend"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Cloud-native warehouse mirroring Snowflake: storage and compute decoupled over S3-compatible object stores, MySQL/Postgres wire, built-in vector search. Ecosystem younger; enterprise features sit behind the Elastic-2.0 EE key.",
+				"fr": "Warehouse cloud-natif calqué sur Snowflake : stockage et calcul découplés sur object store compatible S3, protocole MySQL/Postgres, recherche vectorielle intégrée. Écosystème jeune, et les fonctions entreprise restent derrière la clé EE Elastic-2.0."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise features behind the EE key",
+					"fr": "Fonctions entreprise derrière la clé EE"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache Druid",
+			"source": {
+				"host": "github",
+				"path": "apache/druid",
+				"url": "https://github.com/apache/druid"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Battle-tested open real-time analytics: sub-second OLAP at scale, streaming and batch ingest, rollups, time-partitioned storage. Ingestion-centric and ops-heavy, so it fills a niche, not the whole warehouse slot.",
+				"fr": "Base analytics temps réel open source éprouvée : OLAP sub-seconde à grande échelle, ingestion streaming et par lots, rollups, partitionnement temporel. Centré ingestion et lourd en ops : une niche, pas un entrepôt complet."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache Pinot",
+			"source": {
+				"host": "github",
+				"path": "apache/pinot",
+				"url": "https://github.com/apache/pinot"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Real-time columnar OLAP for user-facing analytics, streaming in plus batch, heavy indexing, horizontal scale-out. Not a warehouse: little ETL surface, and live streaming usually expects Kafka.",
+				"fr": "OLAP columnar temps réel pour l’analytique côté utilisateur : streaming et batch, indexation poussée, scale-out horizontal. Pas un entrepôt : surface ETL limitée, et le streaming en direct suppose généralement Kafka."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Greenplum",
+			"source": {
+				"host": "github",
+				"path": "open-gpdb/gpdb",
+				"url": "https://github.com/open-gpdb/gpdb"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Mature PostgreSQL-based warehouse: shared-nothing MPP scale-out, columnar and row storage, deep analytics ecosystem. Heavy footprint, fully self-managed, and the open-gpdb fork counts just 59 stars.",
+				"fr": "Entrepôt mature en PostgreSQL : MPP shared-nothing, stockage colonne et ligne, écosystème analytique solide. Empreinte lourde, ops 100 % maison, et le fork open-gpdb ne compte que 59 étoiles."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "TiDB",
+			"source": {
+				"host": "github",
+				"path": "pingcap/tidb",
+				"url": "https://github.com/pingcap/tidb"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "HTAP engine: MySQL wire compatibility, horizontal scale-out, TiFlash columnar analytics bolted onto the OLTP core. OLTP-first — heavy warehouse loads mean planning TiFlash, not a pure data-warehouse tool.",
+				"fr": "Moteur HTAP : compatible protocole MySQL, scale-out horizontal, analytique colonne TiFlash greffée sur le cœur OLTP. Orienté OLTP d’abord — les grosses charges entrepôt exigent de piloter TiFlash ; ce n’est pas un pur outil de data warehouse."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "RisingWave",
+			"source": {
+				"host": "github",
+				"path": "risingwavelabs/risingwave",
+				"url": "https://github.com/risingwavelabs/risingwave"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Purpose-built streaming SQL: Postgres-compatible interface, stateful processing, materialized views over live streams. Streaming-first and young — real-time ETL, not a general warehouse.",
+				"fr": "SQL streaming pensé pour l’ETL temps réel : interface compatible Postgres, traitement stateful, vues matérialisées sur flux. Streaming-first et jeune — de l’ETL temps réel, pas un entrepôt généraliste."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache Flink",
+			"source": {
+				"host": "github",
+				"path": "apache/flink",
+				"url": "https://github.com/apache/flink"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Standard open stream/batch engine: stateful processing, SQL API, exactly-once, huge connector ecosystem. Not a serving warehouse — results need a sink, and job orchestration and cluster ops are on you.",
+				"fr": "Le moteur open stream/batch de référence : processing stateful, API SQL, exactement-une-fois, énorme écosystème de connecteurs. Pas un entrepôt de service — les résultats demandent un sink, orchestration et cluster à votre charge."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache Spark",
+			"source": {
+				"host": "github",
+				"path": "apache/spark",
+				"url": "https://github.com/apache/spark"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The default open data-engineering engine: unified batch and streaming ETL, SQL/DataFrame/Scala/Python APIs, in-memory processing, vast ecosystem. No managed serving layer — the SQL warehouse and cluster are yours to run.",
+				"fr": "Le moteur open par défaut du data engineering : ETL batch et streaming unifiés, API SQL, DataFrame, Scala et Python, traitement en mémoire, écosystème massif. Pas de couche de service managée — SQL, entrepôt et cluster, c’est vous."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dbt",
+			"source": {
+				"host": "github",
+				"path": "dbt-labs/dbt-core",
+				"url": "https://github.com/dbt-labs/dbt-core"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Industry-standard transformation layer: SQL models in git, tests, docs, lineage, adapters for every major warehouse. Not a storage engine — needs a warehouse underneath plus a runner like Airflow for scheduling.",
+				"fr": "La couche de transformation open standard : modèles SQL versionnés dans git, tests, docs, lineage, adaptateurs pour chaque grand entrepôt. Pas un moteur de stockage — il lui faut un entrepôt en dessous et un runner type Airflow pour l’orchestration."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Airbyte",
+			"source": {
+				"host": "github",
+				"path": "airbytehq/airbyte",
+				"url": "https://github.com/airbytehq/airbyte"
+			},
+			"license": "Elastic-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Most complete open EL platform: 1,000+ connectors, CDC, incremental syncs, no-code UI plus API. Ingestion only — warehouse and transformations are elsewhere, and ELv2 blocks reselling it as hosted service.",
+				"fr": "La plateforme EL open la plus complète : plus de 1 000 connecteurs, CDC, syncs incrémentales, UI no-code plus API. De l’ingestion seulement — entrepôt et transformations ailleurs, et l’ELv2 interdit de le revendre en service hébergé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Right to resell as a hosted service",
+					"fr": "Droit de revente en service hébergé"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Meltano",
+			"source": {
+				"host": "github",
+				"path": "meltano/meltano",
+				"url": "https://github.com/meltano/meltano"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Open CLI-first ELT toolchain built on Singer: plugins configured in git, orchestration via Airflow or cron. Developer-oriented and leaner than Airbyte on connectors; still no warehouse of its own.",
+				"fr": "Toolchain ELT open en CLI, bâti sur Singer : plugins configurés dans git, orchestration via Airflow ou cron. Orienté développeurs, plus maigre qu’Airbyte côté connecteurs ; toujours pas d’entrepôt intégré."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

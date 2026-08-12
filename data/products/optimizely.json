@@ -109,6 +109,245 @@
 				"en": "A genuinely generous free tier with a serious stats engine, from the team that built Facebook's. Hosted only, and you are on their infrastructure.",
 				"fr": "Un palier gratuit réellement généreux avec un moteur statistique sérieux, par l’équipe qui a bâti celui de Facebook. Hébergé uniquement, et vous êtes sur leur infrastructure."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Flagsmith",
+			"source": {
+				"host": "github",
+				"path": "Flagsmith/flagsmith",
+				"url": "https://github.com/Flagsmith/flagsmith"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Mature open-core feature-flag platform with per-flag A/B experiments and a first-class admin UI. Change history is built in; experiment analysis stays lighter than a dedicated stats engine, and SSO sits in Enterprise.",
+				"fr": "Plateforme open-core de feature flags mûre, avec expériences A/B par flag et UI d’admin soignée. L’analyse reste plus légère qu’un vrai moteur de stats ; le SSO vit dans Enterprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "SSO and advanced permissions",
+					"fr": "SSO et permissions avancées"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Flipt",
+			"source": {
+				"host": "github",
+				"path": "flipt-io/flipt",
+				"url": "https://github.com/flipt-io/flipt"
+			},
+			"license": "FCL-1.0-MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Fast self-hosted flag service with segments, rollouts, and flag-based experiments. Single-binary Docker image, but the Fair Core licence isn’t OSI-open, experiment analysis is yours, and SSO is Enterprise-only.",
+				"fr": "Service de feature flags rapide et auto-hébergé, avec segments, rollouts et expériences. Binaire Docker unique, mais la licence Fair Core n’est pas OSI ; l’analyse vous revient, le SSO exige Enterprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise SSO",
+					"fr": "SSO Enterprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Flagr",
+			"source": {
+				"host": "github",
+				"path": "openflagr/flagr",
+				"url": "https://github.com/openflagr/flagr"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Genuinely open and self-hosted: drag-drop decision model plus a live evaluation dashboard over a single Go binary. No visual page editor though — changes are API-driven — and development has slowed.",
+				"fr": "Vraiment open et auto-hébergé : modèle de décision drag-and-drop, dashboard en direct sur un binaire Go. Pas d’éditeur visuel — les changements passent par l’API — et le développement s’est ralenti."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GO Feature Flag",
+			"source": {
+				"host": "github",
+				"path": "thomaspoignant/go-feature-flag",
+				"url": "https://github.com/thomaspoignant/go-feature-flag"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Config-as-code flags in your repo with A/B rollout variants, evaluated through a tiny relay proxy. No hosted UI or analytics — flags live in YAML and you compute results yourself.",
+				"fr": "Feature flags en config-as-code dans le dépôt, rollout A/B servi par un relais minuscule. Pas de UI hébergée ni d’analytics : les flags vivent en YAML et vous calculez vous-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "featbit",
+			"source": {
+				"host": "github",
+				"path": "featbit/featbit",
+				"url": "https://github.com/featbit/featbit"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Fully MIT self-hosted LaunchDarkly clone — flags, experiments, segments, multi-env and an admin UI in one codebase. Younger than the competition, with basic experiment stats and no managed cloud.",
+				"fr": "Clone LaunchDarkly entièrement MIT et auto-hébergé : flags, expériences, segments, multi-env et UI d’admin dans un seul codebase. Plus jeune que la concurrence, stats d’expérience basiques et sans cloud managé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Flipper",
+			"source": {
+				"host": "github",
+				"path": "flippercloud/flipper",
+				"url": "https://github.com/flippercloud/flipper"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Battle-tested Ruby flag library with a web UI inside your Rails app — percentage, group, and actor gates on Redis or Postgres. Rails-first though: not a service, no stats dashboard.",
+				"fr": "Librairie Ruby de feature flags éprouvée, UI web dans votre app Rails, gates par pourcentage, groupe ou acteur sur Redis ou Postgres. Rails-first : pas un service, ni dashboard de stats."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Sixpack",
+			"source": {
+				"host": "github",
+				"path": "sixpack/sixpack",
+				"url": "https://github.com/sixpack/sixpack"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "ops",
+			"note": {
+				"en": "Self-hosted A/B framework with a JSON API and live per-variant dashboard. Dormant since 2022 — frequentist stats only, no visual editor, and tracking is wired by hand.",
+				"fr": "Framework A/B auto-hébergé, API JSON et dashboard en direct des variantes. Dormant depuis 2022 — stats uniquement fréquentistes, pas d’éditeur visuel, et le tracking se câble à la main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PlanOut",
+			"source": {
+				"host": "github",
+				"path": "facebookarchive/planout",
+				"url": "https://github.com/facebookarchive/planout"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "ops",
+			"note": {
+				"en": "Facebook’s scripting language for large-scale experiments, archived but battle-tested — GrowthBook’s own core. A library, not a product: no UI, no dashboard, and you own the serving and analysis.",
+				"fr": "Langage de scripts de Facebook pour les expériences à grande échelle, archivé mais éprouvé — le cœur de GrowthBook. Pas un produit : pas de UI, vous assumez serving et analyse."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Vanity",
+			"source": {
+				"host": "github",
+				"path": "assaf/vanity",
+				"url": "https://github.com/assaf/vanity"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Rails classic for server-side A/B on marketing pages, with a built-in conversions dashboard. Archived and Rails-only — basic statistics and no visual editor.",
+				"fr": "Le classique Rails pour l’A/B serveur sur les pages marketing, avec dashboard de conversions intégré. Archivé et réservé à Rails — stats basiques, pas d’éditeur visuel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "django-waffle",
+			"source": {
+				"host": "github",
+				"path": "django-waffle/django-waffle",
+				"url": "https://github.com/django-waffle/django-waffle"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "ops",
+			"note": {
+				"en": "Django’s standard for flags and switches — sample gates drop into any marketing page via templatetags. Django-only, with no experiment dashboard, statistics, or visual editor.",
+				"fr": "Le standard Django pour les flags et switches — les gates par échantillon se glissent dans toute page marketing via des templatetags. Django-only, sans dashboard ni stats, ni éditeur visuel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Wasabi",
+			"source": {
+				"host": "github",
+				"path": "intuit/wasabi",
+				"url": "https://github.com/intuit/wasabi"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Intuit’s open-source A/B testing service — REST API, admin UI, and attribute bucketing. Dormant since 2023 on a dated Java/Dropwizard stack, with no visual editor.",
+				"fr": "Service A/B open-source d’Intuit — API REST, UI d’admin et bucketing par attributs. Dormant depuis 2023 sur une stack Java/Dropwizard datée, sans éditeur visuel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

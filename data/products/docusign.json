@@ -105,6 +105,157 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "LibreSign",
+			"source": {
+				"host": "github",
+				"path": "LibreSign/libresign",
+				"url": "https://github.com/LibreSign/libresign"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "AGPL e-signing inside Nextcloud: sign PDFs from the Files app with embedded certificates and role-based workflow, reusing existing auth and SSO. Costs a Nextcloud deployment — there is no standalone signing portal.",
+				"fr": "Signature AGPL dans Nextcloud : signez les PDF du coffre avec certificats embarqués et workflow à rôles, en réutilisant l’authentification et le SSO existants. Exige un déploiement Nextcloud — pas de portail autonome."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SignServer CE",
+			"source": {
+				"host": "github",
+				"path": "Keyfactor/signserver-ce",
+				"url": "https://github.com/Keyfactor/signserver-ce"
+			},
+			"license": "LGPL-2.1",
+			"effort": "docker",
+			"note": {
+				"en": "No end-user signing room — it is a developer API for PKI-grade document, code and timestamp signing, with HSM-backed keys, admin console and Docker. Java/PKI setup is steep.",
+				"fr": "Pas de salle de signature pour l’utilisateur final : une API développeur pour signer documents, code et horodatages, avec clés HSM, console d’admin et Docker. La mise en place Java/PKI est lourde."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "openCore — minor, enterprise-grade features",
+					"fr": "openCore : fonctionnalités d’entreprise mineures"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "node-signpdf",
+			"source": {
+				"host": "github",
+				"path": "vbuch/node-signpdf",
+				"url": "https://github.com/vbuch/node-signpdf"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Pure-Node PDF signing core (PAdES) with an npm CLI for batch signing — no native dependencies, drop it into a custom stack. You build envelopes, roles and audit logging yourself.",
+				"fr": "Cœur de signature PDF en Node pur (PAdES), avec CLI npm pour signer en lot — aucune dépendance native, à greffer dans votre stack. Enveloppes, rôles et journal d’audit sont à construire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pdfsign (digitorus)",
+			"source": {
+				"host": "github",
+				"path": "digitorus/pdfsign",
+				"url": "https://github.com/digitorus/pdfsign"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Single static Go binary: PAdES PDF signing plus verification, and an HTTP mode for remote signing. No envelope, roles or reminders — a CLI/library with certificate management on you.",
+				"fr": "Un seul binaire Go statique : signature PAdES de PDF, vérification, et un mode HTTP pour la signature à distance. Pas d’enveloppe ni de rôles — la gestion des certificats reste à votre charge."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "DSS (Digital Signature Service)",
+			"source": {
+				"host": "github",
+				"path": "esig/dss",
+				"url": "https://github.com/esig/dss"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "The EU reference library for PAdES/XAdES/CAdES, eIDAS-aligned, with validation and signing demo apps. A Java framework, not a SaaS — you assemble envelopes, roles and rooms, and the build is heavy.",
+				"fr": "La bibliothèque de référence de l’UE pour PAdES/XAdES/CAdES, alignée eIDAS, avec des démos de signature et de validation. Un framework Java, pas un SaaS — enveloppes, rôles et salons à assembler, build lourd."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "autogram",
+			"source": {
+				"host": "github",
+				"path": "slovensko-digital/autogram",
+				"url": "https://github.com/slovensko-digital/autogram"
+			},
+			"license": "EUPL-1.2",
+			"effort": "managed",
+			"note": {
+				"en": "Slovak government’s Rust tool signs documents offline with an ETSI-compliant eID smart card — TUI and GUI. Single-user and local: no envelopes, roles, reminders or multi-party flow.",
+				"fr": "L’outil Rust du gouvernement slovaque signe des documents hors ligne avec une carte à puce eID conforme ETSI — TUI et GUI. Mono-utilisateur et local : pas d’enveloppes, de rôles ni de flux multi-parties."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "iCreditWorks eSigning",
+			"source": {
+				"host": "github",
+				"path": "iCreateWorks/esigning",
+				"url": "https://github.com/iCreateWorks/esigning"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "No commits since 2024 — this MIT self-hosted e-signing service (REST API, mobile-friendly signing screens) proved itself in iCreditWorks loan origination. Built around one company’s workflow, with thin docs and no hosted option.",
+				"fr": "Plus de commit depuis 2024 — ce service MIT auto-hébergé (API REST, écrans mobiles) a fait ses preuves dans l’origination de prêts iCreditWorks. Conçu pour un seul workflow, docs minces, sans option hébergée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

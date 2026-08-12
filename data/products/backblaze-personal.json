@@ -135,6 +135,132 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "borgmatic",
+			"source": {
+				"host": "github",
+				"path": "borgmatic-collective/borgmatic",
+				"url": "https://github.com/borgmatic-collective/borgmatic"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "YAML config on top of Borg turns backups into a cron-ready routine: scheduling, prune and check built in, hooks for databases and alerts. Still no web UI, and you manage Borg underneath.",
+				"fr": "La config YAML par-dessus Borg rend la sauvegarde cron-ready : planification, prune et check intégrés, hooks pour bases de données et alertes. Toujours pas d’interface web, et Borg reste à gérer dessous."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "rdiff-backup",
+			"source": {
+				"host": "github",
+				"path": "rdiff-backup/rdiff-backup",
+				"url": "https://github.com/rdiff-backup/rdiff-backup"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "No dedup, no compression, plain CLI. Reverse-delta history restores any point in time via a hardlink mirror over ssh, stable since 2001. Cron-based; first full backup over the network is slow.",
+				"fr": "Simple CLI sans déduplication ni compression. L’historique reverse-delta restitue n’importe quel point dans le temps, via miroir hardlink sur ssh — stable depuis 2001. Ordonnancement via cron ; premier full backup réseau lent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "autorestic",
+			"source": {
+				"host": "github",
+				"path": "cupcakearmy/autorestic",
+				"url": "https://github.com/cupcakearmy/autorestic"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A thin YAML config tames restic’s multi-backend setup — B2 included — with dedup, versioning, and backup/restore/prune in one CLI. No GUI, smaller community than restic, and the config still needs writing by hand.",
+				"fr": "Un wrapper YAML fin qui dompte le multi-backend restic, B2 inclus, avec déduplication, versioning et backup/restore/prune en un CLI. Pas de GUI, communauté plus petite, config toujours manuelle."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "UrBackup",
+			"source": {
+				"host": "github",
+				"path": "uroni/urbackup_backend",
+				"url": "https://github.com/uroni/urbackup_backend"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "You run the server, but it earns it: web console, lightweight clients on Windows/macOS/Linux, file and full-image backups. Image restores need same or static hardware, and clients feel less polished than SaaS.",
+				"fr": "C’est vous qui hébergez le serveur, mais ça paie : console web, clients légers Windows/macOS/Linux, sauvegardes fichiers et images système. Restauration d’images sur matériel identique ou statique, clients moins polis que le SaaS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Vorta",
+			"source": {
+				"host": "github",
+				"path": "borgbase/vorta",
+				"url": "https://github.com/borgbase/vorta"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Tray-based desktop GUI scheduling encrypted Borg backups, with mount and restore dialogs. Front-end only: Borg must be installed. Windows support is unofficial, and it stays single-machine, no web access.",
+				"fr": "GUI bureau en plateau qui planifie des sauvegardes Borg chiffrées, avec dialogues de montage et restauration. Simple front-end : il faut installer Borg. Windows non officiel, et ça reste mono-machine, sans accès web."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Backrest",
+			"source": {
+				"host": "github",
+				"path": "garethgeorge/backrest",
+				"url": "https://github.com/garethgeorge/backrest"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted web UI scheduling restic and Kopia repos, with retention, prune, per-repo users, and restore workflows. Not its own engine — it drives restic/Kopia — and lacks native apps and real multi-user admin.",
+				"fr": "UI web self-hosted qui planifie les repos restic et Kopia, avec rétention, prune, utilisateurs par repo et restauration guidée. Pas un moteur — il pilote restic/Kopia — sans apps natives ni vrai admin multi-utilisateurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

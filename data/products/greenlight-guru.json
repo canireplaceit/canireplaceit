@@ -95,6 +95,157 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "ERPNext",
+			"source": {
+				"host": "github",
+				"path": "frappe/erpnext",
+				"url": "https://github.com/frappe/erpnext"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "One stack for QMS and manufacturing — inspections, procedures, and doc control sit alongside MRP. SSO included. The QMS layer stays generic, and there is no FDA-validated e-signature or audit trail.",
+				"fr": "QMS et fabrication dans une seule pile : inspections, procédures et gestion documentaire cohabitent avec le MRP, SSO compris. Le module QMS reste générique, sans signature électronique ni piste d’audit validées FDA."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Minor features withheld from the free build.",
+					"fr": "Quelques fonctionnalités réservées à la version payante."
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Paperless-ngx",
+			"source": {
+				"host": "github",
+				"path": "paperless-ngx/paperless-ngx",
+				"url": "https://github.com/paperless-ngx/paperless-ngx"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Strongest open DMS for scan-heavy quality records: full-text OCR search, retention policies, and a REST API. Approvals and e-signature are absent, and quality schemas must be hand-rolled.",
+				"fr": "Le DMS libre le plus solide pour les dossiers qualité scannés : OCR plein texte, rétention, API REST. Pas d’approbations ni signature électronique ; les schémas qualité restent à faire soi-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Moodle",
+			"source": {
+				"host": "github",
+				"path": "moodle/moodle",
+				"url": "https://github.com/moodle/moodle"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Training with competency and completion records — a core QMS pillar. SAML, OAuth2, LDAP. Not a QMS: no CAPA or document control, so records must be exported for the audit file.",
+				"fr": "Formation avec suivi des compétences et des achèvements, un pilier du QMS. SAML, OAuth2, LDAP. Pas un QMS : sans CAPA ni gestion documentaire, les dossiers doivent être exportés pour l’audit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Documenso",
+			"source": {
+				"host": "github",
+				"path": "documenso/documenso",
+				"url": "https://github.com/documenso/documenso"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Open e-signature with embedded audit trail and approval routing, where Greenlight’s locks you in. Legality under 21 CFR 820 needs your own validation; pair it with a DMS, it is not one.",
+				"fr": "Signature électronique libre avec piste d’audit intégrée et routage d’approbations, là où celle de Greenlight enferme. Validité 21 CFR 820 à établir vous-même ; à coupler à un DMS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Taskwarrior",
+			"source": {
+				"host": "github",
+				"path": "GothenburgBitFactory/taskwarrior",
+				"url": "https://github.com/GothenburgBitFactory/taskwarrior"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Terminal-first tracking for CAPA and NCR follow-ups: due dates, dependencies, encrypted local data, scriptable exports. No document control or e-signature, and compliance reporting is manual.",
+				"fr": "Suivi des actions CAPA et NCR en pur terminal : échéances, dépendances, données chiffrées en local, exports scriptables. Pas de gestion documentaire ni signature électronique ; le reporting qualité se fait à la main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Snipe-IT",
+			"source": {
+				"host": "github",
+				"path": "grokability/snipe-it",
+				"url": "https://github.com/grokability/snipe-it"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Asset registry with calibration and maintenance scheduling and per-asset history, so calibration records land in the quality file. No document control or CAPA, and calibrations need custom fields.",
+				"fr": "Registre d’équipements avec planification de l’étalonnage et de la maintenance et historique par actif, de quoi nourrir le dossier qualité. Ni gestion documentaire ni CAPA ; les étalonnages reposent sur des champs personnalisés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenQMS",
+			"source": {
+				"host": "github",
+				"path": "C-realize/OpenQMS",
+				"url": "https://github.com/C-realize/OpenQMS"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The only actively developed open eQMS — cloud-native, with document, training, and audit modules. Caveat: one maintainer, a small community, and a feature set still maturing.",
+				"fr": "Le seul eQMS libre réellement maintenu — cloud natif, modules documentaire, formation et audit. En contrepartie : un seul mainteneur, une petite communauté, des fonctions encore jeunes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

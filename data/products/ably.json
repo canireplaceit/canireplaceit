@@ -101,6 +101,178 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Socket.IO",
+			"source": {
+				"host": "github",
+				"path": "socketio/socket.io",
+				"url": "https://github.com/socketio/socket.io"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Default pub/sub engine for web apps — rooms, acks, automatic reconnection. Embedded rather than a broker, so presence and history are hand-rolled, and multi-node needs the Redis adapter.",
+				"fr": "Moteur pub/sub par défaut des apps web — rooms, acks, reconnexion automatique. C’est un greffon, pas un broker : présence et historique à faire soi-même, et l’adapter Redis pour le multi-nœud."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "soketi",
+			"source": {
+				"host": "github",
+				"path": "soketi/soketi",
+				"url": "https://github.com/soketi/soketi"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Pusher Channels–compatible server that runs existing client SDKs unmodified. Copyleft AGPL, quiet since early 2025, and multi-node requires a Redis broker.",
+				"fr": "Serveur compatible Pusher Channels : les SDK clients existants marchent tels quels. AGPL, plus d’activité depuis début 2025, et broker Redis obligatoire en multi-nœud."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Supabase Realtime",
+			"source": {
+				"host": "github",
+				"path": "supabase/realtime",
+				"url": "https://github.com/supabase/realtime"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Phoenix server streaming Postgres changes over websockets, with broadcast and presence on the side. Not a standalone pub/sub — DB-sync needs Postgres, and scaling demands Erlang know-how.",
+				"fr": "Serveur Phoenix qui diffuse les changements Postgres en websocket, avec broadcast et présence. Pas un pub/sub généraliste : la synchro exige Postgres, et le passage à l’échelle suppose de maîtriser Erlang."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "EMQX",
+			"source": {
+				"host": "github",
+				"path": "emqx/emqx",
+				"url": "https://github.com/emqx/emqx"
+			},
+			"license": "BUSL-1.1",
+			"effort": "docker",
+			"note": {
+				"en": "Million-connection MQTT broker with dashboard, rule engine and browser websocket gateway. Source-available BSL since 5.1 (Apache-2.0 after four years), MQTT-centric, no web push.",
+				"fr": "Broker MQTT à grande échelle avec dashboard, rule engine et passerelle websocket navigateur. Licence BSL source-available depuis la 5.1 (Apache-2.0 après quatre ans), centré MQTT, sans web push."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise features",
+					"fr": "Fonctionnalités entreprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Eclipse Mosquitto",
+			"source": {
+				"host": "github",
+				"path": "eclipse-mosquitto/mosquitto",
+				"url": "https://github.com/eclipse-mosquitto/mosquitto"
+			},
+			"license": "EPL-2.0 OR BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Tiny single-binary MQTT broker, trivially self-hosted with pub/sub, QoS, retained messages and a browser websocket listener. MQTT only — no presence, history, push, or clustering.",
+				"fr": "Petit broker MQTT en un seul binaire, très simple à héberger soi-même : pub/sub, QoS, messages retenus et listener websocket navigateur. MQTT seulement — ni présence, ni historique, ni push, ni clustering."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "VerneMQ",
+			"source": {
+				"host": "github",
+				"path": "vernemq/vernemq",
+				"url": "https://github.com/vernemq/vernemq"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Distributed MQTT broker for when one node isn’t enough — shared-subscription HA, broker mesh, live-reload config. Erlang stack costs you ops time, and it stays MQTT-only.",
+				"fr": "Broker MQTT distribué pour quand un seul nœud ne suffit pas : HA en shared subscription, maille broker, config rechargeable à chaud. Stack Erlang qui pèse en ops, et MQTT uniquement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Faye",
+			"source": {
+				"host": "github",
+				"path": "faye/faye",
+				"url": "https://github.com/faye/faye"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Bayeux pub/sub with websocket and long-poll fallback, embeddable in Ruby or Node. Single-process, so no clustering, presence or history — modest activity, modest ecosystem.",
+				"fr": "Pub/sub Bayeux en websocket avec fallback long-polling, à embarquer dans Ruby ou Node. Process unique : ni clustering, ni présence, ni historique — activité et écosystème modestes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "websocketd",
+			"source": {
+				"host": "github",
+				"path": "joewalnes/websocketd",
+				"url": "https://github.com/joewalnes/websocketd"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Wraps any shell command as a websocket endpoint — one static binary, no framework, no deps. Point-to-point only: no pub/sub, auth, presence or persistence. A bridge, not a platform.",
+				"fr": "Transforme n’importe quelle commande shell en endpoint websocket — un seul binaire, sans framework ni dépendance. Point à point seulement : ni pub/sub, ni auth, ni présence, ni persistance. Un pont, pas une plateforme."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

@@ -103,6 +103,111 @@
 				"en": "A tenth of the price for the same delivery job. You give up the log UI, the templates and any human to email when Outlook starts deferring you.",
 				"fr": "Dix fois moins cher pour le même travail de livraison. Vous perdez l’interface de journaux, les modèles et tout humain à qui écrire quand Outlook commence à vous différer."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mailcow",
+			"source": {
+				"host": "github",
+				"path": "mailcow/mailcow-dockerized",
+				"url": "https://github.com/mailcow/mailcow-dockerized"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Most complete self-hosted drop-in: full dockerized suite with DKIM/DMARC tooling and an admin API. Heavier than a sending API, and reputation rides on your IPs, no managed warmup.",
+				"fr": "Remplacement autogéré le plus complet : suite Docker complète avec DKIM/DMARC et une API d’administration. Plus lourd qu’une API d’envoi, et la réputation tient à vos IP, sans échauffement géré."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Modoboa",
+			"source": {
+				"host": "github",
+				"path": "modoboa/modoboa",
+				"url": "https://github.com/modoboa/modoboa"
+			},
+			"license": "ISC",
+			"effort": "docker",
+			"note": {
+				"en": "Admin-oriented REST API, not a transactional send API. Python mail-hosting platform with webmail, admin console, multi-domain outbound via Postfix and per-domain policy; a Postfix/Dovecot stack with moving parts to run.",
+				"fr": "API orientée administration, pas d’envoi transactionnel. Plateforme mail en Python : webmail, console d’admin, sortie multi-domaines via Postfix et politique par domaine — pile Postfix/Dovecot à maintenir."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mail-in-a-Box",
+			"source": {
+				"host": "github",
+				"path": "mail-in-a-box/mailinabox",
+				"url": "https://github.com/mail-in-a-box/mailinabox"
+			},
+			"license": "CC0-1.0",
+			"effort": "docker",
+			"note": {
+				"en": "One-command installer on a clean Ubuntu box, auto-configuring SPF/DKIM/DMARC/DNSSEC — the lowest-friction self-host option. Fixed single-machine stack, no transactional API or analytics.",
+				"fr": "Installeur en une commande sur un Ubuntu propre, qui configure SPF/DKIM/DMARC/DNSSEC — l’option autohébergée la plus simple. Pile fixe sur une seule machine, ni API transactionnelle ni analytics."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "iRedMail",
+			"source": {
+				"host": "github",
+				"path": "iredmail/iRedMail",
+				"url": "https://github.com/iredmail/iRedMail"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Script-driven deployer assembling a full mail stack across many distros, with SPF/DKIM/DMARC, greylisting, fail2ban and a REST admin API. Component assembly keeps needing ops; no transactional-send parity.",
+				"fr": "Déployeur piloté par script, assemble toute la pile mail sur de nombreuses distros, avec SPF/DKIM/DMARC, greylisting, fail2ban et une API d’admin REST. Assemblage composants + SQL à maintenir, sans parité d’envoi transactionnel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "swaks",
+			"source": {
+				"host": "github",
+				"path": "jetmore/swaks",
+				"url": "https://github.com/jetmore/swaks"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Dormant since March 2024, the classic CLI SMTP tester for scripting TLS/AUTH/DKIM checks against any relay. One-shot testing in cron or CI — a testing tool, not a sending service.",
+				"fr": "Dormant depuis mars 2024, le testeur SMTP en CLI pour scripter des vérifications TLS/AUTH/DKIM contre n’importe quel relais. Scriptable en cron ou CI — un outil de test, pas un service d’envoi."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

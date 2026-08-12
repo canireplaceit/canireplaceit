@@ -97,6 +97,182 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Sacred",
+			"source": {
+				"host": "github",
+				"path": "IDSIA/sacred",
+				"url": "https://github.com/IDSIA/sacred"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Battle-tested experiment library with config injection and run observers to DB. No web dashboard — library-level, not a platform.",
+				"fr": "Bibliothèque d’expérimentation éprouvée, injection de config, observateurs de runs vers une base. Pas de tableau de bord web — niveau bibliothèque, pas une plateforme."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "TensorBoard",
+			"source": {
+				"host": "github",
+				"path": "tensorflow/tensorboard",
+				"url": "https://github.com/tensorflow/tensorboard"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Slim local server plotting scalars, graphs, histograms and embeddings. No registry or versioning — single-user, no team features.",
+				"fr": "Serveur local léger pour scalaires, graphes, histogrammes et embeddings. Pas de registre ni de versioning — mono-utilisateur, sans fonctions d’équipe."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "DVC",
+			"source": {
+				"host": "github",
+				"path": "treeverse/dvc",
+				"url": "https://github.com/treeverse/dvc"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Data versioning and experiment tracking kept in plain git. No dashboard: comparing runs means DVC Studio (paid) or git tooling.",
+				"fr": "Versionnement de données et suivi d’expériences dans du git pur. Pas de tableau de bord : comparer les runs passe par DVC Studio (payant) ou les outils git."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Guild AI",
+			"source": {
+				"host": "github",
+				"path": "guildai/guildai",
+				"url": "https://github.com/guildai/guildai"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "CLI-first runs with hyperparameter search and a local compare UI, no server. Smaller community, aimed at a single machine.",
+				"fr": "Suivi en CLI avec recherche d’hyperparamètres et comparaison locale, sans serveur. Communauté réduite, pensé pour une seule machine."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "WAT",
+			"source": {
+				"host": "github",
+				"path": "igrek51/wat",
+				"url": "https://github.com/igrek51/wat"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Git-backed experiment history: metrics and plots committed to the repo, zero infrastructure. Single-author project that scales with git, not a tracking DB.",
+				"fr": "Historique d’expériences dans git : métriques et graphes committés au dépôt, zéro infrastructure. Projet d’un seul auteur, à l’échelle du git plutôt que d’une base de suivi."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Polyaxon",
+			"source": {
+				"host": "github",
+				"path": "polyaxon/polyaxon",
+				"url": "https://github.com/polyaxon/polyaxon"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted tracking and orchestration with RBAC and SSO in the OSS build. Heavy on ops, and advanced features sit in the paid EE.",
+				"fr": "Suivi et orchestration auto-hébergés, RBAC et SSO dans le build open source. Lourd en ops, fonctions avancées réservées à l’EE payant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Advanced features (Polyaxon EE)",
+					"fr": "Fonctions avancées (Polyaxon EE)"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CML",
+			"source": {
+				"host": "github",
+				"path": "iterative/cml",
+				"url": "https://github.com/iterative/cml"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Puts metrics and plots into pull-request comments from CI/CD, with GPU runners on any git host. No live dashboard — reporting is PR-oriented.",
+				"fr": "Métriques et graphes dans les commentaires de pull requests via CI/CD, runners GPU sur n’importe quel hôte git. Pas de tableau de bord en direct : orienté PR."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Determined AI",
+			"source": {
+				"host": "github",
+				"path": "determined-ai/determined",
+				"url": "https://github.com/determined-ai/determined"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Training platform doing tracking, hyperparameter search, distributed runs and GPU scheduling. Needs a cluster — heavier than a tracking-only tool.",
+				"fr": "Plateforme d’entraînement : suivi, recherche d’hyperparamètres, entraînement distribué et ordonnancement GPU. Cluster requis — plus lourd qu’un simple outil de suivi."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "None — all Apache-2.0",
+					"fr": "Aucun — tout en Apache-2.0"
+				}
+			}
 		}
 	],
 	"priority": 3

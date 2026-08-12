@@ -103,6 +103,241 @@
 				"en": "Free for public images and bundled into a plan you probably already pay for. You are trading one vendor's rate limits for another's storage quota.",
 				"fr": "Gratuit pour les images publiques et inclus dans un abonnement que vous payez déjà probablement. Vous échangez les limites d’un fournisseur contre le quota de stockage d’un autre."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Gitea",
+			"source": {
+				"host": "github",
+				"path": "go-gitea/gitea",
+				"url": "https://github.com/go-gitea/gitea"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Already running Gitea? The container registry is built in — no separate tool to run. You get git hosting, packages, actions alongside; overkill if a registry is all you need.",
+				"fr": "Vous avez déjà Gitea : le registre de conteneurs est intégré, pas d’outil séparé à déployer. On hérite aussi git, paquets et actions ; trop lourd si le registre est tout ce qu’on veut."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Forgejo",
+			"source": {
+				"host": "codeberg",
+				"path": "forgejo/forgejo",
+				"url": "https://codeberg.org/forgejo/forgejo"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Run Forgejo and the container registry is already there. The Gitea fork leans harder into federation and self-hosting, but rides a smaller ecosystem.",
+				"fr": "Vous tournez déjà Forgejo : le registre de conteneurs est intégré. Ce fork de Gitea pousse la fédération et l’auto-hébergement, mais son écosystème reste plus réduit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nexus Repository Manager OSS",
+			"source": {
+				"host": "github",
+				"path": "sonatype/nexus-public",
+				"url": "https://github.com/sonatype/nexus-public"
+			},
+			"license": "EPL-1.0",
+			"effort": "ops",
+			"note": {
+				"en": "Universal artifact repository — containers, Maven, npm, PyPI in one box. The free build adds authentication and RBAC you'd bolt onto Distribution yourself; heavy for containers alone.",
+				"fr": "Référentiel d’artefacts universel — conteneurs, Maven, npm, PyPI dans la même boîte. La version open source apporte l’authentification et le RBAC qu’il faudrait sinon ajouter à Distribution ; lourdeur pour du conteneur seul."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "RBAC and advanced features are Pro-only.",
+					"fr": "RBAC et fonctions avancées réservés à la version Pro."
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Portus",
+			"source": {
+				"host": "github",
+				"path": "SUSE/Portus",
+				"url": "https://github.com/SUSE/Portus"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Archived since 2019 — don't build on it. It was the simple UI and auth layer over a Distribution or zot backend, without Harbor's heft.",
+				"fr": "Archivé depuis 2019 — n’en faites pas la base d’un projet. C’était l’interface et l’authentification simples devant Distribution ou zot, sans le poids de Harbor."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kraken",
+			"source": {
+				"host": "github",
+				"path": "uber/kraken",
+				"url": "https://github.com/uber/kraken"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Uber's P2P registry, built to push terabytes across peers in seconds. Fine for hyperscale; the ops burden and missing UI rule it out for anyone smaller.",
+				"fr": "Le registre P2P d’Uber, conçu pour distribuer des téraoctets entre pairs en quelques secondes. Bien pour l’hyperscale ; charge d’exploitation et absence d’interface écartent le reste."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dragonfly",
+			"source": {
+				"host": "github",
+				"path": "dragonflyoss/dragonfly",
+				"url": "https://github.com/dragonflyoss/dragonfly"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Not a registry — it sits in front of yours and accelerates pulls by sharing between peers. Worth the ops cost only where pulls are frequent and clusters big.",
+				"fr": "Pas un registre : il se place devant le vôtre et accélère les pull en les partageant entre pairs. L’effort d’exploitation ne se justifie que pour les gros clusters et les pull fréquents."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "docker-registry-ui",
+			"source": {
+				"host": "github",
+				"path": "Joxit/docker-registry-ui",
+				"url": "https://github.com/Joxit/docker-registry-ui"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Clean read-and-delete web UI for any v2/v3 registry, nothing else — no auth, no scanning. Pair it with a real backend or skip it.",
+				"fr": "Interface web propre pour parcourir et supprimer des images dans n’importe quel registre v2/v3 — ni authentification, ni scan, rien d’autre. Derrière un vrai backend."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "spegel",
+			"source": {
+				"host": "github",
+				"path": "spegel-org/spegel",
+				"url": "https://github.com/spegel-org/spegel"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Kubernetes-only, stateless mirror that shares images between nodes and dodges Docker Hub rate limits. An acceleration layer, not a registry you'd call your own.",
+				"fr": "Miroir sans état, réservé à Kubernetes, qui partage les images entre nœuds pour contourner les limites de Docker Hub. Une couche d’accélération, pas un registre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "nixery",
+			"source": {
+				"host": "github",
+				"path": "tazjin/nixery",
+				"url": "https://github.com/tazjin/nixery"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A registry that builds each image on demand from Nix — reproducible and small. Only makes sense inside the Nix world; nothing for anyone else.",
+				"fr": "Un registre qui compile chaque image à la demande depuis Nix — reproductible et minimal. Pertinent seulement dans l’écosystème Nix ; inutile ailleurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CRProxy",
+			"source": {
+				"host": "github",
+				"path": "DaoCloud/crproxy",
+				"url": "https://github.com/DaoCloud/crproxy"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Pull-through cache in front of several registries — same rate-limit workaround as spegel, without needing Kubernetes. It works around Docker Hub; it doesn't replace it.",
+				"fr": "Cache de rapatriement devant plusieurs registres — la même parade aux limites de taux que spegel, sans exiger Kubernetes. Il contourne Docker Hub ; il ne le remplace pas."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Project Quay",
+			"source": {
+				"host": "github",
+				"path": "quay/quay",
+				"url": "https://github.com/quay/quay"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Fully open source despite the doubters: Clair scanning, geo-replication and fine-grained robot accounts are all in the free build. Runs on Postgres, Redis and object storage; docs assume OpenShift.",
+				"fr": "Tout est dans le build gratuit, quoi qu’on en dise : scan Clair, géo-réplication et comptes robot granulaires. Exige Postgres, Redis et un stockage objet ; la doc suppose OpenShift."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 5

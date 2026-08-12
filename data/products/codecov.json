@@ -118,6 +118,153 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kcov",
+			"source": {
+				"host": "github",
+				"path": "SimonKagstrom/kcov",
+				"url": "https://github.com/SimonKagstrom/kcov"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Covers the compiled binaries that gcov-based tools can't, with no instrumentation and merged runs across C, C++, Rust, Go. Per-binary setup though, and no hosted dashboard, trends or PR checks.",
+				"fr": "Couvre les binaires compilés hors de portée de gcov, sans instrumentation, runs fusionnés en C, C++, Rust, Go. Setup par binaire, pas de dashboard, tendances ou checks PR."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LCOV",
+			"source": {
+				"host": "github",
+				"path": "linux-test-project/lcov",
+				"url": "https://github.com/linux-test-project/lcov"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The classic gcov companion: genhtml turns coverage into interactive HTML with branch metrics and per-test classification. C/C++ and local report generation only — no dashboard service.",
+				"fr": "Le compagnon classique de gcov : genhtml transforme la couverture en HTML interactif, avec métriques de branches et classification par test. C/C++ uniquement, rapports en local — pas de dashboard."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "c8",
+			"source": {
+				"host": "github",
+				"path": "bcoe/c8",
+				"url": "https://github.com/bcoe/c8"
+			},
+			"license": "ISC",
+			"effort": "managed",
+			"note": {
+				"en": "Zero-config drop-in for NYC and Istanbul: V8-native coverage with no instrumentation overhead, threshold gating built for CI. Node.js only, and no cross-run merging or hosted dashboard.",
+				"fr": "Remplacement zéro-config de NYC et Istanbul : couverture native V8 sans overhead d’instrumentation, seuils de CI intégrés. Node.js uniquement, sans fusion de runs ni dashboard hébergé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenCover",
+			"source": {
+				"host": "github",
+				"path": "OpenCover/opencover",
+				"url": "https://github.com/OpenCover/opencover"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Archived since 2021, still the historical reference for .NET: branch and sequence-point analysis with XML output every .NET CI consumed. No new .NET support, and a Windows/.NET Framework focus.",
+				"fr": "Archivé depuis 2021, c’est encore la référence historique .NET : analyse de branches et de séquence-points, sortie XML consommée par tous les CI .NET. Plus de nouveau support .NET, focus Windows/.NET Framework."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "JaCoCo",
+			"source": {
+				"host": "github",
+				"path": "jacoco/jacoco",
+				"url": "https://github.com/jacoco/jacoco"
+			},
+			"license": "EPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The JVM agent of record: per-line and per-branch metrics, merged XML and HTML, first-class SonarQube integration. Java only, with no diff-coverage gate or hosted dashboard.",
+				"fr": "L’agent JVM de référence : métriques par ligne et par branche, rapports XML et HTML fusionnés, intégration SonarQube de premier ordre. Java uniquement, pas de gate diff-coverage ni de dashboard hébergé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Slather",
+			"source": {
+				"host": "github",
+				"path": "SlatherOrg/slather",
+				"url": "https://github.com/SlatherOrg/slather"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Apple's only real open-source answer: xccov from Xcode becomes Cobertura, lcov and HTML that CI can gate on. Costs an Apple toolchain and macOS, no hosted dashboard or PR status checks.",
+				"fr": "La seule vraie réponse open-source pour Apple : transforme le xccov de Xcode en Cobertura, lcov et HTML, suffisant pour bloquer la CI. Exige macOS et un toolchain Apple, sans dashboard hébergé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gocov",
+			"source": {
+				"host": "github",
+				"path": "axw/gocov",
+				"url": "https://github.com/axw/gocov"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "For Go-only projects, gocov turns go test output into HTML, JSON and Cobertura XML with run merging — a complete, stable answer, but archived since 2024 and Go only, no hosted service.",
+				"fr": "Archivé depuis 2024, mais toujours une réponse stable pour les projets Go : la sortie de go test devient HTML, JSON et XML Cobertura, runs fusionnés. Go uniquement, pas de service hébergé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

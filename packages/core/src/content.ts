@@ -653,7 +653,18 @@ export function validateProduct(
 		});
 	}
 
-	if (value.pricing !== null && value.pricing !== undefined) {
+	// PRESENT, even when null. `Product.pricing` is `PriceSource | null` — a
+	// required key — and the frontend parses it as `PriceSourceSchema.nullable()`,
+	// which accepts null and REJECTS an absent key. Without this check the
+	// validator passes files that blow up /api/products at runtime, which is
+	// exactly what happened to 34 products in the CLI batch.
+	if (!("pricing" in value)) {
+		issues.push({
+			path: "pricing",
+			message:
+				"required — use null when nobody has checked the price. An absent key fails the frontend schema even though null passes.",
+		});
+	} else if (value.pricing !== null && value.pricing !== undefined) {
 		if (!isPlainObject(value.pricing)) {
 			issues.push({ path: "pricing", message: "must be an object, or null" });
 		} else {
@@ -894,7 +905,7 @@ export type FossClass = "foss" | "not-foss" | "unknown";
  * better, "Boost" — the test file records this trap.
  */
 const NOT_FOSS_LICENSE =
-	/\b(?:BSL|BUSL|SSPL|ELv2|MRPL|EULA)\b|\bFSL-1\.|\belastic\b|\bcommons\s+clause\b|\bsustainable\s+use\b|\bpolyform\b|\bsource[\s-]available\b|\bnon-commercial\b|\bnot\s+OSI\b|\bnot\s+open\s+source\b|\banti-capitalist\b|\b(?:tldraw|zrythm|defold)\s+licen[cs]e\b/i;
+	/\b(?:BSL|BUSL|SSPL|ELv2|MRPL|EULA|MS-RSL)\b|\bFSL-1\.|\belastic\b|\bcommons\s+clause\b|\bsustainable[\s-]+use\b|\bpolyform\b|\bsource[\s-]available\b|\bnon-commercial\b|\bnot\s+OSI\b|\bnot\s+open\s+source\b|\banti-capitalist\b|\b(?:tldraw|zrythm|defold)\s+licen[cs]e\b/i;
 
 /**
  * OSI-approved licence families, as the catalogue actually spells them.
@@ -905,14 +916,20 @@ const NOT_FOSS_LICENSE =
  * and both name their family inside a longer phrase.
  */
 const OSI_LICENSE =
-	/\b(?:MIT|Apache-2\.0|AGPL(?:-3\.0)?|GPL-[23]\.0|LGPL(?:-[23]\.[01])?|MPL-[12]\.[01]|BSD-[234]-Clause|BSD|ISC|EPL-[12]\.0|CDDL-1\.0|Zlib|Unlicense|CC0|OSL-3\.0|EUPL-1\.[12]|CPAL-1\.0|OFL-1\.1|PostgreSQL|PSF|Artistic-2\.0|MS-PL|NCSA|Boost|Vim|WTFPL)\b/i;
+	/\b(?:MIT|Apache-2\.0|AGPL(?:-3\.0)?|GPL-[23]\.0|LGPL(?:-[23]\.[01])?|MPL-[12]\.[01]|BSD-[234]-Clause|0BSD|BSD|ISC|EPL-[12]\.0|CDDL-1\.0|Zlib|Unlicense|CC0|OSL-3\.0|EUPL-1\.[12]|CPAL-1\.0|OFL-1\.1|PostgreSQL|PSF|Artistic-2\.0|MS-PL|NCSA|Boost|Vim|WTFPL|CECILL-2\.[01]|ECL-2\.0|AAL|ImageMagick)\b/i;
 
 /** Closed-source wording, only consulted when no OSI family is named. */
 const PROPRIETARY_LICENSE =
 	/\bproprietar|\bclosed[\s-]source\b|\ball\s+rights\s+reserved\b/i;
 
-export function classifyLicense(license: string): FossClass {
-	const s = license.trim();
+/**
+ * `null` is accepted because it occurs: a repo with no LICENSE file at all. That
+ * is not a gap in the data, it is a finding — an unlicensed repo is not legally
+ * reusable — and it lands on `unknown` alongside the empty string rather than
+ * falling through to `foss`, which is the only outcome here that could mislead.
+ */
+export function classifyLicense(license: string | null | undefined): FossClass {
+	const s = license?.trim();
 	if (!s) return "unknown";
 	if (NOT_FOSS_LICENSE.test(s)) return "not-foss";
 	if (OSI_LICENSE.test(s)) return "foss";

@@ -1,0 +1,219 @@
+{
+	"slug": "dig",
+	"name": "dig",
+	"domain": null,
+	"category": "shell-terminal",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "Yes, for routine queries and scripts. The catch: dig’s default full protocol dump is also its best feature — nothing matches it when debugging DNS at the wire level.",
+		"fr": "Oui, pour les requêtes courantes et les scripts. Le piège : le dump complet du protocole par défaut est aussi sa meilleure qualité, et rien ne l’égale pour déboguer le DNS au niveau des paquets."
+	},
+	"whatYouLose": [
+		{
+			"en": "Preinstalled on every Unix-like system",
+			"fr": "Préinstallé sur chaque système Unix-like"
+		},
+		{
+			"en": "Your memorised dig flags and habits",
+			"fr": "Tes drapeaux et habitudes dig mémorisés"
+		},
+		{
+			"en": "Dig everywhere in docs and scripts",
+			"fr": "Dig, omniprésent dans docs et scripts"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "doggo",
+			"source": {
+				"host": "github",
+				"path": "mr-karan/doggo",
+				"url": "https://github.com/mr-karan/doggo"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Actively maintained, with colourised tables, DoH, DoT, DoQ, DNSCrypt and a JSON mode for scripts. Its tidy output hides the wire-level detail, and it is one more binary to install.",
+				"fr": "Actif et maintenu, avec des tableaux en couleurs, DoH, DoT, DoQ, DNSCrypt et un mode JSON pour les scripts. Sa sortie épurée masque le détail des paquets, et c’est un binaire de plus à installer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dog",
+			"source": {
+				"host": "github",
+				"path": "ogham/dog",
+				"url": "https://github.com/ogham/dog"
+			},
+			"license": "EUPL-1.2",
+			"effort": "managed",
+			"note": {
+				"en": "Compact colour output with the same modern transports. Maintenance has been quiet, so keep it for light use — doggo is safer where uptime matters.",
+				"fr": "Une sortie couleur compacte avec les mêmes transports modernes. La maintenance est au ralenti, donc réservez-le à un usage léger — doggo reste plus sûr pour la production."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "drill",
+			"source": {
+				"host": "github",
+				"path": "NLnetLabs/ldns",
+				"url": "https://github.com/NLnetLabs/ldns"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "The ldns library’s dig replacement, packaged in most distros. Full record-type and option coverage plus zone-management tools — smaller docs and less familiar to BIND users.",
+				"fr": "Le substitut de dig issu de la bibliothèque ldns, packagé dans la plupart des distros. Couverture complète des types d’enregistrement et des options, avec les outils de gestion de zone — mais une doc plus mince, moins familière aux habitués de BIND."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "kdig",
+			"source": {
+				"host": "gitlab",
+				"path": "knot/knot-dns",
+				"url": "https://gitlab.nic.cz/knot/knot-dns"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Shipped in knot-utils, not standalone. Dig-compatible flags, DoH/DoT and TLS queries, DNSSEC and TSIG built in — config surface geared to Knot servers.",
+				"fr": "Livré avec knot-utils, pas en standalone. Flags compatibles dig, requêtes DoH/DoT et TLS, DNSSEC et TSIG inclus — mais une surface de config pensée pour les serveurs Knot."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "delv",
+			"source": {
+				"host": "codeberg",
+				"path": "isc-projects/bind9",
+				"url": "https://codeberg.org/isc-projects/bind9"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "BIND9’s successor to dig with per-answer DNSSEC validation shown at query time. Ships in bind tools — still beta-grade and focused on DNSSEC over raw packet options.",
+				"fr": "Le successeur de dig chez BIND9 : validation DNSSEC par réponse, affichée au moment de la requête. Livré avec les outils bind, toujours beta, et focalisé sur DNSSEC au détriment des options packet brutes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dnsx",
+			"source": {
+				"host": "github",
+				"path": "projectdiscovery/dnsx",
+				"url": "https://github.com/projectdiscovery/dnsx"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Batch-oriented: pipe wordlists in, get json/csv/md out for A/AAAA/CNAME/NS/MX/TXT. Fast, single binary — but not an interactive shell and flags don’t match dig’s.",
+				"fr": "Orientation lot : on pipe une wordlist, on sort du json/csv/md pour A/AAAA/CNAME/NS/MX/TXT. Binaire Go rapide, mais pas un shell interactif et les flags ne suivent pas dig."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dnslookup",
+			"source": {
+				"host": "github",
+				"path": "ameshkov/dnslookup",
+				"url": "https://github.com/ameshkov/dnslookup"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A single-purpose lookup CLI with colorized dig-style output. Query plain DNS, DoH or DoT; static binaries for every OS — fewer advanced flags and no DNSSEC tracing.",
+				"fr": "Un CLI de lookup unique, sortie colorée façon dig. DNS simple, DoH ou DoT au choix, binaires statiques pour chaque OS — mais moins d’options avancées, et pas de traçage DNSSEC."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dnsdiag",
+			"source": {
+				"host": "github",
+				"path": "farrokhi/dnsdiag",
+				"url": "https://github.com/farrokhi/dnsdiag"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Pure Python, pip install, cross-platform. dig.py covers standard lookups; dnstracer.py and dnsping.py probe path and health. Slower than compiled CLIs and no superset of dig’s flags.",
+				"fr": "En Python pur, pip install, multi-plateforme. dig.py couvre les lookups courants ; dnstracer.py et dnsping.py sondent chemin et santé. Plus lent qu’un binaire compilé, et pas un sur-ensemble des flags de dig."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dnsjit",
+			"source": {
+				"host": "codeberg",
+				"path": "DNS-OARC/dnsjit",
+				"url": "https://codeberg.org/DNS-OARC/dnsjit"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "OARC’s scriptable query sender: Lua scripts craft arbitrary packets, capture and replay them — beyond what dig exposes. Overkill for everyday lookups and needs a source build.",
+				"fr": "L’outil scriptable d’OARC : en Lua on forge des paquets arbitraires, on capture et on rejoue, bien au-delà de dig. Overkill pour un lookup de tous les jours, et compilation depuis les sources."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

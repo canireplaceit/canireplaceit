@@ -97,6 +97,266 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pulp",
+			"source": {
+				"host": "github",
+				"path": "pulp/pulpcore",
+				"url": "https://github.com/pulp/pulpcore"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Most complete universal repo manager — RPM, deb, PyPI, Maven, npm, containers — with a plugin ecosystem over a REST API. Costs PostgreSQL, Redis and worker processes; no SAML SSO in community.",
+				"fr": "Couvre RPM, deb, PyPI, Maven, npm et conteneurs, extensible par plugins via une API REST. En contrepartie : PostgreSQL, Redis, des workers — et pas de SSO SAML en communauté."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Quay",
+			"source": {
+				"host": "github",
+				"path": "quay/quay",
+				"url": "https://github.com/quay/quay"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Red Hat’s container registry, battle-tested, with scanning, mirroring, robot accounts and a polished UI. Containers only — no Maven, npm or PyPI — and it wants PostgreSQL and Redis.",
+				"fr": "Registre de conteneurs Red Hat éprouvé en production : scan de vulnérabilités, mirroring, robot accounts, UI soignée. Conteneurs seulement — pas de Maven, npm ni PyPI — et il exige PostgreSQL et Redis."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Red Hat support and high availability",
+					"fr": "Support Red Hat et haute disponibilité"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Distribution (Docker Registry v2)",
+			"source": {
+				"host": "github",
+				"path": "distribution/distribution",
+				"url": "https://github.com/distribution/distribution"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The CNCF reference registry, the dependable minimal core others are built on. No web UI, token-only auth, no virtual repos — just OCI images on pluggable storage.",
+				"fr": "Le registre de référence CNCF, noyau minimal éprouvé sur lequel s’appuient les autres. Pas d’UI web, authentification par token, pas de dépôts virtuels : uniquement des images OCI sur stockage interchangeable."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Artipie",
+			"source": {
+				"host": "github",
+				"path": "artipie/artipie",
+				"url": "https://github.com/artipie/artipie"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Maven, npm, PyPI, Docker, RPM and deb under one small Java app, driven by API and NATS. Young, thinly documented — and administration is config and API, no GUI.",
+				"fr": "Maven, npm, PyPI, Docker, RPM et deb dans une petite appli Java, pilotée par API et NATS. Projet jeune, docs minces, et l’administration passe par la config et l’API, sans GUI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Gitea",
+			"source": {
+				"host": "github",
+				"path": "go-gitea/gitea",
+				"url": "https://github.com/go-gitea/gitea"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Git forge plus package registry in one Go binary, covering npm, Maven, PyPI, NuGet, Go and containers, with LDAP, OAuth2 and SSO. No RPM or deb hosting, and no virtual-repo layering.",
+				"fr": "Forge git et registre de paquets dans un seul binaire Go — npm, Maven, PyPI, NuGet, Go, conteneurs — avec LDAP, OAuth2 et SSO. Pas d’hébergement RPM ni deb, pas de dépôts virtuels."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GitLab",
+			"source": {
+				"host": "github",
+				"path": "gitlabhq/gitlabhq",
+				"url": "https://github.com/gitlabhq/gitlabhq"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "DevOps platform with a package registry for ten-plus formats, CI/CD and SSO in the free CE. Heavy — Gitaly, Sidekiq, PostgreSQL, Redis — and overkill if you only store artifacts.",
+				"fr": "Plateforme DevOps au registre de paquets pour plus de dix formats, CI/CD et SSO en CE gratuite. Lourde — Gitaly, Sidekiq, PostgreSQL, Redis — et de trop si vous ne stockez que des artefacts."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Many features — EE edition only",
+					"fr": "De nombreuses fonctionnalités — édition EE uniquement"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "devpi",
+			"source": {
+				"host": "github",
+				"path": "devpi/devpi",
+				"url": "https://github.com/devpi/devpi"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The standard self-hosted PyPI mirror and cache: proxy upstream, host private packages, inherit indexes, all driven from the devpi-client CLI. Python only, single server, no HA.",
+				"fr": "Le miroir PyPI auto-hébergé standard : proxy vers l’amont, paquets privés, héritage d’index — le tout piloté par le CLI devpi-client. Python uniquement, un seul serveur, pas de HA."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pypiserver",
+			"source": {
+				"host": "github",
+				"path": "pypiserver/pypiserver",
+				"url": "https://github.com/pypiserver/pypiserver"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Installed with pip, serving the PEP 503 simple index from a directory — publish in minutes with a pip client. No database, but also no UI, no mirror policy and htpasswd-only auth.",
+				"fr": "Installé via pip, il sert l’index simple PEP 503 depuis un répertoire ; publiez en minutes. Zéro base de données ; en échange, pas d’UI ni de miroir, auth htpasswd seulement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "geminabox",
+			"source": {
+				"host": "github",
+				"path": "geminabox/geminabox",
+				"url": "https://github.com/geminabox/geminabox"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "One command runs a RubyGems server that hosts private gems and proxies rubygems.org, with a web UI for browsing. RubyGems only, no mirror policies — a small surface next to Nexus.",
+				"fr": "Une commande suffit : serveur RubyGems qui héberge des gems privées et proxie rubygems.org, avec une UI web pour naviguer. RubyGems uniquement, pas de politiques de miroir — surface réduite face à Nexus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ORAS",
+			"source": {
+				"host": "github",
+				"path": "oras-project/oras",
+				"url": "https://github.com/oras-project/oras"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Push and pull arbitrary OCI artifacts — SBOMs, binaries, models — alongside containers, from any Distribution-spec registry. Client only, though: it needs a registry and brings no UI or lifecycle management.",
+				"fr": "Poussez et tirez des artefacts OCI arbitraires (SBOMs, binaires, modèles) vers tout registre Distribution-spec. Client seulement : il lui faut un registre, sans UI ni gestion du cycle de vie."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Skopeo",
+			"source": {
+				"host": "github",
+				"path": "podman-container-tools/skopeo",
+				"url": "https://github.com/podman-container-tools/skopeo"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Move images between a self-hosted registry and upstream without a daemon — copy, inspect, sign, delete, even across multi-arch manifests. Container images only, and it stays a client: no server, no UI.",
+				"fr": "Copiez, inspectez, signez et supprimez des images entre un registre auto-hébergé et l’amont, sans daemon, même multi-arch. Images de conteneurs uniquement, et ça reste un client : ni serveur, ni UI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "regclient",
+			"source": {
+				"host": "github",
+				"path": "regclient/regclient",
+				"url": "https://github.com/regclient/regclient"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A registry client suite for scripting: regctl to inspect and copy, regsync for scheduled mirroring, regbot for policy automation. Plumbing, not a server — it needs an OCI registry, config-driven, no UI.",
+				"fr": "Suite de clients : regctl pour inspecter et copier, regsync pour le mirroring planifié, regbot pour l’automatisation. Plomberie, pas serveur — il lui faut un registre OCI, sans UI, piloté par config."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

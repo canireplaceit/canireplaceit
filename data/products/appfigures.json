@@ -97,6 +97,140 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "app-store-scraper",
+			"source": {
+				"host": "github",
+				"path": "facundoolano/app-store-scraper",
+				"url": "https://github.com/facundoolano/app-store-scraper"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Scrapes App Store metadata, rankings and reviews through its npm API. iOS only: no Play listings, no revenue estimates, and it breaks when iTunes markup shifts.",
+				"fr": "Scrape les métadonnées, classements et avis de l’App Store via son API npm. iOS uniquement : pas de Play ni d’estimations de revenus, et ça casse si le markup iTunes bouge."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "fastlane",
+			"source": {
+				"host": "github",
+				"path": "fastlane/fastlane",
+				"url": "https://github.com/fastlane/fastlane"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "CLI managing store presence: deliver, supply and pilot push listings, prices and releases; spaceauth and pilot pull review responses. No analytics or revenue — per-account Apple/Google credentials, dashboard glue on you.",
+				"fr": "CLI pour gérer la présence store : deliver, supply et pilot poussent fiches, prix et releases. Ni analytics ni revenus — des identifiants Apple/Google par compte, et le dashboard reste à monter."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Snowplow",
+			"source": {
+				"host": "github",
+				"path": "snowplow/snowplow",
+				"url": "https://github.com/snowplow/snowplow"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Analytics only, no rankings or reviews: a self-hosted collector and enrich pipeline pushing schema-validated mobile events into your warehouse — four services to run, and dashboards live in Snowplow BDP.",
+				"fr": "Pipeline d’événements auto-hébergeable : collector et enrich poussent les événements mobiles validés par schéma dans l’entrepôt. Analytics seulement, sans classements ni avis ; quatre services à faire tourner, dashboards dans le BDP."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Dashboards and models (BDP)",
+					"fr": "Dashboards et modèles (BDP)"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache Superset",
+			"source": {
+				"host": "github",
+				"path": "apache/superset",
+				"url": "https://github.com/apache/superset"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Bring your own pipeline to feed the SQL-built dashboards — no Appfigures-style revenue widgets — and the stack is heavy: web app, metadata DB, cache. Role-based access, alerting, REST API.",
+				"fr": "À vous d’amener le pipeline qui alimente les dashboards SQL — pas de widgets façon Appfigures. Pile lourde : webapp, base de métadonnées et cache ; accès par rôles, alertes, API REST."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Redash",
+			"source": {
+				"host": "github",
+				"path": "getredash/redash",
+				"url": "https://github.com/getredash/redash"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Lighter query-and-dashboard layer over scraped store data: scheduled queries across sources, chart-embedding API. No mobile KPIs, you model them yourself; community-maintained with a slower release cadence, and no ranking data included.",
+				"fr": "Couche requêtes-dashboards légère sur données store scrapées : requêtes planifiées multi-sources, API d’embarquement. Pas de KPI mobiles, à modéliser vous-même ; maintenu par la communauté, cadence de sortie lente, aucun classement inclus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Grafana",
+			"source": {
+				"host": "github",
+				"path": "grafana/grafana",
+				"url": "https://github.com/grafana/grafana"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Dashboards, alerting and annotations from any data source, provisioning included. Generic metrics tool, no store logic: alerting evaluation and some datasources are Grafana Cloud; a TSDB or scraper must feed it.",
+				"fr": "Dashboards, alerting et annotations sur n’importe quelle source, provisioning inclus. Outil de métriques générique, sans logique store : l’évaluation des alertes et certaines sources sont côté Grafana Cloud, un TSDB/scraper doit l’alimenter."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Alert evaluation and some datasources",
+					"fr": "Évaluation des alertes et certaines sources"
+				}
+			}
 		}
 	],
 	"priority": 2

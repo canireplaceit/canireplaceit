@@ -122,6 +122,174 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Zigbee2MQTT",
+			"source": {
+				"host": "github",
+				"path": "Koenkk/zigbee2mqtt",
+				"url": "https://github.com/Koenkk/zigbee2mqtt"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Bridges Zigbee smart locks into MQTT and Home Assistant, with a web UI for device management and a large supported-catalogue. Needs a coordinator dongle; no user or badge admin.",
+				"fr": "Pont auto-hébergé qui pousse les serrures Zigbee vers MQTT et Home Assistant, avec UI web et large catalogue d’appareils. Nécessite un dongle coordonnateur, sans admin d’utilisateurs ni de badges."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Z-Wave JS UI",
+			"source": {
+				"host": "github",
+				"path": "zwave-js/zwave-js-ui",
+				"url": "https://github.com/zwave-js/zwave-js-ui"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Web console for secure Z-Wave locks and readers, exposed over MQTT to any hub, with OTA and network diagnostics. Needs Z-Wave radio hardware; no tenant or badge management.",
+				"fr": "Console web des serrures Z-Wave sécurisées, exposées en MQTT vers n’importe quel hub, avec OTA et diagnostic réseau. Exige une radio Z-Wave, sans gestion de locataires ni de badges."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Homebridge",
+			"source": {
+				"host": "github",
+				"path": "homebridge/homebridge",
+				"url": "https://github.com/homebridge/homebridge"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Runs smart-lock plugins from a large registry behind a config UI and a local REST API, plus Apple Home. Bridging only — no access admin, and it depends on third-party plugins.",
+				"fr": "Exécute les plugins de serrures d’un vaste registre, derrière une UI de config et une API REST locale, plus Apple Home. Pont uniquement, sans admin d’accès, et dépendant de plugins tiers."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "openHAB",
+			"source": {
+				"host": "github",
+				"path": "openhab/openhab-core",
+				"url": "https://github.com/openhab/openhab-core"
+			},
+			"license": "EPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Open automation hub with RFID and lock bindings, rules, scheduling and audit events behind a REST API and web UI. Not a commercial-grade multi-door ACS, and capability hinges on community bindings.",
+				"fr": "Hub d’automatisation ouvert avec bindings RFID et serrures, règles, planifications et événements d’audit derrière une API REST et une UI web. Pas un contrôleur multi-portes commercial, et tributaire des bindings communautaires."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Domoticz",
+			"source": {
+				"host": "github",
+				"path": "domoticz/domoticz",
+				"url": "https://github.com/domoticz/domoticz"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Low-footprint single binary with RFID and MQTT device support plus door timers and notifications. Smaller community than Home Assistant, and no credential lifecycle management.",
+				"fr": "Binaire unique très léger, support des appareils RFID et MQTT, minuteurs et notifications de portes. Communauté plus petite que Home Assistant, et pas de gestion du cycle de vie des identifiants."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Node-RED",
+			"source": {
+				"host": "github",
+				"path": "node-red/node-red",
+				"url": "https://github.com/node-red/node-red"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Visual flows wire readers, locks and schedules into your own access pipeline, with MQTT/REST and a huge node ecosystem. You build the access logic yourself; no badge or user store.",
+				"fr": "Des flux visuels câblent lecteurs, serrures et plannings en pipeline d’accès, avec MQTT/REST et un vaste écosystème de nœuds. La logique d’accès est à construire vous-même, sans store de badges ni d’utilisateurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "proxmark3",
+			"source": {
+				"host": "github",
+				"path": "RfidResearchGroup/proxmark3",
+				"url": "https://github.com/RfidResearchGroup/proxmark3"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Reads, clones and audits LF/HF proximity credentials from the command line, with sniffing for credential testing. Needs a Proxmark dongle, and offers no door management or user admin.",
+				"fr": "Lit, clone et audite les identifiants d’accès LF/HF en ligne de commande, avec sniffing pour tester les badges. Nécessite un dongle Proxmark, et ne propose ni gestion de portes ni admin d’utilisateurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "nfcpy",
+			"source": {
+				"host": "github",
+				"path": "nfcpy/nfcpy",
+				"url": "https://github.com/nfcpy/nfcpy"
+			},
+			"license": "EUPL-1.1",
+			"effort": "managed",
+			"note": {
+				"en": "Two years dormant, last commit May 2024. A Python NFC library whose example CLIs read, write and test ISO14443 badges. Not a product, and it still needs NFC reader hardware.",
+				"fr": "Dormant depuis deux ans, dernier commit mai 2024. Une bibliothèque Python NFC dont les CLIs d’exemple lisent, écrivent et testent des badges ISO14443. Pas un produit, et il faut un lecteur NFC."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

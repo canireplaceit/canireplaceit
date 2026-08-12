@@ -97,6 +97,153 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "InvenTree",
+			"source": {
+				"host": "github",
+				"path": "inventree/InvenTree",
+				"url": "https://github.com/inventree/InvenTree"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted inventory system with barcode label templates for parts, stock and locations. Labels come bundled with a whole warehouse app — at the price of server-rendered templates, not a freeform canvas.",
+				"fr": "Système d’inventaire self-hosted avec modèles d’étiquettes code-barres pour pièces, stocks et emplacements. Les étiquettes arrivent avec toute une app d’entrepôt — au prix de gabarits rendus côté serveur, pas d’une toile de conception libre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "bwip-js",
+			"source": {
+				"host": "github",
+				"path": "metafloor/bwip-js",
+				"url": "https://github.com/metafloor/bwip-js"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Pure-JavaScript barcode writer: 100+ symbologies to PNG/SVG/PDF/EMF from a CLI, or as a small local HTTP service. No label editor — labels live in code, and printers are never touched directly.",
+				"fr": "Générateur de code-barres 100 % JavaScript : plus de 100 symbologies en PNG/SVG/PDF/EMF via une CLI, ou en petit service HTTP local. Pas d’éditeur d’étiquette : le contenu vit dans le code, et aucune imprimante n’est pilotée directement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ZXing",
+			"source": {
+				"host": "github",
+				"path": "zxing/zxing",
+				"url": "https://github.com/zxing/zxing"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Canonical multi-format barcode library with a Java CLI for both generation and decoding — QR, DataMatrix, Aztec, PDF417 included. The cost: no templates or printer control, and a Java toolchain to host it.",
+				"fr": "Bibliothèque code-barres de référence, multiformat, avec une CLI Java qui génère et décode — QR, DataMatrix, Aztec, PDF417 compris. En contrepartie : pas de gabarits ni de pilotage d’imprimante, et une chaîne d’outils Java à installer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "node-thermal-printer",
+			"source": {
+				"host": "github",
+				"path": "Klemen1337/node-thermal-printer",
+				"url": "https://github.com/Klemen1337/node-thermal-printer"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Node library driving ESC/POS thermal and label printers over USB, serial or network, Epson and Star included. Labels are composed in code — no design UI, no raster barcode engine of its own.",
+				"fr": "Bibliothèque Node qui pilote les imprimantes thermiques et d’étiquettes ESC/POS via USB, série ou réseau, Epson et Star inclus. Les étiquettes se composent en code — pas d’UI de design, ni de moteur raster de code-barres propre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dolibarr",
+			"source": {
+				"host": "github",
+				"path": "Dolibarr/dolibarr",
+				"url": "https://github.com/Dolibarr/dolibarr"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted ERP whose warehouse and stock modules ship barcode label templates built in. You are adopting a whole ERP to get them, and design is template-based rather than freeform.",
+				"fr": "ERP auto-hébergé dont les modules entrepôt et stocks embarquent des gabarits d’étiquettes code-barres. C’est tout un ERP à adopter pour cela, et le design passe par gabarits plutôt qu’en libre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "tapen",
+			"source": {
+				"host": "github",
+				"path": "corvis/tapen",
+				"url": "https://github.com/corvis/tapen"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Web tool rendering HTML label templates to Brother P-touch printers as crisp vector output. Unmaintained since July 2024 — and tied to P-touch hardware only.",
+				"fr": "Outil web qui rend des gabarits HTML d’étiquettes vers les imprimantes Brother P-touch, en sortie vectorielle nette. Plus maintenu depuis juillet 2024 — et limité au matériel P-touch."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Barcode4J",
+			"source": {
+				"host": "github",
+				"path": "SingingBush/barcode4j",
+				"url": "https://github.com/SingingBush/barcode4j"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Pure-Java 1D/2D barcode generator with a CLI, an actively maintained fork of the classic library. SVG, PNG and PDF output for label composition — but no GUI, templates or designer.",
+				"fr": "Générateur de code-barres 1D/2D pur Java avec une CLI, fork activement maintenu de la bibliothèque classique. Sortie SVG, PNG et PDF pour composer des étiquettes — mais pas d’interface, de gabarit ni de designer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

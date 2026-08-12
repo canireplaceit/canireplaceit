@@ -66,6 +66,270 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Fonoster",
+			"source": {
+				"host": "github",
+				"path": "fonoster/fonoster",
+				"url": "https://github.com/fonoster/fonoster"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Self-hostable Twilio alternative: voice and messaging APIs on open SIP stacks. It still needs a SIP/SMPP provider to reach real carriers, and the ecosystem is younger than Twilio’s.",
+				"fr": "Alternative auto-hébergeable à Twilio : voix et SMS sur des piles SIP ouvertes. Il faut quand même un provider SIP/SMPP pour joindre les vrais opérateurs, et l’écosystème est plus jeune."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Routr",
+			"source": {
+				"host": "github",
+				"path": "fonoster/routr",
+				"url": "https://github.com/fonoster/routr"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Lightweight SIP proxy from the Fonoster team for trunking and number routing. Routing only — not an app server — and it still needs a SIP trunk provider.",
+				"fr": "Proxy SIP léger de l’équipe Fonoster pour le trunking et le routage de numéros. Du routage uniquement, pas un serveur applicatif — et il faut quand même un trunk SIP."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Jambonz",
+			"source": {
+				"host": "github",
+				"path": "jambonz/jambonz-feature-server",
+				"url": "https://github.com/jambonz/jambonz-feature-server"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Node.js IVR server exposing a Twilio-compatible API, now backed by SignalWire. Still needs FreeSWITCH and a SIP trunk underneath; a few enterprise features are commercial.",
+				"fr": "Serveur IVR Node.js à l’API compatible Twilio, désormais porté par SignalWire. Il lui faut FreeSWITCH et un trunk SIP en dessous ; quelques fonctions entreprise sont commerciales."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise features",
+					"fr": "Fonctions entreprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kamailio",
+			"source": {
+				"host": "github",
+				"path": "kamailio/kamailio",
+				"url": "https://github.com/kamailio/kamailio"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Carrier-grade SIP proxy and registrar, the engine under many voice platforms. Config-file driven with a steep curve, and no media engine or UI of its own.",
+				"fr": "Proxy et registrar SIP de grade opérateur, le moteur de beaucoup de plateformes vocales. Piloté par config, courbe d’apprentissage raide, et pas de moteur média ni d’UI propre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenSIPS",
+			"source": {
+				"host": "github",
+				"path": "OpenSIPS/opensips",
+				"url": "https://github.com/OpenSIPS/opensips"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "SIP server for routing, presence and telephony control at carrier scale, with a REST interface and WebSocket. Config-driven and media stays in a separate RTP engine.",
+				"fr": "Serveur SIP pour le routage, la présence et le contrôle téléphonique à l’échelle opérateur, avec interface REST et WebSocket. Piloté par config ; le média reste dans un moteur RTP séparé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FusionPBX",
+			"source": {
+				"host": "github",
+				"path": "fusionpbx/fusionpbx",
+				"url": "https://github.com/fusionpbx/fusionpbx"
+			},
+			"license": "MPL-1.1",
+			"effort": "managed",
+			"note": {
+				"en": "Drop-in web UI and PBX on FreeSWITCH: IVR, queues and provisioning without coding. It layers FreeSWITCH’s complexity underneath and commercial support is separate.",
+				"fr": "UI web et PBX clé en main sur FreeSWITCH : IVR, files et provisioning sans coder. Il hérite de la complexité de FreeSWITCH, et le support commercial est à part."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Wazo Platform",
+			"source": {
+				"host": "github",
+				"path": "wazo-platform/wazo-platform",
+				"url": "https://github.com/wazo-platform/wazo-platform"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Full open-source UC and contact-centre stack — PBX, IVR, queues, REST APIs — deployed by ansible or docker. Multi-service, so a real ops lift; some modules are commercial.",
+				"fr": "Plateforme UC et contact-center open-source complète — PBX, IVR, files, API REST — déployée par ansible ou docker. Multi-services, donc une vraie charge d’ops ; certains modules sont commerciaux."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Commercial modules",
+					"fr": "Modules commerciaux"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kazoo",
+			"source": {
+				"host": "github",
+				"path": "2600hz/kazoo",
+				"url": "https://github.com/2600hz/kazoo"
+			},
+			"license": "MPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "2600Hz’s multi-tenant carrier-grade telephony on FreeSWITCH and CouchDB: IVR, queues, conferencing, SMS. An Erlang/Elixir cluster with heavy ops, and a slower cadence lately.",
+				"fr": "Téléphonie multi-tenant de grade opérateur signée 2600Hz, sur FreeSWITCH et CouchDB : IVR, files, conférence, SMS. Un cluster Erlang/Elixir à l’ops lourd, et un rythme de release plus lent récemment."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Hosted 2600Hz cloud",
+					"fr": "Cloud hébergé 2600Hz"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Gammu",
+			"source": {
+				"host": "github",
+				"path": "gammu/gammu",
+				"url": "https://github.com/gammu/gammu"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Mature CLI and daemon stack for SMS through GSM modems when you want the channel in-house. It needs physical hardware, so throughput caps at what the modems deliver.",
+				"fr": "Stack CLI et daemon mature pour le SMS via modems GSM, quand on veut le canal en interne. Il faut du matériel physique, et le débit plafonne avec les modems."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PlaySMS",
+			"source": {
+				"host": "github",
+				"path": "playsms/playsms",
+				"url": "https://github.com/playsms/playsms"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Web gateway that funnels gammu, kannel, SMPP and HTTP backends into one UI and API. It’s a PHP app to maintain, and real carrier reach still needs a gateway upstream.",
+				"fr": "Passerelle web qui regroupe gammu, kannel, SMPP et API HTTP sous une UI et une API uniques. Une app PHP à maintenir, et l’accès opérateur exige toujours une passerelle en amont."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ntfy",
+			"source": {
+				"host": "github",
+				"path": "binwiederhier/ntfy",
+				"url": "https://github.com/binwiederhier/ntfy"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Self-hosted push server for devices — CLI, web and mobile apps, single static binary. It reaches phones, not carriers, and reliability rides on your own network.",
+				"fr": "Serveur de push auto-hébergé pour les appareils : CLI, web et apps mobiles, binaire statique unique. Ça touche des téléphones, pas des opérateurs, et ça dépend de votre réseau."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PrivacyIDEA",
+			"source": {
+				"host": "github",
+				"path": "privacyidea/privacyidea",
+				"url": "https://github.com/privacyidea/privacyidea"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Self-hosted MFA server — TOTP, WebAuthn, SMS, email, push — in the spot of Twilio Verify or Authy. SMS OTP still needs a gateway, and it’s auth, not a comms API.",
+				"fr": "Serveur MFA auto-hébergé — TOTP, WebAuthn, SMS, email, push — là où iraient Twilio Verify ou Authy. L’OTP par SMS exige une passerelle, et c’est de l’auth, pas une API de communication."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

@@ -103,6 +103,174 @@
 				"en": "Cheaper per image at volume with WordPress integration and CDN delivery. Still a third party holding your assets.",
 				"fr": "Moins cher à l’image en volume, avec intégration WordPress et livraison par CDN. Cela reste un tiers qui détient vos ressources."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "pngquant",
+			"source": {
+				"host": "github",
+				"path": "kornelski/pngquant",
+				"url": "https://github.com/kornelski/pngquant"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The engine behind TinyPNG-grade PNGs: lossy 256-color palette quantization with alpha and dithering controls, solid benchmarks. Lossy only — no JPEG or WebP — and GPL-3.0 (libimagequant carries its own commercial licence).",
+				"fr": "Le moteur derrière les PNG qualité TinyPNG : quantification lossy sur palette 256 couleurs, alpha et dithering contrôlés, benchs solides. Lossy uniquement — pas de JPEG ni WebP — et GPL-3.0 (libimagequant à part)."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MozJPEG",
+			"source": {
+				"host": "github",
+				"path": "mozilla/mozjpeg",
+				"url": "https://github.com/mozilla/mozjpeg"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Mozilla’s encoder for the JPEG half of the job: trellis-quantized progressive JPEGs, up to ~10% smaller than libjpeg at equal quality. Slower to encode, JPEG only, no GUI.",
+				"fr": "L’encodeur Mozilla pour la moitié JPEG du travail : JPEG progressifs à quantification trellis, jusqu’à ~10 % plus petits que libjpeg à qualité égale. Encodage plus lent, JPEG uniquement, pas de GUI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "guetzli",
+			"source": {
+				"host": "github",
+				"path": "google/guetzli",
+				"url": "https://github.com/google/guetzli"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Archived upstream, unmaintained — and painfully slow, minutes per image. Still a top-tier JPEG alternative: perceptual output matching TinyPNG’s JPEG at equal size, in a standalone binary, but only for quality-80-plus work.",
+				"fr": "Archivé, non maintenu, très lent — des minutes par image. Reste une alternative JPEG de premier choix : rendu perceptuel égal au JPEG TinyPNG à taille égale, binaire autonome, mais seulement pour du qualité-80+."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "zopfli",
+			"source": {
+				"host": "github",
+				"path": "google/zopfli",
+				"url": "https://github.com/google/zopfli"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Best-possible lossless PNG reduction via zopflipng; the deflate core behind pngcrush-style tools. Archived, feature-complete, deterministic — but 10-100x slower than zlib and lossless only, no palette reduction.",
+				"fr": "Réduction lossless PNG maximale avec zopflipng ; cœur deflate des outils type pngcrush. Archivé, fonctionnellement complet, reproductible — mais 10-100x plus lent que zlib et lossless uniquement, pas de réduction de palette."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "jpegoptim",
+			"source": {
+				"host": "github",
+				"path": "tjko/jpegoptim",
+				"url": "https://github.com/tjko/jpegoptim"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Fast, scriptable CLI: strips metadata, re-encodes Huffman losslessly, or recompresses to a target size; recurses directories. JPEG only, and stripping metadata is a loss by nature.",
+				"fr": "CLI rapide et scriptable : strip des métadonnées, réencodage Huffman lossless, ou recompression vers une taille cible, récursif sur les dossiers. JPEG uniquement, et retirer les métadonnées reste une perte par nature."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Leanify",
+			"source": {
+				"host": "github",
+				"path": "JayXon/Leanify",
+				"url": "https://github.com/JayXon/Leanify"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "One portable binary that losslessly shrinks PNG, JPEG, GIF, SVG, WebP and archives, iterating compression levels for max gain. Lossless only — weaker on photo-grade JPEG/PNG, with lighter docs than its rivals.",
+				"fr": "Un binaire portable qui réduit en lossless PNG, JPEG, GIF, SVG, WebP et archives en itérant la compression. Lossless uniquement — moins bon sur les JPEG/PNG photo, docs plus légères que les rivaux."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ImageOptim",
+			"source": {
+				"host": "github",
+				"path": "ImageOptim/ImageOptim",
+				"url": "https://github.com/ImageOptim/ImageOptim"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "macOS drag-and-drop GUI around pngquant, MozJPEG, guetzli and JPEGoptim, with before/after and dropped unused color profiles. Mac only, no API or server mode, and it inherits its tools’ GPL.",
+				"fr": "Interface macOS en glisser-déposer sur pngquant, MozJPEG, guetzli et JPEGoptim : avant/après, suppression des profils couleur inutilisés. Mac uniquement, pas d’API ni de mode serveur, hérite du GPL de ses outils."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SVGO",
+			"source": {
+				"host": "github",
+				"path": "svg/svgo",
+				"url": "https://github.com/svg/svgo"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Industry-standard SVG minifier, 30+ plugins, preset-default and built-in safety checks. Covers TinyPNG’s vector work via CLI or Node API — but SVG only, and it’s npm, not a standalone binary.",
+				"fr": "Optimiseur SVG de référence : 30+ plugins, preset par défaut, garde-fous anti-SVG cassé. Couvre le versant vectoriel de TinyPNG en CLI ou API Node — SVG uniquement, du npm, pas un binaire autonome."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

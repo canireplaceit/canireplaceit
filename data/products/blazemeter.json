@@ -101,6 +101,174 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Taurus",
+			"source": {
+				"host": "github",
+				"path": "Blazemeter/taurus",
+				"url": "https://github.com/Blazemeter/taurus"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "BlazeMeter’s own wrapper: one YAML drives JMeter, Gatling, Locust or Selenium and emits cloud-style reports. The abstraction layer needs an engine underneath and ships no reporting UI.",
+				"fr": "Le wrapper maison de BlazeMeter : un seul YAML pilote JMeter, Gatling, Locust ou Selenium et sort des rapports façon cloud. La couche d’abstraction exige un moteur installé, pas d’UI de rapport."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Locust",
+			"source": {
+				"host": "github",
+				"path": "locustio/locust",
+				"url": "https://github.com/locustio/locust"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Scripting only — no recorder — and the GIL caps a single node, though Python scenarios pair with a live dashboard and distributed workers.",
+				"fr": "Script uniquement — pas d’enregistreur — et le GIL plafonne une seule machine, mais les scénarios Python s’appuient sur un tableau de bord en direct et des workers distribués."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Vegeta",
+			"source": {
+				"host": "github",
+				"path": "tsenart/vegeta",
+				"url": "https://github.com/tsenart/vegeta"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Minimal Go CLI for constant-rate load with text, JSON and histogram reports, all in one static binary. HTTP only: no scenario scripting, no shared dashboard.",
+				"fr": "CLI Go minimaliste pour une charge à débit constant : sorties texte, JSON ou histogramme dans un binaire statique. HTTP seulement : pas de scénarios ni de tableau de bord partagé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Artillery",
+			"source": {
+				"host": "github",
+				"path": "artilleryio/artillery",
+				"url": "https://github.com/artilleryio/artillery"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Node load testing with YAML and JS scenarios across HTTP, WebSocket, gRPC and Kafka. MPL-2.0, advanced features lean on paid cloud, worker setup manual.",
+				"fr": "Tests de charge Node avec scénarios YAML et JS couvrant HTTP, WebSocket, gRPC et Kafka. Licence MPL-2.0, fonctions avancées tirées par un cloud payant, configuration manuelle des workers."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "oha",
+			"source": {
+				"host": "github",
+				"path": "hatoo/oha",
+				"url": "https://github.com/hatoo/oha"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Rust load generator with a live in-terminal chart and browser-copied URLs pasted straight in. Ad-hoc by design: no test suites, no distributed control.",
+				"fr": "Générateur de charge Rust avec graphique live dans le terminal et URLs collées depuis le navigateur. Pensé pour l’ad-hoc : pas de suites de tests, pas de contrôle distribué."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "hey",
+			"source": {
+				"host": "github",
+				"path": "rakyll/hey",
+				"url": "https://github.com/rakyll/hey"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Single-machine only, no scripting or history — but one command imports curl-style requests and prints a rich latency summary.",
+				"fr": "Une seule machine : pas de script, pas d’historique conservé — mais une commande importe les requêtes façon curl et imprime un résumé de latence complet."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "bombardier",
+			"source": {
+				"host": "github",
+				"path": "codesenberg/bombardier",
+				"url": "https://github.com/codesenberg/bombardier"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Fast Go load tester with dynamic request rates and per-endpoint hit counts. HTTP(S) only, no multi-step scenarios, and results stay in the terminal.",
+				"fr": "Générateur de charge Go rapide à débit dynamique, avec compteurs par endpoint. HTTP(S) uniquement, pas de scénarios multi-étapes, et les résultats restent dans le terminal."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Hurl",
+			"source": {
+				"host": "github",
+				"path": "Orange-OpenSource/hurl",
+				"url": "https://github.com/Orange-OpenSource/hurl"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Declarative HTTP testing from a curl-like file with assertions, reporting, and CI-friendly exit codes. Built for functional API checks: not a distributed load engine, no live metrics UI.",
+				"fr": "Tests HTTP déclaratifs depuis un fichier façon curl : assertions, rapports, codes de sortie pour la CI. Orienté fonctionnel — pas un moteur de charge distribué, pas d’UI de métriques en direct."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

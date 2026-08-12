@@ -1,0 +1,261 @@
+{
+	"slug": "bash",
+	"name": "Bash",
+	"domain": "gnu.org",
+	"category": "shell-terminal",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "Replaceable, but Bash remains the default login shell and lingua franca of scripts on nearly every machine. Leaving costs that ubiquity; the payoff is escaping the permanent tax of quoting rules and string-typed everything.",
+		"fr": "Remplaçable, mais Bash reste le shell de connexion par défaut et la lingua franca des scripts sur presque toutes les machines. Partir coûte cette ubiquité ; en échange, on échappe à la taxe permanente des règles de citation et du tout-typé en chaînes."
+	},
+	"whatYouLose": [
+		{
+			"en": "Ubiquity of the default login shell",
+			"fr": "L’ubiquité du shell de connexion par défaut"
+		},
+		{
+			"en": "Decades of typed-in muscle memory",
+			"fr": "Des années de réflexes dactylographiés"
+		},
+		{
+			"en": "Scripts that run on any machine",
+			"fr": "Des scripts qui tournent sur n’importe quelle machine"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "fish",
+			"source": {
+				"host": "github",
+				"path": "fish-shell/fish-shell",
+				"url": "https://github.com/fish-shell/fish-shell"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Autosuggestions, syntax highlighting and completions parsed from man pages, with no plugin framework to install. Not POSIX-compatible, so your scripts keep their bash shebang.",
+				"fr": "Autosuggestions, coloration syntaxique et complétions tirées des pages man, sans framework de plugins à installer. Pas compatible POSIX : vos scripts gardent leur shebang bash."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nushell",
+			"source": {
+				"host": "github",
+				"path": "nushell/nushell",
+				"url": "https://github.com/nushell/nushell"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Pipes structured tables instead of text, so `ls | where size > 10mb` needs no awk. A genuinely different model — and a genuine relearn.",
+				"fr": "Pipeline des tableaux structurés au lieu du texte : `ls | where size > 10mb` sans awk. Un modèle réellement différent — et un réel réapprentissage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Elvish",
+			"source": {
+				"host": "github",
+				"path": "elves/elvish",
+				"url": "https://github.com/elves/elvish"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "A real programming language — data structures, exceptions, namespaces — plus interactive niceties. The smallest community of the three.",
+				"fr": "Un vrai langage de programmation — structures de données, exceptions, namespaces — avec en prime des fonctions interactives. La plus petite communauté des trois."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Zsh",
+			"source": {
+				"host": "github",
+				"path": "zsh-users/zsh",
+				"url": "https://github.com/zsh-users/zsh"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The de-facto interactive shell on macOS and Linux, a close drop-in for bash scripting with a huge completion and framework ecosystem. Default on macOS, though config can get complex.",
+				"fr": "Le shell interactif de facto sur macOS et Linux, superset POSIX quasi drop-in du bash, avec un écosystème énorme de complétions et de frameworks. La config peut vite se compliquer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Xonsh",
+			"source": {
+				"host": "github",
+				"path": "xonsh/xonsh",
+				"url": "https://github.com/xonsh/xonsh"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Python expressions and shell commands interoperate in the same line, pure Python and cross-platform. Slower startup than compiled shells, and Python is effectively a prerequisite.",
+				"fr": "Les expressions Python et les commandes shell se mélangent dans la même ligne, en pur Python et multiplateforme. Démarrage plus lent que les shells compilés, et savoir Python est un prérequis."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Oil (YSH)",
+			"source": {
+				"host": "github",
+				"path": "oils-for-unix/oils",
+				"url": "https://github.com/oils-for-unix/oils"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A bash-compatible subset for legacy scripts plus YSH, a typed-data language with JSON, records and structured errors. Still in long beta with a slow release cadence.",
+				"fr": "Un sous-ensemble compatible bash pour les scripts existants, plus YSH, un langage à données typées avec JSON, records et erreurs structurées. Toujours en long bêta, au rythme de sorties lent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ion",
+			"source": {
+				"host": "github",
+				"path": "redox-os/ion",
+				"url": "https://github.com/redox-os/ion"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Rust-based shell from the Redox OS project, very fast startup with structured arrays and maps in scripting. Not POSIX-compatible, and the ecosystem is tied to Redox OS.",
+				"fr": "Le shell en Rust du projet Redox OS, démarrage très rapide et scripting orienté données avec tableaux et maps structurés. Pas compatible POSIX, développement étroitement lié à Redox OS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "oksh",
+			"source": {
+				"host": "github",
+				"path": "ibara/oksh",
+				"url": "https://github.com/ibara/oksh"
+			},
+			"license": "ISC",
+			"effort": "managed",
+			"note": {
+				"en": "Portable OpenBSD ksh: tiny, POSIX-compliant, runs almost everywhere from Android/Termux to Solaris. Minimal by design, no autosuggestions or fancy prompts.",
+				"fr": "Le ksh portable d’OpenBSD, minuscule, conforme POSIX, tourne presque partout, d’Android/Termux à Solaris. Minimal de par sa conception, sans autosuggestions ni prompts sophistiqués."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Yash",
+			"source": {
+				"host": "github",
+				"path": "magicant/yash",
+				"url": "https://github.com/magicant/yash"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Passes more POSIX conformance tests than bash and ships a predictive line editor. Rarely preinstalled and has no plugin ecosystem to speak of.",
+				"fr": "Passe plus de tests de conformité POSIX que bash et embarque un éditeur de ligne prédictif. Rarement préinstallé et sans écosystème de plugins."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tcsh",
+			"source": {
+				"host": "github",
+				"path": "tcsh-org/tcsh",
+				"url": "https://github.com/tcsh-org/tcsh"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "The classic C shell with Berkeley lineage, still the FreeBSD default; strong history, editing and prompt control. csh scripting is error-prone and it is not POSIX-compliant.",
+				"fr": "Le shell C classique, héritier de Berkeley, toujours par défaut sur FreeBSD, avec histoire, édition et contrôle du prompt solides. Son scripting csh est réputé piégeux, et il n’est pas conforme POSIX."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PowerShell",
+			"source": {
+				"host": "github",
+				"path": "PowerShell/PowerShell",
+				"url": "https://github.com/PowerShell/PowerShell"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Objects, not strings, flow through the pipeline, with the full .NET ecosystem behind it. Verbose, very different idiom from POSIX shells, and a heavy runtime dependency.",
+				"fr": "Des objets, pas des chaînes, circulent dans le pipeline, adossé à tout l’écosystème .NET. Syntaxe verbeuse, idiome très éloigné des shells POSIX, dépendance lourde au runtime."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 4
+}

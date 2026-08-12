@@ -111,6 +111,253 @@
 				"en": "Logs, uptime and incident management for a fraction of New Relic. APM and profiling are far shallower — this is not a full replacement for deep tracing.",
 				"fr": "Logs, disponibilité et gestion d’incidents pour une fraction du prix de New Relic. L’APM et le profilage sont bien plus superficiels — ce n’est pas un remplacement pour du traçage profond."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "SigNoz",
+			"source": {
+				"host": "github",
+				"path": "SigNoz/signoz",
+				"url": "https://github.com/SigNoz/signoz"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Closest open-source APM to New Relic, running traces, metrics and logs in one OpenTelemetry-native UI, though it means several components to run in a younger ecosystem.",
+				"fr": "Le plus proche clone open-source de New Relic : traces, métriques et logs dans une UI unique sur OpenTelemetry, mais plusieurs composants à opérer et un écosystème jeune."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise tier: SSO, smart trace details, high-cardinality metrics.",
+					"fr": "Niveau entreprise : SSO, détails de traces intelligents, métriques haute cardinalité."
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Grafana",
+			"source": {
+				"host": "github",
+				"path": "grafana/grafana",
+				"url": "https://github.com/grafana/grafana"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The default observability UI, combining Prometheus, Loki and Tempo in one dashboard surface — just not APM until you bolt on the companion backends yourself.",
+				"fr": "L’UI d’observabilité par défaut, qui réunit Prometheus, Loki et Tempo sur un même tableau de bord — mais pas d’APM tant que vous ne branchez pas les backends vous-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Cloud-only: RBAC, on-call, enterprise plugins.",
+					"fr": "Réservé au cloud : RBAC, on-call, plugins entreprise."
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Prometheus",
+			"source": {
+				"host": "github",
+				"path": "prometheus/prometheus",
+				"url": "https://github.com/prometheus/prometheus"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The standard metrics backend behind most self-hosted stacks, scraping into a time-series store — metrics only, with no trace or log correlation and retention you must tune.",
+				"fr": "Le backend métrique standard de la plupart des stacks auto-hébergées, avec son TSDB à scraping — métriques seules, sans corrélation traces ni logs, et une rétention à régler soi-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Grafana Loki",
+			"source": {
+				"host": "github",
+				"path": "grafana/loki",
+				"url": "https://github.com/grafana/loki"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Log aggregation that rides on Grafana, keeping storage cheap with label-based indexing — logs only, and you watch label cardinality to avoid index bloat.",
+				"fr": "L’agrégation de logs qui s’adosse à Grafana, avec un stockage bon marché grâce à l’indexation par labels — des logs uniquement, et il faut surveiller la cardinalité des labels."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Jaeger",
+			"source": {
+				"host": "github",
+				"path": "jaegertracing/jaeger",
+				"url": "https://github.com/jaegertracing/jaeger"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "CNCF tracing backend with search, dependency graphs and adaptive sampling — traces only, needing separate instrumentation and offering no metrics or logs.",
+				"fr": "Backend de tracing CNCF avec recherche de traces, graphes de dépendances et échantillonnage adaptatif — des traces uniquement, qui exigent leur propre instrumentation, sans métriques ni logs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "VictoriaMetrics",
+			"source": {
+				"host": "github",
+				"path": "VictoriaMetrics/VictoriaMetrics",
+				"url": "https://github.com/VictoriaMetrics/VictoriaMetrics"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Drop-in Prometheus-compatible storage with high throughput and easy long-term retention — metrics only, with no trace views for APM use.",
+				"fr": "Stockage compatible Prometheus, débit élevé sur un seul nœud et rétention long terme facile — des métriques uniquement, sans vue traces pour l’APM."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise: automated backups, multi-tenancy.",
+					"fr": "Entreprise : sauvegardes automatisées, multi-tenancy."
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Netdata",
+			"source": {
+				"host": "github",
+				"path": "netdata/netdata",
+				"url": "https://github.com/netdata/netdata"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Real-time infrastructure monitoring in a single agent, with 2000+ collectors and per-second granularity — infra-focused, so no distributed tracing or app-level APM.",
+				"fr": "Surveillance infra temps réel dans un seul agent, avec plus de 2000 collecteurs et une granularité à la seconde — orienté infra, donc sans tracing distribué ni APM applicatif."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Uptime Kuma",
+			"source": {
+				"host": "github",
+				"path": "louislam/uptime-kuma",
+				"url": "https://github.com/louislam/uptime-kuma"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted uptime monitoring with status pages and 90+ notification channels, trivial to deploy — synthetic checks only, no in-app telemetry or tracing.",
+				"fr": "Monitoring d’uptime auto-hébergé avec pages de statut et plus de 90 canaux de notifications, trivial à déployer — uniquement des checks synthétiques, sans télémétrie applicative ni tracing."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "highlight.io",
+			"source": {
+				"host": "github",
+				"path": "highlight/highlight",
+				"url": "https://github.com/highlight/highlight"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Full-stack monitoring in one product — session replay, error tracking, traces and logs — at the cost of a heavier self-host and enterprise bits carved out behind a separate license.",
+				"fr": "Monitoring full-stack dans un seul produit — session replay, erreurs, traces et logs — mais un self-hosting lourd et des briques entreprise sous licence séparée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Paid edition: logs, role-based access, enterprise features.",
+					"fr": "Édition payante : logs, contrôle d’accès, fonctions entreprise."
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Gatus",
+			"source": {
+				"host": "github",
+				"path": "TwiN/gatus",
+				"url": "https://github.com/TwiN/gatus"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Health and uptime checks as a single Go binary with a built-in status page — endpoint checks only, no tracing or in-app logs.",
+				"fr": "Un binaire Go unique pour les checks de santé et d’uptime, avec page de statut intégrée — uniquement des checks d’endpoints, sans tracing ni logs applicatifs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "bpftrace",
+			"source": {
+				"host": "github",
+				"path": "bpftrace/bpftrace",
+				"url": "https://github.com/bpftrace/bpftrace"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "One-line kernel and userspace probes via eBPF — the hands-on diagnostic layer, if you are comfortable with a root CLI that keeps no dashboards or history.",
+				"fr": "Des sondes kernel et userspace en une ligne grâce à eBPF — la couche de diagnostic à la main, pour qui accepte une CLI root sans tableaux de bord ni historique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

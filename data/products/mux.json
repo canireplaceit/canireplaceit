@@ -103,6 +103,178 @@
 				"en": "Encoding, storage, player and CDN at a fraction of Mux's per-minute rates. Thinner API, thinner analytics, smaller company.",
 				"fr": "Encodage, stockage, lecteur et CDN à une fraction des tarifs de Mux. API plus limitée, statistiques plus limitées, société plus petite."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "PeerTube",
+			"source": {
+				"host": "github",
+				"path": "Chocobozzz/PeerTube",
+				"url": "https://github.com/Chocobozzz/PeerTube"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Federated YouTube substitute: ActivityPub distribution, built-in transcoding, HLS with P2P delivery. Costs a heavy Node.js/PostgreSQL/Redis stack to run — no managed SLA or edge network.",
+				"fr": "Substitut fédéré de YouTube : distribution ActivityPub, transcodage intégré, HLS en P2P. Contrepartie : pile lourde Node.js/PostgreSQL/Redis à opérer, pas de SLA géré ni de réseau edge mondial."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Owncast",
+			"source": {
+				"host": "github",
+				"path": "owncast/owncast",
+				"url": "https://github.com/owncast/owncast"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Publishers bring their own encoder — no transcoding, no VOD, no catch-up. What you get is a single Go binary serving RTMP-to-HLS live with integrated chat and webhooks.",
+				"fr": "Les producteurs encodent eux-mêmes : pas de transcodage, pas de VOD ni de rattrapage. En retour, un seul binaire Go sert du direct RTMP vers HLS, avec chat intégré et webhooks."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MediaMTX",
+			"source": {
+				"host": "github",
+				"path": "bluenviron/mediamtx",
+				"url": "https://github.com/bluenviron/mediamtx"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Only a static binary relaying RTSP, RTMP, WebRTC, HLS and SRT at near-zero resource cost, restreaming elsewhere. No transcoding, UI, or VOD — streams arrive pre-encoded, you bring player and auth.",
+				"fr": "Un seul binaire, très léger, qui relaie RTSP, RTMP, WebRTC, HLS et SRT et restream ailleurs. Flux pré-encodés, pas de transcodage, d’UI ni de VOD — player et auth à fournir."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SRS",
+			"source": {
+				"host": "github",
+				"path": "ossrs/srs",
+				"url": "https://github.com/ossrs/srs"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Production-proven RTMP, HLS, HTTP-FLV and WebRTC in one server, low-latency enough for real live. Configuration is heavy, docs mostly Chinese, and support is community-only.",
+				"fr": "RTMP, HLS, HTTP-FLV et WebRTC dans un seul serveur, éprouvé en production, latence assez faible pour le direct. Configuration touffue, docs surtout en chinois, support communautaire uniquement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OvenMediaEngine",
+			"source": {
+				"host": "github",
+				"path": "OvenMediaLabs/OvenMediaEngine",
+				"url": "https://github.com/OvenMediaLabs/OvenMediaEngine"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Sub-second LL-HLS and WebRTC with origin-edge clustering and a built-in WebRTC viewer. It is ingest-focused with little VOD, and the AGPL copyleft, heavy C++ build and advanced config tax the operator.",
+				"fr": "LL-HLS et WebRTC sub-seconde, clustering origin-edge, viewer WebRTC intégré. Orienté ingest, peu de VOD ; AGPL copyleft, build C++ lourd et configuration avancée pèsent sur l’exploitation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "openCore: minor; commercial add-ons.",
+					"fr": "openCore : mineur, modules commerciaux."
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Node-Media-Server",
+			"source": {
+				"host": "github",
+				"path": "illuspas/Node-Media-Server",
+				"url": "https://github.com/illuspas/Node-Media-Server"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Pure Node.js RTMP server with HTTP-FLV, WebSocket-FLV and HLS out, a web admin panel, and easy JavaScript extension. Throughput trails C++/Go peers; no native WebRTC or transcoding.",
+				"fr": "Serveur RTMP en Node.js pur, sortie HTTP-FLV, WebSocket-FLV et HLS, panneau d’admin web, extension facile en JavaScript. Débit loin derrière les serveurs C++/Go ; pas de WebRTC natif ni de transcodage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LiveKit",
+			"source": {
+				"host": "github",
+				"path": "livekit/livekit",
+				"url": "https://github.com/livekit/livekit"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "WebRTC SFU with sub-second latency, ingress, egress, recording, transcoding, official SDKs for web, iOS, Android and desktop, Helm charts. Built for interactive live, not VOD/CDN — plan TURN/ICE at scale.",
+				"fr": "SFU WebRTC à latence sub-seconde : ingress, egress, enregistrement, transcodage, SDK officiels (web, iOS, Android, desktop), charts Helm. Pensé pour le live interactif, pas la VOD/CDN ; prévoir TURN/ICE à l’échelle."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "mediasoup",
+			"source": {
+				"host": "github",
+				"path": "versatica/mediasoup",
+				"url": "https://github.com/versatica/mediasoup"
+			},
+			"license": "ISC",
+			"effort": "managed",
+			"note": {
+				"en": "Embedded as an npm library: an ultra-low-latency WebRTC SFU with simulcast and SVC, proven at large scale. The app, UI, auth, recording and delivery are all yours to build.",
+				"fr": "S’embarque comme bibliothèque npm : un SFU WebRTC ultra-basse latence, simulcast et SVC, éprouvé à grande échelle. App, UI, auth, enregistrement et diffusion restent à construire, avec un vrai savoir-faire WebRTC."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

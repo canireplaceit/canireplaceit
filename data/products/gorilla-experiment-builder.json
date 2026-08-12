@@ -97,6 +97,153 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "JATOS",
+			"source": {
+				"host": "github",
+				"path": "JATOS/JATOS",
+				"url": "https://github.com/JATOS/JATOS"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted server that hosts and collects data from jsPsych/lab.js/PsychoPy studies, with batch management and Prolific/MTurk links. Authoring stays in jsPsych/lab.js — not a visual builder — and you maintain a Java server.",
+				"fr": "Serveur qui héberge et collecte les données des études jsPsych/lab.js/PsychoPy, avec gestion par lots et liens Prolific/MTurk. L’édition reste dans jsPsych/lab.js — pas de builder visuel — et un serveur Java est à maintenir."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenSesame",
+			"source": {
+				"host": "github",
+				"path": "open-cogsci/OpenSesame",
+				"url": "https://github.com/open-cogsci/OpenSesame"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Mature drag-and-drop GUI experiment builder with inline Python scripting, closest to Gorilla’s authoring model. Runs offline on lab machines; OSWeb export reaches JATOS, but recruitment and hosting are yours to arrange.",
+				"fr": "Builder d’expériences en drag-and-drop mûr, avec scripting Python intégré — le plus proche du modèle de Gorilla. Fonctionne hors-ligne en labo ; l’export OSWeb mène à JATOS, mais recrutement et hébergement à votre charge."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "psiTurk",
+			"source": {
+				"host": "github",
+				"path": "NYUCCL/psiTurk",
+				"url": "https://github.com/NYUCCL/psiTurk"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "CLI study platform purpose-built for Mechanical Turk, with ad-server and experiment-server workflow and JSON HIT configs. Frontend-agnostic, but dormant since 2024 and fiddly to set up.",
+				"fr": "Plateforme d’études pilotée en CLI, pensée pour Mechanical Turk : workflow serveur d’annonces et serveur d’expérience, configs HIT en JSON. Frontend-agnostique, mais sans commit depuis 2024 et un déploiement manuel et capricieux."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "nodeGame",
+			"source": {
+				"host": "github",
+				"path": "nodeGame/nodegame",
+				"url": "https://github.com/nodeGame/nodegame"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Node.js framework for real-time multiplayer and interactive experiments, with built-in room matchmaking and wait rooms. Fits interactive designs; simple surveys and single-participant studies have lighter options.",
+				"fr": "Framework Node.js pour expériences multijoueurs en temps réel, avec matchmaking de salons et salles d’attente intégrés. Idéal pour les designs interactifs ; pour de simples questionnaires, des options plus légères existent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tatool",
+			"source": {
+				"host": "github",
+				"path": "tatool/tatool-web",
+				"url": "https://github.com/tatool/tatool-web"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Web-based experiment builder with GUI authoring, server-side data storage, and multilingual support, self-hosted. Small community, fewer examples, an older GWT stack.",
+				"fr": "Builder d’expériences web auto-hébergé, avec édition en GUI et stockage des données côté serveur, multilingue. En contrepartie : petite communauté, peu d’exemples et un stack GWT vieillissant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Expfactory",
+			"source": {
+				"host": "github",
+				"path": "expfactory/expfactory",
+				"url": "https://github.com/expfactory/expfactory"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Docker-based CLI that generates experiment containers from templates, with a battery of pre-built surveys and cognitive tasks. No commits since 2023, small community, and a Docker workflow required.",
+				"fr": "CLI basée sur Docker qui génère des conteneurs d’expériences depuis des templates, avec une batterie de questionnaires et tâches cognitives prêtes à l’emploi. Aucun commit depuis 2023, petite communauté, workflow Docker obligatoire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Expyriment",
+			"source": {
+				"host": "github",
+				"path": "expyriment/expyriment",
+				"url": "https://github.com/expyriment/expyriment"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Python experiment library with millisecond timing for lab-based behavioral and psychophysical studies, offline on lab hardware. Everything is code — no GUI, no web deployment, no online recruitment.",
+				"fr": "Bibliothèque d’expériences en Python, timing à la milliseconde pour études comportementales et psychophysiques en laboratoire, entièrement hors-ligne. Tout est code : pas de GUI, pas de déploiement web, pas de recrutement en ligne."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

@@ -124,6 +124,258 @@
 				"en": "Cheapest paid tier is a fraction of Feedly and the filtering rules are better. The mobile app is dated.",
 				"fr": "L’offre payante la moins chère coûte une fraction de Feedly et les règles de filtrage sont meilleures. L’application mobile est datée."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tiny Tiny RSS",
+			"source": {
+				"host": "github",
+				"path": "tt-rss/tt-rss",
+				"url": "https://github.com/tt-rss/tt-rss"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The classic multi-user self-hosted reader: plugins, official Android app, deep API support. Needs PHP and PostgreSQL, a dated default UI, and the operator’s upkeep.",
+				"fr": "Le classique lecteur multi-utilisateurs auto-hébergé : plugins, app Android officielle et API complète. Exige PHP et PostgreSQL, une UI datée et de l’entretien."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nextcloud News",
+			"source": {
+				"host": "github",
+				"path": "nextcloud/news",
+				"url": "https://github.com/nextcloud/news"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Feeds live inside your Nextcloud, sharing the accounts you already have, with an API for mobile clients. Not standalone: it needs a whole instance and only covers basic reading.",
+				"fr": "Les flux vivent dans votre Nextcloud, avec les comptes existants et une API pour les clients mobiles. Pas autonome : il faut l’instance complète, et la lecture reste basique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Newsboat",
+			"source": {
+				"host": "github",
+				"path": "newsboat/newsboat",
+				"url": "https://github.com/newsboat/newsboat"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Terminal-only reader: keyboard-driven TUI, podcasts, and sync against FreshRSS or Tiny Tiny RSS. Powerful but steep to learn, and there is no mobile experience.",
+				"fr": "Lecteur 100 % terminal : TUI au clavier, podcasts, synchronisation FreshRSS ou Tiny Tiny RSS. Efficace mais difficile à prendre en main, sans expérience mobile."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Yarr",
+			"source": {
+				"host": "github",
+				"path": "nkanaev/yarr",
+				"url": "https://github.com/nkanaev/yarr"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "A single Go binary, SQLite, zero config: about as simple as self-hosting gets. The price: single-user, a basic feature set, no mobile apps, slow releases.",
+				"fr": "Un seul binaire Go, SQLite, zéro configuration : le plus simple possible en auto-hébergement. Mais mono-utilisateur, fonctions basiques, pas d’app mobile, sorties lentes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CommaFeed",
+			"source": {
+				"host": "github",
+				"path": "Athou/commafeed",
+				"url": "https://github.com/Athou/commafeed"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Google Reader-style reading, multi-user, with Google and GitHub OAuth. Lightweight feel, but a Java stack to run, a smaller community, and no official mobile app.",
+				"fr": "Lecture façon Google Reader, multi-utilisateurs, connexion Google ou GitHub en OAuth. Léger, mais stack Java à opérer, communauté réduite et aucune app mobile officielle."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Feedbin",
+			"source": {
+				"host": "github",
+				"path": "feedbin/feedbin",
+				"url": "https://github.com/feedbin/feedbin"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Full-service reader: Fever API, full-text search, newsletters by email-in, hosted or self-hosted. Weighs in as a Ruby on Rails stack, needs SMTP, defaults to single-user.",
+				"fr": "Lecteur complet : API Fever, recherche plein texte, newsletters reçues par email, hébergé ou auto-hébergé. Mais stack Ruby on Rails lourde, SMTP à configurer, mono-utilisateur par défaut."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Stringer",
+			"source": {
+				"host": "github",
+				"path": "stringer-rss/stringer",
+				"url": "https://github.com/stringer-rss/stringer"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Minimal Google Reader-style reader with Fever API support and one-click Docker and Heroku deploys. The flip side: very few features, slow development, no mobile app.",
+				"fr": "Lecteur minimaliste dans la lignée de Google Reader, API Fever comprise, déploiement Docker ou Heroku en un clic. En contrepartie : fonctions très réduites, développement lent, pas d’app mobile."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "RSSGuard",
+			"source": {
+				"host": "github",
+				"path": "martinrotter/rssguard",
+				"url": "https://github.com/martinrotter/rssguard"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Native Qt desktop reader, syncs with Tiny Tiny RSS, Nextcloud or FreshRSS, with notifications and full-text search. Desktop only: feeds stay on your machine, no web access away from home.",
+				"fr": "Lecteur de bureau natif Qt, synchronisé avec Tiny Tiny RSS, Nextcloud ou FreshRSS, notifications et recherche plein texte. Bureau seulement : les flux restent sur la machine, pas de lecture à distance."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Selfoss",
+			"source": {
+				"host": "github",
+				"path": "fossar/selfoss",
+				"url": "https://github.com/fossar/selfoss"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight PHP reader on plain SQLite, with tags, sharing and a client API — and a fork community keeping it alive. Expect an older codebase, sparse releases, basic features.",
+				"fr": "Lecteur web léger en PHP sur simple SQLite : tags, partage, API pour les clients — et une communauté de forks qui le maintient. Mais code vieillissant, versions rares, fonctions de base."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Feedpushr",
+			"source": {
+				"host": "github",
+				"path": "ncarlier/feedpushr",
+				"url": "https://github.com/ncarlier/feedpushr"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "A rule-based aggregation daemon, not a reader: plugins push articles to Slack, email, MQTT, Kafka. Nothing is stored and there is no UI to browse — a niche tool.",
+				"fr": "Un démon d’agrégation à règles, pas un lecteur : les plugins poussent les articles vers Slack, email, MQTT, Kafka. Rien n’est stocké, aucun UI pour parcourir — outil de niche."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "rss2email",
+			"source": {
+				"host": "github",
+				"path": "rss2email/rss2email",
+				"url": "https://github.com/rss2email/rss2email"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Turns feeds into email, so your mail client does the reading. Simple, cron-friendly Python. No reader UI, no filtering or read state — you need SMTP and a mail app.",
+				"fr": "Convertit les flux en emails, votre client mail fait lecteur. Python simple, compatible cron. Pas d’UI, ni filtres ni statut lu ; il faut SMTP et un client mail."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "RSSHub",
+			"source": {
+				"host": "github",
+				"path": "DIYgod/RSSHub",
+				"url": "https://github.com/DIYgod/RSSHub"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Not a reader: it generates feeds for a thousand-plus sites that never had one, so any reader can consume them. Routes break when sites change, and the hosted instance is rate-limited.",
+				"fr": "Pas un lecteur : il génère des flux pour plus de mille sites qui n’en ont pas, lisibles dans tout lecteur. Les routes cassent quand les sites changent ; l’instance hébergée est limitée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

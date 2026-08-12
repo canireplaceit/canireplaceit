@@ -111,6 +111,182 @@
 				"en": "Pay-per-minute or cheap flat DIDs feeding your own PBX. No apps, no support desk, and E911 is a form you fill in yourself.",
 				"fr": "À la minute ou numéros à forfait bon marché alimentant votre propre PBX. Pas d’applications, pas de hotline, et les urgences sont un formulaire à remplir soi-même."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kamailio",
+			"source": {
+				"host": "github",
+				"path": "kamailio/kamailio",
+				"url": "https://github.com/kamailio/kamailio"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Open SIP proxy for carrier-grade load balancing and failover, with RTPEngine media integration. Routing core only: no UI, no media handling, every call path hand-configured. Real ops effort.",
+				"fr": "Proxy SIP open-source pour équilibrage de charge et failover, média géré via RTPEngine. Routage uniquement : pas d’interface, pas de gestion média, tout config à la main. Vrai effort d’exploitation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FusionPBX",
+			"source": {
+				"host": "github",
+				"path": "fusionpbx/fusionpbx",
+				"url": "https://github.com/fusionpbx/fusionpbx"
+			},
+			"license": "MPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The closest thing to an all-in-one PBX suite: a web GUI over FreeSWITCH with multi-tenant domains, CDR and billing views. Heavier install, community-driven updates, and no team messaging.",
+				"fr": "Le plus proche d’une suite PBX tout-en-un : interface web sur FreeSWITCH, domaines multi-tenant, vues CDR et facturation. Installation lourde, mises à jour portées par la communauté, pas de messagerie d’équipe."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Jitsi Meet",
+			"source": {
+				"host": "github",
+				"path": "jitsi/jitsi-meet",
+				"url": "https://github.com/jitsi/jitsi-meet"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted WebRTC meetings with lobby moderation and recording, covering RingCentral’s conferencing side. No PSTN dial-out without Jigasi, no phone system to speak of, and you will run coturn for NAT.",
+				"fr": "Visioconférence WebRTC auto-hébergeable, avec lobby et enregistrement, qui couvre la partie réunions de RingCentral. Pas de sortie PSTN sans Jigasi, pas de téléphone, et il faut coturn pour le NAT."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nextcloud Talk",
+			"source": {
+				"host": "github",
+				"path": "nextcloud/spreed",
+				"url": "https://github.com/nextcloud/spreed"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Chat and group calls inside Nextcloud, with file sharing and OIDC/LDAP SSO already in place. Needs a full Nextcloud server, its SIP bridge is partly enterprise-paid, and it is not a PBX.",
+				"fr": "Messagerie et appels de groupe dans Nextcloud, avec partage de fichiers et SSO OIDC/LDAP. Nécessite un serveur Nextcloud complet, pont SIP payant en entreprise, pas de PBX."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "SIP bridge (enterprise-paid)",
+					"fr": "Pont SIP (payant en entreprise)"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "baresip",
+			"source": {
+				"host": "github",
+				"path": "baresip/baresip",
+				"url": "https://github.com/baresip/baresip"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "A headless SIP softphone that lives in the terminal — registration, audio and WebRTC video via modules, scriptable. No GUI out of the box, accounts configured by hand, and no messaging.",
+				"fr": "Softphone SIP headless qui vit dans le terminal : inscription, audio et vidéo WebRTC via modules, scriptable. Pas d’interface par défaut, comptes configurés à la main, pas de messagerie."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Jami",
+			"source": {
+				"host": "github",
+				"path": "savoirfairelinux/jami-client-qt",
+				"url": "https://github.com/savoirfairelinux/jami-client-qt"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Peer-to-peer calling and messaging with end-to-end encryption and no central account, on desktop, mobile and CLI. No PSTN access, NAT traversal can be flaky, and there is no enterprise admin console.",
+				"fr": "Appels et messagerie en pair-à-pair, chiffrés de bout en bout, sans compte central, sur desktop, mobile et CLI. Pas de PSTN, traversée NAT parfois capricieuse, et aucun outil d’administration d’entreprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Linphone",
+			"source": {
+				"host": "github",
+				"path": "BelledonneCommunications/linphone-desktop",
+				"url": "https://github.com/BelledonneCommunications/linphone-desktop"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Mature open SIP softphone for desktop and mobile with SRTP/ZRTP secure media. Client only: no server side, no team admin console, and the advanced features sit behind paid Flexisip.",
+				"fr": "Softphone SIP open mature, desktop et mobile, avec médias sécurisés SRTP/ZRTP. Client uniquement : pas de serveur, pas de console d’administration d’équipe, et les fonctions avancées derrière Flexisip payant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Advanced features behind Flexisip server",
+					"fr": "Fonctions avancées derrière le serveur Flexisip"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mumble",
+			"source": {
+				"host": "github",
+				"path": "mumble-voip/mumble",
+				"url": "https://github.com/mumble-voip/mumble"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Low-latency team voice over a self-hosted Murmur server, with positional audio and overlay. No PSTN integration, no video out of the box, and it is not a dialer or PBX.",
+				"fr": "Voix d’équipe à faible latence sur un serveur Murmur auto-hébergé, avec audio positionnel et overlay. Pas d’intégration PSTN, pas de vidéo par défaut, et ce n’est ni un dialer ni un PBX."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

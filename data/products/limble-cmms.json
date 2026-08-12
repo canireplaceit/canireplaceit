@@ -101,6 +101,199 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenMAINT",
+			"source": {
+				"host": "other",
+				"path": "tecnoteca/openmaint",
+				"url": "https://sourceforge.net/projects/openmaint/"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Reference open-source CMMS for property and facility maintenance — preventive workflows, GIS and BIM. Requires a Java/Tomcat/PostgreSQL stack (16GB RAM minimum) and heavy CMDBuild configuration.",
+				"fr": "Référence CMMS open-source pour l’entretien de patrimoine et d’installations — workflows préventifs, GIS et BIM. Exige une pile Java/Tomcat/PostgreSQL lourde (16 Go de RAM minimum) et une configuration CMDBuild chargée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SuperCMMS",
+			"source": {
+				"host": "github",
+				"path": "SuperCMMS/Open-Source-CMMS",
+				"url": "https://github.com/SuperCMMS/Open-Source-CMMS"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "MIT CMMS open-sourcing its backend for assets, work orders and preventive/predictive maintenance. Backend only — you build the UI — and pre-1.0, not production-ready.",
+				"fr": "CMMS sous licence MIT qui libère un backend couvrant actifs, ordres de travail et maintenance préventive/prédictive. Backend seul, l’UI reste à construire, et pas encore 1.0."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Frontend — closed, the open build ships no UI.",
+					"fr": "Frontend — fermé, le build open ne livre aucune UI."
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Liberus Maintenance",
+			"source": {
+				"host": "github",
+				"path": "liberusoftware/maintenance-laravel",
+				"url": "https://github.com/liberusoftware/maintenance-laravel"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Laravel/Filament CMMS with work orders, scheduling and Docker Compose/Kubernetes deployment included. Still young — one company backs it and there is no 1.0 guarantee.",
+				"fr": "CMMS Laravel/Filament avec ordres de travail, planification et déploiement Docker Compose/Kubernetes fourni. Encore jeune, porté par une seule société, sans garantie de stabilité 1.0."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LibreMaint",
+			"source": {
+				"host": "github",
+				"path": "lowag/libremaint",
+				"url": "https://github.com/lowag/libremaint"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Manufacturing-focused PHP/MySQL CMMS with equipment registry and maintenance dashboards. Dormant — no commit since August 2024, PHP7 stack, no API or mobile app.",
+				"fr": "CMMS PHP/MySQL orienté production, avec registre d’équipements et tableaux de bord maintenance. En sommeil — aucun commit depuis août 2024, pile PHP7, sans API ni application mobile."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CMMS (remonalbear)",
+			"source": {
+				"host": "github",
+				"path": "remonalbear/CMMS",
+				"url": "https://github.com/remonalbear/CMMS"
+			},
+			"license": "ISC",
+			"effort": "managed",
+			"note": {
+				"en": "Node/Express CMMS built for hospital maintenance, the most-starred small self-hosted option. Dormant since 2022, licence declared only in package.json, no mobile app or API.",
+				"fr": "CMMS Node/Express conçu pour la maintenance hospitalière, le plus étoilé des options auto-hébergées légères. En sommeil depuis 2022, licence déclarée dans le seul package.json, sans mobile ni API."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CMMS (marcburnie)",
+			"source": {
+				"host": "github",
+				"path": "marcburnie/CMMS",
+				"url": "https://github.com/marcburnie/CMMS"
+			},
+			"license": "ISC",
+			"effort": "managed",
+			"note": {
+				"en": "Minimal MERN CMMS — RESTful asset and work-order CRUD as a self-hosting starting point. Basic CRUD only, dormant since 2022, licence declared in package.json alone.",
+				"fr": "CMMS MERN minimal — CRUD RESTful d’actifs et d’ordres de travail, point de départ pour l’auto-hébergement. CRUD basique uniquement, en sommeil depuis 2022, licence déclarée dans le seul package.json."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "COTENCE",
+			"source": {
+				"host": "github",
+				"path": "NGimhana/CMMS",
+				"url": "https://github.com/NGimhana/CMMS"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Laravel/Vue CMMS for general maintenance job tracking behind a clean admin UI. Dormant since 2019, single-purpose, no mobile or API, small community.",
+				"fr": "CMMS Laravel/Vue pour le suivi des travaux de maintenance, avec une interface d’administration propre. En sommeil depuis 2019, mono-usage, sans mobile ni API, petite communauté."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Evarisk GMAO",
+			"source": {
+				"host": "github",
+				"path": "Evarisk/gmao",
+				"url": "https://github.com/Evarisk/gmao"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "GPLv3 CMMS module that grafts work orders and preventive maintenance onto a self-hosted Dolibarr ERP. Requires a running instance, French-only docs and UI, niche adoption.",
+				"fr": "Module CMMS GPLv3 qui greffe ordres de travail et maintenance préventive sur l’ERP auto-hébergé Dolibarr. Exige une instance en place, documentation et interface en français, adoption de niche."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tunnel GMAO",
+			"source": {
+				"host": "github",
+				"path": "ProtoGulix/tunnel-gmao",
+				"url": "https://github.com/ProtoGulix/tunnel-gmao"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Active French CMMS for industrial SMEs — machines, interventions, purchases, on-premise only, no SaaS or ERP dependency. Very new and niche, French-only, one maintainer.",
+				"fr": "CMMS français actif pour PME industrielles — machines, interventions, achats, uniquement sur site, sans SaaS ni dépendance ERP cachée. Très récent et de niche, en français, un seul mainteneur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

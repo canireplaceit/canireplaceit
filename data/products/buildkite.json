@@ -103,6 +103,153 @@
 				"en": "Much faster managed runners and remote Docker builds with persistent cache, billed per minute. It is runners only — no pipeline orchestration, so it complements rather than replaces.",
 				"fr": "Runners managés bien plus rapides et builds Docker distants à cache persistant, facturés à la minute. Ce ne sont que des runners — aucune orchestration, donc c’est un complément, pas un remplacement."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Woodpecker CI",
+			"source": {
+				"host": "github",
+				"path": "woodpecker-ci/woodpecker",
+				"url": "https://github.com/woodpecker-ci/woodpecker"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Drone’s actively maintained fork, with native Gitea/Forgejo integration and YAML pipelines tracked in the repo. Agent autoscaling is your job and enterprise SSO/RBAC is missing.",
+				"fr": "Fork actif de Drone, avec intégration native Gitea/Forgejo et pipelines YAML dans le dépôt. L’autoscaling des agents reste à votre charge, pas de SSO/RBAC d’entreprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GoCD",
+			"source": {
+				"host": "github",
+				"path": "gocd/gocd",
+				"url": "https://github.com/gocd/gocd"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Model-based pipelines with fan-in/fan-out dependency graphs, a value stream map and elastic agents. Being JVM-based it is heavier to operate, and config lives in the UI, not code.",
+				"fr": "Pipelines modélisées avec graphes de dépendances fan-in/fan-out, value stream map et agents élastiques. Basé sur la JVM, plus lourd à opérer, et la config vit dans l’interface, pas dans le code."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Buildbot",
+			"source": {
+				"host": "github",
+				"path": "buildbot/buildbot",
+				"url": "https://github.com/buildbot/buildbot"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Build steps are configured in Python, not YAML, and the web UI is dated — yet it remains the workhorse for distributed matrix builds on master/worker fleets.",
+				"fr": "Les étapes se configurent en Python, pas en YAML, et l’interface web date — le serveur reste pourtant le cheval de bataille des builds matriciels distribués sur un parc master/worker."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Concourse CI",
+			"source": {
+				"host": "github",
+				"path": "concourse/concourse",
+				"url": "https://github.com/concourse/concourse"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Steep learning curve, and you stand up PostgreSQL plus web and worker nodes yourself — the payoff is resource-driven pipelines with strict gating and immutable inputs.",
+				"fr": "Courbe d’apprentissage raide, et vous montez PostgreSQL plus des nœuds web et worker vous-même — en échange, des pipelines pilotées par les ressources, gating strict et entrées immuables."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Earthly",
+			"source": {
+				"host": "github",
+				"path": "earthly/earthly",
+				"url": "https://github.com/earthly/earthly"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A build engine, not a scheduler: workflows must fit the container model, and satellites cost money. The payoff is a Makefile-style CLI with cached layers and reproducible builds.",
+				"fr": "Un moteur de build, pas un scheduler : les workflows doivent épouser le modèle conteneur et les satellites sont payants. En échange, un CLI façon Makefile, couches en cache, builds reproductibles."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pipelight",
+			"source": {
+				"host": "github",
+				"path": "crocuda/pipelight",
+				"url": "https://github.com/crocuda/pipelight"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "One small binary, one config file tracked in git, cron and event triggers — execution stays local to the host, no distributed agents and few integrations.",
+				"fr": "Un petit binaire, un fichier de config suivi par git, déclencheurs cron et évènements — l’exécution reste locale à l’hôte, pas d’agents distribués ni beaucoup d’intégrations."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tekton Pipelines",
+			"source": {
+				"host": "github",
+				"path": "tektoncd/pipeline",
+				"url": "https://github.com/tektoncd/pipeline"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "You bring the cluster: definitions are YAML-heavy CRDs and forge auth is DIY. In exchange, reusable Tasks and cluster-wide PipelineRuns pass results between stages.",
+				"fr": "À vous d’apporter le cluster : définitions en CRD lourdes en YAML, pas d’auth forges incluse. En échange, Tasks réutilisables et PipelineRuns à l’échelle du cluster se passent leurs résultats."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

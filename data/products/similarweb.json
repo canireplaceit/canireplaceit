@@ -111,6 +111,182 @@
 				"en": "Free domain rankings and traffic trends from Cloudflare's resolver. Coarser than Similarweb with no per-page detail, but it is measured data rather than a panel model.",
 				"fr": "Classements de domaines et tendances de trafic gratuits, issus du résolveur Cloudflare. Plus grossier que Similarweb et sans détail par page, mais ce sont des mesures réelles plutôt qu’un modèle de panel."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "GoAccess",
+			"source": {
+				"host": "github",
+				"path": "allinurl/goaccess",
+				"url": "https://github.com/allinurl/goaccess"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Real-time dashboards parsed straight from nginx or apache logs, zero tracking scripts. Costs raw server-log access, and no visitor-level or SERP data.",
+				"fr": "Tableaux de bord temps réel tirés des logs nginx ou apache, zéro script de suivi. Exige l’accès brut aux logs serveur ; ni visiteurs individuels, ni rangs SERP."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SerpBear",
+			"source": {
+				"host": "github",
+				"path": "towfiqi/serpbear",
+				"url": "https://github.com/towfiqi/serpbear"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted scheduler recording Google keyword positions — the closest open-source rank tracker here. Scraping SERPs means anti-bot changes can break it, and Google only.",
+				"fr": "Planificateur auto-hébergé qui archive les positions Google — l’équivalent open source du rank-tracking. Il scrape les SERP : l’anti-bot peut le casser, et Google seulement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Open Web Analytics",
+			"source": {
+				"host": "github",
+				"path": "Open-Web-Analytics/Open-Web-Analytics",
+				"url": "https://github.com/Open-Web-Analytics/Open-Web-Analytics"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Aged PHP/MySQL stack that still delivers heatmaps, click tracking and multi-site from one install. The UI shows its age, it needs a PHP runtime, and ranks are out of scope.",
+				"fr": "Stack PHP/MySQL qui a de l’âge mais livre toujours heatmaps, clics et multi-sites depuis une seule install. L’interface date, il faut un runtime PHP, et pas de suivi de rang."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GoatCounter",
+			"source": {
+				"host": "github",
+				"path": "arp242/goatcounter",
+				"url": "https://github.com/arp242/goatcounter"
+			},
+			"license": "EUPL-1.2",
+			"effort": "managed",
+			"note": {
+				"en": "Single Go binary plus SQLite, cookieless by default, running in minutes. Feature set stays basic next to Matomo, ranks don’t exist, and it’s built single-user.",
+				"fr": "Un seul binaire Go et SQLite, sans cookies par défaut, installé en quelques minutes. Le socle reste sommaire face à Matomo, pas de suivi de rang, et l’ensemble est mono-utilisateur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "eu-option"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PostHog",
+			"source": {
+				"host": "github",
+				"path": "PostHog/posthog",
+				"url": "https://github.com/PostHog/posthog"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Full product-analytics pipeline under MIT: funnels, retention, session replays, SQL over events. It ships with Postgres and ClickHouse to operate, and drowns a plain traffic counter.",
+				"fr": "Pipeline d’analytics produit complète sous MIT : funnels, rétention, replays de session, SQL sur les événements. En contrepartie, Postgres + ClickHouse à opérer, et trop lourd pour compter du trafic."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Countly",
+			"source": {
+				"host": "github",
+				"path": "Countly/countly-server",
+				"url": "https://github.com/Countly/countly-server"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Web and mobile analytics in one: push and crash reporting inside the AGPL community build. SSO and user profiles stay in paid Enterprise, and there’s no rank tracking.",
+				"fr": "Web et mobile dans une même plateforme : push et crash reporting inclus dans la build communautaire AGPL. SSO et profils utilisateurs restent côté Enterprise payant, et rien ne suit les rangs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "SSO and user profiles, Enterprise-only",
+					"fr": "SSO et profils utilisateurs, réservés à Enterprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ackee",
+			"source": {
+				"host": "github",
+				"path": "electerious/Ackee",
+				"url": "https://github.com/electerious/Ackee"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Minimal Node and MongoDB analytics, privacy-first and MIT, with a clean tiny dashboard. Depth is the cost: no rank tracking, single-node only.",
+				"fr": "Analytics minimaliste en Node et MongoDB, privacy-first et MIT, avec un dashboard propre et léger. Le prix : pas de suivi de rang et un seul nœud."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Fathom Lite",
+			"source": {
+				"host": "github",
+				"path": "usefathom/fathom",
+				"url": "https://github.com/usefathom/fathom"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Go binary and SQLite, cookieless, up in minutes behind a focused dashboard. The current SaaS is closed-source, the Lite feature set is thin, and ranks are missing.",
+				"fr": "Binaire Go et SQLite, sans cookies, lancé en quelques minutes derrière un dashboard épuré. Le SaaS actuel est propriétaire, le socle Lite est mince, et le suivi de rang n’existe pas."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Current SaaS, now proprietary",
+					"fr": "SaaS actuel, désormais propriétaire"
+				}
+			}
 		}
 	],
 	"priority": 4

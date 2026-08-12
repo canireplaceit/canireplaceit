@@ -93,6 +93,132 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "MailHog",
+			"source": {
+				"host": "github",
+				"path": "mailhog/MailHog",
+				"url": "https://github.com/mailhog/MailHog"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The classic self-hosted SMTP catcher, single Go binary with web UI, JSON API and raw-message release. Development has been dormant since 2024, and there are no deliverability checks.",
+				"fr": "Le classique des SMTP catchers : un seul binaire Go, web UI et API JSON, relâche des messages bruts. Plus de commit depuis 2024 — le projet dort, aucun contrôle de délivrabilité."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mailcatcher",
+			"source": {
+				"host": "github",
+				"path": "sj26/mailcatcher",
+				"url": "https://github.com/sj26/mailcatcher"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Pioneer catcher: one gem command gives SMTP on 1025 and a browser inbox on 1080, with HTML and source views. Maintenance has slowed since 2024 and it needs a Ruby runtime.",
+				"fr": "Le pionnier : une commande gem, SMTP sur 1025 et boîte dans le navigateur sur 1080, rendu HTML et source par message. Maintenance en sourdine depuis 2024, et il faut un runtime Ruby."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "smtp4dev",
+			"source": {
+				"host": "github",
+				"path": "rnwood/smtp4dev",
+				"url": "https://github.com/rnwood/smtp4dev"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Pick it for a real inbox: IMAP for external clients, relay to a real SMTP server, attachments and session logs in the web UI. Heavier .NET footprint; no deliverability scoring either.",
+				"fr": "Quand il faut une vraie boîte : IMAP pour clients externes, relais vers un vrai SMTP, pièces jointes, journaux dans la web UI. .NET plus lourd, pas de score de délivrabilité."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MailSlurper",
+			"source": {
+				"host": "github",
+				"path": "mailslurper/mailslurper",
+				"url": "https://github.com/mailslurper/mailslurper"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "A MailHog fork that kept going, with configurable MySQL, Postgres or mongo storage behind its REST API and web UI. Smaller community than MailHog, no deliverability checks.",
+				"fr": "Un fork de MailHog qui a continué : stockage MySQL, Postgres ou mongo au choix, REST API et web UI. Communauté plus petite que MailHog, pas de contrôles de délivrabilité."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GreenMail",
+			"source": {
+				"host": "github",
+				"path": "greenmail-mail-test/greenmail",
+				"url": "https://github.com/greenmail-mail-test/greenmail"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "A SMTP, IMAP and POP3 server in a jar, standalone or in-process, with auto-deletion rules — built for CI integration tests, not for browsing mail.",
+				"fr": "Un serveur SMTP, IMAP et POP3 dans un jar, autonome ou in-process, règles de suppression auto — pour les tests d’intégration en CI, pas pour consulter son courrier."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "mailcat",
+			"source": {
+				"host": "github",
+				"path": "sharsil/mailcat",
+				"url": "https://github.com/sharsil/mailcat"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A TUI catcher that keeps the dev loop in the terminal — macOS/Linux binary, keyboard-driven message review. No web UI, no API, no shared team inbox.",
+				"fr": "Un catcher en TUI qui garde la boucle de dev dans le terminal — binaire macOS/Linux, revue des messages au clavier. Pas de web UI, pas d’API, pas de boîte partagée d’équipe."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

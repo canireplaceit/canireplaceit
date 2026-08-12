@@ -97,6 +97,174 @@
 				"en": "Half the price, OpenStreetMap data, and you can export the tiles and leave. Smaller global CDN footprint than Mapbox.",
 				"fr": "Deux fois moins cher, données OpenStreetMap, et vous pouvez exporter les tuiles pour partir. Empreinte CDN mondiale plus réduite que Mapbox."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenLayers",
+			"source": {
+				"host": "github",
+				"path": "openlayers/openlayers",
+				"url": "https://github.com/openlayers/openlayers"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Browser renderer (raster + WebGL), the default 'not Mapbox' engine. Huge format and projection support, but no StyleJSON out of the box and an API unlike Mapbox GL JS.",
+				"fr": "Rendu navigateur (raster + WebGL), l’alternative JS par défaut à Mapbox. Support étendu de projections et formats, mais pas de StyleJSON d’origine et une API éloignée de Mapbox GL JS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Leaflet",
+			"source": {
+				"host": "github",
+				"path": "Leaflet/Leaflet",
+				"url": "https://github.com/Leaflet/Leaflet"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Tiny, fast tile renderer with a vast plugin ecosystem and any tile provider works. Raster-oriented though: no native StyleJSON rendering, and large maps lean on plugins.",
+				"fr": "Rendu tuilé minuscule et rapide, immense écosystème de plugins, n’importe quel fournisseur de tuiles. Orienté raster : pas de rendu StyleJSON natif, et les grandes cartes dépendent des plugins."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Maputnik",
+			"source": {
+				"host": "github",
+				"path": "maplibre/maputnik",
+				"url": "https://github.com/maplibre/maputnik"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Browser-based visual editor for StyleJSON, self-hostable, import and export. It only edits styles — no data, no hosting — and targets MapLibre GL.",
+				"fr": "Éditeur visuel de StyleJSON dans le navigateur, auto-hébergeable, avec import et export. Il édite uniquement les styles, pas de données ni d’hébergement, et vise MapLibre GL."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Planetiler",
+			"source": {
+				"host": "github",
+				"path": "onthegomap/planetiler",
+				"url": "https://github.com/onthegomap/planetiler"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Single JVM CLI that turns a full planet into PMTiles or MBTiles in hours. It is a batch tool, not a service, and the schema needs OpenMapTiles, Shortbread or your own config.",
+				"fr": "CLI JVM unique qui transforme la planète en PMTiles ou MBTiles en quelques heures. Outil par lots, pas un service, et le schéma passe par OpenMapTiles, Shortbread ou votre propre config."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MapSCII",
+			"source": {
+				"host": "github",
+				"path": "rastapasta/mapscii",
+				"url": "https://github.com/rastapasta/mapscii"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Terminal TUI that renders OSM tiles in ANSI blocks, with pan, zoom and canvas modes, installable via npm and usable over SSH. A viewer: no editing, no data APIs, no real GIS.",
+				"fr": "TUI qui rend les tuiles OSM en blocs ANSI, avec panoramique, zoom et canvas, installable via npm, utilisable en SSH. Visionneuse seulement : pas d’édition ni d’API, pas de vrai SIG."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nominatim",
+			"source": {
+				"host": "github",
+				"path": "osm-search/Nominatim",
+				"url": "https://github.com/osm-search/Nominatim"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted OSM geocoding with search and reverse, its REST API works with common clients. The postgres/postgis import is heavy, and a full planet takes days of disk.",
+				"fr": "Serveur de géocodage OSM auto-hébergé, recherche et inverse, API REST compatible avec les clients courants. L’import postgres/postgis est lourd, et la planète entière demande des jours et beaucoup de disque."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Valhalla",
+			"source": {
+				"host": "github",
+				"path": "valhalla/valhalla",
+				"url": "https://github.com/valhalla/valhalla"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Routing engine in the Mapzen line: car, bike, pedestrian and transit, with isochrones, matrices and turn-by-turn. Routing only — no tiles, no geocoding — and you build its graph from OSM.",
+				"fr": "Moteur de calcul d’itinéraires (filiation Mapzen) : voiture, vélo, piéton, transports, isochrones, matrices, guidage virage par virage. Calcul uniquement, pas de tuiles ni de géocodage, et le graphe se construit depuis OSM."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "QGIS",
+			"source": {
+				"host": "github",
+				"path": "qgis/QGIS",
+				"url": "https://github.com/qgis/QGIS"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Full desktop GIS for authoring, cartography and print, it also renders MapLibre and vector-tile layers and automates via qgis_process. A desktop app, not an SDK, and the learning curve is steep.",
+				"fr": "SIG de bureau complet : édition cartographique, cartographie et impression, rendu des couches MapLibre et vector-tiles, automatisation via qgis_process. Application de bureau, pas un SDK, et la courbe d’apprentissage est raide."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

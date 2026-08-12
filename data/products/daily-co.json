@@ -93,6 +93,274 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Janus",
+			"source": {
+				"host": "github",
+				"path": "meetecho/janus-gateway",
+				"url": "https://github.com/meetecho/janus-gateway"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "WebRTC SFU whose video-room plugin and REST/WebSocket control APIs mirror Daily’s media layer. No end-user UI: you build the client, and configuring beyond the stock room takes real work.",
+				"fr": "SFU WebRTC avec plugin video-room et API REST/WebSocket, moteur dont s’inspire la couche média de Daily. Pas d’interface : à vous de construire le client, config comprise au-delà du salon standard."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Galene",
+			"source": {
+				"host": "github",
+				"path": "jech/galene",
+				"url": "https://github.com/jech/galene"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "You trade recording, whiteboard, chat history, and native mobile apps for a single-binary server that just runs, even on Raspberry-Pi-class hardware.",
+				"fr": "En échange d’un binaire unique qui tourne sans effort, même sur un Raspberry Pi, vous perdez enregistrement, tableau blanc, historique de chat et applis mobiles."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "BigBlueButton",
+			"source": {
+				"host": "github",
+				"path": "bigbluebutton/bigbluebutton",
+				"url": "https://github.com/bigbluebutton/bigbluebutton"
+			},
+			"license": "LGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "A real classroom suite: whiteboard, recording, polls, breakout rooms. The cost is a heavy HTML5 plus Kurento stack whose installation and scaling are notoriously involved.",
+				"fr": "La vraie suite salle de classe : tableau blanc, enregistrement, sondages, salles de breakout. Revers : une pile HTML5 + Kurento lourde, dont l’installation et la montée en charge sont laborieuses."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenVidu",
+			"source": {
+				"host": "github",
+				"path": "OpenVidu/openvidu",
+				"url": "https://github.com/OpenVidu/openvidu"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "One docker command, SDKs for every front-end stack, an admin dashboard with live metrics — but on Kurento, and recording, SFU Pro, and dial-in sit in the paid tier.",
+				"fr": "Une commande docker, des SDK pour toutes les stacks front, un dashboard avec métriques en direct — mais posé sur Kurento, et enregistrement, SFU Pro et appels entrants restent payants."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "SFU Pro, recording, SIP dial-in",
+					"fr": "SFU Pro, enregistrement, appel SIP"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kurento",
+			"source": {
+				"host": "github",
+				"path": "Kurento/kurento",
+				"url": "https://github.com/Kurento/kurento"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The open engine under OpenVidu, its composable pipeline API is what you build on; expect a learning curve and a UI of your own making.",
+				"fr": "Le moteur open d’OpenVidu : sa pipeline composable est ce sur quoi vous construisez, au prix d’une courbe d’apprentissage et d’une UI à écrire vous-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "few enterprise extras",
+					"fr": "quelques extras entreprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ant Media Server",
+			"source": {
+				"host": "github",
+				"path": "ant-media/Ant-Media-Server",
+				"url": "https://github.com/ant-media/Ant-Media-Server"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "One-command install gets you SFU conferencing, restreaming, and VOD, all Apache-2.0; transcoding and some enterprise features cost money, on a Red5/JVM base heavier than minimal SFUs.",
+				"fr": "Une commande et vous avez SFU, conférence, restreaming et VOD, tout Apache-2.0 ; le transcodage et certaines fonctions entreprise sont payants, sur une base JVM/Red5 plus lourde que les SFU minimalistes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "transcoding, some enterprise features",
+					"fr": "transcodage, certaines fonctions entreprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pion WebRTC",
+			"source": {
+				"host": "github",
+				"path": "pion/webrtc",
+				"url": "https://github.com/pion/webrtc"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Pure-Go WebRTC, no CGO, one static binary: the raw material for a Daily-grade media plane. Everything else — signaling, UI, recording — is on you.",
+				"fr": "Du WebRTC en Go pur, sans CGO, un seul binaire statique : la matière brute d’une couche média façon Daily. Signalisation, UI, enregistrement : le reste est à vous."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "aiortc",
+			"source": {
+				"host": "github",
+				"path": "aiortc/aiortc",
+				"url": "https://github.com/aiortc/aiortc"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Python 3 WebRTC for call pipelines aimed at bots and AI, with self-contained example servers. Still a library: you supply the UI and signaling.",
+				"fr": "Du WebRTC en Python 3 pour des pipelines d’appels orientés bots et IA, avec exemples de serveurs autonomes. Bibliothèque avant tout : UI et signalisation, c’est vous."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nextcloud Talk",
+			"source": {
+				"host": "github",
+				"path": "nextcloud/spreed",
+				"url": "https://github.com/nextcloud/spreed"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Calls, screenshare, and chat riding your Nextcloud, with its own SFU, federation, and native clients. But it is a feature of that platform, not a standalone conference tool.",
+				"fr": "Appels, partage d’écran et chat portés par votre Nextcloud, avec SFU intégré, fédération et clients natifs. Mais une fonctionnalité de cette plateforme, pas un outil de visio autonome."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "next to nothing",
+					"fr": "quasiment rien"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Element Call",
+			"source": {
+				"host": "github",
+				"path": "element-hq/element-call",
+				"url": "https://github.com/element-hq/element-call"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Matrix-native calls encrypted by default, running on the LiveKit SFU, hostable as a static app. It still asks for a homeserver and stays leaner than conference suites.",
+				"fr": "Des appels natifs Matrix chiffrés par défaut, sur SFU LiveKit, hébergeable comme appli statique. Il faut tout de même un homeserver, et l’offre reste plus maigre qu’une suite de visio."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Jami",
+			"source": {
+				"host": "github",
+				"path": "savoirfairelinux/jami-client-qt",
+				"url": "https://github.com/savoirfairelinux/jami-client-qt"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Peer-to-peer calls, E2EE by default, apps plus a CLI daemon, no server to run. NAT traversal can be flaky on tricky networks and the UI trails commercial tools.",
+				"fr": "Appels pair-à-pair, chiffrement par défaut, applis et daemon CLI, aucun serveur à opérer. La traversée de NAT se grippe parfois sur certains réseaux ; l’interface reste en retrait des outils commerciaux."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mumble",
+			"source": {
+				"host": "github",
+				"path": "mumble-voip/mumble",
+				"url": "https://github.com/mumble-voip/mumble"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "ops",
+			"note": {
+				"en": "Ultra-low-latency voice over a self-hosted murmur server, with fine-grained channels and ACLs, scriptable via Ice, DBus, or the CLI. No video, no screenshare: it will not replace camera meetings.",
+				"fr": "Voix à ultra-faible latence sur murmur auto-hébergé, canaux et ACL fins, scriptable via Ice, DBus ou CLI. Pas de vidéo ni de partage d’écran : pas un substitut à la réunion caméra."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

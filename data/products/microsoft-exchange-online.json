@@ -97,6 +97,262 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Exim",
+			"source": {
+				"host": "github",
+				"path": "Exim/exim",
+				"url": "https://github.com/Exim/exim"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Battle-tested MTA carrying much of the internet’s outgoing mail, but archived upstream — development moved off GitHub. No web UI or API, just text-file config; sender reputation is yours to manage.",
+				"fr": "MTA éprouvé portant l’essentiel du courrier sortant d’internet, mais archivé : le développement a quitté GitHub. Pas de web UI ni d’API, que des fichiers texte ; la réputation reste votre affaire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenSMTPD",
+			"source": {
+				"host": "github",
+				"path": "OpenSMTPD/OpenSMTPD",
+				"url": "https://github.com/OpenSMTPD/OpenSMTPD"
+			},
+			"license": "ISC",
+			"effort": "ops",
+			"note": {
+				"en": "OpenBSD’s secure-by-default MTA, portable now, with queue, retries and virtual domains built in. Fewer plugin knobs than Exim or Postfix — DKIM signing and spam filtering bolt on outside.",
+				"fr": "MTA d’OpenBSD, sûr par défaut et portable, avec file d’attente, relances et domaines virtuels intégrés. Moins de réglages qu’Exim ou Postfix : DKIM et anti-spam se greffent à l’extérieur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Postal",
+			"source": {
+				"host": "github",
+				"path": "postalserver/postal",
+				"url": "https://github.com/postalserver/postal"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted transactional and bulk platform: REST API, webhooks, per-server DKIM and IP pools. Needs MySQL plus RabbitMQ, a heavier footprint, and sender reputation still costs you.",
+				"fr": "Plateforme transactionnelle et en masse auto-hébergée : API REST, webhooks, DKIM et pools d’IP par serveur. Exige MySQL et RabbitMQ, une empreinte plus lourde, et la réputation reste à bâtir soi-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "maddy",
+			"source": {
+				"host": "github",
+				"path": "foxcpp/maddy",
+				"url": "https://github.com/foxcpp/maddy"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Single static binary doing SMTP and IMAP, with automatic TLS, DKIM and DMARC — a few config lines stand up a VPS mail stack. Younger project, thinner production record, no clustering.",
+				"fr": "Un seul binaire pour SMTP et IMAP, avec TLS, DKIM et DMARC automatiques : quelques lignes de config suffisent sur un VPS. Projet jeune, historique de production mince, pas de clustering."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Stalwart",
+			"source": {
+				"host": "github",
+				"path": "stalwartlabs/stalwart",
+				"url": "https://github.com/stalwartlabs/stalwart"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Rust all-in-one: SMTP, IMAP and JMAP in one low-memory binary, with built-in SPF/DKIM/DMARC checks and a web admin console. AGPL for self-hosters; younger, lighter docs.",
+				"fr": "Tout-en-un en Rust : SMTP, IMAP et JMAP dans un seul binaire peu gourmand, avec vérification SPF/DKIM/DMARC intégrée et console d’administration web. AGPL pour l’auto-hébergement ; projet jeune, docs plus minces."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise extras are paid; the core stays free.",
+					"fr": "Les extras entreprise sont payants ; le cœur reste gratuit."
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mail-in-a-Box",
+			"source": {
+				"host": "github",
+				"path": "mail-in-a-box/mailinabox",
+				"url": "https://github.com/mail-in-a-box/mailinabox"
+			},
+			"license": "CC0-1.0",
+			"effort": "ops",
+			"note": {
+				"en": "Turnkey single-server appliance that configures DNS, SPF, DKIM and DMARC for you. Locked to one Ubuntu VPS, no transactional send API — a mailbox, not a bulk sender.",
+				"fr": "Appliance tourne-clé sur un seul serveur qui configure DNS, SPF, DKIM et DMARC pour vous. Verrouillée sur un VPS Ubuntu, sans API transactionnelle : une boîte mail, pas un outil d’envoi en masse."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "docker-mailserver",
+			"source": {
+				"host": "github",
+				"path": "docker-mailserver/docker-mailserver",
+				"url": "https://github.com/docker-mailserver/docker-mailserver"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Containerized Postfix plus Dovecot, one-command DKIM generation, LDAP and OAuth support. No bundled webmail or admin UI; DNS and reputation management stay with you.",
+				"fr": "Stack Postfix + Dovecot conteneurisée, génération DKIM en une commande, support LDAP et OAuth. Pas de webmail ni d’interface d’admin : DNS et réputation restent à votre charge."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mailu",
+			"source": {
+				"host": "github",
+				"path": "Mailu/Mailu",
+				"url": "https://github.com/Mailu/Mailu"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Full compose-based suite — Postfix, Dovecot, Rspamd — with an admin UI and automatic SPF, DKIM, DMARC. Aimed at one small server, not bulk sending; reputation upkeep is yours.",
+				"fr": "Suite complète sous compose — Postfix, Dovecot, Rspamd — avec interface d’admin et SPF, DKIM, DMARC automatiques. Taillée pour un petit serveur, pas pour l’envoi en masse ; la réputation reste à entretenir."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "iRedMail",
+			"source": {
+				"host": "github",
+				"path": "iredmail/iRedMail",
+				"url": "https://github.com/iredmail/iRedMail"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Scripted install onto a dozen-plus distros, webmail, admin panel, SPF/DKIM/DMARC out of the box. The installer wants one fresh box; administration runs through files and the panel.",
+				"fr": "Installation scriptée sur des dizaines de distributions, avec webmail, panneau d’admin et SPF/DKIM/DMARC prêts à l’emploi. L’installeur vise une machine vierge ; l’administration passe par fichiers et panneau."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "WildDuck",
+			"source": {
+				"host": "github",
+				"path": "zone-eu/wildduck",
+				"url": "https://github.com/zone-eu/wildduck"
+			},
+			"license": "EUPL-1.2",
+			"effort": "docker",
+			"note": {
+				"en": "API-driven mail server from the Nodemailer author — send and store over HTTP, mailboxes over IMAP and POP3. No bundled admin UI, DKIM/DMARC on you, and MongoDB plus Redis to run.",
+				"fr": "Serveur mail piloté par API, signé par l’auteur de Nodemailer : envoi et stockage en HTTP, boîtes accessibles en IMAP et POP3. Pas d’interface d’admin intégrée, DKIM/DMARC à régler, MongoDB et Redis requis."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dmarc-srg",
+			"source": {
+				"host": "github",
+				"path": "liuch/dmarc-srg",
+				"url": "https://github.com/liuch/dmarc-srg"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Parses DMARC aggregate XML reports into a pass/fail dashboard per domain, surfacing SPF/DKIM alignment failures. Only consumes reports — it sends nothing, and needs them forwarded to a mailbox.",
+				"fr": "Analyse les rapports agrégés DMARC (XML), affiche par domaine réussi/échec et révèle les échecs d’alignement SPF/DKIM. Il ne consomme que des rapports, n’envoie rien, et les veut dans une boîte configurée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "swaks",
+			"source": {
+				"host": "github",
+				"path": "jetmore/swaks",
+				"url": "https://github.com/jetmore/swaks"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Swiss-army SMTP CLI for testing auth, TLS and headers against any relay, scriptable from the shell. Dormant since March 2024 — no queue, no reputation work, and single-shot sends only.",
+				"fr": "CLI SMTP pour tester auth, TLS et en-têtes contre n’importe quel relais, scriptable depuis le shell. Inactif depuis mars 2024 : pas de file d’attente ni de gestion de réputation, envois ponctuels uniquement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

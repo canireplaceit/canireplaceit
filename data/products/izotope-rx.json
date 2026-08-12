@@ -93,6 +93,174 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "RNNoise",
+			"source": {
+				"host": "github",
+				"path": "xiph/rnnoise",
+				"url": "https://github.com/xiph/rnnoise"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Reference RNN noise suppression for voice, embedded in many OSS tools. Speech only, no music, and it wants clean input levels or it invents artifacts.",
+				"fr": "Référence du débruitage neuronal de la voix, embarquée dans bien des outils OSS. La parole uniquement, pas de musique, et des niveaux corrects sinon elle invente des artefacts."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "noisereduce",
+			"source": {
+				"host": "github",
+				"path": "timsainb/noisereduce",
+				"url": "https://github.com/timsainb/noisereduce"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Scriptable spectral gating for batch podcast cleanup, dropping into scipy and ffmpeg pipelines. It is a library, so you build the pipeline; over-gate and transients dull.",
+				"fr": "Réduction spectrale scriptable pour traiter un lot de podcasts, dans des pipelines scipy et ffmpeg. C’est une bibliothèque, vous écrivez le pipeline; gating trop fort et les transitoires s’émoussent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Demucs",
+			"source": {
+				"host": "github",
+				"path": "facebookresearch/demucs",
+				"url": "https://github.com/facebookresearch/demucs"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "SOTA stem separation for isolating voice or stripping background music, tunable on your own data. Archived upstream in 2024, still usable; GPU for fast runs.",
+				"fr": "Séparation de pistes de pointe pour isoler la voix ou retirer la musique, ajustable sur vos données. Archivé en amont en 2024, encore utilisable; un GPU pour aller vite."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Spleeter",
+			"source": {
+				"host": "github",
+				"path": "deezer/spleeter",
+				"url": "https://github.com/deezer/spleeter"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Deezer’s mature separator for stripping music and noise from podcast voice, 2/4/5 stems, CLI and library. Drags in TensorFlow, and vocals can carry audible artifacts.",
+				"fr": "Le séparateur mûr de Deezer pour retirer musique et bruit d’une voix de podcast, 2/4/5 pistes, CLI et bibliothèque. Traîne TensorFlow, et des artefacts peuvent rester sur la voix."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "aubio",
+			"source": {
+				"host": "github",
+				"path": "aubio/aubio",
+				"url": "https://github.com/aubio/aubio"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Analysis toolkit for metering and QA: onset, pitch, tempo, level, from the command line or C/Python. Diagnosis only — no repair, no suppression, no spectral editing.",
+				"fr": "Boîte à outils d’analyse pour mesurer et contrôler: attaques, pitch, tempo, niveau, en CLI ou en C/Python. Diagnostic seulement — ni réparation, ni suppression, ni édition spectrale."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "libebur128",
+			"source": {
+				"host": "github",
+				"path": "jiixyj/libebur128",
+				"url": "https://github.com/jiixyj/libebur128"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "EBU R128 loudness and true-peak metering as a standalone CLI, the engine behind ffmpeg’s loudnorm. Measures and normalizes loudness only; no noise or click repair.",
+				"fr": "Mesure de sonie et de crête réelle EBU R128 en CLI autonome, le moteur derrière loudnorm d’ffmpeg. Mesure et normalise la sonie seulement; ni débruitage ni réparation de clics."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Sonic Visualiser",
+			"source": {
+				"host": "github",
+				"path": "sonic-visualiser/sonic-visualiser",
+				"url": "https://github.com/sonic-visualiser/sonic-visualiser"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Spectral and waveform GUI for locating clicks, hum and artifacts, with layer plots and analysis plugins. Diagnose-only, so pair it with Audacity for the actual fixes.",
+				"fr": "Interface spectrale et de forme d’onde pour repérer clics, bourdonnements et artefacts, avec couches et plugins d’analyse. Diagnostic uniquement, donc à coupler à Audacity pour réparer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ultimate Vocal Remover",
+			"source": {
+				"host": "github",
+				"path": "Anjok07/ultimatevocalremovergui",
+				"url": "https://github.com/Anjok07/ultimatevocalremovergui"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Desktop app bundling many isolation models to pull music, reverb and noise off vocals, batch-capable, CPU or GPU. Model-heavy, so big downloads, RAM use, and uneven results.",
+				"fr": "Appli de bureau qui emballe de nombreux modèles d’isolation pour dégager la musique, la réverb et le bruit de la voix, par lots, CPU ou GPU. Lourde en modèles: gros téléchargements, RAM, résultats inégaux."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

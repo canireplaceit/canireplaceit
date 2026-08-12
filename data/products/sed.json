@@ -1,0 +1,156 @@
+{
+	"slug": "sed",
+	"name": "sed",
+	"domain": null,
+	"category": "shell-terminal",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "For substitution, yes. The rest is a small programming language with BSD and GNU dialects that disagree, and sd deliberately does not cover that.",
+		"fr": "Pour la substitution, oui. Tout le reste est un petit langage de programmation, avec des dialectes BSD et GNU qui se contredisent, et sd ne le remplace pas."
+	},
+	"whatYouLose": [
+		{
+			"en": "A binary on every machine",
+			"fr": "Un binaire sur toutes les machines"
+		},
+		{
+			"en": "Muscle memory for stream editing",
+			"fr": "Réflexes d’édition de flux"
+		},
+		{
+			"en": "Hold space and address scripting",
+			"fr": "Scripts à hold space et à adresses"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "sd",
+			"source": {
+				"host": "github",
+				"path": "chmln/sd",
+				"url": "https://github.com/chmln/sd"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Regular regex, no escaping ceremony, identical on macOS and Linux. But one thing only: hold-space and address scripts are out of scope.",
+				"fr": "Regex classiques, pas d’échappement à gérer, identique sur macOS et Linux. Mais il ne fait que ça : les scripts à hold space ou à adresses sont hors sujet."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "perl",
+			"source": {
+				"host": "github",
+				"path": "Perl/perl5",
+				"url": "https://github.com/Perl/perl5"
+			},
+			"license": "Artistic-1.0-Perl",
+			"effort": "managed",
+			"note": {
+				"en": "Canonical sed successor: perl -pe/-i does the sed job with full regex, backreferences and lookaround. Overkill, with a distinct idiom, for trivial substitutions.",
+				"fr": "Le successeur canonique de sed : perl -pe/-i reproduit l’outil avec regex complète, références arrière et lookaround. Trop lourd, et d’une syntaxe à part, pour une substitution triviale."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "awk",
+			"source": {
+				"host": "github",
+				"path": "onetrueawk/awk",
+				"url": "https://github.com/onetrueawk/awk"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "The classic pattern/action companion covering sed’s common substitution cases. Field-based column work, UTF-8 and CSV aware, everywhere. Not a drop-in: syntax differs, and delete/y/q aren’t there.",
+				"fr": "Le compagnon classique pattern/action, qui couvre les substitutions usuelles de sed. Colonnes dans les pipelines, UTF-8 et CSV compris, partout installé. Pas un remplaçant direct : la syntaxe diffère, delete/y/q manquent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "rpl",
+			"source": {
+				"host": "github",
+				"path": "rrthomas/rpl",
+				"url": "https://github.com/rrthomas/rpl"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Recursive multi-file search/replace: backups and permissions preserved, no regex escaping. The catch is it’s file-oriented and literal-only — no stream piping, no capture groups.",
+				"fr": "Remplacement récursif sur des fichiers entiers : sauvegardes et permissions préservées, pas d’échappements regex. Mais c’est orienté fichiers, en littéral seul — pas de flux stdin, pas de groupes capturants."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "vim",
+			"source": {
+				"host": "github",
+				"path": "vim/vim",
+				"url": "https://github.com/vim/vim"
+			},
+			"license": "Vim",
+			"effort": "managed",
+			"note": {
+				"en": "Ex-mode vim -es does sed-identical s/// batch editing, multi-file via the arglist, preinstalled almost everywhere. Heavyweight for a one-liner, and ex-mode quirks differ — no -n semantics.",
+				"fr": "Le mode ex de vim (vim -es) offre un s/// identique à sed, multi-fichiers via l’arglist, installé presque partout. Lourd pour un one-liner, et sans la sémantique -n de sed."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "sam",
+			"source": {
+				"host": "github",
+				"path": "9fans/plan9port",
+				"url": "https://github.com/9fans/plan9port"
+			},
+			"license": "Lucent-PL-1.02",
+			"effort": "managed",
+			"note": {
+				"en": "Plan 9’s command editor from the sed/ed lineage — s///-style edits over whole file sets, scriptable via sam -d, unbothered by huge files. Interactive, not a pipe filter, niche grammar.",
+				"fr": "Éditeur à commandes de Plan 9, héritier de ed/sed : des s/// sur des ensembles entiers, scripté via sam -d, indifférent aux gros fichiers. Interactif, pas un filtre de pipe, grammaire de niche."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

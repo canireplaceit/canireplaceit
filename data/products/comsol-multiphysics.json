@@ -112,6 +112,153 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "deal.II",
+			"source": {
+				"host": "github",
+				"path": "dealii/dealii",
+				"url": "https://github.com/dealii/dealii"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "A library, not an app — deal.II is a highly maintained C++ FEM library behind the step-22+ gallery and many published solvers. Using it means writing C++, with external mesher and visualizer.",
+				"fr": "Une bibliothèque, pas une application — deal.II est une bibliothèque C++ très maintenue derrière la galerie step-22+ et de nombreux solveurs publiés. L’utiliser demande d’écrire du C++ et d’apporter mailleur et visualiseur externes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FreeFEM",
+			"source": {
+				"host": "github",
+				"path": "FreeFem/FreeFem-sources",
+				"url": "https://github.com/FreeFem/FreeFem-sources"
+			},
+			"license": "LGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Closest to rapid COMSOL-style prototyping: FreeFEM defines weak forms in compact .edp scripts with built-in meshing. It is text-driven, with limited interactive visualization, and less general than a full multiphysics suite.",
+				"fr": "Le plus proche du prototypage rapide façon COMSOL : FreeFEM écrit les formulations faibles dans des scripts .edp compacts avec maillage intégré. 100 % texte, visualisation interactive limitée, moins général qu’une suite multiphysique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MFEM",
+			"source": {
+				"host": "github",
+				"path": "mfem/mfem",
+				"url": "https://github.com/mfem/mfem"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "A library-level building block, not a turnkey GUI — MFEM is the DOE-backed modular FEM engine behind many multiphysics apps. From C++ or Python, you assemble meshing, solving, and post-processing yourself.",
+				"fr": "Composant de bibliothèque, pas une GUI clé en main — MFEM est le moteur FEM modulaire du DOE derrière de nombreuses applications multiphysiques. Depuis C++ ou Python, vous assemblez maillage, résolution et post-traitement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MOOSE",
+			"source": {
+				"host": "github",
+				"path": "idaholab/moose",
+				"url": "https://github.com/idaholab/moose"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "The most COMSOL-like in scope: INL’s coupled multiphysics framework with thermal, fluid, structural, and reactor modules. It costs a steep build and input-file learning curve, WSL-only Windows, and a heavyweight toolchain.",
+				"fr": "Build raide, syntaxe d’entrée exigeante, Windows via WSL, toolchain lourde : voilà ce que coûte MOOSE, le framework multiphysique couplé de l’INL, plus proche de COMSOL en périmètre — modules thermique, fluide, structure, réacteur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenFOAM",
+			"source": {
+				"host": "github",
+				"path": "OpenFOAM/OpenFOAM-dev",
+				"url": "https://github.com/OpenFOAM/OpenFOAM-dev"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "OpenFOAM, the de-facto open CFD toolbox, covers the fluid half of COMSOL workflows — huge solver, mesh, and turbulence library, standard Linux packages and containers. CFD-focused: no GUI; case files and command-line utilities.",
+				"fr": "OpenFOAM, boîte à outils CFD ouverte de référence, couvre la moitié fluide des flux COMSOL — solveurs, maillage, turbulence, paquets Linux, conteneurs. Du CFD uniquement : pas de GUI, fichiers de cas et commandes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OOFEM",
+			"source": {
+				"host": "github",
+				"path": "oofem/oofem",
+				"url": "https://github.com/oofem/oofem"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "OOFEM trades community size and solver count for being smaller but actively maintained — an object-oriented FEM with clean C++ architecture for nonlinear structural and coupled analysis. Text input deck, no pre/post GUI.",
+				"fr": "OOFEM échange une communauté plus petite et moins de solveurs contre une maintenance active — FEM orientée objet en C++ pour l’analyse non linéaire structurale et couplée. Entrée texte, pas de GUI pré/post."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "scikit-fem",
+			"source": {
+				"host": "github",
+				"path": "kinnala/scikit-fem",
+				"url": "https://github.com/kinnala/scikit-fem"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "A pip-installable, pure-Python FEM library that lowers the barrier to lightweight 2D/3D simulations inside numpy/scipy pipelines. A scientific library, not an app: small-scale problems only, no commercial-grade solvers, no GUI.",
+				"fr": "Installable en pip, bibliothèque FEM 100 % Python qui abaisse la barrière pour des simulations 2D/3D légères au sein des pipelines numpy/scipy. Bibliothèque, pas une app : petits problèmes, pas de solveurs commerciaux."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

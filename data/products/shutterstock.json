@@ -71,6 +71,178 @@
 				"en": "Same deal as Unsplash with a larger video library. Both are owned by companies that could change the terms tomorrow.",
 				"fr": "Même principe qu’Unsplash avec une plus grande vidéothèque. Les deux appartiennent à des sociétés qui pourraient changer les conditions demain."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Penpot",
+			"source": {
+				"host": "github",
+				"path": "penpot/penpot",
+				"url": "https://github.com/penpot/penpot"
+			},
+			"license": "MPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted flagship of open-source design: infinite-canvas vector editing, prototypes and real-time collaboration. There is no built-in stock library, no offline app, and it wants Postgres, Redis and S3 behind it.",
+				"fr": "Pilier open-source du design collaboratif à héberger soi-même : édition vectorielle sur toile infinie, prototypes et temps réel. Pas de photothèque sous licence, navigateur uniquement, et il exige Postgres, Redis et S3."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Graphite",
+			"source": {
+				"host": "github",
+				"path": "GraphiteEditor/Graphite",
+				"url": "https://github.com/GraphiteEditor/Graphite"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "A Photoshop-class studio over a non-destructive node graph, self-hosted in browser or as a native app. Young still, with feature gaps next to mature editors, and it leans on the GPU.",
+				"fr": "Un studio façon Photoshop bâti sur un graphe de nœuds non destructif, à autohéberger en appli web ou native. Encore jeune, il pèche face aux éditeurs mûrs et exige un bon GPU."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "miniPaint",
+			"source": {
+				"host": "github",
+				"path": "viliusle/miniPaint",
+				"url": "https://github.com/viliusle/miniPaint"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Two hundred filters, layers, masks and PSD import packed into one HTML file that runs offline, backend-free. Single-player only: no collaboration, no stock integration, no plugin system.",
+				"fr": "Deux cents filtres, calques, masques et import PSD tiennent dans un seul fichier HTML qui tourne hors ligne, sans backend. Solo : pas de collaboration, pas de banque d’images, pas de plugins."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Filerobot Image Editor",
+			"source": {
+				"host": "github",
+				"path": "scaleflex/filerobot-image-editor",
+				"url": "https://github.com/scaleflex/filerobot-image-editor"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "An embeddable React widget that drops crop, filters, watermarking and AI background removal into your web app. Front-end only: bring your own backend, plug it into something bigger.",
+				"fr": "Un widget React embarquable qui greffe recadrage, filtres, filigrane et suppression d’arrière-plan par IA dans votre appli. Front uniquement : intégrez-le dans une appli plus large, sans backend d’actifs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Hosted AI and DAM extras",
+					"fr": "Extras IA et DAM hébergés"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SVG-Edit",
+			"source": {
+				"host": "github",
+				"path": "SVG-Edit/svgedit",
+				"url": "https://github.com/SVG-Edit/svgedit"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Full SVG editing that deploys as a static site anywhere — open format, SVG/PNG export, plugins, multi-touch. Raster is out, the UI looks its age, and nothing here collaborates.",
+				"fr": "Édition SVG complète qui se déploie comme site statique où l’on veut — format ouvert, export SVG/PNG, plugins, multi-touch. Pas de rastérisation, une interface qui date, et aucune collaboration."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Picsum",
+			"source": {
+				"host": "github",
+				"path": "DMarby/picsum-photos",
+				"url": "https://github.com/DMarby/picsum-photos"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The Lorem Picsum codebase, self-hosted: placeholder images sized, seeded, greyed or blurred behind your own CDN. They are mockup stand-ins, not licensed stock, and it does nothing but serve them.",
+				"fr": "Lorem Picsum à héberger soi-même : images factices à tailles, graines, gris ou flou réglables derrière son CDN. Qualité maquette, pas vrai stock, et rien d’autre à en tirer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "chafa",
+			"source": {
+				"host": "github",
+				"path": "hpjansson/chafa",
+				"url": "https://github.com/hpjansson/chafa"
+			},
+			"license": "LGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Turns images into ANSI and Unicode art for any terminal — GIFs, video, sixel and kitty output, scriptable for headless pipelines. Block-art approximation, preview-only, best on modern color terminals.",
+				"fr": "Rend les images en art ANSI et Unicode pour tout terminal : GIF, vidéo, sixel, kitty, scriptable pour pipelines sans écran. Rendu en pavés, simple prévisualisation, idéal sur terminaux couleur récents."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "viu",
+			"source": {
+				"host": "github",
+				"path": "atanunq/viu",
+				"url": "https://github.com/atanunq/viu"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A single static Rust binary that shows several images at once in the terminal — GIFs included, sixel or unicode. Viewing only, no editing, and it presumes a terminal-first workflow.",
+				"fr": "Un binaire Rust statique qui affiche plusieurs images dans une seule vue du terminal — GIF compris, sixel ou unicode. Simple visionneuse, aucune édition, et il suppose qu’on vit dans le terminal."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

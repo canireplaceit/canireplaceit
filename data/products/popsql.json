@@ -118,6 +118,157 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "DBeaver",
+			"source": {
+				"host": "github",
+				"path": "dbeaver/dbeaver",
+				"url": "https://github.com/dbeaver/dbeaver"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Desktop client for nearly every engine — 100+ drivers, inline table editing, ER diagrams, explain plans, profiling. No web UI, no team sharing or query library in the community build.",
+				"fr": "Client desktop pour quasi tous les moteurs — plus de 100 drivers, édition de tables, diagrammes ER, plans d’exécution, profiling. Pas de web UI ni de partage d’équipe dans la version communautaire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CloudBeaver",
+			"source": {
+				"host": "github",
+				"path": "dbeaver/cloudbeaver",
+				"url": "https://github.com/dbeaver/cloudbeaver"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Web-hosted SQL client on the DBeaver engine with users, roles and per-datasource access control, plus a REST API. Team query sharing is weaker than PopSQL’s flow; advanced features trail the desktop.",
+				"fr": "Client SQL dans le navigateur, moteur DBeaver, utilisateurs, rôles, accès par source de données, API REST. Le partage d’équipe est plus faible que chez PopSQL ; les fonctions avancées sont en retrait."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Admin and enterprise features",
+					"fr": "Fonctions d’administration et d’entreprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "sqlpad",
+			"source": {
+				"host": "github",
+				"path": "sqlpad/sqlpad",
+				"url": "https://github.com/sqlpad/sqlpad"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Archived since 2025 — multi-user web SQL pad with shared queries, results and charts; the closest lightweight PopSQL analogue. Basic auth and fewer collaboration features.",
+				"fr": "Archivé depuis 2025 — pad SQL web multi-utilisateurs, requêtes, résultats et graphiques partagés, l’analogue léger le plus proche de PopSQL. Auth basique et moins de fonctions collaboratives."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Redash",
+			"source": {
+				"host": "github",
+				"path": "getredash/redash",
+				"url": "https://github.com/getredash/redash"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Mature self-hosted query tool, dashboard-first: shared query library with search, scheduled refresh, alerts, dashboards, REST API. The raw SQL scratchpad feel is secondary; the UI is aging, releases slow.",
+				"fr": "Outil de requêtes self-hosted mature, orienté dashboards : bibliothèque partagée avec recherche, rafraîchissement planifié, alertes, tableaux de bord, API REST. Le brouillon SQL passe au second plan ; l’interface vieillit, peu de sorties récentes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pgcli",
+			"source": {
+				"host": "github",
+				"path": "dbcli/pgcli",
+				"url": "https://github.com/dbcli/pgcli"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "PostgreSQL-only, terminal-only: a polished REPL with smart completion of tables, columns and keywords, fuzzy matching, history. No GUI, no charts, no team sharing — daily terminal querying.",
+				"fr": "PostgreSQL uniquement, terminal uniquement : un REPL soigné, complétion intelligente des tables, colonnes et mots-clés, correspondance floue, historique. Pas de GUI, pas de graphiques ni de partage d’équipe — juste le quotidien du terminal."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "usql",
+			"source": {
+				"host": "github",
+				"path": "xo/usql",
+				"url": "https://github.com/xo/usql"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "One binary, 20+ engines — PostgreSQL, MySQL, SQLite, Oracle, BigQuery and more — with psql-style commands for scripting and piping. No autocomplete richness, raw output, no charts or sharing.",
+				"fr": "Un binaire, plus de 20 moteurs — PostgreSQL, MySQL, SQLite, Oracle, BigQuery etc. — commandes façon psql pour le scripting et les pipes. Complétion moins riche, sortie brute, pas de graphiques ni de partage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "lazysql",
+			"source": {
+				"host": "github",
+				"path": "jorgerojas26/lazysql",
+				"url": "https://github.com/jorgerojas26/lazysql"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Fast TUI SQL client, vim-like full-screen with fuzzy search and keyboard-driven table browsing, single binary. MySQL-centric coverage, no query history, no charts or collaboration.",
+				"fr": "Client SQL TUI rapide, plein écran façon vim avec recherche floue et navigation des tables au clavier, binaire unique. Centré sur MySQL, pas d’historique, pas de graphiques ni de collaboration."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

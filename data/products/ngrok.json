@@ -107,6 +107,241 @@
 				"en": "Free with any domain on Cloudflare, stable hostnames, TLS handled. You cannot use it for arbitrary TCP without their client, and all traffic goes through Cloudflare.",
 				"fr": "Gratuit avec tout domaine chez Cloudflare, noms d’hôtes stables, TLS géré. Impossible de l’utiliser pour du TCP arbitraire sans leur client, et tout le trafic passe par Cloudflare."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "bore",
+			"source": {
+				"host": "github",
+				"path": "ekzhang/bore",
+				"url": "https://github.com/ekzhang/bore"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Raw TCP only, no auth or dashboard: one Rust binary serves the public endpoint, one line opens the tunnel.",
+				"fr": "TCP brut seulement, ni auth ni tableau de bord : un seul binaire Rust expose le point d’accès public, une seule ligne ouvre le tunnel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "localtunnel",
+			"source": {
+				"host": "github",
+				"path": "localtunnel/localtunnel",
+				"url": "https://github.com/localtunnel/localtunnel"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "`lt --port 3000` and you have a public URL in seconds, but HTTP only and the shared server can be slow or rate-limited.",
+				"fr": "`lt --port 3000` donne une URL publique en quelques secondes, mais HTTP seulement et le serveur partagé peut être lent ou rate-limité."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "chisel",
+			"source": {
+				"host": "github",
+				"path": "jpillora/chisel",
+				"url": "https://github.com/jpillora/chisel"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "One Go binary for both ends, tunneling HTTP/TCP/UDP over an SSH-style connection that slips past firewalls; configuration stays command flags, no web UI.",
+				"fr": "Un seul binaire Go des deux côtés, HTTP/TCP/UDP par-dessus une connexion façon SSH qui passe les pare-feux ; la config reste en flags, pas d’interface web."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "nps",
+			"source": {
+				"host": "github",
+				"path": "ehang-io/nps",
+				"url": "https://github.com/ehang-io/nps"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Dormant since May 2024: the Go reverse proxy with a real web console, user system and multi-protocol proxying, under GPL-3.0 with Chinese-first docs.",
+				"fr": "Dormant depuis mai 2024 : le reverse proxy Go avec vraie console web, gestion des utilisateurs et proxying multi-protocole, en GPL-3.0 avec des docs d’abord en chinois."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "sish",
+			"source": {
+				"host": "github",
+				"path": "antoniomika/sish",
+				"url": "https://github.com/antoniomika/sish"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Any `ssh -R` client becomes a tunnel through your own server — no install — but clients must speak SSH and auth is the SSH key model.",
+				"fr": "N’importe quel client `ssh -R` devient un tunnel vers votre serveur, sans rien installer, mais il faut parler SSH et l’auth repose sur le modèle de clés SSH."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "wstunnel",
+			"source": {
+				"host": "github",
+				"path": "erebe/wstunnel",
+				"url": "https://github.com/erebe/wstunnel"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Wraps TCP/UDP inside WebSocket to beat protocol-aware firewalls, useful on restricted networks; pure CLI, no dashboard, no generated HTTP URLs.",
+				"fr": "Enveloppe TCP/UDP dans du WebSocket pour contourner les pare-feux qui inspectent les protocoles, utile en réseau restreint ; CLI pure, pas de tableau de bord, pas de génération d’URL HTTP."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "go-http-tunnel",
+			"source": {
+				"host": "github",
+				"path": "mmatczuk/go-http-tunnel",
+				"url": "https://github.com/mmatczuk/go-http-tunnel"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "HTTP/2 tunnel with OAuth2, JWT and rate limiting built in — a ready ngrok-style public-URL server, if you can live with AGPL-3.0 and HTTP-centric routing.",
+				"fr": "Tunnel HTTP/2 avec OAuth2, JWT et rate limiting intégrés — un serveur d’URL publiques prêt à l’emploi, si AGPL-3.0 et le centrage HTTP vous vont."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "zrok",
+			"source": {
+				"host": "github",
+				"path": "openziti/zrok",
+				"url": "https://github.com/openziti/zrok"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Public URLs for local HTTP/TCP over the OpenZiti zero-trust overlay, with private mode and a REST API; you are running a whole overlay network, not one binary.",
+				"fr": "Des URL publiques pour le HTTP/TCP local par-dessus l’overlay zero-trust OpenZiti, en mode privé ou public avec API REST ; on fait tourner tout un réseau, pas un simple binaire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "nebula",
+			"source": {
+				"host": "github",
+				"path": "slackhq/nebula",
+				"url": "https://github.com/slackhq/nebula"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Slack’s mesh VPN: self-hosted CA, NAT-traversing lighthouses, certificate auth — access stays inside a private mesh, and hand-managed config and certs.",
+				"fr": "Le VPN mesh de Slack : CA auto-hébergée, lighthouses qui passent le NAT, auth par certificat — l’accès reste dans un mesh privé, config et certificats gérés à la main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "netbird",
+			"source": {
+				"host": "github",
+				"path": "netbirdio/netbird",
+				"url": "https://github.com/netbirdio/netbird"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "WireGuard mesh VPN with a self-hosted management plane: web dashboard, user groups, SSO/OIDC. Real infrastructure rather than a tunnel, and key features sit behind paid tiers.",
+				"fr": "VPN mesh WireGuard avec un plan de gestion auto-hébergé : tableau de bord web, groupes d’utilisateurs, SSO/OIDC. De la vraie infrastructure plutôt qu’un tunnel, et les fonctions clés derrière des offres payantes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise features behind paid tiers",
+					"fr": "Fonctionnalités entreprise derrière les offres payantes"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "sshuttle",
+			"source": {
+				"host": "github",
+				"path": "sshuttle/sshuttle",
+				"url": "https://github.com/sshuttle/sshuttle"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "Tunnels all traffic to a host you already have SSH access to, no root on the client; you need that SSH account and get no public URL — a VPN, not a tunnel.",
+				"fr": "Fait passer tout le trafic vers un hôte où vous avez déjà un accès SSH, sans root côté client ; il faut ce compte SSH et pas d’URL publique — un VPN, pas un tunnel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

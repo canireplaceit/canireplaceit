@@ -95,6 +95,216 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "SENAITE",
+			"source": {
+				"host": "github",
+				"path": "senaite/senaite.lims",
+				"url": "https://github.com/senaite/senaite.lims"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Production-grade open LIMS covering samples, QC and instrument capture. Full audit trails and roles. A Plone-era stack to administer, and not a notebook or sequence tool.",
+				"fr": "LIMS ouvert de niveau production : échantillons, QC, saisie instruments, journaux d’audit et rôles. Une stack héritée de Plone à administrer, et pas de carnet ni d’outil de séquençage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "RSpace",
+			"source": {
+				"host": "github",
+				"path": "rspace-os/rspace-web",
+				"url": "https://github.com/rspace-os/rspace-web"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Pharma-leaning ELN with inventory and a REST API in one platform, audited for 21 CFR Part 11-style use. Advanced features sit in paid hosted tiers; self-hosting means Docker compose.",
+				"fr": "Cahier de laboratoire orienté pharma, avec inventaire, API REST et audit compatible approche 21 CFR Part 11. Les fonctions avancées restent en SaaS payant ; en autonome, ça tourne sous Docker compose."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenELIS Global",
+			"source": {
+				"host": "github",
+				"path": "DIGI-UW/OpenELIS-Global-2",
+				"url": "https://github.com/DIGI-UW/OpenELIS-Global-2"
+			},
+			"license": "MPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Widely deployed open LIMS built for clinical and public-health labs: orders, validation, QC, multi-site. Biased toward those workflows, and Java plus PostgreSQL makes the deployment heavier.",
+				"fr": "LIMS open source largement déployé, pensé pour les labos cliniques et de santé publique : prescriptions, validation, QC, multi-site. Orienté vers ces flux, et Java + PostgreSQL alourdissent le déploiement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenSpecimen",
+			"source": {
+				"host": "github",
+				"path": "krishagni/openspecimen",
+				"url": "https://github.com/krishagni/openspecimen"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "ops",
+			"note": {
+				"en": "The leading open biobank manager: collections, storage, consent, distribution and barcode workflows. Not a general experiment notebook, and Tomcat plus MySQL means real upgrade work.",
+				"fr": "La référence open source de gestion de biobanque : collections, stockage, consentement, distribution, code-barres. Pas un carnet d’expériences généraliste, et Tomcat + MySQL demandent de vraies opérations."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "sampleDB",
+			"source": {
+				"host": "github",
+				"path": "sciapp/sampledb",
+				"url": "https://github.com/sciapp/sampledb"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "ETH-built inventory with flexible metadata schemas, locations, permissions and an API, plus ELN-lite action records. No protocol or analysis workflows, and the community and docs stay small.",
+				"fr": "Inventaire construit à l’ETH : schémas de métadonnées souples, emplacements, permissions, API, et des actions façon carnet léger. Pas de flux protocole ni analyse, avec une petite communauté et peu de docs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "openBIS",
+			"source": {
+				"host": "other",
+				"path": "sispub/openbis",
+				"url": "https://sissource.ethz.ch/sispub/openbis"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "ETH SIS ELN, inventory and FAIR data platform with REST API, pybis and Jupyter. Used across pharma and academia. Heavy enterprise Java stack to run, with a steep admin learning curve.",
+				"fr": "ELN, inventaire et plateforme de données FAIR de l’ETH SIS, avec API REST, pybis et Jupyter, utilisée en pharma et à l’académie. La stack Java d’entreprise est lourde et l’administration s’apprend dur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kadi4Mat",
+			"source": {
+				"host": "gitlab",
+				"path": "iam-cms/kadi",
+				"url": "https://gitlab.com/iam-cms/kadi"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "KIT’s generic virtual research environment: ELN records, flexible metadata schemas, linked data, HTTP API and federation. No sequence-design tools, and it installs from source rather than turnkey.",
+				"fr": "Environnement de recherche virtuel du KIT : carnets, métadonnées souples, données liées, API HTTP et fédération. Pas d’outils de conception de séquences, et l’installation se fait à partir des sources."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "elabctl",
+			"source": {
+				"host": "github",
+				"path": "elabftw/elabctl",
+				"url": "https://github.com/elabftw/elabctl"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Official CLI for eLabFTW: a single Go binary for terminal and scripted notebook entry across the stack. Archived upstream, tied to the eLabFTW server, and has no UI of its own.",
+				"fr": "Le CLI officiel d’eLabFTW : un binaire Go unique pour saisir le cahier de laboratoire en terminal ou par script. Déposé sur la pile, dépend du serveur eLabFTW, et sans interface propre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "jrnl",
+			"source": {
+				"host": "github",
+				"path": "jrnl-org/jrnl",
+				"url": "https://github.com/jrnl-org/jrnl"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Mature terminal journaling tool: fast entry, tags, encryption, export and a TUI mode. Works as a light personal research notebook, but notes are freeform, single-user and track nothing.",
+				"fr": "Journal intime en terminal, éprouvé : saisie rapide, tags, chiffrement, export et mode TUI. Utilisable comme carnet de recherche perso, mais notes libres, mono-utilisateur et sans suivi d’échantillons."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Bika LIMS",
+			"source": {
+				"host": "github",
+				"path": "bikalims/bika.lims",
+				"url": "https://github.com/bikalims/bika.lims"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Long-running open LIMS, the Plone lineage SENAITE forked from, covering analyses, instruments and reports. Development has slowed against that fork, and the Plone buildout is fiddly.",
+				"fr": "LIMS open source de longue date, la lignée Plone dont SENAITE a divergé : analyses, instruments, rapports. Son développement a ralenti face au fork, et le buildout Plone reste capricieux."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

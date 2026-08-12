@@ -92,6 +92,132 @@
 				"en": "A browser Photoshop clone with startling PSD fidelity for the price of a coffee. Ad-supported free tier, closed source.",
 				"fr": "Un clone de Photoshop dans le navigateur avec une fidélité PSD étonnante pour le prix d’un café. Offre gratuite avec publicité, code fermé."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "darktable",
+			"source": {
+				"host": "github",
+				"path": "darktable-org/darktable",
+				"url": "https://github.com/darktable-org/darktable"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Non-destructive RAW developer that stands in for Photoshop's Camera Raw, with pixel-level parametric masking and stacked modules. The trade: a steeper learning curve, RAW-only, no layer composition.",
+				"fr": "Développeur RAW non destructif qui tient lieu de Camera Raw dans Photoshop, avec masquage paramétrique au pixel près et modules empilables. En échange : courbe d’apprentissage raide, aucun calque."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "RawTherapee",
+			"source": {
+				"host": "github",
+				"path": "rawtherapee/rawtherapee",
+				"url": "https://github.com/rawtherapee/rawtherapee"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "No layers, no masks — just solid demosaicing, exposure correction and color management in a lighter footprint than darktable, with batch processing via profiles.",
+				"fr": "Pas de calques, pas de masques : un dématriçage sérieux, une correction d’exposition et une gestion des couleurs soignée, dans un outil plus léger que darktable, avec traitement par lots via profils."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ImageMagick",
+			"source": {
+				"host": "github",
+				"path": "ImageMagick/ImageMagick",
+				"url": "https://github.com/ImageMagick/ImageMagick"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "CLI/API automation covering 200+ formats: batch resize, conversion, filters, container-ready. It replaces the scriptable slice of Photoshop — but there is no GUI, no layers, and non-programmers face a steep learning curve.",
+				"fr": "Automatisation CLI/API sur 200+ formats : redimensionnement, conversion, filtres, prévu pour les conteneurs. Remplace la part scriptable de Photoshop — pas d’interface, pas de calques, courbe d’apprentissage raide pour les non-programmeurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "G'MIC",
+			"source": {
+				"host": "other",
+				"path": "greyc/gmic",
+				"url": "https://gmic.eu//"
+			},
+			"license": "CECILL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "500+ filters via CLI, GIMP plugin or standalone engine: denoising, inpainting, deblurring that Photoshop users usually buy plugins for. It is not an editor, no layers, no UI-first workflow.",
+				"fr": "500+ filtres via CLI, plugin GIMP ou moteur autonome : débruitage, inpainting, déconvolution que les utilisateurs de Photoshop achètent en plugin. Pas un éditeur : pas de calques, interface orientée script."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pinta",
+			"source": {
+				"host": "github",
+				"path": "PintaProject/Pinta",
+				"url": "https://github.com/PintaProject/Pinta"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The middle step between MS Paint and GIMP: paint, text, basic layers, adjustments, clone and heal, light on memory. Advanced users find no RAW support, no masks, no blending modes.",
+				"fr": "L’étape du milieu entre MS Paint et GIMP : pinceaux, texte, calques simples, réglages, tampon et correcteur, léger en mémoire. Pas de RAW, ni de masques, ni de modes de fusion."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GraphicsMagick",
+			"source": {
+				"host": "other",
+				"path": "graphicsmagick/graphicsmagick",
+				"url": "https://sourceforge.net/projects/graphicsmagick/"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A leaner fork of the same CLI/API idea as ImageMagick — 140+ formats, batch resize and conversion, smaller memory footprint, parallel processing. Simpler, but fewer advanced filters and no composition.",
+				"fr": "Un fork plus frugal de la même idée CLI/API qu’ImageMagick : 140+ formats, redimensionnement et conversion par lots, empreinte mémoire réduite, traitement parallèle. Plus simple, moins de filtres avancés, pas de composition."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 5

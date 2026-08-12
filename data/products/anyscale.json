@@ -97,6 +97,182 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dask",
+			"source": {
+				"host": "github",
+				"path": "dask/dask",
+				"url": "https://github.com/dask/dask"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "ops",
+			"note": {
+				"en": "Scales from a laptop to a cluster for distributed compute. Compute only — no serving or tracking, and no autoscaling control plane like Ray.",
+				"fr": "Du laptop au cluster, tient la charge sur le calcul distribué. Calcul uniquement : ni serving ni tracking, pas de plan de contrôle autoscalé façon Ray."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Flyte",
+			"source": {
+				"host": "github",
+				"path": "flyteorg/flyte",
+				"url": "https://github.com/flyteorg/flyte"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Needs a Kubernetes cluster and a steep learning curve. In return, typed, versioned workflows with lineage, trusted at Lyft and Spotify.",
+				"fr": "Exige un cluster Kubernetes et une courbe d’apprentissage raide. En échange, des workflows typés et versionnés avec lineage, éprouvés chez Lyft et Spotify."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Metaflow",
+			"source": {
+				"host": "github",
+				"path": "Netflix/metaflow",
+				"url": "https://github.com/Netflix/metaflow"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Netflix’s framework, runs as a CLI with step-level versioning and resume. Orchestration only — serving and training infra are DIY, metadata server optional.",
+				"fr": "Le framework de Netflix, en CLI, avec versioning par étape et reprise. Orchestration seulement : serving et infra d’entraînement à la main, serveur de métadonnées optionnel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "BentoML",
+			"source": {
+				"host": "github",
+				"path": "bentoml/BentoML",
+				"url": "https://github.com/bentoml/BentoML"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Serves models with one command by packaging them as OCI images. The serving half of Anyscale — no distributed training, cluster scaling is DIY.",
+				"fr": "Sert les modèles en une commande en les empaquetant en images OCI. La moitié serving d’Anyscale : pas d’entraînement distribué, scaling en cluster à la main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "KServe",
+			"source": {
+				"host": "github",
+				"path": "kserve/kserve",
+				"url": "https://github.com/kserve/kserve"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "K8s-only inference serving with autoscaling, batching, and GPU support. Successor to KFServing; training and experiment tracking out of scope.",
+				"fr": "Serving d’inférence K8s uniquement : autoscaling, batching, support GPU. Successeur de KFServing ; entraînement et suivi d’expériences hors périmètre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MLflow",
+			"source": {
+				"host": "github",
+				"path": "mlflow/mlflow",
+				"url": "https://github.com/mlflow/mlflow"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The de-facto OSS standard for experiment tracking and the model registry. Serving is single-node only, no distributed compute or cluster management.",
+				"fr": "Le standard OSS de facto pour le suivi d’expériences et le registry de modèles. Serving mono-nœud seulement, sans calcul distribué ni gestion de cluster."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dstack",
+			"source": {
+				"host": "github",
+				"path": "dstackai/dstack",
+				"url": "https://github.com/dstackai/dstack"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Runs Ray and SkyPilot jobs on GPU clouds you bring, the closest UX to Anyscale. Young project, some features pro-tier.",
+				"fr": "Lance des jobs Ray et SkyPilot sur vos clouds GPU, l’UX la plus proche d’Anyscale. Projet jeune, certaines fonctionnalités réservées au pro."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "pro-tier features",
+					"fr": "fonctionnalités pro"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Polyaxon",
+			"source": {
+				"host": "github",
+				"path": "polyaxon/polyaxon",
+				"url": "https://github.com/polyaxon/polyaxon"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Heavy to operate, and advanced features are enterprise-only. In exchange, a full K8s-native platform: experiments, pipelines, auto-tuning, multi-tenant RBAC.",
+				"fr": "Lourd à exploiter, et les fonctions avancées sont réservées à l’enterprise. En échange, une plateforme K8s complète : expériences, pipelines, auto-tuning, RBAC multi-tenant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "advanced features",
+					"fr": "fonctions avancées"
+				}
+			}
 		}
 	],
 	"priority": 2

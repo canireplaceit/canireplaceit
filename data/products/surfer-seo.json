@@ -103,6 +103,153 @@
 				"en": "A quarter of the price for the same term-frequency idea. Clunkier UI, smaller language coverage.",
 				"fr": "Quatre fois moins cher pour la même idée de fréquence de termes. Interface plus rustique, moins de langues."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Serposcope",
+			"source": {
+				"host": "github",
+				"path": "serphacker/serposcope",
+				"url": "https://github.com/serphacker/serposcope"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The classic self-hosted Google rank tracker, archived since 2024 and Google-only, with no new engine support. Scheduled checks, proxies, and rank history in a web UI, run via Docker or standalone Java.",
+				"fr": "Le classique trackeur Google auto-hébergé, archivé depuis 2024 et limité à Google, sans support de nouveaux moteurs. Vérifications planifiées, proxys et historique dans une interface web, via Docker ou Java autonome."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "googler",
+			"source": {
+				"host": "github",
+				"path": "jarun/googler",
+				"url": "https://github.com/jarun/googler"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "A Bash-scripted Google search CLI/TUI for instant SERP checks where a tracker is overkill. Archived since 2021, Google-only, and scraping breaks when Google changes markup — no scheduling, no history.",
+				"fr": "Recherche Google en ligne de commande, script Bash sans installation, pour un aperçu instantané des SERP. Archivé depuis 2021, Google uniquement, scraping fragile face aux modifications de Google, sans planification ni historique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "googlesearch-python",
+			"source": {
+				"host": "github",
+				"path": "Nv7-GitHub/googlesearch",
+				"url": "https://github.com/Nv7-GitHub/googlesearch"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Maintained Python library and CLI for scraping Google results with pagination — the active fork of the classic scraper. Google only, no rank history, and anti-bot measures can throttle it.",
+				"fr": "Bibliothèque Python et CLI maintenues pour scraper les résultats Google avec pagination — le fork actif du scraper classique. Google uniquement, pas d’historique de positions, et l’anti-bot peut ralentir le scraping."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "googlesearch (MarioVilas)",
+			"source": {
+				"host": "github",
+				"path": "MarioVilas/googlesearch",
+				"url": "https://github.com/MarioVilas/googlesearch"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "The original Python googlesearch library — archived in 2025, still the most-forked SERP scraper, backbone of many OSS SEO scripts. Superseded by googlesearch-python, Google only, no tracking, history, or reporting.",
+				"fr": "La bibliothèque googlesearch originale, archivée en 2025, toujours le scraper SERP le plus forké et socle de nombreux scripts SEO OSS. Dépassée par googlesearch-python, Google uniquement, sans suivi ni historique ni reporting."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Lighthouse",
+			"source": {
+				"host": "github",
+				"path": "GoogleChrome/lighthouse",
+				"url": "https://github.com/GoogleChrome/lighthouse"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Google’s CLI audit runner scoring one page for SEO, performance, and accessibility, exportable to HTML or JSON, CI-ready. Not a rank tracker, one page at a time, and it needs Chrome.",
+				"fr": "L’auditeur CLI de Google, une page à la fois, pour SEO, performance et accessibilité, export HTML/JSON et CI via lighthouse-ci. Pas un tracker, et il faut un runtime Chrome/Chromium."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "The SEO Framework",
+			"source": {
+				"host": "github",
+				"path": "sybrew/the-seo-framework",
+				"url": "https://github.com/sybrew/the-seo-framework"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hostable WordPress plugin for on-page SEO — content analysis, meta, schema, and sitemaps, free and ad-free at the core. WordPress only, no rank tracking, and you must run a WordPress site.",
+				"fr": "Plugin WordPress auto-hébergeable pour le SEO on-page — analyse de contenu, meta, schéma, sitemaps, gratuit et sans pub au cœur. Réservé à WordPress, sans suivi de positions."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SEO Rank Tracker",
+			"source": {
+				"host": "github",
+				"path": "GreatStackDev/seo-rank-tracker",
+				"url": "https://github.com/GreatStackDev/seo-rank-tracker"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Small, active MIT web app tracking keyword rankings across multiple sites, with history and reports in a web UI. Limited depth, no content layer, and you self-host the app.",
+				"fr": "Petite appli web MIT, active, qui suit les positions de mots-clés sur plusieurs sites, historique et rapports en interface web. Peu de profondeur, pas de couche de contenu, auto-hébergement à votre charge."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

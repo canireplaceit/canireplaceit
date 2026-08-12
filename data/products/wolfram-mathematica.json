@@ -87,6 +87,174 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mathics",
+			"source": {
+				"host": "github",
+				"path": "Mathics3/mathics-core",
+				"url": "https://github.com/Mathics3/mathics-core"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Closest drop-in: reimplements the Wolfram Language on top of SymPy, so Mathematica-style code runs with minimal rewrites. Covers a fraction of the ~6000 built-in functions; performance and plotting trail the original.",
+				"fr": "Le plus proche d’un remplacement direct : il réimplémente le langage Wolfram sur SymPy, quasi sans réécriture. Ne couvre qu’une fraction des quelque 6000 fonctions intégrées, avec tracés et performances en retrait."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GNU Octave",
+			"source": {
+				"host": "github",
+				"path": "gnu-octave/octave",
+				"url": "https://github.com/gnu-octave/octave"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The MATLAB-style workhorse: matrix language, ODE solvers, FFT, plotting and a GUI in one package. Symbolic math only via third-party packages; no Mathematica notebook or pattern-matching paradigm.",
+				"fr": "Le couteau suisse du calcul : langage matriciel, solveurs d’EDO, FFT, interface graphique. Le symbolique ne vient que de paquets tiers ; pas de notebook ni de réécriture de motifs à la Mathematica."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Julia",
+			"source": {
+				"host": "github",
+				"path": "JuliaLang/julia",
+				"url": "https://github.com/JuliaLang/julia"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Near-C performance with math-friendly syntax, now covering the Mathematica workload: symbolic math, ODEs and plotting via packages, Jupyter and Pluto notebooks. Different language and idioms, and first-run compile latency.",
+				"fr": "Des performances proches du C, une syntaxe pensée pour les maths, et un écosystème qui couvre le périmètre Mathematica. Mais autre langage, autres idiomes, avec une latence de compilation au premier lancement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pluto.jl",
+			"source": {
+				"host": "github",
+				"path": "JuliaPluto/Pluto.jl",
+				"url": "https://github.com/JuliaPluto/Pluto.jl"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Reactive notebook over Julia: cells recompute only what a change touches, widgets and plots inside a self-hosted web UI. Julia-only, browser-based not native documents, and you still bring the computation packages.",
+				"fr": "Cahier réactif sur Julia : chaque cellule ne recalcule que ce qu’un changement affecte. Réservé à Julia, interface navigateur plutôt que documents natifs, et les paquets de calcul restent à apporter."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "JupyterLab",
+			"source": {
+				"host": "github",
+				"path": "jupyterlab/jupyterlab",
+				"url": "https://github.com/jupyterlab/jupyterlab"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "The standard self-hosted notebook environment, the natural open answer to Mathematica notebooks: kernels for Python, Julia, R, Octave, SageMath and more. A generic notebook — no built-in CAS, no curated function library.",
+				"fr": "L’environnement de notebooks auto-hébergé standard, la réponse ouverte naturelle aux notebooks Mathematica : noyaux Python, Julia, R, Octave, SageMath et bien d’autres. Cahier générique, sans CAS intégré ni bibliothèque de fonctions type Mathematica."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "R",
+			"source": {
+				"host": "github",
+				"path": "wch/r-source",
+				"url": "https://github.com/wch/r-source"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A fully open statistics platform with its own IDE and notebook story, backed by CRAN’s thousands of packages. Built for statistical analysis, not general CAS: symbolic algebra needs add-on packages.",
+				"fr": "Plateforme statistique entièrement ouverte, avec son IDE et ses notebooks, portée par les milliers de paquets CRAN. Pensée pour l’analyse de données, pas pour un CAS général : le symbolique exige des paquets."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FriCAS",
+			"source": {
+				"host": "github",
+				"path": "fricas/fricas",
+				"url": "https://github.com/fricas/fricas"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Interactive open-source CAS, direct descendant of Scratchpad/Axiom, built on a strongly typed algebraic core. Steep learning curve and a small community, with a thin numerical and plotting layer next to Mathematica.",
+				"fr": "CAS interactif open source, descendant direct de Scratchpad/Axiom, adossé à un cœur algébrique fortement typé. Communauté restreinte, courbe d’apprentissage de l’algèbre typée, et couche numérique et de tracés plus mince que Mathematica."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Yacas",
+			"source": {
+				"host": "github",
+				"path": "grzegorzmazur/yacas",
+				"url": "https://github.com/grzegorzmazur/yacas"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "A small embeddable CAS with a Mathematica-like rule-rewriting engine, easy to script from C++ hosts or its own CLI. Far smaller scope: no plotting, limited numerics, small community and infrequent releases.",
+				"fr": "Petit CAS embarquable au moteur de réécriture de règles façon Mathematica, scriptable depuis des hôtes C++ ou son CLI. Périmètre plus réduit : pas de tracés, peu de numérisation, petite communauté, versions rares."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

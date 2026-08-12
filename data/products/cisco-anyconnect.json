@@ -101,6 +101,178 @@
 				"en": "Zero-trust access without a concentrator, free for up to five users. It is not a full-tunnel VPN — no egress IP pinning, which some vendors require.",
 				"fr": "Accès zero-trust sans concentrateur, gratuit jusqu’à cinq utilisateurs. Ce n’est pas un VPN plein tunnel — pas d’IP de sortie fixe, ce qu’exigent certains fournisseurs."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenConnect",
+			"source": {
+				"host": "github",
+				"path": "openconnect/openconnect",
+				"url": "https://github.com/openconnect/openconnect"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "Only FOSS client speaking Cisco’s own AnyConnect protocol to existing headends. GitHub repo archived — development moved to gitlab.infradead.org. CLI only, needs root and manual network config, no GUI or managed-client policy.",
+				"fr": "Seul client FOSS qui parle le protocole AnyConnect de Cisco. Dépôt GitHub archivé, développement sur gitlab.infradead.org. CLI uniquement : root, config réseau manuelle, pas de GUI ni de politique managed-client."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "WireGuard",
+			"source": {
+				"host": "github",
+				"path": "WireGuard/wireguard-tools",
+				"url": "https://github.com/WireGuard/wireguard-tools"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Audited, minimal kernel-space tunnel with near-native speed; the protocol under wg-easy, Firezone, Headscale, and Netbird. No user management, SSO, or policy — raw config files unless you add a control plane.",
+				"fr": "Tunnel noyau minimal, audité, à vitesse quasi native — c’est le protocole derrière wg-easy, Firezone, Headscale, Netbird. Pas de gestion d’utilisateurs, de SSO ni de politique : config brute sans control plane."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Headscale",
+			"source": {
+				"host": "github",
+				"path": "juanfont/headscale",
+				"url": "https://github.com/juanfont/headscale"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted Tailscale control plane: OIDC SSO, ACLs, self-hosted DERP relays, WireGuard mesh with no open inbound ports. Parity with upstream lags, admin is CLI/API, and clients remain Tailscale’s own apps.",
+				"fr": "Control plane Tailscale auto-hébergé : SSO OIDC, ACLs, relais DERP maison, mesh WireGuard sans port entrant ouvert. Parité en retard sur l’amont, admin en CLI/API, et clients restent les apps Tailscale."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tailscale",
+			"source": {
+				"host": "github",
+				"path": "tailscale/tailscale",
+				"url": "https://github.com/tailscale/tailscale"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Zero-config WireGuard mesh with first-party apps on every platform. Coordination server is proprietary SaaS; real self-hosting pairs with Headscale, and advanced policy, SSO, and access controls are paywalled.",
+				"fr": "Mesh WireGuard zéro config, apps officielles sur toutes les plateformes. Le serveur de coordination est un SaaS propriétaire : le vrai self-hosting passe par Headscale, et politiques avancées et SSO sont payants."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "us-only",
+				"paywalled": {
+					"en": "Advanced policy, SSO, and access controls",
+					"fr": "Politiques avancées, SSO et contrôles d’accès"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Netbird",
+			"source": {
+				"host": "github",
+				"path": "netbirdio/netbird",
+				"url": "https://github.com/netbirdio/netbird"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Fully open zero-trust network with identity, posture, and ACLs in the box, hosted or self-hosted, web console included. Management, signal, and relay components are AGPL-3.0; the ecosystem stays smaller than Tailscale’s.",
+				"fr": "Réseau zero-trust entièrement open avec identité, posture et ACLs dans le coffre — hébergé ou self-hosted, console web. Les composants management, signal et relay sont en AGPL-3.0 et l’écosystème reste plus petit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SoftEther VPN",
+			"source": {
+				"host": "github",
+				"path": "SoftEtherVPN/SoftEtherVPN",
+				"url": "https://github.com/SoftEtherVPN/SoftEtherVPN"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "One daemon speaking IPsec, OpenVPN, L2TP, SSTP, and EtherIP, with first-party clients and GUI plus vpncmd management. Older codebase, slower release cadence, and an audit history less reassuring than WireGuard’s.",
+				"fr": "Un seul daemon parle IPsec, OpenVPN, L2TP, SSTP et EtherIP, avec GUI et vpncmd fournis. Codebase ancienne, cadence de release lente, audit moins rassurant que WireGuard."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "strongSwan",
+			"source": {
+				"host": "github",
+				"path": "strongswan/strongswan",
+				"url": "https://github.com/strongswan/strongswan"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Reference, production-grade IKEv2/IPsec with Linux, Android, and iOS clients in the same repo. Pure IPsec though — no mesh layer or web admin, and swanctl/ipsec.conf is real ops work.",
+				"fr": "Implémentation de référence IKEv2/IPsec avec clients Linux, Android et iOS dans le même repo. IPsec pur : pas de couche mesh ni d’admin web, et swanctl/ipsec.conf reste du vrai boulot d’ops."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nebula",
+			"source": {
+				"host": "github",
+				"path": "slackhq/nebula",
+				"url": "https://github.com/slackhq/nebula"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Slack’s scalable mesh VPN: a lighthouse network reaching thousands of hosts, with a built-in CA issuing per-host certificates. No first-party mobile app, identity is certificates, and SSO is DIY.",
+				"fr": "Le mesh VPN évolutif de Slack : un réseau à lighthouse pour des milliers d’hôtes, CA intégrée délivrant un certificat par hôte. Pas d’app mobile, l’identité tient aux certificats, SSO à monter soi-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

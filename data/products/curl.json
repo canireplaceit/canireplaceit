@@ -1,0 +1,261 @@
+{
+	"slug": "curl",
+	"name": "curl",
+	"domain": null,
+	"category": "shell-terminal",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "almost",
+	"why": {
+		"en": "Yes — xh, curlie and HTTPie cover everyday HTTP work. The honest caveat is ubiquity: nothing ships on every machine like curl, so shared scripts still default to it.",
+		"fr": "Oui — xh, curlie et HTTPie couvrent l’essentiel du travail HTTP quotidien. La réserve honnête tient à l’omniprésence : rien n’est livré sur toutes les machines comme curl, et les scripts partagés y recourent par défaut."
+	},
+	"whatYouLose": [
+		{
+			"en": "Curl on every machine",
+			"fr": "Curl sur chaque machine"
+		},
+		{
+			"en": "Muscle memory of flags",
+			"fr": "La mémoire des flags"
+		},
+		{
+			"en": "The default in every example",
+			"fr": "Le défaut de chaque exemple"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "HTTPie",
+			"source": {
+				"host": "github",
+				"path": "httpie/cli",
+				"url": "https://github.com/httpie/cli"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Terser flags and colourised, formatted output spare you hand-quoting JSON; sessions and plugins come included. Written in Python, so startup is not instant.",
+				"fr": "Des flags plus courts et une sortie formatée et colorée, pour ne plus citer le JSON à la main ; sessions et plugins inclus. Écrit en Python, le démarrage n’est pas instantané."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "xh",
+			"source": {
+				"host": "github",
+				"path": "ducaale/xh",
+				"url": "https://github.com/ducaale/xh"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "HTTPie’s syntax in a single Rust binary that starts instantly — the pragmatic pick if the Python startup cost bothers you.",
+				"fr": "La syntaxe d’HTTPie dans un unique binaire Rust qui démarre instantanément — le choix pragmatique si le coût de démarrage de Python vous gêne."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "curlie",
+			"source": {
+				"host": "github",
+				"path": "rs/curlie",
+				"url": "https://github.com/rs/curlie"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A thin front-end that gives HTTPie’s ergonomics while passing every real curl flag straight through — nothing new to learn.",
+				"fr": "Une fine surcouche qui donne l’ergonomie d’HTTPie tout en transmettant tous les vrais flags de curl : rien de nouveau à apprendre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "aria2",
+			"source": {
+				"host": "github",
+				"path": "aria2/aria2",
+				"url": "https://github.com/aria2/aria2"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The mainstream multi-protocol downloader: HTTP/FTP/BitTorrent and Metalink with segmented, resumable transfers in the terminal. Request crafting stays limited, so it is not a general HTTP client.",
+				"fr": "Téléchargeur multi-protocole de référence : HTTP, FTP, BitTorrent et Metalink, avec transferts segmentés et reprisables dans le terminal. Mais la construction de requêtes reste limitée, ce n’est pas un client HTTP généraliste."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "hurl",
+			"source": {
+				"host": "github",
+				"path": "Orange-OpenSource/hurl",
+				"url": "https://github.com/Orange-OpenSource/hurl"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "HTTP client driven by plaintext files: requests, assertions and captures in one runnable document, curl command generated on demand. File-based, not an interactive client, and HTTP(S)-only.",
+				"fr": "Client HTTP piloté par des fichiers texte : requêtes, assertions et captures dans un même document exécutable, avec génération de la commande curl. Un modèle de fichiers, pas un client interactif, HTTP(S) uniquement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "wuzz",
+			"source": {
+				"host": "github",
+				"path": "asciimoo/wuzz",
+				"url": "https://github.com/asciimoo/wuzz"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Full-screen TUI inspector: URL bar, request editor, tabbed response viewer and history for poking at the web. Not scriptable, HTTP(S)-only, and development is sporadic.",
+				"fr": "Inspecteur TUI plein écran : barre d’URL, éditeur de requête, réponse à onglets et historique pour explorer le web. Non scriptable, HTTP(S) uniquement, et développement sporadique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "axel",
+			"source": {
+				"host": "github",
+				"path": "axel-download-accelerator/axel",
+				"url": "https://github.com/axel-download-accelerator/axel"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Lightweight accelerator that splits HTTP/FTP transfers into parallel segments with an inline progress screen. Download-only: no request crafting, and release cadence is slow.",
+				"fr": "Accélérateur léger qui découpe les transferts HTTP/FTP en segments parallèles, avec écran de progression intégré. Téléchargement uniquement : pas de construction de requêtes, et rythme de publication lent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "restish",
+			"source": {
+				"host": "github",
+				"path": "rest-sh/restish",
+				"url": "https://github.com/rest-sh/restish"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "REST-first client with named API configs, per-API auth and OpenAPI pagination. Not a file-download tool, has a smaller community than HTTPie, and conventions take learning.",
+				"fr": "Client orienté REST avec configurations nommées, authentification par API et pagination OpenAPI. Pas un outil de téléchargement, communauté plus petite qu’HTTPie, et conventions à apprendre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "http-prompt",
+			"source": {
+				"host": "github",
+				"path": "httpie/http-prompt",
+				"url": "https://github.com/httpie/http-prompt"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Stateful HTTPie-based shell that persists URL, headers, body and auth for exploratory API work. Dormant since May 2024, drags in a Python stack, and session-based rather than one-shot.",
+				"fr": "Shell interactif adossé à HTTPie, qui conserve URL, en-têtes, corps et auth le temps d’une session exploratoire. Dormant depuis mai 2024, tire un stack Python, et pense session plutôt qu’exécution unique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "monolith",
+			"source": {
+				"host": "github",
+				"path": "Y2Z/monolith",
+				"url": "https://github.com/Y2Z/monolith"
+			},
+			"license": "CC0-1.0",
+			"effort": "managed",
+			"note": {
+				"en": "Bundles a page’s HTML, CSS, JS, images and fonts into one offline-ready file from the CLI. Page-snapshot only, not a general HTTP client, and no request editing.",
+				"fr": "Rassemble HTML, CSS, JS, images et polices d’une page en un seul fichier hors ligne, depuis le CLI. Pensé pour archiver des pages, pas pour HTTP général, sans édition de requête."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "httpie-go",
+			"source": {
+				"host": "github",
+				"path": "nojima/httpie-go",
+				"url": "https://github.com/nojima/httpie-go"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Clean-room HTTPie-compatible client compiled to a single Go binary with HTTP/2 and TLS. No releases since 2023, smaller feature set than Python HTTPie, no plugins.",
+				"fr": "Réimplémentation propre compatible HTTPie, compilée en un binaire Go unique, avec HTTP/2 et TLS. Aucune release depuis 2023, moins complet que le HTTPie Python, pas de plugins."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 4
+}

@@ -101,6 +101,224 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "ERPNext",
+			"source": {
+				"host": "github",
+				"path": "frappe/erpnext",
+				"url": "https://github.com/frappe/erpnext"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Full open-source ERP; its Assets, Maintenance and Field Service modules cover work orders, PM schedules and field dispatch. Running it means operating an ERP, and dispatch UX trails MaintainX.",
+				"fr": "ERP open source complet : Assets, Maintenance et Field Service couvrent ordres de travail, plannings de maintenance et dispatch terrain. Mais opérer un ERP, c’est lourd, et l’UX de dispatch passe derrière MaintainX."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "InvenTree",
+			"source": {
+				"host": "github",
+				"path": "inventree/InvenTree",
+				"url": "https://github.com/inventree/InvenTree"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Inventory and asset core for parts, stock and BOMs; maintenance rides on a third-party plugin, so work-order dispatch and field scheduling are not native.",
+				"fr": "Cœur inventaire/actifs pour pièces, stock et nomenclatures ; la maintenance passe par un plugin tiers, donc ni ordres de travail ni planning terrain natifs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ralph",
+			"source": {
+				"host": "github",
+				"path": "allegro/ralph",
+				"url": "https://github.com/allegro/ralph"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Datacenter and IT asset management with per-asset maintenance events. But it is IT-centric: no preventive-maintenance scheduler, no field-service work orders, no mobile app.",
+				"fr": "Gestion d’actifs IT et datacenter, avec suivi de maintenance par actif. Reste orienté IT : pas de planificateur de maintenance préventive, pas d’ordres de travail terrain, pas d’appli mobile."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GLPI",
+			"source": {
+				"host": "github",
+				"path": "glpi-project/glpi",
+				"url": "https://github.com/glpi-project/glpi"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted ITSM and asset stack; maintenance tasks slot into the helpdesk workflow. Bent to the IT service desk — no native preventive-maintenance scheduler, hardware-focus.",
+				"fr": "Stack ITSM/actifs auto-hébergée ; les tâches de maintenance s’intègrent au flux helpdesk. Plutôt service-desk IT : pas de planificateur de maintenance préventive natif, centré matériel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "grocy",
+			"source": {
+				"host": "github",
+				"path": "grocy/grocy",
+				"url": "https://github.com/grocy/grocy"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Recurring chores with due dates can model routine maintenance, alongside stock and expiry tracking. Chore-scale though: no work orders, asset hierarchy or field dispatch.",
+				"fr": "Les corvées récurrentes avec échéance modèlent la maintenance courante, avec suivi de stock et de péremption. Échelle corvées, pas CMMS : ni ordres de travail, ni hiérarchie d’actifs, ni dispatch."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Rundeck",
+			"source": {
+				"host": "github",
+				"path": "rundeck/rundeck",
+				"url": "https://github.com/rundeck/rundeck"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Scheduled jobs and runbooks handle maintenance as cron-style automation, with node inventory and an API. It automates ops, not assets: maintenance needs scripting, SSO sits in paid plugins.",
+				"fr": "Runbooks et jobs planifiés automatisent la maintenance en cron, avec inventaire de nœuds et API. C’est de l’automation ops : la maintenance passe par des scripts, le SSO par des plugins payants."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise plugins, SSO",
+					"fr": "Plugins entreprise, SSO"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Taskwarrior",
+			"source": {
+				"host": "github",
+				"path": "GothenburgBitFactory/taskwarrior",
+				"url": "https://github.com/GothenburgBitFactory/taskwarrior"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Recurring tasks stand in for preventive-maintenance schedules, local-first and terminal-native. No asset registry, no shared dispatch board — maintenance is manual task modelling.",
+				"fr": "Les tâches récurrentes remplacent les plannings de maintenance préventive, local-first et 100 % terminal. Pas de registre d’actifs ni de board de dispatch partagé : la maintenance est un bricolage de tâches manuelles."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SuperCMMS",
+			"source": {
+				"host": "github",
+				"path": "SuperCMMS/Open-Source-CMMS",
+				"url": "https://github.com/SuperCMMS/Open-Source-CMMS"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "CMMS backend — work orders, PM/CM, checklists, QR, inventory — with an API to build your own frontend on. Pre-1.0 and small-community; the frontend is proprietary or on you.",
+				"fr": "Backend CMMS — ordres de travail, MP/CM, checklists, QR, inventaire — et une API pour monter votre propre front. Version pré-1.0, petite communauté ; le front est propriétaire ou à construire soi-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Proprietary frontend",
+					"fr": "Front propriétaire"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Libremaint",
+			"source": {
+				"host": "github",
+				"path": "lowag/libremaint",
+				"url": "https://github.com/lowag/libremaint"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Straightforward PHP/MySQL CMMS for manufacturing — assets, work orders, preventive maintenance. Dormant since August 2024, on a PHP7-era stack, no mobile app.",
+				"fr": "CMMS PHP/MySQL simple pour l’industrie — actifs, ordres de travail, maintenance préventive. Sans commit depuis août 2024 : stack datant de PHP7, pas d’appli mobile."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Massing",
+			"source": {
+				"host": "github",
+				"path": "ibuilder/massing",
+				"url": "https://github.com/ibuilder/massing"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "IFC/BIM-native AEC platform whose operate/dispose module covers work orders and asset data. Built into a huge construction-GC monorepo — early-stage, resource-heavy, far beyond CMMS.",
+				"fr": "Plateforme AEC native IFC/BIM dont le module operate/dispose couvre ordres de travail et données d’actifs. Englué dans un énorme monorepo chantier/GC : jeune projet, gourmand en ressources, loin d’un simple CMMS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

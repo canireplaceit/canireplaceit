@@ -80,6 +80,157 @@
 				"en": "Per-seat and far cheaper than an enterprise DAM contract, with genuinely good visual search. Cloud only.",
 				"fr": "Par utilisateur et bien moins cher qu’un contrat DAM d’entreprise, avec une recherche visuelle réellement bonne. Cloud uniquement."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "ResourceSpace",
+			"source": {
+				"host": "github",
+				"path": "resourcespace/resourcespace",
+				"url": "https://github.com/resourcespace/resourcespace"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Open-source web DAM used by universities and NGOs, closest functional analog to Brandfolder: metadata, collections, sharing, full API. Costs a PHP/LAMP stack to run and a dated interface.",
+				"fr": "DAM web open source utilisé par universités et ONG, l’analogue le plus proche de Brandfolder : métadonnées, collections, partage, API complète, mais une pile PHP/LAMP à héberger et une interface datée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PhotoPrism",
+			"source": {
+				"host": "github",
+				"path": "photoprism/photoprism",
+				"url": "https://github.com/photoprism/photoprism"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted photo server with face recognition, search and sharing; polished UI, easy Docker deploy. Focused on photos, not generic brand assets — Pro features cost extra.",
+				"fr": "Serveur photo auto-hébergé avec reconnaissance faciale, recherche et partage, interface soignée, déploiement Docker facile. Orienté photos, pas supports de marque — les fonctions Pro sont payantes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Some Pro features",
+					"fr": "Quelques fonctions Pro"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Immich",
+			"source": {
+				"host": "github",
+				"path": "immich-app/immich",
+				"url": "https://github.com/immich-app/immich"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Fast, modern self-hosted photo/video library with mobile apps and ML search, easy via Docker. Photo-centric, not a brand-asset DAM; the project moves fast.",
+				"fr": "Bibliothèque photo/vidéo auto-hébergée, rapide et moderne, apps mobiles et recherche ML, un jeu d’enfant en Docker. Centrée photos, pas un DAM de marque, et le projet évolue vite."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Piwigo",
+			"source": {
+				"host": "github",
+				"path": "Piwigo/Piwigo",
+				"url": "https://github.com/Piwigo/Piwigo"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Long-lived self-hosted photo gallery with plugins, albums, metadata and an API; mature, easy to deploy. Gallery-oriented and lighter on DAM workflows, on a PHP stack.",
+				"fr": "Galerie photo auto-hébergée de longue date, avec plugins, albums, métadonnées et API ; mature et facile à déployer. Orientée galerie, plus légère sur les flux DAM, en PHP."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Lychee",
+			"source": {
+				"host": "github",
+				"path": "LycheeOrg/Lychee",
+				"url": "https://github.com/LycheeOrg/Lychee"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight self-hosted photo manager that deploys in minutes: albums, tagging, multi-user, public share links. Photos only — minimal brand-workflow features.",
+				"fr": "Gestionnaire photo auto-hébergé, léger et beau, déployé en quelques minutes : albums, tags, multi-utilisateur, liens de partage publics. Photos uniquement, peu de fonctions pour les flux de marque."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "digiKam",
+			"source": {
+				"host": "github",
+				"path": "KDE/digikam",
+				"url": "https://github.com/KDE/digikam"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Desktop DAM (KDE) for cataloguing, tagging and editing photo libraries locally — the native lane Brandfolder lacks. Desktop-only, single-user, no sharing; the GitHub mirror is archived.",
+				"fr": "DAM de bureau (KDE) pour cataloguer, taguer et retoucher des bibliothèques photo en local — la voie native que Brandfolder n’a pas. Bureau uniquement, mono-utilisateur, sans partage ; le miroir GitHub est archivé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Elodie",
+			"source": {
+				"host": "github",
+				"path": "jmathai/elodie",
+				"url": "https://github.com/jmathai/elodie"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "CLI photo organizer that auto-sorts and metadata-tags your library from the terminal. No UI, no sharing, no team workflows — the lane for scripted asset management.",
+				"fr": "Organiseur photo en ligne de commande qui trie et taggue votre bibliothèque automatiquement depuis le terminal. Pas d’interface, pas de partage, pas de workflows d’équipe — la voie de l’automatisation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

@@ -1,0 +1,198 @@
+{
+	"slug": "tar",
+	"name": "tar",
+	"domain": null,
+	"category": "shell-terminal",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "Only for interactive use. ouch decompresses any format with one inferred command, but it wraps tar rather than replacing it, so scripts still need tar.",
+		"fr": "Seulement pour un usage interactif. ouch décompresse tous les formats d’une seule commande, format deviné d’après l’extension, mais il enveloppe tar au lieu de le remplacer : les scripts ont donc toujours besoin de tar."
+	},
+	"whatYouLose": [
+		{
+			"en": "A tool preinstalled everywhere",
+			"fr": "Un outil préinstallé partout"
+		},
+		{
+			"en": "A standard scripts expect",
+			"fr": "Une norme attendue par les scripts"
+		},
+		{
+			"en": "The xzvf versus czvf muscle memory",
+			"fr": "Le réflexe xzvf contre czvf"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "ouch",
+			"source": {
+				"host": "github",
+				"path": "ouch-org/ouch",
+				"url": "https://github.com/ouch-org/ouch"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "One command for tar, zip, 7z, rar, zst, gz, bz2 and xz, format inferred from the extension; but it wraps the formats and is not a drop-in for tar in scripts.",
+				"fr": "Une seule commande pour tar, zip, 7z, rar, zst, gz, bz2 et xz, le format deviné d’après l’extension ; mais il enveloppe ces formats et ne remplace pas tar dans les scripts."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "libarchive (bsdtar)",
+			"source": {
+				"host": "github",
+				"path": "libarchive/libarchive",
+				"url": "https://github.com/libarchive/libarchive"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Reads and writes tar, pax, cpio and a host of foreign formats through a security-tracked C library. Streams rather than loading archives whole, though write support lags read.",
+				"fr": "Lit et écrit tar, pax, cpio et bien d’autres formats via une bibliothèque C éprouvée. Diffuse en streaming sans tout charger en mémoire, mais l’écriture couvre moins de formats."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "zstd",
+			"source": {
+				"host": "github",
+				"path": "facebook/zstd",
+				"url": "https://github.com/facebook/zstd"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Reference zstandard CLI: far better speed and ratio than gzip on modern hardware, plus streaming and dictionary modes. It compresses a stream, not an archive, and max-ratio mode is memory-hungry.",
+				"fr": "CLI zstandard de référence : bien plus rapide et meilleur ratio que gzip sur matériel moderne. Compresse un flux, pas une archive, et le mode ratio maximal coûte gros en mémoire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "brotli",
+			"source": {
+				"host": "github",
+				"path": "google/brotli",
+				"url": "https://github.com/google/brotli"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "High-ratio compressor, especially for text, with very fast decompression. Pairs well with tar or standalone. Weak on already-compressed and binary data, and not an archiver by itself.",
+				"fr": "Haut ratio surtout sur le texte, décompression très rapide. S’associe à tar ou s’utilise en solo, mais bute sur les données binaires ou déjà compressées et n’est pas un archiveur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "zopfli",
+			"source": {
+				"host": "github",
+				"path": "google/zopfli",
+				"url": "https://github.com/google/zopfli"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Archived upstream, no active development. Still produces the smallest possible gzip/deflate output, deterministic and byte-identical — ideal for one-off static assets, but orders of magnitude slower than gzip.",
+				"fr": "Archivé upstream, plus aucun développement. Produit pourtant les gzip/deflate les plus petits possibles, déterministes, idéaux pour l’optimisation ponctuelle d’assets statiques — mais des ordres de grandeur plus lents que gzip."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "bzip3",
+			"source": {
+				"host": "github",
+				"path": "iczelia/bzip3",
+				"url": "https://github.com/iczelia/bzip3"
+			},
+			"license": "LGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Modern successor to bzip2: better ratios at comparable speed, small dependency-light C implementation. Block format is parallel-friendly but not bzip2-compatible, and the ecosystem is younger with fewer distro integrations.",
+				"fr": "Successeur moderne de bzip2 : meilleurs ratios à vitesse comparable, implémentation C légère et sans dépendances. Format par blocs parallélisable mais incompatible bzip2, écosystème plus jeune, intégrations distro moins nombreuses."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dtrx",
+			"source": {
+				"host": "github",
+				"path": "moonpyk/dtrx",
+				"url": "https://github.com/moonpyk/dtrx"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "11 years dormant — no commit since 2015-05-07. 'Do The Right eXtraction': one command auto-picks tool and directory for nearly any archive and asks before overwriting. Extraction only; it cannot create archives.",
+				"fr": "Dormant depuis 11 ans, aucun commit depuis 2015-05-07. « Do The Right eXtraction » : une commande choisit l’outil et le répertoire pour presque toute archive, en demandant avant d’écraser. Extraction seulement, sans création."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "atool",
+			"source": {
+				"host": "gitlab",
+				"path": "debian/atool",
+				"url": "https://salsa.debian.org/debian/atool"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "One syntax for list, extract and create across tar, zip, 7z, rar. Shells out to system backends, and despite the 'archiving TUI' branding there is no native TUI.",
+				"fr": "Une syntaxe pour lister, extraire et créer dans tar, zip, 7z, rar. Délègue aux outils système, et malgré l’étiquette « archiving TUI », aucun TUI natif."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

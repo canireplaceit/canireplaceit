@@ -91,6 +91,153 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Chemotion ELN",
+			"source": {
+				"host": "github",
+				"path": "ComPlat/chemotion_ELN",
+				"url": "https://github.com/ComPlat/chemotion_ELN"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Chemistry-first ELN: molecule editor, reaction planning, spectra. Backs German research institutions. But biology/DNA workflows are thin, and the Rails stack asks for real ops work.",
+				"fr": "ELN chimie d’abord : éditeur de molécules, planification de réaction, spectres. Utilisé par des institutions allemandes, mais l’ADN et la biologie restent mal servis et la stack Rails pèse lourd en ops."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "RSpace",
+			"source": {
+				"host": "github",
+				"path": "rspace-os/rspace-web",
+				"url": "https://github.com/rspace-os/rspace-web"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "ELN with inventory, REST API and audit built for regulated labs. The Part 11-adjacent positioning suits pharma. Advanced features stay in paid hosted tiers, and self-hosting means running Docker compose.",
+				"fr": "ELN et inventaire en un, API REST, audit orienté labos réglementés côté pharma. Des fonctions avancées restent payantes en hébergé, et l’auto-hébergement passe par Docker Compose."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OSF",
+			"source": {
+				"host": "github",
+				"path": "CenterForOpenScience/osf.io",
+				"url": "https://github.com/CenterForOpenScience/osf.io"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Research platform — projects, files, versioning, registrations, preregistration, all behind a public API. Not an ELN: no inventory, no analysis workflows, and the Django stack is heavy to self-host.",
+				"fr": "Plateforme de recherche du Center for Open Science : projets, fichiers, versions, registrations, API. Pas un ELN — pas d’inventaire ni de flux d’analyse, et la stack Django est lourde à auto-héberger."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OMERO",
+			"source": {
+				"host": "github",
+				"path": "ome/omero-server",
+				"url": "https://github.com/ome/omero-server"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Imaging data server for microscopy: central store, web viewer, CLI and analysis APIs. Nothing beyond images, and the server, database and image store want a dedicated admin.",
+				"fr": "Serveur d’imagerie pour la microscopie : stockage central, visionneuse web, CLI et API d’analyse. Mais rien au-delà des images, et serveur, base de données et coffre d’images exigent un admin dédié."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "nb",
+			"source": {
+				"host": "github",
+				"path": "xwmx/nb",
+				"url": "https://github.com/xwmx/nb"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Terminal notebook: plain-text notes, full-text search, tags, todos, bookmarks, git-syncable and scriptable. Fast for personal notes. Single-user, freeform — no inventory, no web UI, no team.",
+				"fr": "Notebook terminal : notes en texte brut, recherche plein texte, tags, todos, favoris, synchronisable en git et scriptable. Rapide pour les notes perso, mais mono-utilisateur, sans inventaire, sans UI web, sans équipe."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "jrnl",
+			"source": {
+				"host": "github",
+				"path": "jrnl-org/jrnl",
+				"url": "https://github.com/jrnl-org/jrnl"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Mature terminal journal: fast entry, tags, encryption, export and aggregation, with an interactive editing mode. Fine as a lightweight personal research notebook — but freeform, single-user, no inventory or sample tracking.",
+				"fr": "Journal terminal mature : saisie rapide, tags, chiffrement, export et agrégation, avec édition interactive. Correct comme carnet de recherche perso léger, mais libre-service, mono-utilisateur, sans inventaire ni suivi d’échantillons."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Joplin",
+			"source": {
+				"host": "github",
+				"path": "laurent22/joplin",
+				"url": "https://github.com/laurent22/joplin"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Generic notebook — Markdown notes, attachments, tags, end-to-end encrypted sync via self-hosted Joplin Server, desktop, CLI and mobile clients. No inventory, protocols or lab workflows, and the free server lacks SSO.",
+				"fr": "Carnet générique — notes Markdown, pièces jointes, tags, sync chiffrée de bout en bout via Joplin Server auto-hébergé, desktop, CLI, mobile. Ni inventaire ni protocoles labo ; le serveur gratuit reste sans SSO."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

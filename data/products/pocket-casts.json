@@ -93,6 +93,216 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "PodFetch",
+			"source": {
+				"host": "github",
+				"path": "SamTV12345/PodFetch",
+				"url": "https://github.com/SamTV12345/PodFetch"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted podcast server: offline downloads, private RSS feeds, YouTube-to-podcast via yt-dlp. Playback stays in the browser — no native app, desktop-first web UI.",
+				"fr": "Serveur web auto-hébergé : téléchargements hors ligne, flux RSS privés, YouTube vers podcast via yt-dlp. La lecture reste dans le navigateur — pas d’app native, interface pensée pour le bureau."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Podgrab",
+			"source": {
+				"host": "github",
+				"path": "akhilrex/podgrab",
+				"url": "https://github.com/akhilrex/podgrab"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Fetches episodes to disk and plays them in a web player, with OPML import and per-directory search. No mobile app, play state syncs poorly, and every download lives on your server.",
+				"fr": "Télécharge les épisodes sur disque pour un lecteur web, avec import OPML. Pas d’app mobile, l’état de lecture se synchronise mal, et chaque téléchargement reste sur le serveur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "castero",
+			"source": {
+				"host": "github",
+				"path": "xgi/castero",
+				"url": "https://github.com/xgi/castero"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Terminal UI with queueing, OPML import and feed search; playback hands off to VLC or mpv. No sync or mobile access, and audio needs an external player installed.",
+				"fr": "Interface terminal avec file d’attente, import OPML et recherche de flux ; la lecture est déléguée à VLC ou mpv. Pas de synchronisation ni d’accès mobile, et il faut un lecteur externe installé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "castget",
+			"source": {
+				"host": "github",
+				"path": "mlj/castget",
+				"url": "https://github.com/mlj/castget"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Download-only and cron-friendly, but every feed lives in a config file with per-feed regex rules and ID3 tagging. No playback, no discovery, no sync.",
+				"fr": "Téléchargement seulement, adapté à cron, mais chaque flux vit dans un fichier de config avec règles regex par flux et écriture des tags ID3. Pas de lecture, de découverte ni de sync."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "podcast-dl",
+			"source": {
+				"host": "github",
+				"path": "lightpohl/podcast-dl",
+				"url": "https://github.com/lightpohl/podcast-dl"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Fast CLI that pulls YouTube-hosted shows with chapters and embedded metadata via yt-dlp, OPML in. Not a general RSS player: no playback UI, no subscriptions, YouTube-first only.",
+				"fr": "CLI rapide qui récupère les émissions hébergées sur YouTube avec chapitres et métadonnées embarquées via yt-dlp, import OPML. Pas un lecteur RSS général : pas d’interface de lecture, pas d’abonnements, YouTube d’abord."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "mygpo (gPodder.net)",
+			"source": {
+				"host": "github",
+				"path": "gpodder/mygpo",
+				"url": "https://github.com/gpodder/mygpo"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Host the gPodder.net server and clients like AntennaPod and gPodder sync subscriptions and episode state through it. Not a player, needs Django, Postgres and Redis, and the web UI stays basic.",
+				"fr": "Hébergez le serveur gPodder.net et AntennaPod, gPodder et d’autres clients y synchronisent abonnements et état des épisodes. Pas un lecteur : il faut Django, Postgres et Redis, et l’interface web reste sommaire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "podsync",
+			"source": {
+				"host": "github",
+				"path": "mxpv/podsync",
+				"url": "https://github.com/mxpv/podsync"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Turns any YouTube channel or playlist into a subscribable RSS feed, per-user, via yt-dlp. Feeds play anywhere, but there is no player here and nothing without YouTube and yt-dlp.",
+				"fr": "Transforme n’importe quelle chaîne ou playlist YouTube en flux RSS abonnable, par utilisateur, via yt-dlp. Les flux se lisent partout, mais pas de lecteur ici, et rien sans YouTube et yt-dlp."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tsacdop",
+			"source": {
+				"host": "github",
+				"path": "tsacdop/tsacdop",
+				"url": "https://github.com/tsacdop/tsacdop"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Flutter podcast player covering both Android and iOS, with offline downloads and a sleep timer — but no commit since August 2024. It syncs nothing server-side and has smaller feature set than AntennaPod.",
+				"fr": "Lecteur Flutter qui couvre Android et iOS, avec téléchargement hors ligne et minuteur de sommeil — mais aucun commit depuis août 2024. Pas de sync serveur et des fonctions plus réduites qu’AntennaPod."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CPod",
+			"source": {
+				"host": "github",
+				"path": "z-------------/CPod",
+				"url": "https://github.com/z-------------/CPod"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Desktop player for Windows, macOS and Linux, dormant but usable — last commit January 2024. Electron makes it heavy, and there is no mobile or sync story.",
+				"fr": "Lecteur de bureau pour Windows, macOS et Linux, en sommeil mais utilisable — dernier commit janvier 2024. Electron le rend lourd, et pas de mobile ni de sync à l’horizon."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "newsboat (podboat)",
+			"source": {
+				"host": "github",
+				"path": "newsboat/newsboat",
+				"url": "https://github.com/newsboat/newsboat"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "RSS-first TUI: enqueue podcasts from any feed and pull them with the companion podboat downloader, playing through external players. Podcasting is a side feature — no discovery, no sync, terminal only.",
+				"fr": "TUI orientée RSS : enfilez des podcasts depuis n’importe quel flux et téléchargez-les avec l’outil compagnon podboat, lus via des lecteurs externes. Le podcast reste un à-côté : ni découverte ni sync, terminal uniquement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

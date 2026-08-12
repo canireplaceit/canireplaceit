@@ -105,6 +105,132 @@
 				"en": "Published pricing, real approval workflows and PunchOut. No supplier network and no spend-analytics depth.",
 				"fr": "Tarifs affichés, vrais circuits de validation et PunchOut. Pas de réseau fournisseurs ni de profondeur analytique."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache OFBiz",
+			"source": {
+				"host": "github",
+				"path": "apache/ofbiz-framework",
+				"url": "https://github.com/apache/ofbiz-framework"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Full order-to-pay with RFQ workflow and supplier management in one battle-tested framework, under active Apache governance. Costs you a dated UI and a steep learning curve — a large Java app, heavy to operate.",
+				"fr": "Commande-à-paiement complet avec workflow RFQ et gestion fournisseurs dans un framework éprouvé, sous gouvernance Apache active. En face : UI datée et courbe d’apprentissage raide — grosse appli Java, lourde à opérer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "InvenTree",
+			"source": {
+				"host": "github",
+				"path": "inventree/InvenTree",
+				"url": "https://github.com/inventree/InvenTree"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The pick when procurement is about components: supplier pricing, part links, lead times, REST API. No general ledger or full P2P approvals — it stops short of a corporate suite.",
+				"fr": "Le choix quand l’achat tourne autour de composants : prix fournisseur, liens et délais, API REST. Pas de grand livre ni d’approbations P2P complètes — ça s’arrête avant la suite corporate."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "hledger",
+			"source": {
+				"host": "github",
+				"path": "simonmichael/hledger",
+				"url": "https://github.com/simonmichael/hledger"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "A double-entry ledger in plain text, scriptable, with TUI and web reports for supplier and payable tracking. The catch: it’s not procurement software — manual entry, no purchase orders, no approval chains.",
+				"fr": "Un livre double-entrée en texte brut, scriptable, avec TUI et rapports web pour suivre fournisseurs et dettes. Ce n’est pas un outil d’achat : saisie manuelle, pas de commandes ni chaînes d’approbation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "beancount",
+			"source": {
+				"host": "github",
+				"path": "beancount/beancount",
+				"url": "https://github.com/beancount/beancount"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Deterministic double-entry in text, fava web UI, plugin ecosystem and cost basis — a precise audit trail for purchases. Tinkerers only: no PO or supplier workflow, and it demands accounting discipline.",
+				"fr": "Comptabilité déterministe en texte brut, UI web fava, plugins et prix de revient — piste d’audit précise des achats. Pour bricoleurs : pas de workflow commande ni fournisseur, et exige de la rigueur comptable."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "openprocurement.api",
+			"source": {
+				"host": "github",
+				"path": "openprocurement/openprocurement.api",
+				"url": "https://github.com/openprocurement/openprocurement.api"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The engine behind Ukraine’s Prozorro — tender, bidding and award lifecycles at national scale. It’s an API backend, not a buyer-facing app, built for public procurement; small businesses DIY.",
+				"fr": "Le moteur derrière le Prozorro ukrainien — cycles de tenders, enchères et attributions à l’échelle nationale. C’est une API backend, pas une app côté acheteur, pensée pour l’achat public ; les PME se débrouillent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PartKeepr",
+			"source": {
+				"host": "github",
+				"path": "partkeepr/PartKeepr",
+				"url": "https://github.com/partkeepr/PartKeepr"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Electronics parts and inventory manager with supplier price comparison and purchase-order generation — functional in its niche. But it’s archived upstream; pick Part-DB if you want fresh code.",
+				"fr": "Gestionnaire de pièces électroniques et de stock avec comparaison de prix fournisseurs et génération de commandes — fonctionnel dans son créneau. Mais il est archivé : prenez Part-DB pour du code récent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

@@ -97,6 +97,174 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "dmarcts-report-viewer",
+			"source": {
+				"host": "github",
+				"path": "techsneeze/dmarcts-report-viewer",
+				"url": "https://github.com/techsneeze/dmarcts-report-viewer"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The classic self-hosted DMARC report dashboard: per-domain, per-recipient and per-IP stats, trend charts and record drill-down. Dormant since 2023, needs MySQL and PHP, no built-in auth.",
+				"fr": "Le dashboard DMARC autohébergé classique : stats par domaine, destinataire et IP, tendances et exploration des rapports. Dormant depuis 2023, il exige MySQL + PHP et n’a pas d’auth intégrée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Open-DMARC-Analyzer",
+			"source": {
+				"host": "github",
+				"path": "userjack6880/Open-DMARC-Analyzer",
+				"url": "https://github.com/userjack6880/Open-DMARC-Analyzer"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Django-based analyzer with per-domain dashboards and IMAP ingestion — the closest modern web-app analogue to dmarcian. Last commit June 2024, no forensic report handling, single maintainer.",
+				"fr": "Analyseur Django à dashboards par domaine et ingestion IMAP — l’analogue web le plus proche de dmarcian. Dernier commit en juin 2024, pas de traitement des rapports forensiques, un seul mainteneur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dmarc-visualizer",
+			"source": {
+				"host": "github",
+				"path": "debricked/dmarc-visualizer",
+				"url": "https://github.com/debricked/dmarc-visualizer"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Polished 781-star visualizer with interactive aggregate dashboards: top senders, IPs and per-domain breakdowns. Backed by Elasticsearch, dormant since 2024, no remediation tooling.",
+				"fr": "Visualiseur soigné de 781 étoiles, dashboards interactifs des rapports agrégés : principaux émetteurs, IP et ventilation par domaine. Nécessite Elasticsearch, dormant depuis 2024, aucun outil de remédiation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dmarcguard",
+			"source": {
+				"host": "github",
+				"path": "dmarcguardhq/dmarcguard",
+				"url": "https://github.com/dmarcguardhq/dmarcguard"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Actively-maintained Go app that ingests aggregate and forensic reports and checks SPF/DKIM/DMARC DNS on top. Web UI and API, but aimed at single-domain monitoring rather than multi-tenant analytics.",
+				"fr": "App Go maintenue activement : ingère les rapports agrégés et forensiques et vérifie par-dessus la config DNS SPF/DKIM/DMARC. UI web et API, mais pensée pour le suivi mono-domaine, pas l’analytique multi-tenant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dmarc-report-viewer",
+			"source": {
+				"host": "github",
+				"path": "cry-inc/dmarc-report-viewer",
+				"url": "https://github.com/cry-inc/dmarc-report-viewer"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight MIT-licensed Go web app with a published Docker image; aggregate reports per domain, IP and recipient, but no forensic (RUF) handling and a smaller surface than dmarcian.",
+				"fr": "App web Go MIT légère avec image Docker publiée ; rapports agrégés par domaine, IP et destinataire, mais pas de traitement forensique (RUF) et une surface plus réduite que dmarcian."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "checkdmarc",
+			"source": {
+				"host": "github",
+				"path": "domainaware/checkdmarc",
+				"url": "https://github.com/domainaware/checkdmarc"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Python CLI and importable library that validates SPF, DKIM and DMARC DNS records, checks alignment and prints JSON or HTML. Ready deliverability auditor, but no dashboard and no report ingestion.",
+				"fr": "CLI et bibliothèque Python importable : valide les DNS SPF, DKIM et DMARC, vérifie l’alignement, sort du JSON ou du HTML. Auditeur de délivrabilité, mais ni dashboard ni ingestion de rapports."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "spf-tools",
+			"source": {
+				"host": "github",
+				"path": "spf-tools/spf-tools",
+				"url": "https://github.com/spf-tools/spf-tools"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Shell toolkit that flattens, validates and deduplicates SPF records and budgets DNS lookups. SPF only — no DKIM or DMARC, no UI, no monitoring.",
+				"fr": "Boîte à outils shell qui aplatit, valide et dédoublonne les enregistrements SPF et gère le budget de requêtes DNS. SPF uniquement — ni DKIM ni DMARC, ni UI, ni monitoring."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dmarc-srg",
+			"source": {
+				"host": "github",
+				"path": "liuch/dmarc-srg",
+				"url": "https://github.com/liuch/dmarc-srg"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "PHP library and CLI that parses DMARC aggregate reports from IMAP and emits them as XML, JSON, text or mail. No web dashboard, and ongoing ingestion needs cron.",
+				"fr": "Bibliothèque PHP et CLI qui parse les rapports DMARC agrégés depuis IMAP et les ressort en XML, JSON, texte ou mail. Pas de dashboard web, et l’ingestion continue demande un cron."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

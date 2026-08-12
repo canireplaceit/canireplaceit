@@ -69,7 +69,6 @@ import {
 import { categoryIcon } from "./categoryIcons";
 import {
 	AlternativeList,
-	CARD,
 	FactMarks,
 	GRID_1COL,
 	hostOf,
@@ -86,6 +85,9 @@ import type { Key } from "./i18n";
 import { ForgeIcon } from "./icons";
 import { MEASURE, priceLabel } from "./listShared";
 import { Link } from "./nav";
+import { ProjectFeatures } from "./ProjectFeatures";
+import { ReplaceMatrix } from "./ReplaceMatrix";
+import { type Crumb, Heading, PageShell, Section } from "./shell";
 
 export type PageCtx = {
 	lang: Lang;
@@ -149,69 +151,20 @@ export type PageCtx = {
 	stats: Map<string, CategoryStat>;
 };
 
-/**
- * `measure` is for the pages that sit in the same column as the list: the width
- * a design lays its rows out at is the width its category pages have to line up
- * with, or the site reads as two unrelated columns. The article pages keep their
- * own narrower reading measure.
- */
-const Shell = ({
-	children,
-	measure = "max-w-4xl",
-}: {
-	children: React.ReactNode;
-	measure?: string;
-}) => <main className={`mx-auto ${measure} px-4 pt-10 pb-16`}>{children}</main>;
-
-const Heading = ({ children }: { children: React.ReactNode }) => (
-	<h2 className="mb-2 font-mono text-[10px] uppercase tracking-[0.16em] text-muted">
-		{children}
-	</h2>
-);
-
-/** Always present, so no page is ever a dead end for a reader or a crawler. */
-const HomeLink = ({ ctx }: { ctx: PageCtx }) => (
-	<Link
-		href={paths.home(ctx.lang)}
-		className="text-sm text-muted hover:underline"
-	>
-		← {ctx.t("page.home")}
-	</Link>
-);
-
-/**
- * The visible breadcrumb, matching the `BreadcrumbList` JSON-LD in seo.ts one
- * for one. Google's guidance is that the markup describe a trail the page
- * actually shows; two different trails is worse than none.
- */
-const Trail = ({ items }: { items: { label: string; href?: string }[] }) => (
-	<nav aria-label="Breadcrumb" className="text-sm text-muted">
-		<ol className="flex flex-wrap items-center gap-1">
-			{items.map((item, i) => (
-				<li key={item.label} className="flex items-center gap-1">
-					{i > 0 && <ChevronRight className="size-3.5 shrink-0" aria-hidden />}
-					{item.href ? (
-						<Link href={item.href} className="hover:underline">
-							{item.label}
-						</Link>
-					) : (
-						<span aria-current="page">{item.label}</span>
-					)}
-				</li>
-			))}
-		</ol>
-	</nav>
-);
+/** The trail every page starts from. Spread, never mutated. */
+const homeCrumb = (ctx: PageCtx): Crumb => ({
+	label: ctx.t("page.home"),
+	href: paths.home(ctx.lang),
+});
 
 /** The data arrives after the first paint; say nothing rather than "not found". */
 function Pending({ ctx, empty }: { ctx: PageCtx; empty: boolean }) {
 	return (
-		<Shell>
-			<HomeLink ctx={ctx} />
-			<p className="py-16 text-center text-sm text-muted">
+		<PageShell trail={[homeCrumb(ctx)]}>
+			<p className="py-16 text-center text-muted text-sm">
 				{ctx.t(empty ? "page.notFound" : "page.loading")}
 			</p>
-		</Shell>
+		</PageShell>
 	);
 }
 
@@ -230,85 +183,141 @@ export function ProductPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 		return pretty ? paths.project(lang, pretty) : undefined;
 	};
 
+	// The other products filed under the same category. The product page used to
+	// be a dead end — one link back to the list and nothing sideways — which on a
+	// catalogue of this size is the page a reader leaves from.
+	const siblings = category
+		? products.filter((p) => p.category === category.slug && p.slug !== slug)
+		: [];
+
 	return (
-		<Shell>
-			<HomeLink ctx={ctx} />
-			<article className="mt-4 space-y-6">
-				<header className="flex items-start gap-4">
-					<ProductLogo product={product} size={48} eager />
-					<div className="min-w-0 flex-1">
-						<h1 className="font-display text-3xl font-bold tracking-tight">
-							{t("hero.title")} {product.name}
-							{lang === "fr" ? " ?" : "?"}
-						</h1>
-						<p className="nums mt-2 flex flex-wrap items-center gap-3 text-sm text-muted">
-							<VerdictMark verdict={product.verdict} t={t} />
-							{product.switchedCount > 0 ? (
-								<span>
-									{product.switchedCount}{" "}
-									{t(
-										product.switchedCount === 1
-											? "stats.switchesOne"
-											: "stats.switches",
-									)}
-								</span>
-							) : (
-								// A published 0 reads as "broken"; the report-a-switch
-								// button below is the real flow, so link straight to it.
-								<a href="#report-switch" className="hover:underline">
-									{t("stats.switchesNone")}
-								</a>
+		<PageShell
+			trail={[
+				homeCrumb(ctx),
+				...(category
+					? [
+							{
+								label: tc(category.name),
+								href: paths.category(lang, category.slug),
+							},
+						]
+					: []),
+				{ label: product.name },
+			]}
+			icon={<ProductLogo product={product} size={52} eager />}
+			title={
+				<>
+					{t("hero.title")} {product.name}
+					{lang === "fr" ? " ?" : "?"}
+				</>
+			}
+			meta={
+				<p className="nums flex flex-wrap items-center gap-x-4 gap-y-2 text-muted text-sm">
+					<VerdictMark verdict={product.verdict} t={t} />
+					{product.switchedCount > 0 ? (
+						<span>
+							{product.switchedCount}{" "}
+							{t(
+								product.switchedCount === 1
+									? "stats.switchesOne"
+									: "stats.switches",
 							)}
-							{category && (
-								<Link
-									href={paths.category(lang, category.slug)}
-									className="hover:underline"
-								>
-									<span style={{ color: "var(--accent)" }}>
-										{tc(category.name)}
-									</span>
-								</Link>
-							)}
-						</p>
-					</div>
-				</header>
+						</span>
+					) : (
+						// A published 0 reads as "broken"; the report-a-switch button in
+						// the rail is the real flow, so link straight to it.
+						<a href="#report-switch" className="hover:underline">
+							{t("stats.switchesNone")}
+						</a>
+					)}
+					{category && (
+						<Link
+							href={paths.category(lang, category.slug)}
+							className="pill text-[var(--accent)]"
+						>
+							{tc(category.name)}
+						</Link>
+					)}
+				</p>
+			}
+		>
+			{/*
+			 * Two columns above `lg`: the argument reads down the left, and the two
+			 * things a reader acts on — what it costs today, and the button that says
+			 * they left — stay in view beside it rather than being scrolled past.
+			 * Below `lg` it is the same single stack it always was, price first.
+			 */}
+			<article className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_17rem] lg:gap-10">
+				<div className="min-w-0 space-y-8">
+					<p className="text-pretty text-lg leading-relaxed">
+						{tc(product.why)}
+					</p>
 
-				{/* Out of the meta row and into a block of its own: the price is the
-				    claim this site is judged on, so it shows its working. */}
-				<section className={CARD}>
-					<Heading>{t("price.heading")}</Heading>
-					<PriceBlock product={product} t={t} lang={lang} />
-				</section>
+					<WhatYouLose product={product} t={t} tc={tc} />
 
-				<p className="max-w-3xl leading-relaxed">{tc(product.why)}</p>
+					<AlternativeList
+						product={product}
+						t={t}
+						tc={tc}
+						lang={lang}
+						projectHref={projectHref}
+					/>
 
-				<WhatYouLose product={product} t={t} tc={tc} />
+					{/* Under the alternatives, because it only means something once the
+					    reader knows which projects the columns are. */}
+					<ReplaceMatrix product={product} lang={lang} t={t} tc={tc} />
+				</div>
 
-				<AlternativeList
-					product={product}
-					t={t}
-					tc={tc}
-					lang={lang}
-					projectHref={projectHref}
-				/>
+				<aside className="min-w-0 space-y-4 lg:sticky lg:top-24 lg:self-start">
+					{/* The price is the claim this site is judged on, so it shows its
+					    working rather than sitting in a meta row. */}
+					<section className="card p-4">
+						<Heading>{t("price.heading")}</Heading>
+						<PriceBlock product={product} t={t} lang={lang} />
+					</section>
 
-				<button
-					id="report-switch"
-					type="button"
-					disabled={ctx.voted.has(product.slug)}
-					onClick={() => ctx.onVote(product.slug)}
-					aria-label={`${t("row.switched")} — ${product.name}`}
-					className="rounded-[calc(var(--radius))] border px-3 py-1.5 text-sm transition disabled:opacity-50"
-					style={{ borderColor: "var(--v-yes)", color: "var(--v-yes)" }}
-				>
-					↺{" "}
-					{t(ctx.voted.has(product.slug) ? "row.switchedDone" : "row.switched")}
-				</button>
+					<button
+						id="report-switch"
+						type="button"
+						disabled={ctx.voted.has(product.slug)}
+						onClick={() => ctx.onVote(product.slug)}
+						aria-label={`${t("row.switched")} — ${product.name}`}
+						className="w-full rounded-[calc(var(--radius))] border px-3 py-2.5 text-sm transition disabled:opacity-50"
+						style={{ borderColor: "var(--v-yes)", color: "var(--v-yes)" }}
+					>
+						↺{" "}
+						{t(
+							ctx.voted.has(product.slug) ? "row.switchedDone" : "row.switched",
+						)}
+					</button>
 
-				{/* One product, one file. This is the whole admin panel. */}
-				<EditThisPage file={productFile(product.slug)} t={t} />
+					{/* One product, one file. This is the whole admin panel. */}
+					<EditThisPage file={productFile(product.slug)} t={t} />
+				</aside>
 			</article>
-		</Shell>
+
+			{/* Sideways, not just back. Capped at six so it stays a suggestion rather
+			    than a second copy of the category page it links to. */}
+			{category && siblings.length > 0 && (
+				<Section
+					title={t("cats.inThis")}
+					actions={
+						<Link
+							href={paths.category(lang, category.slug)}
+							className="text-brand text-sm hover:underline"
+						>
+							{tc(category.name)} →
+						</Link>
+					}
+				>
+					<ul className={`${GRID_1COL} gap-2 sm:grid-cols-2`}>
+						{siblings.slice(0, 6).map((p) => (
+							<ProductCard key={p.slug} product={p} ctx={ctx} />
+						))}
+					</ul>
+				</Section>
+			)}
+		</PageShell>
 	);
 }
 
@@ -318,30 +327,46 @@ export function ProjectPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 	if (!project) return <Pending ctx={ctx} empty={ctx.products.length > 0} />;
 	const health = healthOf(project.source);
 	const homepage = homepageOf(project.source);
+	// The categories of the products citing this project — gates which vertical
+	// feature domains apply. `Project` carries `replaces`, not categories, so the
+	// join happens here rather than in core.
+	const projectCategories = [
+		...new Set(
+			project.replaces
+				.map((r) => ctx.products.find((p) => p.slug === r.slug)?.category)
+				.filter((c): c is string => Boolean(c)),
+		),
+	];
+
+	// A link out is a link out: styled as a chip so the three of them read as one
+	// row of destinations rather than three differently-shaped sentences.
+	const outLink =
+		"pill max-w-full min-w-0 hover:border-[var(--accent)] hover:text-[var(--accent)]";
 
 	return (
-		<Shell>
-			<HomeLink ctx={ctx} />
-			<article className="mt-4 space-y-6">
-				<header>
-					<h1 className="font-display text-3xl font-bold tracking-tight">
-						{project.name}
-					</h1>
-					<p className="mt-2 flex flex-wrap items-center gap-3 text-sm text-muted">
-						{/* The licence moved down into the fact row, where it sits beside
-						    the other things the reader is checking rather than alone. */}
-						<span>{t(`effort.${project.effort}` as Key)}</span>
+		<PageShell
+			trail={[
+				homeCrumb(ctx),
+				{ label: t("page.projects"), href: paths.projects(lang) },
+				{ label: project.name },
+			]}
+			eyebrow={t(`effort.${project.effort}` as Key)}
+			title={project.name}
+			meta={
+				<div className="space-y-3">
+					<p className="flex flex-wrap items-center gap-2 text-sm">
 						{/* External, so a real target and rel — not a client transition. */}
 						<a
 							href={outboundUrl(project.source.url, "repo")}
 							target="_blank"
 							rel="noopener"
-							className="inline-flex items-center gap-1 hover:underline"
-							style={{ color: "var(--accent)" }}
+							className={outLink}
 						>
 							<ForgeIcon host={project.source.host} />
-							{project.source.host}/{project.source.path}
-							<ExternalLink className="size-3.5" aria-hidden />
+							<span className="truncate">
+								{project.source.host}/{project.source.path}
+							</span>
+							<ExternalLink className="size-3 shrink-0" aria-hidden />
 						</a>
 						{/* The docs and the install instructions are usually here rather
 						    than on the forge. Absent when the repo declares no site, or
@@ -351,11 +376,11 @@ export function ProjectPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 								href={outboundUrl(homepage, "homepage")}
 								target="_blank"
 								rel="noopener"
-								className="inline-flex items-center gap-1 hover:underline"
-								style={{ color: "var(--accent)" }}
+								className={outLink}
 							>
-								<Globe className="size-3.5" aria-hidden />
-								{hostOf(homepage)}
+								<Globe className="size-3.5 shrink-0" aria-hidden />
+								<span className="truncate">{hostOf(homepage)}</span>
+								<ExternalLink className="size-3 shrink-0" aria-hidden />
 							</a>
 						)}
 					</p>
@@ -367,7 +392,7 @@ export function ProjectPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 					    `RepoFreshness` renders nothing at all when there is no reading —
 					    a repo we cannot see is not a repo with no activity — so the row
 					    can shorten to the editorial facts without leaving a gap. */}
-					<p className="mt-2 flex flex-wrap items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider text-muted">
+					<p className="flex flex-wrap items-center gap-1.5 font-mono text-[10px] text-muted uppercase tracking-wider">
 						<FactMarks
 							facts={project.facts}
 							license={project.license}
@@ -377,7 +402,24 @@ export function ProjectPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 						/>
 						<RepoFreshness source={project.source} t={t} lang={lang} full />
 					</p>
-				</header>
+				</div>
+			}
+		>
+			<article className="space-y-2">
+				{/* Above everything, not beside it: somebody has to see this before
+				    they read a page recommending it. */}
+				{health?.archived && (
+					<p
+						className="mb-6 rounded-[calc(var(--radius))] border p-4 text-sm"
+						style={{
+							borderColor: "var(--v-no)",
+							color: "var(--v-no)",
+							background: "color-mix(in srgb, var(--v-no) 7%, transparent)",
+						}}
+					>
+						<strong>{t("repo.archived")}.</strong> {t("repo.archivedNote")}
+					</p>
+				)}
 
 				{/* The one distinction the whole site turns on, given its own block
 				    rather than a place in the row above. */}
@@ -391,51 +433,46 @@ export function ProjectPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 					/>
 				</section>
 
-				{/* Above the argument, not beside it: somebody has to see this before
-				    they read a paragraph recommending it. */}
-				{health?.archived && (
-					<p
-						className="rounded-[calc(var(--radius))] border p-3.5 text-sm"
-						style={{ borderColor: "var(--v-no)", color: "var(--v-no)" }}
-					>
-						<strong>{t("repo.archived")}.</strong> {t("repo.archivedNote")}
-					</p>
-				)}
-
-				<section>
-					<Heading>
-						{t("page.replaces")} · {project.replaces.length}
-					</Heading>
+				<Section title={t("page.replaces")} count={project.replaces.length}>
 					<ul className={`${GRID_1COL} gap-2 sm:grid-cols-2`}>
 						{project.replaces.map((r) => (
-							<li key={r.slug} className={CARD}>
-								<Link
-									href={paths.product(lang, r.slug)}
-									className="font-medium hover:underline"
-								>
-									{r.name}
+							<li key={r.slug} className="card card-link">
+								<Link href={paths.product(lang, r.slug)} className="block p-4">
+									<span className="font-display font-semibold">{r.name}</span>
+									<span className="mt-1.5 block text-muted text-sm">
+										{tc(r.note)}
+									</span>
 								</Link>
-								<p className="mt-1.5 text-sm text-muted">{tc(r.note)}</p>
 							</li>
 						))}
 					</ul>
-				</section>
+				</Section>
+
+				<ProjectFeatures
+					source={project.source}
+					categories={projectCategories}
+					lang={lang}
+					t={t}
+					tc={tc}
+				/>
 
 				{/*
 				 * A project page is derived from every product that cites it, so there
 				 * is no one file behind it — except when exactly one product does, in
 				 * which case that file IS the page and we can open it directly.
 				 */}
-				<EditThisPage
-					file={
-						project.replaces.length === 1
-							? productFile(project.replaces[0].slug)
-							: null
-					}
-					t={t}
-				/>
+				<div className="mt-10">
+					<EditThisPage
+						file={
+							project.replaces.length === 1
+								? productFile(project.replaces[0].slug)
+								: null
+						}
+						t={t}
+					/>
+				</div>
 			</article>
-		</Shell>
+		</PageShell>
 	);
 }
 
@@ -456,15 +493,17 @@ export function ProductCard({
 	const { t, lang } = ctx;
 	const oss = product.alternatives.filter((a) => a.kind === "oss").length;
 	return (
-		<li className="rounded-[calc(var(--radius))] border border-border bg-surface transition hover:border-[color-mix(in_srgb,var(--accent)_50%,var(--color-border))]">
+		<li className="card card-link">
 			<Link
 				href={paths.product(lang, product.slug)}
 				className="flex items-center gap-3 p-3.5"
 			>
-				<ProductLogo product={product} size={28} />
+				<ProductLogo product={product} size={32} />
 				<span className="min-w-0 flex-1">
-					<span className="block truncate font-medium">{product.name}</span>
-					<span className="nums block truncate text-xs text-muted">
+					<span className="block truncate font-display font-semibold">
+						{product.name}
+					</span>
+					<span className="nums block truncate text-muted text-xs">
 						{priceLabel(product, lang, t)} · {oss} {t("row.alternatives")}
 					</span>
 				</span>
@@ -528,68 +567,71 @@ export function CategoryPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 	const neighbours = neighboursOf(categories, slug);
 
 	return (
-		<Shell measure={MEASURE}>
-			<Trail
-				items={[
-					{ label: t("page.home"), href: paths.home(lang) },
-					{ label: t("page.categories"), href: paths.categories(lang) },
-					{ label: name },
-				]}
-			/>
-
-			<header className="mt-4 flex items-start gap-3">
-				<Icon className="mt-1 size-8 shrink-0 text-brand" aria-hidden />
-				<h1 className="font-display text-3xl font-bold tracking-tight">
-					{name}
-				</h1>
-			</header>
-
-			{/* Everything in this block is computed from the entries below it, so the
-			    page cannot claim a figure the list does not support. */}
-			{stat && (
-				<section className="mt-6 space-y-4 rounded-[calc(var(--radius))] border border-border bg-surface p-4">
-					<dl className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-						<Figure value={stat.products} label={t("stats.products")} />
-						<Figure value={stat.projects} label={t("cats.projects")} />
-						<Figure
-							value={medianLabel(stat, lang, t)}
-							label={
-								stat.medianPrice === null
-									? t("cats.medianPrice")
-									: `${t("cats.medianOver")} ${stat.pricedProducts}`
-							}
-						/>
-						<Figure
-							value={
-								<span className="text-sm font-medium">
-									<CheapestEscape
-										stat={stat}
-										lang={lang}
-										t={t}
-										projectSlugs={ctx.projectSlugs}
-									/>
-								</span>
-							}
-							label={t("cats.cheapest")}
-						/>
-					</dl>
-					<div>
-						<Heading>{t("cats.ladder")}</Heading>
-						<RungLegend stat={stat} t={t} />
+		<PageShell
+			measure={MEASURE}
+			trail={[
+				homeCrumb(ctx),
+				{ label: t("page.categories"), href: paths.categories(lang) },
+				{ label: name },
+			]}
+			eyebrow={t("page.categories")}
+			icon={
+				<span
+					className="grid size-11 shrink-0 place-items-center rounded-[calc(var(--radius))] border border-border"
+					style={{
+						background: "color-mix(in srgb, var(--brand) 10%, var(--surface))",
+					}}
+				>
+					<Icon className="size-5 text-brand" aria-hidden />
+				</span>
+			}
+			title={name}
+			meta={
+				// Everything here is computed from the entries below it, so the page
+				// cannot claim a figure the list does not support.
+				stat && (
+					<div className="panel space-y-4 p-4">
+						<dl className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+							<Figure value={stat.products} label={t("stats.products")} />
+							<Figure value={stat.projects} label={t("cats.projects")} />
+							<Figure
+								value={medianLabel(stat, lang, t)}
+								label={
+									stat.medianPrice === null
+										? t("cats.medianPrice")
+										: `${t("cats.medianOver")} ${stat.pricedProducts}`
+								}
+							/>
+							<Figure
+								value={
+									<span className="font-medium text-sm">
+										<CheapestEscape
+											stat={stat}
+											lang={lang}
+											t={t}
+											projectSlugs={ctx.projectSlugs}
+										/>
+									</span>
+								}
+								label={t("cats.cheapest")}
+							/>
+						</dl>
+						<div className="border-border border-t pt-3">
+							<Heading>{t("cats.ladder")}</Heading>
+							<RungLegend stat={stat} t={t} />
+						</div>
 					</div>
-				</section>
-			)}
-
-			<div className="mt-6">
-				<CategoryMenu
-					cats={categories}
-					stats={stats}
-					lang={lang}
-					t={t}
-					tc={tc}
-					current={slug}
-				/>
-			</div>
+				)
+			}
+		>
+			<CategoryMenu
+				cats={categories}
+				stats={stats}
+				lang={lang}
+				t={t}
+				tc={tc}
+				current={slug}
+			/>
 
 			{/*
 			 * SPONSORSHIP MOUNT POINT — owned by the sponsorship work, not this file's
@@ -600,10 +642,7 @@ export function CategoryPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 			 * page has to move.
 			 */}
 
-			<section className="mt-8">
-				<Heading>
-					{t("cats.inThis")} · {inCat.length}
-				</Heading>
+			<Section title={t("cats.inThis")} count={inCat.length}>
 				<ul className={`${GRID_1COL} gap-2 sm:grid-cols-2`}>
 					{inCat.map((p) => (
 						<ProductCard key={p.slug} product={p} ctx={ctx} />
@@ -614,28 +653,37 @@ export function CategoryPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 				    reader who landed here where to go next instead of padding the page
 				    with text to game a threshold. */}
 				{inCat.length > 0 && inCat.length < 3 && (
-					<p className="mt-3 text-sm text-muted">{t("cats.smallNote")}</p>
+					<p className="mt-3 text-muted text-sm">{t("cats.smallNote")}</p>
 				)}
-			</section>
+			</Section>
 
 			{neighbours.length > 0 && (
-				<section className="mt-8">
-					<Heading>{t("cats.nearby")}</Heading>
+				<Section
+					title={t("cats.nearby")}
+					actions={
+						<Link
+							href={paths.categories(lang)}
+							className="text-brand text-sm hover:underline"
+						>
+							{t("cats.all")} →
+						</Link>
+					}
+				>
 					<ul className={`${GRID_1COL} gap-2 sm:grid-cols-2`}>
 						{neighbours.map((c) => {
 							const s = stats.get(c.slug);
 							const NIcon = categoryIcon(c.icon);
 							return (
-								<li key={c.slug}>
+								<li key={c.slug} className="card card-link">
 									<Link
 										href={paths.category(lang, c.slug)}
-										className="flex items-center gap-3 rounded-[calc(var(--radius))] border border-border bg-surface p-3 hover:border-brand"
+										className="flex items-center gap-3 p-3.5"
 									>
-										<NIcon className="size-4 shrink-0 text-muted" aria-hidden />
-										<span className="min-w-0 flex-1 truncate text-sm font-medium">
+										<NIcon className="size-4 shrink-0 text-brand" aria-hidden />
+										<span className="min-w-0 flex-1 truncate font-medium text-sm">
 											{tc(c.name)}
 										</span>
-										<span className="nums text-xs text-muted">
+										<span className="nums text-muted text-xs">
 											{s?.products ?? 0}
 										</span>
 									</Link>
@@ -643,11 +691,11 @@ export function CategoryPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 							);
 						})}
 					</ul>
-				</section>
+				</Section>
 			)}
 
-			<EditThisPage file={CATEGORY_FILE} t={t} className="mt-8" />
-		</Shell>
+			<EditThisPage file={CATEGORY_FILE} t={t} className="mt-10" />
+		</PageShell>
 	);
 }
 
@@ -661,13 +709,13 @@ function CategoryRow({ cat, ctx }: { cat: Category; ctx: PageCtx }) {
 	const stat = stats.get(cat.slug) as CategoryStat;
 	const Icon = categoryIcon(cat.icon);
 	return (
-		<li className={CARD}>
+		<li className="card p-4">
 			{/* The name is the link; the figures beside it are text, so a reader is
 			    never made to click a number to read it. */}
 			<div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
 				<Link
 					href={paths.category(lang, cat.slug)}
-					className="flex min-w-0 items-center gap-2 font-medium hover:underline"
+					className="flex min-w-0 items-center gap-2 font-display font-semibold hover:underline"
 				>
 					<Icon className="size-4 shrink-0 text-brand" aria-hidden />
 					{tc(cat.name)}
@@ -715,7 +763,7 @@ function CategoryRow({ cat, ctx }: { cat: Category; ctx: PageCtx }) {
  * real `<a href="#…">` anchors, so it works with no JavaScript.
  */
 export function CategoriesPage({ ctx }: { ctx: PageCtx }) {
-	const { t, lang, categories, stats } = ctx;
+	const { t, categories, stats } = ctx;
 	// Only the ones that hold something: an empty category has no page.
 	const live = byProductCount(categories, stats).filter(
 		(c) => (stats.get(c.slug)?.products ?? 0) > 0,
@@ -724,47 +772,44 @@ export function CategoriesPage({ ctx }: { ctx: PageCtx }) {
 	const groups = byGroup(live);
 
 	return (
-		<Shell measure={MEASURE}>
-			<Trail
-				items={[
-					{ label: t("page.home"), href: paths.home(lang) },
-					{ label: t("page.categories") },
-				]}
-			/>
-
-			<h1 className="mt-4 font-display text-3xl font-bold tracking-tight">
-				{t("cats.title")}
-			</h1>
-			<p className="mt-2 max-w-2xl text-pretty text-sm text-muted">
-				{t("cats.blurb")}
-			</p>
-
-			<nav aria-label={t("cats.themes")} className="mt-6">
-				<h2 className="font-mono text-[10px] text-muted uppercase tracking-[0.2em]">
-					{t("cats.themes")}
-				</h2>
-				<ul className="mt-2 flex flex-wrap gap-2">
-					{groups.map((g) => (
-						<li key={g.group}>
-							<a
-								href={`#${GROUP_ID}${g.group}`}
-								className="flex items-center gap-2 rounded-[calc(var(--radius))] border border-border bg-surface px-2.5 py-1.5 text-sm hover:border-brand"
-							>
-								{t(`catGroup.${g.group}` as Key)}
-								<span className="nums text-xs text-muted">{g.cats.length}</span>
-							</a>
-						</li>
-					))}
-				</ul>
-			</nav>
-
+		<PageShell
+			measure={MEASURE}
+			trail={[homeCrumb(ctx), { label: t("page.categories") }]}
+			eyebrow={t("cats.browse")}
+			title={t("cats.title")}
+			lede={t("cats.blurb")}
+			meta={
+				// The table of contents ten sections need. Real `<a href="#…">`
+				// anchors, so it works with no JavaScript; `scroll-padding-top` in
+				// index.css keeps the target clear of the sticky header.
+				<nav aria-label={t("cats.themes")}>
+					<h2 className="eyebrow">{t("cats.themes")}</h2>
+					<ul className="mt-2 flex flex-wrap gap-2">
+						{groups.map((g) => (
+							<li key={g.group}>
+								<a href={`#${GROUP_ID}${g.group}`} className="pill">
+									{t(`catGroup.${g.group}` as Key)}
+									<span className="nums text-muted text-xs">
+										{g.cats.length}
+									</span>
+								</a>
+							</li>
+						))}
+					</ul>
+				</nav>
+			}
+		>
 			{groups.map((g) => (
-				<section key={g.group} id={`${GROUP_ID}${g.group}`} className="mt-10">
-					<div className="flex flex-wrap items-baseline gap-x-3">
-						<h2 className="font-display text-xl font-bold tracking-tight">
+				<section
+					key={g.group}
+					id={`${GROUP_ID}${g.group}`}
+					className="mt-12 first:mt-0"
+				>
+					<div className="mb-3 flex flex-wrap items-baseline gap-x-3 border-border border-b pb-2">
+						<h2 className="font-display font-bold text-xl">
 							{t(`catGroup.${g.group}` as Key)}
 						</h2>
-						<p className="nums text-xs text-muted">
+						<p className="nums text-muted text-xs">
 							{g.cats.length} {t("cats.inGroup")} ·{" "}
 							{g.cats.reduce(
 								(n, c) => n + (stats.get(c.slug)?.products ?? 0),
@@ -773,7 +818,7 @@ export function CategoriesPage({ ctx }: { ctx: PageCtx }) {
 							{t("stats.products")}
 						</p>
 					</div>
-					<ul className="mt-3 space-y-2">
+					<ul className="space-y-2">
 						{g.cats.map((c) => (
 							<CategoryRow key={c.slug} cat={c} ctx={ctx} />
 						))}
@@ -782,7 +827,7 @@ export function CategoriesPage({ ctx }: { ctx: PageCtx }) {
 			))}
 
 			<EditThisPage file={CATEGORY_FILE} t={t} className="mt-10" />
-		</Shell>
+		</PageShell>
 	);
 }
 
@@ -832,7 +877,7 @@ function ProjectRow({ project, ctx }: { project: Project; ctx: PageCtx }) {
 	const rest = project.replaces.length - shown.length;
 
 	return (
-		<li className={CARD}>
+		<li className="card p-4">
 			<div className="flex items-baseline justify-between gap-2">
 				{slug ? (
 					<Link
@@ -913,28 +958,28 @@ export function ProjectsIndexPage({
 		: rows;
 
 	return (
-		<Shell measure={MEASURE}>
-			<Trail
-				items={[
-					{ label: t("page.home"), href: paths.home(lang) },
-					{ label: t("page.projects") },
-				]}
-			/>
-
-			<h1 className="mt-4 font-display text-3xl font-bold tracking-tight">
-				{t("projects.title")}
-			</h1>
-			<p className="mt-2 max-w-2xl text-pretty text-sm text-muted">
-				{t("projects.blurb")}
-			</p>
-
-			<div className="mt-6 flex flex-wrap items-center gap-2">
+		<PageShell
+			measure={MEASURE}
+			trail={[homeCrumb(ctx), { label: t("page.projects") }]}
+			eyebrow={t("nav.projects")}
+			title={t("projects.title")}
+			lede={t("projects.blurb")}
+			meta={
+				<p className="nums text-muted text-sm">
+					{total} {t("projects.unit")}
+				</p>
+			}
+		>
+			{/* The filter bar is a panel, not a loose row of controls: it belongs to
+			    the list under it, and the same treatment is used on every index so a
+			    reader recognises "these narrow what is below" without reading them. */}
+			<div className="panel flex flex-wrap items-center gap-2 p-2.5">
 				<input
 					value={filters.q}
 					onChange={(e) => setFilters({ ...filters, q: e.target.value })}
 					placeholder={t("projects.searchPlaceholder")}
 					aria-label={t("projects.searchPlaceholder")}
-					className="min-w-0 flex-1 rounded-[calc(var(--radius))] border border-border bg-surface px-2.5 py-2 text-sm outline-none focus:border-brand sm:min-w-52"
+					className="min-w-0 flex-1 rounded-[calc(var(--radius))] border border-border bg-surface px-3 py-2 text-sm outline-none focus:border-brand sm:min-w-52"
 				/>
 				<Choice
 					label={t("filter.openness")}
@@ -962,7 +1007,7 @@ export function ProjectsIndexPage({
 			</div>
 
 			{filtering && (
-				<p className="nums mt-2 text-xs text-muted">
+				<p className="nums mt-2 text-muted text-xs">
 					{shown.length} {t("projects.unit")} · {t("filter.filteredNote")}
 				</p>
 			)}
@@ -974,7 +1019,7 @@ export function ProjectsIndexPage({
 			</ul>
 
 			{shown.length === 0 && (
-				<p className="py-12 text-center text-sm text-muted">
+				<p className="py-12 text-center text-muted text-sm">
 					{t("empty.none")}
 				</p>
 			)}
@@ -998,7 +1043,7 @@ export function ProjectsIndexPage({
 					/>
 				</>
 			)}
-		</Shell>
+		</PageShell>
 	);
 }
 
@@ -1006,22 +1051,14 @@ export function ProjectsIndexPage({
 export function CollectionsPage({ ctx }: { ctx: PageCtx }) {
 	const { t, lang } = ctx;
 	return (
-		<Shell measure={MEASURE}>
-			<Trail
-				items={[
-					{ label: t("page.home"), href: paths.home(lang) },
-					{ label: t("page.collections") },
-				]}
-			/>
-
-			<h1 className="mt-4 font-display text-3xl font-bold tracking-tight">
-				{t("collections.title")}
-			</h1>
-			<p className="mt-2 max-w-2xl text-pretty text-sm text-muted">
-				{t("collections.blurb")}
-			</p>
-
-			<ul className={`mt-8 ${GRID_1COL} gap-2 sm:grid-cols-2`}>
+		<PageShell
+			measure={MEASURE}
+			trail={[homeCrumb(ctx), { label: t("page.collections") }]}
+			eyebrow={t("nav.collections")}
+			title={t("collections.title")}
+			lede={t("collections.blurb")}
+		>
+			<ul className={`${GRID_1COL} gap-3 sm:grid-cols-2`}>
 				{COLLECTIONS.map((c) => {
 					// Baked at build time, so the static document a crawler reads carries
 					// the same six numbers a reader sees. Null only on the dev server,
@@ -1034,29 +1071,36 @@ export function CollectionsPage({ ctx }: { ctx: PageCtx }) {
 								)
 							: null);
 					return (
-						<li
-							key={c.slug}
-							className="rounded-[calc(var(--radius))] border border-border bg-surface p-4"
-						>
+						<li key={c.slug} className="card card-link">
+							{/* The whole cell is the link — a 2cm-wide card with a 4-word
+							    hit area in the corner is a card that misses on a phone. */}
 							<Link
 								href={paths.collection(lang, c.slug)}
-								className="font-display font-semibold hover:underline"
+								className="flex h-full flex-col p-5"
 							>
-								{t(`collection.${c.slug}.title` as Key)}
+								<span className="flex items-baseline justify-between gap-3">
+									<span className="font-display font-semibold text-lg">
+										{t(`collection.${c.slug}.title` as Key)}
+									</span>
+									<ChevronRight
+										className="size-4 shrink-0 text-muted"
+										aria-hidden
+									/>
+								</span>
+								<span className="mt-2 flex-1 text-muted text-sm leading-relaxed">
+									{t(`collection.${c.slug}.blurb` as Key)}
+								</span>
+								{/* Counted from the catalogue in hand, so it says nothing at
+								    all rather than a wrong number before the API answers. */}
+								{count !== null && (
+									<span className="nums mt-4 text-brand text-xs">
+										{count}{" "}
+										{c.of === "product"
+											? t("stats.products")
+											: t("projects.unit")}
+									</span>
+								)}
 							</Link>
-							<p className="mt-1.5 text-sm text-muted">
-								{t(`collection.${c.slug}.blurb` as Key)}
-							</p>
-							{/* Counted from the catalogue in hand, so it says nothing at all
-							    rather than a wrong number before the API answers. */}
-							{count !== null && (
-								<p className="nums mt-2 text-xs text-muted">
-									{count}{" "}
-									{c.of === "product"
-										? t("stats.products")
-										: t("projects.unit")}
-								</p>
-							)}
 						</li>
 					);
 				})}
@@ -1064,7 +1108,7 @@ export function CollectionsPage({ ctx }: { ctx: PageCtx }) {
 
 			{/* The one the owner asked for and that is not here. Saying so on the page
 			    is cheaper than letting somebody re-derive the same dead end. */}
-			<p className="mt-6 max-w-2xl text-xs text-muted">
+			<p className="mt-8 max-w-2xl text-muted text-xs">
 				{t("collections.rejectedNote")}{" "}
 				<Link
 					href={paths.projects(lang)}
@@ -1074,7 +1118,7 @@ export function CollectionsPage({ ctx }: { ctx: PageCtx }) {
 				</Link>
 				.
 			</p>
-		</Shell>
+		</PageShell>
 	);
 }
 
@@ -1149,28 +1193,25 @@ export function CollectionPage({
 	const title = t(`collection.${slug}.title` as Key);
 
 	return (
-		<Shell measure={MEASURE}>
-			<Trail
-				items={[
-					{ label: t("page.home"), href: paths.home(lang) },
-					{ label: t("page.collections"), href: paths.collections(lang) },
-					{ label: title },
-				]}
-			/>
-
-			<h1 className="mt-4 font-display text-3xl font-bold tracking-tight">
-				{title}
-			</h1>
-			<p className="mt-2 max-w-2xl text-pretty text-sm text-muted">
-				{t(`collection.${slug}.blurb` as Key)}
-			</p>
-			{/* How the membership is derived, in one line, on the page itself. A
-			    collection nobody can check is a list somebody could have made up. */}
-			<p className="mt-2 max-w-2xl text-xs text-muted">
-				{t(`collection.${slug}.derivation` as Key)}
-			</p>
-
-			<div className="mt-6 flex flex-wrap items-center gap-2">
+		<PageShell
+			measure={MEASURE}
+			trail={[
+				homeCrumb(ctx),
+				{ label: t("page.collections"), href: paths.collections(lang) },
+				{ label: title },
+			]}
+			eyebrow={t("nav.collections")}
+			title={title}
+			lede={t(`collection.${slug}.blurb` as Key)}
+			meta={
+				// How the membership is derived, in one line, on the page itself. A
+				// collection nobody can check is a list somebody could have made up.
+				<p className="max-w-2xl border-border border-l-2 pl-3 text-muted text-xs leading-relaxed">
+					{t(`collection.${slug}.derivation` as Key)}
+				</p>
+			}
+		>
+			<div className="panel flex flex-wrap items-center gap-2 p-2.5">
 				{ofProducts ? (
 					<>
 						<Choice
@@ -1301,11 +1342,8 @@ export function CollectionPage({
 			 * under all four pages would be the same block on four URLs.
 			 */}
 			{current === 1 && unresolved.length > 0 && (
-				<section className="mt-10">
-					<Heading>
-						{t("collection.unresolved")} · {unresolved.length}
-					</Heading>
-					<p className="mb-3 max-w-2xl text-xs text-muted">
+				<Section title={t("collection.unresolved")} count={unresolved.length}>
+					<p className="mb-3 max-w-2xl text-muted text-xs leading-relaxed">
 						{t(`collection.${slug}.unresolvedNote` as Key)}
 					</p>
 					<ul className="flex flex-wrap gap-2">
@@ -1314,23 +1352,18 @@ export function CollectionPage({
 							return (
 								<li key={p.slug}>
 									{s ? (
-										<Link
-											href={paths.project(lang, s)}
-											className="inline-block rounded-full border border-border bg-surface px-3 py-1.5 text-xs hover:border-brand"
-										>
+										<Link href={paths.project(lang, s)} className="pill">
 											{p.name}
 										</Link>
 									) : (
-										<span className="inline-block rounded-full border border-border bg-surface px-3 py-1.5 text-xs">
-											{p.name}
-										</span>
+										<span className="pill text-muted">{p.name}</span>
 									)}
 								</li>
 							);
 						})}
 					</ul>
-				</section>
+				</Section>
 			)}
-		</Shell>
+		</PageShell>
 	);
 }

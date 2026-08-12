@@ -95,6 +95,186 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenBao",
+			"source": {
+				"host": "github",
+				"path": "openbao/openbao",
+				"url": "https://github.com/openbao/openbao"
+			},
+			"license": "MPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Fully-open Vault fork for dynamic secrets, leases, rotation and encryption-as-a-service. Secrets only: no session proxy or recording, and the UI ships without SSO.",
+				"fr": "Fork de Vault entièrement libre pour secrets dynamiques, baux, rotation et chiffrement en tant que service. Secrets uniquement : pas de proxy de session ni d’enregistrement, ni de SSO intégré à l’UI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "HashiCorp Vault",
+			"source": {
+				"host": "github",
+				"path": "hashicorp/vault",
+				"url": "https://github.com/hashicorp/vault"
+			},
+			"license": "BUSL-1.1",
+			"effort": "docker",
+			"note": {
+				"en": "De-facto engine for dynamic DB and cloud credentials, transit encryption, OIDC/SAML backends. BUSL — not OSS — and no session proxy or recording.",
+				"fr": "Moteur de facto pour identifiants DB et cloud dynamiques, chiffrement transit, backends OIDC/SAML. Licence BUSL, pas open source, et pas de proxy de session ni d’enregistrement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Multi-cluster HA replication.",
+					"fr": "Réplication HA multi-cluster."
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Infisical",
+			"source": {
+				"host": "github",
+				"path": "Infisical/infisical",
+				"url": "https://github.com/Infisical/infisical"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "App-secret platform with env and provider sync, CLI, SDK, self-hostable via Docker or Helm. SSO and RBAC sit behind paywalls, and sessions are out of scope.",
+				"fr": "Plateforme de secrets applicatifs : synchro entre environnements et fournisseurs, CLI, SDK, auto-hébergement Docker ou Helm. SSO et RBAC payants, et pas de gestion de session."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "SSO and RBAC policies.",
+					"fr": "SSO et politiques RBAC."
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pomerium",
+			"source": {
+				"host": "github",
+				"path": "pomerium/pomerium",
+				"url": "https://github.com/pomerium/pomerium"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Identity-aware proxy: free OIDC/SAML SSO, per-route authorization, mTLS and JWT checks, access-decision audit log. HTTP-centric — not SSH or DB aware — and no session recording.",
+				"fr": "Proxy identité-aware : SSO OIDC/SAML gratuit, autorisation par route, vérification mTLS et JWT, journal des décisions d’accès. Orienté HTTP — pas SSH ni DB — et sans enregistrement de session."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Little: free build ships SSO, policy and audit.",
+					"fr": "Peu de choses : le build gratuit inclut SSO, politique et audit."
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Netbird",
+			"source": {
+				"host": "github",
+				"path": "netbirdio/netbird",
+				"url": "https://github.com/netbirdio/netbird"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted zero-trust WireGuard mesh: peer ACLs, OIDC SSO, desktop and mobile clients. Network-level access only — no session recording, and the server side is AGPL.",
+				"fr": "Mesh WireGuard zero-trust auto-hébergeable : ACL par pair, SSO OIDC, clients desktop et mobile. Accès au niveau réseau seulement — pas d’enregistrement de session, et le serveur est en AGPL."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache Guacamole",
+			"source": {
+				"host": "github",
+				"path": "apache/guacamole-server",
+				"url": "https://github.com/apache/guacamole-server"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Browser-only gateway: SSH, RDP and VNC over HTML5, with session recording and playback. No dynamic credentials or secrets management; SSO is bolted on per-extension.",
+				"fr": "Passerelle 100 % navigateur : SSH, RDP et VNC en HTML5, enregistrement et lecture de session. Pas de gestion de secrets ni d’identifiants dynamiques, et le SSO se monte extension par extension."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "sshportal",
+			"source": {
+				"host": "github",
+				"path": "moul/sshportal",
+				"url": "https://github.com/moul/sshportal"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight SSH bastion with host and user ACLs, session audit logging, easy Docker deploy. SSH-only — no DB, RDP or HTTP proxying — no native SSO, small project.",
+				"fr": "Bastion SSH léger : ACL par hôte et par utilisateur, journalisation d’audit des sessions, déploiement Docker simple. SSH uniquement — pas de proxy DB, RDP ou HTTP — pas de SSO natif, petit projet."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ttyd",
+			"source": {
+				"host": "github",
+				"path": "tsl0922/ttyd",
+				"url": "https://github.com/tsl0922/ttyd"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Dead-simple web terminal: one static binary exposes a TTY in the browser, optional basic auth and TLS. No RBAC, ACLs or audit trail, and a process per shared terminal.",
+				"fr": "Terminal web minimaliste : un seul binaire statique expose un TTY dans le navigateur, auth basique et TLS optionnels. Pas de RBAC, d’ACL ni de piste d’audit, un processus par terminal partagé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

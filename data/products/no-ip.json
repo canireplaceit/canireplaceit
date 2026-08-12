@@ -103,6 +103,174 @@
 				"en": "Free subdomains under duckdns.org, donation funded. No custom domain and no SLA, which is exactly what a home lab needs.",
 				"fr": "Sous-domaines gratuits sous duckdns.org, financés par les dons. Pas de domaine personnalisé ni de SLA, ce qui suffit parfaitement à un home lab."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "ddns-go",
+			"source": {
+				"host": "github",
+				"path": "jeessy2/ddns-go",
+				"url": "https://github.com/jeessy2/ddns-go"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Active single-binary DDNS server managed through a web UI — 17k stars. Strongest on Chinese providers like aliyun and dnspod, and the UI is the only interface, no CLI.",
+				"fr": "Serveur DDNS mono-binaire piloté par une interface web — 17k étoiles, très actif. Penche fort vers les providers chinois (aliyun, dnspod), et l’UI reste la seule interface, sans CLI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "inadyn",
+			"source": {
+				"host": "github",
+				"path": "troglobit/inadyn",
+				"url": "https://github.com/troglobit/inadyn"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Archived upstream since 2025, yet still the battle-tested C client that speaks No-IP natively and runs on router flash. Config is ini files, no UI — and no active development.",
+				"fr": "Projet archivé depuis 2025, mais reste le client C éprouvé qui parle No-IP nativement et tient dans la mémoire flash d’un routeur. Config ini, pas d’UI, et plus aucun développement actif."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "nsupdate.info",
+			"source": {
+				"host": "github",
+				"path": "nsupdate-info/nsupdate.info",
+				"url": "https://github.com/nsupdate-info/nsupdate.info"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Self-host the whole DDNS service — Django server with update API and dyndns2, hostnames live on your own domain. Heaviest option here: you must run a DNS server and own the domain.",
+				"fr": "Hébergez vous-même tout le service DDNS — serveur Django, API, dyndns2 — et vos hostnames vivent sur votre propre domaine. Le plus lourd ici : il faut aussi un serveur DNS et un domaine."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "cloudflare-ddns (timothymiller)",
+			"source": {
+				"host": "github",
+				"path": "timothymiller/cloudflare-ddns",
+				"url": "https://github.com/timothymiller/cloudflare-ddns"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Most-used Cloudflare DDNS container, a drop-in A/AAAA updater for docker stacks. Env-configured, with a proxy flag to toggle orange-cloud per record; Cloudflare-only, a daemon rather than a CLI.",
+				"fr": "Le conteneur Cloudflare DDNS le plus utilisé, un updater A/AAAA clé-en-main pour stacks docker. Configurable par env vars, flag proxy pour basculer l’orange-cloud par enregistrement — Cloudflare uniquement, démon et pas CLI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "godns",
+			"source": {
+				"host": "github",
+				"path": "TimothyYe/godns",
+				"url": "https://github.com/TimothyYe/godns"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Go DDNS daemon covering No-IP, DuckDNS and Cloudflare out of the box, a single Nix-friendly binary. Config-file driven with no UI, and No-IP still needs the paid provider account.",
+				"fr": "Démon DDNS en Go — No-IP, DuckDNS, Cloudflare dès la sortie de boîte, binaire unique compatible Nix. Piloté par fichier de config, pas d’UI, et No-IP exige le compte du service payant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "lexicon",
+			"source": {
+				"host": "github",
+				"path": "AnalogJ/lexicon",
+				"url": "https://github.com/AnalogJ/lexicon"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "CLI and Python library that edits DNS records across 30+ providers in one syntax, scriptable DDNS. No daemon — you wire the scheduling yourself, and it installs via pip, not a static binary.",
+				"fr": "CLI et bibliothèque Python pour éditer les DNS de 30+ providers avec une syntaxe unique, du DDNS scriptable. Pas de démon — le cron vous appartient, pip plutôt qu’un binaire statique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dnscontrol",
+			"source": {
+				"host": "github",
+				"path": "DNSControl/dnscontrol",
+				"url": "https://github.com/DNSControl/dnscontrol"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Git-backed DNS-as-code: config goes through pull requests, then applied across 40+ backends like Cloudflare and Route53. It syncs and reconciles rather than chasing your IP, so overkill for one dynamic hostname.",
+				"fr": "DNS-as-code adossé à Git : la config passe par des pull requests avant d’être appliquée chez 40+ backends. Outil de sync, pas un démon qui court après votre IP — excessif pour un hostname."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "octodns",
+			"source": {
+				"host": "github",
+				"path": "octodns/octodns",
+				"url": "https://github.com/octodns/octodns"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "GitHub's Python DNS-as-code: YAML-defined records synced across providers with dry-run, plus custom provider plugins. Built for multi-provider migration, not residential WANs — no IP detection, and config-heavy.",
+				"fr": "Le DNS-as-code Python de GitHub : enregistrements YAML synchronisés entre providers, avec dry-run. Pensé pour la migration multi-provider, pas pour les WAN résidentiels — pas de détection d’IP, lourd en config."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

@@ -91,6 +91,258 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ollama",
+			"source": {
+				"host": "github",
+				"path": "ollama/ollama",
+				"url": "https://github.com/ollama/ollama"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "One-command pull and serve with an OpenAI-compatible API — the easiest on-ramp to self-hosted inference. Not a Replicate-scale platform, though: thin multi-user story, throughput below vLLM-class engines.",
+				"fr": "Pull et serve en une commande, API compatible OpenAI — la porte d’entrée la plus facile vers l’inférence auto-hébergée. Pas une plateforme à l’échelle de Replicate : multi-utilisateurs limité, débit sous vLLM."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LocalAI",
+			"source": {
+				"host": "github",
+				"path": "mudler/LocalAI",
+				"url": "https://github.com/mudler/LocalAI"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Drop-in OpenAI-compatible server for text, image, audio and embeddings, Docker-first, runs on CPU. Throughput trails vLLM and docs can be scattered.",
+				"fr": "Serveur compatible OpenAI qui couvre texte, image, audio et embeddings, pensé Docker, tourne sur CPU. Le débit reste sous vLLM et la doc, éparse."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "TGI (Hugging Face text-generation-inference)",
+			"source": {
+				"host": "github",
+				"path": "huggingface/text-generation-inference",
+				"url": "https://github.com/huggingface/text-generation-inference"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Archived upstream — no new updates, Hugging Face moved to vLLM. Still a battle-tested production serving engine with batching, speculative decoding, quantization.",
+				"fr": "Archivé en amont — plus de mise à jour, Hugging Face est passé à vLLM. Un moteur de serving éprouvé, distribué sur GPU, avec batching et décodage spéculatif."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "NVIDIA Triton Inference Server",
+			"source": {
+				"host": "github",
+				"path": "triton-inference-server/server",
+				"url": "https://github.com/triton-inference-server/server"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "ops",
+			"note": {
+				"en": "Vendor-grade multi-framework serving with dynamic batching and model ensembles. Not an LLM-first platform — LLMs need extra tooling — and the production config is heavy.",
+				"fr": "Serving multi-frameworks pro avec batching dynamique et ensembles de modèles. Pas pensé LLM d’abord — il faut du outillage en plus — et la config de prod est lourde."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "KServe",
+			"source": {
+				"host": "github",
+				"path": "kserve/kserve",
+				"url": "https://github.com/kserve/kserve"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Serverless model serving on Kubernetes with autoscaling and scale-to-zero — the closest open analogue to Replicate's control plane. It costs a cluster to operate.",
+				"fr": "Serving serverless de modèles sur Kubernetes, autoscaling et scale-to-zero — l’analogue open source le plus proche du plan de contrôle de Replicate. Mais ça exige un cluster à opérer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MLflow",
+			"source": {
+				"host": "github",
+				"path": "mlflow/mlflow",
+				"url": "https://github.com/mlflow/mlflow"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Registry, experiment tracking and serving — the lifecycle half of Replicate that pure engines skip. A general ML platform, though: serving throughput trails dedicated engines, GPUs you wire yourself.",
+				"fr": "Registry, tracking d’expériences et serving — la moitié cycle de vie de Replicate que les moteurs purs ignorent. Généraliste, pas optimisé LLM : débit de serving moyen et GPU à câbler soi-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenLLM",
+			"source": {
+				"host": "github",
+				"path": "bentoml/OpenLLM",
+				"url": "https://github.com/bentoml/OpenLLM"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "BentoML's LLM runtime — 100+ open models, LoRA fine-tuning, OpenAI-compatible API on vLLM or llama.cpp. Lighter maintenance cadence than core BentoML; scale rides on the chosen backend.",
+				"fr": "Le runtime LLM de BentoML : 100+ modèles ouverts, fine-tuning LoRA, API compatible OpenAI sur vLLM ou llama.cpp. Maintenance plus légère que le cœur de BentoML ; l’échelle dépend du backend."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Cortex",
+			"source": {
+				"host": "github",
+				"path": "cortexlabs/cortex",
+				"url": "https://github.com/cortexlabs/cortex"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "No commit since June 2024 — dormant, effectively abandoned. Once the closest open Replicate, it deployed models as serverless AWS APIs with autoscaling; treat it as archived.",
+				"fr": "Aucun commit depuis juin 2024 — dormant, abandonné de fait. À l’époque le plus proche équivalent open de Replicate, il déployait des modèles en APIs serverless AWS avec autoscaling ; à traiter comme archivé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Determined AI",
+			"source": {
+				"host": "github",
+				"path": "determined-ai/determined",
+				"url": "https://github.com/determined-ai/determined"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Covers Replicate's training half on your own cluster: GPU scheduling, distributed training, hyperparameter search, plus inference deployment. Serving is secondary and you run a cluster to get it.",
+				"fr": "Couvre la moitié entraînement de Replicate sur votre cluster : planification GPU, entraînement distribué, recherche d’hyperparamètres, et un peu de déploiement. Le serving est secondaire, et il faut opérer le cluster."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ray Serve",
+			"source": {
+				"host": "github",
+				"path": "ray-project/ray",
+				"url": "https://github.com/ray-project/ray"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Python-native model serving from the Ray project — autoscaling, GPU-aware scheduling, model composition, notebook to production. It's a full Ray cluster and no control plane; you engineer the rest.",
+				"fr": "Serving de modèles Python-natif, issu du projet Ray : autoscaling, planification GPU, composition de modèles, du notebook à la prod. Derrière, un vrai cluster Ray à opérer, sans plan de contrôle ni facturation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Exo",
+			"source": {
+				"host": "github",
+				"path": "exo-explore/exo",
+				"url": "https://github.com/exo-explore/exo"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A CLI that pools spare laptops, Macs and old phones into one distributed inference cluster — home-scale, no GPU purchase. OpenAI-compatible API, but experimental and edge, not datacenter-scale.",
+				"fr": "Un CLI qui regroupe ordinateurs portables, Macs et vieux téléphones en un cluster d’inférence distribué — échelle maison, sans acheter de GPU. API compatible OpenAI, mais expérimental et edge, pas datacenter."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SGLang",
+			"source": {
+				"host": "github",
+				"path": "sgl-project/sglang",
+				"url": "https://github.com/sgl-project/sglang"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "High-throughput serving engine with RadixAttention prefix caching, OpenAI-compatible server, constrained decoding. Needs real GPU hardware and peak-throughput tuning is expert work — a server, not a platform.",
+				"fr": "Moteur de serving haut débit : cache de préfixe RadixAttention, serveur compatible OpenAI, décodage contraint. Exige un vrai GPU, et l’optimisation du débit maximal est un travail d’expert — un serveur, pas une plateforme."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

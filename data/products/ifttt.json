@@ -118,6 +118,282 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Activepieces",
+			"source": {
+				"host": "github",
+				"path": "activepieces/activepieces",
+				"url": "https://github.com/activepieces/activepieces"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Visual no-code flow builder pitched at Zapier/IFTTT: 400+ integrations, AI steps, MIT core self-hosted via Docker-compose. SSO, RBAC and project roles stay paywalled; the catalogue trails IFTTT's.",
+				"fr": "Builder visuel no-code positionné contre Zapier/IFTTT : 400+ intégrations, étapes IA, cœur MIT auto-hébergé via Docker-compose. SSO, RBAC et rôles de projet restent payants ; le catalogue suit celui d’IFTTT de loin."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "SSO, RBAC and project roles",
+					"fr": "SSO, RBAC et rôles de projet"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Automatisch",
+			"source": {
+				"host": "github",
+				"path": "automatisch/automatisch",
+				"url": "https://github.com/automatisch/automatisch"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The IFTTT-style editor over app connections, self-hosted with a single Docker compose command. ~150 integrations — smaller than n8n or Activepieces — and enterprise features sit in .ee. files under the AGPL core.",
+				"fr": "L’éditeur façon IFTTT sur des connexions d’apps, auto-hébergé avec une seule commande Docker compose. ~150 intégrations — moins que n8n ou Activepieces — et les fonctions enterprise vivent dans des fichiers .ee. sous le cœur AGPL."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise features in .ee. files",
+					"fr": "Fonctions enterprise dans les fichiers .ee."
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Windmill",
+			"source": {
+				"host": "github",
+				"path": "windmill-labs/windmill",
+				"url": "https://github.com/windmill-labs/windmill"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Code-first: Python, TS, Go or Bash scripts become flows from wmill CLI or web studio. Approvals and audit logs included, generous free cloud tier — but steeper for no-code users, enterprise features paid.",
+				"fr": "Code-first : les scripts Python, TS, Go ou Bash deviennent des flows depuis wmill CLI ou le studio web. Approbations et journaux d’audit inclus, cloud gratuit généreux — mais plus rude pour les non-codeurs, fonctions enterprise payantes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise features behind a commercial licence",
+					"fr": "Fonctions enterprise derrière une licence commerciale"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kestra",
+			"source": {
+				"host": "github",
+				"path": "kestra-io/kestra",
+				"url": "https://github.com/kestra-io/kestra"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Declarative YAML flows with triggers, schedules and retries, driven from a polished embedded UI or REST API/CLI. Fully Apache-2.0; the JVM runtime and storage backend add weight, and docs expect orchestration familiarity.",
+				"fr": "Des flows YAML déclaratifs avec triggers, schedules et retries, pilotés depuis une UI embarquée soignée ou l’API REST/CLI. Entièrement Apache-2.0 ; le runtime JVM et le backend de stockage alourdissent, et la doc suppose une familiarité avec l’orchestration."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Nothing held back — fully Apache-2.0",
+					"fr": "Rien de retenu — entièrement Apache-2.0"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Temporal",
+			"source": {
+				"host": "github",
+				"path": "temporalio/temporal",
+				"url": "https://github.com/temporalio/temporal"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Durable workflow engine: flows survive crashes and replay; SDKs in Go, TypeScript, Python and Java. Not point-and-click — you write code, and self-hosting a durable engine is real ops.",
+				"fr": "Moteur de workflows durables : les flows survivent aux crashs et rejouent ; SDKs Go, TypeScript, Python et Java. Pas de point-and-click — on écrit du code, et auto-héberger un moteur durable, c’est de la vraie ops."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache Airflow",
+			"source": {
+				"host": "github",
+				"path": "apache/airflow",
+				"url": "https://github.com/apache/airflow"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "De-facto orchestrator for scheduled data pipelines: Python DAGs with rich dependency control and a huge provider ecosystem. Built for data, not consumer applets — heavy footprint, and the DAG mindset takes learning.",
+				"fr": "L’orchestrateur de référence pour les pipelines de données planifiés : DAGs Python au contrôle de dépendances riche et un écosystème de providers énorme. Fait pour la data, pas les applets grand public — empreinte lourde, et l’état d’esprit DAG s’apprend."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "StackStorm",
+			"source": {
+				"host": "github",
+				"path": "StackStorm/st2",
+				"url": "https://github.com/StackStorm/st2"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "'IFTTT for ops': rules tie triggers, sensors and actions, with reusable packs and ChatOps via Slack or IRC. Not for consumer app connectors; a proper deploy needs Mongo, RabbitMQ and Redis.",
+				"fr": "‘IFTTT pour la prod’ : des règles relient triggers, sensors et actions, avec des packs réutilisables et du ChatOps via Slack ou IRC. Pas pour les connecteurs grand public ; un déploiement propre demande Mongo, RabbitMQ et Redis."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Rundeck",
+			"source": {
+				"host": "github",
+				"path": "rundeck/rundeck",
+				"url": "https://github.com/rundeck/rundeck"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Job scheduler and runbook automation for ops: calendars, retries, notifications, node management with ACL-based RBAC, web UI and rd CLI. For ops scheduling, not app-to-app — Enterprise Process Automation is paid.",
+				"fr": "Planificateur de jobs et runbooks pour la prod : calendriers, retries, notifications, gestion de nœuds avec RBAC par ACLs, UI web et CLI rd. Pour la planification ops, pas l’app-to-app — Enterprise Process Automation est payant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise Process Automation",
+					"fr": "Enterprise Process Automation"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Changedetection.io",
+			"source": {
+				"host": "github",
+				"path": "dgtlmoon/changedetection.io",
+				"url": "https://github.com/dgtlmoon/changedetection.io"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Web-page change watcher: keyword, CSS selector, regex and visual-picker diffing, Playwright rendering, webhook/email/ntfy/Slack/Discord alerts. Web-page triggers only, no app connectors — and it needs an always-on host.",
+				"fr": "Surveille les pages web : diffing par mot-clé, sélecteur CSS, regex et sélecteur visuel, rendu Playwright, alertes webhook/email/ntfy/Slack/Discord. Que des triggers de pages web, pas de connecteurs d’apps — et il faut un hôte toujours allumé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Trigger.dev",
+			"source": {
+				"host": "github",
+				"path": "triggerdotdev/trigger.dev",
+				"url": "https://github.com/triggerdotdev/trigger.dev"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Code-first background jobs: cron, scheduled, event and webhook triggers as TypeScript tasks, with built-in queues, retries, rate limits and idempotency. Self-host or use the cloud — no visual builder, you write the flows.",
+				"fr": "Jobs d’arrière-plan code-first : triggers cron, planifiés, événements et webhooks en tâches TypeScript, avec queues, retries, rate limits et idempotence intégrés. Auto-hébergé ou cloud — pas de builder visuel, on écrit les flows."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Nothing substantial — core is Apache-2.0",
+					"fr": "Rien de majeur — cœur Apache-2.0"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "AutoHotkey",
+			"source": {
+				"host": "github",
+				"path": "AutoHotkey/AutoHotkey",
+				"url": "https://github.com/AutoHotkey/AutoHotkey"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Desktop automation for Windows: hotkeys and macros drive any app, plus text expansion and window management. Windows-only with no web or cloud connectors, and the scripting language is idiosyncratic.",
+				"fr": "Automation de bureau pour Windows : hotkeys et macros pilotent n’importe quelle app, plus expansion de texte et gestion des fenêtres. Windows uniquement, sans connecteurs web ou cloud, et un langage de scripting bien à part."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Hammerspoon",
+			"source": {
+				"host": "github",
+				"path": "Hammerspoon/hammerspoon",
+				"url": "https://github.com/Hammerspoon/hammerspoon"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Hands macOS to Lua: window, app, input and system-event scripting, triggered by app events, hotkeys or system state. Zero sandbox, all data on-device — but macOS only, and you write Lua.",
+				"fr": "Passe macOS à Lua : scripting des fenêtres, apps, entrées et événements système, déclenché par événements d’apps, hotkeys ou état système. Zéro sandbox, tout reste sur la machine — mais macOS uniquement, et on écrit du Lua."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

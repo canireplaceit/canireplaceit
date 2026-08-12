@@ -91,6 +91,182 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Hyperswitch",
+			"source": {
+				"host": "github",
+				"path": "juspay/hyperswitch",
+				"url": "https://github.com/juspay/hyperswitch"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Closest true Stripe replacement: self-hosted orchestration across 100+ processors, with routing, retries, and fraud. It orchestrates but never settles — upstream PSP or bank rails still required, and the multi-service cluster is heavy.",
+				"fr": "Le plus proche d’un vrai remplacement de Stripe : orchestration auto-hébergée sur 100+ processeurs, routage, retries, fraude. Il orchestre mais ne règle jamais — rails PSP ou bancaires toujours requis, cluster multi-services lourd."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise features behind a commercial core",
+					"fr": "Fonctions entreprise derrière un cœur commercial"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Crater",
+			"source": {
+				"host": "github",
+				"path": "crater-invoice-inc/crater",
+				"url": "https://github.com/crater-invoice-inc/crater"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Polished self-hosted invoicing with estimates, credit notes, recurring billing, and a client portal. Collects through upstream Stripe/Authorize.net gateways, not its own rail; community-maintained PHP stack.",
+				"fr": "Facturation auto-hébergée soignée : devis, avoirs, facturation récurrente, portail client. Collecte via les passerelles Stripe/Authorize.net, jamais ses propres rails ; stack PHP maintenue par la communauté."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Invoice Ninja",
+			"source": {
+				"host": "github",
+				"path": "invoiceninja/invoiceninja",
+				"url": "https://github.com/invoiceninja/invoiceninja"
+			},
+			"license": "Elastic-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted invoicing with 30+ payment gateways, quotes, recurring billing, and a client portal. Elastic-2.0 is source-available, not OSI open source, and every settlement runs through its own upstream gateway.",
+				"fr": "Facturation auto-hébergée avec 30+ passerelles de paiement, devis, récurrence, portail client. Elastic-2.0 : source disponible, pas open source OSI ; chaque règlement passe par sa propre passerelle."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Major features reserved for the paid tier",
+					"fr": "Fonctions majeures réservées à l’offre payante"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FOSSBilling",
+			"source": {
+				"host": "github",
+				"path": "FOSSBilling/FOSSBilling",
+				"url": "https://github.com/FOSSBilling/FOSSBilling"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Open billing platform, Apache-2.0 fork of BoxBilling, with client area, orders, tax, and email automation. Tailored to hosting/ISP billing, and cards are never settled — it connects to upstream processors.",
+				"fr": "Plateforme de facturation ouverte, fork Apache-2.0 de BoxBilling : espace client, commandes, taxes, emails automatisés. Orientée hébergement/FAI ; pas de règlement cartes — branchement sur des processeurs amont."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pretix",
+			"source": {
+				"host": "github",
+				"path": "pretix/pretix",
+				"url": "https://github.com/pretix/pretix"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Self-hosted event ticketing with presales, check-in, and a shop, taking payments through pluggable backends (cards, wallets, invoicing). Domain-specific — not general payments — and scales via celery/redis, needing a small cluster.",
+				"fr": "Billetterie événementielle auto-hébergée : préventes, check-in, boutique, paiements via des backends enfichables (cartes, portefeuilles, facturation). Spécialisé événements, pas paiements généraux ; passe à l’échelle via celery/redis, soit un petit cluster."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "lnbits",
+			"source": {
+				"host": "github",
+				"path": "lnbits/lnbits",
+				"url": "https://github.com/lnbits/lnbits"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight Bitcoin/Lightning wallet and invoicing server, single container with web UI and extension marketplace. Crypto-only — no fiat or card rails — and custodial by design: you hold the keys and the risk.",
+				"fr": "Serveur de portefeuille et de facturation Bitcoin/Lightning, un conteneur avec interface web et marché d’extensions. Crypto uniquement, sans rails fiat ni carte, dépositaire par conception : les clés et le risque sont vôtres."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "lnd",
+			"source": {
+				"host": "github",
+				"path": "lightningnetwork/lnd",
+				"url": "https://github.com/lightningnetwork/lnd"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "MIT Lightning node, one Go binary with lncli and gRPC/REST APIs — base layer for self-hosted payment automation. Raw infrastructure: no billing, dashboard, or KYC, Bitcoin-only, channel and liquidity management on you.",
+				"fr": "Nœud Lightning MIT, un seul binaire Go avec lncli et API gRPC/REST. Infrastructure brute : pas de facturation, ni tableau de bord, ni KYC ; Bitcoin uniquement, canaux et liquidité à gérer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Moov Paygate",
+			"source": {
+				"host": "github",
+				"path": "moov-io/paygate",
+				"url": "https://github.com/moov-io/paygate"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Archived (dormant since 2021) but usable: a self-hosted US ACH gateway settling FedACH credits and debits with no upstream processor. US-only — no cards, no international, no payouts.",
+				"fr": "Archivé (dormant depuis 2021) mais utilisable : passerelle ACH américaine auto-hébergée qui règle crédits et débits FedACH sans processeur amont. États-Unis uniquement — pas de cartes, pas d’international, pas de versements."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

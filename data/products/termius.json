@@ -93,6 +93,182 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "sshx",
+			"source": {
+				"host": "github",
+				"path": "ekzhang/sshx",
+				"url": "https://github.com/ekzhang/sshx"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Live terminal shared by URL, relay self-hostable, renders in any browser. Not a full SSH client or manager: sessions die when the command exits — viewers watch, they don’t take over.",
+				"fr": "Terminal partagé par URL, relais auto-hébergeable, rendu dans n’importe quel navigateur. Pas un gestionnaire ni un client complet : la session meurt quand la commande s’achève, les spectateurs regardent sans prendre la main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ttyd",
+			"source": {
+				"host": "github",
+				"path": "tsl0922/ttyd",
+				"url": "https://github.com/tsl0922/ttyd"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Serve a shell to any browser from a single static binary — SSL, basic auth, WebSocket. It hosts a terminal on its own machine, not a gateway: no saved hosts, browser UI only.",
+				"fr": "Un binaire statique sert un shell à n’importe quel navigateur : SSL, auth basique, WebSocket. Il héberge un terminal sur sa propre machine, pas un portail : ni hôtes enregistrés, ni appli native."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache Guacamole",
+			"source": {
+				"host": "github",
+				"path": "apache/guacamole-server",
+				"url": "https://github.com/apache/guacamole-server"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted bastion for SSH, RDP and VNC in a browser, with LDAP, SAML, CAS auth and session recording. Heavy — server, client, database — no local terminal, and latency exceeds a native client.",
+				"fr": "Passerelle web auto-hébergée pour SSH, RDP et VNC : auth LDAP, SAML, CAS et enregistrement des sessions. Lourde, sans terminal local, et la latence dépasse celle d’un client natif."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Blink Shell",
+			"source": {
+				"host": "github",
+				"path": "blinksh/blink",
+				"url": "https://github.com/blinksh/blink"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Native iOS/macOS terminal with full SSH and Mosh, plus a built-in editor and SFTP. GPL source you can sideload, but Apple-only: no web, and the App Store is the easy path.",
+				"fr": "Terminal natif iOS et macOS avec SSH et Mosh complets, éditeur et SFTP intégrés. Source GPL à sideloader, mais Apple uniquement : pas de web, et l’App Store reste le chemin facile."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Eternal Terminal",
+			"source": {
+				"host": "github",
+				"path": "MisterTea/EternalTerminal",
+				"url": "https://github.com/MisterTea/EternalTerminal"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Drop-proof remote shell: auto-reconnects through sleep and IP changes, resuming rather than restarting. Client/server daemon over SSH — no GUI or host manager, and the et daemon must run on the server.",
+				"fr": "Shell résistant aux coupures : reconnexion auto au réveil, reprise au lieu de redémarrer. Démon client/serveur par-dessus SSH, sans GUI ni gestionnaire, et le démon et doit tourner sur le serveur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mosh",
+			"source": {
+				"host": "github",
+				"path": "mobile-shell/mosh",
+				"url": "https://github.com/mobile-shell/mosh"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Roaming SSH companion with instant keystroke echo, surviving IP changes and syncing without a live connection. Terminal layer only — no host manager or SFTP, and UDP ports must stay open.",
+				"fr": "Compagnon SSH nomade à écho instantané : survit aux changements d’IP et synchronise l’écran sans connexion active. Couche terminal uniquement — ni gestionnaire d’hôtes ni SFTP, et il faut laisser les ports UDP ouverts."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Warp",
+			"source": {
+				"host": "github",
+				"path": "warpdotdev/warp",
+				"url": "https://github.com/warpdotdev/warp"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "AGPL Rust terminal with AI blocks, team workflows and secure inputs, buildable from source since the 2025 release. Desktop only: AI and cloud features need Warp’s backend, telemetry on by default.",
+				"fr": "Terminal Rust AGPL : blocs IA, workflows d’équipe, entrées sécurisées, buildable depuis la sortie open source de 2025. Bureau uniquement — IA et cloud exigent le backend de Warp, télémétrie activée par défaut."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "AI and cloud features",
+					"fr": "IA et fonctions cloud"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "XPipe",
+			"source": {
+				"host": "github",
+				"path": "xpipe-io/xpipe",
+				"url": "https://github.com/xpipe-io/xpipe"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Central hub for SSH, SFTP and remote shells: port forwarding, file manager, remote scripts, WSL, Docker and clouds. Java-based and heavier than a bare terminal, with pro features in the paid edition.",
+				"fr": "Hub central pour SSH, SFTP et shells distants : redirection de ports, gestionnaire de fichiers, scripts distants, WSL, Docker et clouds. Java, plus lourd qu’un terminal nu ; le pro passe par l’édition payante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Pro and team features",
+					"fr": "Fonctions Pro et équipe"
+				}
+			}
 		}
 	],
 	"priority": 2

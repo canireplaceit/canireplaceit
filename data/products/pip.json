@@ -1,0 +1,324 @@
+{
+	"slug": "pip",
+	"name": "pip",
+	"domain": null,
+	"category": "developer-tooling",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "Yes, and for most projects it is honestly the right move: uv, PDM and Poetry each resolve and install faster or more structurally. The catch is that pip is already there, while every alternative is an extra tool to install and maintain.",
+		"fr": "Oui, et pour la plupart des projets, c’est honnêtement le bon choix : uv, PDM et Poetry résolvent et installent plus vite ou plus proprement. Le revers : pip est déjà là, quand chaque alternative est un outil de plus à installer et à maintenir."
+	},
+	"whatYouLose": [
+		{
+			"en": "The pip on every Python",
+			"fr": "Le pip présent sur chaque Python"
+		},
+		{
+			"en": "The commands you already know",
+			"fr": "Les commandes déjà connues"
+		},
+		{
+			"en": "An installer needing no setup",
+			"fr": "Un installeur sans aucune installation"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "uv",
+			"source": {
+				"host": "github",
+				"path": "astral-sh/uv",
+				"url": "https://github.com/astral-sh/uv"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Rust, resolves and installs 10-100x faster, and one binary that absorbs pip, virtualenv, pip-tools, pipx and Python version management. Its pip-compatible interface eases migration, but it is a Rust binary to fetch and update.",
+				"fr": "Rust, résout et installe 10 à 100 fois plus vite, et concentre pip, virtualenv, pip-tools, pipx et la gestion des versions de Python dans un seul binaire. L’interface compatible pip facilite la migration, mais c’est un binaire Rust de plus à récupérer et à mettre à jour."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PDM",
+			"source": {
+				"host": "github",
+				"path": "pdm-project/pdm",
+				"url": "https://github.com/pdm-project/pdm"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Standards-first: pyproject.toml and PEP 582 rather than a bespoke format, with a lockfile and a plugin system included. The convention is newer, so fewer tools and docs assume it.",
+				"fr": "Priorité aux standards : pyproject.toml et PEP 582 plutôt qu’un format maison, avec un lockfile et un système de plugins inclus. La convention est plus récente, donc moins d’outils et de tutoriels la présupposent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Poetry",
+			"source": {
+				"host": "github",
+				"path": "python-poetry/poetry",
+				"url": "https://github.com/python-poetry/poetry"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The mature packaging-plus-environment workflow with the largest install base. Slower than uv and opinionated about project layout, so it may not match how you already structure a project.",
+				"fr": "Le workflow packaging et environnement le plus mûr, avec la plus large base d’installations. Plus lent qu’uv et exigeant sur l’organisation du projet, il peut ne pas coller à la vôtre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "conda",
+			"source": {
+				"host": "github",
+				"path": "conda/conda",
+				"url": "https://github.com/conda/conda"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Cross-language installer that pulls CUDA and BLAS from conda-forge, not just PyPI. Heavier and slower than pip, and mixing it with pip can break the env.",
+				"fr": "Installeur multi-langage qui tire CUDA et BLAS depuis conda-forge, pas seulement PyPI. Plus lourd et plus lent que pip, et le mélanger avec pip peut casser l’environnement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "mamba",
+			"source": {
+				"host": "github",
+				"path": "mamba-org/mamba",
+				"url": "https://github.com/mamba-org/mamba"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "C++ rewrite of conda whose libsolv resolver is far faster. micromamba ships as one static binary; you still need conda channels, not PyPI.",
+				"fr": "Réécriture en C++ de conda, au résolveur libsolv nettement plus rapide. micromamba tient dans un seul binaire statique, mais il faut toujours les canaux conda, pas PyPI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pipx",
+			"source": {
+				"host": "github",
+				"path": "pypa/pipx",
+				"url": "https://github.com/pypa/pipx"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Runs CLI tools from isolated venvs on your PATH, the standard for dev tooling. Apps only — it won’t install libraries, and pip does the work underneath.",
+				"fr": "Lance les outils CLI depuis des venvs isolés sur le PATH, la référence pour le dev. Applications uniquement : pas de librairies, et pip fait le boulot en dessous."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pipenv",
+			"source": {
+				"host": "github",
+				"path": "pypa/pipenv",
+				"url": "https://github.com/pypa/pipenv"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Purpose-built pip plus virtualenv replacement driven by a Pipfile and lockfile. Resolution is slow and maintenance has lagged behind rivals.",
+				"fr": "Successeur tout désigné de pip + virtualenv, piloté par un Pipfile et son lockfile. Résolution lente, maintenance à la traîne derrière les concurrents."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pip-tools",
+			"source": {
+				"host": "github",
+				"path": "jazzband/pip-tools",
+				"url": "https://github.com/jazzband/pip-tools"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Compiles requirements.in into fully pinned requirements.txt and syncs your env. Zero magic — but no environment management and no dependency groups.",
+				"fr": "Compile requirements.in en requirements.txt figé et synchronise l’environnement. Zéro magie, mais pas de gestion d’environnement ni de groupes de dépendances."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "hatch",
+			"source": {
+				"host": "github",
+				"path": "pypa/hatch",
+				"url": "https://github.com/pypa/hatch"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Manages builds, env matrices, and versions through its fast hatchling backend. Opinionated and more than an installer, with docs scattered across plugins.",
+				"fr": "Gère builds, matrices d’envs et versions via son backend hatchling rapide. Plus qu’un installeur, opinionated, avec une doc éparpillée entre les plugins."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "rye",
+			"source": {
+				"host": "github",
+				"path": "astral-sh/rye",
+				"url": "https://github.com/astral-sh/rye"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Rust toolchain manager — interpreters, deps, venvs — in one fast binary. Archived upstream: folded into uv, no further development.",
+				"fr": "Gestionnaire de toolchain en Rust — interpréteurs, deps, venvs — dans un binaire rapide. Archivé upstream, fondu dans uv, plus aucun développement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "flit",
+			"source": {
+				"host": "github",
+				"path": "pypa/flit",
+				"url": "https://github.com/pypa/flit"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Builds and publishes straight from pyproject.toml, zero config for simple projects. No dependency resolution, and one project per repo only.",
+				"fr": "Construit et publie directement depuis pyproject.toml, zéro config pour les projets simples. Pas de résolution de dépendances, un seul projet par dépôt."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dephell",
+			"source": {
+				"host": "github",
+				"path": "dephell/dephell",
+				"url": "https://github.com/dephell/dephell"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "One CLI that resolves and converts dependencies across Pipfile, poetry.lock, and requirements. Archived since 2021 — best-effort maintenance only.",
+				"fr": "Un seul CLI qui résout et convertit les dépendances entre Pipfile, poetry.lock et requirements. Archivé depuis 2021, maintenance en best effort seulement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nix",
+			"source": {
+				"host": "github",
+				"path": "NixOS/nix",
+				"url": "https://github.com/NixOS/nix"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "Declarative, content-addressed reproducibility with nix-shell giving hermetic Python envs. Steep learning curve, and packages build through nixpkgs, not PyPI.",
+				"fr": "Reproductibilité déclarative et content-addressed, avec nix-shell pour des envs Python hermétiques. Courbe d’apprentissage raide, builds via nixpkgs plutôt que PyPI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Spack",
+			"source": {
+				"host": "github",
+				"path": "spack/spack",
+				"url": "https://github.com/spack/spack"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Installs Python and whole HPC stacks reproducibly from source, with variants and compilers. Built from source, so slow, and aimed at HPC workflows.",
+				"fr": "Installe Python et des stacks HPC entières depuis le source, de façon reproductible, avec variants et compilateurs. Builds depuis le source, donc lent, orienté workflows HPC."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 4
+}

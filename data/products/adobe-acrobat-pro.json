@@ -100,6 +100,182 @@
 				"en": "Near feature-parity on Windows for less. The UI is a museum of toolbars.",
 				"fr": "Quasi-parité fonctionnelle sur Windows pour moins cher. L’interface est un musée de barres d’outils."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "DocuSeal",
+			"source": {
+				"host": "github",
+				"path": "docusealco/docuseal",
+				"url": "https://github.com/docusealco/docuseal"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Closest open-source match to Acrobat Sign: self-hosted e-signatures with templates, sign order, and audit trail. It signs, it does not edit PDFs, and SSO plus enterprise extras sit behind paid cloud.",
+				"fr": "Le plus proche équivalent open-source d’Acrobat Sign : signature électronique auto-hébergée, modèles, ordre de signature, piste d’audit. Il signe mais n’édite pas les PDF ; SSO et extras entreprise restent au cloud payant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenSign",
+			"source": {
+				"host": "github",
+				"path": "OpenSignLabs/OpenSign",
+				"url": "https://github.com/OpenSignLabs/OpenSign"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Full self-hosted e-signing under AGPL — templates, sign order, audit logs, embedded signing. Younger ecosystem than DocuSeal, and its licence file carries vendor-specific clauses.",
+				"fr": "Plateforme complète de signature électronique auto-hébergée sous AGPL — modèles, ordre de signature, journaux d’audit, signature intégrée. Écosystème plus jeune que DocuSeal, et licence assortie de clauses propres au vendeur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "A few open-core extras",
+					"fr": "Quelques extras open-core"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pdfcpu",
+			"source": {
+				"host": "github",
+				"path": "pdfcpu/pdfcpu",
+				"url": "https://github.com/pdfcpu/pdfcpu"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "One Go binary that edits, annotates, encrypts, and signs PDFs from the CLI. No visual layout to speak of, and signing needs a PKCS#12 certificate you supply yourself.",
+				"fr": "Un binaire Go qui édite, annote, chiffre et signe les PDF en ligne de commande. Pas de mise en page visuelle ; la signature exige un certificat PKCS#12 que vous fournissez."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "qpdf",
+			"source": {
+				"host": "github",
+				"path": "qpdf/qpdf",
+				"url": "https://github.com/qpdf/qpdf"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The structural workhorse — Apache-2.0 CLI for repair, encryption, linearization, page splitting, with a JSON interface. Nearly every tool leans on it, though it touches no content and cannot sign.",
+				"fr": "Le cheval de trait structurel — CLI Apache-2.0 pour réparation, chiffrement, linéarisation, découpage, avec interface JSON. Presque tous les outils s’appuient dessus, mais pas de contenu, pas de signature."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MuPDF",
+			"source": {
+				"host": "github",
+				"path": "ArtifexSoftware/mupdf",
+				"url": "https://github.com/ArtifexSoftware/mupdf"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Artifex’s fast PDF engine, exposed as the mutool CLI — merge, edit, watermark, render, script. The AGPL binds library users, and there is no guided contract workflow.",
+				"fr": "Le moteur PDF rapide d’Artifex, exposé via la CLI mutool — fusion, édition, filigrane, rendu, scripts. L’AGPL pèse sur les usages en bibliothèque, et aucun flux de contrat guidé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OCRmyPDF",
+			"source": {
+				"host": "github",
+				"path": "ocrmypdf/OCRmyPDF",
+				"url": "https://github.com/ocrmypdf/OCRmyPDF"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Turns scanned paper into searchable, deskewed PDFs with a clean text layer. The OCR gap in Acrobat, but it needs Ghostscript and Tesseract at runtime and edits nothing else.",
+				"fr": "Transforme les scans papier en PDF nettetés, avec couche texte recherchable. L’élément OCR qui manquait à Acrobat, mais il dépend de Ghostscript et Tesseract à l’exécution et n’édite rien d’autre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PDF Arranger",
+			"source": {
+				"host": "github",
+				"path": "pdfarranger/pdfarranger",
+				"url": "https://github.com/pdfarranger/pdfarranger"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "A lightweight GPL desktop GUI to merge, split, reorder, rotate, and crop pages by eye. Page-level only: no text editing, no signing, no form-fill.",
+				"fr": "Une interface GPL légère pour fusionner, scinder, réordonner, pivoter et recadrer les pages à l’œil. Uniquement au niveau page : ni édition de texte, ni signature, ni remplissage de formulaires."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PDFsam Basic",
+			"source": {
+				"host": "github",
+				"path": "torakiki/pdfsam",
+				"url": "https://github.com/torakiki/pdfsam"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Polished cross-platform desktop tool for split, merge, rotate, extract, and compress — installers for all three OSes. The free tier skips content editing and signing; the visual editor is paid.",
+				"fr": "Outil de bureau multi-plateforme soigné pour scinder, fusionner, pivoter, extraire et compresser — installateurs pour les trois OS. L’édition de contenu et la signature manquent en gratuit ; l’éditeur visuel est payant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Visual editor and advanced features",
+					"fr": "Éditeur visuel et fonctions avancées"
+				}
+			}
 		}
 	],
 	"priority": 4

@@ -97,6 +97,178 @@
 				"en": "Free control plane, you pay only for nodes. No OpenShift build pipelines, no Red Hat support contract, no FIPS story.",
 				"fr": "Plan de contrôle gratuit, vous ne payez que les nœuds. Pas de pipelines de build OpenShift, pas de contrat Red Hat, pas de conformité FIPS."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "OKD",
+			"source": {
+				"host": "github",
+				"path": "okd-project/okd",
+				"url": "https://github.com/okd-project/okd"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The community upstream of OpenShift itself, the closest 1:1 open replacement. Full console and operator stack on CRI-O and OVN. Community maintainers only, no Red Hat support, and its cadence trails OpenShift.",
+				"fr": "L’upstream communautaire d’OpenShift, le plus proche remplacement 1:1 en open source. Console et framework d’opérateurs sur CRI‑O et OVN. Pas de support Red Hat, maintenance communautaire, cadence de sortie en retard."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MicroShift",
+			"source": {
+				"host": "github",
+				"path": "openshift/microshift",
+				"url": "https://github.com/openshift/microshift"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Single-node OpenShift cut for the edge where the full platform is too heavy. systemd-managed, low footprint. No HA, no multi-node: an edge tool, not a data-center platform.",
+				"fr": "OpenShift coupé pour le single‑node, là où la plateforme complète est trop lourde. Géré par systemd, empreinte réduite. Pas de HA ni de multi‑nœud : un outil d’edge, pas une plateforme de data‑center."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "k0s",
+			"source": {
+				"host": "github",
+				"path": "k0sproject/k0s",
+				"url": "https://github.com/k0sproject/k0s"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "k3s-class Kubernetes from one static binary, airgap-friendly, with k0sctl for automated HA provisioning. No management console built in — and the docs sit under CC-BY-SA, not Apache-2.0.",
+				"fr": "Kubernetes façon k3s depuis un binaire statique unique, compatible air‑gap, avec k0sctl pour le provisioning HA automatisé. Pas de console de gestion intégrée ; les docs sont en CC‑BY‑SA, pas en Apache‑2.0."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MicroK8s",
+			"source": {
+				"host": "github",
+				"path": "canonical/microk8s",
+				"url": "https://github.com/canonical/microk8s"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "A snap install gives you single-node Kubernetes in minutes, with addons for dashboard, registry, storage and ingress. Snap packaging ties you to Canonical, and its sweet spot is single-node and edge.",
+				"fr": "Un install snap donne du Kubernetes single‑node en quelques minutes, avec addons : dashboard, registry, stockage, ingress. Le packaging snap vous lie à Canonical ; son point fort reste le single‑node et l’edge."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "KubeSphere",
+			"source": {
+				"host": "github",
+				"path": "kubesphere/kubesphere",
+				"url": "https://github.com/kubesphere/kubesphere"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "A multi-tenant console with projects and workspaces, app store, DevOps pipelines, observability — mapping onto OpenShift's app-platform role. It layers on top of Kubernetes, and its Apache-2.0 carries extra commercial conditions.",
+				"fr": "Console multi‑tenant avec projets et workspaces, app store, pipelines DevOps, observabilité intégrée — le rôle de plateforme applicative d’OpenShift. Mais ça s’installe au‑dessus de Kubernetes, et l’Apache‑2.0 comporte des conditions commerciales en plus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Extra commercial conditions on the Apache-2.0 build",
+					"fr": "Conditions commerciales en sus du build Apache‑2.0"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "KubeVirt",
+			"source": {
+				"host": "github",
+				"path": "kubevirt/kubevirt",
+				"url": "https://github.com/kubevirt/kubevirt"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Runs VMs as Kubernetes workloads via virtctl and kubectl — live migration, hotplug, CDI for images. It covers the virtualization layer only: no console, and it needs a distro underneath.",
+				"fr": "Exécute des VMs comme workloads Kubernetes via virtctl et kubectl — live migration, hotplug, CDI pour images. C’est la couche de virtualisation, rien de plus : pas de console, il faut une distribution dessous."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kubespray",
+			"source": {
+				"host": "github",
+				"path": "kubernetes-sigs/kubespray",
+				"url": "https://github.com/kubernetes-sigs/kubespray"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Ansible brings up and upgrades clusters idempotently on bare metal or VMs, with Calico, Cilium, containerd or CRI-O at your call. Fully DIY: no console, no operator layer, a large playbook surface.",
+				"fr": "Ansible monte et upgrade des clusters de façon idempotente sur bare metal ou VMs, avec Calico, Cilium, containerd ou CRI‑O. Full DIY : pas de console ni d’opérateurs, grosse surface de playbooks."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "K9s",
+			"source": {
+				"host": "github",
+				"path": "derailed/k9s",
+				"url": "https://github.com/derailed/k9s"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The OpenShift console experience from the shell — vim-style live inspection and editing, custom views, plugins, RBAC-aware. A client only: it needs an existing cluster, and there is no governance or app catalog.",
+				"fr": "L’expérience console OpenShift depuis le shell : inspection et édition live façon vim, vues custom, plugins, conscient du RBAC. Client uniquement : il faut un cluster existant, pas de gouvernance ni d’app catalog."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

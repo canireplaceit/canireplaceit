@@ -108,6 +108,111 @@
 				"en": "A cheap perpetual licence aimed exactly at this job. Smaller smart-material library.",
 				"fr": "Une licence perpétuelle bon marché visant précisément cette tâche. Bibliothèque de matériaux intelligents plus petite."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Krita",
+			"source": {
+				"host": "gitlab",
+				"path": "graphics/krita",
+				"url": "https://invent.kde.org/graphics/krita"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The best 2D brush engine for hand-painting albedo and detail textures, with gamut masks for PBR and headless batch export. No 3D viewport, so you never paint on the mesh.",
+				"fr": "Meilleur moteur de pinceaux 2D pour albedo et détails peints à la main, masques de gamut pour le PBR. Export par lots en headless, mais on ne peint pas sur le mesh."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GIMP",
+			"source": {
+				"host": "github",
+				"path": "GNOME/gimp",
+				"url": "https://github.com/GNOME/gimp"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "No mesh painting here: GIMP edits basecolor, detail and mask maps in 2D, scriptable in batch (gimp -b), with mature normal-map plugins. Manual multi-map workflow, aging UI.",
+				"fr": "Pas de peinture sur mesh : GIMP édite basecolor, détails et masques en 2D, scriptable par lots (gimp -b), avec des plugins normal map éprouvés. Flux multi-map manuel, UI vieillissante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Laigter",
+			"source": {
+				"host": "github",
+				"path": "azagaya/laigter",
+				"url": "https://github.com/azagaya/laigter"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Feeds a diffuse image and Laigter bakes normal, parallax, specular and occlusion maps, fully headless for batch runs. Sprite-focused though: no mesh painting, no layer or material stack.",
+				"fr": "Donnez une image diffuse, Laigter génère normal, parallax, specular et occlusion en headless pour les lots. Pensé pour les sprites : pas de peinture sur mesh, ni calques ni matériaux."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dream Textures",
+			"source": {
+				"host": "github",
+				"path": "carson-katri/dream-textures",
+				"url": "https://github.com/carson-katri/dream-textures"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Stable Diffusion inside Blender: text-to-texture with seamless tiling, inpaint/outpaint and depth-to-image projection across a scene. Needs a diffusion backend and 4GB+ VRAM, and it is non-deterministic — not a hand-painting tool.",
+				"fr": "Stable Diffusion dans Blender : text-to-texture avec tiling seamless, inpaint/outpaint et projection depth-to-image. Exige un backend de diffusion et 4 Go+ de VRAM ; non déterministe, donc pas un outil de peinture manuelle."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MyPaint",
+			"source": {
+				"host": "github",
+				"path": "mypaint/mypaint",
+				"url": "https://github.com/mypaint/mypaint"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Ships in most distro repos: a distraction-free infinite canvas and a brush engine that reads pressure and tilt. Purely 2D though: no mesh painting, no PBR stack, thin masking.",
+				"fr": "Dans la plupart des dépôts Linux : canevas infini sans distractions, moteur de pinceaux sensible à la pression et à l’inclinaison. 2D uniquement : pas de peinture sur mesh ni de stack PBR."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

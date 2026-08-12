@@ -105,6 +105,279 @@
 				"en": "A tenth of a ZoomInfo contract for a database that is good enough for most mid-market prospecting. Weaker phone data, thinner intent, less legal cover.",
 				"fr": "Un dixième d’un contrat ZoomInfo pour une base suffisante pour la plupart des prospections mid-market. Données téléphoniques plus faibles, intention plus mince, moins de couverture juridique."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Twenty CRM",
+			"source": {
+				"host": "github",
+				"path": "twentyhq/twenty",
+				"url": "https://github.com/twentyhq/twenty"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Modern open-source CRM for self-hosting; stores contacts, companies and relationships over a GraphQL API and PostgreSQL. No built-in enrichment or phone verification — bring your own data.",
+				"fr": "CRM open source moderne conçu pour le self-hosting ; contacts, sociétés et relations reposent sur une API GraphQL et PostgreSQL. Pas d’enrichissement intégré ni de vérification téléphonique : les données, c’est vous qui les fournissez."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "EspoCRM",
+			"source": {
+				"host": "github",
+				"path": "espocrm/espocrm",
+				"url": "https://github.com/espocrm/espocrm"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Mature AGPL CRM: email sync, workflows, REST API for organizing enriched data. No data discovery — enrichment stays external, and AGPL curbs commercial derivatives.",
+				"fr": "CRM AGPL mature : sync email, workflows et API REST pour organiser les données enrichies. Pas de découverte de données — l’enrichissement reste externe, et l’AGPL bride les dérivés commerciaux."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SuiteCRM",
+			"source": {
+				"host": "github",
+				"path": "SuiteCRM/SuiteCRM",
+				"url": "https://github.com/SuiteCRM/SuiteCRM"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "SugarCRM fork, enterprise-grade and AGPL: forecasting, campaigns, portal, documents. Steeper learning curve than Twenty, no data discovery, and enrichment still needs a separate pipeline.",
+				"fr": "Fork AGPL de SugarCRM, niveau entreprise : prévisions, campagnes, portail, documents. Courbe d’apprentissage plus raide que Twenty, pas de découverte de données, et l’enrichissement exige toujours un pipeline séparé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Odoo CRM",
+			"source": {
+				"host": "github",
+				"path": "odoo/odoo",
+				"url": "https://github.com/odoo/odoo"
+			},
+			"license": "LGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "ERP with a CRM module, LGPL core: sales, marketing, accounting, REST API, huge app ecosystem. Heavier, slower to deploy than a lightweight CRM, and enrichment is not built in.",
+				"fr": "ERP avec module CRM, noyau LGPL : ventes, marketing, comptabilité, API REST, écosystème d’apps énorme. Plus lourd et plus lent à déployer qu’un CRM léger, et pas d’enrichissement intégré."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mautic",
+			"source": {
+				"host": "github",
+				"path": "mautic/mautic",
+				"url": "https://github.com/mautic/mautic"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Open-source marketing automation — the outreach and lead-scoring layer, wiring into CRMs via n8n. Sourcing leads elsewhere and phone verification: not Mautic’s job.",
+				"fr": "Automatisation marketing open source — la couche prospection et scoring, branchée aux CRM via n8n. Trouver les leads et vérifier les téléphones : pas son problème."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "n8n",
+			"source": {
+				"host": "github",
+				"path": "n8n-io/n8n",
+				"url": "https://github.com/n8n-io/n8n"
+			},
+			"license": "Sustainable Use License (source-available)",
+			"effort": "docker",
+			"note": {
+				"en": "The plumbing: 400+ integrations, visual builder, custom code, scheduling. Turns a scraper→enricher→CRM stack into one coherent pipeline, but fair-code rather than pure OSS, and you design the workflows.",
+				"fr": "La tuyauterie : 400+ intégrations, builder visuel, code custom, planification. Fait d’un pipeline scraper→enricheur→CRM un tout cohérent, mais fair-code plutôt que pur OSS, et à vous de concevoir les workflows."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Firecrawl",
+			"source": {
+				"host": "github",
+				"path": "firecrawl/firecrawl",
+				"url": "https://github.com/firecrawl/firecrawl"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "AGPL web-scraping API: HTML to LLM-ready markdown, JS rendering, structured output. Replaces ZoomInfo’s site data collection, though it won’t bypass rate limits and needs clean infrastructure.",
+				"fr": "API de scraping web sous AGPL : HTML vers markdown prêt pour LLM, rendu JS, sortie structurée. Remplace la collecte de données de sites de ZoomInfo, mais ne contourne pas les limites de débit et veut une infra propre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Crawl4AI",
+			"source": {
+				"host": "github",
+				"path": "unclecode/crawl4ai",
+				"url": "https://github.com/unclecode/crawl4ai"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Apache-2.0, lighter and cheaper than Firecrawl: Playwright scraping to LLM-ready markdown. Less mature, no hosted service, and phone discovery is out of scope.",
+				"fr": "Apache-2.0, plus léger et moins cher que Firecrawl : scraping Playwright vers du markdown prêt pour LLM. Moins mature, pas d’hébergement commercial, et la découverte téléphonique hors périmètre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "google-maps-scraper (omkarcloud)",
+			"source": {
+				"host": "github",
+				"path": "omkarcloud/google-maps-scraper",
+				"url": "https://github.com/omkarcloud/google-maps-scraper"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "MIT Google Maps scraper pulling 50+ fields — emails, phones, reviews, socials. Fine for local lead discovery, but Maps-only, unverified, rate-limited and against Google ToS.",
+				"fr": "Scraper Google Maps sous MIT, 50+ champs : emails, téléphones, avis, réseaux. Bon pour la découverte de leads locaux, mais limité à Maps, données non vérifiées, limité en débit et contraire aux CGU de Google."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "google-maps-scraper (gosom)",
+			"source": {
+				"host": "github",
+				"path": "gosom/google-maps-scraper",
+				"url": "https://github.com/gosom/google-maps-scraper"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Go rewrite, faster than its Python cousin, with a REST API, CLI and email parsing. Same caveats: Maps-only, unverified, rate-limited, ToS risk.",
+				"fr": "Réécriture Go, plus rapide que l’équivalent Python, avec API REST, CLI et parsing d’emails. Mêmes réserves : Maps uniquement, données non vérifiées, quotas, risque CGU."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MailFinder",
+			"source": {
+				"host": "github",
+				"path": "mishakorzik/MailFinder",
+				"url": "https://github.com/mishakorzik/MailFinder"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "GPL email OSINT tool: name in, address candidates out, from several sources. Minimal, research-grade, accuracy limited — and no verification of what it finds.",
+				"fr": "Outil GPL d’OSINT email : un nom entre, des adresses candidates sortent, de plusieurs sources. Minimal, de qualité recherche, précision limitée — et rien ne vérifie les résultats."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenSanctions",
+			"source": {
+				"host": "github",
+				"path": "opensanctions/opensanctions",
+				"url": "https://github.com/opensanctions/opensanctions"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "MIT sanctions and PEP database with reconciliation API — ZoomInfo’s risk-screening corner only. Not for sales: no contact discovery, no phones, and you still have to wire it in.",
+				"fr": "Base de sanctions et PEP sous MIT avec API de rapprochement — uniquement le volet filtrage de risque de ZoomInfo. Pas pour la vente : pas de découverte de contacts, pas de téléphones, et reste à intégrer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Truemail",
+			"source": {
+				"host": "github",
+				"path": "truemail-rb/truemail",
+				"url": "https://github.com/truemail-rb/truemail"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "MIT Ruby gem doing regex, DNS and SMTP checks on addresses — dormant, no commits since 2024-04-23. The verification core most OSS stacks lack, but Ruby-only and SMTP checks want clean IPs.",
+				"fr": "Gem Ruby MIT : vérification regex, DNS et SMTP des adresses — en sommeil, aucun commit depuis le 23 avril 2024. Le noyau de vérification que la plupart des stacks OSS n’ont pas, mais Ruby uniquement et le SMTP exige des IP propres."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 5

@@ -70,6 +70,136 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "ODK Central",
+			"source": {
+				"host": "github",
+				"path": "getodk/central",
+				"url": "https://github.com/getodk/central"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Offline-first survey server: form versioning, encryption, OIDC SSO, a clean OAuth API. Field-data collection, not trial EDC — offline entry needs the Android app, no analytics or dashboards.",
+				"fr": "Serveur de collecte hors-ligne : versionnage des formulaires, chiffrement, SSO OIDC, API OAuth propre. Pensé pour le terrain, pas pour un EDC d’essai — la saisie hors-ligne exige l’appli Android, pas d’analytique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "KoboToolbox",
+			"source": {
+				"host": "github",
+				"path": "kobotoolbox/kpi",
+				"url": "https://github.com/kobotoolbox/kpi"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted platform for XLSForm surveys at scale — skip logic, quotas, offline Android collection via KoboCollect. Runs as kpi plus kobocat over Postgres/Redis, and stays XLSForm-centric; built for the field, not trial governance.",
+				"fr": "Plateforme auto-hébergée pour les enquêtes XLSForm : logique de saut, quotas, collecte Android hors-ligne via KoboCollect. Tourne en kpi + kobocat sur Postgres/Redis, reste XLSForm-centré — pour le terrain, pas pour la gouvernance d’essai."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Minor enterprise extras only.",
+					"fr": "Quelques extras d’entreprise seulement."
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Enketo",
+			"source": {
+				"host": "github",
+				"path": "enketo/enketo-express",
+				"url": "https://github.com/enketo/enketo-express"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Browser rendering of XLSForm surveys with offline service worker, signatures, photos, geolocation. Archived upstream — no longer actively maintained. Not a platform: needs an ODK/Kobo backend, and authoring stays XLSForm.",
+				"fr": "Rendu navigateur des enquêtes XLSForm : hors-ligne via service worker, signatures, photos, géolocalisation. Archivé en amont — plus maintenu. Pas une plateforme : il faut un backend ODK/Kobo, l’édition reste en XLSForm."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "DHIS2",
+			"source": {
+				"host": "github",
+				"path": "dhis2/dhis2-core",
+				"url": "https://github.com/dhis2/dhis2-core"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Mature platform for large research collection: custom data sets, tracker programs, analytics, native SSO. HMIS/aggregate oriented, not per-subject EDC, and heavy — Java plus PostgreSQL, steep learning curve.",
+				"fr": "Plateforme mûre de collecte de recherche à grande échelle : jeux de données, programmes tracker, analytique, SSO natif. Orientée HMIS/agrégats, pas un EDC par sujet, et lourde : Java plus PostgreSQL, courbe d’apprentissage raide."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "DataLad",
+			"source": {
+				"host": "github",
+				"path": "datalad/datalad",
+				"url": "https://github.com/datalad/datalad"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "CLI standard for versioning and publishing research datasets — git-based provenance, headless and CI-friendly. Not a capture tool: no web UI or participant entry; you build the collection workflow.",
+				"fr": "Standard CLI pour versionner et publier les jeux de données : provenance git, headless, compatible CI. Pas un outil de capture — ni web UI ni saisie, vous construisez le workflow de collecte."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "VisiData",
+			"source": {
+				"host": "github",
+				"path": "saulpw/visidata",
+				"url": "https://github.com/saulpw/visidata"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Terminal TUI for exploring, cleaning, and auditing captured data — handles very large tables, imports CSV/TSV/JSON/XLSX/SQLite. Viewing only, no collection; terminal-first, and no multi-user workflow or access control.",
+				"fr": "TUI terminal pour explorer, nettoyer et auditer les données capturées — gère de très gros tableaux, importe CSV/TSV/JSON/XLSX/SQLite. Consultation seule, pas de collecte ; en terminal, sans workflow multi-utilisateurs ni contrôle d’accès."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

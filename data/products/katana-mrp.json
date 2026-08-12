@@ -118,6 +118,153 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dolibarr",
+			"source": {
+				"host": "github",
+				"path": "Dolibarr/dolibarr",
+				"url": "https://github.com/Dolibarr/dolibarr"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight GPL-3.0 ERP with stock, BOM and MRP through installed modules; easy self-host, Docker-friendly. But the MRP module is community-driven, shallower than Katana, and the UI is modest.",
+				"fr": "ERP GPL-3.0 léger avec stock, BOM et MRP via modules installés ; autohébergement et Docker simples. Le module MRP reste porté par la communauté, moins profond que Katana, et l’interface est moyenne."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache OFBiz",
+			"source": {
+				"host": "github",
+				"path": "apache/ofbiz-framework",
+				"url": "https://github.com/apache/ofbiz-framework"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Apache-2.0 Java ERP with full manufacturing, MRP and facility management; battle-tested and active. Costs a 1990s UI, a steep learning curve, and real effort to operate.",
+				"fr": "ERP Java Apache-2.0 couvrant fabrication, MRP et gestion d’entrepôts ; éprouvé et actif. Compte une interface des années 90, une courbe d’apprentissage raide et une exploitation lourde."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PartKeepr",
+			"source": {
+				"host": "github",
+				"path": "partkeepr/PartKeepr",
+				"url": "https://github.com/partkeepr/PartKeepr"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "GPL-3.0 electronics stockroom with BOM and part placement. Archived upstream since 2023 — still the reference, but no development and no production orders, just stock.",
+				"fr": "Stock électronique GPL-3.0 avec BOM et placement des composants. Archivé en amont depuis 2023 — toujours la référence, mais plus aucun développement ni ordre de fabrication, juste du stock."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenBoxes",
+			"source": {
+				"host": "github",
+				"path": "openboxes/openboxes",
+				"url": "https://github.com/openboxes/openboxes"
+			},
+			"license": "EPL-1.0",
+			"effort": "docker",
+			"note": {
+				"en": "EPL-1.0 supply-chain platform tuned for batch/lot traceability and bin-level stock control. Health-sector leanings, no full MRP scheduling, and the Grails/Java stack keeps the UX modest.",
+				"fr": "Plateforme supply-chain EPL-1.0 taillée pour la traçabilité par lots et le contrôle de stock par bac. Orientée santé, pas de vraie planification MRP, et la pile Grails/Java garde une UX modeste."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ERPLibre",
+			"source": {
+				"host": "github",
+				"path": "ERPLibre/ERPLibre",
+				"url": "https://github.com/ERPLibre/ERPLibre"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "AGPL-3.0 Odoo fork that keeps the proprietary modules open, MRP included; actively synced with upstream. Small community (~20 stars) and fork-drift risk.",
+				"fr": "Fork d’Odoo sous AGPL-3.0 qui garde ouverts les modules autrement propriétaires, MRP compris ; synchronisé activement avec l’amont. Petite communauté (~20 étoiles) et risque de divergence du fork."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ADempiere",
+			"source": {
+				"host": "github",
+				"path": "adempiere/adempiere",
+				"url": "https://github.com/adempiere/adempiere"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "GPL-2.0 Java ERP from the Compiere line with manufacturing, MRP and warehouse management, still maintained. Setup and PostgreSQL tuning demand ops skill; the Swing-era UI and architecture show their age.",
+				"fr": "ERP Java GPL-2.0 issu de la lignée Compiere avec fabrication, MRP et gestion d’entrepôts, toujours maintenu. L’installation et le tuning PostgreSQL exigent des compétences ops ; l’interface et l’architecture Swing datent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Part-DB",
+			"source": {
+				"host": "github",
+				"path": "Part-DB/Part-DB-server",
+				"url": "https://github.com/Part-DB/Part-DB-server"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "AGPL-3.0 electronics parts inventory, successor to PartKeepr, with BOM built from Octopart/DigiKey import. Electronics-focused rather than general MRP, and the server/client split adds deploy surface.",
+				"fr": "Inventaire électronique AGPL-3.0, successeur de PartKeepr, avec BOM construite via import Octopart/DigiKey. Axé composants électroniques plutôt que MRP général, et le découpage serveur/client alourdit le déploiement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

@@ -107,6 +107,174 @@
 				"en": "A tenth of the price with decent marketplace and shipping integrations. Thin on manufacturing and landed cost.",
 				"fr": "Un dixième du prix avec de bonnes intégrations marketplaces et transporteurs. Pauvre sur la production et les coûts de revient."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenBoxes",
+			"source": {
+				"host": "github",
+				"path": "openboxes/openboxes",
+				"url": "https://github.com/openboxes/openboxes"
+			},
+			"license": "EPL-1.0",
+			"effort": "docker",
+			"note": {
+				"en": "Battle-tested open-source inventory and WMS running in hospitals and humanitarian orgs. Supply-chain UX is tuned to those flows, and the Java/Grails stack is heavier to operate.",
+				"fr": "Inventaire et WMS open source éprouvés en conditions réelles dans des hôpitaux et des ONG. L’UX est calée sur les flux humanitaires et la pile Java/Grails reste lourde à opérer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dolibarr",
+			"source": {
+				"host": "github",
+				"path": "Dolibarr/dolibarr",
+				"url": "https://github.com/Dolibarr/dolibarr"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight open ERP whose stock module covers BOM and movements for SMBs. Monolithic PHP with a dated UI, and advanced WMS flows need configuration work.",
+				"fr": "ERP open source léger dont le module stock couvre nomenclatures et mouvements pour les PME. PHP monolithique à l’UI datée ; les flux WMS avancés demandent de la configuration."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Snipe-IT",
+			"source": {
+				"host": "github",
+				"path": "grokability/snipe-it",
+				"url": "https://github.com/grokability/snipe-it"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Most popular self-hosted asset inventory, with check-in/out and barcode labels. Asset-focused though — no pick/pack/ship engine or multi-warehouse fulfillment.",
+				"fr": "Inventaire d’actifs auto-hébergé le plus populaire, avec entrées/sorties et étiquettes code-barres. Mais centré sur les actifs : pas de préparation de commandes ni de multi-entrepôts."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenWMS",
+			"source": {
+				"host": "github",
+				"path": "openwms/org.openwms",
+				"url": "https://github.com/openwms/org.openwms"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Purpose-built open warehouse system: receiving, putaway, picking, transport. It is a microservice platform, so more orchestration than a single app, and no accounting either.",
+				"fr": "WMS open source dédié : réception, rangement, picking, transport. Plateforme à microservices, donc plus d’orchestration qu’une app unique, et pas de comptabilité non plus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache OFBiz",
+			"source": {
+				"host": "github",
+				"path": "apache/ofbiz-framework",
+				"url": "https://github.com/apache/ofbiz-framework"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Apache-backed full ERP: warehouse, fulfillment, shipping, accounting and CRM in one stack. Older Java framework with a steep learning curve and heavy operation.",
+				"fr": "ERP complet sous égide Apache : entrepôt, expédition, compta et CRM dans une même stack. Framework Java daté, courbe d’apprentissage raide et exploitation lourde."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PartKeepr",
+			"source": {
+				"host": "github",
+				"path": "partkeepr/PartKeepr",
+				"url": "https://github.com/partkeepr/PartKeepr"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Dedicated parts manager for maker shops, with locations and barcode labels. Archived upstream since 2023, and parts-only — no orders or accounting.",
+				"fr": "Gestionnaire de composants pour ateliers makers, avec emplacements et étiquettes code-barres. Archivé en amont depuis 2023, et limité aux pièces : pas de commandes ni de compta."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Grocy",
+			"source": {
+				"host": "github",
+				"path": "grocy/grocy",
+				"url": "https://github.com/grocy/grocy"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight self-hosted stock tracker with barcode scanning, shopping lists and a REST API. Household and small-shop scale — no multi-branch or fulfillment WMS.",
+				"fr": "Suivi de stock auto-hébergé et léger : scan code-barres, listes de courses, API REST. Échelle maison ou petite boutique — pas de multi-dépôts ni de WMS de préparation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "InvenTree Python CLI",
+			"source": {
+				"host": "github",
+				"path": "inventree/inventree-python",
+				"url": "https://github.com/inventree/inventree-python"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Official InvenTree CLI: inventory operations and barcode labels from the terminal, with a Python API client. Client only — it needs an InvenTree server, no web UI of its own.",
+				"fr": "CLI officiel d’InvenTree : opérations d’inventaire et étiquettes code-barres en terminal, plus un client API Python. Client uniquement — il exige un serveur InvenTree et n’a pas d’UI web."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

@@ -1,0 +1,303 @@
+{
+	"slug": "shell-history",
+	"name": "Shell history (Ctrl-R)",
+	"domain": null,
+	"category": "shell-terminal",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "Yes, and you should. The built-in history caps at a few thousand lines, stays on one machine, and gets corrupted when two terminals write it at once. Any of the tools below fixes one or more of these.",
+		"fr": "Oui, et c’est justifié. L’historique intégré est plafonné à quelques milliers de lignes, reste local à une machine et se corrompt quand deux terminaux écrivent le fichier en même temps. Chacun des outils ci-dessous corrige au moins un de ces points."
+	},
+	"whatYouLose": [
+		{
+			"en": "Present on every shell and machine",
+			"fr": "Présent sur tous les shells et machines"
+		},
+		{
+			"en": "Ctrl-R muscle memory",
+			"fr": "Le réflexe de Ctrl-R"
+		},
+		{
+			"en": "Nothing to install or configure",
+			"fr": "Rien à installer ni configurer"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Atuin",
+			"source": {
+				"host": "github",
+				"path": "atuinsh/atuin",
+				"url": "https://github.com/atuinsh/atuin"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "SQLite store keeps directory, exit code and duration, with fuzzy search over the lot. Encrypted sync exists but you run the server yourself, so the data is only as durable as your hosting.",
+				"fr": "Stockage SQLite qui garde le dossier courant, le code de retour et la durée, avec une recherche floue. La synchronisation chiffrée existe, mais le serveur est à héberger soi-même : vos données ne tiennent que sur votre propre infrastructure."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "McFly",
+			"source": {
+				"host": "github",
+				"path": "cantino/mcfly",
+				"url": "https://github.com/cantino/mcfly"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Neural ranking weights current directory and recent commands, so results follow context rather than raw matches. Local only — nothing to host, but history stays per-machine and never syncs.",
+				"fr": "Classement neuronal qui pondère le dossier courant et les commandes récentes : les résultats suivent le contexte, pas seulement la correspondance brute. Local uniquement — rien à héberger, mais l’historique reste cantonné à une machine, sans synchronisation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "fzf",
+			"source": {
+				"host": "github",
+				"path": "junegunn/fzf",
+				"url": "https://github.com/junegunn/fzf"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The de-facto ctrl-r picker: fuzzy history search with preview, plus CTRL-T/ALT-C file and directory bindings for bash, zsh, fish and vim. Ranking is recency-driven; there is no cross-machine sync.",
+				"fr": "Le picker ctrl-r de référence : recherche floue de l’historique avec aperçu, plus les bindings CTRL-T/ALT-C pour bash, zsh, fish et vim. En contrepartie, classement par récence, pas de sync entre machines."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "hstr",
+			"source": {
+				"host": "github",
+				"path": "dvorka-oss/hstr",
+				"url": "https://github.com/dvorka-oss/hstr"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Purpose-built history browser with regex filtering, colorized results and pinned favorites. It is bash/zsh centric — fish needs a wrapper — and syncs nothing across hosts.",
+				"fr": "Navigateur d’historique dédié : filtrage regex, résultats colorés, favoris épinglés. Centré bash/zsh — fish nécessite un wrapper — et sans sync entre hôtes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "skim",
+			"source": {
+				"host": "github",
+				"path": "skim-rs/skim",
+				"url": "https://github.com/skim-rs/skim"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Rust fuzzy finder with fzf-compatible flags and bindings and a single static binary that handles huge history files smoothly. The ecosystem is smaller, and some fzf features lag or differ.",
+				"fr": "Chercheur flou en Rust, drapeaux et intégrations compatibles fzf, binaire statique unique qui absorbe sans peine les très gros historiques. Écosystème plus restreint, certains comportements de fzf diffèrent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "peco",
+			"source": {
+				"host": "github",
+				"path": "peco/peco",
+				"url": "https://github.com/peco/peco"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Simplistic stream filter with vim-style selection and line/host/tag views — one Go binary to wire into ctrl-r. Ordering follows input: no ranking, and momentum has shifted to fzf.",
+				"fr": "Filtreur de flux épuré avec sélection façon vim, un binaire Go facile à brancher sur ctrl-r. Pas de classement — l’ordre suit l’entrée — et l’élan est passé à fzf."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "percol",
+			"source": {
+				"host": "github",
+				"path": "mooz/percol",
+				"url": "https://github.com/mooz/percol"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Dormant since December 2023: the Python ancestor of peco that set the ctrl-r-picker pattern. The Python runtime makes it slower than Go/Rust pickers.",
+				"fr": "Inactif depuis décembre 2023 : l’ancêtre Python de peco, à l’origine du motif du picker ctrl-r. Le runtime Python le rend plus lent que les pickers Go/Rust."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "navi",
+			"source": {
+				"host": "github",
+				"path": "denisidoro/navi",
+				"url": "https://github.com/denisidoro/navi"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Interactive cheatsheet TUI: curated, fuzzy-searchable command snippets with placeholders filled in before running. It recalls known commands rather than what you actually typed, so you build the library.",
+				"fr": "TUI d’antisèches interactives : commandes organisées et filtrables, champs remplis avant exécution. Il évoque des commandes connues, pas celles que vous avez tapées — à vous de bâtir la bibliothèque."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "hishtory",
+			"source": {
+				"host": "github",
+				"path": "ddworken/hishtory",
+				"url": "https://github.com/ddworken/hishtory"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "E2E-encrypted history synced across machines with a ctrl-r TUI, searchable by command, host, directory, session or time. Multi-machine use needs the sync server running, and it trails Atuin in community.",
+				"fr": "Historique chiffré de bout en bout, synchronisé entre machines, TUI ctrl-r filtrable par commande, hôte, dossier, session ou date. Serveur de sync requis pour plusieurs machines, communauté plus petite qu’Atuin."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "fzy",
+			"source": {
+				"host": "github",
+				"path": "jhawthorn/fzy",
+				"url": "https://github.com/jhawthorn/fzy"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Tiny fuzzy matcher with substring-score ranking, used as the matching engine in many ctrl-r setups. No UI — you wire it into your keybinding, and score alone drives ranking.",
+				"fr": "Petit matcheur flou au classement par score de sous-chaîne, moteur de correspondance de nombreux setups ctrl-r. Pas d’interface — à brancher soi-même sur votre raccourci, seul le score classe."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "zsh-history-substring-search",
+			"source": {
+				"host": "github",
+				"path": "zsh-users/zsh-history-substring-search",
+				"url": "https://github.com/zsh-users/zsh-history-substring-search"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "zsh-native ctrl-r: type a fragment, arrow through matches, substring highlighted. No binary, pure zsh plugin — but zsh only, with no fuzzy scoring and no sync.",
+				"fr": "Ctrl-r natif zsh : tapez un fragment, parcourez les correspondances aux flèches, sous-chaîne surlignée. Aucun binaire, plugin zsh pur — mais zsh uniquement, sans score flou ni sync."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "histdb",
+			"source": {
+				"host": "github",
+				"path": "larkery/zsh-histdb",
+				"url": "https://github.com/larkery/zsh-histdb"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Stored zsh history in SQLite for ad-hoc SQL queries over command, cwd and time, with no duplicate entries. Dormant since April 2024, zsh-only, and needs fzf for the interactive feel.",
+				"fr": "L’historique zsh stocké dans SQLite, requêtes SQL ad hoc sur commande, cwd et date, sans doublons. Inactif depuis avril 2024, zsh uniquement, fzf requis pour le côté interactif."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pet",
+			"source": {
+				"host": "github",
+				"path": "knqyf263/pet",
+				"url": "https://github.com/knqyf263/pet"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Snippet manager replacing the recall-commands side of ctrl-r: taggable, executable snippets with variable substitution. Curated, not automatic history recall, and cross-machine sync is DIY via git.",
+				"fr": "Gestionnaire de snippets qui remplace le côté rappel-de-commandes de ctrl-r : exécutables, tagués, avec substitution de variables. Curaté plutôt que rappel automatique, et la sync passe par git, en DIY."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

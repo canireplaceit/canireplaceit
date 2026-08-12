@@ -107,6 +107,182 @@
 				"en": "A quarter of the price for the same directory and leave tracking. The UI is noticeably worse and onboarding flows are clunky.",
 				"fr": "Quatre fois moins cher pour le même annuaire et le même suivi des congés. L’interface est nettement moins agréable et l’onboarding est laborieux."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenCATS",
+			"source": {
+				"host": "github",
+				"path": "opencats/OpenCATS",
+				"url": "https://github.com/opencats/OpenCATS"
+			},
+			"license": "MPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The only maintained open-source applicant tracking system, covering BambooHR's recruiting half. Expect a dated LAMP UI, and no HR records or payroll.",
+				"fr": "Le seul ATS open source maintenu, qui couvre la moitié recrutement de BambooHR. UI LAMP datée, et rien côté RH ou paie."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "TimeOff",
+			"source": {
+				"host": "github",
+				"path": "timeoff-management/timeoff-management-application",
+				"url": "https://github.com/timeoff-management/timeoff-management-application"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Leave-only tool matching BambooHR's absence workflows, minus the rest of the HRMS. No commits since 2024-03, so treat it as dormant rather than actively developed.",
+				"fr": "Outil dédié aux congés qui couvre les workflows d’absence de BambooHR, sans le reste du HRMS. Aucun commit depuis mars 2024 : à traiter comme dormant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "IceHrm",
+			"source": {
+				"host": "github",
+				"path": "gamonoid/icehrm",
+				"url": "https://github.com/gamonoid/icehrm"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Feature-rich PHP HRMS covering employees, leave, time, travel, training and recruiting; the community build trails the paid Enterprise edition.",
+				"fr": "HRMS PHP complet : employés, congés, temps, déplacements, formation et recrutement. La build communautaire reste en retrait de l’édition Enterprise payante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise-edition extras",
+					"fr": "Fonctions de l’édition Enterprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Sentrifugo",
+			"source": {
+				"host": "github",
+				"path": "sapplica/sentrifugo",
+				"url": "https://github.com/sapplica/sentrifugo"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Complete PHP HRMS — employees, leave, time, recruitment, appraisal — still functional but with no commits since 2021, so unmaintained in practice.",
+				"fr": "HRMS PHP complet — employés, congés, temps, recrutement, évaluations — encore fonctionnel, mais plus aucun commit depuis 2021 : de fait, non maintenu."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kimai",
+			"source": {
+				"host": "github",
+				"path": "kimai/kimai",
+				"url": "https://github.com/kimai/kimai"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Mature self-hosted time tracking with approvals and rate billing; attendance data without the HRMS, though leave is not built in.",
+				"fr": "Suivi du temps auto-hébergé et mature, avec validations et facturation par taux ; des données de présence sans le HRMS, mais pas de congés intégrés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Premium plugins",
+					"fr": "Extensions payantes"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Timetagger",
+			"source": {
+				"host": "github",
+				"path": "almarklein/timetagger",
+				"url": "https://github.com/almarklein/timetagger"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight self-hosted time tracking with a slick UI; fine for attendance data, but single-user oriented with no approvals or leave.",
+				"fr": "Suivi du temps auto-hébergé au rendu soigné, simple à déployer ; pensé pour une personne ou une petite équipe, sans approbations ni congés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Timewarrior",
+			"source": {
+				"host": "github",
+				"path": "GothenburgBitFactory/timewarrior",
+				"url": "https://github.com/GothenburgBitFactory/timewarrior"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Plain-text time tracking for the terminal; scriptable and pipeable for teams living in shells, but no leave, payroll or approval workflow.",
+				"fr": "Suivi du temps en texte brut, dans le terminal ; scriptable et pipeable pour les équipes qui vivent dans leur shell, mais rien côté congés, paie ou approbation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Timetrace",
+			"source": {
+				"host": "github",
+				"path": "dominikbraun/timetrace",
+				"url": "https://github.com/dominikbraun/timetrace"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Keyboard-driven Go time tracker for the terminal; good for solo and small-team logs, but dormant — no commits since June 2024.",
+				"fr": "Suivi du temps en TUI Go, piloté au clavier ; adapté aux logs solo ou petite équipe, mais dormant — plus aucun commit depuis juin 2024."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

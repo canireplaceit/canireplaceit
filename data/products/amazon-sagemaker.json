@@ -122,6 +122,178 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Polyaxon",
+			"source": {
+				"host": "github",
+				"path": "polyaxon/polyaxon",
+				"url": "https://github.com/polyaxon/polyaxon"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Most complete self-hosted SageMaker analogue: experiments, pipelines, hyperparameter tuning and model registry in one K8s app. Needs a cluster; SSO, RBAC and teams are enterprise-only.",
+				"fr": "L’analogue self-hosted le plus complet de SageMaker : expériences, pipelines, optimisation d’hyperparamètres et registre de modèles dans une seule app K8s. Cluster requis ; SSO, RBAC et équipes restent en édition entreprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "SSO, RBAC, teams (enterprise tier)",
+					"fr": "SSO, RBAC, équipes (offre entreprise)"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ClearML",
+			"source": {
+				"host": "github",
+				"path": "clearml/clearml",
+				"url": "https://github.com/clearml/clearml"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Full MLOps suite behind one easy Docker self-hosted server. Heavier stack than a bare tracker; no managed notebooks of its own.",
+				"fr": "Suite MLOps complète derrière un serveur Docker self-hosted simple à poser. Stack plus lourde qu’un simple tracker ; pas de notebooks managés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Determined AI",
+			"source": {
+				"host": "github",
+				"path": "determined-ai/determined",
+				"url": "https://github.com/determined-ai/determined"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Distributed deep-learning training platform with built-in hyperparameter search and notebooks. DL-centric, less for classical ML, and a cluster of agents to operate.",
+				"fr": "Plateforme d’entraînement distribué pensée pour le deep learning, avec recherche d’hyperparamètres et notebooks intégrés. Centrée DL, peu adaptée au ML classique, et un cluster d’agents à opérer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "KServe",
+			"source": {
+				"host": "github",
+				"path": "kserve/kserve",
+				"url": "https://github.com/kserve/kserve"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Kubernetes serving platform that replaces SageMaker Hosting: autoscaling, canary rollouts, multi-framework inference. Serving only — no training or tracking, and it needs a running cluster.",
+				"fr": "Plateforme de serving Kubernetes qui remplace SageMaker Hosting : autoscaling, canary, inférence multi-frameworks. Serving uniquement — pas d’entraînement ni de tracking, et il faut un cluster opérationnel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "BentoML",
+			"source": {
+				"host": "github",
+				"path": "bentoml/BentoML",
+				"url": "https://github.com/bentoml/BentoML"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Lightest path to SageMaker-style serving: package any model as a Bento and serve it from a pip-installed CLI. No training or tracking; advanced multi-model management needs Yatai.",
+				"fr": "Chemin le plus léger vers le serving façon SageMaker : empaqueter un modèle en Bento et le servir depuis un CLI pip. Pas d’entraînement ni de tracking ; le multi-modèles avancé exige Yatai."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Flyte",
+			"source": {
+				"host": "github",
+				"path": "flyteorg/flyte",
+				"url": "https://github.com/flyteorg/flyte"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Production-grade ML workflow orchestration with typed tasks and data lineage on K8s. Orchestration only — no model registry, and it is K8s-first.",
+				"fr": "Orchestration de workflows ML en production, avec tâches typées et lineage de données sur K8s. De l’orchestration seulement — pas de registre de modèles, et le K8s d’abord."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ray",
+			"source": {
+				"host": "github",
+				"path": "ray-project/ray",
+				"url": "https://github.com/ray-project/ray"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Distributed compute backbone: Ray Train, Tune and Serve together cover SageMaker's training, tuning and inference. Assembling the full platform is DIY, and you operate the cluster.",
+				"fr": "Socle de calcul distribué : Ray Train, Tune et Serve couvrent ensemble entraînement, tuning et inférence. Monter la plateforme complète relève du bricolage, et le cluster est à votre charge."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "DVC",
+			"source": {
+				"host": "github",
+				"path": "treeverse/dvc",
+				"url": "https://github.com/treeverse/dvc"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "CLI data versioning and pipeline tooling that reproduces SageMaker's pipeline determinism on any storage. No web UI, no serving, no notebooks.",
+				"fr": "Versionnement de données et pipelines en CLI qui reproduit le déterminisme de SageMaker sur n’importe quel stockage. Pas de web UI, pas de serving, pas de notebooks."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

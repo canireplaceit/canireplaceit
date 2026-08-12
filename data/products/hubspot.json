@@ -86,8 +86,8 @@
 			"name": "SuiteCRM",
 			"source": {
 				"host": "github",
-				"path": "salesagility/SuiteCRM",
-				"url": "https://github.com/salesagility/SuiteCRM"
+				"path": "SuiteCRM/SuiteCRM",
+				"url": "https://github.com/SuiteCRM/SuiteCRM"
 			},
 			"license": "AGPL-3.0",
 			"effort": "docker",
@@ -99,6 +99,199 @@
 				"selfHostable": true,
 				"openCore": "none",
 				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Odoo",
+			"source": {
+				"host": "github",
+				"path": "odoo/odoo",
+				"url": "https://github.com/odoo/odoo"
+			},
+			"license": "LGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Full ERP whose CRM module sits beside invoicing, websites and a huge app store; the breadth shows, with SAML SSO gated behind a paid tier.",
+				"fr": "ERP complet dont le module CRM cohabite avec facturation, sites web et boutique d’apps ; la diversité se paie, le SSO SAML restant réservé au plan payant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "eu-option"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ERPNext",
+			"source": {
+				"host": "github",
+				"path": "frappe/erpnext",
+				"url": "https://github.com/frappe/erpnext"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosts easily on Frappe, bundling CRM with marketing, helpdesk, accounting and HR; the UI and reporting trail HubSpot, and GPL copyleft binds forks.",
+				"fr": "Facile à auto-héberger sur Frappe, il rassemble CRM, marketing, helpdesk, compta et RH ; l’interface et les rapports pâlissent face à HubSpot et la copyleft GPL verrouille les forks."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Krayin",
+			"source": {
+				"host": "github",
+				"path": "krayin/laravel-crm",
+				"url": "https://github.com/krayin/laravel-crm"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Laravel CRM with a kanban pipeline, quotes, invoices and mail under MIT; you lose marketing automation, and the community and integrations stay thin.",
+				"fr": "CRM Laravel sous licence MIT, pipeline kanban, devis, factures et mail compris ; pas d’automation marketing, et communauté comme intégrations restent minces."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CiviCRM",
+			"source": {
+				"host": "github",
+				"path": "civicrm/civicrm-core",
+				"url": "https://github.com/civicrm/civicrm-core"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Constituent records, memberships, events and donation emails for nonprofits; expect a steeper setup, an AGPL copyleft, and no sales pipeline.",
+				"fr": "Contacts, adhésions, événements et e-mails de don pour le monde associatif ; attendez une installation plus lourde, la copyleft AGPL et aucun pipeline de vente."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Monica",
+			"source": {
+				"host": "github",
+				"path": "monicahq/monica",
+				"url": "https://github.com/monicahq/monica"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Contacts, journal, reminders and gift ideas aimed at your personal circle, with a REST API and mobile apps; no pipeline, no marketing automation, AGPL.",
+				"fr": "Contacts, journal, rappels et idées de cadeaux pour le cercle privé, avec API REST et applis mobiles ; pas de pipeline de vente ni d’automation marketing, et la copyleft AGPL."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mautic",
+			"source": {
+				"host": "github",
+				"path": "mautic/mautic",
+				"url": "https://github.com/mautic/mautic"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Email campaigns, drip automation, scoring and landing pages — the marketing half of HubSpot; deals still need a separate CRM beside it, under GPL.",
+				"fr": "Campagnes e-mail, automation par étapes, scoring et landing pages — la moitié marketing de HubSpot ; pour les deals il faut l’associer à un CRM séparé, le tout en GPL."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Chatwoot",
+			"source": {
+				"host": "github",
+				"path": "chatwoot/chatwoot",
+				"url": "https://github.com/chatwoot/chatwoot"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Shared inbox, live chat and helpdesk with CSAT that mirror Service Hub; it won't run your sales pipeline, and SSO sits behind an enterprise licence.",
+				"fr": "Boîte de réception partagée, chat et helpdesk avec CSAT, l’équivalent du Service Hub ; pas de pipeline de vente, et le SSO reste réservé à la licence enterprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "SSO on enterprise tier",
+					"fr": "SSO réservé au plan enterprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenCATS",
+			"source": {
+				"host": "github",
+				"path": "opencats/OpenCATS",
+				"url": "https://github.com/opencats/OpenCATS"
+			},
+			"license": "MPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Candidates, job orders and a placement pipeline built for staffing, with reporting on an MPL-2.0 core; the UI is dated and it's weak as a general CRM.",
+				"fr": "Candidats, offres et pipeline de placement pour le recrutement, avec reporting sur un cœur MPL-2.0 ; l’interface est datée et il tient mal le rôle de CRM généraliste."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "crm.cli",
+			"source": {
+				"host": "github",
+				"path": "dzhng/crm.cli",
+				"url": "https://github.com/dzhng/crm.cli"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Contacts and deals as plain files mounted through FUSE, run from a terminal with no dashboard; early-stage and single-operator, there's no web UI or collaboration.",
+				"fr": "Contacts et deals en fichiers bruts montés en FUSE, pilotés depuis un terminal sans tableau de bord ; très jeune et mono-utilisateur, sans UI web ni collaboration."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
 				"dataResidency": "self"
 			}
 		}

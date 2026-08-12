@@ -126,6 +126,136 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Conductor",
+			"source": {
+				"host": "github",
+				"path": "conductor-oss/conductor",
+				"url": "https://github.com/conductor-oss/conductor"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Netflix’s engine: drag-and-drop designer, REST API, Saga support, Postgres/MySQL/DynamoDB backend, admin UI. API/task-driven, not code-native durable execution — you deploy and operate server plus workers.",
+				"fr": "Le moteur de Netflix : designer drag-and-drop, API REST, support Saga, backend Postgres/MySQL/DynamoDB, UI admin. Modèle piloté par API/tâches, pas d’exécution durable code-native — serveur et workers à déployer vous-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache Airflow",
+			"source": {
+				"host": "github",
+				"path": "apache/airflow",
+				"url": "https://github.com/apache/airflow"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Python DAGs with retries, backfills, hundreds of provider operators. Batch scheduling, not durable long-running executions; heavier footprint — scheduler, webserver, database and an executor to run.",
+				"fr": "DAGs en Python avec retries, backfills et des centaines d’operators. C’est du batch, pas de l’exécution durable : l’empreinte est lourde, scheduler, webserver, base et executor à déployer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Argo Workflows",
+			"source": {
+				"host": "github",
+				"path": "argoproj/argo-workflows",
+				"url": "https://github.com/argoproj/argo-workflows"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Kubernetes-native: workflows are CRDs, steps are pods, parallel fan-out, artifacts, cron, SSO. Needs a whole cluster — highest ops overhead here — and pods give no in-code timer or saga semantics.",
+				"fr": "Natif Kubernetes : workflows en CRDs, étapes en pods, fan-out parallèle, artefacts, cron, SSO. Il faut tout un cluster, la plus lourde des options, et un pod n’offre ni timers ni sagas en code."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kestra",
+			"source": {
+				"host": "github",
+				"path": "kestra-io/kestra",
+				"url": "https://github.com/kestra-io/kestra"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Code-first YAML flows, web UI, webhook and event triggers, plugin marketplace, single Java server. Batch orchestration, not durable execution; enterprise features are commercial and OSS stays single-region.",
+				"fr": "Flows YAML code-first, UI web, triggers webhook et événements, marketplace de plugins, un seul serveur Java. Orchestration batch, pas d’exécution durable ; les fonctions entreprise sont payantes et l’OSS reste mono-région."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise features",
+					"fr": "Fonctionnalités entreprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Prefect",
+			"source": {
+				"host": "github",
+				"path": "PrefectHQ/prefect",
+				"url": "https://github.com/PrefectHQ/prefect"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Python-native flows with dynamic work pools, retries, caching, self-hosted server and UI on Postgres/SQLite. Batch/ML focus, not general durable execution; multi-worker setups demand careful Postgres ops.",
+				"fr": "Flows natifs Python avec work pools dynamiques, retries, caching, serveur et UI auto-hébergeables sur Postgres/SQLite. Plutôt data/ML que durable-execution générale ; le multi-worker exige un Postgres bien administré."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dagu",
+			"source": {
+				"host": "github",
+				"path": "dagucloud/dagu",
+				"url": "https://github.com/dagucloud/dagu"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "One Go binary: daemon, CLI, TUI, web UI, YAML DAGs, no database. Easiest to self-host here, but single-node — no multi-worker HA or cluster replication, small ecosystem.",
+				"fr": "Un seul binaire Go : daemon, CLI, TUI, web UI, DAGs YAML, aucune base. Le plus simple à auto-héberger ici, mais mono-nœud — pas de HA multi-worker ni de réplication, communauté réduite."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

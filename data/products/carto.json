@@ -108,6 +108,174 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "QGIS",
+			"source": {
+				"host": "github",
+				"path": "qgis/QGIS",
+				"url": "https://github.com/qgis/QGIS"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Full-featured desktop GIS covering CARTO-style map-making and spatial analysis, with print layouts and a deep plugin ecosystem. Nothing is hosted: no web delivery, no team sharing, no SSO.",
+				"fr": "Tout l’atelier carto et analyse spatiale de CARTO, en local, avec mises en page pour l’impression et un gros écosystème de plugins. Rien d’hébergé : ni web, ni équipe, ni SSO."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GeoServer",
+			"source": {
+				"host": "github",
+				"path": "geoserver/geoserver",
+				"url": "https://github.com/geoserver/geoserver"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Reference OGC server: PostGIS and Shapefile data out as WMS/WFS/WCS, styled in the browser, with transactions and role-based security. It serves rather than analyses — no dashboards, no end-user maps.",
+				"fr": "Le serveur OGC de référence : PostGIS et Shapefile diffusés en WMS/WFS/WCS, styles réglés dans le navigateur, transactions et rôles. Il sert, il n’analyse pas — ni tableaux de bord, ni cartes utilisateur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MapServer",
+			"source": {
+				"host": "github",
+				"path": "MapServer/MapServer",
+				"url": "https://github.com/MapServer/MapServer"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "No GUI, config lives in mapfiles, and the modern-tiles story is thin — but it is a fast C-based engine for high-throughput WMS/WFS.",
+				"fr": "Pas d’interface, tout en mapfiles, et une offre tuiles modernes mince — mais un moteur C rapide pour un WMS/WFS à fort débit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Martin",
+			"source": {
+				"host": "github",
+				"path": "maplibre/martin",
+				"url": "https://github.com/maplibre/martin"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Single small binary that turns live PostGIS into MVT tiles for MapLibre, plus static tiles and fonts. It only serves tiles — styling is left to Maputnik or MapLibre.",
+				"fr": "Un petit binaire unique qui sert du PostGIS en tuiles MVT pour MapLibre, plus tuiles statiques et polices. Il ne sert que des tuiles — le style passe par Maputnik ou MapLibre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pg_tileserv",
+			"source": {
+				"host": "github",
+				"path": "CrunchyData/pg_tileserv",
+				"url": "https://github.com/CrunchyData/pg_tileserv"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Tiles only: automatic MVT from PostGIS tables and functions, configured through a few env vars. No analytics UI, and advanced options trail Martin.",
+				"fr": "Que des tuiles : MVT automatique depuis les tables et fonctions PostGIS, réglé par quelques variables d’environnement. Pas d’interface d’analyse, et les options avancées restent en retrait de Martin."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "tippecanoe",
+			"source": {
+				"host": "github",
+				"path": "felt/tippecanoe",
+				"url": "https://github.com/felt/tippecanoe"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Batch CLI, nothing served live: it turns large GeoJSON or shapefiles into MBTiles or PMTiles at any zoom, with size and precision tuning. Output still needs a tile host.",
+				"fr": "Rien n’est servi en direct : une CLI qui transforme gros GeoJSON ou shapefiles en MBTiles ou PMTiles à toute échelle, taille et précision réglables, et qui attend un serveur de tuiles."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GDAL",
+			"source": {
+				"host": "github",
+				"path": "OSGeo/gdal",
+				"url": "https://github.com/OSGeo/gdal"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "No UI and a steep learning curve, but ogr2ogr and friends convert between hundreds of formats, process raster and vector data, and reproject or warp.",
+				"fr": "Pas d’interface et une courbe d’apprentissage raide, mais ogr2ogr et compagnie convertissent entre des centaines de formats, avec reprojection, warping, raster et vecteur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Maputnik",
+			"source": {
+				"host": "github",
+				"path": "maplibre/maputnik",
+				"url": "https://github.com/maplibre/maputnik"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Visual editor for MapLibre or Mapbox GL styles: drag-and-drop with live preview, remote styles and tiles, style JSON out for your apps. Maps only — no data, no accounts, no sharing.",
+				"fr": "Éditeur visuel de styles MapLibre ou Mapbox GL : glisser-déposer avec aperçu en direct, styles et fonds distants, style JSON exporté. Style uniquement — pas de données, pas de comptes, pas de partage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

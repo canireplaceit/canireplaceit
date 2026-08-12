@@ -97,6 +97,195 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tuist",
+			"source": {
+				"host": "github",
+				"path": "tuist/tuist",
+				"url": "https://github.com/tuist/tuist"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Turns the Xcode project into a reproducible manifest, with build caching across CI runs. No hosted runners or device farm, and macOS is required; Android comes in via plugins only.",
+				"fr": "Transforme le projet Xcode en manifeste reproductible, avec cache de builds entre runs de CI. Mac obligatoire, aucun runner hébergé ni ferme d’appareils ; l’Android ne vient que par plugins."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Maestro",
+			"source": {
+				"host": "github",
+				"path": "mobile-dev-inc/Maestro",
+				"url": "https://github.com/mobile-dev-inc/Maestro"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "One YAML file declares UI flows that run on iOS and Android against simulators, emulators or real devices. That’s all it does — no build, signing or deploy, no device farm.",
+				"fr": "Un fichier YAML déclare des flux UI qui tournent sur iOS et Android, contre simulateurs ou vrais appareils. C’est tout — pas de build ni de signature, pas de ferme d’appareils."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Danger",
+			"source": {
+				"host": "github",
+				"path": "danger/danger",
+				"url": "https://github.com/danger/danger"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Rule-based PR checks written in Swift, JS or Ruby, invoked from any existing CI via GitHub/GitLab hooks or fastlane lanes. A quality gate only — it does not build, sign or release.",
+				"fr": "Règles de revue de PR en Swift, JS ou Ruby, déclenchées depuis n’importe quelle CI via hooks GitHub/GitLab ou lanes fastlane. Simple portail qualité : il ne build ni ne signe."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "XcodeGen",
+			"source": {
+				"host": "github",
+				"path": "yonaskolb/XcodeGen",
+				"url": "https://github.com/yonaskolb/XcodeGen"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Renders a project.yml into a deterministic .xcodeproj, killing merge conflicts and fragile project files from any CI script. Needs macOS and Xcode, and stops at the build files — no Android.",
+				"fr": "Rend un project.yml en .xcodeproj déterministe, tuant conflits de merge et fichiers projet fragiles, depuis n’importe quel script de CI. Requiert Mac et Xcode, s’arrête aux fichiers de build — pas d’Android."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "xcodes",
+			"source": {
+				"host": "github",
+				"path": "XcodesOrg/xcodes",
+				"url": "https://github.com/XcodesOrg/xcodes"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Installs and switches exact Xcode versions from the CLI, with Apple Developer auth, so CI base images stay reproducible. macOS-only, and it only manages versions — it is not a CI system.",
+				"fr": "Installe et bascule entre versions exactes de Xcode en CLI, avec auth Apple Developer, pour des images de CI reproductibles. macOS uniquement — il ne gère que des versions, pas une CI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Jenkins",
+			"source": {
+				"host": "github",
+				"path": "jenkinsci/jenkins",
+				"url": "https://github.com/jenkinsci/jenkins"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Battle-tested self-hosted CI that wires Xcode, Android and signing plugins into build-and-deploy pipelines. General-purpose though — mobile support is plugin-assembled, not curated, and it weighs more to run.",
+				"fr": "CI auto-hébergée éprouvée, qui assemble plugins Xcode, Android et signature en pipelines build-et-deploy. Usage général : support mobile assemblé par plugins, sans curation, et exploitation lourde."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Woodpecker CI",
+			"source": {
+				"host": "github",
+				"path": "woodpecker-ci/woodpecker",
+				"url": "https://github.com/woodpecker-ci/woodpecker"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Docker-first pipelines that orchestrate fastlane and mobile toolchains, self-hosted on a small footprint, against GitHub, Gitea, Forgejo or Codeberg. Nothing mobile-specific — no signing, no device farm, and macOS agents are DIY.",
+				"fr": "Pipelines Docker-first qui orchestrent fastlane et les toolchains mobiles, auto-hébergées et légères, pour GitHub, Gitea, Forgejo ou Codeberg. Aucune commodité mobile — pas de signature ni de ferme, agents macOS en DIY."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "STF (Smartphone Test Farm)",
+			"source": {
+				"host": "github",
+				"path": "DeviceFarmer/stf",
+				"url": "https://github.com/DeviceFarmer/stf"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Device farm on your own hardware: web UI to browse and control real devices, REST API for CI allocation. iOS automation trails Android, and the hardware and ops are on you.",
+				"fr": "Ferme d’appareils sur votre propre matériel : UI web pour parcourir et piloter de vrais appareils, API REST pour la CI. L’automatisation iOS reste derrière l’Android ; matériel et exploitation, à vous."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Appium",
+			"source": {
+				"host": "github",
+				"path": "appium/appium",
+				"url": "https://github.com/appium/appium"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "WebDriver-compliant automation server covering iOS and Android on real devices, simulators or cloud farms, with a large driver ecosystem. Automation only — no build, signing or release; it needs an external CI.",
+				"fr": "Serveur d’automatisation compatible WebDriver couvrant iOS et Android, sur vrais appareils, simulateurs ou fermes cloud. Automatisation seulement — pas de build ni de signature ; il lui faut une CI externe."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

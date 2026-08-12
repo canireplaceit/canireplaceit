@@ -99,6 +99,136 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Odoo Community",
+			"source": {
+				"host": "github",
+				"path": "odoo/odoo",
+				"url": "https://github.com/odoo/odoo"
+			},
+			"license": "LGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Mature open ERP whose quality app — control points, quality alerts, test checklists — plus document and training modules covers much of Qualio's factory-floor scope. It stays operational QC, not a GMP document-control QMS.",
+				"fr": "ERP open mature : son module qualité (points de contrôle, alertes, checklists de test) et les modules documents et formation couvrent l’essentiel du périmètre Qualio. C’est du contrôle qualité, pas un QMS GMP."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "SAML, FDA, 21 CFR Part 11 — Enterprise only",
+					"fr": "SAML, FDA, 21 CFR Part 11 — Enterprise uniquement"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ERPNext",
+			"source": {
+				"host": "github",
+				"path": "frappe/erpnext",
+				"url": "https://github.com/frappe/erpnext"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Fully open ERP with a Quality module (inspections, procedures, quality-action records) plus training and document management out of the box. Generic though: no 21 CFR Part 11 e-signature, no GMP/ISO document focus.",
+				"fr": "ERP entièrement open source avec un vrai module Qualité (inspections, procédures, actions CAPA) plus formation et gestion documentaire dès l’installation. Reste générique : pas de signature électronique 21 CFR Part 11."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenDocMan",
+			"source": {
+				"host": "github",
+				"path": "opendocman/opendocman",
+				"url": "https://github.com/opendocman/opendocman"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight PHP document-control system purpose-built for ISO/quality documentation, with multi-level approval workflows and audit logging. Document control only: no CAPA, training or change-control, and a dated UI.",
+				"fr": "Système de doc-control léger en PHP, conçu pour la documentation ISO/qualité : approbations multi-niveaux et journal d’audit. Documentaire uniquement : pas de CAPA, de formation ni de change control, et une UI datée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Paperless-ngx",
+			"source": {
+				"host": "github",
+				"path": "paperless-ngx/paperless-ngx",
+				"url": "https://github.com/paperless-ngx/paperless-ngx"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted document archive with OCR full-text search, tags, correspondents and retention rules. It gives you searchable records, not a QMS: no approval sign-off or controlled lifecycle for GMP/ISO use.",
+				"fr": "Archive documentaire self-hosted avec OCR, recherche plein texte, tags, correspondants et règles de conservation. Livre des enregistrements consultables, pas un QMS : aucun circuit d’approbation ni cycle de vie contrôlé pour le GMP/ISO."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Syft",
+			"source": {
+				"host": "github",
+				"path": "anchore/syft",
+				"url": "https://github.com/anchore/syft"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "De-facto open SBOM generator: CLI producing CycloneDX/SPDX bills of materials for supplier and material compliance. Inventory only — no QMS workflows, training or CAPA; compliance needs downstream tooling.",
+				"fr": "Générateur de SBOM open de facto : un CLI qui produit des SBOM CycloneDX/SPDX pour la conformité fournisseurs/matériaux. Inventaire uniquement, pas de QMS, formation ni CAPA ; il faut des outils en aval."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ScanCode Toolkit",
+			"source": {
+				"host": "github",
+				"path": "aboutcode-org/scancode-toolkit",
+				"url": "https://github.com/aboutcode-org/scancode-toolkit"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Most thorough open license and copyright detector, used for export and license compliance. Heavy and slow on large codebases, and compliance-scanning only — unrelated to factory-floor QMS.",
+				"fr": "Le moteur open le plus complet pour détecter licences et droits d’auteur, pour la conformité export. Lourd, lent sur gros codebases, et uniquement de l’analyse — rien à voir avec le QMS d’usine."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

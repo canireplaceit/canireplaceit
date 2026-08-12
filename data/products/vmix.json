@@ -83,6 +83,174 @@
 				"en": "Hardware, not software: a few hundred dollars once, and switching stops depending on your PC. Fixed input count and no software scene graph.",
 				"fr": "Du matériel, pas du logiciel : quelques centaines d’euros une fois, et la commutation ne dépend plus de votre PC. Nombre d’entrées figé et pas de scènes logicielles."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "FFmpeg",
+			"source": {
+				"host": "github",
+				"path": "FFmpeg/FFmpeg",
+				"url": "https://github.com/FFmpeg/FFmpeg"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "Universal CLI toolkit for capture, mixing, and publishing to every streaming target. No GUI or switcher — multiview and multi-cam switching are hand-built scripts.",
+				"fr": "Boîte à outils CLI universelle pour capture, mixage et publication vers toutes les cibles de streaming. Pas de GUI ni de switcher : multivue et commutation multi-caméras se montent à la main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GStreamer",
+			"source": {
+				"host": "github",
+				"path": "GStreamer/gstreamer",
+				"url": "https://github.com/GStreamer/gstreamer"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "Plumbing framework behind most OSS media stacks; pipelines assemble in a shell one-liner. Steep learning curve and no production UI — switching logic is DIY via gst-launch.",
+				"fr": "Brique derrière la plupart des stacks média open source ; les pipelines s’assemblent en une ligne de shell. Courbe d’apprentissage raide, pas d’UI prête à l’emploi : la commutation se bricole en pipelines."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MediaMTX",
+			"source": {
+				"host": "github",
+				"path": "bluenviron/mediamtx",
+				"url": "https://github.com/bluenviron/mediamtx"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "One small server replaces all ingest and restream plumbing: RTSP, RTMP, SRT, WebRTC, HLS, with recording and an API. Not a switcher — no GUI, no titles or scene composition.",
+				"fr": "Un petit serveur remplace toute la tuyauterie d’ingest et de restream : RTSP, RTMP, SRT, WebRTC, HLS, enregistrement et API. Pas un switcher — pas de GUI, ni titres, ni composition de scènes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Owncast",
+			"source": {
+				"host": "github",
+				"path": "owncast/owncast",
+				"url": "https://github.com/owncast/owncast"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted streaming platform: chat, HLS, and a polished web front-end on your own domain. Ingest only — switching stays upstream in OBS, and there is no simulcast or broadcast hardware.",
+				"fr": "Plateforme de streaming auto-hébergée : chat, HLS et un front web soigné sur votre propre domaine. Ingest uniquement : la commutation reste en amont dans OBS, pas de simulcast multi-destination ni matériel broadcast."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Restreamer",
+			"source": {
+				"host": "github",
+				"path": "datarhei/restreamer",
+				"url": "https://github.com/datarhei/restreamer"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted restream hub: pull RTMP/SRT and fan out to YouTube, Twitch, or local targets from a web UI. Publisher side only — no camera switching or titles.",
+				"fr": "Hub de restream auto-hébergé : on tire depuis RTMP/SRT et on diffuse vers YouTube, Twitch ou des cibles locales depuis une UI web. Côté publication uniquement : pas de commutation caméras ni titres."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SRT Live Server (SLS)",
+			"source": {
+				"host": "github",
+				"path": "Edward-Wu/srt-live-server",
+				"url": "https://github.com/Edward-Wu/srt-live-server"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Reference SRT live server for low-latency AES-secured transport where RTMP latency or firewalls bite. Dormant two years, SRT-only, no UI, no production features.",
+				"fr": "Serveur SRT de référence pour un transport basse latence chiffré AES, là où la latence RTMP ou les pare-feux mordent. Dormant deux ans, SRT seul, sans UI ni outillage de production."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "VLC",
+			"source": {
+				"host": "github",
+				"path": "videolan/vlc",
+				"url": "https://github.com/videolan/vlc"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Trusted media engine that captures devices and restreams — a usable stopgap for local broadcast. Single-stream only: no multi-cam switching or overlays, restreaming stays manual.",
+				"fr": "Moteur média de confiance qui capture les périphériques et restreame — un dépannage correct pour une diffusion locale. Mono-flux seulement : pas de commutation multi-caméras ni d’incrustations, le restream reste manuel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "nginx-rtmp-module",
+			"source": {
+				"host": "github",
+				"path": "arut/nginx-rtmp-module",
+				"url": "https://github.com/arut/nginx-rtmp-module"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Classic RTMP server — the ingest-and-simulcast engine under most cloud streaming services. Raw server with no GUI or production workflow, and a weaker low-latency path than SRT or WebRTC.",
+				"fr": "Serveur RTMP, le moteur d’ingest et de simulcast derrière la plupart des services cloud. Brut, sans GUI ni workflow, et un chemin basse latence plus faible que SRT ou WebRTC."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

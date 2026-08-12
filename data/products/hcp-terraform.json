@@ -97,6 +97,270 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Terragrunt",
+			"source": {
+				"host": "github",
+				"path": "gruntwork-io/terragrunt",
+				"url": "https://github.com/gruntwork-io/terragrunt"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The wrapper that keeps multi-module Terraform DRY — HCL config replaces flag soup, run-all applies stacks in order. Still a wrapper: no remote runs, RBAC, or run history.",
+				"fr": "Wrapper qui garde vos setups multi-modules DRY : config HCL à la place des flags, run-all pour appliquer les stacks dans l’ordre. Reste un wrapper — pas de runs distants, ni RBAC, ni historique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Terramate",
+			"source": {
+				"host": "github",
+				"path": "terramate-io/terramate",
+				"url": "https://github.com/terramate-io/terramate"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Orchestration and codegen for OpenTofu/Terraform stacks, with change-detection scoping CI runs. Cloud features like drift UI are paid; ecosystem younger than Terragrunt’s.",
+				"fr": "Orchestration et génération de code pour les stacks OpenTofu/Terraform, avec détection de changements pour cadrer le CI. Le drift UI, lui, vit dans Terramate Cloud payant ; écosystème plus jeune que Terragrunt."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Drift UI and orchestration SaaS",
+					"fr": "UI de drift et orchestration SaaS"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Terraspace",
+			"source": {
+				"host": "github",
+				"path": "boltops-tools/terraspace",
+				"url": "https://github.com/boltops-tools/terraspace"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Ruby framework that layers app and stack per environment and generates projects from a Ruby DSL over HCL. Needs a Ruby toolchain, and has far less momentum than Terragrunt or Terramate.",
+				"fr": "Framework Ruby qui couche app et stack par environnement et génère les projets via un DSL Ruby par-dessus le HCL. Exige une toolchain Ruby, et beaucoup moins d’élan que Terragrunt ou Terramate."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Stategraph (formerly Terrateam)",
+			"source": {
+				"host": "github",
+				"path": "stategraph/stategraph",
+				"url": "https://github.com/stategraph/stategraph"
+			},
+			"license": "MPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted GitOps CD merged with a graph-based state engine: PR-driven plan/apply, approvals, scoped plans. Closest open analog to remote runs, but a brand-new merger and a full stack to run yourself.",
+				"fr": "CD GitOps auto-hébergé, moteur d’état en graphe : plan/apply piloté par PR, approbations, plans ciblés. L’équivalent open le plus proche des runs distants, mais fusion toute neuve et stack entière à opérer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Paid tiers for larger teams",
+					"fr": "Abonnements payants pour les grosses équipes"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "tflint",
+			"source": {
+				"host": "github",
+				"path": "terraform-linters/tflint",
+				"url": "https://github.com/terraform-linters/tflint"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Pluggable linter catching unused vars, invalid references and provider drift before the plan runs, with 200+ rules and a plugin SDK. Static only — no plan-time values, no state, no remote runs.",
+				"fr": "Linter pluggable : variables inutilisées, références invalides et drift provider attrapés avant le plan, 200+ règles et SDK de plugins. Statique seulement — pas de valeurs du plan, ni d’état, ni de runs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Checkov",
+			"source": {
+				"host": "github",
+				"path": "bridgecrewio/checkov",
+				"url": "https://github.com/bridgecrewio/checkov"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Static analysis and policy-as-code for Terraform plus 30+ other formats — 1000+ built-in policies, custom checks, scans plan output too. A Python runtime and the dashboard sit in paid Prisma Cloud.",
+				"fr": "Analyse statique et policy-as-code pour Terraform et 30+ autres formats — 1000+ politiques, checks custom, scan du plan aussi. Runtime Python à installer, et le dashboard vit dans Prisma Cloud payant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Infracost",
+			"source": {
+				"host": "github",
+				"path": "infracost/infracost",
+				"url": "https://github.com/infracost/infracost"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Cost estimation in CI from plan output — per-resource breakdown, diffs against previous runs, cost-gates pull requests, and no state leaves your side. Prices come from Infracost’s cloud; dashboards are paid.",
+				"fr": "Estimation de coût en CI depuis le plan : breakdown par ressource, diff avec les runs précédents, aucun état envoyé ailleurs. Les prix viennent du cloud Infracost ; le dashboard est payant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Dashboard and sharing (Infracost Cloud)",
+					"fr": "Dashboard et partage (Infracost Cloud)"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Rover",
+			"source": {
+				"host": "github",
+				"path": "im2nguyen/rover",
+				"url": "https://github.com/im2nguyen/rover"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Renders your state graph as an explorable web UI — search, filter, run locally against any state file. A viewer, not a platform: no plans, runs or policy, and development is slow.",
+				"fr": "Rend le graphe d’état en UI web explorable — recherche, filtre, lancement en local sur n’importe quel fichier d’état. Visualiseur, pas plateforme : ni plans, ni runs, ni policy, et dev au ralenti."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "tfenv",
+			"source": {
+				"host": "github",
+				"path": "tfutils/tfenv",
+				"url": "https://github.com/tfutils/tfenv"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Pins the exact Terraform binary each repo needs via .terraform-version; lightweight bash that installs arbitrary versions and runs in CI. Version manager only — no infra, no runs, just the glue.",
+				"fr": "Épingle le binaire Terraform exact de chaque repo via .terraform-version ; bash léger, installe n’importe quelle version, tourne en CI. Gestionnaire de version seulement — pas d’infra ni de runs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "terraform-docs",
+			"source": {
+				"host": "github",
+				"path": "terraform-docs/terraform-docs",
+				"url": "https://github.com/terraform-docs/terraform-docs"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Generates READMEs straight from module inputs — markdown, JSON or ASCII, for Terraform and OpenTofu. Docs only, and the output is only as good as your variable comments.",
+				"fr": "Génère des README depuis les entrées de vos modules — markdown, JSON ou ASCII, Terraform comme OpenTofu. De la doc, rien d’autre, et la sortie vaut ce que valent vos commentaires."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "tfui",
+			"source": {
+				"host": "github",
+				"path": "SayYoungMan/tfui",
+				"url": "https://github.com/SayYoungMan/tfui"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Drives plan/apply/refresh from the terminal, with workspace and state selection — an on-prem workspace with no server to run. Niche and small-community; a manual driver, not an automation layer.",
+				"fr": "Pilote plan/apply/refresh en terminal, workspace et état au choix — un workspace on-prem sans serveur à faire tourner. De niche, petite communauté ; un pilote manuel, pas une couche d’automation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "tfsec",
+			"source": {
+				"host": "github",
+				"path": "aquasecurity/tfsec",
+				"url": "https://github.com/aquasecurity/tfsec"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Zero-config security scanner for modules with 200+ built-in checks and SARIF output. Deprecated by its vendor — use Checkov for new work — and static only, missing plan-time values.",
+				"fr": "Scanner sécurité zéro-config pour vos modules, 200+ checks intégrés, sortie SARIF. Déprécié par son éditeur — préférez Checkov pour du neuf — et statique seulement, sans les valeurs du plan."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

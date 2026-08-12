@@ -101,6 +101,140 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "UVdesk",
+			"source": {
+				"host": "github",
+				"path": "uvdesk/community-skeleton",
+				"url": "https://github.com/uvdesk/community-skeleton"
+			},
+			"license": "OSL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Mature PHP helpdesk with knowledge base and workflows, and a genuinely open community edition. The OSL-3.0 licence needs reading, the stack feels dated, and there is plenty to configure.",
+				"fr": "Helpdesk PHP mature, base de connaissances, workflows et édition communautaire entièrement ouverte. La licence OSL-3.0 a ses subtilités, la stack date, beaucoup reste à configurer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "osTicket",
+			"source": {
+				"host": "github",
+				"path": "osTicket/osTicket",
+				"url": "https://github.com/osTicket/osTicket"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight PHP ticketing — email and web intake, filters, transfers — that runs on nearly nothing. The UI is dated, there are no native mobile apps, and automation is thin.",
+				"fr": "Ticketing PHP léger — emails et web, filtres, transferts — tourne sur presque rien. UI datée, pas d’apps mobiles natives, automatisation limitée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Request Tracker",
+			"source": {
+				"host": "github",
+				"path": "bestpractical/rt",
+				"url": "https://github.com/bestpractical/rt"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Email-driven ticketing that has run enterprise helpdesks for decades, with SLAs, scrips, queues, a REST API and a real CLI. Perl, a dated UI and a steep setup curve — not turnkey.",
+				"fr": "Ticketing piloté par email qui fait tourner les helpdesks d’entreprise depuis des décennies : SLA, scrips, files, API REST et CLI. Perl, une UI datée, une config raide — pas clé en main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GLPI",
+			"source": {
+				"host": "github",
+				"path": "glpi-project/glpi",
+				"url": "https://github.com/glpi-project/glpi"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Full ITSM with helpdesk, agent-driven asset inventory, CMDB and LDAP auth in the core — all free. Heavy for pure support, some features sit behind the Network subscription, and GPL-3.0 is copyleft.",
+				"fr": "ITSM complet : helpdesk, inventaire du parc via agent, CMDB et authentification LDAP libres dans le noyau. Lourd pour du support pur, certaines fonctions passent par l’abonnement Network, copyleft GPL-3.0."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Network subscription extras",
+					"fr": "Extras de l’abonnement Network"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Faveo",
+			"source": {
+				"host": "github",
+				"path": "faveosuite/faveo-helpdesk",
+				"url": "https://github.com/faveosuite/faveo-helpdesk"
+			},
+			"license": "OSL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Zendesk-style PHP helpdesk with multi-brand support in the free edition. The good parts live in the paid premium, OSL-3.0, and the community is smaller than osTicket’s or UVdesk’s.",
+				"fr": "Helpdesk PHP façon Zendesk avec support multi-marques dans l’édition communautaire. Le meilleur est en premium payant, licence OSL-3.0, communauté plus petite qu’osTicket ou UVdesk."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Core features behind the premium",
+					"fr": "Fonctions clés réservées au premium"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Trudesk",
+			"source": {
+				"host": "github",
+				"path": "polonel/trudesk",
+				"url": "https://github.com/polonel/trudesk"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Modern Node.js helpdesk with a clean React UI, workflow and SLA support, and a permissive Apache-2.0 licence. A small project with few integrations and a single-server mindset.",
+				"fr": "Helpdesk Node.js moderne, UI React soignée, workflows et SLA, licence permissive Apache-2.0. Petit projet, peu d’intégrations, pensé pour un seul serveur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

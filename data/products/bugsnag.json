@@ -111,6 +111,132 @@
 				"en": "Free, unlimited, best-in-class symbolication on both platforms. The price is that Google now has your crash data and you are one more step into that ecosystem.",
 				"fr": "Gratuit, illimité, avec la meilleure symbolication sur les deux plateformes. Le prix, c’est que Google détient vos données de crash et que vous êtes un cran plus loin dans cet écosystème."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Errbit",
+			"source": {
+				"host": "github",
+				"path": "errbit/errbit",
+				"url": "https://github.com/errbit/errbit"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Airbrake-compatible catcher, so existing mobile SDKs plug straight in. Single-app deploy, minimal footprint, MIT. Small team, slower cadence, no session replay, mobile only via third-party SDKs.",
+				"fr": "Compatible Airbrake, donc les SDK mobiles se branchent directement. Une seule app à déployer, empreinte minimale, MIT. Mais équipe petite, cadence lente, pas de session replay, mobile via SDK tiers uniquement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GlitchTip",
+			"source": {
+				"host": "gitlab",
+				"path": "glitchtip/glitchtip-backend",
+				"url": "https://gitlab.com/glitchtip/glitchtip-backend"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Runs on low hardware, Postgres-only, MIT — and it speaks the Sentry ingest API, so real Sentry SDKs just work. Smaller feature set, no native mobile SDKs, young project.",
+				"fr": "Tourne sur du matériel modeste, Postgres uniquement, MIT — et parle l’API d’ingestion de Sentry, donc les vrais SDK Sentry fonctionnent. Moins de fonctionnalités, pas de SDK mobiles natifs, projet jeune."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Exceptionless",
+			"source": {
+				"host": "github",
+				"path": "exceptionless/Exceptionless",
+				"url": "https://github.com/exceptionless/Exceptionless"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Events, errors and crash logs with dedup, client SDKs for .NET/JS/mobile, Apache-2.0, docker-compose. UI less polished than Sentry, community small and .NET-centric, setup docs uneven.",
+				"fr": "Événements, erreurs et crash logs avec dédoublonnage, SDK clients .NET/JS/mobile, Apache-2.0 via docker-compose. UI moins léchée que Sentry, communauté petite et centrée .NET, docs d’installation inégales."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "KSCrash",
+			"source": {
+				"host": "github",
+				"path": "kstenerud/KSCrash",
+				"url": "https://github.com/kstenerud/KSCrash"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Embedded C library that catches crashes and NSExceptions on iOS/tvOS/macOS and posts them to your own endpoint — no cloud. Client-side only, you build the dashboard, symbolication is DIY, no Android.",
+				"fr": "Librairie C embarquée : captures crashes et NSExceptions sous iOS/tvOS/macOS, envoi vers votre endpoint, sans cloud. Côté client uniquement — tableau de bord et symbolication à bâtir vous-même, pas d’Android."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Breakpad",
+			"source": {
+				"host": "github",
+				"path": "google/breakpad",
+				"url": "https://github.com/google/breakpad"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Google’s minidump capture for Linux, Windows, macOS and Android, symbol tooling included; it powers many commercial crash products. But it’s a library, not a server — you build the aggregation, setup is real.",
+				"fr": "Bibliothèque minidump de Google pour Linux, Windows, macOS et Android, symboles compris ; elle est à la base de nombreux produits commerciaux. Pas un serveur : à vous l’agrégation, et l’install demande du travail."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "sentry-cli",
+			"source": {
+				"host": "github",
+				"path": "getsentry/sentry-cli",
+				"url": "https://github.com/getsentry/sentry-cli"
+			},
+			"license": "FSL-1.1-MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Uploads dSYMs and ProGuard maps to any Sentry-compatible server, tracks releases and deploys from CI — works with GlitchTip and self-hosted Sentry. Useless without a Sentry-compatible backend, and FSL, not an OSI licence.",
+				"fr": "Envoie dSYMs et ProGuard maps vers tout serveur compatible Sentry, suit releases et deploys depuis la CI, marche avec GlitchTip et Sentry self-hosted. Sans backend compatible Sentry, inutile ; licence FSL, pas OSI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

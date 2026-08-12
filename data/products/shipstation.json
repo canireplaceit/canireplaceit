@@ -115,6 +115,148 @@
 				"en": "Free forever and passes through commercial USPS/UPS rates. US-only and deliberately featureless.",
 				"fr": "Gratuit à vie et répercute les tarifs commerciaux USPS/UPS. États-Unis uniquement et volontairement minimaliste."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "ErpNext",
+			"source": {
+				"host": "github",
+				"path": "frappe/erpnext",
+				"url": "https://github.com/frappe/erpnext"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Order fulfillment with courier tracking via ShipStation/Karrio connectors, inside a full open-source ERP. You get ERP setup and tenancy work, plus label-print polish below ShipStation; rate shopping varies by module.",
+				"fr": "Fulfillment d’ordres et suivi de colis via connecteurs ShipStation/Karrio, dans un ERP open source complet. Mise en place ERP et tenancy, impression d’étiquettes moins soignée, tarifs transporteurs variables selon le module."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Minor; core ERP stays free",
+					"fr": "Mineur ; le cœur de l’ERP reste gratuit"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenBoxes",
+			"source": {
+				"host": "github",
+				"path": "openboxes/openboxes",
+				"url": "https://github.com/openboxes/openboxes"
+			},
+			"license": "EPL-1.0",
+			"effort": "docker",
+			"note": {
+				"en": "Warehouse/logistics platform for shipment receiving, dispatch and tracking. Expect org and warehouse hierarchy setup; it leans to stock ops, with weak marketplace order import and no label-print focus.",
+				"fr": "Plateforme logistique auto-hébergeable : réception, expédition et suivi des envois. Orientée stocks plutôt qu’étiquettes, elle demande de configurer organisations et entrepôts, et importe mal les commandes marketplace."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Core logistics free; paid add-ons peripheral",
+					"fr": "Logistique de base gratuite ; modules payants périphériques"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dolibarr",
+			"source": {
+				"host": "github",
+				"path": "Dolibarr/dolibarr",
+				"url": "https://github.com/Dolibarr/dolibarr"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Shipping is one module in a broad GPL ERP with multi-warehouse stock and a large community. Carrier integration depth varies, and the UI feels dated next to modern SaaS.",
+				"fr": "L’expédition n’est qu’un module d’un vaste ERP GPL, stock multi-entrepôts et grande communauté à la clé. La profondeur des intégrations transporteurs varie, et l’interface date face au SaaS moderne."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Core stays free; paid modules niche",
+					"fr": "Le cœur reste gratuit ; modules payants de niche"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "InvenTree",
+			"source": {
+				"host": "github",
+				"path": "inventree/InvenTree",
+				"url": "https://github.com/inventree/InvenTree"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "MIT-licensed inventory and logistics tracker with stock transfers and a clean API. Shipping is secondary: no label printing, no rates, no marketplace integrations; barcode workflows aim at inventory, not dispatch.",
+				"fr": "Traqueur de stock et logistique sous licence MIT, transferts et API propre. L’expédition reste secondaire : pas d’impression d’étiquettes ni de tarifs, pas d’intégrations marketplace ; le code-barres vise le stock, pas l’envoi."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Nothing; MIT build complete",
+					"fr": "Rien ; la version MIT complète"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Deliveries",
+			"source": {
+				"host": "github",
+				"path": "itsvic-dev/deliveries",
+				"url": "https://github.com/itsvic-dev/deliveries"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Terminal-only multi-carrier parcel tracker, keyboard-first, the quickest way to check status. It relies on third-party carrier/API keys, is read-only (no labels, no rates) and runs for a single user.",
+				"fr": "Suivi multi-transporteurs en terminal, clavier d’abord, pour vérifier ses colis en un éclair. Clés API/carrier tierces requises, lecture seule (pas d’étiquettes ni de tarifs), local et mono-utilisateur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "unknown"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "glabels-qt",
+			"source": {
+				"host": "github",
+				"path": "j-evins/glabels-qt",
+				"url": "https://github.com/j-evins/glabels-qt"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Fully local desktop designer for address and shipping labels, batch printing with barcodes and QR. No carrier API or rate shopping, manual templates without order sync, and no web or multi-user mode.",
+				"fr": "Logiciel entièrement local pour étiquettes d’adresse et d’expédition, impression par lots avec code-barres et QR. Pas d’API transporteur ni de tarifs : gabarits manuels, pas de synchro commandes, ni web ni multi-utilisateur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

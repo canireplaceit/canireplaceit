@@ -103,6 +103,153 @@
 				"en": "Cheaper and roughly as accurate as Moz for keyword work. No equivalent of Domain Authority as an industry currency.",
 				"fr": "Moins cher et à peu près aussi précis que Moz sur les mots-clés. Aucun équivalent du Domain Authority comme monnaie du secteur."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Serposcope",
+			"source": {
+				"host": "github",
+				"path": "serphacker/serposcope",
+				"url": "https://github.com/serphacker/serposcope"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Legacy code, archived upstream since 2024, but still the reference self-hosted rank tracker. Free, multi-user, proxy-aware scheduled keyword checks with history. Google scraping stays fragile without proxies; no site audit or backlinks.",
+				"fr": "Archivé en amont depuis 2024, mais toujours la référence des trackers de positions auto-hébergés. Gratuit, multi-utilisateur, contrôles programmés avec proxy et historique. Scraping Google fragile sans proxy ; pas d’audit ni de backlinks."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GoogleScraper",
+			"source": {
+				"host": "github",
+				"path": "NikolaiT/GoogleScraper",
+				"url": "https://github.com/NikolaiT/GoogleScraper"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Dormant five years, last commit mid-2021. Async scraping of Google, Bing, Yandex and DuckDuckGo SERPs with proxy support, structured export for your own tracker. No dashboard; captcha and ToS risk are yours.",
+				"fr": "En sommeil cinq ans, dernier commit mi-2021. Scraping asynchrone de Google, Bing, Yandex et DuckDuckGo avec proxy, export structuré pour votre propre suivi. Pas de dashboard ; captcha et ToS à vos risques."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Lighthouse",
+			"source": {
+				"host": "github",
+				"path": "GoogleChrome/lighthouse",
+				"url": "https://github.com/GoogleChrome/lighthouse"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Google’s official CLI auditor, automatable in CI. Headless audits of performance, accessibility and best practices with score history. Covers audits only — no rank tracking, no backlinks, and crawling needs headless Chrome.",
+				"fr": "Auditeur officiel de Google en CLI, automatisable en CI. Audits headless de performance, accessibilité et bonnes pratiques, historique des scores. Audit uniquement, pas de suivi ni de backlinks ; crawl avec Chrome headless."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Seo-Panel",
+			"source": {
+				"host": "github",
+				"path": "sendtogeo/Seo-Panel",
+				"url": "https://github.com/sendtogeo/Seo-Panel"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Full self-hosted SEO control panel: rank tracking, keywords, site audit, backlinks, webmaster tools. Dormant two years, last commit September 2023; dated PHP codebase, rank checks go flaky against modern engines.",
+				"fr": "Panneau SEO auto-hébergé complet : suivi de positions, mots-clés, audit de site, backlinks, outils webmaster. Dormant deux ans, dernier commit de septembre 2023 ; code PHP daté, positions fragiles face aux moteurs récents."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "serp-tool",
+			"source": {
+				"host": "github",
+				"path": "riston/serp-tool",
+				"url": "https://github.com/riston/serp-tool"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Tiny self-hosted keyword position tracker. Twelve years dormant — last commit October 2013 — with a small footprint and a simple dashboard, but no audit or backlink tools and single-maintainer risk.",
+				"fr": "Minuscule tracker de positions de mots-clés auto-hébergé. Douze ans de dormance, dernier commit d’octobre 2013 ; faible empreinte et dashboard simple, mais ni audit ni backlinks, et dépendance à un seul mainteneur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SEO Rank Tracker",
+			"source": {
+				"host": "github",
+				"path": "GreatStackDev/seo-rank-tracker",
+				"url": "https://github.com/GreatStackDev/seo-rank-tracker"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Modern open-source React dashboard for keyword and rank tracking, responsive Tailwind UI. Frontend-centric, minimal backend, early-stage quality — more a UI skeleton than a finished tool. No audits or backlinks.",
+				"fr": "Dashboard React moderne open-source pour suivre mots-clés et positions, UI Tailwind responsive. Centré frontend, backend minimal, qualité de projet jeune, un squelette d’UI plus qu’un outil abouti. Pas d’audit ni de backlinks."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SERP Checker PHP script",
+			"source": {
+				"host": "github",
+				"path": "codingdudecom/search-engine-keyword-position-checker-PHP-script",
+				"url": "https://github.com/codingdudecom/search-engine-keyword-position-checker-PHP-script"
+			},
+			"license": "CC0-1.0",
+			"effort": "managed",
+			"note": {
+				"en": "Single-file CC0 script, zero dependencies, returns a Google rank with a SERP preview. Five years dormant, last commit September 2020. A one-off check, not a platform; no scheduling, dashboard or history.",
+				"fr": "Script CC0 mono-fichier, zéro dépendance, renvoie la position Google d’un mot-clé. Cinq ans de dormance, dernier commit de septembre 2020. Un contrôle ponctuel, pas une plateforme ; ni planification, ni dashboard, ni historique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

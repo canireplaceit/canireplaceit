@@ -101,6 +101,178 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Synapse",
+			"source": {
+				"host": "github",
+				"path": "element-hq/synapse",
+				"url": "https://github.com/element-hq/synapse"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Reference Matrix homeserver: the E2EE federated chat everything else plugs into. Server only — bring Element as the client, and expect Python tuning at scale.",
+				"fr": "Serveur Matrix de référence : le chat fédéré chiffré de bout en bout auquel tout se branche. Serveur seul — prévoyez Element en client et du tuning Python à l’échelle."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Element Web",
+			"source": {
+				"host": "github",
+				"path": "element-hq/element-web",
+				"url": "https://github.com/element-hq/element-web"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Flagship Matrix client: E2EE rooms, spaces, bridges to Slack, threads, widgets — all on your own server. Requires Synapse; server-side search costs extra.",
+				"fr": "Client Matrix de référence : salons E2EE, espaces, ponts vers Slack, threads, widgets — sur votre propre serveur. Nécessite Synapse ; la recherche serveur est payante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "WeeChat",
+			"source": {
+				"host": "github",
+				"path": "weechat/weechat",
+				"url": "https://github.com/weechat/weechat"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Extensible TUI IRC client: scripts, remote relay to phone or web, keyboard-first. But IRC — no threads, files or video, and config is command-line only.",
+				"fr": "Client IRC TUI extensible : scripts, relais vers mobile ou web, tout au clavier. Mais c’est de l’IRC — pas de threads, de fichiers ni de vidéo, config en ligne de commande."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Irssi",
+			"source": {
+				"host": "github",
+				"path": "irssi/irssi",
+				"url": "https://github.com/irssi/irssi"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Legendary IRC CLI, tiny footprint, still at home on ancient boxes. Perl scripting and bouncer modes aside, it is plain-text IRC — no threads, no encryption.",
+				"fr": "CLI IRC légendaire, empreinte minimale, tourne même sur de vieilles machines. Perl, bouncer et complétion, mais du texte brut : pas de threads, pas de chiffrement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gomuks",
+			"source": {
+				"host": "github",
+				"path": "gomuks/gomuks",
+				"url": "https://github.com/gomuks/gomuks"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Matrix E2EE in a TUI, single Go binary — runs happily over SSH, Vim keys. Lacks Element’s spaces and polish, and has no voice or video.",
+				"fr": "Matrix E2EE en TUI, binaire Go unique — tourne parfaitement en SSH, touches façon Vim. Pas d’espaces ni de fignolage façon Element, pas de voix ni de vidéo."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Matterbridge",
+			"source": {
+				"host": "github",
+				"path": "42wim/matterbridge",
+				"url": "https://github.com/42wim/matterbridge"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Replaces Slack as the hub, not the client: mirrors messages across IRC, Matrix, Telegram, XMPP and more via one TOML file. No UI, no history — and it breaks encryption.",
+				"fr": "Remplace Slack comme hub, pas comme client : fait transiter les messages entre IRC, Matrix, Telegram, XMPP et plus, un seul fichier TOML. Pas d’interface, pas d’historique — et ça casse le chiffrement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Spacebar",
+			"source": {
+				"host": "github",
+				"path": "spacebarchat/server",
+				"url": "https://github.com/spacebarchat/server"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted, Discord-compatible server: familiar server-and-channel model with a working bot API. Young project though — fewer integrations, no voice or video yet.",
+				"fr": "Serveur compatible Discord auto-hébergé : le modèle serveur + salons, avec une API de bots qui marche. Jeune projet : moins d’intégrations, pas encore de voix ni de vidéo."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Wire Server",
+			"source": {
+				"host": "github",
+				"path": "wireapp/wire-server",
+				"url": "https://github.com/wireapp/wire-server"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Enterprise E2EE messaging, audio and video you self-host, with guest access and REST APIs. Comes as a multi-service cluster — the ops burden is the real cost.",
+				"fr": "Messagerie entreprise E2EE auto-hébergée — messages, audio, vidéo — avec invités et API REST. Vient en cluster multi-services : la vraie charge, c’est l’exploitation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "minor open-core",
+					"fr": "open-core mineur"
+				}
+			}
 		}
 	],
 	"priority": 3

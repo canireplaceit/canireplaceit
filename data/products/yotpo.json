@@ -107,6 +107,153 @@
 				"en": "Does the same job for a fifth of the price with unlimited review requests. Weaker analytics and no loyalty programme.",
 				"fr": "Fait le même travail pour un cinquième du prix avec des demandes d’avis illimitées. Analyses plus faibles et pas de programme de fidélité."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mautic",
+			"source": {
+				"host": "github",
+				"path": "mautic/mautic",
+				"url": "https://github.com/mautic/mautic"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Closest full-stack match for Yotpo’s campaign engine, and the leading open-source marketing suite. Heavier LAMP+DB stack than the SaaS, no reviews or loyalty, and a steep learning curve.",
+				"fr": "Le plus proche équivalent open-source du moteur de campagnes de Yotpo : automatisation, scoring, landing pages, SSO. Le stack LAMP est plus lourd, sans avis ni fidélisation, et l’apprentissage est raide."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Matomo",
+			"source": {
+				"host": "github",
+				"path": "matomo-org/matomo",
+				"url": "https://github.com/matomo-org/matomo"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted analytics with marketing attribution and conversion goals, plus GDPR-safe cookieless tracking. But analytics only — no campaigns, no reviews — and it’s another DB/PHP service to run.",
+				"fr": "Analytics auto-hébergées avec attribution marketing, objectifs de conversion et tracking sans cookie respectueux du RGPD. C’est tout : pas de campagnes ni d’avis, et un service DB/PHP de plus à maintenir."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Postal",
+			"source": {
+				"host": "github",
+				"path": "postalserver/postal",
+				"url": "https://github.com/postalserver/postal"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Reliable self-hosted outbound mail that signs DKIM/SPF/DMARC and hits volume via REST API. It’s delivery infrastructure, not a campaign UI — you’ll need to warm your IP reputation to hit inboxes.",
+				"fr": "Mail sortant auto-hébergé, fiable en volume, avec signatures DKIM/SPF/DMARC et API. C’est une infra de livraison, pas une UI de campagnes : il faut réchauffer sa réputation IP pour atteindre les boîtes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Keila",
+			"source": {
+				"host": "github",
+				"path": "pentacent/keila",
+				"url": "https://github.com/pentacent/keila"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Minimal privacy-first newsletter engine: self-hosted campaigns, subscriber lists, segment automation, no tracking pixels. Email only, smaller community, fewer templates and integrations than Yotpo.",
+				"fr": "Newslettering minimal et respectueux de la vie privée : campagnes auto-hébergées, listes, segmentation, zéro pixel de tracking. Email uniquement, communauté plus petite, moins de templates et d’intégrations que Yotpo."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PlaySMS",
+			"source": {
+				"host": "github",
+				"path": "playsms/playsms",
+				"url": "https://github.com/playsms/playsms"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted SMS broadcasts through pluggable gateways and a REST API. But you bring your own SMS aggregator, and the payoff is a dated UI and a niche community.",
+				"fr": "Diffusion SMS auto-hébergée via des passerelles enfichables et une API REST. À vous d’apporter votre agrégateur SMS, et le reste est à l’avenant : UI datée, communauté de niche."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Isso",
+			"source": {
+				"host": "github",
+				"path": "isso-comments/isso",
+				"url": "https://github.com/isso-comments/isso"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Comments on SQLite, one lightweight service, no tracking — an ultra-light widget for social proof. But it’s comments only: no ratings or reviews, and fewer social logins than Remark42.",
+				"fr": "Commentaires sur SQLite, un service unique, zéro tracking : un widget de preuve sociale ultra-léger. Mais c’est du commentaire uniquement, pas d’avis ni de notes, et moins de connexions sociales que Remark42."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dada Mail",
+			"source": {
+				"host": "github",
+				"path": "justingit/dada-mail",
+				"url": "https://github.com/justingit/dada-mail"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Battle-tested email list manager when you want the simplest stack: self-hosted newsletters, subscription forms, digest archiving. It’s announcements-focused, no journey automation, and releases are slow.",
+				"fr": "Gestionnaire de listes email éprouvé pour qui veut le stack le plus simple : newsletters, formulaires, archives en digests. Pensé pour les annonces, pas l’automatisation de parcours — et les sorties sont rares."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

@@ -122,6 +122,274 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Seafile",
+			"source": {
+				"host": "github",
+				"path": "haiwen/seafile",
+				"url": "https://github.com/haiwen/seafile"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Mature self-hosted Dropbox/iCloud Drive clone with fast block-based sync; locking and encryption stay in paid Pro, community smaller than Nextcloud.",
+				"fr": "Clone auto-hébergé et mature de Dropbox/iCloud Drive, sync rapide par blocs ; le verrouillage et le chiffrement restent dans la Pro payante, communauté plus réduite que Nextcloud."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "File locking and encryption (Pro)",
+					"fr": "Verrouillage et chiffrement (Pro)"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MinIO",
+			"source": {
+				"host": "github",
+				"path": "minio/minio",
+				"url": "https://github.com/minio/minio"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Industry-standard S3 object storage, but raw — no sync clients or family UX, pair with rclone for usability. Upstream repo archived since 2026-04.",
+				"fr": "Stockage d’objets S3 standard de l’industrie, mais brut : ni clients de sync ni UX familiale, à coupler avec rclone. Dépôt amont archivé depuis 2026-04."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Minor open-core gap",
+					"fr": "Écart open-core mineur"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "rclone",
+			"source": {
+				"host": "github",
+				"path": "rclone/rclone",
+				"url": "https://github.com/rclone/rclone"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Swiss-army CLI to sync or mount 40+ backends, with transparent crypt encryption; no polished GUI, no sharing, and config stays in text files you maintain.",
+				"fr": "CLI suisse-allemand pour synchroniser ou monter 40+ backends, avec chiffrement crypt transparent ; pas de GUI soigné, pas de partage, config à entretenir dans des fichiers texte."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "restic",
+			"source": {
+				"host": "github",
+				"path": "restic/restic",
+				"url": "https://github.com/restic/restic"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Deduplicated, encrypted snapshots to S3, disks or SFTP, restore any point in time from one static binary; backups only — no live sync, no web UI.",
+				"fr": "Snapshots dédupliqués et chiffrés vers S3, disques ou SFTP, restauration à tout instant depuis un binaire statique ; du backup seulement, pas de sync live ni d’interface web."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kopia",
+			"source": {
+				"host": "github",
+				"path": "kopia/kopia",
+				"url": "https://github.com/kopia/kopia"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Encrypted, deduplicated backups with a real desktop GUI and policy-based retention; still a backup tool, not a live sync or shared drive.",
+				"fr": "Backups chiffrés et dédupliqués avec un vrai GUI desktop et une rétention par politiques ; reste un outil de backup, pas une sync live ni un drive partagé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "BorgBackup",
+			"source": {
+				"host": "github",
+				"path": "borgbackup/borg",
+				"url": "https://github.com/borgbackup/borg"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Veteran encrypted, deduplicating backup engine over plain SSH, snapshots mountable via FUSE, cron via borgmatic; CLI only, single-host, no first-class Windows.",
+				"fr": "Moteur de backup chiffré et dédupliqué de longue date, repos distants en SSH simple, montage FUSE, automation par borgmatic ; CLI seule, mono-hôte, Windows mal supporté."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Filebrowser",
+			"source": {
+				"host": "github",
+				"path": "filebrowser/filebrowser",
+				"url": "https://github.com/filebrowser/filebrowser"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Serves any server directory over a clean web UI with share links and multi-user permissions; manages files on the box — no sync clients, no client-side encryption.",
+				"fr": "Sert n’importe quel dossier du serveur via une interface web propre, liens de partage et permissions multi-utilisateurs ; gère des fichiers sur la machine, sans clients de sync ni chiffrement côté client."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Cloudreve",
+			"source": {
+				"host": "github",
+				"path": "cloudreve/cloudreve",
+				"url": "https://github.com/cloudreve/cloudreve"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Polished drive web app that can front S3, OneDrive or local storage, with share links and admin quotas; built around one admin, no official mobile apps.",
+				"fr": "Appli web de drive soignée qui peut se poser devant S3, OneDrive ou du stockage local, partages et quotas par l’admin ; pensée pour un seul admin, pas d’apps mobiles officielles."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Garage",
+			"source": {
+				"host": "github",
+				"path": "deuxfleurs-org/garage",
+				"url": "https://github.com/deuxfleurs-org/garage"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight S3-compatible storage built for multi-location replication and tiny clusters, run by the Deuxfleurs co-op; raw object storage — no drive or photo apps.",
+				"fr": "Stockage S3-compatible léger pensé pour la réplication multi-sites et les petits clusters, porté par la coopérative Deuxfleurs ; objets bruts, sans appli drive ni photos."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dufs",
+			"source": {
+				"host": "github",
+				"path": "sigoden/dufs",
+				"url": "https://github.com/sigoden/dufs"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "One static binary serving files with WebDAV mounting, share tokens and read-only modes; a file server, not a sync ecosystem — no mobile apps.",
+				"fr": "Un seul binaire statique pour servir des fichiers, montage WebDAV, jetons de partage et modes lecture seule ; serveur de fichiers, pas un écosystème de sync, pas d’apps mobiles."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ownCloud Infinite Scale",
+			"source": {
+				"host": "github",
+				"path": "owncloud/ocis",
+				"url": "https://github.com/owncloud/ocis"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Nextcloud-family platform rebuilt as fast Go microservices with sync clients and native OIDC; encryption and enterprise extras are paid, community smaller than Nextcloud’s.",
+				"fr": "Plateforme de la famille Nextcloud réécrite en microservices Go rapides, clients de sync et OIDC natif ; chiffrement et extras entreprise payants, communauté plus petite que Nextcloud."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Encryption and enterprise features",
+					"fr": "Chiffrement et fonctions entreprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SeaweedFS",
+			"source": {
+				"host": "github",
+				"path": "seaweedfs/seaweedfs",
+				"url": "https://github.com/seaweedfs/seaweedfs"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Fast, scalable S3-compatible store where the filer adds a POSIX-ish tree and WebDAV; an infrastructure piece, not an end-user drive, with more ops to run.",
+				"fr": "Stockage S3-compatible rapide et extensible où le filer ajoute un arbre façon POSIX et du WebDAV ; pièce d’infrastructure, pas un drive utilisateur, davantage d’ops à porter."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Minor open-core gap",
+					"fr": "Écart open-core mineur"
+				}
+			}
 		}
 	],
 	"priority": 4

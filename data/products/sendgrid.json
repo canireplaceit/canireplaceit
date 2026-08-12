@@ -107,6 +107,262 @@
 				"en": "$0.10 per thousand emails on IPs that already have reputation. No templates worth the name, no support, and getting out of the sandbox takes a written request.",
 				"fr": "0,10 $ pour mille e-mails, sur des IP qui ont déjà une réputation. Pas de vrais modèles, pas de support, et sortir du bac à sable exige une demande écrite."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mailpit",
+			"source": {
+				"host": "github",
+				"path": "axllent/mailpit",
+				"url": "https://github.com/axllent/mailpit"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Dev-stage SMTP sink in one static binary. REST API plus a searchable web UI surface outgoing mail, raw MIME and headers. Nothing is delivered — test/dev only, no send API.",
+				"fr": "Puits SMTP de dev dans un seul binaire statique. API REST et UI web avec recherche exposent les mails sortants, MIME brut et en-têtes inclus. Rien n’est délivré — test/dev uniquement, pas d’API d’envoi."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MailHog",
+			"source": {
+				"host": "github",
+				"path": "mailhog/MailHog",
+				"url": "https://github.com/mailhog/MailHog"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The classic local-dev SMTP sink: single Go binary on localhost:1025, web UI, REST API, works with any mailer. Dormant since early 2024 — capture only, and no auth or TLS by default.",
+				"fr": "Le puits SMTP local classique : un binaire Go sur localhost:1025, UI web, API REST, compatible tout mailer. En dormance depuis début 2024 — capture seulement, sans auth ni TLS par défaut."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "WildDuck",
+			"source": {
+				"host": "github",
+				"path": "zone-eu/wildduck",
+				"url": "https://github.com/zone-eu/wildduck"
+			},
+			"license": "EUPL-1.2",
+			"effort": "docker",
+			"note": {
+				"en": "Full mail server from the Nodemailer author: HTTP API for sending and storage, IMAP access, multi-domain. Costs a MongoDB instance, deliverability is still your job, and there is no bundled admin UI.",
+				"fr": "Serveur mail complet du créateur de Nodemailer : API HTTP d’envoi et de stockage, accès IMAP, multi-domaines. Il faut un MongoDB, la délivrabilité reste votre affaire et aucune UI d’admin n’est fournie."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Zone-MTA",
+			"source": {
+				"host": "github",
+				"path": "zone-eu/zone-mta",
+				"url": "https://github.com/zone-eu/zone-mta"
+			},
+			"license": "EUPL-1.2",
+			"effort": "docker",
+			"note": {
+				"en": "High-throughput MTA for bulk and transactional sending: streams millions of messages through an HTTP queue with retries. That means Redis plus MongoDB, DIY deliverability tuning, and no web UI.",
+				"fr": "MTA très haut débit pour l’envoi en masse ou transactionnel : des millions de messages via une file HTTP avec retries. Le prix : Redis plus MongoDB, réglage de la délivrabilité maison et pas de web UI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mailu",
+			"source": {
+				"host": "github",
+				"path": "Mailu/Mailu",
+				"url": "https://github.com/Mailu/Mailu"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted suite — Postfix, Dovecot, Rspamd — that sends and receives on your domain, with webmail, admin panel and auto SPF/DKIM/DMARC. Not a send API, and IP reputation upkeep is yours.",
+				"fr": "Suite mail auto-hébergée — Postfix, Dovecot, Rspamd — qui envoie et reçoit sur votre domaine, avec webmail, panneau d’admin et SPF/DKIM/DMARC automatiques. Pas une API d’envoi, et l’entretien de la réputation IP reste à vous."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mail-in-a-Box",
+			"source": {
+				"host": "github",
+				"path": "mail-in-a-box/mailinabox",
+				"url": "https://github.com/mail-in-a-box/mailinabox"
+			},
+			"license": "CC0-1.0",
+			"effort": "managed",
+			"note": {
+				"en": "Turnkey mail appliance on one Ubuntu box: DNS and SPF/DKIM auto-config, webmail, contacts, calendar, plus backup and a status dashboard. Tied to that VPS, no transactional send API, one-box scaling only.",
+				"fr": "Appliance mail clé en main sur une seule machine Ubuntu : DNS et SPF/DKIM en auto, webmail, contacts, calendrier, sauvegardes et tableau de bord. Enchaîné à ce VPS, pas d’API d’envoi transactionnel, et une seule boîte pour scaler."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Stalwart",
+			"source": {
+				"host": "github",
+				"path": "stalwartlabs/stalwart",
+				"url": "https://github.com/stalwartlabs/stalwart"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "All-in-one Rust mail server — SMTP, IMAP, JMAP — in one low-footprint binary with built-in full-text search and a web admin console. AGPL for self-hosters, paid enterprise support, and lighter docs.",
+				"fr": "Serveur mail Rust tout-en-un — SMTP, IMAP, JMAP — dans un binaire léger unique, avec recherche plein texte intégrée et console d’admin web. AGPL pour l’auto-hébergement, support entreprise payant et docs plus minces."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Core is free; only minor extras are paid.",
+					"fr": "Cœur gratuit ; seuls quelques extras mineurs sont payants."
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Listmonk",
+			"source": {
+				"host": "github",
+				"path": "knadh/listmonk",
+				"url": "https://github.com/knadh/listmonk"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted campaigns and subscriber management with an analytics dashboard, sending through SMTP relays. Built for newsletters, not raw API push — deliverability follows your relays.",
+				"fr": "Campagnes et gestion d’abonnés en auto-hébergement, avec tableau de bord d’analytiques, envoyées via relais SMTP. Pensé pour la newsletter, pas pour l’API brute — la délivrabilité suit vos relais."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "smtp4dev",
+			"source": {
+				"host": "github",
+				"path": "rnwood/smtp4dev",
+				"url": "https://github.com/rnwood/smtp4dev"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Cross-platform SMTP sink with a GUI and web inspector for captured mail, REST API included, per-message MIME viewing. Dev testing only, and UI-first rather than script-first.",
+				"fr": "Puits SMTP multiplateforme avec GUI et inspecteur web pour le mail capté, API REST incluse, consultation du MIME par message. Test de dev uniquement, et d’abord UI plutôt que script."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "swaks",
+			"source": {
+				"host": "github",
+				"path": "jetmore/swaks",
+				"url": "https://github.com/jetmore/swaks"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Swiss-army-knife SMTP CLI: scriptable one-shot sends, EHLO and feature tests, TLS, auth, session control — anywhere Perl runs. Dormant since March 2024, and always manual: single shots only, no queue.",
+				"fr": "Couteau suisse SMTP en CLI : envois unitaires scriptables, tests EHLO et de fonctionnalités, TLS, auth, contrôle de session — partout où tourne Perl. En dormance depuis mars 2024, et resté manuel : des tirs unitaires, sans file."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "msmtp",
+			"source": {
+				"host": "github",
+				"path": "marlam/msmtp",
+				"url": "https://github.com/marlam/msmtp"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Minimal SMTP client, sendmail-compatible, that drops cron and script mail into a real relay — per-account configs, TLS and auth. No UI, no queue, no analytics; delivery leans on the relay.",
+				"fr": "Client SMTP minimal, compatible sendmail, qui dépose le mail de cron et des scripts dans un vrai relais — configs par compte, TLS et auth. Pas d’UI, pas de file, pas d’analytiques ; la délivrance repose sur le relais."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "mailcow",
+			"source": {
+				"host": "github",
+				"path": "mailcow/mailcow-dockerized",
+				"url": "https://github.com/mailcow/mailcow-dockerized"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Docker-composed full mail stack with webmail, admin panel, Rspamd and ClamAV protection, and painless multi-domain. Overkill for sending alone — no REST send API, and heavy on resources.",
+				"fr": "Stack mail complète en Docker avec webmail, panneau d’admin, protection Rspamd et ClamAV, multi-domaines sans peine. Excessif pour n’envoyer que du mail : pas d’API REST d’envoi, et gourmand en ressources."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

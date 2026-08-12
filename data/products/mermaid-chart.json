@@ -118,6 +118,153 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "draw.io (diagrams.net)",
+			"source": {
+				"host": "gitlab",
+				"path": "jgraph/drawio",
+				"url": "https://gitlab.com/jgraph/drawio"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Full drag-and-drop editor that self-hosts as desktop app, web app, or Docker server, with CLI export. GUI-first, so diagram-as-code support stays limited and the desktop app is heavier than a text workflow.",
+				"fr": "Éditeur complet glisser-déposer, auto-hébergé en client bureau, web ou serveur Docker, avec export en CLI. Pensé d’abord pour la souris : le diagram-as-code reste limité, le binaire plus lourd qu’un workflow texte."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Graphviz",
+			"source": {
+				"host": "gitlab",
+				"path": "graphviz/graphviz",
+				"url": "https://gitlab.com/graphviz/graphviz"
+			},
+			"license": "EPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The canonical dot-language layout suite most diagram tools run on, with strong automatic layouts. Low-level though: no interactive design UI, dated default styling, and aimed at graphs, not freeform drawing.",
+				"fr": "Suite de layout canonique : le moteur dot qui alimente la plupart des outils de diagrammes. Bas niveau : sans UI interactive, style par défaut daté, taillé pour les graphes, pas le dessin libre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "diagrams",
+			"source": {
+				"host": "github",
+				"path": "mingrammer/diagrams",
+				"url": "https://github.com/mingrammer/diagrams"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Python DSL that renders cloud architecture diagrams via Graphviz, with 2500+ node icons. Cloud-focused, so freeform diagramming is out; static PNG/SVG output with no interactivity, and Graphviz must be installed.",
+				"fr": "DSL Python rendu via Graphviz pour les diagrammes d’architecture cloud, avec plus de 2500 icônes de nœuds. Focus cloud, pas de diagramme généraliste ; sortie PNG/SVG statique, et Graphviz à installer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Excalidraw",
+			"source": {
+				"host": "github",
+				"path": "excalidraw/excalidraw",
+				"url": "https://github.com/excalidraw/excalidraw"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Hand-drawn whiteboard with real-time collaboration in end-to-end encrypted rooms. The design-UX counterpoint to Mermaid: freehand only, so no Gantt, ER, or sequence generation, and auto-layout stays basic.",
+				"fr": "Tableau blanc collaboratif temps réel, salles chiffrées de bout en bout, trait crayonné. Contrepoint design de Mermaid : que du freehand, pas de Gantt, d’ER ni de séquence, auto-layout basique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nomnoml",
+			"source": {
+				"host": "github",
+				"path": "skanaar/nomnoml",
+				"url": "https://github.com/skanaar/nomnoml"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Terse declarative markup rendering to SVG class-style diagrams, in the browser and via CLI. Fits docs-as-code, but diagram types stay class/state-style, the community is small, and there’s no collaboration.",
+				"fr": "Markup déclaratif très concis rendu en SVG, style diagramme de classes, dans le navigateur et via CLI. Bien pour le docs-as-code, mais limité aux types classe/état, petite communauté, sans collaboration."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "svgbob",
+			"source": {
+				"host": "github",
+				"path": "ivanceras/svgbob",
+				"url": "https://github.com/ivanceras/svgbob"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Single Rust binary turning ASCII-art into crisp SVG, ideal when diagrams live in text editors. But the source is ASCII art, not structured markup: only lines and boxes, no interactive editing.",
+				"fr": "Binaire Rust qui convertit l’art ASCII en SVG net, pour des diagrammes écrits dans l’éditeur. La source reste de l’art ASCII, pas du markup : uniquement traits et boîtes, sans édition interactive."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "blockdiag",
+			"source": {
+				"host": "github",
+				"path": "blockdiag/blockdiag",
+				"url": "https://github.com/blockdiag/blockdiag"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Python CLI family — blockdiag, seqdiag, actdiag, nwdiag — rendering text-defined block, sequence, activity, and network diagrams to PNG, SVG, PDF. Dormant since August 2023: styling and layout control stay basic.",
+				"fr": "Famille de CLIs Python — blockdiag, seqdiag, actdiag, nwdiag — rendant en PNG, SVG, PDF des diagrammes bloc, séquence, activité et réseau définis en texte. Dormante depuis août 2023 : style et layout restent basiques."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

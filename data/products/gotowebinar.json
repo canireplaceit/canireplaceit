@@ -114,6 +114,178 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "PeerTube",
+			"source": {
+				"host": "github",
+				"path": "Chocobozzz/PeerTube",
+				"url": "https://github.com/Chocobozzz/PeerTube"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted live and VOD platform with registration, comments, analytics — closest web analogue to a GoToWebinar broadcast. No Q&A or email invites built in; those bolt on, atop a heavy Postgres/Redis/transcoding stack.",
+				"fr": "Plateforme auto-hébergée live + VOD, inscriptions, commentaires, analytics : l’analogue web le plus proche d’un webinaire GoToWebinar. Pas de Q&A ni d’invitations e-mail intégrés ; à bricoler par-dessus une instance lourde (Postgres, Redis, transcodage)."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenVidu",
+			"source": {
+				"host": "github",
+				"path": "OpenVidu/openvidu",
+				"url": "https://github.com/OpenVidu/openvidu"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Self-hosted WebRTC platform with REST API, recording and Kubernetes autoscaling — the building block for a custom webinar app. Not turnkey: advanced recording and SIP cost money, production runs on a Kurento cluster.",
+				"fr": "Plateforme WebRTC auto-hébergée, API REST, enregistrement, autoscaling Kubernetes : la brique d’un webinaire sur mesure. Pas clé en main — enregistrement avancé et SIP payants, production sur cluster Kurento."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "advanced recording and SIP",
+					"fr": "enregistrement avancé et SIP"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Galène",
+			"source": {
+				"host": "github",
+				"path": "jech/galene",
+				"url": "https://github.com/jech/galene"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Single static binary, deploys in minutes, with a lecture mode that enforces one-to-many presentation. Trade it for a bare-bones UI: no registration, attendee management, analytics or invitations.",
+				"fr": "Un seul binaire statique, déployé en minutes, avec un mode cours pensé pour le one-to-many. En contrepartie : interface dépouillée, sans inscriptions, gestion d’auditoire, analytics ni invitations."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MiroTalk",
+			"source": {
+				"host": "github",
+				"path": "miroslavpejic85/mirotalk",
+				"url": "https://github.com/miroslavpejic85/mirotalk"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Browser-based SFU meet app — rooms, screen share, recording, no install for attendees — the quickest path to a usable group webinar. Meet-style: no registration, email or analytics, and single-node, below ops-grade scale.",
+				"fr": "Visio SFU dans le navigateur, sans install pour les participants : salles, partage d’écran, enregistrement — le plus court chemin vers un webinaire de groupe. Style meet : pas d’inscriptions ni d’analytics, un seul nœud."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MediaMTX",
+			"source": {
+				"host": "github",
+				"path": "bluenviron/mediamtx",
+				"url": "https://github.com/bluenviron/mediamtx"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Ubiquitous single-binary media server: RTSP/RTMP/WebRTC/SRT ingest, multi-protocol relay, sub-second WebRTC and HLS playback. Pure plumbing — no UI, chat, registration or Q&A — so pair it with a front-end or a platform tool.",
+				"fr": "Serveur média monobinaire omniprésent : ingestion RTSP/RTMP/WebRTC/SRT, relais multi-protocole, lecture sous la seconde. Simple tuyauterie — pas d’UI, de chat, d’inscriptions ni de Q&A — à associer à un front-end."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OBS Studio",
+			"source": {
+				"host": "github",
+				"path": "obsproject/obs-studio",
+				"url": "https://github.com/obsproject/obs-studio"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Industry-standard desktop production — scenes, sources, transitions — recording to RTMP, SRT, WebRTC or HLS. A tool, not a platform: no attendee management or registration, and still needs a stream host to reach viewers.",
+				"fr": "Production desktop de référence — scènes, sources, transitions — enregistrement et push vers RTMP, SRT, WebRTC ou HLS. Outil, pas plateforme : sans inscriptions ni gestion d’auditoire, et un hôte de stream indispensable."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SRS",
+			"source": {
+				"host": "github",
+				"path": "ossrs/srs",
+				"url": "https://github.com/ossrs/srs"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "High-performance RTMP/HLS/WebRTC/SRT streaming server, proven at high concurrent viewer counts. Infrastructure only: no webinar UX, registration or polling, and config-heavy — the front-end is yours to assemble.",
+				"fr": "Serveur de streaming haute performance (RTMP/HLS/WebRTC/SRT), éprouvé sur de gros auditoires simultanés. Infrastructure seulement : pas d’UX webinaire, d’inscriptions ni de sondages, config lourde, front-end à assembler soi-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OvenMediaEngine",
+			"source": {
+				"host": "github",
+				"path": "OvenMediaLabs/OvenMediaEngine",
+				"url": "https://github.com/OvenMediaLabs/OvenMediaEngine"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Sub-second LLHLS and WebRTC media server with adaptive bitrate and origin/edge scaling — a strong backbone for latency-sensitive live webinars. Still media infrastructure: no registration, chat or polls out of the box.",
+				"fr": "Serveur média LLHLS et WebRTC sous la seconde, bitrate adaptatif, scaling origine/edge : un backbone solide pour du live sensible à la latence. Toujours de l’infrastructure : pas d’inscriptions, de chat ni de sondages."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

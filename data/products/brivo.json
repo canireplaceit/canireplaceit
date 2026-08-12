@@ -91,6 +91,132 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "proxmark3",
+			"source": {
+				"host": "github",
+				"path": "RfidResearchGroup/proxmark3",
+				"url": "https://github.com/RfidResearchGroup/proxmark3"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Reference hardware-plus-CLI stack for sniffing, cloning and auditing proximity badges. Sniffs HF/LF and clones, but needs the Proxmark dongle and stops at credentials — no door or user management.",
+				"fr": "Référence matériel plus CLI pour lire, cloner et auditer des badges. Sniff et clone en HF/LF, mais exige le dongle Proxmark et s’arrête aux credentials — ni gestion de portes, ni admin utilisateurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "libnfc",
+			"source": {
+				"host": "github",
+				"path": "nfc-tools/libnfc",
+				"url": "https://github.com/nfc-tools/libnfc"
+			},
+			"license": "LGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Standard NFC/RFID C library and CLI for badge readers. Reads and programs ISO14443/15693 badges, feeds Home Assistant and ESPHome — single-purpose badge I/O, no management UI, and needs compatible reader hardware.",
+				"fr": "Bibliothèque NFC/RFID C et CLI pour les lecteurs de badges. Lit et programme ISO14443/15693, alimente Home Assistant et ESPHome — I/O de badge seul, pas d’UI, nécessite un lecteur compatible."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenSC",
+			"source": {
+				"host": "github",
+				"path": "OpenSC/OpenSC",
+				"url": "https://github.com/OpenSC/OpenSC"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "Smartcard middleware and pkcs11-tool CLI for managing PKI and badge credentials on readers. Enables smartcard door auth via PKCS#11, but smartcards only — no door scheduling, no admin console.",
+				"fr": "Middleware carte à puce et CLI pkcs11-tool pour gérer PKI et credentials. Autorise l’ouverture de porte par carte via PKCS#11, mais smartcards seulement — ni planification de portes, ni console admin."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pcsc-tools",
+			"source": {
+				"host": "github",
+				"path": "LudovicRousseau/pcsc-tools",
+				"url": "https://github.com/LudovicRousseau/pcsc-tools"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "PC/SC CLI utilities, mainly pcsc_scan, to enumerate and inspect badge readers and cards. Live monitoring and scriptable ATTR parsing, but it needs the PC/SC stack and carries no door logic.",
+				"fr": "Utilitaires CLI PC/SC, surtout pcsc_scan, pour énumérer et inspecter lecteurs et cartes. Monitoring live et parsing ATTR scriptable, mais il faut la pile PC/SC et aucune logique de portes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "mfoc",
+			"source": {
+				"host": "github",
+				"path": "nfc-tools/mfoc",
+				"url": "https://github.com/nfc-tools/mfoc"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Recovers MiFare Classic keys so legacy badges can be cloned and re-issued; pairs with libnfc hardware. Dormant since July 2024 — MiFare Classic only, pentest niche, no management layer.",
+				"fr": "Récupère les clés MiFare Classic pour cloner et réémettre les badges d’accès hérités ; s’associe au matériel libnfc. Plus de commit depuis juillet 2024 — MiFare Classic uniquement, niche pentest, pas de gestion."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "openHAB",
+			"source": {
+				"host": "github",
+				"path": "openhab/openhab-core",
+				"url": "https://github.com/openhab/openhab-core"
+			},
+			"license": "EPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted automation hub with RFID, smart-lock and security bindings. Rules, scheduling and audit events over REST and web UI — not commercial-grade multi-door ACS; capability depends on community bindings.",
+				"fr": "Hub d’automatisation auto-hébergé avec des bindings RFID, serrures connectées et sécurité. Règles, planification et audit via REST et web UI — pas un ACS multi-portes pro ; la capacité dépend des bindings communautaires."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

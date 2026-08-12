@@ -122,6 +122,111 @@
 				"en": "Free with Workspace for Education and teachers already know it. It is assignment distribution, not a real LMS — no gradebook depth, no SCORM.",
 				"fr": "Gratuit avec Workspace for Education et les enseignants le connaissent déjà. C’est de la distribution de devoirs, pas un vrai LMS — carnet de notes limité, pas de SCORM."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Sakai",
+			"source": {
+				"host": "github",
+				"path": "sakaiproject/sakai",
+				"url": "https://github.com/sakaiproject/sakai"
+			},
+			"license": "ECL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Foundation-backed institutional LMS with a large university install base. In exchange you get a dated UI, Java app-server deployment, and a slower release cadence.",
+				"fr": "LMS institutionnel adossé à une fondation, largement déployé dans les universités. En échange : interface datée, déploiement serveur Java et rythme de sortie plus lent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ILIAS",
+			"source": {
+				"host": "github",
+				"path": "ILIAS-eLearning/ILIAS",
+				"url": "https://github.com/ILIAS-eLearning/ILIAS"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Competency management and SCORM sit at the core of this European institutional LMS. It costs you a dated UI, German-centric docs, and a heavy setup.",
+				"fr": "Cœur du LMS institutionnel européen : gestion par compétences et SCORM. Le reste pèse lourd — interface datée, communauté et docs germanophones, installation difficile."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Gibbon",
+			"source": {
+				"host": "github",
+				"path": "GibbonEdu/core",
+				"url": "https://github.com/GibbonEdu/core"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "A simple PHP stack pairs lessons and units with a student information system. It leans more SIS than course platform, with no checkout and a smaller community.",
+				"fr": "Une pile PHP simple relie leçons, unités et système d’information scolaire. L’ensemble penche plus vers le SIS que le cours : pas de commerce, communauté restreinte."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mahara",
+			"source": {
+				"host": "github",
+				"path": "MaharaProject/mahara",
+				"url": "https://github.com/MaharaProject/mahara"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "E-portfolio engine archived upstream in 2023 — maintenance is now on you. Portfolios only, so plan on an LMS partner for actual courses.",
+				"fr": "Moteur d’e-portfolio pour la réflexion de l’apprenant, archivé en amont depuis 2023. Il ne fait que du portfolio : prévoyez un LMS partenaire pour les cours, et la maintenance pour vous."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "BigBlueButton",
+			"source": {
+				"host": "github",
+				"path": "bigbluebutton/bigbluebutton",
+				"url": "https://github.com/bigbluebutton/bigbluebutton"
+			},
+			"license": "LGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Live video and whiteboard layer you run alongside an LMS, not a course platform on its own. The multi-service stack is heavy, and it pairs best with Moodle or Canvas.",
+				"fr": "Couche vidéo et tableau blanc à faire tourner à côté d’un LMS — pas une plateforme de cours à part entière. Pile multi-services lourde, et le meilleur duo reste Moodle ou Canvas."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

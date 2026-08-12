@@ -103,6 +103,90 @@
 				"en": "Better route planning than Strava for half the price. Almost no social layer, cycling-focused.",
 				"fr": "Meilleure planification d’itinéraires que Strava pour moitié prix. Presque aucune dimension sociale, centré vélo."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenTracks",
+			"source": {
+				"host": "codeberg",
+				"path": "OpenTracksApp/OpenTracks",
+				"url": "https://codeberg.org/OpenTracksApp/OpenTracks"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Records GPS on the phone with no cloud and no account — sensors, voice, photo markers come along. Android only, so no iOS; no web UI and no segments, export and analyze elsewhere.",
+				"fr": "Enregistre le GPS sur le téléphone, sans cloud ni compte — capteurs, voix et marqueurs photo inclus. Android uniquement, donc pas d’iOS ; pas d’interface web ni de segments, exportez et analysez ailleurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Golden Cheetah",
+			"source": {
+				"host": "github",
+				"path": "GoldenCheetah/GoldenCheetah",
+				"url": "https://github.com/GoldenCheetah/GoldenCheetah"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Does not record — analysis only, aimed at cyclists and triathletes, not runners. On the desktop it ingests Garmin, TCX and FIT files, computes critical power, and runs your own scripted metrics.",
+				"fr": "Pas d’enregistrement — analyse seule, pour cyclistes et triathlètes, pas les coureurs. Sur le bureau, il ingère Garmin, TCX et FIT, calcule la critical power et exécute vos métriques écrites en script."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Sportstracker",
+			"source": {
+				"host": "github",
+				"path": "ssaring/sportstracker",
+				"url": "https://github.com/ssaring/sportstracker"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Desktop only, ingestion only — the watch does the recording. It takes sport watches and GPX files, covers cycling, running, swimming and tennis, and builds diagrams plus a weight and training-notes calendar.",
+				"fr": "Bureau uniquement, ingestion seule — la montre enregistre. Il accepte les montres sportives et les fichiers GPX, couvre cyclisme, course, natation et tennis, et produit diagrammes et calendrier de poids et de notes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Gadgetbridge",
+			"source": {
+				"host": "codeberg",
+				"path": "Freeyourgadget/Gadgetbridge",
+				"url": "https://codeberg.org/Freeyourgadget/Gadgetbridge"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Pulls activity off 100+ watches and bands with no vendor app and no cloud — the step other tools assume already happened. Android only, moves data rather than analyzing, and per-device support varies.",
+				"fr": "Récupère vos activités de plus de 100 montres et bracelets, sans app constructeur ni cloud — l’étape que les autres outils supposent faite. Android uniquement : il transfère sans analyser, support variable selon l’appareil."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 5

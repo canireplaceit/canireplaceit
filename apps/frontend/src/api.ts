@@ -17,6 +17,7 @@ import {
 	RESIDENCY,
 	VERDICTS,
 } from "core/src/content";
+import type { FeatureFile } from "core/src/features";
 import type { Lang } from "core/src/index";
 import { parseRoute } from "core/src/routes";
 import { z } from "zod";
@@ -901,6 +902,18 @@ const current = (now = Date.now()): boolean => {
  * standing properties of a repo that do not rot on a monthly scale, so they
  * keep being shown.
  */
+/**
+ * The feature slice this page was prerendered with, or the whole file in dev.
+ *
+ * Mirrors `health`: production reads the page's own slice out of
+ * `window.__DATA__`, dev has no prerendered payload so the component falls back
+ * to importing the file. Absent means we hold nothing for this project, which
+ * the caller must render as nothing at all — never as "no features".
+ */
+export const bootFeatures = (): FeatureFile | null =>
+	(globalThis as { __DATA__?: { features?: FeatureFile } }).__DATA__
+		?.features ?? null;
+
 export const healthOf = (source: Source): Health | null => {
 	const h = health()?.repos?.[healthKey(source)];
 	// A `{}` here would be a half-written file. An entry with no field we can use

@@ -86,6 +86,157 @@
 				"en": "Perpetual licence, IFC-first, and it opens DWG natively. Small ecosystem and few consultants know it.",
 				"fr": "Licence perpétuelle, IFC d’abord, et ouverture native du DWG. Petit écosystème et peu de bureaux d’études le connaissent."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Blender",
+			"source": {
+				"host": "github",
+				"path": "blender/blender",
+				"url": "https://github.com/blender/blender"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "General 3D tool, huge community, headless CLI that anchors batch pipelines and the Bonsai BIM add-on. Not BIM-native without add-ons — no project metadata, no cloud collaboration.",
+				"fr": "Outil 3D généraliste à l’immense communauté, avec un CLI headless pour les pipelines batch, qui héberge l’add-on BIM Bonsai. Pas natif BIM sans extensions — pas de métadonnées projet, pas de collaboration cloud."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenSCAD",
+			"source": {
+				"host": "github",
+				"path": "openscad/openscad",
+				"url": "https://github.com/openscad/openscad"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Parametric 3D defined in version-controlled .scad code, exported to STL/DXF from the CLI. Ideal for rule-based automation, but geometry-only: no IFC awareness, no interactive sketching.",
+				"fr": "3D paramétrique écrite en code .scad versionné, exportée en STL/DXF depuis le CLI. Parfaite pour automatiser par règles, mais géométrie seule : ni IFC, ni esquisse interactive."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CadQuery",
+			"source": {
+				"host": "github",
+				"path": "CadQuery/cadquery",
+				"url": "https://github.com/CadQuery/cadquery"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Python parametric CAD on the OCCT kernel with a fluent API — assemblies build headlessly in CI/CD. Code-only though: no GUI modeling, no IFC, and non-programmers feel the slope.",
+				"fr": "CAD paramétrique en Python sur le noyau OCCT, API fluide, assemblages générés sans interface pour le CI/CD. Code seul : pas de modélisation GUI, pas d’IFC, et courbe raide pour les non-codeurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SolveSpace",
+			"source": {
+				"host": "github",
+				"path": "solvespace/solvespace",
+				"url": "https://github.com/solvespace/solvespace"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Tiny constraint-based sketcher that solves models from a batch CLI — installs in seconds. But no IFC/BIM, thin assembly and documentation tools, and a small project team behind it.",
+				"fr": "Petit esquisseur paramétrique par contraintes, pilotable en batch via CLI, qui s’installe en quelques secondes. Mais pas d’IFC/BIM, outils d’assemblage et de doc légers, petite équipe derrière."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Speckle",
+			"source": {
+				"host": "github",
+				"path": "specklesystems/speckle-server",
+				"url": "https://github.com/specklesystems/speckle-server"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted BIM data server with CLIs and connectors for CAD apps — versioned model sharing replaces Revit’s collaboration layer. Not a modeler: you still need a CAD client to author geometry.",
+				"fr": "Serveur de données BIM auto-hébergé, avec CLIs et connecteurs vers les apps CAD — le partage versionné remplace la couche collaboration de Revit. Pas un modeleur : il faut encore un client CAD pour créer la géométrie."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise SSO and cloud options",
+					"fr": "SSO et options cloud d’entreprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "BRL-CAD",
+			"source": {
+				"host": "github",
+				"path": "BRL-CAD/brlcad",
+				"url": "https://github.com/BRL-CAD/brlcad"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "Solid CSG modeling with ray-tracing and a full CLI toolchain — dependable for conversion jobs. Dated UI and workflows, no IFC/BIM, and a steep learning curve.",
+				"fr": "Suite de modélisation CSG solide, ray-tracing et chaîne d’outils CLI complète — fiable pour les conversions. UI et flux datés, pas d’IFC/BIM, courbe d’apprentissage raide."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LibreCAD",
+			"source": {
+				"host": "github",
+				"path": "LibreCAD/LibreCAD",
+				"url": "https://github.com/LibreCAD/LibreCAD"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Mature 2D drafting tool for DWG/DXF exchange, with headless batch conversion. 2D only, though: no parametric modeling, no IFC, nothing for 3D or BIM.",
+				"fr": "Outil de dessin 2D mature pour l’échange DWG/DXF, avec conversion batch sans interface. 2D uniquement : pas de modélisation paramétrique, pas d’IFC, rien pour la 3D ou le BIM."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

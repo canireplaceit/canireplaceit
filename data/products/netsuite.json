@@ -111,6 +111,174 @@
 				"en": "45 apps per employee. Nowhere near NetSuite's financial depth, but most mid-market companies never used that depth.",
 				"fr": "45 applications par employé. Loin de la profondeur financière de NetSuite, mais la plupart des PME ne s’en servaient pas."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dolibarr",
+			"source": {
+				"host": "github",
+				"path": "Dolibarr/dolibarr",
+				"url": "https://github.com/Dolibarr/dolibarr"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Full open-source ERP/CRM covering invoicing, stock and multi-currency — the closest NetSuite-shaped drop-in among web suites, but the UI and reporting feel dated and multi-company consolidation is weak.",
+				"fr": "ERP/CRM open source complet — facturation, stock et multi-devises — le plus proche d’un NetSuite parmi les suites web, mais l’interface et le reporting datent et la consolidation multi-sociétés reste faible."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kill Bill",
+			"source": {
+				"host": "github",
+				"path": "killbill/killbill",
+				"url": "https://github.com/killbill/killbill"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Open-source subscription billing, invoicing and revenue engine covering NetSuite’s recurring-billing niche, at the cost of being billing-only — no GL, CRM or inventory, with accounting feeds via plugins.",
+				"fr": "Moteur open source de facturation par abonnement et de revenus, qui couvre le créneau récurrent de NetSuite, mais billing uniquement : pas de GL, de CRM ni de stock, comptabilité via plugins."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache OFBiz",
+			"source": {
+				"host": "github",
+				"path": "apache/ofbiz",
+				"url": "https://github.com/apache/ofbiz"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Full Apache-hosted ERP — general ledger, ecommerce, CRM, manufacturing — but the primary repo is archived (development moved to ofbiz-framework); the Java/Groovy learning curve is steep and the UI is dated.",
+				"fr": "ERP hébergé par Apache — grand livre, e-commerce, CRM, fabrication — mais le dépôt principal est archivé (le développement a migré vers ofbiz-framework), courbe d’apprentissage Java/Groovy raide et interface datée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "hledger",
+			"source": {
+				"host": "github",
+				"path": "simonmichael/hledger",
+				"url": "https://github.com/simonmichael/hledger"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Flagship self-hostable plain-text double-entry accounting: CLI reports, hledger-ui TUI, hledger-web and a JSON API. Accounting only — no AR/AP portals, CRM or tax filings, and no audit controls for multi-user business.",
+				"fr": "Comptabilité double entrée en texte brut auto-hébergeable : rapports CLI, hledger-ui, hledger-web et API JSON. Comptabilité seulement — pas de portails AR/AP, de CRM ni de déclarations fiscales, et sans contrôles d’audit multi-utilisateurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ledger",
+			"source": {
+				"host": "github",
+				"path": "ledger/ledger",
+				"url": "https://github.com/ledger/ledger"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "The classic C++ double-entry engine: fast reporting on plain-text journals with Emacs, vim and Python bindings. CLI-only with no GUI or invoicing, manual double-entry — not a multi-user business system.",
+				"fr": "Le moteur C++ classique de double entrée : reporting rapide sur journaux texte brut, bindings Emacs, vim et Python. CLI uniquement, pas de GUI ni de facturation — pas un système multi-utilisateurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "beancount",
+			"source": {
+				"host": "github",
+				"path": "beancount/beancount",
+				"url": "https://github.com/beancount/beancount"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Deterministic, scriptable plain-text double-entry accounting library powering the Fava web UI, with strict balance checking. Text-file, single-user workflow that needs scripting for imports and reports.",
+				"fr": "Bibliothèque de comptabilité double entrée en texte brut, déterministe et scriptable, qui alimente l’interface web Fava avec contrôle strict des soldes. Workflow fichier texte mono-utilisateur, scripting requis pour import et rapports."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GnuCash",
+			"source": {
+				"host": "github",
+				"path": "Gnucash/gnucash",
+				"url": "https://github.com/Gnucash/gnucash"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Mature desktop double-entry accounting with budgets, reports and online banking import — a zero-server option, but a single-user desktop app with no client portal or CRM and weaker multi-company consolidation.",
+				"fr": "Comptabilité double entrée desktop mature avec budgets, rapports et import bancaire en ligne — option zéro serveur, mais appli mono-utilisateur sans portail client ni CRM et consolidation multi-sociétés plus limitée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "InvoiceShelf",
+			"source": {
+				"host": "github",
+				"path": "InvoiceShelf/InvoiceShelf",
+				"url": "https://github.com/InvoiceShelf/InvoiceShelf"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight self-hosted invoicing: estimates, recurring invoices, payments and a client portal with a REST API. Invoicing only — no ledger or inventory, small team, slower velocity, shallower multi-currency and tax engine.",
+				"fr": "Facturation légère auto-hébergée : devis, factures récurrentes, paiements et portail client avec API REST. Facturation seulement — pas de grand livre ni de stock, petite équipe et moteur multi-devises/fiscal moins profond."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

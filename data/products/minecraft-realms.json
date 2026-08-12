@@ -103,6 +103,174 @@
 				"en": "Managed Minecraft hosting cheaper than Realms with full plugin and modpack support. Shared hardware, so performance varies by node.",
 				"fr": "Hébergement Minecraft géré moins cher que Realms, avec support complet des plugins et modpacks. Matériel mutualisé, donc performances variables selon le nœud."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pterodactyl Panel",
+			"source": {
+				"host": "github",
+				"path": "pterodactyl/panel",
+				"url": "https://github.com/pterodactyl/panel"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "De-facto self-hosted game panel — web UI plus full REST API for automation. The egg and template ecosystem is its draw; the cost is running and maintaining panel and wings on Docker.",
+				"fr": "Panel de jeu auto-hébergé avec interface web et API REST pour l’automatisation. Écosystème d’eggs et de templates énorme ; à vous de maintenir panel et Wings sur un hôte Docker."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pterodactyl Wings",
+			"source": {
+				"host": "github",
+				"path": "pterodactyl/wings",
+				"url": "https://github.com/pterodactyl/wings"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The container daemon that actually runs the servers behind a Pterodactyl panel — auto-restart, backups, console streaming. Useless on its own; it needs a panel and carries the same maintenance burden.",
+				"fr": "Le daemon conteneurisé qui fait tourner les serveurs d’un panel Pterodactyl : redémarrage automatique, sauvegardes, console en streaming. Inutile seul — il lui faut un panel et la même charge de maintenance."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PufferPanel",
+			"source": {
+				"host": "github",
+				"path": "pufferpanel/pufferpanel",
+				"url": "https://github.com/pufferpanel/pufferpanel"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Batteries-included panel, simpler than Pterodactyl: built-in SFTP and role management for multi-player servers. Smaller template ecosystem and per-server limits, not a cluster orchestrator.",
+				"fr": "Panel clé en main, plus simple que Pterodactyl : SFTP intégré et gestion des rôles pour le multijoueur. Écosystème de templates restreint et limites par serveur, pas un orchestrateur de clusters."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MCSManager",
+			"source": {
+				"host": "github",
+				"path": "MCSManager/MCSManager",
+				"url": "https://github.com/MCSManager/MCSManager"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight panel-plus-daemon with first-class Java and Bedrock support; one install manages many servers across nodes. Docs lean Chinese-first and upstream has fewer maintainers than the Pterodactyl family.",
+				"fr": "Panel+daemon léger, Java et Bedrock au premier rang : une seule installation gère plusieurs serveurs et nœuds. La doc privilégie parfois le chinois et les mainteneurs sont moins nombreux que chez Pterodactyl."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Crafty Controller",
+			"source": {
+				"host": "gitlab",
+				"path": "crafty-controller/crafty-4",
+				"url": "https://gitlab.com/crafty-controller/crafty-4"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Web panel aimed at home users: scheduled backups, roles, permissions and stats. Single-host by design — not a cluster tool — and a small community team behind it.",
+				"fr": "Panel web pensé pour la maison : sauvegardes planifiées, rôles, permissions et statistiques. Conçu pour un seul hôte, pas pour les clusters, et porté par une petite équipe communautaire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "mcman",
+			"source": {
+				"host": "github",
+				"path": "deniz-blue/mcman",
+				"url": "https://github.com/deniz-blue/mcman"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Terminal-only, but one Rust binary builds and runs servers from a declarative config — TUI for humans, CLI for scripts. Handles Forge, Fabric, Paper, modpacks and datapacks — single-instance, though.",
+				"fr": "Terminal uniquement, mais un seul binaire Rust construit et lance les serveurs depuis une config déclarative — TUI et CLI. Forge, Fabric, Paper, modpacks et datapacks, en mono-instance."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "NukkitX",
+			"source": {
+				"host": "github",
+				"path": "CloudburstMC/Nukkit",
+				"url": "https://github.com/CloudburstMC/Nukkit"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The open-source Bedrock server, the main path to self-hosted Bedrock multiplayer. Archived, though — work lives on in forks like PowerNukkitX, features lag behind, and console players need DNS SRV setup.",
+				"fr": "Le serveur Bedrock open source, la principale voie vers le multijoueur Bedrock auto-hébergé. Mais archivé : la vie continue dans les forks comme PowerNukkitX, et les joueurs console nécessitent du DNS SRV."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Cuberite",
+			"source": {
+				"host": "github",
+				"path": "cuberite/cuberite",
+				"url": "https://github.com/cuberite/cuberite"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "A C++ reimplementation light enough for Raspberry Pi-class hardware, with a Lua plugin system. Not vanilla-parity — some mods and redstone behave differently — and a far smaller community than Paper.",
+				"fr": "Réécriture C++ légère pour du matériel type Raspberry Pi, avec des plugins Lua. Pas de parité vanilla : certains mods et redstone se comportent différemment, et la communauté est plus petite que Paper."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

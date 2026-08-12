@@ -103,6 +103,157 @@
 				"en": "The same engine hosted by the people who wrote it, with a free 1GB tier. Smaller ecosystem and fewer compliance certifications than Pinecone.",
 				"fr": "Le même moteur hébergé par ceux qui l’ont écrit, avec un palier gratuit de 1 Go. Écosystème plus réduit et moins de certifications que Pinecone."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Chroma",
+			"source": {
+				"host": "github",
+				"path": "chroma-core/chroma",
+				"url": "https://github.com/chroma-core/chroma"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The dev-first default: a Python API that feels like Pinecone but persists locally. Single-node with no native sharding, and the API is still moving before 1.0.",
+				"fr": "Le choix dev par excellence : une API Python qui rappelle Pinecone mais persiste en local. Mononœud, sans sharding natif, et l’API bouge encore avant la 1.0."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Weaviate",
+			"source": {
+				"host": "github",
+				"path": "weaviate/weaviate",
+				"url": "https://github.com/weaviate/weaviate"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Hybrid BM25-plus-vector search and GraphQL out of the box. Heavier on resources, and replication sits behind the paid tier.",
+				"fr": "Recherche hybride BM25 + vecteur et GraphQL inclus. Plus gourmand en ressources, et la réplication reste payante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Replication",
+					"fr": "La réplication"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LanceDB",
+			"source": {
+				"host": "github",
+				"path": "lancedb/lancedb",
+				"url": "https://github.com/lancedb/lancedb"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "No server at all: the database is embedded and reads straight from S3 or local files. The ecosystem is smaller and distributed mode still matures.",
+				"fr": "Aucun serveur : la base est embarquée et lit directement sur S3 ou en local. Écosystème plus restreint, et un mode distribué pas encore mûr."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "txtai",
+			"source": {
+				"host": "github",
+				"path": "neuml/txtai",
+				"url": "https://github.com/neuml/txtai"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A library and CLI that bundle embeddings store and semantic search together; pipelines are configured in YAML. Python-centric, and weaker as a served API.",
+				"fr": "Tout-en-un : bibliothèque et CLI mariant base d’embeddings et recherche sémantique, pipelines en YAML. Centré Python, plus faible à l’échelle ou en API."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "USearch",
+			"source": {
+				"host": "github",
+				"path": "unum-cloud/USearch",
+				"url": "https://github.com/unum-cloud/USearch"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A single-file HNSW engine that runs over two billion vectors with SIMD, drop-in from C++, Python or JS. It is a library: no query language, no auth, nothing hosted.",
+				"fr": "Moteur HNSW en un seul fichier, SIMD, pour plus de deux milliards de vecteurs ; bindings C++, Python, JS. C’est une bibliothèque : pas de langage de requête, pas d’auth, rien d’hébergé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Faiss",
+			"source": {
+				"host": "github",
+				"path": "facebookresearch/faiss",
+				"url": "https://github.com/facebookresearch/faiss"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The industry standard from Meta, proven on billions of vectors with GPU and quantization options. It stays a raw library: persistence, server and tuning are yours to build.",
+				"fr": "La référence signée Meta, éprouvée sur des milliards de vecteurs, avec GPU et quantification. Ça reste une bibliothèque brute : persistance, serveur et réglages, tout est à faire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "sqlite-vec",
+			"source": {
+				"host": "github",
+				"path": "asg017/sqlite-vec",
+				"url": "https://github.com/asg017/sqlite-vec"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A SQLite virtual table for vectors — zero-dependency extension, no server, single file, so the easiest thing here to self-host. You inherit SQLite’s single-writer limits; no client-server mode.",
+				"fr": "Une table virtuelle SQLite pour les vecteurs : zéro dépendance, zéro serveur, fichier unique, le plus simple à héberger. Restent les contraintes d’écriture unique de SQLite, sans mode client-serveur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

@@ -126,6 +126,153 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "GraphHopper",
+			"source": {
+				"host": "github",
+				"path": "graphhopper/graphhopper",
+				"url": "https://github.com/graphhopper/graphhopper"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "JVM routing engine for truck-aware routes, isochrones and matrix calls behind a last-mile planner. Needs tuned config for truck profiles, and handles no fleet, devices or GPS.",
+				"fr": "Moteur de routage JVM : itinéraires poids lourds, isochrones, matrices, pour un planificateur de tournées. Profils camion à régler finement ; pas de flotte, ni appareils, ni GPS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Google OR-Tools",
+			"source": {
+				"host": "github",
+				"path": "google/or-tools",
+				"url": "https://github.com/google/or-tools"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Industrial VRP solver with time windows and pickup/delivery; Python/C++/Java/.NET APIs, CLI, pip-installable. It solves; you build the model, UI and dispatch.",
+				"fr": "Solveur VRP industriel avec fenêtres horaires et pickup/delivery ; APIs Python/C++/Java/.NET, CLI, pip-installable. Il résout, vous construisez le modèle, l’UI et le dispatch."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "openrouteservice",
+			"source": {
+				"host": "github",
+				"path": "GIScience/openrouteservice",
+				"url": "https://github.com/GIScience/openrouteservice"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Turn-key routing, geocoding and isochrones in one Docker container, with truck profiles and turn restrictions. No dispatch or tracking; GPL bites embedded use, and big regions need data prep.",
+				"fr": "Un conteneur Docker : routage, géocodage, isochrones, profils camion, restrictions de virage. Pas de dispatch ni de tracking ; GPL limitante pour l’embarqué, et grosse préparation de données pour les grandes régions."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PyVRP",
+			"source": {
+				"host": "github",
+				"path": "PyVRP/PyVRP",
+				"url": "https://github.com/PyVRP/PyVRP"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Pip-installable VRP solver, CLI and Python API, fed by OSRM, ORS or GraphHopper matrices. Time windows, capacity and duration constraints; no dispatch UI or tracking — wiring the matrix source is on you.",
+				"fr": "Solver VRP pip-installable, CLI et API Python, alimenté par OSRM, ORS ou GraphHopper. Fenêtres horaires, capacité et durée ; pas d’UI de dispatch ni de tracking — à vous de brancher la source."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Traccar",
+			"source": {
+				"host": "github",
+				"path": "traccar/traccar",
+				"url": "https://github.com/traccar/traccar"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Mature self-hosted GPS tracking server with web/mobile clients, geofences, alerts and a huge device-protocol ecosystem. No route optimization or dispatch, and self-hosting means sourcing your own map tiles.",
+				"fr": "Serveur de suivi GPS auto-hébergé et mûr : clients web/mobile, géofences, alertes, énorme écosystème de protocoles d’appareils. Pas d’optimisation ni de dispatch ; vos tuiles de carte à gérer vous-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "jsprit",
+			"source": {
+				"host": "github",
+				"path": "graphhopper/jsprit",
+				"url": "https://github.com/graphhopper/jsprit"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Long-running Java VRP framework for embedding route optimization: capacitated, time windows, skills, pluggable algorithms. Library only — JVM integration required, and no UI, tracking or dispatch workflow.",
+				"fr": "Framework Java de VRP éprouvé pour embarquer de l’optimisation de tournées : capacité, fenêtres horaires, skills, algorithmes enfichables. Bibliothèque pure — intégration JVM requise, et ni UI, ni tracking, ni dispatch."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenBoxes",
+			"source": {
+				"host": "github",
+				"path": "openboxes/openboxes",
+				"url": "https://github.com/openboxes/openboxes"
+			},
+			"license": "EPL-1.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted supply-chain inventory and distribution management: receiving, picking, shipping, REST API for logistics integration. Warehouse-focused, not last-mile dispatch — older Grails stack, no vehicle tracking or driver tools.",
+				"fr": "Gestion d’inventaire et de distribution supply-chain auto-hébergée : réception, picking, expédition, API REST pour l’intégration logistique. Orienté entrepôt, pas dispatch dernier kilomètre — stack Grails vieillissante, ni suivi véhicule, ni outils chauffeurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

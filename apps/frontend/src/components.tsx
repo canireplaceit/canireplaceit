@@ -847,11 +847,6 @@ export function SponsorSlot({
 		);
 	}
 
-	const price =
-		slot.priceCents === null
-			? t("ads.priceOnRequest")
-			: `${money(slot.priceCents, lang)}/30d`;
-
 	return (
 		<a
 			href={paths.sponsor(lang, slot.id)}
@@ -864,8 +859,8 @@ export function SponsorSlot({
 			<span className="min-w-0 truncate">
 				{tc(slot.label)} — {t("ads.yourProductHere")}
 			</span>
-			<span className="nums shrink-0" style={{ color: "var(--accent)" }}>
-				{price} →
+			<span className="shrink-0" style={{ color: "var(--accent)" }}>
+				→
 			</span>
 		</a>
 	);

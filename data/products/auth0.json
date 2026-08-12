@@ -122,6 +122,182 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Authentik",
+			"source": {
+				"host": "github",
+				"path": "goauthentik/authentik",
+				"url": "https://github.com/goauthentik/authentik"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Feature-complete IdP with flows, a policy engine and a polished admin UI. Runs on Python, so it eats more memory, config is UI-first, and enterprise extras live in a separate repo.",
+				"fr": "IdP complet avec flows, moteur de politiques et UI d’admin soignée. Tourne sous Python, donc plus lourd en ressources, config par l’UI, et les extras entreprise vivent dans un dépôt séparé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise extras in a separate repo",
+					"fr": "Extras entreprise dans un dépôt séparé"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Authelia",
+			"source": {
+				"host": "github",
+				"path": "authelia/authelia",
+				"url": "https://github.com/authelia/authelia"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Low-dependency SSO and 2FA portal that fronts reverse proxies. No SAML, identity must come from LDAP or a file, and config is YAML rather than a UI.",
+				"fr": "SSO et 2FA durci, peu de dépendances, qui se place devant les reverse proxies. Pas de SAML, identité depuis LDAP ou fichier, config en YAML plutôt qu’une UI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Casdoor",
+			"source": {
+				"host": "github",
+				"path": "casdoor/casdoor",
+				"url": "https://github.com/casdoor/casdoor"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "OIDC/SAML/CAS/OAuth SSO with a management UI and 100+ login connectors. Config is UI-driven and hard to version, docs trail the fast releases, and it is a full IdP.",
+				"fr": "SSO OIDC/SAML/CAS/OAuth avec UI d’admin et 100+ connecteurs de login. La config passe par l’UI, difficile à versionner, la doc traîne derrière les versions, et c’est un vrai IdP."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kanidm",
+			"source": {
+				"host": "github",
+				"path": "kanidm/kanidm",
+				"url": "https://github.com/kanidm/kanidm"
+			},
+			"license": "MPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Rust identity provider doubling as an LDAP replacement, with MFA and fail-closed defaults. No SAML, the ecosystem is young, and the schema is Kanidm-specific.",
+				"fr": "Fournisseur d’identité Rust qui remplace aussi LDAP, avec MFA et des réglages par défaut fail-closed. Pas de SAML, l’écosystème est jeune, et le schéma est spécifique à Kanidm."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dex",
+			"source": {
+				"host": "github",
+				"path": "dexidp/dex",
+				"url": "https://github.com/dexidp/dex"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Federated OIDC provider that bridges to LDAP, SAML or GitHub via connectors, standard in cluster tooling. No user store of its own, no admin UI — a building block.",
+				"fr": "Provider OIDC fédéré qui se branche sur LDAP, SAML ou GitHub via des connecteurs, standard dans l’outillage cluster. Pas de store d’utilisateurs propre, pas d’UI d’admin — une brique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ory Hydra",
+			"source": {
+				"host": "github",
+				"path": "ory/hydra",
+				"url": "https://github.com/ory/hydra"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Headless OAuth2/OIDC server where you build the login and consent screens yourself. Needs Postgres or MySQL plus Redis, and wiring is API-first.",
+				"fr": "Serveur OAuth2/OIDC headless : vous construisez vous-même l’écran de login et de consentement. Postgres ou MySQL plus Redis requis, et c’est API-first : il faut du bricolage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SuperTokens",
+			"source": {
+				"host": "github",
+				"path": "supertokens/supertokens-core",
+				"url": "https://github.com/supertokens/supertokens-core"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Session-managing auth backend with SDKs for every major framework; you embed it in your app rather than front it with a portal. Multitenancy is paid.",
+				"fr": "Backend auth avec gestion de sessions et SDK pour chaque framework majeur ; vous l’intégrez dans votre app, pas de portail autonome. La multitenancy est payante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Multitenancy",
+					"fr": "La multitenancy"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "2fa",
+			"source": {
+				"host": "github",
+				"path": "rsc/2fa",
+				"url": "https://github.com/rsc/2fa"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "TOTP codes from the terminal, secrets held in a gpg- or age-encrypted store. It replaces Auth0’s MFA and nothing else — no SSO, no OIDC.",
+				"fr": "Les codes TOTP en ligne de commande, secrets stockés dans un coffre chiffré gpg ou age. Ça remplace la MFA d’Auth0, rien de plus — pas de SSO, pas d’OIDC."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

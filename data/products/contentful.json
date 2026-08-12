@@ -105,6 +105,266 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ghost",
+			"source": {
+				"host": "github",
+				"path": "TryGhost/Ghost",
+				"url": "https://github.com/TryGhost/Ghost"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The easiest editorial CMS to self-host — ghost-cli one-command deploys, full Content API, membership and newsletters built in. Editorial-focused, so general app-content modelling is thinner, and multi-site/tenant support lags Contentful.",
+				"fr": "Le plus simple à auto-héberger pour l’éditorial : ghost-cli déploie en une commande, Content API complète, membres et newsletters inclus. Fait pour publier, pas pour modéliser, multi-site en retrait de Contentful."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "WordPress",
+			"source": {
+				"host": "github",
+				"path": "WordPress/wordpress-develop",
+				"url": "https://github.com/WordPress/wordpress-develop"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The most deployed CMS on earth, headless via REST API or WPGraphQL. That vast plugin ecosystem comes with sprawl, variable quality, and a relentless security-update cadence on a monolithic core.",
+				"fr": "Le CMS le plus déployé au monde, headless via REST API ou WPGraphQL. Son énorme écosystème de plugins a un prix : prolifération, qualité inégale, et un noyau monolithique à patcher sans fin."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "KeystoneJS",
+			"source": {
+				"host": "github",
+				"path": "keystonejs/keystone",
+				"url": "https://github.com/keystonejs/keystone"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Declarative schema generates your GraphQL API and admin UI inside an existing Node/Express app, access control included. The cost: you run and maintain app and database yourself — no managed hosting.",
+				"fr": "Un schéma déclaratif génère votre API GraphQL et votre admin UI dans une app Node/Express existante, contrôle d’accès inclus. Le revers : vous opérez l’app et sa base vous-même, sans hébergement managé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "TinaCMS",
+			"source": {
+				"host": "github",
+				"path": "tinacms/tinacms",
+				"url": "https://github.com/tinacms/tinacms"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Content lives as files in your Git repo, edited in context on the live site — schema-driven and local-first. That Git-first model suits developers more than non-technical editors at scale.",
+				"fr": "Le contenu vit dans votre dépôt Git, édité en contexte sur le site — modélisation par schéma, local-first. Le modèle Git-first parle aux développeurs, moins aux éditeurs non techniques à grande échelle."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Hosted visual editing (Tina Cloud)",
+					"fr": "Édition visuelle hébergée (Tina Cloud)"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Keystatic",
+			"source": {
+				"host": "github",
+				"path": "Thinkmill/keystatic",
+				"url": "https://github.com/Thinkmill/keystatic"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Young and developer-centric: content is config-as-code in Git, and the admin UI renders inside your own Next, Remix, or Astro app. The API still moves fast, with no hosted admin for editors.",
+				"fr": "Jeune et orienté dev : le contenu, config-as-code, vit dans Git, et l’admin UI se rend dans votre app Next, Remix ou Astro. L’API bouge encore vite, sans admin hébergé pour les éditeurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ApostropheCMS",
+			"source": {
+				"host": "github",
+				"path": "apostrophecms/apostrophe",
+				"url": "https://github.com/apostrophecms/apostrophe"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Full-stack Node CMS with content types, workflow, and publishing, plus headless REST/GraphQL via its OpenAPI plugin. The catch: MongoDB and Node to operate, and in-context editing targets pages, not pure API-first builds.",
+				"fr": "CMS Node full-stack : types de contenu, workflow et publication, plus REST/GraphQL headless via son plugin OpenAPI. Le revers : opérer MongoDB et Node, et l’édition en contexte vise les pages, pas l’API pure."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Squidex",
+			"source": {
+				"host": "github",
+				"path": "Squidex/squidex",
+				"url": "https://github.com/Squidex/squidex"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Built-in OAuth/OIDC and external identity providers come with a strong editor and versioned, workflow-enabled content — but you operate a .NET + MongoDB stack, and docs run thinner than Strapi or Contentful.",
+				"fr": "OAuth/OIDC intégré, éditeur riche et contenu versionné avec workflow : l’offre est complète. En face, une pile .NET + MongoDB à opérer, et une doc plus mince que chez Strapi ou Contentful."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PocketBase",
+			"source": {
+				"host": "github",
+				"path": "pocketbase/pocketbase",
+				"url": "https://github.com/pocketbase/pocketbase"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "One Go binary with embedded SQLite ships admin UI, REST API, auth, and file storage — a lightweight content/API layer. Not a CMS: no workflow or staged publishing, and SQLite caps heavy concurrency.",
+				"fr": "Un seul binaire Go avec SQLite embarqué : admin UI, REST API, auth et stockage de fichiers. Une couche contenu/API légère, mais pas un CMS — pas de workflow, et SQLite plafonne la concurrence."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Contember",
+			"source": {
+				"host": "github",
+				"path": "contember/contember",
+				"url": "https://github.com/contember/contember"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Schema-first TypeScript CMS: your content model becomes a GraphQL API, ACL access engine, and admin UI builder over any SQL database. Tiny community, young docs — you assemble engine, admin, and DB yourself.",
+				"fr": "CMS TypeScript schema-first : votre modèle de contenu devient API GraphQL, moteur d’accès ACL et builder d’admin UI sur n’importe quelle base SQL. Communauté minuscule, docs jeunes — à vous d’assembler moteur, admin, base."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Decap CMS",
+			"source": {
+				"host": "github",
+				"path": "decaporg/decap-cms",
+				"url": "https://github.com/decaporg/decap-cms"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The ex-Netlify CMS: a Contentful-style admin UI editing files in your repo, hosted statically for any static site generator. Git-as-database — no relational content or server-side roles — and someone still wires OAuth.",
+				"fr": "Ex-Netlify CMS : admin UI façon Contentful sur les fichiers de votre dépôt, hébergée en statique pour tout SSG. Git comme base, sans contenu relationnel ni rôles — et l’OAuth à câbler vous-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Webiny",
+			"source": {
+				"host": "github",
+				"path": "webiny/webiny-js",
+				"url": "https://github.com/webiny/webiny-js"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Contentful-shaped APIs deployed into your own AWS account — headless CMS, GraphQL, and a page builder, all serverless. The overhead: AWS and serverless ops, and enterprise features behind a paid tier.",
+				"fr": "Des API façon Contentful déployées dans votre propre compte AWS — headless CMS, GraphQL et page builder, tout en serverless. Le revers : opérer AWS et le serverless, et fonctions enterprise réservées au payant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise features (paid tier)",
+					"fr": "Fonctionnalités enterprise (offre payante)"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Cockpit",
+			"source": {
+				"host": "github",
+				"path": "Cockpit-HQ/Cockpit",
+				"url": "https://github.com/Cockpit-HQ/Cockpit"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Flat-file PHP headless CMS serving content JSON with a tiny footprint — PHP and nginx, no database. Small project, thin support: no workflow or roles, not built for large teams or complex schemas.",
+				"fr": "CMS headless PHP à fichiers plats, sans base de données — PHP et nginx suffisent. Petit projet, support limité : ni workflow ni rôles, pas fait pour les grosses équipes ou les schémas complexes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

@@ -111,6 +111,174 @@
 				"en": "Hosted control plane, your own workers, so you pay for orchestration rather than compute. Smaller ecosystem than Airflow and you still run the execution layer.",
 				"fr": "Plan de contrôle hébergé, vos propres workers : vous payez l’orchestration, pas le calcul. Écosystème plus réduit qu’Airflow et vous exploitez toujours la couche d’exécution."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mage",
+			"source": {
+				"host": "github",
+				"path": "mage-ai/mage-ai",
+				"url": "https://github.com/mage-ai/mage-ai"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Airflow-style orchestration with a notebook-like UI and built-in templates. Visual SQL/Python blocks win over script-first teams, but the smaller community and UI-first design can hide code from review.",
+				"fr": "Orchestration façon Airflow derrière une UI notebook, gabarits inclus. Le visuel séduit, au prix d’une communauté réduite et d’une revue de code que l’interface complique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Meltano",
+			"source": {
+				"host": "github",
+				"path": "meltano/meltano",
+				"url": "https://github.com/meltano/meltano"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Singer-based ELT, CLI-first, with a plugin catalog — the glue for moving pipeline data. Declarative config and dbt carry the load, but there is no scheduler: cadence needs an orchestration layer.",
+				"fr": "ELT basé sur Singer, en CLI, avec son catalogue de plugins — la colle des flux de données. Config déclarative et dbt font le travail, mais sans scheduler : la cadence exige de l’orchestration."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dbt",
+			"source": {
+				"host": "github",
+				"path": "dbt-labs/dbt-core",
+				"url": "https://github.com/dbt-labs/dbt-core"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The de-facto standard transform layer, CLI-driven on your warehouse. SQL modeling, packages, tests and docs generation. Transform only, though: no extraction, no scheduling, and no visual editor.",
+				"fr": "Le standard de facto de la couche transform, piloté en CLI, sur votre entrepôt. Modélisation SQL, packages, tests et docs générés. Transform uniquement : pas d’extraction, pas de planification, pas d’éditeur visuel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Benthos",
+			"source": {
+				"host": "github",
+				"path": "redpanda-data/benthos",
+				"url": "https://github.com/redpanda-data/benthos"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Single-binary stream processor: declarative YAML connect/transform/route pipelines and hundreds of connectors, run as binary or k8s sidecar. No DAG scheduler, no GUI — streaming only.",
+				"fr": "Processeur de flux en binaire unique : pipelines connect/transform/route en YAML déclaratif, des centaines de connecteurs, en binaire ou en sidecar k8s. Pas de scheduler DAG ni de GUI — uniquement du streaming."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Temporal",
+			"source": {
+				"host": "github",
+				"path": "temporalio/temporal",
+				"url": "https://github.com/temporalio/temporal"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Durable-workflow engine: steps retry forever, so pipelines become fault-tolerant by construction, with a web UI and SDKs in major languages. Not data-pipeline-specific — you build scheduling and Slack integrations yourself.",
+				"fr": "Moteur de workflows durables : étapes réessayées sans fin, pipelines tolérants aux pannes, UI web, SDK dans les grands langages. Rien de spécifique au data : planification et intégrations Slack à construire soi-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Argo Workflows",
+			"source": {
+				"host": "github",
+				"path": "argoproj/argo-workflows",
+				"url": "https://github.com/argoproj/argo-workflows"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Kubernetes-native DAG orchestration: one container per step, parameterized templates, CronWorkflow scheduling, GitOps-friendly YAML. Costs a cluster and observability stops at the UI.",
+				"fr": "Orchestration DAG native Kubernetes : un conteneur par étape, gabarits paramétrés, planification CronWorkflow, YAML friendly GitOps. Il faut un cluster, et l’observabilité s’arrête à l’UI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Luigi",
+			"source": {
+				"host": "github",
+				"path": "spotify/luigi",
+				"url": "https://github.com/spotify/luigi"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Long-lived, lightweight Python scheduler: dependency graphs in code, file-based task targets, a web UI. Simple for batch pipelines, but barely maintained and no modern UI or lineage.",
+				"fr": "Scheduler Python léger et de longue durée : graphes de dépendances dans le code, cibles de tâches fichier, UI web. Simple pour les batchs, mais à peine maintenu, sans UI moderne ni lineage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache NiFi",
+			"source": {
+				"host": "github",
+				"path": "apache/nifi",
+				"url": "https://github.com/apache/nifi"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Visual, flow-based data routing between systems with drag-and-drop, provenance and lineage built in. Strong for streaming and movement, though JVM-heavy and prone to wiring spaghetti at scale.",
+				"fr": "Routage visuel des données entre systèmes, orienté flux : glisser-déposer, provenance et lineage inclus. Bon pour le streaming, mais lourd côté JVM et prompt au câblage spaghetti à l’échelle."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

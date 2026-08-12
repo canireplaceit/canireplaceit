@@ -118,6 +118,136 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "NeoMutt",
+			"source": {
+				"host": "github",
+				"path": "neomutt/neomutt",
+				"url": "https://github.com/neomutt/neomutt"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Actively maintained Mutt fork: fast keyboard-driven TUI for IMAP, POP3, NNTP and local maildirs. No GUI and a steep curve — address book and scheduling live in external tools.",
+				"fr": "Fork maintenu de Mutt : TUI rapide pilotée au clavier pour IMAP, POP3, NNTP et maildirs locales. Pas de GUI et courbe d’apprentissage raide — l’agenda et le carnet d’adresses relèvent d’outils externes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mailspring",
+			"source": {
+				"host": "github",
+				"path": "Foundry376/Mailspring",
+				"url": "https://github.com/Foundry376/Mailspring"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Polished cross-platform desktop client: unified inbox, translation, read receipts, snooze. Electron, so heavy on RAM; sync rides Mailspring’s cloud unless you self-host, and there’s no mobile app.",
+				"fr": "Client desktop soigné et multiplateforme : boîte unifiée, traduction, accusés de lecture, snooze. C’est de l’Electron, donc gourmand en RAM ; la synchronisation passe par le cloud de Mailspring sauf si vous hébergez votre sync, et pas d’application mobile."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "us-only",
+				"paywalled": {
+					"en": "Minor features held back from the free build.",
+					"fr": "Quelques fonctions réservées à la version payante, en marge."
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nylas Mail",
+			"source": {
+				"host": "github",
+				"path": "nylas/nylas-mail",
+				"url": "https://github.com/nylas/nylas-mail"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "MIT-licensed desktop client that seeded modern mail apps, now archived upstream: unmaintained, and its sync leaned on the now-defunct Nylas cloud backend.",
+				"fr": "Client desktop sous licence MIT qui a essaimé les applis mail modernes, désormais archivé : plus maintenu, et sa synchronisation reposait sur le backend cloud Nylas, aujourd’hui disparu."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "us-only"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "mu",
+			"source": {
+				"host": "github",
+				"path": "djcb/mu",
+				"url": "https://github.com/djcb/mu"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Instant full-text search over a maildir index, driven from the mu4e Emacs client. Blazing, but you must bring your own maildir mailboxes and Emacs — no standalone GUI.",
+				"fr": "Recherche plein-texte instantanée sur un index maildir, pilotée depuis le client mu4e d’Emacs. Redoutable, mais il faut fournir ses boîtes maildir et Emacs — pas de GUI autonome."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SnappyMail",
+			"source": {
+				"host": "github",
+				"path": "the-djmaze/snappymail",
+				"url": "https://github.com/the-djmaze/snappymail"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Maintained RainLoop successor: fast, lightweight PHP webmail you host yourself. Web-only, so no desktop or mobile app; needs PHP hosting or a container.",
+				"fr": "Successeur maintenu de RainLoop : webmail PHP rapide et léger que vous hébergez. Web uniquement, donc pas d’application bureau ni mobile ; il faut un hébergement PHP ou un conteneur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Cypht",
+			"source": {
+				"host": "github",
+				"path": "cypht-org/cypht",
+				"url": "https://github.com/cypht-org/cypht"
+			},
+			"license": "LGPL-2.1",
+			"effort": "docker",
+			"note": {
+				"en": "Privacy-first webmail that aggregates IMAP accounts, RSS feeds and calendars into one inbox, PHP with no database needed. Web-only, and the UI is spartan beside modern clients.",
+				"fr": "Webmail orienté vie privée qui agrège comptes IMAP, flux RSS et calendriers dans une seule boîte, en PHP sans base de données. Web uniquement, et une interface spartiate face aux clients modernes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

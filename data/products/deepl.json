@@ -82,6 +82,237 @@
 				"en": "Pay per character with a free monthly allowance — cheaper than DeepL Pro for low volume. Weaker on nuance and tone.",
 				"fr": "Facturation au caractère avec un quota gratuit mensuel — moins cher que DeepL Pro à faible volume. Plus faible sur la nuance et le ton."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apertium",
+			"source": {
+				"host": "github",
+				"path": "apertium/apertium",
+				"url": "https://github.com/apertium/apertium"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Rule-based MT engine that runs fully offline — no GPUs, no model weights. Robotic output compared to neural DeepL, and solid coverage only on its curated language pairs.",
+				"fr": "Moteur à base de règles, hors ligne et déterministe, sans GPU. Rendu robotique face au DeepL neuronal, et bonne couverture seulement sur ses paires de langues choisies."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Bergamot Translator",
+			"source": {
+				"host": "github",
+				"path": "browsermt/bergamot-translator",
+				"url": "https://github.com/browsermt/bergamot-translator"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Mozilla’s on-device engine behind Firefox’s built-in translation, running locally via WASM + C++. No commits since May 2024, and a non-trivial native build — coverage tied to Mozilla’s model packs.",
+				"fr": "Moteur embarqué de Mozilla derrière la traduction intégrée de Firefox, exécuté en local via WASM + C++. Aucun commit depuis mai 2024 — compilation native non triviale, couverture limitée aux packs Mozilla."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "translate-shell",
+			"source": {
+				"host": "gitlab",
+				"path": "soimort/translate-shell",
+				"url": "https://gitlab.com/soimort/translate-shell"
+			},
+			"license": "Unlicense",
+			"effort": "managed",
+			"note": {
+				"en": "A single public-domain script aggregating Google, Bing, DeepL and more. Depends on upstream web endpoints, so free tiers throttle and nothing works offline.",
+				"fr": "Un unique script domaine public qui agrège Google, Bing, DeepL et plus encore. Dépend des endpoints web en amont : les tiers gratuits limitent le débit et rien ne fonctionne hors ligne."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Lingva Translate",
+			"source": {
+				"host": "github",
+				"path": "thedaviddelta/lingva-translate",
+				"url": "https://github.com/thedaviddelta/lingva-translate"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Privacy-friendly self-hosted Google Translate frontend with a clean REST API and one-click Docker deploys. Dormant since 2023, still routed to Google’s free endpoint, and AGPL-3.0.",
+				"fr": "Frontend Google Translate auto-hébergé soucieux de la vie privée, avec API REST propre et déploiement Docker en un clic. Dormant depuis 2023, toujours branché sur l’endpoint gratuit de Google, et AGPL-3.0."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Crow Translate",
+			"source": {
+				"host": "github",
+				"path": "crow-translate/crow-translate",
+				"url": "https://github.com/crow-translate/crow-translate"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Archived but solid native Qt desktop translator with pluggable engines — Google, Yandex, Bing, IBM Watson. No new releases, free-engine quality, and Windows/macOS builds lag Linux.",
+				"fr": "Traducteur desktop Qt natif, archivé mais solide, avec moteurs enfichables — Google, Yandex, Bing, IBM Watson. Plus aucune sortie, qualité des moteurs gratuits, et les builds Windows/macOS accusent un retard sur Linux."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "DLX (DeepLX)",
+			"source": {
+				"host": "github",
+				"path": "OwO-Network/DLX",
+				"url": "https://github.com/OwO-Network/DLX"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A single Go binary exposing a DeepL-compatible API so existing DeepL integrations keep working. Unofficial: rides DeepL’s web endpoint, and may break if DeepL changes its API.",
+				"fr": "Un binaire Go unique exposant une API compatible DeepL pour que les intégrations existantes continuent de fonctionner. Non officiel : s’appuie sur l’endpoint web de DeepL, et peut casser si l’API change."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CTranslate2",
+			"source": {
+				"host": "github",
+				"path": "OpenNMT/CTranslate2",
+				"url": "https://github.com/OpenNMT/CTranslate2"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Fast C++ inference engine serving NLLB-200 and OPUS-MT models on CPU/GPU, 2–4x faster than PyTorch. Not turnkey: you source and quantize your own models, and quality follows the model you pick.",
+				"fr": "Moteur d’inférence C++ qui sert NLLB-200 et OPUS-MT sur CPU/GPU, 2 à 4× plus rapide que PyTorch. Pas clé en main : sourcer et quantiser les modèles, la qualité dépend du choix."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Weblate",
+			"source": {
+				"host": "github",
+				"path": "WeblateOrg/weblate",
+				"url": "https://github.com/WeblateOrg/weblate"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Self-hostable translation management platform that plugs machine translation into human workflows — checks, glossaries, reviews, API. Heavier deployment (Postgres, Redis) and overkill for single-user ad-hoc translation.",
+				"fr": "Plateforme de gestion de traduction auto-hébergeable qui intègre la traduction machine dans des flux humains — contrôles, glossaires, relectures, API. Déploiement lourd (Postgres, Redis) et surdimensionné pour une traduction ponctuelle solo."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OmegaT",
+			"source": {
+				"host": "github",
+				"path": "omegat-org/omegat",
+				"url": "https://github.com/omegat-org/omegat"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Long-lived desktop CAT tool with translation memories, glossaries and pluggable MT (Google, DeepL, Apertium). Needs a human translator rather than automating output; Java-based UI looks dated.",
+				"fr": "Outil CAT desktop de longue date, avec mémoires de traduction, glossaires et MT enfichable (Google, DeepL, Apertium). Exige un traducteur humain plutôt qu’une sortie automatisée, et son UI Java vieillit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Translate Toolkit",
+			"source": {
+				"host": "codeberg",
+				"path": "translate/translate",
+				"url": "https://codeberg.org/translate/translate"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "A pip-installable CLI toolbox batch-processing 100+ localization formats — gettext, XLIFF, Android — with converter scripts and MT hooks. Built for developers and l10n engineers, no GUI, GPL-3.0.",
+				"fr": "Boîte à outils CLI installable via pip qui traite par lots 100+ formats — gettext, XLIFF, Android — avec convertisseurs et hooks MT. Pour devs et ingénieurs l10n, sans GUI, GPL-3.0."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "EasyNMT",
+			"source": {
+				"host": "github",
+				"path": "UKPLab/EasyNMT",
+				"url": "https://github.com/UKPLab/EasyNMT"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A one-line API wrapping OPUS-MT, M2M-100 and Argos behind a single self-hosted interface, Apache-2.0. No commits since December 2023, quality varies per model, and it runs heavier than turnkey tools.",
+				"fr": "API d’une ligne qui enveloppe OPUS-MT, M2M-100 et Argos derrière une interface auto-hébergée, Apache-2.0. Aucun commit depuis décembre 2023, qualité variable selon le modèle, plus lourd que les outils clés en main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

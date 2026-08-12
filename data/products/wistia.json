@@ -82,6 +82,153 @@
 				"en": "Hosting, encoding, player and CDN for a few dollars. Marketing analytics are basic and there is no CRM integration.",
 				"fr": "Hébergement, encodage, lecteur et CDN pour quelques euros. Statistiques marketing sommaires et aucune intégration CRM."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Owncast",
+			"source": {
+				"host": "github",
+				"path": "owncast/owncast",
+				"url": "https://github.com/owncast/owncast"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Easiest self-hosted live and VOD platform — one Go binary with built-in chat and an embeddable HLS player. Live-first: the VOD side is no CMS, and viewer analytics are absent.",
+				"fr": "Plateforme self-hébergée live et VOD la plus simple : un seul binaire Go, chat intégré et lecteur HLS à embarquer. Pensé pour le live d’abord : la VOD n’a ni CMS, ni analytics."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Jellyfin",
+			"source": {
+				"host": "gitlab",
+				"path": "jellyfin/jellyfin",
+				"url": "https://gitlab.com/jellyfin/jellyfin"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Most complete self-hosted media server: full transcoding, apps on every platform, plugins for live TV and more. Built for personal libraries — no viewer analytics, and no embed or gating workflow.",
+				"fr": "Serveur média self-hébergé le plus complet : transcodage universel, applications partout, plugins pour la TV ou le saut d’intro. Pensé pour les bibliothèques perso : ni analytics, ni embed, ni workflow de gating."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MediaMTX",
+			"source": {
+				"host": "github",
+				"path": "bluenviron/mediamtx",
+				"url": "https://github.com/bluenviron/mediamtx"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Ingests RTSP, RTMP, SRT and WebRTC, serves HLS back to browsers — the plumbing under a self-hosted video stack. Backend only: no player, users or library; you build the frontend.",
+				"fr": "La tuyauterie sous toute stack vidéo self-hébergée : ingère RTSP, RTMP, SRT et WebRTC, sert du HLS. Backend seulement : pas de lecteur, d’utilisateurs ni de bibliothèque ; le front reste à construire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "yt-dlp",
+			"source": {
+				"host": "codeberg",
+				"path": "yt-dlp/yt-dlp",
+				"url": "https://codeberg.org/yt-dlp/yt-dlp"
+			},
+			"license": "Unlicense",
+			"effort": "managed",
+			"note": {
+				"en": "Pulls video from thousands of sites with subtitle and format control — the acquisition half of a self-hosted stack. Download-only — it hosts nothing, and strong DRM sites stay out of reach.",
+				"fr": "Le côté acquisition d’une stack vidéo : télécharge depuis des milliers de sites, sous-titres et choix de formats compris. Téléchargement : rien n’est hébergé ; les sites sous DRM forte restent hors de portée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OBS Studio",
+			"source": {
+				"host": "github",
+				"path": "obsproject/obs-studio",
+				"url": "https://github.com/obsproject/obs-studio"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Scene-based capture with filters, streaming to any RTMP or SRT destination, Lua and obs-websocket automation. A production tool, not a host: storage and distribution are yours to assemble.",
+				"fr": "Le bout capture de la stack : enregistrement par scènes, filtres, streaming vers toute destination RTMP ou SRT, Lua et obs-websocket pour l’automatisation. Pas un hôte : stockage et diffusion, à vous d’assembler."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "VLC",
+			"source": {
+				"host": "github",
+				"path": "videolan/vlc",
+				"url": "https://github.com/videolan/vlc"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Plays any format with hardware decoding; cvlc and libvlc bring transcoding and streaming to pipelines. Not a server: embeds, analytics and hosting are someone else’s job.",
+				"fr": "La couche lecture et conversion : lit tout avec décodage matériel ; cvlc transcodes et streame en CLI, libvlc alimente des applis tierces. Pas un serveur : embeds, analytics et hébergement restent à faire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Shaka Player",
+			"source": {
+				"host": "github",
+				"path": "shaka-project/shaka-player",
+				"url": "https://github.com/shaka-project/shaka-player"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A self-hosted JavaScript player for HLS, DASH, DRM and captions — the embed layer Wistia gives you, owned by you. Just a player: hosting, transcoding and manifests are yours.",
+				"fr": "Un lecteur JavaScript self-hébergé pour HLS, DASH, DRM et sous-titres — la couche embed, mais en votre possession. Lecteur seulement : hébergement, transcodage et manifestes restent à fournir."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

@@ -12,7 +12,7 @@ TAG="${IMAGE_TAG:?IMAGE_TAG required}"
 : "${APP_DIR:?APP_DIR required}"
 
 SSH_PORT="${SSH_PORT:-22}"
-UMAMI_HOST="${UMAMI_HOST:-umami.example.com}"
+UMAMI_UPSTREAM="${UMAMI_UPSTREAM:-umami:3000}"
 NGINX_CONTAINER="${NGINX_CONTAINER:-nginx}"
 REMOTE="$APP_DIR"
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
@@ -27,7 +27,7 @@ SSH=(ssh -i "$KEY" -p "$SSH_PORT" -o StrictHostKeyChecking=accept-new)
 SCP=(scp -i "$KEY" -P "$SSH_PORT" -o StrictHostKeyChecking=accept-new)
 
 sed -e "s/canireplaceit\.com/${SITE_DOMAIN}/g" \
-    -e "s/umami\.example\.com/${UMAMI_HOST}/g" \
+    -e "s/umami:3000/${UMAMI_UPSTREAM}/g" \
     "$ROOT/nginx/canireplaceit.conf" > "$WORK/canireplaceit.conf"
 
 cp "$ROOT/compose.prod.yml" "$WORK/compose.yml"

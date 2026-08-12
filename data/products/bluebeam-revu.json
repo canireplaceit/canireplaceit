@@ -101,6 +101,153 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "PDF.js",
+			"source": {
+				"host": "github",
+				"path": "mozilla/pdf.js",
+				"url": "https://github.com/mozilla/pdf.js"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Most web document workflows run on this viewer, embeddable in your portal and self-hosted with no backend. High-fidelity rendering, but viewing and light annotation only — you assemble the review layer yourself.",
+				"fr": "Le visualiseur PDF standard, auto-hébergeable et intégrable à un portail, sans backend. Rendu haute fidélité, mais lecture et annotation légère seulement : la couche de revue, c’est vous qui la montez."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MuPDF",
+			"source": {
+				"host": "github",
+				"path": "ArtifexSoftware/mupdf",
+				"url": "https://github.com/ArtifexSoftware/mupdf"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "A renderer, annotation engine and mutool CLI in one low-memory package, with Python bindings for scripted pipelines. No GUI workflow, takeoff or collaborative markup — and AGPL constrains closed-source embedding.",
+				"fr": "Un moteur de rendu et d’annotation, une CLI mutool et des bindings Python, économe en mémoire. Pas de workflow GUI, de métré ni de marquage collaboratif — et l’AGPL bride l’intégration propriétaire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pdfcpu",
+			"source": {
+				"host": "github",
+				"path": "pdfcpu/pdfcpu",
+				"url": "https://github.com/pdfcpu/pdfcpu"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Revu’s shell half: merge, split, rotate, encrypt and watermark from a single static binary, scriptable in CI or via Go API. No viewing, no drawn markup, no takeoff — headless by design.",
+				"fr": "La moitié shell de Revu : fusionner, scinder, pivoter, chiffrer et tamponner depuis un binaire statique unique, scriptable en CI. Ni visualisation, ni dessin de marques, ni métré — headless par conception."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OCRmyPDF",
+			"source": {
+				"host": "github",
+				"path": "ocrmypdf/OCRmyPDF",
+				"url": "https://github.com/ocrmypdf/OCRmyPDF"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Adds a searchable text layer to scanned plans and RFIs, image intact, runnable over whole plan sets. OCR only — no markup, no measurement, and output quality tracks the scan’s resolution.",
+				"fr": "Rend les plans et RFI scannés recherchables, image intacte, en batch sur des jeux de plans. OCR uniquement : ni annotation, ni métré, la qualité suit la résolution du scan."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FreeCAD",
+			"source": {
+				"host": "github",
+				"path": "FreeCAD/FreeCAD",
+				"url": "https://github.com/FreeCAD/FreeCAD"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "Parametric 2D/3D modeling, Arch and BIM workbenches with IFC import/export, and printable dimensioned sheets. A modeler, not a markup tool — no cloud collaboration, and a steeper curve than Revu’s.",
+				"fr": "Modélisation paramétrique 2D/3D, ateliers Arch et BIM avec import/export IFC, planches dimensionnées imprimables. Un modeleur, pas un outil de marquage : pas de collaboration cloud, et une courbe plus raide que Revu."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "IfcOpenShell",
+			"source": {
+				"host": "github",
+				"path": "IfcOpenShell/IfcOpenShell",
+				"url": "https://github.com/IfcOpenShell/IfcOpenShell"
+			},
+			"license": "LGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The IFC engine under Blender BIM and FreeCAD BIM: Python API and CLI for conversion, validation and quantity extraction. Library-level and scripting-first — no markup UI, no takeoff surface for non-developers.",
+				"fr": "Le moteur IFC derrière Blender BIM et FreeCAD BIM : API Python et CLI pour conversion, validation, extraction de quantités. Niveau bibliothèque, scripting d’abord : pas d’UI de marquage ni de métré."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Paperless-ngx",
+			"source": {
+				"host": "github",
+				"path": "paperless-ngx/paperless-ngx",
+				"url": "https://github.com/paperless-ngx/paperless-ngx"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted archive for submittals, RFIs, permits and as-builts: OCR, full-text search, tagging, and a REST API to ingest scans. Record-keeping covered, review not — no markup, no multi-user drawing rounds.",
+				"fr": "Archive auto-hébergée pour soumissions, RFI, permis et as-builts : OCR, recherche plein texte, taggage, API REST. Classement couvert, revue non : ni marquage, ni révision de plans multi-utilisateurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2
