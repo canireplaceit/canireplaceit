@@ -485,8 +485,97 @@ export function CategoryPicker({
 	);
 }
 
-// Phone/tablet replacement for the inline filter bar: a native <dialog> via
-// showModal() for built-in focus trapping, Escape-to-close, and focus restore.
+/**
+ * The filters currently narrowing the list, each one removable on its own.
+ *
+ * Without this the reader can only discover what they have set by opening the
+ * sheet and reading five groups — the same problem the six-select bar had, just
+ * hidden behind a button. A chip row is the half of that bar worth keeping: it
+ * shows state, it doesn't ask for it.
+ *
+ * `sort` is included even though it reorders rather than filters, because a
+ * list in an unexpected order is exactly as confusing as one that is missing
+ * rows, and the cause is just as invisible.
+ */
+export function ActiveFilters({
+	t,
+	tc,
+	cats,
+	filters,
+	setFilters,
+}: {
+	t: T;
+	tc: TC;
+	cats: Category[];
+	filters: ProductFilters;
+	setFilters: (f: ProductFilters) => void;
+}) {
+	const chips: { key: string; label: string; clear: ProductFilters }[] = [];
+	const add = (key: string, label: string, patch: Partial<ProductFilters>) =>
+		chips.push({ key, label, clear: { ...filters, ...patch } });
+
+	if (filters.q.trim()) add("q", `“${filters.q.trim()}”`, { q: "" });
+	if (filters.category) {
+		const c = cats.find((x) => x.slug === filters.category);
+		// Falls back to the slug: a category the API hasn't sent yet is still a
+		// filter the reader can see and remove, which beats an unexplained gap.
+		add("category", c ? tc(c.name) : filters.category, { category: "" });
+	}
+	if (filters.verdict)
+		add("verdict", t(`verdict.${filters.verdict}` as Key), { verdict: "" });
+	if (filters.openness)
+		add("openness", t(`openness.atLeast.${filters.openness}` as Key), {
+			openness: "",
+		});
+	if (filters.effort)
+		add("effort", t(`effort.atMost.${filters.effort}` as Key), { effort: "" });
+	if (filters.price)
+		add("price", t(`price.band.${filters.price}` as Key), { price: "" });
+	if (filters.sort !== "weight") {
+		const SORT_KEY: Record<string, Key> = {
+			switched: "filter.sortVotes",
+			price: "filter.sortPrice",
+			name: "filter.sortName",
+		};
+		add("sort", t(SORT_KEY[filters.sort]), { sort: "weight" });
+	}
+
+	if (chips.length === 0) return null;
+
+	return (
+		<div className="mt-2 flex flex-wrap items-center gap-1.5">
+			{chips.map((c) => (
+				<button
+					key={c.key}
+					type="button"
+					onClick={() => setFilters(c.clear)}
+					// The chip IS the remove control — there is no second target to hit,
+					// which is what makes it work on a phone.
+					aria-label={`${t("filter.clear")}: ${c.label}`}
+					className="inline-flex items-center gap-1 rounded-[calc(var(--radius))] border border-brand px-2 py-1 text-brand text-xs transition hover:bg-[color-mix(in_srgb,var(--brand)_10%,transparent)]"
+				>
+					{c.label}
+					<X className="size-3" aria-hidden />
+				</button>
+			))}
+			{chips.length > 1 && (
+				<button
+					type="button"
+					onClick={() => setFilters(NO_FILTERS)}
+					className="px-1 text-muted text-xs underline underline-offset-2 hover:text-text"
+				>
+					{t("filter.clear")}
+				</button>
+			)}
+		</div>
+	);
+}
+
+// The one filter control, at every width. Was phone-only, with a six-select bar
+// taking over at `lg` — which is the width where six selects wrap onto two rows
+// and became the thing readers complained about. A native <dialog> via
+// showModal() for built-in focus trapping, Escape-to-close, and focus restore:
+// a bottom sheet on a phone, a centred modal from `sm` up.
 export function FilterSheet({
 	t,
 	tc,
@@ -538,8 +627,11 @@ export function FilterSheet({
 				onClick={(e) => {
 					if (e.target === e.currentTarget) close();
 				}}
-				// Overrides showModal()'s default auto-centering to render as a bottom sheet.
-				className="fixed inset-x-0 top-auto bottom-0 m-0 max-h-[85vh] w-full max-w-full rounded-t-[16px] border-t border-border bg-surface p-0 text-text backdrop:bg-black/40"
+				// Overrides showModal()'s default auto-centering to render as a bottom
+				// sheet on a phone, then hands centering back at `sm` — `inset-0` plus
+				// `m-auto` is what the UA stylesheet does, and `h-fit` stops the dialog
+				// stretching to full viewport height once it has four sides.
+				className="fixed inset-x-0 top-auto bottom-0 m-0 max-h-[85vh] w-full max-w-full rounded-t-[16px] border-t border-border bg-surface p-0 text-text backdrop:bg-black/40 sm:inset-0 sm:m-auto sm:h-fit sm:w-[min(32rem,calc(100vw-2rem))] sm:rounded-[16px] sm:border"
 			>
 				<div className="flex max-h-[85vh] flex-col">
 					<div className="flex items-center justify-between border-b border-border px-4 py-3">
