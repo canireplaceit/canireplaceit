@@ -95,6 +95,274 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Grafana",
+			"source": {
+				"host": "github",
+				"path": "grafana/grafana",
+				"url": "https://github.com/grafana/grafana"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The standard observability dashboard, with hundreds of plugins and alerting in one lightweight binary. Not a semantics-first BI: metrics live in queries, not a model layer.",
+				"fr": "Le standard du dashboard d’observabilité : des centaines de plugins et l’alerting dans un binaire unique et léger. Pas une BI sémantique : les métriques vivent dans les requêtes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "SAML SSO, reporting, data-source permissions",
+					"fr": "SSO SAML, rapports, permissions par source de données"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Redash",
+			"source": {
+				"host": "github",
+				"path": "getredash/redash",
+				"url": "https://github.com/getredash/redash"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "The classic self-hosted SQL BI: a huge shared query library with scheduling, alerts, and dashboards. Pace has slowed under Databricks, and there is no metrics layer, just SQL.",
+				"fr": "La BI SQL open source classique : une large bibliothèque de requêtes partagées, avec planification et alertes. Le rythme a ralenti depuis Databricks, et pas de couche de métriques, seulement du SQL."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Cube",
+			"source": {
+				"host": "github",
+				"path": "cube-js/cube",
+				"url": "https://github.com/cube-js/cube"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Headless BI: an API-first semantic layer with pre-aggregation caching over any warehouse. There is no dashboard UI — pair it with a frontend, and cloud RBAC and SSO cost extra.",
+				"fr": "BI headless : une couche sémantique API-first avec cache de pré-agrégation sur n’importe quel entrepôt. Pas d’UI de dashboard — à associer à un frontend, et le RBAC/SSO cloud est payant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "RBAC, SSO, workspaces",
+					"fr": "RBAC, SSO, workspaces"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Rill",
+			"source": {
+				"host": "github",
+				"path": "rilldata/rill",
+				"url": "https://github.com/rilldata/rill"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "DuckDB-native BI with a code-defined semantic model and instant local dashboards. Lighter than a server-heavy BI, but focus has moved to the hosted cloud and connectors stay narrow.",
+				"fr": "BI natif DuckDB avec modèle sémantique défini en code et dashboards locaux instantanés. Plus léger qu’une BI lourde, mais l’effort se concentre sur le cloud hébergé et les connecteurs restent étroits."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Advanced governance",
+					"fr": "Gouvernance avancée"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Evidence",
+			"source": {
+				"host": "github",
+				"path": "evidence-dev/evidence",
+				"url": "https://github.com/evidence-dev/evidence"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Dashboards in git, written in Markdown plus SQL and rendered as static sites — PR-reviewable and cheap to host. Demands SQL, ships no auth or row-level security, and skips non-technical users.",
+				"fr": "Des dashboards dans git, en Markdown plus SQL, rendus en site statique : relisables en PR et gratuits à héberger. Exige du SQL, sans auth ni sécurité par ligne."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "DataEase",
+			"source": {
+				"host": "github",
+				"path": "dataease/dataease",
+				"url": "https://github.com/dataease/dataease"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "A drag-and-drop Tableau-style designer with many connectors and a one-click Docker install. Backed by an active Chinese-speaking community — docs and GPL-3.0 copyleft follow.",
+				"fr": "Un designer drag-and-drop façon Tableau, avec de nombreux connecteurs et une installation Docker en un clic. Soutenu par une communauté sinophone active : docs et copyleft GPL-3.0 à la clé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise/Pro governance tier",
+					"fr": "Tier gouvernance Enterprise/Pro"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "datart",
+			"source": {
+				"host": "github",
+				"path": "running-elephant/datart",
+				"url": "https://github.com/running-elephant/datart"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Modern React explore UI with view-level permissions, embedding, and scheduled delivery. Polished, but development has stalled since 2023-24 and docs skew Chinese.",
+				"fr": "Une UI d’exploration React moderne, avec permissions par vue, embedding et livraison planifiée. Soigné, mais le développement stagne depuis 2023-2024 et la doc penche vers le chinois."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Querybook",
+			"source": {
+				"host": "github",
+				"path": "pinterest/querybook",
+				"url": "https://github.com/pinterest/querybook"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Pinterest’s warehouse-first platform: collaborative SQL notebooks, data discovery, and dashboards with OIDC/LDAP SSO. Built for analysts and engineers — a heavier Celery/Redis stack than a simple BI.",
+				"fr": "La plateforme de Pinterest orientée entrepôt : notebooks SQL collaboratifs, discovery de données et dashboards, avec SSO OIDC/LDAP. Pour analystes et ingénieurs — une stack Celery/Redis plus lourde qu’une BI simple."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Blazer",
+			"source": {
+				"host": "github",
+				"path": "ankane/blazer",
+				"url": "https://github.com/ankane/blazer"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The lightest path to team analytics: a SQL-only Rails engine with scheduled runs and Slack/email alerts. No query builder and deliberately bare — best inside a Rails app you already run.",
+				"fr": "Le chemin le plus léger vers l’analytics d’équipe : un moteur Rails, SQL uniquement, exécutions planifiées, alertes Slack/email. Sans constructeur de requêtes et volontairement brut, à brancher dans une app Rails existante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SQLPad",
+			"source": {
+				"host": "github",
+				"path": "sqlpad/sqlpad",
+				"url": "https://github.com/sqlpad/sqlpad"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Archived and no longer maintained — still functional, though. A multi-user SQL editor with charts and dashboards, Google login, and a simple Docker deploy, if you accept basic charting and no scheduling.",
+				"fr": "Archivé et plus maintenu — encore fonctionnel. Un éditeur SQL multi-utilisateur avec graphiques et dashboards, login Google et déploiement Docker simple, mais graphiques basiques et pas de planification."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "DuckDB",
+			"source": {
+				"host": "github",
+				"path": "duckdb/duckdb",
+				"url": "https://github.com/duckdb/duckdb"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "An in-process analytical database whose CLI reads Parquet, CSV, and JSON directly — the command-line backbone of local analytics. No dashboards and single-user; pair it with other tools for teams.",
+				"fr": "Une base analytique in-process dont le CLI lit Parquet, CSV et JSON directement — la colonne vertébrale de l’analytics locale. Pas de dashboards, mono-utilisateur — à coupler pour les équipes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "visidata",
+			"source": {
+				"host": "github",
+				"path": "saulpw/visidata",
+				"url": "https://github.com/saulpw/visidata"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "A terminal spreadsheet that handles millions of rows with instant pivots and frequency tables. Learn the vi-like keys and you get quick analytics with no server or dashboarding.",
+				"fr": "Un tableur dans le terminal qui avale des millions de lignes avec pivots et fréquences instantanés. Apprenez les touches façon vi et c’est toute l’analyse rapide, sans serveur ni dashboards."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

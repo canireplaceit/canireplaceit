@@ -97,6 +97,249 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Rocket.Chat",
+			"source": {
+				"host": "github",
+				"path": "RocketChat/Rocket.Chat",
+				"url": "https://github.com/RocketChat/Rocket.Chat"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Self-hostable chat with an omnichannel suite that rivals Intercom support workflows. Heavier than Intercom, agent experience tuned for messaging not tickets, and key support features are enterprise-gated.",
+				"fr": "Chat open source auto-hébergeable dont la suite omnichannel rivalise avec les workflows support d’Intercom. Plus lourd qu’Intercom, pensé pour la messagerie, pas les tickets ; des fonctions support réservées à l’offre entreprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Omnichannel support features",
+					"fr": "Fonctions support omnichannel"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Zulip",
+			"source": {
+				"host": "github",
+				"path": "zulip/zulip",
+				"url": "https://github.com/zulip/zulip"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Topic-based threading built for support queues, full-text search, APIs that handle high-volume inboxes. Not a ticketing system out of the box, no customer-facing widget — you adapt workflows to streams.",
+				"fr": "Fil de discussion par sujet pensé pour les files d’attente, recherche plein texte, APIs à gros volume. Ni ticket ni widget client hors de la boîte : on adapte le workflow aux streams."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FreeScout",
+			"source": {
+				"host": "github",
+				"path": "freescout-help-desk/freescout",
+				"url": "https://github.com/freescout-help-desk/freescout"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Helpscout-style shared inbox in a single PHP container: email, tickets, optional web chat. Email-first, the chat widget is a paid add-on, and there is no native mobile app.",
+				"fr": "Boîte partagée façon Helpscout dans un seul conteneur PHP : emails, tickets, chat web optionnel. D’abord l’email : le widget de chat est un add-on payant et il n’y a pas d’app mobile native."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Web-chat widget",
+					"fr": "Widget de chat web"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "osTicket",
+			"source": {
+				"host": "github",
+				"path": "osTicket/osTicket",
+				"url": "https://github.com/osTicket/osTicket"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Long-lived PHP ticketing with web portals, agent queues and rich email handling, trivially self-hostable. Dated UI, no live chat and nothing beyond tickets.",
+				"fr": "Système de tickets PHP à la longévité rare : portails web, files agents, gestion riche de l’email, trivial à auto-héberger. UI datée, pas de chat en direct et rien d’autre que des tickets."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Chaskiq",
+			"source": {
+				"host": "github",
+				"path": "chaskiq/chaskiq",
+				"url": "https://github.com/chaskiq/chaskiq"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "An Intercom-style suite in one repo: live chat, help center, outbound campaigns, customer data. The Commons Clause stops you selling it as a service, and the community is smaller than Chatwoot’s.",
+				"fr": "Une suite façon Intercom dans un seul dépôt : chat en direct, centre d’aide, campagnes sortantes. La Commons Clause interdit de la vendre comme service ; communauté plus petite que Chatwoot."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "UVdesk",
+			"source": {
+				"host": "github",
+				"path": "uvdesk/community-skeleton",
+				"url": "https://github.com/uvdesk/community-skeleton"
+			},
+			"license": "OSL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "PHP helpdesk with ticketing, ecommerce chat and workflow automation under an OSL core. UI and polish lag Intercom, the chat widget is basic, and enterprise features are split into a paid product.",
+				"fr": "Helpdesk PHP : tickets, chat ecommerce, automatisation des workflows, noyau OSL. UI et finition derrière Intercom, widget de chat basique, fonctions entreprise réservées à l’offre payante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Live Helper Chat",
+			"source": {
+				"host": "github",
+				"path": "LiveHelperChat/livehelperchat",
+				"url": "https://github.com/LiveHelperChat/livehelperchat"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Long-running self-hosted live chat with department routing, canned responses and desktop agents. No built-in ticket or email helpdesk, no product analytics — the UI reads older than modern inboxes.",
+				"fr": "Chat en direct auto-hébergé de longue date : routage par service, réponses préenregistrées, agents desktop. Pas de helpdesk email ou tickets, pas d’analytics produit ; UI datée face aux inbox modernes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Helpy",
+			"source": {
+				"host": "github",
+				"path": "helpyio/helpy",
+				"url": "https://github.com/helpyio/helpy"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Simple Ruby-on-Rails helpdesk with email piping, forums and chat, deployable on a single host. Dormant since March 2023, with limited reporting and no mobile apps.",
+				"fr": "Helpdesk Ruby-on-Rails simple — piping email, forums, chat — qui se déploie sur un seul hôte. Sans commit depuis mars 2023 ; reporting limité et pas d’apps mobiles."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenSupports",
+			"source": {
+				"host": "github",
+				"path": "opensupports/opensupports",
+				"url": "https://github.com/opensupports/opensupports"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "PHP support system pairing a helpdesk ticketing with a live-chat console and customer portal. Development stalled in April 2024, no mobile apps and only basic integrations.",
+				"fr": "Système support PHP qui associe un helpdesk à une console de chat en direct et un portail client. Le développement s’est arrêté en avril 2024 ; pas d’apps mobiles, intégrations basiques."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tiledesk",
+			"source": {
+				"host": "github",
+				"path": "Tiledesk/tiledesk-server",
+				"url": "https://github.com/Tiledesk/tiledesk-server"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Live-chat and helpdesk with an AI-bot framework, WhatsApp and an embeddable omnichannel widget. The core server barely registers (7 stars), components are spread across repos, and the ecosystem trails Chatwoot.",
+				"fr": "Chat en direct et helpdesk avec framework de bots IA, canal WhatsApp et widget omnichannel embarquable. Le serveur central fait 7 étoiles, tout est éclaté entre dépôts ; écosystème loin derrière Chatwoot."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Peppermint",
+			"source": {
+				"host": "github",
+				"path": "Peppermint-Lab/peppermint",
+				"url": "https://github.com/Peppermint-Lab/peppermint"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Archived upstream but fully functional: modern self-hosted ticketing with a clean UI and live-chat widget, one docker-compose line to run. No new development, no outbound marketing, limited reporting.",
+				"fr": "Archivé en amont mais pleinement fonctionnel : ticketing moderne auto-hébergé, UI propre, widget de chat, une ligne docker-compose pour démarrer. Plus aucun développement, pas de marketing sortant, reporting limité."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Reporting and integrations",
+					"fr": "Reporting et intégrations"
+				}
+			}
 		}
 	],
 	"priority": 3

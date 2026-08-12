@@ -36,8 +36,8 @@
 			"name": "SuiteCRM",
 			"source": {
 				"host": "github",
-				"path": "salesagility/SuiteCRM",
-				"url": "https://github.com/salesagility/SuiteCRM"
+				"path": "SuiteCRM/SuiteCRM",
+				"url": "https://github.com/SuiteCRM/SuiteCRM"
 			},
 			"license": "AGPL-3.0",
 			"effort": "docker",
@@ -74,6 +74,220 @@
 					"fr": "Studio, comptabilité complète, paie, interventions"
 				},
 				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "EspoCRM",
+			"source": {
+				"host": "github",
+				"path": "espocrm/espocrm",
+				"url": "https://github.com/espocrm/espocrm"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Clean open-source CRM with custom entities, BPM, and a solid REST API. Field-level permissions and reporting are built in, but advanced packs cost money and the community trails SuiteCRM's.",
+				"fr": "CRM open source épuré, avec entités sur mesure, BPM et API REST complète. Permissions par champ et reporting inclus, mais les packs avancés sont payants et la communauté reste derrière SuiteCRM."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Advanced packs (Sales, Workflow, Advanced)",
+					"fr": "Packs avancés (Sales, Workflow, Advanced)"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Twenty",
+			"source": {
+				"host": "github",
+				"path": "twentyhq/twenty",
+				"url": "https://github.com/twentyhq/twenty"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Notion-style CRM built for people leaving Salesforce: fast UI, workflows, REST and GraphQL on an open data layer. Still young — few integrations, and self-hosting needs Docker Compose, Postgres, Redis.",
+				"fr": "CRM style Notion pour ceux qui quittent Salesforce : UI rapide, workflows, REST et GraphQL sur une couche de données ouverte. Jeune, peu d’intégrations ; self-host demande Docker Compose, Postgres, Redis."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ERPNext",
+			"source": {
+				"host": "github",
+				"path": "frappe/erpnext",
+				"url": "https://github.com/frappe/erpnext"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "The heaviest self-host in this list: Frappe bench required. In exchange, a full ERP whose CRM module covers leads, opportunities, support, and custom doctypes without code.",
+				"fr": "Le self-host le plus lourd du lot : bench Frappe obligatoire. En échange, un ERP complet dont le module CRM couvre leads, opportunités et support, et des doctypes sans code."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Krayin CRM",
+			"source": {
+				"host": "github",
+				"path": "krayin/laravel-crm",
+				"url": "https://github.com/krayin/laravel-crm"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Laravel-based CRM where leads, quotes, and invoicing share one flow. Standard PHP packages extend it easily, but the feature set runs shallower than SuiteCRM or EspoCRM.",
+				"fr": "CRM Laravel où leads, devis et facturation suivent un même flux. Extensible par les packages PHP standards, mais moins riche que SuiteCRM ou EspoCRM."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Monica",
+			"source": {
+				"host": "github",
+				"path": "monicahq/monica",
+				"url": "https://github.com/monicahq/monica"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The leading open-source personal CRM: contacts, relationship tracking, reminders, gifts, and dates. Not a sales pipeline — no campaigns, invoicing, or automation.",
+				"fr": "Le CRM personnel open source de référence : contacts, suivi des relations, rappels, cadeaux et dates. Pas un pipeline commercial — pas de campagnes, de facturation ni d’automatisation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CiviCRM",
+			"source": {
+				"host": "github",
+				"path": "civicrm/civicrm-core",
+				"url": "https://github.com/civicrm/civicrm-core"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "The nonprofit go-to: memberships, donations, events, case management, and advocacy. But it only lives inside Drupal, WordPress, or Joomla — a CMS host you didn't ask for.",
+				"fr": "Le standard associatif : adhérents, dons, événements, gestion des cas et plaidoyer. Mais il vit uniquement dans Drupal, WordPress ou Joomla — un CMS en hôte que vous n’avez pas demandé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dolibarr",
+			"source": {
+				"host": "github",
+				"path": "Dolibarr/dolibarr",
+				"url": "https://github.com/Dolibarr/dolibarr"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Modular ERP/CRM — enable only the modules you need among leads, contacts, invoices, products, and stock. The payoff is a dated UI and an aging codebase.",
+				"fr": "ERP/CRM modulaire : n’activez que les modules utiles parmi leads, contacts, factures, produits et stock. En échange, une UI datée et un code vieillissant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ChurchCRM",
+			"source": {
+				"host": "github",
+				"path": "ChurchCRM/CRM",
+				"url": "https://github.com/ChurchCRM/CRM"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Member and donor CRM built for churches: directory, groups, attendance, donations, event registration. Church-focused by design — no sales pipelines or marketing automation.",
+				"fr": "CRM membres et donateurs pour les églises : annuaire, groupes, présence, dons, inscriptions aux événements. Conçu pour des communautés religieuses — pas de pipelines ni d’automatisation marketing."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "khard",
+			"source": {
+				"host": "github",
+				"path": "lucc/khard",
+				"url": "https://github.com/lucc/khard"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Offline vCard address book in the terminal; pairs with vdirsyncer for CardDAV or Nextcloud sync. Contacts only — no leads, deals, or follow-ups.",
+				"fr": "Carnet d’adresses vCard hors ligne dans le terminal ; s’associe à vdirsyncer pour la synchro CardDAV ou Nextcloud. Contacts uniquement — pas de leads, d’affaires ni de relances."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "crm.cli",
+			"source": {
+				"host": "github",
+				"path": "dzhng/crm.cli",
+				"url": "https://github.com/dzhng/crm.cli"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Headless CLI CRM: contacts, deals, and pipeline in one SQLite file, mountable as a virtual filesystem. No UI or reporting, and it's single-user by design.",
+				"fr": "CRM CLI sans interface : contacts, affaires et pipeline dans un seul fichier SQLite, montable comme système de fichiers virtuel. Ni UI ni reporting, et conçu pour un seul utilisateur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
 				"dataResidency": "self"
 			}
 		}

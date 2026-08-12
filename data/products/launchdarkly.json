@@ -105,6 +105,199 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "GrowthBook",
+			"source": {
+				"host": "github",
+				"path": "growthbook/growthbook",
+				"url": "https://github.com/growthbook/growthbook"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The leading open-source experiment platform, with a Bayesian stats engine built in. Core stays MIT; SAML SSO and the audit log move behind a paid license.",
+				"fr": "La plateforme d’expérimentation open source de référence, avec moteur Bayesian intégré. Le cœur reste MIT ; le SSO SAML et le journal d’audit sont relégués derrière une licence payante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "SAML SSO, audit log",
+					"fr": "SSO SAML, journal d’audit"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Flipt",
+			"source": {
+				"host": "github",
+				"path": "flipt-io/flipt",
+				"url": "https://github.com/flipt-io/flipt"
+			},
+			"license": "FCL-1.0-MIT",
+			"effort": "docker",
+			"note": {
+				"en": "High-throughput evaluation in one binary, with CLI, UI, segments, and rollouts. The Fair Core License is not OSI-open, SSO is paid, and experiment analysis is yours to do.",
+				"fr": "Évaluation rapide dans un seul binaire, avec CLI, UI, segments et rollouts. La Fair Core License n’est pas reconnue par l’OSI, le SSO est payant, et l’analyse des expériences reste à faire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FeatBit",
+			"source": {
+				"host": "github",
+				"path": "featbit/featbit",
+				"url": "https://github.com/featbit/featbit"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "A self-hosted LaunchDarkly clone, fully MIT, with RBAC, multi-env, and web/mobile SDKs in the box. Younger than Unleash or Flagsmith, and experiment stats stay basic next to GrowthBook.",
+				"fr": "Un clone de LaunchDarkly auto-hébergé, 100 % MIT, avec RBAC, multi-environnements et SDK web/mobile inclus. Plus jeune qu’Unleash ou Flagsmith, et les statistiques d’expériences restent basiques face à GrowthBook."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FeatureHub",
+			"source": {
+				"host": "github",
+				"path": "featurehub-io/featurehub",
+				"url": "https://github.com/featurehub-io/featurehub"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The Commons Clause stops you reselling it, and the Java/Elasticsearch stack is heavy — but the caching edge and audit history target enterprises. Small community, roughly 360 stars.",
+				"fr": "La Commons Clause interdit de la revendre, et la pile Java/Elasticsearch est lourde ; mais l’edge de cache et l’historique d’audit visent les entreprises. Petite communauté, environ 360 étoiles."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GO Feature Flag",
+			"source": {
+				"host": "github",
+				"path": "thomaspoignant/go-feature-flag",
+				"url": "https://github.com/thomaspoignant/go-feature-flag"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Flags live in your repo as YAML or TOML; a relay proxy adds remote evaluation. No built-in analytics, no UI — compute results yourself; it’s a one-maintainer project.",
+				"fr": "Les flags vivent dans le dépôt en YAML ou TOML ; un proxy relais ajoute l’évaluation distante. Pas d’analytics intégrés, pas d’UI — calculez les résultats vous-même ; projet tenu par un seul mainteneur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Featurevisor",
+			"source": {
+				"host": "github",
+				"path": "featurevisor/featurevisor",
+				"url": "https://github.com/featurevisor/featurevisor"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A CLI compiles flags into static JSON for any CDN — no server to run, changes ship via Git PRs. No runtime API: edits mean a rebuild, no real-time audiences or analytics.",
+				"fr": "CLI qui compile les flags en JSON statique servi par tout CDN — rien à servir, changements revus en PR Git. Chaque modif exige un rebuild ; pas d’audiences temps réel ni d’analytics."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ff4j",
+			"source": {
+				"host": "github",
+				"path": "ff4j/ff4j",
+				"url": "https://github.com/ff4j/ff4j"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "A Java library with an admin console, audit trail, and percentage rollouts — the fit if your stack is already JVM. Not polyglot, no managed tier, and no statistical analysis inside.",
+				"fr": "Une bibliothèque Java avec console d’admin, piste d’audit et rollouts en pourcentage — le bon choix si votre stack est déjà JVM. Pas polyglotte, pas de service managé, et aucune analyse statistique intégrée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FeatureProbe",
+			"source": {
+				"host": "github",
+				"path": "FeatureProbe/FeatureProbe",
+				"url": "https://github.com/FeatureProbe/FeatureProbe"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "A release-control dashboard with progressive rollout and SDKs across major languages, including mobile. Development has slowed, the server/agent split adds moving parts, and there is no stats engine.",
+				"fr": "Un dashboard de release avec rollouts progressifs et SDK pour les grands langages, mobile inclus. Développement ralenti, séparation serveur/agent à assumer, et aucun moteur de stats."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Flagr",
+			"source": {
+				"host": "github",
+				"path": "openflagr/flagr",
+				"url": "https://github.com/openflagr/flagr"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "A/B on distributions plus a live evaluation dashboard, all through REST with Swagger UI. Purely API-driven — no page editor, no managed offering, and a slower development cadence.",
+				"fr": "A/B sur les distributions et dashboard temps réel, via API REST avec Swagger UI. Tout passe par l’API — pas d’éditeur visuel, pas d’offre managée, cadence de développement plus lente."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

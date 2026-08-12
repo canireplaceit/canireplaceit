@@ -76,6 +76,174 @@
 				"en": "You choose the revenue share, down to zero, and payouts go straight to you. The audience is a fraction of Steam's and discovery is on you.",
 				"fr": "Vous choisissez la commission, jusqu’à zéro, et les paiements vous vont directement. L’audience est une fraction de celle de Steam et la découverte vous incombe."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Legendary",
+			"source": {
+				"host": "github",
+				"path": "legendary-gl/legendary",
+				"url": "https://github.com/legendary-gl/legendary"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Pure Python CLI that powers Epic installs under Heroic. Epic-only, no GOG or Steam, no GUI, and cloud save support is limited.",
+				"fr": "CLI Python qui pilote les installs Epic sous Heroic. Epic uniquement, pas de GOG ni Steam, pas d’interface, et la sauvegarde cloud reste limitée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Bottles",
+			"source": {
+				"host": "github",
+				"path": "bottlesdevs/Bottles",
+				"url": "https://github.com/bottlesdevs/Bottles"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Per-game Wine prefixes with version pinning, DXVK and VKD3D managed in a GNOME-native UI. Not a storefront though — bring your own games, and macOS is unsupported.",
+				"fr": "Préfixes Wine par jeu avec épinglage de version, DXVK et VKD3D gérés dans une interface GNOME. Pas une boutique — apportez vos jeux, et macOS n’est pas pris en charge."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SteamTinkerLaunch",
+			"source": {
+				"host": "github",
+				"path": "sonic2kk/steamtinkerlaunch",
+				"url": "https://github.com/sonic2kk/steamtinkerlaunch"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Text-based Wine/Proton config for any launch, mods and ReShade included, inside or outside Steam. Linux-only and config-heavy — a learning curve before it pays off.",
+				"fr": "Config Wine/Proton textuelle pour tout lancement, mods et ReShade compris, dans Steam ou hors Steam. Linux uniquement et lourde à configurer — une courbe d’apprentissage avant le retour."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GameHub",
+			"source": {
+				"host": "github",
+				"path": "tkashkin/GameHub",
+				"url": "https://github.com/tkashkin/GameHub"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Archived since 2025: a unified GOG, Humble and itch.io library with a built-in Wine runner. Historical reference now, superseded by Heroic — not for new installs.",
+				"fr": "Archivé depuis 2025 : une bibliothèque unifiée GOG, Humble et itch.io avec runner Wine intégré. Référence historique, supplanté par Heroic — pas pour de nouvelles installations."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Minigalaxy",
+			"source": {
+				"host": "github",
+				"path": "sharkwouter/minigalaxy",
+				"url": "https://github.com/sharkwouter/minigalaxy"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Native GOG client that installs titles directly with bundled Wine. Light on resources but GOG-only, Linux-only, and thinner than Heroic or Lutris.",
+				"fr": "Client GOG natif qui installe les titres directement avec Wine inclus. Léger en ressources, mais GOG uniquement, Linux uniquement, et plus pauvre que Heroic ou Lutris."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "RomM",
+			"source": {
+				"host": "github",
+				"path": "rommapp/romm",
+				"url": "https://github.com/rommapp/romm"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted ROM library with scraped metadata and emulator launch from the browser. Retro titles only, and it needs a server plus your own ROM files.",
+				"fr": "Bibliothèque de ROM auto-hébergée, métadonnées scrapées et lancement émulateur depuis le navigateur. Rétro uniquement, et il faut un serveur et vos propres ROM."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "RetroArch",
+			"source": {
+				"host": "github",
+				"path": "libretro/RetroArch",
+				"url": "https://github.com/libretro/RetroArch"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "200+ libretro cores for all major consoles with save states and netplay, everywhere from desktops to consoles. Emulation only, and you supply your own ROMs.",
+				"fr": "Plus de 200 cœurs libretro pour toutes les consoles, états de sauvegarde et netplay, partout du bureau à la console. Émulation uniquement, et vous fournissez vos propres ROM."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "heroic-gogdl",
+			"source": {
+				"host": "github",
+				"path": "Heroic-Games-Launcher/heroic-gogdl",
+				"url": "https://github.com/Heroic-Games-Launcher/heroic-gogdl"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Heroic’s GOG download engine: fast parallel chunked installs and launches. GOG-only and headless, so it’s best driven from Heroic rather than alone.",
+				"fr": "Le moteur GOG de Heroic : téléchargements parallèles rapides, installation et lancement. GOG uniquement et sans interface — mieux vaut l’utiliser via Heroic."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

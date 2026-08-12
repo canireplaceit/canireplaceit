@@ -101,6 +101,182 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Sylius",
+			"source": {
+				"host": "github",
+				"path": "Sylius/Sylius",
+				"url": "https://github.com/Sylius/Sylius"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Multi-vendor marketplace built on Symfony, with a headless API and RBAC-administered back office. Component-heavy, it needs real ops skill, yet the plugin ecosystem is small and there is no managed hosting.",
+				"fr": "Place de marché multi-vendeurs sur Symfony, API headless et admin à droits RBAC. Lourde en composants, elle exige de vraies compétences ops, un écosystème de plugins restreint et aucun hébergement managé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Shopware",
+			"source": {
+				"host": "github",
+				"path": "shopware/shopware",
+				"url": "https://github.com/shopware/shopware"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Store API plus admin API, carried by a large agency ecosystem that runs strongest in German-speaking markets. Advanced B2B features sit behind paid plugins, and docs skew EU-centric.",
+				"fr": "API boutique et API admin, portées par un gros réseau d’agences surtout actif en Allemagne. Les fonctions B2B avancées passent par des plugins payants ; docs et communauté restent centrées sur l’Europe."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Advanced B2B plugins",
+					"fr": "Plugins B2B avancés"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Magento Open Source",
+			"source": {
+				"host": "github",
+				"path": "magento/magento2",
+				"url": "https://github.com/magento/magento2"
+			},
+			"license": "OSL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Most battle-tested enterprise OSS stack: GraphQL and REST APIs, multi-store, core Adobe Commerce parity. Heavy — MySQL, Redis, Varnish, Elasticsearch — tuning is a specialty, and Adobe pushes the paid edition.",
+				"fr": "Le plus éprouvé des socles commerce OSS d’entreprise : API GraphQL et REST, multi-boutiques, cœur aligné sur Adobe Commerce. MySQL, Redis, Varnish, Elasticsearch : le tuning y est un métier, Adobe poussant l’édition payante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PrestaShop",
+			"source": {
+				"host": "github",
+				"path": "PrestaShop/PrestaShop",
+				"url": "https://github.com/PrestaShop/PrestaShop"
+			},
+			"license": "OSL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Mature PHP store with built-in admin, module marketplace and a big non-English user base. The architecture is dated and headless/API options thin, while many addons are sold on the marketplace.",
+				"fr": "Boutique PHP mature, admin intégrée, marketplace de modules et un gros public non anglophone. Architecture datée, API et headless faibles, et beaucoup d’addons vendus sur le marketplace payant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Modules and themes",
+					"fr": "Modules et thèmes"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenCart",
+			"source": {
+				"host": "github",
+				"path": "opencart/opencart",
+				"url": "https://github.com/opencart/opencart"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight PHP store that runs on cheap shared hosting — the simplest exit from Shopify. Limited headless/API options, a smaller community and few enterprise features.",
+				"fr": "Boutique PHP légère qui tourne sur de l’hébergement mutualisé bon marché — le chemin le plus simple hors de Shopify. API/headless limités, communauté plus petite, peu de fonctionnalités d’entreprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Vendure",
+			"source": {
+				"host": "github",
+				"path": "vendurehq/vendure",
+				"url": "https://github.com/vendurehq/vendure"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "TypeScript/Node headless commerce with GraphQL-first admin and store APIs, Docker-based and plugin-extensible. You assemble the frontend yourself — the community is small and GPL copyleft matters to some.",
+				"fr": "Commerce headless TypeScript/Node, API GraphQL pour l’admin et la boutique, extensible en plugins, pensé Docker. Le frontend se monte soi-même, la communauté est petite et le copyleft GPL en refroidit certains."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Bagisto",
+			"source": {
+				"host": "github",
+				"path": "bagisto/bagisto",
+				"url": "https://github.com/bagisto/bagisto"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Laravel store with a PWA storefront, REST API, friendly admin and a rich default catalog. Less battle-tested at scale, with thinner docs and a smaller plugin marketplace.",
+				"fr": "Boutique Laravel avec storefront PWA, API REST, admin agréable et catalogue par défaut fourni. Moins éprouvé à grande échelle, avec une documentation plus mince et un marketplace de plugins plus petit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "django-oscar",
+			"source": {
+				"host": "github",
+				"path": "django-oscar/django-oscar",
+				"url": "https://github.com/django-oscar/django-oscar"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "ops",
+			"note": {
+				"en": "Python/Django e-commerce framework with a modular core, Django admin and headless-ready REST. Built for teams that already know Django — development moves but marketing doesn’t, and there’s no managed hosting.",
+				"fr": "Framework e-commerce Python/Django, cœur modulaire, admin Django et REST prêt pour le headless. Équipes Django requises : le dev avance mais pas le marketing, et aucun hébergement managé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

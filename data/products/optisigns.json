@@ -76,6 +76,178 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Concerto",
+			"source": {
+				"host": "github",
+				"path": "concerto/concerto",
+				"url": "https://github.com/concerto/concerto"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "RPI's web signage CMS, Apache-2.0 and still active, with RSS/news templates and browser or Pi players. The Rails stack feels dated and the community is smaller than Xibo's or Screenly's.",
+				"fr": "Le CMS de signalétique web de RPI, Apache-2.0, toujours maintenu, avec modèles RSS/actus et lecteurs navigateur ou Pi. Stack Rails datée, communauté plus petite que Xibo ou Screenly."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LibreSignage",
+			"source": {
+				"host": "github",
+				"path": "eerotal/LibreSignage",
+				"url": "https://github.com/eerotal/LibreSignage"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Web-based signage server with a full scheduler and slide editor — complete, but archived upstream and no longer maintained. Single-server, BSD-3-Clause, no mobile apps or fleet monitoring.",
+				"fr": "Serveur de signalétique web avec planificateur et éditeur de diapositives — complet mais archivé en amont, plus maintenu. Monoserveur, BSD-3-Clause, sans apps mobiles ni supervision de parc."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PiSignage Server",
+			"source": {
+				"host": "github",
+				"path": "colloqi/pisignage-server",
+				"url": "https://github.com/colloqi/pisignage-server"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted MIT player server for Raspberry Pis with a web console for content and playlists. It lags the paid PiSignage platform, players are self-provisioned, and docs assume Pi hardware.",
+				"fr": "Serveur MIT pour lecteurs Raspberry Pi, auto-hébergé, console web pour contenus et playlists. Reste en retrait de la plateforme payante, lecteurs à provisionner soi-même, docs orientées Pi."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "openCore (minor)",
+					"fr": "openCore (mineur)"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "screenLite",
+			"source": {
+				"host": "github",
+				"path": "screenlite/screenlite",
+				"url": "https://github.com/screenlite/screenlite"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight MIT signage web app aimed at cheap Chrome and Chromecast displays, no vendor lock-in. Fewer features than Xibo, small community, no native device management.",
+				"fr": "Appli de signalétique web MIT, légère, pensée pour les écrans Chrome et Chromecast bon marché, sans verrouillage fournisseur. Moins riche que Xibo, petite communauté, pas de gestion native des appareils."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Garlic Signage Hub",
+			"source": {
+				"host": "github",
+				"path": "garlic-signage/garlic-hub",
+				"url": "https://github.com/garlic-signage/garlic-hub"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Full AGPL stack: garlic-hub console and API plus a companion player for the Pi. Young project, DIY player setup, no mobile apps.",
+				"fr": "Stack 100 % AGPL : console garlic-hub, API et lecteur compagnon pour Pi. Projet jeune, installation du lecteur en DIY, pas d’apps mobiles."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "mpv",
+			"source": {
+				"host": "github",
+				"path": "mpv-player/mpv",
+				"url": "https://github.com/mpv-player/mpv"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Scriptable, loopable, kiosk-ready playback on any OS — the de-facto engine for signage screens. Not a CMS: you build the scheduling, fleet management, and content design yourself.",
+				"fr": "Lecture scriptable, en boucle, prête pour le kiosque, sur tout OS — le moteur de facto de la signalétique. Pas un CMS : planification, gestion de parc et design de contenus à construire soi-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "feh",
+			"source": {
+				"host": "github",
+				"path": "derf/feh",
+				"url": "https://github.com/derf/feh"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Minimal MIT image viewer with slideshow and kiosk modes — enough for simple image menu boards on cheap hardware. Images only: no video, no web pages, no scheduling UI, no fleet management.",
+				"fr": "Visionneuse d’images minimaliste en MIT, modes diaporama et kiosque — suffit pour des menus simples sur matériel bon marché. Images uniquement : ni vidéo, ni pages web, ni planification, ni gestion de parc."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MagicMirror²",
+			"source": {
+				"host": "github",
+				"path": "MagicMirrorOrg/MagicMirror",
+				"url": "https://github.com/MagicMirrorOrg/MagicMirror"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Modular Node info-display framework, MIT, with a huge plugin ecosystem — a solid base for public dashboards. Built for mirrors and dashboards, not scheduled ad playlists, and fleet control needs Node glue.",
+				"fr": "Framework Node modulaire d’infos (MIT), vaste écosystème de modules — base solide pour dashboards publics. Pensé pour miroirs et infos, pas pour playlists publicitaires planifiées ; gestion de parc à câbler en Node."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

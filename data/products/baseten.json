@@ -93,6 +93,174 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ollama",
+			"source": {
+				"host": "github",
+				"path": "ollama/ollama",
+				"url": "https://github.com/ollama/ollama"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Single-binary install and model pull get a local OpenAI-compatible API up in one command, with CPU/GPU hybrid offload. It is a runner, not a multi-tenant platform: scaling stops at one node.",
+				"fr": "Binaire unique, pull des modèles et API compatible OpenAI en une commande, avec offload hybride CPU/GPU. Runner, pas plateforme multi-tenant : la mise à l’échelle s’arrête à un nœud."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LocalAI",
+			"source": {
+				"host": "github",
+				"path": "mudler/LocalAI",
+				"url": "https://github.com/mudler/LocalAI"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Runs CPU-first with no GPU required, exposing an OpenAI-compatible REST endpoint for text, image, audio and embedding models via docker compose. Single-node, no autoscaling, slower than vLLM on big models.",
+				"fr": "CPU d’abord, sans GPU : endpoint REST compatible OpenAI pour texte, image, audio et embeddings, en docker compose. Mono-nœud, sans autoscaling, plus lent que vLLM sur les gros modèles."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "BentoML",
+			"source": {
+				"host": "github",
+				"path": "bentoml/BentoML",
+				"url": "https://github.com/bentoml/BentoML"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Closest match to Baseten's build-and-deploy loop: serve any Python model, package as a Bento, export a container, with OpenTelemetry. Multi-node scaling needs k8s; docs assume the paid cloud.",
+				"fr": "Le plus proche du workflow build-and-deploy de Baseten : servir tout modèle Python, l’empaqueter en Bento, exporter un conteneur, avec OpenTelemetry. Le multi-nœuds passe par k8s ; la doc suppose le cloud payant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LMDeploy",
+			"source": {
+				"host": "github",
+				"path": "InternLM/lmdeploy",
+				"url": "https://github.com/InternLM/lmdeploy"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Built-in AWQ/FP8 quantization, persistent batching and KV-cache reuse drive high throughput from an OpenAI-compatible server, with tensor and pipeline parallelism. Documentation thins out outside InternLM, and the project is younger than vLLM.",
+				"fr": "Quantification AWQ/FP8 intégrée, batching persistant et KV-cache réutilisé : un serveur compatible OpenAI à haut débit, avec parallélisme tensor et pipeline. La doc s’amincit hors d’InternLM ; le projet est plus jeune que vLLM."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Triton Inference Server",
+			"source": {
+				"host": "github",
+				"path": "triton-inference-server/server",
+				"url": "https://github.com/triton-inference-server/server"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "NVIDIA's production server, multi-framework (ONNX, TensorRT, PyTorch) with dynamic batching and ensemble pipelines serving GPU and CPU models concurrently. Config-first: no Python-first dev loop, weak story off NVIDIA hardware.",
+				"fr": "Serveur de production NVIDIA, multi-frameworks (ONNX, TensorRT, PyTorch), batching dynamique et pipelines d’ensembles, modèles GPU/CPU servis en parallèle. Orienté config : pas de boucle de dev Python-first, peu pertinent hors matériel NVIDIA."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "TorchServe",
+			"source": {
+				"host": "github",
+				"path": "pytorch/serve",
+				"url": "https://github.com/pytorch/serve"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Archived upstream and community-maintained only. Still the official PyTorch path — MAR packaging, REST/gRPC inference, multi-model management, no GPU required — but largely PyTorch-only.",
+				"fr": "Archivé en amont, maintenu par la communauté uniquement. Toujours la voie officielle PyTorch — packaging MAR, inférence REST/gRPC, gestion multi-modèles, sans GPU requis — mais quasi exclusivement PyTorch."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Xinference",
+			"source": {
+				"host": "github",
+				"path": "xorbitsai/inference",
+				"url": "https://github.com/xorbitsai/inference"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted all-in-one: LLMs, embeddings and re-rankers behind OpenAI-compatible endpoints, a browser admin UI, and vLLM, llama.cpp or SGLang under the hood. The abstraction adds moving parts; the UI serves admins, not end-users.",
+				"fr": "Auto-hébergé tout-en-un : LLMs, embeddings, re-rankers derrière des endpoints compatibles OpenAI, UI d’admin navigateur, vLLM, llama.cpp ou SGLang sous le capot. L’abstraction ajoute des pièces mobiles ; l’UI est pour l’admin, pas l’utilisateur final."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Cortex",
+			"source": {
+				"host": "github",
+				"path": "cortexlabs/cortex",
+				"url": "https://github.com/cortexlabs/cortex"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "No commit since June 2024 — effectively dormant. As built: deploy-once run-any-cloud via CLI, autoscaling, API endpoints, GPU instances, TensorFlow/PyTorch/ONNX runtimes. Now tied to public clouds with no active maintainers.",
+				"fr": "Aucun commit depuis juin 2024 — en sommeil. Tel qu’il était : deploy-once run-any-cloud via CLI, autoscaling, endpoints API, instances GPU, runtimes TensorFlow/PyTorch/ONNX. Reste attaché aux clouds publics, sans mainteneurs actifs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

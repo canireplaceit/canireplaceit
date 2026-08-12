@@ -84,6 +84,174 @@
 				"en": "Annotation, augmentation and hosted training for vision, with a real free tier. Vision only, and dataset egress is deliberately awkward.",
 				"fr": "Annotation, augmentation et entraînement hébergé pour la vision, avec un vrai palier gratuit. Vision uniquement, et l’export de jeux de données est volontairement pénible."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Doccano",
+			"source": {
+				"host": "github",
+				"path": "doccano/doccano",
+				"url": "https://github.com/doccano/doccano"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Easy-to-run MIT-licensed NLP annotation server — classification, NER, seq2seq — with multi-user projects and an ML-backend API. Text only, and no QA or workforce layer.",
+				"fr": "Serveur d’annotation NLP à déployer en un docker, licence MIT : classification, NER, seq2seq, projets multi-utilisateurs et API vers vos backends ML. Texte uniquement, ni QA ni gestion d’équipe."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Argilla",
+			"source": {
+				"host": "github",
+				"path": "argilla-io/argilla",
+				"url": "https://github.com/argilla-io/argilla"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Modern NLP annotation and feedback platform with RLHF loops and deep HuggingFace and Python SDK integration. Text-first with little vision support, and the server-plus-Python-client model takes time to learn.",
+				"fr": "Plateforme moderne d’annotation et de feedback NLP, avec boucles RLHF et intégration poussée de l’écosystème HuggingFace et du SDK Python. Texte d’abord, peu de CV, et le couple serveur/client Python s’apprivoise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FiftyOne",
+			"source": {
+				"host": "github",
+				"path": "voxel51/fiftyone",
+				"url": "https://github.com/voxel51/fiftyone"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Large-scale CV dataset management from a Python API, CLI, or UI; labeling runs via connectors to CVAT, Label Studio, or Labelbox. No workforce UI of its own — pip-driven, not a turnkey server.",
+				"fr": "Gros datasets CV via API Python, CLI ou UI, labelling orchestré par connecteurs (CVAT, Label Studio, Labelbox). Pas d’interface de workforce propre — un outil pip, pas un serveur clé en main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "labelme",
+			"source": {
+				"host": "github",
+				"path": "wkentaro/labelme",
+				"url": "https://github.com/wkentaro/labelme"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Dead-simple offline desktop annotator for polygons, boxes, circles, and keypoints, with JSON export and COCO/VOC conversion. Single-user and images only — no collaboration, web, or video.",
+				"fr": "Annotateur de bureau hors ligne très simple : polygones, rectangles, cercles et keypoints, export JSON convertible en COCO/VOC. Mono-utilisateur, images seulement — ni collaboration, ni web, ni vidéo."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Make Sense",
+			"source": {
+				"host": "github",
+				"path": "SkalskiP/make-sense",
+				"url": "https://github.com/SkalskiP/make-sense"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Zero-install browser annotation for object detection with direct YOLO, VOC, and COCO export — ideal for quick one-off jobs. Single-session, no projects or team management, and development has slowed.",
+				"fr": "Annotation dans le navigateur sans rien installer, export direct YOLO, VOC et COCO — parfait pour les petits lots. Session unique, pas de projets ni d’équipe, et le projet avance au ralenti."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Supervisely",
+			"source": {
+				"host": "github",
+				"path": "supervisely/supervisely",
+				"url": "https://github.com/supervisely/supervisely"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Full-scale self-hosted labeling across image, video, and 3D point clouds, with a plugin marketplace, SDK, and neural-network-assisted jobs. Heavy footprint — server plus agent nodes — and enterprise features steer toward their hosted offering.",
+				"fr": "Labelling autohébergé à grande échelle : image, vidéo, nuages de points 3D, plugins, SDK, annotation assistée par réseaux de neurones. Empreinte lourde (serveur plus agents), fonctions enterprise tirées vers l’offre hébergée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LabelU",
+			"source": {
+				"host": "github",
+				"path": "opendatalab/labelU",
+				"url": "https://github.com/opendatalab/labelU"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "OpenDataLab’s multi-modal annotator — image, audio, text, video — with AI-assisted pre-annotation and a modern React UI. A young project with a small community, anchored in the OpenDataLab/OpenMMLab ecosystem.",
+				"fr": "Annotateur multi-modal d’OpenDataLab (image, audio, texte, vidéo) avec pré-annotation IA et une UI React moderne. Projet jeune, communauté restreinte, porté par l’écosystème OpenDataLab/OpenMMLab."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PaddleLabel",
+			"source": {
+				"host": "github",
+				"path": "PaddleCV-SIG/PaddleLabel",
+				"url": "https://github.com/PaddleCV-SIG/PaddleLabel"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Image and text labeling with AI-assisted pre-annotation, run from a Docker one-liner, feeding PaddleOCR and PaddleSeg pipelines directly. Small community, slower updates — the payoff is mostly inside the PaddlePaddle ecosystem.",
+				"fr": "Annotation image (bbox, polygone) et texte avec pré-annotation IA, lancée en une ligne Docker, intégrée aux pipelines PaddleOCR et PaddleSeg. Petite communauté, mises à jour lentes : l’intérêt est surtout dans l’écosystème PaddlePaddle."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

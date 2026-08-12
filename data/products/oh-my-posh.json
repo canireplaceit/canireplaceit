@@ -1,0 +1,219 @@
+{
+	"slug": "oh-my-posh",
+	"name": "Oh My Posh",
+	"domain": "ohmyposh.dev",
+	"category": "shell-terminal",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "Yes, for most setups. Oh My Posh is heavier per prompt and configurable to a fault, where Starship covers the same cross-shell ground measurably faster with a smaller config surface.",
+		"fr": "Oui, dans la plupart des cas. Oh My Posh est plus lourd à chaque prompt et configurable à l’excès, là où Starship fait le même travail multi-shell, nettement plus vite, avec une surface de configuration réduite."
+	},
+	"whatYouLose": [
+		{
+			"en": "Ubiquity on every machine",
+			"fr": "L’ubiquité sur chaque machine"
+		},
+		{
+			"en": "Configuration muscle memory",
+			"fr": "La mémoire musculaire de votre configuration"
+		},
+		{
+			"en": "Configurability to a fault",
+			"fr": "La configurabilité à l’excès"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Starship",
+			"source": {
+				"host": "github",
+				"path": "starship/starship",
+				"url": "https://github.com/starship/starship"
+			},
+			"license": "ISC",
+			"effort": "managed",
+			"note": {
+				"en": "Rust-based and measurably faster per prompt, with a smaller config surface; the trade-off is fewer built-in segments and less theming ceremony.",
+				"fr": "En Rust, nettement plus rapide à chaque prompt et plus simple à configurer ; à échanger contre moins de segments intégrés et moins de cérémonie autour des thèmes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Powerlevel10k",
+			"source": {
+				"host": "github",
+				"path": "romkatv/powerlevel10k",
+				"url": "https://github.com/romkatv/powerlevel10k"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Fastest zsh prompt: single-digit-millisecond first render, instant prompt and a config wizard. Closest drop-in for Oh My Posh's segment engine — but zsh only, and plugins still need a manager.",
+				"fr": "Prompt zsh le plus rapide : premier rendu en quelques millisecondes, instant prompt, assistant de configuration. Drop-in le plus proche du moteur de segments d’Oh My Posh, mais zsh uniquement et plugins à installer soi-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "powerline",
+			"source": {
+				"host": "github",
+				"path": "powerline/powerline",
+				"url": "https://github.com/powerline/powerline"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The statusline library Oh My Posh's look descends from: one Python config drives shell prompts, vim and tmux. Needs a Python runtime, heavier than a static binary, and maintenance has gone stale.",
+				"fr": "La bibliothèque de statusline dont l’apparence d’Oh My Posh dérive : un seul config Python pilote prompts shell, vim et tmux. Nécessite un runtime Python, plus lourde qu’un binaire statique, maintenance devenue rare."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "oh-my-zsh",
+			"source": {
+				"host": "github",
+				"path": "ohmyzsh/ohmyzsh",
+				"url": "https://github.com/ohmyzsh/ohmyzsh"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Largest shell-customization framework: 400+ plugins and 140+ themes, zero-config setup. A superset of a prompt engine, but zsh only, heavier startup, and its prompt alone is weaker than Oh My Posh's segments.",
+				"fr": "Le plus gros framework de personnalisation du shell : 400+ plugins, 140+ thèmes, zéro config. Superset d’un moteur de prompt, mais zsh uniquement, démarrage lourd, prompt plus pauvre que ceux d’Oh My Posh."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "spaceship-prompt",
+			"source": {
+				"host": "github",
+				"path": "spaceship-prompt/spaceship-prompt",
+				"url": "https://github.com/spaceship-prompt/spaceship-prompt"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Oh My Posh's segment look with zero binary dependencies, and the same prompt across seven shells. Needs a plugin manager for most shells, and prompt only — aliases and plugins live elsewhere.",
+				"fr": "Le look à segments d’Oh My Posh sans dépendance binaire, même prompt sur sept shells. Gestionnaire de plugins requis pour la plupart des shells, et prompt uniquement : alias et plugins vivent ailleurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pure",
+			"source": {
+				"host": "github",
+				"path": "sindresorhus/pure",
+				"url": "https://github.com/sindresorhus/pure"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Opposite pole to Oh My Posh's segment richness: an async zsh prompt that just works, near-zero configuration, easy to fork. Bare-bones by design — no segment catalog — and zsh only.",
+				"fr": "À l’opposé de la richesse de segments d’Oh My Posh : prompt zsh asynchrone qui marche, config quasi nulle, facile à forker. Épuré par conception — aucun catalogue de segments — et zsh uniquement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "zsh-autosuggestions",
+			"source": {
+				"host": "github",
+				"path": "zsh-users/zsh-autosuggestions",
+				"url": "https://github.com/zsh-users/zsh-autosuggestions"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Fish-style history autosuggestions for zsh, standalone, fast, actively maintained — a headline Oh My Posh terminal-experience feature on its own. But a single feature: no themes, aliases or plugin framework, zsh only.",
+				"fr": "Suggestions d’historique à la fish pour zsh, seules, rapides, activement maintenues : la fonction phare d’Oh My Posh en standalone. Mais une seule fonction — ni thèmes ni framework de plugins, zsh uniquement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "zsh4humans",
+			"source": {
+				"host": "github",
+				"path": "romkatv/zsh4humans",
+				"url": "https://github.com/romkatv/zsh4humans"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Zero-config zsh distribution from the Powerlevel10k author: one-line installer wires up prompt, completions, autosuggestions and plugins — the whole Oh My Posh-equivalent stack. But zsh only, and fewer knobs than hand-assembling parts.",
+				"fr": "Distribution zsh zéro config par l’auteur de Powerlevel10k : un installateur d’une ligne monte prompt, complétions, autosuggestions et plugins — l’équivalent d’Oh My Posh. Zsh uniquement, moins de réglages qu’un assemblage manuel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "bash-git-prompt",
+			"source": {
+				"host": "github",
+				"path": "magicmonty/bash-git-prompt",
+				"url": "https://github.com/magicmonty/bash-git-prompt"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Bash-native prompt with rich git status — branch, ahead/behind, staged/untracked — no framework, no runtime beyond bash. But bash only: no zsh or PowerShell, and no theme catalog or plugin framework.",
+				"fr": "Prompt natif bash, statut git détaillé — branche, ahead/behind, staged/untracked — sans framework ni runtime au-delà de bash. Mais bash uniquement : ni zsh ni PowerShell, ni catalogue de thèmes ni framework de plugins."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 2
+}

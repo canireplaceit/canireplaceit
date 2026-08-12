@@ -82,8 +82,8 @@
 			"name": "Cal.com",
 			"source": {
 				"host": "github",
-				"path": "calcom/cal.com",
-				"url": "https://github.com/calcom/cal.com"
+				"path": "calcom/cal.diy",
+				"url": "https://github.com/calcom/cal.diy"
 			},
 			"license": "MIT",
 			"effort": "docker",
@@ -120,6 +120,174 @@
 			"note": {
 				"en": "Slightly cheaper and the note templates are better. The client-facing portal is uglier.",
 				"fr": "Légèrement moins cher et de meilleurs modèles de notes. Le portail patient est plus laid."
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ERPNext Healthcare",
+			"source": {
+				"host": "github",
+				"path": "frappe/erpnext",
+				"url": "https://github.com/frappe/erpnext"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "GPL healthcare module on the 38k-star ERPNext: scheduling, records and billing in one system, but healthcare is a module, not a focus — clinical depth trails dedicated EHRs, ERP learning curve applies.",
+				"fr": "Module santé GPL sur ERPNext (38k étoiles) : rendez-vous, dossiers et facturation dans un même système. La santé n’y est qu’un module, pas un cœur : profondeur clinique moindre, courbe ERP réelle."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenMRS",
+			"source": {
+				"host": "github",
+				"path": "openmrs/openmrs-core",
+				"url": "https://github.com/openmrs/openmrs-core"
+			},
+			"license": "MPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Modular medical records (MPL-2.0) whose mental-health module ecosystem handles therapy charting. Bring an implementation team: clinical workflows need building and billing is not turnkey.",
+				"fr": "Dossier médical modulaire (MPL-2.0) avec un écosystème de modules santé mentale pour le suivi en thérapie. Il faut une équipe d’implémentation : workflows cliniques à construire, facturation loin d’être clé en main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GNU Health",
+			"source": {
+				"host": "savannah",
+				"path": "health/gnuhealth",
+				"url": "https://savannah.gnu.org/projects/health/"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Savannah-hosted GPL HMIS whose psychiatry module covers a complete clinic record. Expect a steeper Tryton stack, implementer knowledge, and a smaller community than OpenEMR.",
+				"fr": "HMIS GPL (Savannah) avec un module psychiatrie pour un dossier clinique complet. Stack Tryton plus raide, implémenteur requis, communauté plus petite que celle d’OpenEMR."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GNUmed",
+			"source": {
+				"host": "savannah",
+				"path": "gnumed/gnumed",
+				"url": "https://savannah.gnu.org/projects/gnumed/"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Desktop GPL EMR for small practices — notes, demographics, e-prescription-friendly data model. Desktop-only: no web portal, no billing or claims, and the wxWidgets UI is aging.",
+				"fr": "EMR GPL de bureau pour petits cabinets : notes, démographie, modèle de données pensé pour l’e-prescription. Bureau uniquement : pas de portail web, pas de facturation ni d’assurance, et une UI wxWidgets qui vieillit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Open Hospital",
+			"source": {
+				"host": "github",
+				"path": "informatici/openhospital",
+				"url": "https://github.com/informatici/openhospital"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "GPL hospital information system for admissions, visits, pharmacy, lab and billing, deployable on desktop or web. Hospital-shaped: mental-health depth is thin, no telehealth, e-prescribe and claims limited.",
+				"fr": "Système d’information hospitalier GPL : admissions, consultations, pharmacie, labo et facturation, sur bureau ou web. Orienté hôpital : profondeur santé mentale mince, pas de télémédecine, e-prescription et remboursements limités."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "HospitalRun",
+			"source": {
+				"host": "github",
+				"path": "HospitalRun/hospitalrun",
+				"url": "https://github.com/HospitalRun/hospitalrun"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "MIT offline-first hospital system self-hostable for a solo practice’s records. But it is archived upstream (2021): billing and lab are thin, and the community has moved on.",
+				"fr": "Système hospitalier MIT offline-first, auto-hébergeable pour les dossiers d’un cabinet seul. Mais il est archivé en amont (2021) : facturation et labo minces, communauté partie ailleurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "calcurse",
+			"source": {
+				"host": "github",
+				"path": "lfos/calcurse",
+				"url": "https://github.com/lfos/calcurse"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "BSD TUI calendar and agenda that covers appointment scheduling from the terminal, recurring included. That is all it does: no client records, no billing, single-user.",
+				"fr": "Agenda-calendrier BSD en TUI qui couvre la prise de rendez-vous depuis le terminal, récurrences comprises. Rien de plus : pas de dossiers patients, pas de facturation, mono-utilisateur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "taskwarrior",
+			"source": {
+				"host": "github",
+				"path": "GothenburgBitFactory/taskwarrior",
+				"url": "https://github.com/GothenburgBitFactory/taskwarrior"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "MIT CLI task manager with TaskChampion sync — recurring reminders and annotations keep therapy to-dos in the terminal. No patient records, no billing, no calendar of its own.",
+				"fr": "Gestionnaire de tâches CLI MIT, synchronisé via TaskChampion : rappels récurrents et annotations pour les suivis de thérapie dans le terminal. Pas de dossiers patients, pas de facturation, pas de calendrier natif."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
 			}
 		}
 	],

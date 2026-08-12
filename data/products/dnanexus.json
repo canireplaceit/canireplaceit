@@ -91,6 +91,220 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Arvados",
+			"source": {
+				"host": "github",
+				"path": "arvados/arvados",
+				"url": "https://github.com/arvados/arvados"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The only full open-source genomics data platform directly analogous to DNAnexus: FAIR data sharing, CWL runner, web and Python/CLI clients over S3 storage. Multi-service deployment is genuinely complex.",
+				"fr": "Seule plateforme génomique open-source complète, directement analogue à DNAnexus : données FAIR, exécuteur CWL, clients web et Python/CLI sur stockage S3. Le déploiement multi-services est réellement complexe."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Snakemake",
+			"source": {
+				"host": "github",
+				"path": "snakemake/snakemake",
+				"url": "https://github.com/snakemake/snakemake"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The most popular Python workflow manager in bioinformatics: rule-based language, slurm/k8s/cloud executors, static HTML reports. No live portal or multi-user UI, and Python is a prerequisite.",
+				"fr": "Le gestionnaire de workflows Python le plus utilisé en bioinformatique : langage à base de règles, exécuteurs slurm/k8s/cloud, rapport HTML statique. Pas de portail ni d’interface multi-utilisateurs, et Python reste un prérequis."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Toil",
+			"source": {
+				"host": "github",
+				"path": "DataBiosphere/toil",
+				"url": "https://github.com/DataBiosphere/toil"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "UCSC workflow engine running CWL/WDL at cloud scale, baked into production genomics. AWS/GCE/Azure executors. API-centric and less approachable than Snakemake, with a smaller contributor base.",
+				"fr": "Moteur UCSC qui exécute CWL/WDL à l’échelle cloud, intégré aux pipelines génomiques de production. Exécuteurs AWS/GCE/Azure. Centré API, moins abordable que Snakemake, et base de contributeurs plus réduite."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "cwltool",
+			"source": {
+				"host": "github",
+				"path": "common-workflow-language/cwltool",
+				"url": "https://github.com/common-workflow-language/cwltool"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Reference implementation of the CWL standard: run any GA4GH-compliant workflow against slurm or k8s backends. No portal, no scheduling frills, and you author the CWL yourself.",
+				"fr": "Implémentation de référence du standard CWL : exécute tout workflow conforme GA4GH sur des backends slurm ou k8s. Pas de portail ni de fioritures d’ordonnancement, et c’est à vous d’écrire le CWL."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pegasus",
+			"source": {
+				"host": "github",
+				"path": "pegasus-isi/pegasus",
+				"url": "https://github.com/pegasus-isi/pegasus"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Mature academic workflow system mapping abstract DAGs onto HPC and cloud batch systems, with planning, reuse and monitoring. Reliable at HPC scale, but the learning curve is steep.",
+				"fr": "Système académique mature qui projette des DAG abstraits sur les batch HPC et cloud, avec planification, réutilisation et supervision. Fiable à l’échelle HPC, mais la courbe d’apprentissage est abrupte."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache Airflow",
+			"source": {
+				"host": "github",
+				"path": "apache/airflow",
+				"url": "https://github.com/apache/airflow"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Battle-tested DAG orchestrator with real web UI, retries, backfills and thousands of operators. Deploys via official helm. Generic orchestration, not genomics-native, and operationally heavy.",
+				"fr": "Orchestrateur DAG éprouvé avec véritable interface web, reprises, backfills et des milliers d’opérateurs. Déploiement officiel helm. Orchestration générique, pas pensée pour la génomique, et lourd à opérer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Luigi",
+			"source": {
+				"host": "github",
+				"path": "spotify/luigi",
+				"url": "https://github.com/spotify/luigi"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Lightweight Python pipeline framework whose declarative dependency graph powers much bioinformatics data processing. Central scheduler with a minimal web UI. Low activity lately, no cloud-native executors.",
+				"fr": "Framework Python léger dont le graphe de dépendances déclaratif sert beaucoup de traitement de données en bioinformatique. Scheduler central avec interface web minimale. Peu actif récemment, pas d’exécuteurs cloud natifs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Bpipe",
+			"source": {
+				"host": "github",
+				"path": "ssadedin/bpipe",
+				"url": "https://github.com/ssadedin/bpipe"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Groovy pipeline DSL aimed squarely at genomics, built from modular reusable steps that run on cluster queues. Small community and no web UI at all.",
+				"fr": "DSL de pipelines en Groovy taillé pour la génomique, composé d’étapes modulaires réutilisables exécutées sur les files de clusters. Communauté réduite et aucune interface web."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "HTCondor",
+			"source": {
+				"host": "github",
+				"path": "htcondor/htcondor",
+				"url": "https://github.com/htcondor/htcondor"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Battle-tested HTC batch scheduler whose DAGMan chains workflows, the substrate behind OSG and open science grids. Infrastructure, not a pipeline platform, and it demands HPC expertise to operate.",
+				"fr": "Ordonnanceur batch HTC éprouvé dont DAGMan enchaîne les workflows, socle des grilles OSG et open science. De l’infrastructure, pas une plateforme de pipelines, et il exige une expertise HPC."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "tower-cli",
+			"source": {
+				"host": "github",
+				"path": "seqeralabs/tower-cli",
+				"url": "https://github.com/seqeralabs/tower-cli"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Open-source CLI for launching and monitoring Nextflow pipelines on a Seqera control plane, scriptable for CI/CD. Client only — the core Seqera Platform stays proprietary.",
+				"fr": "CLI open-source pour lancer et suivre des pipelines Nextflow sur un plan de contrôle Seqera, scriptable pour le CI/CD. Simple client — le cœur de Seqera Platform reste propriétaire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "control-plane orchestration and platform services",
+					"fr": "l’orchestration du plan de contrôle et les services de plateforme"
+				}
+			}
 		}
 	],
 	"priority": 3

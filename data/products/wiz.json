@@ -108,6 +108,174 @@
 				"en": "Hosted Prowler from its own authors, an order of magnitude below Wiz. You get scheduling and dashboards, not the attack-path graph.",
 				"fr": "Prowler hébergé par ses propres auteurs, dix fois moins cher que Wiz. Vous obtenez la planification et les tableaux de bord, pas le graphe de chemins d’attaque."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Trivy",
+			"source": {
+				"host": "codeberg",
+				"path": "aquasecurity/trivy",
+				"url": "https://codeberg.org/aquasecurity/trivy"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "One binary scans images, filesystems, repos, IaC and cloud misconfigs, with a client/server mode for CI and GitOps. Point-in-time scans, though — no live posture graph, and triage stays on you.",
+				"fr": "Un binaire scanne images, filesystems, repos, IaC et configs cloud, en mode client/serveur pour CI et GitOps. Scans ponctuels, pas de graphe de posture live — le tri vous revient."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Grype",
+			"source": {
+				"host": "github",
+				"path": "anchore/grype",
+				"url": "https://github.com/anchore/grype"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Anchore’s scanning engine: precise CVE matching for images and filesystems, fed by Syft SBOMs and VEX filters. CLI only, and it just detects — posture, IaC and scheduling are all on you.",
+				"fr": "Le moteur de scan d’Anchore : CVE précises sur images et filesystems, piloté par les SBOM de Syft et le filtrage VEX. CLI uniquement, détection seule — posture, IaC et planification restent à faire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Syft",
+			"source": {
+				"host": "github",
+				"path": "anchore/syft",
+				"url": "https://github.com/anchore/syft"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Turns images and directories into SPDX or CycloneDX SBOMs, the inventory that catalog-driven security builds on. It only inventories, though — you own storage, diffing and comparison.",
+				"fr": "Transforme images et dossiers en SBOM SPDX ou CycloneDX, l’inventaire sur lequel s’appuie la sécurité pilotée par catalogue. Il ne fait qu’inventorier : stockage, diff et comparaison vous reviennent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ScoutSuite",
+			"source": {
+				"host": "github",
+				"path": "nccgroup/ScoutSuite",
+				"url": "https://github.com/nccgroup/ScoutSuite"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Read-only audit rulesets across four clouds that hand you a self-contained HTML report — the closest open look at Wiz-style CSPM findings. Dormant since ~2022, snapshot-only, and credentials provisioned per scan.",
+				"fr": "Règles d’audit read-only sur quatre clouds, rapport HTML autonome livré — l’équivalent open source le plus proche des constats CSPM de Wiz. En sommeil depuis ~2022, clichés statiques, identifiants par scan."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Checkov",
+			"source": {
+				"host": "gitlab",
+				"path": "bridgecrewio/checkov",
+				"url": "https://gitlab.com/bridgecrewio/checkov"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Wiz’s IaC layer open-sourced: a thousand-plus built-in checks, custom policies in Python or YAML, and pre-commit or CI hooks. Only IaC, though — no runtime or image CVEs, and results need triaging.",
+				"fr": "La couche IaC de Wiz en open source : mille checks, politiques custom en Python ou YAML, hooks pre-commit et CI. IaC uniquement — pas de CVEs runtime ou image, résultats à trier."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "KICS",
+			"source": {
+				"host": "github",
+				"path": "Checkmarx/kics",
+				"url": "https://github.com/Checkmarx/kics"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Checkmarx’s scanner for Terraform, CloudFormation, Docker, Helm, K8s and Ansible, with SARIF output and CI-friendly single binary. Static IaC only — no runtime or images, and the query set needs curation.",
+				"fr": "Scanner de Checkmarx pour Terraform, CloudFormation, Docker, Helm, K8s et Ansible, sortie SARIF, binaire unique compatible CI. Statique IaC uniquement — pas de runtime ni d’images, requêtes à curer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Steampipe",
+			"source": {
+				"host": "github",
+				"path": "turbot/steampipe",
+				"url": "https://github.com/turbot/steampipe"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Your cloud estate as SQL tables — 150-plus plugins, CIS and NIST compliance mods, dashboards and a REST API. You build the posture logic, alerts and dashboards yourself, and it assumes SQL fluency.",
+				"fr": "Estate cloud en tables SQL : plus de 150 plugins, mods de conformité CIS/NIST, dashboards et API REST. Vous assemblez posture, alertes et dashboards vous-même, et il faut parler SQL."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "DefectDojo",
+			"source": {
+				"host": "github",
+				"path": "DefectDojo/django-DefectDojo",
+				"url": "https://github.com/DefectDojo/django-DefectDojo"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted hub ingesting Trivy, Grype, ZAP and 150-plus scanners, tracking findings to fix with dedupe and SLAs. Not a scanner — a Django service to run and tune; dedupe needs real ongoing effort.",
+				"fr": "Hub auto-hébergé qui ingère Trivy, Grype, ZAP et 150+ scanners, et suit les findings jusqu’à correction. Pas un scanner — un service Django à opérer et régler ; la dédup exige un effort continu."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

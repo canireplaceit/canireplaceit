@@ -95,6 +95,153 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "PowerDNS",
+			"source": {
+				"host": "github",
+				"path": "PowerDNS/pdns",
+				"url": "https://github.com/PowerDNS/pdns"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Parts must be assembled by hand, but the stack holds the closest DNS parity to NIOS: SQL-backed authoritative zones, RPZ/Lua recursor, dnsdist load balancer. No IPAM or DHCP.",
+				"fr": "Pièces à assembler soi-même, mais l’ensemble tient la meilleure parité DNS avec NIOS : zones autoritatives sur SQL, recursor RPZ/Lua, équilibreur dnsdist. Pas d’IPAM ni de DHCP."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "BIND 9",
+			"source": {
+				"host": "github",
+				"path": "isc-projects/bind9",
+				"url": "https://github.com/isc-projects/bind9"
+			},
+			"license": "MPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Still the go-to for DNSSEC, TSIG and catalog zones — authoritative plus recursive in one daemon, run by rndc and HTTP. Config stays named.conf text, no IPAM or DHCP.",
+				"fr": "Toujours le choix par défaut pour DNSSEC, TSIG et catalog zones — autoritatif et récursif dans un seul démon, piloté par rndc et HTTP. Config en named.conf, pas d’IPAM ni de DHCP."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CoreDNS",
+			"source": {
+				"host": "github",
+				"path": "coredns/coredns",
+				"url": "https://github.com/coredns/coredns"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "A static binary running a plugin chain — kubernetes, etcd, file, forward — aimed at internal service discovery, not classic zone management. No IPAM or DHCP; serving external DNS needs glue.",
+				"fr": "Un binaire, une chaîne de plugins — kubernetes, etcd, file, forward — taillé pour la découverte de services interne, pas la gestion de zones. Pas d’IPAM ni de DHCP ; DNS externe reste à bricoler."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "NSD",
+			"source": {
+				"host": "github",
+				"path": "NLnetLabs/nsd",
+				"url": "https://github.com/NLnetLabs/nsd"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Authoritative-only from NLnet Labs, built for speed: AXFR/IXFR secondaries and notifies make it a solid worker in NIOS-style zone distribution. Minimal attack surface, but recursion, DHCP and IPAM all live elsewhere.",
+				"fr": "Uniquement autoritatif et rapide, de NLnet Labs : secondaires AXFR/IXFR avec notifies, parfait pour la distribution de zones façon NIOS. Pas de récursion, de DHCP ni d’IPAM."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Knot Resolver",
+			"source": {
+				"host": "github",
+				"path": "CZ-NIC/knot-resolver",
+				"url": "https://github.com/CZ-NIC/knot-resolver"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Enterprise caching resolver: Lua policies and modules for filtering and forwarding, DNSSEC validation on by default. Not authoritative — pair it with a server; its API is not a web console.",
+				"fr": "Résolveur récursif à cache : politiques et modules Lua pour filtrer et forwarder, validation DNSSEC par défaut. Pas autoritatif — à associer à un serveur ; son API n’est pas une console web."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "doggo",
+			"source": {
+				"host": "github",
+				"path": "mr-karan/doggo",
+				"url": "https://github.com/mr-karan/doggo"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Drop-in dig: colour output, JSON/YAML, DoH, DoT and DoQ to public resolvers, one static binary per platform. Client-side only — it replaces the NIOS dig workflow, not the server.",
+				"fr": "Dig moderne : sortie colorée, JSON/YAML, DoH, DoT et DoQ vers des résolveurs publics, un binaire statique par plateforme. Côté client uniquement — remplace le dig de NIOS, pas le serveur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dnsx",
+			"source": {
+				"host": "github",
+				"path": "projectdiscovery/dnsx",
+				"url": "https://github.com/projectdiscovery/dnsx"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A threaded DNS brute-forcing probe — high-concurrency A/AAAA/CNAME/MX/NS/TXT lookups, wildcard filtering, internal-IP detection — feeding straight into pipelines via stdin/stdout. Client-only and attacker-oriented, not an admin console.",
+				"fr": "Sonde DNS threadée pour bruteforce : résolution à forte concurrence A/AAAA/CNAME/MX/NS/TXT, filtre wildcard et détection d’IP internes, qui alimente les pipelines en stdin/stdout. Client seul, orienté attaquant, pas une console d’admin."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

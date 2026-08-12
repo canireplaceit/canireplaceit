@@ -76,6 +76,132 @@
 				"en": "Free, and where your players already are. Closed, ad-adjacent, and your community history lives entirely on their servers.",
 				"fr": "Gratuit, et c’est là que sont déjà vos joueurs. Fermé, adossé à la publicité, et tout l’historique de votre communauté vit sur leurs serveurs."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Galène",
+			"source": {
+				"host": "github",
+				"path": "jech/galene",
+				"url": "https://github.com/jech/galene"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Single lightweight SFU binary on a VPS gives a squad browser voice with zero installs, config via files. No persistent channels, no native apps, small community, and no positional audio.",
+				"fr": "Un binaire SFU Go sur un VPS suffit à une escouade pour le vocal basse latence dans le navigateur, zéro installation. Ni salons persistants, ni apps natives, ni audio positionnel, petite communauté."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "qTox",
+			"source": {
+				"host": "github",
+				"path": "qTox/qTox",
+				"url": "https://github.com/qTox/qTox"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Archived and dormant, qTox still works: encrypted voice over the Tox DHT, no server, native apps on all three OSes. Group quality varies over the mesh; no channels or ACLs.",
+				"fr": "Archivé, qTox fonctionne toujours : voix chiffrée sur le DHT de Tox, aucun serveur, apps natives sur les trois OS. La qualité des groupes varie sur le maillage ; pas de salons ni d’ACL."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SimplexChat",
+			"source": {
+				"host": "github",
+				"path": "simplex-chat/simplex-chat",
+				"url": "https://github.com/simplex-chat/simplex-chat"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Encrypted chat with audio calls and no phone number or account; the first-class CLI/TUI and self-hostable relays suit terminal teams. Not built as a game voice lobby, and call quality isn’t gaming-tuned.",
+				"fr": "Messagerie chiffrée avec appels audio, sans numéro ni compte ; CLI/TUI soignés et relais auto-hébergeables pour les équipes de terminal. Pas un lobby vocal de jeu ; qualité audio non calibrée pour la latence."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Revolt",
+			"source": {
+				"host": "github",
+				"path": "stoatchat/self-hosted",
+				"url": "https://github.com/stoatchat/self-hosted"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted Discord-style stack — servers, channels, roles, voice — fully under your control, with compose setup and active bot ecosystem. Voice is less mature than TeamSpeak; self-hosting needs MongoDB, Redis and object storage.",
+				"fr": "Plateforme façon Discord auto-hébergée — serveurs, salons, rôles, vocal — sous votre contrôle, avec stack compose et écosystème de bots. Le vocal reste moins mûr que TeamSpeak ; l’auto-hébergement exige MongoDB, Redis, stockage d’objets."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Element Web",
+			"source": {
+				"host": "github",
+				"path": "element-hq/element-web",
+				"url": "https://github.com/element-hq/element-web"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "The reference Matrix client: open protocol, bridges to Discord and IRC, SSO built in. Heaviest option — a homeserver plus this web client — and voice rides on Jitsi, not native game voice.",
+				"fr": "Le client Matrix de référence : protocole ouvert, ponts Discord/IRC, SSO intégré. Le plus lourd — homeserver plus ce client web ; la voix passe par Jitsi, pas un vocal natif de jeu."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "eu-option"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Linphone",
+			"source": {
+				"host": "github",
+				"path": "BelledonneCommunications/linphone-desktop",
+				"url": "https://github.com/BelledonneCommunications/linphone-desktop"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "A mature open-source SIP softphone with encrypted calls and native apps everywhere, even F-Droid. A phone, not a lobby: no channels or user directory, and group calls need a SIP server.",
+				"fr": "Softphone SIP open source mature, appels chiffrés et apps natives partout, jusqu’au F-Droid. Un téléphone, pas un lobby : ni salons, ni annuaire d’utilisateurs, et les appels de groupe exigent un serveur SIP."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

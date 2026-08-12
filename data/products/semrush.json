@@ -107,6 +107,73 @@
 				"en": "Half the price with a genuine keyword and backlink database. Smaller index, weaker competitive data.",
 				"fr": "Moitié prix avec une vraie base de mots-clés et de backlinks. Index plus petit, données concurrentielles plus faibles."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "siteone-crawler",
+			"source": {
+				"host": "github",
+				"path": "janreges/siteone-crawler",
+				"url": "https://github.com/janreges/siteone-crawler"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "No keyword dataset at all — a local crawler auditing SEO, security, accessibility, and performance on x64 and arm64. Desktop/CLI only, no web UI.",
+				"fr": "Aucune donnée de mots-clés — c’est un crawler local qui audite SEO, sécurité, accessibilité et performance, en x64 et arm64. Desktop/CLI uniquement, pas d’interface web."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mautic",
+			"source": {
+				"host": "github",
+				"path": "mautic/mautic",
+				"url": "https://github.com/mautic/mautic"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Email and campaigns Semrush can't send — lead scoring, reporting, the marketing-automation half. The GPL-2.0 license is viral, and none of Semrush's data travels with it: no keywords, ranks, or backlinks.",
+				"fr": "Les emails et campagnes que Semrush ne sait pas envoyer — lead scoring, rapports : le volet automation marketing. Licence GPL-2.0 virale, et aucune donnée Semrush : ni mots-clés, ni positions, ni backlinks."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Postiz",
+			"source": {
+				"host": "github",
+				"path": "gitroomhq/postiz-app",
+				"url": "https://github.com/gitroomhq/postiz-app"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted social scheduling you can own outright — the one slice of Semrush that isn't about keywords. Bring your own developer apps for each network's API, and expect breaking changes.",
+				"fr": "Planification social auto-hébergée qu’on possède vraiment — la seule part de Semrush sans mots-clés. Comptez fournir vos propres apps développeur pour chaque réseau, et encaissez les changements cassants."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Minor paid features (openCore)",
+					"fr": "Fonctions pro mineures payantes (openCore)"
+				}
+			}
 		}
 	],
 	"priority": 5

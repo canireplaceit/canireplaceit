@@ -76,6 +76,258 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Grafana OnCall",
+			"source": {
+				"host": "github",
+				"path": "grafana-cold-storage/oncall",
+				"url": "https://github.com/grafana-cold-storage/oncall"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Closest drop-in PagerDuty clone: on-call calendars, escalations and chatops inside the Grafana stack. Archived upstream — the OSS edition is deprecated, and it assumes you already run Grafana. AGPL-3.0.",
+				"fr": "Le clone le plus fidèle de PagerDuty : astreintes, escalades et chatops dans la pile Grafana. Archivé en amont, l’édition OSS est dépréciée ; il suppose que Grafana tourne déjà chez vous. AGPL-3.0."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OneUptime",
+			"source": {
+				"host": "github",
+				"path": "OneUptime/oneuptime",
+				"url": "https://github.com/OneUptime/oneuptime"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "All-in-one: status pages, uptime monitoring and incident management with on-call rotations. Costs a heavy stack — Mongo, Redis, RabbitMQ, ClickHouse — and a wide attack surface for home hosting.",
+				"fr": "Tout-en-un : pages de statut, supervision uptime et gestion d’incidents avec roulements d’astreinte. En échange, une pile lourde — Mongo, Redis, RabbitMQ, ClickHouse — et une large surface d’attaque pour le self-hosting."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Cabot",
+			"source": {
+				"host": "github",
+				"path": "arachnys/cabot",
+				"url": "https://github.com/arachnys/cabot"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Two years dormant — last commit September 2023. A Django-era PagerDuty stand-in: monitoring checks, SMS/phone/email escalation, on-call scheduling, fiddly to deploy, no modern mobile app.",
+				"fr": "Deux ans de dormance — dernier commit septembre 2023. Un PagerDuty maison de l’ère Django : checks, escalade SMS/téléphone/email, planning d’astreinte ; déploiement fragile, pas d’appli mobile moderne."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Alerta",
+			"source": {
+				"host": "github",
+				"path": "alerta/alerta",
+				"url": "https://github.com/alerta/alerta"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Dedupes and correlates alerts from every monitor into one triage console — REST API, CLI, Nagios/Zabbix/Prometheus integrations. No on-call rotation, no status page: you wire escalation yourself.",
+				"fr": "Déduplique et corrèle les alertes des outils de supervision dans une console de tri — API REST, CLI, intégrations Nagios/Zabbix/Prometheus. Pas d’astreinte ni de page de statut : l’escalade, vous la branchez vous-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GoAlert",
+			"source": {
+				"host": "github",
+				"path": "target/goalert",
+				"url": "https://github.com/target/goalert"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Target’s open-source on-call scheduler: rotations, escalation policies, SMS and phone paging — the simplest PagerDuty-like option. No status pages or incident timeline, and notifications stay SMS/phone/email.",
+				"fr": "Le scheduler d’astreinte open-source de Target : rotations, escalades, pages SMS et téléphone. Simple, le plus proche de PagerDuty, mais sans pages de statut ni timeline d’incident ; canaux SMS/téléphone/email."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Healthchecks",
+			"source": {
+				"host": "github",
+				"path": "healthchecks/healthchecks",
+				"url": "https://github.com/healthchecks/healthchecks"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "A dead-man’s switch for your cron jobs: heartbeat monitoring that pings email, webhook, Slack or Telegram when a job stops reporting. Heartbeat-only — not metric-driven — no on-call rotations, no incident workflow.",
+				"fr": "Un dead-man’s switch pour vos crons : surveillance par heartbeat, alerte email/webhook/Slack/Telegram dès qu’un job ne répond plus. Heartbeat only — pas de métriques, pas d’astreinte, pas de workflow d’incident."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Uptime Kuma",
+			"source": {
+				"host": "github",
+				"path": "louislam/uptime-kuma",
+				"url": "https://github.com/louislam/uptime-kuma"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted uptime monitor with public status pages and 90+ notification channels. A beloved default — but it watches uptime, not incidents: no on-call rotations, no escalation workflow.",
+				"fr": "Moniteur uptime auto-hébergé avec pages de statut publiques et plus de 90 canaux de notification. Adopté avec enthousiasme — mais il surveille l’uptime, pas les incidents : ni astreinte ni escalade."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Gatus",
+			"source": {
+				"host": "github",
+				"path": "TwiN/gatus",
+				"url": "https://github.com/TwiN/gatus"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Single static binary, config-as-code, instant alerting to Slack, Teams, webhooks and email with a live dashboard. No on-call scheduling, no roles in core — a checker, not an incident tool.",
+				"fr": "Un seul binaire statique, config-as-code, alertes instantanées vers Slack, Teams, webhooks et email, avec dashboard en direct. Ni planification d’astreinte ni rôles dans le cœur — un checker, pas un outil d’incident."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ntfy",
+			"source": {
+				"host": "github",
+				"path": "binwiederhier/ntfy",
+				"url": "https://github.com/binwiederhier/ntfy"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted pub-sub push server: publish from curl, page your phone with high-priority alerts. Delivery only — no incident workflow, no on-call scheduling, auth is token-based rather than per-user.",
+				"fr": "Serveur de push pub-sub auto-hébergeable : on publie depuis curl, le téléphone sonne en priorité haute. De la livraison, point — ni workflow d’incident ni astreinte ; l’auth par token, pas par utilisateur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apprise",
+			"source": {
+				"host": "github",
+				"path": "caronc/apprise",
+				"url": "https://github.com/caronc/apprise"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "One CLI or Python import that fans alerts out to 100+ services from any script. Fan-out only — no UI, no scheduling; the monitoring logic is yours to write.",
+				"fr": "Un seul CLI (ou import Python) qui diffuse des alertes vers plus de 100 services depuis n’importe quel script. Diffusion seule — pas d’UI ni planification ; la logique de supervision vous revient."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Shoutrrr",
+			"source": {
+				"host": "github",
+				"path": "containrrr/shoutrrr",
+				"url": "https://github.com/containrrr/shoutrrr"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A Go router that turns one config line into pushes across Slack, Discord, Telegram and mail — used by Watchtower. Delivery only, no UI or scheduling, and fewer targets than Apprise.",
+				"fr": "Un routeur Go qui transforme une ligne de config en notifications Slack, Discord, Telegram, mail — utilisé par Watchtower. Livraison seulement, ni UI ni planification, et moins de cibles qu’Apprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Prometheus Alertmanager",
+			"source": {
+				"host": "github",
+				"path": "prometheus/alertmanager",
+				"url": "https://github.com/prometheus/alertmanager"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The standard for grouping, deduping and routing Prometheus alerts to any messenger. Silences, inhibition, amtool CLI. It needs a Prometheus backend, and stops at delivery — no rotations, no incident management.",
+				"fr": "Référence pour regrouper, dédupliquer et router les alertes Prometheus vers n’importe quel messager. Silences, inhibition, CLI amtool. Il exige un backend Prometheus, s’arrête à la livraison — ni roulements ni gestion d’incident."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

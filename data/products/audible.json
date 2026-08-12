@@ -82,6 +82,153 @@
 				"en": "Free audiobooks through your public library card, fully legal. You wait in holds queues and the catalogue is whatever your library bought.",
 				"fr": "Livres audio gratuits via votre carte de bibliothèque, tout à fait légal. Il faut attendre son tour et le catalogue se limite à ce que la bibliothèque a acheté."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Libation",
+			"source": {
+				"host": "github",
+				"path": "rmcrackan/Libation",
+				"url": "https://github.com/rmcrackan/Libation"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The one-time migration tool: strips DRM from Audible AAX files you own and converts them to MP3/M4B for any player. Desktop only, and it only touches books already bought on Audible.",
+				"fr": "L’outil de migration ponctuelle : retire le DRM des fichiers AAX Audible que vous possédez et les convertit en MP3/M4B pour n’importe quel lecteur. Bureau et CLI uniquement, et seulement les livres déjà achetés sur Audible."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Voice",
+			"source": {
+				"host": "github",
+				"path": "PaulWoitaschek/Voice",
+				"url": "https://github.com/PaulWoitaschek/Voice"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Minimalist Android player on F-Droid, no account needed, that reads M4B chapters natively. Local files only — no cloud, no server sync, no iOS.",
+				"fr": "Lecteur Android minimaliste sur F-Droid, sans compte, qui lit nativement les chapitres M4B. Fichiers locaux uniquement : pas de cloud, pas de synchronisation, pas d’iOS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "BookPlayer",
+			"source": {
+				"host": "github",
+				"path": "TortugaPower/BookPlayer",
+				"url": "https://github.com/TortugaPower/BookPlayer"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Open-source iOS player with M4B chapters, variable speed from 0.5x to 3x, and CarPlay plus Apple Watch sync. The cleanest local-listening UI — for iPhone/iPad owners only.",
+				"fr": "Lecteur iOS open source, chapitres M4B, vitesse variable de 0,5x à 3x, synchronisation CarPlay et Apple Watch. L’interface la plus soignée pour l’écoute locale, réservée à l’iPhone/iPad."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Storyteller",
+			"source": {
+				"host": "github",
+				"path": "smoores-dev/storyteller",
+				"url": "https://github.com/smoores-dev/storyteller"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted WhisperSync alternative: aligns audiobook narration with the ebook and exports standard EPUB 3 Media Overlays. Needs a matching book-and-audio pair — useless if you only listen.",
+				"fr": "Alternative autohébergée à WhisperSync : aligne la narration audio sur le texte et produit des EPUB 3 à Media Overlays standard. Il faut posséder le livre et son audio — inutile si vous n’écoutez qu’à l’oreille."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Jellyfin",
+			"source": {
+				"host": "github",
+				"path": "jellyfin/jellyfin",
+				"url": "https://github.com/jellyfin/jellyfin"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "General media server whose audiobook support stops short of chapter navigation — pair it with Plappa or Finamp for that. Works, but was built for music and movies first.",
+				"fr": "Serveur multimédia généraliste à la gestion des chapitres incomplète : associez-le à Plappa ou Finamp pour l’audiobook. Fonctionnel, mais pensé d’abord pour la musique et les films."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Booksonic-Air",
+			"source": {
+				"host": "github",
+				"path": "popeen/Booksonic-Air",
+				"url": "https://github.com/popeen/Booksonic-Air"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Audiobook server on Airsonic base with an Android app and Subsonic compatibility. Untouched since March 2023 and still functional, but its maintenance has stopped.",
+				"fr": "Serveur audiobook dérivé d’Airsonic, avec app Android et compatibilité Subsonic. Inchangé depuis mars 2023 et toujours fonctionnel, mais plus maintenu."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "AudioAnchor",
+			"source": {
+				"host": "github",
+				"path": "flackbash/AudioAnchor",
+				"url": "https://github.com/flackbash/AudioAnchor"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "F-Droid player built around explicit progress tracking — per-book position and time remaining, exportable and importable. Lightweight and offline, though Android-only with local files.",
+				"fr": "Lecteur F-Droid construit autour du suivi de progression : position et temps restant par livre, exportables et importables. Léger et hors ligne, mais Android et fichiers locaux uniquement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

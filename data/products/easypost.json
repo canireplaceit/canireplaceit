@@ -97,6 +97,174 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Fleetbase",
+			"source": {
+				"host": "github",
+				"path": "fleetbase/fleetbase",
+				"url": "https://github.com/fleetbase/fleetbase"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Modular logistics OS with shipping, fleet, and inventory extensions. Fewer negotiated-rate carrier integrations than EasyPost, and AGPL-3.0 copyleft; the managed console is paid, self-hosting drops the vendor SLA.",
+				"fr": "OS logistique avec extensions expédition, flotte et inventaire. Moins d’intégrations de transporteurs à tarifs négociés qu’EasyPost, et copyleft AGPL-3.0 : la console hébergée est payante, le self-host fait perdre le SLA du vendeur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ever Demand",
+			"source": {
+				"host": "github",
+				"path": "ever-co/ever-demand",
+				"url": "https://github.com/ever-co/ever-demand"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "On-demand last-mile delivery platform with dispatcher console and route assignment. It is a delivery-ops tool, not a B2B label/rate API; you integrate carriers and payment yourself under AGPL-3.0.",
+				"fr": "Plateforme de livraison du dernier kilomètre avec console répartiteur et affectation des tournées. Orienté delivery, pas une API B2B de labels/tarifs : transporteurs et paiement à intégrer soi-même, sous AGPL-3.0."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenBoxes",
+			"source": {
+				"host": "github",
+				"path": "openboxes/openboxes",
+				"url": "https://github.com/openboxes/openboxes"
+			},
+			"license": "EPL-1.0",
+			"effort": "docker",
+			"note": {
+				"en": "Open supply-chain suite for inventory, outbound shipments, and carriers, aimed at public-health supply chains. More warehouse-ops tool than shipping-rate API, with limited carrier label integrations.",
+				"fr": "Suite logistique open source pour inventaire, expéditions et transporteurs, pensée pour la santé publique. Outillage d’entrepôt plus qu’API de labels de transport, et peu d’intégrations."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GreaterWMS",
+			"source": {
+				"host": "github",
+				"path": "GreaterWMS/GreaterWMS",
+				"url": "https://github.com/GreaterWMS/GreaterWMS"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted WMS for cross-border e-commerce, 3PL, and label printing. Warehouse ops, not a carrier rate/label API, and you need direct carrier accounts for postage; docs and community skew Chinese-first.",
+				"fr": "WMS auto-hébergé pour e-commerce transfrontalier, 3PL et impression d’étiquettes. Gestion d’entrepôt, pas une API de tarifs/labels : il faut des comptes transporteur directs pour l’affranchissement ; doc et communauté à dominante chinoise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenWMS",
+			"source": {
+				"host": "github",
+				"path": "openwms/org.openwms",
+				"url": "https://github.com/openwms/org.openwms"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Microservice WMS: transport and picking orders, inventory, REST APIs per module. Low-level building blocks with no turnkey label features — significant integration effort and a Java stack to run.",
+				"fr": "WMS en microservices : ordres de transport et picking, inventaire, API REST par module. Briques de bas niveau sans étiquettes clé-en-main : gros travail d’intégration et une stack Java à opérer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Courier",
+			"source": {
+				"host": "github",
+				"path": "tborychowski/courier",
+				"url": "https://github.com/tborychowski/courier"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted multi-carrier parcel tracker with QR-code links and email notifications, dormant since 2023. Tracking only — no rates or labels — and carrier API changes can break scrapers.",
+				"fr": "Traceur de colis multi-transporteurs auto-hébergé, liens QR et notifications e-mail ; en sommeil depuis 2023. Suivi uniquement, pas de tarifs ni d’achat d’étiquettes, et les changements d’API des transporteurs peuvent casser les scrapers."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Parcel Tracker CLI",
+			"source": {
+				"host": "github",
+				"path": "blancleaf/parcel_tracker_cli",
+				"url": "https://github.com/blancleaf/parcel_tracker_cli"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Terminal tool for tracking parcels across many carriers, pip-installable; inactive since 2022. Tracking only, no rates or labels — it leans on carrier endpoints that can break.",
+				"fr": "Outil terminal de suivi de colis multi-transporteurs, installable via pip ; inactif depuis 2022. Suivi uniquement, pas de tarifs ni d’étiquettes : il dépend d’endpoints transporteurs qui peuvent casser."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Snake Label",
+			"source": {
+				"host": "github",
+				"path": "typingbeaver/snake-label",
+				"url": "https://github.com/typingbeaver/snake-label"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Offline CLI for German DHL/Hermes labels on 62mm thermal printers, no postage needed at generation time. German carriers only, prints without rate shopping or tracking, still needs a carrier account.",
+				"fr": "CLI hors ligne pour étiquettes DHL/Hermes allemandes en thermique 62mm, sans affranchissement à la génération. Transporteurs allemands uniquement, impression sans comparateur de tarifs ni suivi ; compte transporteur requis."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

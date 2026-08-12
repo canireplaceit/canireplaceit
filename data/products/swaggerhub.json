@@ -114,6 +114,182 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Redoc",
+			"source": {
+				"host": "github",
+				"path": "Redocly/redoc",
+				"url": "https://github.com/Redocly/redoc"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Most-used open-source OpenAPI reference renderer. Three-panel layout, search and code samples baked in, static HTML export. Docs only — no editor, no mocks, no team or versioning workflow.",
+				"fr": "Le rendu OpenAPI de référence en open source, statique et rapide. Trois panneaux, recherche, exemples de code, export HTML. C’est tout : ni éditeur, ni mocks, ni flux d’équipe ou de versioning."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Redocly CLI",
+			"source": {
+				"host": "github",
+				"path": "Redocly/redocly-cli",
+				"url": "https://github.com/Redocly/redocly-cli"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Lints, bundles, diffs and previews OpenAPI docs from the terminal. Custom lint plugins, GitHub Actions, breaking-change checks. No visual editor; publishing leans on the Redocly cloud, workflow is files plus git.",
+				"fr": "Linte, regroupe, diff et prévisualise les docs OpenAPI depuis le terminal. Plugins de lint, GitHub Action, breaking-change checks. CLI avant tout : pas d’éditeur visuel, et le portail passe par le cloud Redocly."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Redocly cloud portal publishing and team features",
+					"fr": "Édition du portail dans le cloud Redocly et fonctions d’équipe"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "oasdiff",
+			"source": {
+				"host": "github",
+				"path": "oasdiff/oasdiff",
+				"url": "https://github.com/oasdiff/oasdiff"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Dedicated to one job: diffing specs and flagging breaking changes in CI. Changelog from spec-to-spec diff, severity-ranked breaking changes, GitHub Action and web UI. Design and docs stay elsewhere.",
+				"fr": "Un seul métier : diff spec-à-spec et détection de breaking changes en CI. Changelog, sévérité, GitHub Action, web UI. Ni design ni docs, il complète un portail plutôt qu’il ne le remplace."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Swagger Editor",
+			"source": {
+				"host": "github",
+				"path": "swagger-api/swagger-editor",
+				"url": "https://github.com/swagger-api/swagger-editor"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The classic visual editor: split-pane, live validation, instant docs and mock previews, self-hostable with an official Docker image. Single-user and stateless — no team collab, no versioning, no shared portal.",
+				"fr": "L’éditeur visuel classique : deux panneaux, validation en direct, docs et mocks instantanés, self-hostable via l’image Docker officielle. Mono-utilisateur et sans état : pas de collaboration, de versioning ni de portail partagé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apicurio Studio",
+			"source": {
+				"host": "github",
+				"path": "ApicurioArchive/apicurio-studio",
+				"url": "https://github.com/ApicurioArchive/apicurio-studio"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Multi-user design studio covering OpenAPI, AsyncAPI, Avro and GraphQL with validation, codegen and mocks. Closest to SwaggerHub’s editor, but the project was archived in 2025 — maintenance is at risk.",
+				"fr": "Studio de design multi-utilisateurs, le plus proche de l’éditeur SwaggerHub : OpenAPI, AsyncAPI, Avro, GraphQL, validation, génération de code et mocks. Archivé en 2025 — la maintenance est en jeu."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Prism",
+			"source": {
+				"host": "github",
+				"path": "stoplightio/prism",
+				"url": "https://github.com/stoplightio/prism"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Stand-in mock server for development and CI. Dynamic responses from schemas and examples, proxy mode to real backends, request/response validation, CLI and Docker. Mocking only — not a design tool.",
+				"fr": "Serveur de mocks pour le développement et la CI. Réponses dynamiques tirées des schémas et exemples, mode proxy vers les vrais backends, validation requête/réponse, CLI et Docker. Du mock, pas de design."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Stoplight Elements",
+			"source": {
+				"host": "github",
+				"path": "stoplightio/elements",
+				"url": "https://github.com/stoplightio/elements"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Embeddable, white-label API docs with a try-it console that actually calls the API. React and web-component builds, static or framework-hosted. You build the portal around it — no authz or team features.",
+				"fr": "Composant de docs API embarquable et white-label, avec console try-it qui appelle l’API. React ou web-component, statique ou hébergé par votre framework. Construisez le portail autour : ni authz, ni équipes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Scalar",
+			"source": {
+				"host": "github",
+				"path": "scalar/scalar",
+				"url": "https://github.com/scalar/scalar"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Modern OpenAPI reference docs with a try-it sandbox, plus a CLI, editor and framework integrations — MIT core. Full platform and team features are commercial; hosted services sit outside the OSS core.",
+				"fr": "Référence OpenAPI moderne avec bac à sable try-it, CLI, éditeur et intégrations framework — cœur MIT. La plateforme et les fonctions d’équipe sont commerciales, les services hébergés hors du noyau OSS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Full platform and team features, hosted services",
+					"fr": "Plateforme complète, fonctions d’équipe et services hébergés"
+				}
+			}
 		}
 	],
 	"priority": 2

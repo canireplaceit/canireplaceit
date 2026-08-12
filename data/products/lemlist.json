@@ -103,6 +103,194 @@
 				"en": "Half the price with unlimited mailboxes and rotation built in. Rougher UI and no lead database.",
 				"fr": "Moitié prix avec boîtes illimitées et rotation intégrée. Interface plus rustique et pas de base de prospects."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "EspoCRM",
+			"source": {
+				"host": "github",
+				"path": "espocrm/espocrm",
+				"url": "https://github.com/espocrm/espocrm"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Open-source CRM with built-in email campaigns and a mail client — a workable self-hosted base for outbound. Campaigns are mass-send, not 1:1 sequences; no warmup or inbox rotation; the PHP UI is dated.",
+				"fr": "CRM open source avec campagnes e-mail et client mail intégrés — une base auto-hébergeable correcte pour l’outbound. Campagnes envois de masse, pas 1:1 ; pas de warmup ni de rotation d’inbox ; UI PHP vieillissante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "A few paid add-ons",
+					"fr": "Quelques modules payants"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SuiteCRM",
+			"source": {
+				"host": "github",
+				"path": "SuiteCRM/SuiteCRM",
+				"url": "https://github.com/SuiteCRM/SuiteCRM"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Maintained SugarCRM fork — open-source CRM with email campaigns and autoresponders, at home in PHP/LAMP shops. Engine is batch-oriented; outbound sequencing is limited; UI and stack feel dated.",
+				"fr": "Fork maintenu de SugarCRM — CRM open source avec campagnes e-mail et répondeurs automatiques, à l’aise dans les stacks PHP/LAMP. Moteur orienté batch, séquences d’outbound limitées, UI et stack vieillissantes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "A few paid add-on modules",
+					"fr": "Quelques modules complémentaires payants"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Erxes",
+			"source": {
+				"host": "github",
+				"path": "erxes/erxes",
+				"url": "https://github.com/erxes/erxes"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "AGPL marketing-automation suite with email campaigns, forms, pop-ups and a messenger — broader engagement tooling than a pure outreach sender. Heavy multi-service stack; campaigns lean marketing, not cold sequences; no deliverability tooling.",
+				"fr": "Suite AGPL de marketing automation (campagnes e-mail, formulaires, pop-ups, messagerie) — plus de l’engagement que de l’outreach pur. Stack multi-services lourde, campagnes orientées marketing, pas de séquences cold, zéro outil de délivrabilité."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Paid app-store plugins",
+					"fr": "Plugins payants de la boutique"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Keila",
+			"source": {
+				"host": "github",
+				"path": "pentacent/keila",
+				"url": "https://github.com/pentacent/keila"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted Elixir newsletter tool — API-first, light, with solid deliverability basics for small volumes. Smaller community and roadmap; no lead sourcing or enrichment; not built for 1:1 outreach.",
+				"fr": "Outil d’e-mailing auto-hébergeable en Elixir — léger, API-first, avec des bases de délivrabilité solides pour les petits volumes. Communauté et roadmap modestes ; pas de sourcing ni d’enrichissement ; pas pensé pour l’outreach 1:1."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mailtrain",
+			"source": {
+				"host": "github",
+				"path": "Mailtrain-org/mailtrain",
+				"url": "https://github.com/Mailtrain-org/mailtrain"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted newsletter app with good bulk throughput and plugins, still maintained for high-volume lists. No per-prospect sequence orchestration; config skews to broadcast; recent commits have slowed.",
+				"fr": "Application d’e-mailing auto-hébergeable avec un bon débit en masse et des plugins, toujours maintenue pour les grosses listes. Pas d’orchestration de séquences par prospect ; config taillée pour le broadcast ; commits au ralenti."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenEMM",
+			"source": {
+				"host": "github",
+				"path": "agnitas-org/openemm",
+				"url": "https://github.com/agnitas-org/openemm"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Long-lived AGPL email-marketing server — successor to classic EMM — with multi-stage campaigns, autoresponders and A/B testing. Java/Tomcat stack is ops-heavy; docs and community skew German; Pro tier splits features.",
+				"fr": "Serveur d’email marketing AGPL de longue date, successeur du classique EMM, avec campagnes multi-étapes, répondeurs et A/B testing. Stack Java/Tomcat lourde en ops, docs et communauté germanophones, tier Pro scinde les fonctions."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Pro-tier commercial features",
+					"fr": "Fonctionnalités commerciales du tier Pro"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "phpList",
+			"source": {
+				"host": "github",
+				"path": "phpList/core",
+				"url": "https://github.com/phpList/core"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Veteran open-source email campaign manager with bounce handling and an API — a simple LAMP self-host for blasts. Newsletter-oriented, not per-recipient outreach; aging interface; core repo modestly maintained.",
+				"fr": "Gestionnaire open source de campagnes e-mail avec gestion des bounces et API — un self-host LAMP simple pour les blasts. Orienté newsletter, pas d’outreach par destinataire ; interface vieillie, repo modestement maintenu."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Paid extension plug-ins",
+					"fr": "Extensions payantes"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mailmerge (CLI)",
+			"source": {
+				"host": "github",
+				"path": "awdeorio/mailmerge",
+				"url": "https://github.com/awdeorio/mailmerge"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Tiny Python mail-merge CLI that personalizes CSV-driven emails via Gmail or SMTP, with draft-mode review. Script-driven — no UI, no scheduling, no tracking or follow-ups; Gmail-only by default.",
+				"fr": "Petit CLI Python de mail-merge, e-mails CSV personnalisés via Gmail ou SMTP, relecture en brouillon. Piloté par scripts : pas d’UI, ni planification, ni tracking, ni relances ; Gmail par défaut."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

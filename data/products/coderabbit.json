@@ -101,6 +101,262 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Reviewdog",
+			"source": {
+				"host": "github",
+				"path": "reviewdog/reviewdog",
+				"url": "https://github.com/reviewdog/reviewdog"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Posts any linter or LLM output as inline PR comments — the glue behind open-source review bots. One static binary, any CI. Bring your own linters and LLM key; comments only, no fixes.",
+				"fr": "Sortie de vos linters ou d’un LLM en commentaires inline sur les PR — le ciment des bots de review. Binaire statique, toute CI. Vos linters, votre clé ; commentaires uniquement, pas de correctifs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CodeQL",
+			"source": {
+				"host": "github",
+				"path": "github/codeql",
+				"url": "https://github.com/github/codeql"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "GitHub’s semantic security analyzer on your own CI, flagging data-flow and taint flaws in every PR — same engine as code scanning. Needs compiled database, slower than regex linting, and stops at security.",
+				"fr": "L’analyseur sémantique de sécurité de GitHub, en CI chez vous : failles de data-flow et de taint par PR, moteur du code scanning. Base compilée requise, plus lent qu’un lint regex, sécurité seulement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SonarQube",
+			"source": {
+				"host": "github",
+				"path": "SonarSource/sonarqube",
+				"url": "https://github.com/SonarSource/sonarqube"
+			},
+			"license": "LGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Classic self-hosted quality server: dashboards, quality gates, PR decoration across GitHub/GitLab/Bitbucket, 30+ languages. Heavy ops — server, database, search engine — and the free build is openCore: plugins and SSO are paid.",
+				"fr": "Serveur de qualité auto-hébergé : dashboards, quality gates, décoration des PR GitHub/GitLab/Bitbucket, 30+ langages. Ops lourde — serveur, base, moteur de recherche — et la version gratuite est openCore : plugins et SSO payants."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Plugins and SSO",
+					"fr": "Plugins et SSO"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mega-Linter",
+			"source": {
+				"host": "github",
+				"path": "oxsecurity/megalinter",
+				"url": "https://github.com/oxsecurity/megalinter"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "One Docker image running 100+ linters and formatters, flagging only changed PR lines, with auto-fix. Huge image, slow first run, big config surface — and no AI review.",
+				"fr": "Une image Docker qui lance 100+ linters et formateurs et ne signale que les lignes modifiées des PR, avec auto-fix. Image énorme, premier lancement lent, config vaste — pas d’IA."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "golangci-lint",
+			"source": {
+				"host": "github",
+				"path": "golangci/golangci-lint",
+				"url": "https://github.com/golangci/golangci-lint"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "De-facto Go review gate: 100+ linters in one fast binary, diff-aware so only new code gets flagged, GitLab/GitHub annotations. Go only, rules not AI review, and tuning config takes time.",
+				"fr": "Passage obligé Go : 100+ linters dans un binaire rapide, mode diff pour ne signaler que le code nouveau, annotations GitHub/GitLab. Go uniquement, règles plutôt qu’IA, et la config demande du réglage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ruff",
+			"source": {
+				"host": "github",
+				"path": "astral-sh/ruff",
+				"url": "https://github.com/astral-sh/ruff"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Python linter and formatter 10–100x faster than flake8/black, drop-in for the flake8, isort, pyupgrade ecosystems. Python only, rules not logic review, and no built-in PR comment posting.",
+				"fr": "Linter et formateur Python 10 à 100 fois plus rapides que flake8/black, drop-in pour flake8, isort, pyupgrade. Python seulement, règles et non analyse logique, pas de commentaires de PR intégrés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pre-commit",
+			"source": {
+				"host": "github",
+				"path": "pre-commit/pre-commit",
+				"url": "https://github.com/pre-commit/pre-commit"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Runs hooks on staged files before anything reaches review, versioned from a config file, any language. Local gate only: no server, no audit trail, and devs can skip it.",
+				"fr": "Exécute des hooks sur les fichiers stagés avant toute review, versionnés via un fichier de config, toutes langues. Porte locale seulement : pas de serveur, pas d’audit, et les devs peuvent l’ignorer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "commitlint",
+			"source": {
+				"host": "github",
+				"path": "conventional-changelog/commitlint",
+				"url": "https://github.com/conventional-changelog/commitlint"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Cheap shared standard: lints commit messages against conventional commits as a hook or CI step, feeding semantic-release. Format only — code is never looked at — and the team must adopt the convention.",
+				"fr": "Norme partagée bon marché : lint des messages de commit contre conventional commits, en hook ou CI. Alimente semantic-release. Format seulement — le code n’est jamais regardé — et l’équipe doit adopter la convention."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Review Board",
+			"source": {
+				"host": "github",
+				"path": "reviewboard/reviewboard",
+				"url": "https://github.com/reviewboard/reviewboard"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "No AI analysis, aging UI, and it needs a server and database to run — but the oldest self-hosted human review server, with web diffs, inline comments and ship-it.",
+				"fr": "Pas d’analyse IA, UI vieillissante, et il faut un serveur et une base — mais c’est le plus ancien serveur de review humaine auto-hébergé : diffs web, commentaires inline, ship-it, zéro dépendance SaaS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Gerrit",
+			"source": {
+				"host": "github",
+				"path": "GerritCodeReview/gerrit",
+				"url": "https://github.com/GerritCodeReview/gerrit"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Google-backed forge coupling approval to git: nothing merges without verified/reviewed labels and code-owners. Heavy setup, Java ops, steep learning curve, no AI or analysis.",
+				"fr": "Forge de review soutenue par Google, couplée à git : rien ne fusionne sans labels verified/reviewed ni code-owners. Setup lourd, ops Java, courbe d’apprentissage raide, pas d’IA ni d’analyse."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "lazygit",
+			"source": {
+				"host": "github",
+				"path": "jesseduffield/lazygit",
+				"url": "https://github.com/jesseduffield/lazygit"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Fast TUI for walking diffs, staging and inspecting commits — pleasant local self-review. No comments, approvals or PR integration, keybindings need practice, and it is personal, not team workflow.",
+				"fr": "TUI rapide pour parcourir les diffs, stager et inspecter les commits — une auto-review locale agréable. Ni commentaires, ni approbations, ni intégration PR, les raccourcis demandent du temps, et c’est perso, pas d’équipe."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "delta",
+			"source": {
+				"host": "github",
+				"path": "dandavison/delta",
+				"url": "https://github.com/dandavison/delta"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Syntax-highlighted side-by-side diff pager, drop-in for git diff, with merge-conflict and blame views. Display only — no analysis or comments — and theme setup is needed for the best output.",
+				"fr": "Pager de diff côte à côte avec coloration syntaxique, drop-in pour git diff, vues conflits et blame. Affichage seulement — ni analyse ni commentaires — et un thème à régler pour un rendu optimal."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

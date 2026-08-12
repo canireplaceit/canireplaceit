@@ -111,6 +111,153 @@
 				"en": "The same automated audits and alerts for a third of the price. Google Ads and Microsoft only, fewer bulk-edit tools.",
 				"fr": "Les mêmes audits et alertes automatiques pour un tiers du prix. Google Ads et Microsoft uniquement, moins d’outils d’édition en masse."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Facebook Python Business SDK",
+			"source": {
+				"host": "github",
+				"path": "facebook/facebook-python-business-sdk",
+				"url": "https://github.com/facebook/facebook-python-business-sdk"
+			},
+			"license": "LicenseRef-scancode-facebook-platform-license",
+			"effort": "managed",
+			"note": {
+				"en": "Official Meta Ads API client, the building block for scripting your own Facebook/Instagram PPC automation. The Facebook Platform License is restrictive, and there's no rules engine, dashboard, or token handling.",
+				"fr": "Client officiel de l’API Meta Ads, socle pour automatiser soi-même le PPC Facebook et Instagram. Licence Facebook Platform restrictive, ni moteur de règles, ni tableau de bord, ni gestion des jetons."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Bing Ads Python SDK",
+			"source": {
+				"host": "github",
+				"path": "BingAds/BingAds-Python-SDK",
+				"url": "https://github.com/BingAds/BingAds-Python-SDK"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Official MIT-licensed Microsoft Advertising client, the way self-hosted stacks cover Bing. Library only — automation is your code, docs are thin, and API access is granted separately.",
+				"fr": "Client officiel Microsoft Advertising, licence MIT, de quoi couvrir Bing dans une stack self-hosted. Bibliothèque seulement — l’automatisation reste votre code, doc mince, accès API accordé séparément."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Google Ads PHP client",
+			"source": {
+				"host": "github",
+				"path": "googleads/google-ads-php",
+				"url": "https://github.com/googleads/google-ads-php"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Official PHP client for the Google Ads API — how PHP agencies script their own bid rules. Library only, no UI or rules engine, a Python-client twin; optimization is PHP dev time.",
+				"fr": "Client officiel PHP de l’API Google Ads, pour des agences qui scriptent leurs enchères. Bibliothèque seule, pas d’UI ni moteur de règles, jumeau du client Python — toute optimisation veut du dev PHP."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Google Ads Java client",
+			"source": {
+				"host": "github",
+				"path": "googleads/google-ads-java",
+				"url": "https://github.com/googleads/google-ads-java"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Official Java/Kotlin client, thread-safe for batch report jobs on JVM backends. Library only — more boilerplate than the Python client, and you need JVM infrastructure to run it.",
+				"fr": "Client officiel Java/Kotlin, thread-safe pour les jobs de reporting par lots sur backend JVM. Bibliothèque seule, plus verbeuse que le client Python, et dépend d’une infra JVM pour tourner."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Google Ads .NET client",
+			"source": {
+				"host": "github",
+				"path": "googleads/google-ads-dotnet",
+				"url": "https://github.com/googleads/google-ads-dotnet"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Official .NET client for C# shops pulling GAQL reports into their own PPC automation. Library only, smaller community than the Python client, and all rule and report logic is yours to build.",
+				"fr": "Client officiel .NET pour du PPC maison côté C#, rapports GAQL inclus. Bibliothèque seule, communauté plus petite qu’en Python ; règles comme rapports, tout reste à écrire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Google Ads Open CLI",
+			"source": {
+				"host": "github",
+				"path": "Bin-Huang/google-ads-open-cli",
+				"url": "https://github.com/Bin-Huang/google-ads-open-cli"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Terminal CLI for Google Ads, querying campaigns, keywords and search terms with AI-agent-friendly output. Young and thin-documented — read-mostly, with heavy mutation and scheduling left to cron or n8n.",
+				"fr": "CLI terminal pour Google Ads : campagnes, mots-clés, search terms, sortie pensée pour les agents IA. Projet jeune, doc mince, lecture d’abord — mutation lourde et planification laissées à cron ou n8n."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Google Ads CLI Toolkit",
+			"source": {
+				"host": "github",
+				"path": "nicolasmaldonadoj/google-ads-cli-toolkit",
+				"url": "https://github.com/nicolasmaldonadoj/google-ads-cli-toolkit"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Terminal toolkit across Google Ads, GTM and GA4 — PPC ops without the browser, shipped with a Claude Code playbook. Small community, Spanish-first docs, and rule automation is still on you.",
+				"fr": "Toolkit terminal couvrant Google Ads, GTM et GA4 — opérations PPC sans ouvrir le navigateur, avec un playbook Claude Code. Petite communauté, doc orientée hispanophone, et l’automatisation des règles reste à faire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

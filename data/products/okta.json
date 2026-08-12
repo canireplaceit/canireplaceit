@@ -97,6 +97,262 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Authelia",
+			"source": {
+				"host": "github",
+				"path": "authelia/authelia",
+				"url": "https://github.com/authelia/authelia"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Sits in front of reverse proxies as a forward-auth SSO and 2FA gatekeeper; one static binary, config-file driven. Not a full IdP: it delegates the user store, has no admin UI.",
+				"fr": "Se place devant les reverse proxies comme gardien SSO et 2FA en forward-auth, un seul binaire, piloté par config. Pas un IdP complet : il délègue l’annuaire, sans interface d’admin."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Casdoor",
+			"source": {
+				"host": "github",
+				"path": "casdoor/casdoor",
+				"url": "https://github.com/casdoor/casdoor"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Full IdP in Go: SSO, MFA, RBAC, LDAP sync, plus social, OIDC and SAML connectors out of the box. But young and fast-moving — UI rougher than Keycloak, docs split EN/Chinese.",
+				"fr": "IdP complet en Go : SSO, MFA, RBAC, sync LDAP, connecteurs sociaux, OIDC et SAML inclus. Mais projet jeune et rapide — UI moins soignée que Keycloak, docs partagées EN/chinois."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dex",
+			"source": {
+				"host": "github",
+				"path": "dexidp/dex",
+				"url": "https://github.com/dexidp/dex"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A pure OIDC broker: one static binary that fronts LDAP, SAML, GitHub and Google connectors. Buy it only if you have users elsewhere — no provisioning, no real admin UI, limited MFA.",
+				"fr": "Pur courtier OIDC : un seul binaire statique qui agrège des connecteurs LDAP, SAML, GitHub, Google. À prendre seulement si vos utilisateurs vivent ailleurs — pas de provisionnement, admin réduite, MFA limitée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ory Kratos",
+			"source": {
+				"host": "github",
+				"path": "ory/kratos",
+				"url": "https://github.com/ory/kratos"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Headless identity service: registration, login, recovery and sessions over a clean API — but you build the whole UI. Not turnkey: pair it with Hydra and a frontend to get anywhere.",
+				"fr": "Service d’identité sans UI : inscription, connexion, récupération, sessions via une API propre — à vous de construire le front. Pas clé en main : il faut lui adjoindre Hydra et une interface."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ory Hydra",
+			"source": {
+				"host": "github",
+				"path": "ory/hydra",
+				"url": "https://github.com/ory/hydra"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "OAuth2/OIDC server that leaves identity to you: PKCE, JWT, SQL backend, one static binary. Needs a login and consent app you build yourself — admin by CLI and API only.",
+				"fr": "Serveur OAuth2/OIDC qui vous laisse l’identité : PKCE, JWT, backend SQL, un binaire statique. Réclame une app de login et de consent à construire soi-même, admin en CLI/API seulement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SuperTokens",
+			"source": {
+				"host": "github",
+				"path": "supertokens/supertokens-core",
+				"url": "https://github.com/supertokens/supertokens-core"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "App-centric by design: SDKs and a prebuilt UI for sessions, social login and MFA — quick to embed. But SAML stays out of the open core, so enterprise brokering is thin.",
+				"fr": "Conçu pour l’application : SDK et UI prête à l’emploi pour sessions, login social, MFA — rapide à intégrer. Mais le SAML reste hors du cœur open source, le brokering entreprise s’en ressent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise features",
+					"fr": "Fonctionnalités entreprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LLDAP",
+			"source": {
+				"host": "github",
+				"path": "lldap/lldap",
+				"url": "https://github.com/lldap/lldap"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Friendly LDAP server for the small self-hosted setup: Docker deploy, groups and a real web admin UI. Directory only though — no OIDC or SAML, so it never replaces Okta alone.",
+				"fr": "Serveur LDAP sympa pour le petit self-hosted : déploiement Docker, groupes et une vraie UI d’admin web. Annuaire uniquement — pas d’OIDC ni de SAML, insuffisant seul pour remplacer Okta."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kanidm",
+			"source": {
+				"host": "github",
+				"path": "kanidm/kanidm",
+				"url": "https://github.com/kanidm/kanidm"
+			},
+			"license": "MPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Rust IAM that does both sides: OAuth2/OIDC and a genuinely LDAP-compatible endpoint, plus passkeys and CLI admin. Concept takes learning, SAML is thin, and the community stays small.",
+				"fr": "IAM en Rust qui couvre les deux versants : OAuth2/OIDC et un endpoint réellement compatible LDAP, passkeys, admin en CLI. Le modèle conceptuel demande de l’apprentissage, le SAML reste limité."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Logto",
+			"source": {
+				"host": "github",
+				"path": "logto-io/logto",
+				"url": "https://github.com/logto-io/logto"
+			},
+			"license": "MPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Polished customer-identity IdP: OIDC, MFA and passkeys, social sign-in, clean docs and SDKs. Geared to app auth — SAML is a paid feature and employee-SSO directory hooks are thin.",
+				"fr": "IdP customer-identity soigné : OIDC, MFA, passkeys, login social, docs et SDK propres. Pensé pour l’auth d’application — le SAML est payant et les connecteurs annuaire entreprise restent rares."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Hanko",
+			"source": {
+				"host": "github",
+				"path": "teamhanko/hanko",
+				"url": "https://github.com/teamhanko/hanko"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Passwordless-first auth: WebAuthn passkeys plus OIDC, with web components you drop straight in. AGPL-3.0 copyleft, and passwords sit second-class behind the passkey flow.",
+				"fr": "Auth « passwordless » d’abord : passkeys WebAuthn plus OIDC, avec des web components à brancher directement. Copyleft AGPL-3.0, et les mots de passe restent relégués derrière les passkeys."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "HexClave",
+			"source": {
+				"host": "github",
+				"path": "hexclave/hexclave",
+				"url": "https://github.com/hexclave/hexclave"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Easy self-hosted auth platform (ex-StackAuth) with an admin dashboard and SDKs: email/password, social, magic links. AGPL server with MIT clients, app-oriented, and a project young enough that SAML maturity is untested.",
+				"fr": "Plateforme d’auth open source facile à self-hoster (ex-StackAuth) : dashboard admin, SDKs, email/password, social, magic links. Serveur AGPL, clients MIT, orientée application — projet récent, maturité SAML incertaine."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "oauth2c",
+			"source": {
+				"host": "github",
+				"path": "SecureAuthCorp/oauth2c",
+				"url": "https://github.com/SecureAuthCorp/oauth2c"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "CLI OAuth2/OIDC client for scripting and debugging flows — authorization code, device, token inspection — against any provider. A dev/ops utility, not an IdP, with no UI.",
+				"fr": "Client OAuth2/OIDC en CLI pour script et débogage de flux — authorization code, device, inspection de tokens — face à n’importe quel fournisseur. Un outil dev/ops, pas un IdP, sans UI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

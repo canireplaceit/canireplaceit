@@ -103,6 +103,195 @@
 				"en": "Free, excellent battery behaviour, and crash detection is built into the phone. Apple-only, and no driving reports.",
 				"fr": "Gratuit, excellente autonomie, et la détection d’accident est intégrée au téléphone. Réservé à Apple, et pas de rapports de conduite."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Home Assistant",
+			"source": {
+				"host": "github",
+				"path": "home-assistant/core",
+				"url": "https://github.com/home-assistant/core"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The flagship self-hosted automation hub. Family phones report into zones and geofences, but members need the companion app and your server URL, and alert automations take real work.",
+				"fr": "Le hub d’automatisation auto-hébergé de référence : les téléphones de la famille remontent leur position, mais il faut l’app compagnon, l’URL de votre serveur, et construire soi-même les alertes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PhoneTrack",
+			"source": {
+				"host": "github",
+				"path": "julien-nc/phonetrack",
+				"url": "https://github.com/julien-nc/phonetrack"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Real-time family positions on a shared map inside Nextcloud, with GPX export and SMS fallback. Needs a Nextcloud instance, and viewing is web-only — no native mobile client.",
+				"fr": "Positions de la famille en temps réel sur une carte partagée, dans Nextcloud, avec export GPX et SMS. Il faut un Nextcloud, et la consultation reste en web, sans client mobile."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Hauk",
+			"source": {
+				"host": "github",
+				"path": "bilde2910/Hauk",
+				"url": "https://github.com/bilde2910/Hauk"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Two years without a commit. Shared live location for a limited time via link or QR code, self-hosted PHP with an official Docker image — temporary only, no iOS app.",
+				"fr": "Deux ans sans commit. Partage de position en direct pour une durée limitée, via lien ou QR code, en PHP auto-hébergé avec image Docker officielle — mais temporaire, et pas d’app iOS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Grid",
+			"source": {
+				"host": "github",
+				"path": "Rezivure/Grid-Mobile",
+				"url": "https://github.com/Rezivure/Grid-Mobile"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "E2EE location sharing over Matrix: family circles, iOS and Android apps, and the server never sees plaintext locations. Costs a Matrix homeserver and a young, small community.",
+				"fr": "Partage de position chiffré de bout en bout via Matrix : cercles familiaux, apps iOS et Android, position jamais visible du serveur. Il faut un homeserver Matrix, et la communauté est jeune."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GPSD",
+			"source": {
+				"host": "gitlab",
+				"path": "gpsd/gpsd",
+				"url": "https://gitlab.com/gpsd/gpsd"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Classic daemon that turns physical GPS receivers into a self-hosted source, exposed over TCP JSON, with gpspipe CLI and gpsmon TUI. Plumbing: no map, no family UI, one receiver per device.",
+				"fr": "Daemon classique : des récepteurs GPS deviennent une source auto-hébergée exposée en JSON via TCP, avec gpspipe et gpsmon. C’est de la tuyauterie, pas d’interface famille — pas de carte, un récepteur par appareil."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kismet",
+			"source": {
+				"host": "github",
+				"path": "kismetwireless/kismet",
+				"url": "https://github.com/kismetwireless/kismet"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Wireless presence scanner that spots phones via Wi-Fi and BLE, with a curses TUI, JSON API and alerting when devices come and go. Presence only — home/away, not GPS, and needs compatible hardware.",
+				"fr": "Scanner de présence sans fil qui repère les téléphones en Wi-Fi et BLE, avec TUI curses et alertes d’arrivée/départ. C’est de la présence (présent/absent), pas du GPS — il faut du matériel compatible."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenHaystack",
+			"source": {
+				"host": "github",
+				"path": "seemoo-lab/openhaystack",
+				"url": "https://github.com/seemoo-lab/openhaystack"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Two years without a commit. Build Find My-compatible tags and locate them via any nearby iPhone — free offline finding, but the companion app is macOS-only and locations sit on Apple’s servers.",
+				"fr": "Deux ans sans commit. Fabriquez des tags compatibles Find My, localisés par n’importe quel iPhone à proximité — suivi hors-ligne gratuit, mais app macOS only et positions stockées chez Apple."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "unknown"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GpsTracker",
+			"source": {
+				"host": "github",
+				"path": "nickfox/GpsTracker",
+				"url": "https://github.com/nickfox/GpsTracker"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Native iOS and Android clients with live and historical route maps, speed and battery telemetry. But the server is a manual PHP/MySQL install, and it tracks people or vehicles, not family circles.",
+				"fr": "Clients iOS et Android natifs, cartes d’itinéraires en direct et historiques, vitesse et batterie. Mais le serveur est une installation manuelle PHP/MySQL, et le suivi vise personnes et véhicules, pas les cercles familiaux."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FindMyHistory",
+			"source": {
+				"host": "github",
+				"path": "fjxmlzn/FindMyHistory",
+				"url": "https://github.com/fjxmlzn/FindMyHistory"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "CLI that logs Apple devices’ location and battery history to CSV or InfluxDB, so AirTags double as cheap GPS trackers. Needs a Mac with FindMy; data stays in files, no map UI.",
+				"fr": "CLI qui log position et batterie des appareils Apple en CSV ou InfluxDB — les AirTags deviennent des GPS pas chers. Il faut un Mac avec FindMy, l’historique reste en fichiers, sans carte."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

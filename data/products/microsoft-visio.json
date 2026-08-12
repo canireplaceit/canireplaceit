@@ -82,6 +82,258 @@
 				"en": "Cheaper than Visio Plan 2, better collaboration, and it imports Visio files. Another subscription, and your diagrams move to their cloud.",
 				"fr": "Moins cher que Visio Plan 2, meilleure collaboration, et il importe les fichiers Visio. Un abonnement de plus, et vos schémas partent dans leur cloud."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "D2",
+			"source": {
+				"host": "github",
+				"path": "d2lang/d2",
+				"url": "https://github.com/d2lang/d2"
+			},
+			"license": "MPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Declarative diagram scripting with auto-layout and live-reload rendering; SVG and PNG out, plus imports from Terraform and Postgres. No drag-and-drop canvas, and the ecosystem is younger than Graphviz or Mermaid.",
+				"fr": "Script déclaratif avec auto-layout et rendu en live-reload, sortie SVG et PNG, imports depuis Terraform et Postgres. Pas de canvas interactif, et un écosystème plus jeune que Graphviz ou Mermaid."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Graphviz",
+			"source": {
+				"host": "gitlab",
+				"path": "graphviz/graphviz",
+				"url": "https://gitlab.com/graphviz/graphviz"
+			},
+			"license": "EPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The granddaddy of graph layout: DOT auto-layouts directed graphs from a tiny CLI. Dozens of engines, headless SVG/PNG/PDF everywhere. No visual editor, and fine shape control stays finicky.",
+				"fr": "Le grand ancien du layout : DOT met en page tout graphe orienté depuis un CLI minuscule. Des dizaines de moteurs, rendu headless SVG/PNG/PDF. Pas d’éditeur visuel, et le réglage fin reste capricieux."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Excalidraw",
+			"source": {
+				"host": "github",
+				"path": "excalidraw/excalidraw",
+				"url": "https://github.com/excalidraw/excalidraw"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Hand-drawn-style whiteboard with end-to-end encrypted collaboration and easy self-hosting. The freehand feel is great for wireframes, but it’s not precise technical diagramming — no auto-layout, BPMN shapes, or Visio import.",
+				"fr": "Whiteboard au trait crayonné, chiffrement de bout en bout, self-hosting facile. Le freehand séduit pour les wireframes, mais pas pour le diagramme technique : ni auto-layout, ni formes BPMN, ni import Visio."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PlantUML",
+			"source": {
+				"host": "github",
+				"path": "plantuml/plantuml",
+				"url": "https://github.com/plantuml/plantuml"
+			},
+			"license": "LGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "A tiny DSL renders full UML plus mindmaps, Gantts and wireframes, served by an official Docker image. Text goes in, images come out — no interactive editing, and the auto-layout is barely controllable.",
+				"fr": "Un DSL minuscule rend tout l’UML plus mindmaps, Gantt et wireframes, avec un serveur Docker officiel. Texte en entrée, images en sortie — pas d’édition interactive, et l’auto-layout reste à peine contrôlable."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Diagrams",
+			"source": {
+				"host": "github",
+				"path": "mingrammer/diagrams",
+				"url": "https://github.com/mingrammer/diagrams"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Architecture diagrams written in Python with AWS, GCP and Azure icon sets — ideal for docs-as-code and CI-generated output. Infrastructure only: no canvas, and icons are limited to the bundled providers.",
+				"fr": "Diagrammes d’architecture en Python, icônes AWS, GCP et Azure — parfait pour le docs-as-code et les rendus CI. Infra uniquement : pas de canvas, et pas d’icônes hors des providers embarqués."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kroki",
+			"source": {
+				"host": "github",
+				"path": "yuzutech/kroki",
+				"url": "https://github.com/yuzutech/kroki"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "One self-hosted API renders Mermaid, PlantUML, Graphviz, D2 and more from a Docker image bundling 20+ engines. Great backend for docs and wikis, but render-only — no editor, and the image is huge.",
+				"fr": "Une API self-hosted rend Mermaid, PlantUML, Graphviz, D2 et plus, dans une image Docker qui agrège 20+ moteurs. Parfait en backend de docs et wikis, mais sans éditeur, et l’image est énorme."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Structurizr CLI",
+			"source": {
+				"host": "github",
+				"path": "structurizr/cli",
+				"url": "https://github.com/structurizr/cli"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "C4-model DSL turned into diagrams, documents and workspace exports by this CLI, which pairs with Structurizr Lite. Archived upstream — tooling consolidated into Lite — and C4-focused, not general-purpose.",
+				"fr": "Ce CLI transforme le DSL C4 en diagrammes, documents et exports de workspace, en binôme avec Structurizr Lite. Archivé upstream, l’outillage rejoint Lite — et dédié C4, pas au dessin général."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "nomnoml",
+			"source": {
+				"host": "github",
+				"path": "skanaar/nomnoml",
+				"url": "https://github.com/skanaar/nomnoml"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Runs fully in the browser with a live canvas, and has an npx CLI for headless SVG. Simple UML syntax, but class-diagram focused, visually plain, and a small shape library.",
+				"fr": "Tourne dans le navigateur avec un canvas en direct, plus un CLI npx pour du SVG headless. Syntaxe simple pour l’UML, mais centré classes, visuellement sobre, bibliothèque de formes réduite."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "draw.io Desktop",
+			"source": {
+				"host": "github",
+				"path": "jgraph/drawio-desktop",
+				"url": "https://github.com/jgraph/drawio-desktop"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The closest drop-in Visio replacement: official native desktop app with offline editing and .vsdx import and export. Same manual-diagramming model as the web edition, and no built-in real-time collaboration.",
+				"fr": "Le remplaçant Visio le plus direct : appli desktop native officielle, édition hors ligne, import/export .vsdx. Même modèle de dessin manuel que le web, sans collaboration en temps réel intégrée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "svgbob",
+			"source": {
+				"host": "github",
+				"path": "ivanceras/svgbob",
+				"url": "https://github.com/ivanceras/svgbob"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Tiny Rust CLI turning ASCII-art into crisp SVG, with Rust, JS and Python bindings. Ideal in build pipelines, but ASCII gets clunky on complex diagrams — and no layout engine or editor.",
+				"fr": "CLI Rust minuscule qui transforme l’ASCII-art en SVG net, bindings Rust, JS et Python. Parfait dans les pipelines de build, mais l’ASCII plafonne vite et sans moteur de layout ni éditeur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Asciiflow",
+			"source": {
+				"host": "github",
+				"path": "lewish/asciiflow",
+				"url": "https://github.com/lewish/asciiflow"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The classic browser ASCII-diagram editor, self-hosted from static files or Docker. Exports ASCII, Unicode and HTML — but text-art only: no vector shapes, auto-layout or Visio export, and single-user.",
+				"fr": "L’éditeur ASCII classique dans le navigateur, self-hostable depuis des fichiers statiques ou Docker. Export ASCII, Unicode et HTML — mais du texte pur : ni formes vectorielles, ni auto-layout, ni export Visio, et mono-utilisateur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "askii",
+			"source": {
+				"host": "github",
+				"path": "nytopop/askii",
+				"url": "https://github.com/nytopop/askii"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A terminal TUI for drawing ASCII flowcharts with the keyboard, saving plain-text diagrams. Dormant — no commit since January 2022 — and text-art only, with no rendering or image export.",
+				"fr": "Un TUI de terminal pour dessiner des organigrammes ASCII au clavier, sauvegardés en texte brut. Dormant — aucun commit depuis janvier 2022 — et du texte-art : sans rendu ni export d’image."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

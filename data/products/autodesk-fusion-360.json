@@ -92,6 +92,174 @@
 				"en": "Direct modelling on an iPad or desktop for a third of the price. Weaker on drawings and no real CAM.",
 				"fr": "Modélisation directe sur iPad ou ordinateur pour un tiers du prix. Plus faible sur les mises en plan et sans vraie FAO."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenSCAD",
+			"source": {
+				"host": "gitlab",
+				"path": "openscad/openscad",
+				"url": "https://gitlab.com/openscad/openscad"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Canonical code-driven CAD. Models are programs — variables, modules, CSG — and it runs headless for CI. Exports STL/STEP. No mouse modeling, no CAM.",
+				"fr": "Le CAD canonique par code. Un modèle est un programme — variables, modules, CSG — exécutable headless pour la CI. Export STL/STEP. Pas de modélisation à la souris ni de CAM."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SolveSpace",
+			"source": {
+				"host": "github",
+				"path": "solvespace/solvespace",
+				"url": "https://github.com/solvespace/solvespace"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "GPL parametric 3D CAD built around a real 2D sketch solver, with drafting views straight from the model. Small community, sparse features next to commercial CAD.",
+				"fr": "CAD paramétrique 3D sous GPL fondé sur un vrai solveur d’esquisses 2D, vues 2D dérivées du modèle. Petite communauté, fonctionnalités éparses face au CAD commercial."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CadQuery",
+			"source": {
+				"host": "github",
+				"path": "CadQuery/cadquery",
+				"url": "https://github.com/CadQuery/cadquery"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Scriptable Python CAD on the OpenCascade kernel. Models live in code, STEP/STL import and export via OCCT, visual feedback through CQ-editor. No GUI — code only.",
+				"fr": "CAD scriptable en Python sur le noyau OpenCascade. Le modèle vit dans le code, import/export STEP/STL via OCCT, retour visuel via CQ-editor. Pas de GUI : que du code."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "build123d",
+			"source": {
+				"host": "github",
+				"path": "gumyr/build123d",
+				"url": "https://github.com/gumyr/build123d"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Python-native CAD DSL on OpenCascade with a cleaner API than CadQuery. STEP/STL/AMF export, Jupyter-friendly. No GUI, and a smaller community than CadQuery.",
+				"fr": "DSL CAD natif Python sur OpenCascade, API plus propre que CadQuery. Export STEP/STL/AMF, pensée pour Jupyter. Pas de GUI et une communauté plus petite que CadQuery."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "BRL-CAD",
+			"source": {
+				"host": "github",
+				"path": "BRL-CAD/brlcad",
+				"url": "https://github.com/BRL-CAD/brlcad"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "The longest-running open-source solid modeling suite, still maintained. CSG modeling with a built-in raytracer, TUI-driven and scriptable for batch work. Dated UX, steep curve.",
+				"fr": "La suite de modélisation solide open source la plus ancienne, toujours maintenue. Modélisation CSG avec raytraceur intégré, pilotable en TUI et scriptable pour le batch. UX datée, courbe d’apprentissage raide."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Open CASCADE (OCCT)",
+			"source": {
+				"host": "github",
+				"path": "Open-Cascade-SAS/OCCT",
+				"url": "https://github.com/Open-Cascade-SAS/OCCT"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "The LGPL B-Rep kernel underneath FreeCAD, CadQuery and Dune3D — drop it into your own app to replace Fusion’s geometry engine. A library, not a program; you bring the C++ expertise.",
+				"fr": "Le noyau B-Rep LGPL de FreeCAD, CadQuery et Dune3D — intégrez-le dans votre app pour remplacer le moteur géométrique de Fusion. Une bibliothèque, pas un logiciel : ça exige des compétences C++."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Blender",
+			"source": {
+				"host": "github",
+				"path": "blender/blender",
+				"url": "https://github.com/blender/blender"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Mature 3D suite that runs headless via -b, with rendering, sculpting and a huge add-on ecosystem. But it’s mesh-centric — no constraint workflow, weak B-Rep precision for machined parts.",
+				"fr": "Suite 3D mature, scriptable et rendue headless avec -b, écosystème d’add-ons énorme. Mais tout est mesh : pas de workflow paramétrique à contraintes, et une précision B-Rep faible pour les pièces usinées."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ImplicitCAD",
+			"source": {
+				"host": "github",
+				"path": "Haskell-Things/ImplicitCAD",
+				"url": "https://github.com/Haskell-Things/ImplicitCAD"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "A functional, code-first CAD in Haskell with implicit surfaces, script-driven STL export. Distinctive — if you live in Haskell. Niche ecosystem, no GUI, no collaboration.",
+				"fr": "CAD fonctionnel et code-first en Haskell, surfaces implicites, export STL piloté par script. Original — à condition de vivre en Haskell. Écosystème de niche, pas de GUI ni de collaboration."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

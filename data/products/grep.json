@@ -1,0 +1,282 @@
+{
+	"slug": "grep",
+	"name": "grep",
+	"domain": null,
+	"category": "shell-terminal",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "Yes. On a source tree ripgrep is usually an order of magnitude faster, and it is the default replacement. Keep grep for one-off pipes and for machines where nothing else is installed.",
+		"fr": "Oui. Sur un arbre source, ripgrep est généralement un ordre de grandeur plus rapide et s’impose comme remplaçant par défaut. Gardez grep pour les pipes ponctuels et les machines où rien d’autre n’est installé."
+	},
+	"whatYouLose": [
+		{
+			"en": "Ubiquity on every machine",
+			"fr": "L’ubiquité sur chaque machine"
+		},
+		{
+			"en": "Flags you know by heart",
+			"fr": "Les flags connus par cœur"
+		},
+		{
+			"en": "A binary already on every box",
+			"fr": "Un binaire déjà présent sur chaque machine"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "ripgrep",
+			"source": {
+				"host": "github",
+				"path": "BurntSushi/ripgrep",
+				"url": "https://github.com/BurntSushi/ripgrep"
+			},
+			"license": "Unlicense",
+			"effort": "managed",
+			"note": {
+				"en": "Parallel, and on a source tree usually an order of magnitude faster. It skips binaries and respects .gitignore by default, so it will not show what grep would until those defaults are changed.",
+				"fr": "Parallèle, et sur un arbre source généralement un ordre de grandeur plus rapide. Il ignore les binaires et respecte .gitignore par défaut : il ne montrera donc pas ce que grep afficherait tant que ces réglages ne sont pas modifiés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ugrep",
+			"source": {
+				"host": "github",
+				"path": "Genivia/ugrep",
+				"url": "https://github.com/Genivia/ugrep"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Drop-in GNU grep compatibility, keeping the flags ripgrep dropped, plus an interactive TUI and search inside archives and PDFs. What you gain in coverage you carry in a larger flag surface.",
+				"fr": "Compatible GNU grep en remplacement direct, y compris les flags que ripgrep a abandonnés, avec en plus un TUI interactif et la recherche dans les archives et les PDF. La couverture se paie : une surface d’options plus large à connaître."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "the_silver_searcher",
+			"source": {
+				"host": "github",
+				"path": "ggreer/the_silver_searcher",
+				"url": "https://github.com/ggreer/the_silver_searcher"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The tool that started the genre and is still fine, but it is in low-maintenance mode; new setups should start with ripgrep.",
+				"fr": "L’outil qui a lancé le genre, toujours correct, mais en mode maintenance réduite : les nouvelles installations devraient partir sur ripgrep."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ack",
+			"source": {
+				"host": "github",
+				"path": "beyondgrep/ack3",
+				"url": "https://github.com/beyondgrep/ack3"
+			},
+			"license": "Artistic-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Single standalone Perl script that skips .git and build dirs out of the box and filters by --type. Slower than native binaries and needs a Perl interpreter.",
+				"fr": "Grep alternatif en Perl natif : filtres --type, saut du .git et des répertoires de build, un simple script autonome. Il faut un interpréteur Perl, et c’est moins rapide que les binaires natifs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pt",
+			"source": {
+				"host": "github",
+				"path": "monochromegane/the_platinum_searcher",
+				"url": "https://github.com/monochromegane/the_platinum_searcher"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Go port of the silver searcher with ack-style output, prebuilt for Windows, macOS and Linux. Dormant: no commits since August 2023, its feature set frozen behind ripgrep.",
+				"fr": "Port Go du silver searcher au rendu façon ack, précompilé pour Windows, macOS et Linux. Dormant : aucun commit depuis août 2023, et ses fonctions sont figées derrière ripgrep."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "sift",
+			"source": {
+				"host": "github",
+				"path": "svent/sift",
+				"url": "https://github.com/svent/sift"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Streaming Go grep that scans huge files in parallel with fine-grained context controls and a JSON mode. Smaller community than ripgrep, and GPL-3.0 deters embedding.",
+				"fr": "Grep Go en flux qui fouille les gros fichiers en parallèle, avec réglages fins du contexte et sortie JSON. Communauté plus petite que ripgrep, et la GPL-3.0 rebute l’intégration."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "csearch",
+			"source": {
+				"host": "github",
+				"path": "google/codesearch",
+				"url": "https://github.com/google/codesearch"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Google Code Search in Go: cindex pre-indexes a corpus and csearch answers repeated queries in milliseconds. Not a drop-in grep — regex is constrained by the trigram index.",
+				"fr": "Le moteur de Google Code Search en Go : cindex pré-indexe le corpus et csearch répond en millisecondes aux requêtes répétées. Pas un grep de substitution — l’index trigramme bride les expressions régulières."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ripgrep-all",
+			"source": {
+				"host": "github",
+				"path": "phiresky/ripgrep-all",
+				"url": "https://github.com/phiresky/ripgrep-all"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "rga wraps ripgrep so the same flags also dig into PDFs, ePUBs, Office docs, archives and images. AGPL-3.0, and full coverage needs pdftotext, pandoc and tesseract.",
+				"fr": "rga enveloppe ripgrep : les mêmes drapeaux fouillent aussi PDF, ePUB, documents Office, archives et images. Sous AGPL-3.0, et une couverture complète exige pdftotext, pandoc et tesseract."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "fzf",
+			"source": {
+				"host": "github",
+				"path": "junegunn/fzf",
+				"url": "https://github.com/junegunn/fzf"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The de-facto standard fuzzy picker: pipe grep output in, choose from a preview pane. On its own it finds files and history, not file contents — pair it with rg or ag.",
+				"fr": "Le picker flou de facto : on y pipe grep et on choisit dans un volet d’aperçu. Seul, il trouve fichiers et historique, pas le contenu — à associer avec rg ou ag."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "skim",
+			"source": {
+				"host": "github",
+				"path": "skim-rs/skim",
+				"url": "https://github.com/skim-rs/skim"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Rust fuzzy finder with a fzf-compatible TUI and scripting interface, built for tmux split previews. The ecosystem is smaller and some fzf features lag behind.",
+				"fr": "Fuzzy finder en Rust, compatible avec l’interface de fzf et son mode scriptable, pensé pour l’aperçu en split tmux. Moins de plugins, et certaines fonctions de fzf restent en retard."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "cgrep",
+			"source": {
+				"host": "github",
+				"path": "awgn/cgrep",
+				"url": "https://github.com/awgn/cgrep"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Rust grep with diff-style match rendering and an editor mode, driven by the regex crate. Niche adoption, a small community, and GPL-2.0.",
+				"fr": "Grep en Rust au rendu de contexte soigné, matches façon diff et mode éditeur, propulsé par la crate regex. Adoption de niche, petite communauté, licence GPL-2.0."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "agrep",
+			"source": {
+				"host": "github",
+				"path": "laurikari/tre",
+				"url": "https://github.com/laurikari/tre"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "The classic approximate grep: TRE’s agrep matches with configurable edit distance, longest-match semantics included. POSIX ERE only, and upstream is nearly silent.",
+				"fr": "L’agrep classique, issu de la lib TRE : correspondances approximatives à distance d’édition réglable, sémantique longest match comprise. ERE POSIX uniquement, et l’amont reste presque muet."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 4
+}

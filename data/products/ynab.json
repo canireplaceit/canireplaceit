@@ -82,6 +82,195 @@
 				"en": "Same envelope philosophy for less, and there is a usable free tier. Manual entry only — no bank sync at all.",
 				"fr": "Même philosophie d’enveloppes pour moins cher, avec une offre gratuite utilisable. Saisie manuelle uniquement — aucune synchronisation bancaire."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "hledger",
+			"source": {
+				"host": "github",
+				"path": "simonmichael/hledger",
+				"url": "https://github.com/simonmichael/hledger"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Everything is manual: files edited by hand, no bank sync, no mobile apps. What you get — the best-maintained of the plain-text family, TUI, web reports and CSV importers.",
+				"fr": "Tout est manuel : fichiers édités à la main, pas de synchro bancaire ni d’apps mobiles. En échange, le mieux maintenu de la famille plain-text, TUI, rapports web et importeurs CSV."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "beancount",
+			"source": {
+				"host": "github",
+				"path": "beancount/beancount",
+				"url": "https://github.com/beancount/beancount"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Rigorous double-entry validation — the backbone of the modern plain-text crowd — with a plugin ecosystem and the fava frontend. Core is CLI-only: manual entry, no bank sync, no mobile.",
+				"fr": "Double entrée stricte à validation rigoureuse, la colonne vertébrale du plain-text, avec plugins et frontend fava. Le cœur reste en CLI : saisie manuelle, pas de synchro ni d’app mobile."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ledger",
+			"source": {
+				"host": "github",
+				"path": "ledger/ledger",
+				"url": "https://github.com/ledger/ledger"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "The ancestor of the plain-text family, 30+ years old: fast, stable C++ core and a deep query language. Yet it’s pure CLI — no web or TUI frontend, no bank sync.",
+				"fr": "L’ancêtre de la famille plain-text, plus de 30 ans : cœur C++ stable, langage de requête profond. Pourtant entièrement CLI — pas de frontend web ni TUI, pas de synchro bancaire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GnuCash",
+			"source": {
+				"host": "github",
+				"path": "Gnucash/gnucash",
+				"url": "https://github.com/Gnucash/gnucash"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The veteran desktop option with full double-entry, budgets, scheduled transactions and OFX import on all three OSes. Heavier than YNAB and accounting-centric though — no bank sync, mobile still experimental.",
+				"fr": "Le vétéran desktop : double entrée complète, budgets, opérations programmées, import OFX sur les trois OS. Plus lourd que YNAB et très comptable — pas de synchro bancaire, mobile encore expérimental."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "KMyMoney",
+			"source": {
+				"host": "github",
+				"path": "KDE/kmymoney",
+				"url": "https://github.com/KDE/kmymoney"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "KDE’s native pick: double-entry with budgets, scheduled transactions and multi-currency price updates. Desktop-only though, with a small community and no bank sync.",
+				"fr": "Le choix naturel pour KDE : double entrée, budgets, opérations programmées et multi-devises avec mises à jour des cours. Desktop uniquement, petite communauté, pas de synchro bancaire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Money Manager EX",
+			"source": {
+				"host": "github",
+				"path": "moneymanagerex/moneymanagerex",
+				"url": "https://github.com/moneymanagerex/moneymanagerex"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Simpler than GnuCash and closer to consumer budgeting, with a GPL Android companion on F-Droid. Still desktop-first though: that app is limited, no iOS, no bank sync.",
+				"fr": "Plus simple que GnuCash et plus proche du grand public, avec une app Android GPL sur F-Droid. Reste desktop-first : l’app est un compagnon limité, pas d’iOS, pas de synchro bancaire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Maybe Finance",
+			"source": {
+				"host": "github",
+				"path": "maybe-finance/maybe",
+				"url": "https://github.com/maybe-finance/maybe"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Archived in 2025 after the company shut down, yet still self-hostable via Docker. You get investments and net-worth charts, but Plaid sync is US-only and there’s no envelope budgeting.",
+				"fr": "Archivé en 2025 après la fermeture de la société, mais auto-hébergeable en Docker. Tableau de bord investissements et valeur nette, mais sync Plaid limité aux banques US, pas d’enveloppes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Budget Zero",
+			"source": {
+				"host": "github",
+				"path": "budgetzero/budgetzero",
+				"url": "https://github.com/budgetzero/budgetzero"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The direct YNAB method — zero-based envelope budgeting — free to host or self-host via Docker. Lighter than YNAB though: no targets engine, no native apps, CSV import by hand.",
+				"fr": "La méthode YNAB directement : budget zéro en enveloppes, instance hébergée gratuite ou auto-hébergement en Docker. Plus léger que YNAB : pas de moteur d’objectifs, pas d’apps natives, import CSV manuel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Fava",
+			"source": {
+				"host": "github",
+				"path": "beancount/fava",
+				"url": "https://github.com/beancount/fava"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Gives a beancount ledger a browser UI with charts and tree reports, mobile-responsive. Useless without that ledger though — it’s for reading reports, not entering transactions.",
+				"fr": "Offre une UI navigateur aux ledgers beancount : graphiques et rapports en arborescence, responsive sur mobile. Inutile sans ledger — c’est fait pour lire des rapports, pas pour saisir des opérations."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

@@ -7,16 +7,40 @@
 
 /* Design tokens. Every component reads only these names, so a future retheme is this block and nothing else. */
 :root {
-	--bg: #f5f6f8;
+	--bg: #fbfbfd;
 	--surface: #ffffff;
-	--line: #dde1e7;
-	--text: #12151a;
-	--muted: #5b6472;
+	/* The second surface: a panel that has to read as inset or grouped WITHOUT
+	   drawing another border. Every stacked-hairline problem on this site was a
+	   missing second surface. */
+	--surface-2: #f3f5f8;
+	--line: #e3e6ec;
+	/* For the one edge that has to be seen — a table rule, a section divider —
+	   rather than every edge being loud enough to see. */
+	--line-strong: #cdd3dd;
+	--text: #0f1319;
+	--muted: #5d6675;
 	--v-yes: #167a52;
 	--v-almost: #a15a05;
 	--v-no: #c62f2f;
 	--accent: #3b5bdb;
-	--radius: 6px;
+
+	/* A radius SCALE, not one value. A 26px logo tile and a full-width panel
+	   cannot share a corner and look deliberate at both sizes. */
+	--radius-sm: 6px;
+	--radius: 10px;
+	--radius-lg: 16px;
+	--radius-pill: 999px;
+
+	/* Depth is how a reader tells a card from the page behind it and a menu from
+	   the card. Three steps, no more: resting, raised, floating. */
+	--shadow-sm: 0 1px 2px rgba(15, 19, 25, 0.05);
+	--shadow-md:
+		0 2px 4px -1px rgba(15, 19, 25, 0.05),
+		0 8px 24px -8px rgba(15, 19, 25, 0.12);
+	--shadow-lg:
+		0 4px 8px -2px rgba(15, 19, 25, 0.06),
+		0 24px 56px -16px rgba(15, 19, 25, 0.2);
+
 	--font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
 	--font-body: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
 	--font-mono-stack: "IBM Plex Mono", ui-monospace, monospace;
@@ -26,33 +50,47 @@
 }
 
 :root[data-theme="dark"] {
-	--bg: #0a0e14;
-	--surface: #11161f;
-	--line: #232b38;
+	--bg: #0a0d13;
+	--surface: #121722;
+	--surface-2: #19202d;
+	--line: #232b39;
+	--line-strong: #333e50;
 	--text: #e7ecf3;
-	--muted: #8b96a7;
+	--muted: #8d99ab;
 	--v-yes: #34d399;
 	--v-almost: #f5a623;
 	--v-no: #ff5c5c;
 	--accent: #7c9bff;
 	--brand: #4c8dff;
+
+	/* Shadow does almost nothing on a near-black page, so depth here comes from
+	   the surface ramp above; the shadows stay only to shape floating panels. */
+	--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+	--shadow-md: 0 8px 24px -8px rgba(0, 0, 0, 0.6);
+	--shadow-lg: 0 24px 56px -16px rgba(0, 0, 0, 0.75);
 }
 
 @theme {
 	--color-brand: var(--brand);
 	--color-bg: var(--bg);
 	--color-surface: var(--surface);
+	--color-surface-2: var(--surface-2);
 	--color-border: var(--line);
+	--color-border-strong: var(--line-strong);
 	--color-text: var(--text);
 	--color-muted: var(--muted);
 	--font-display: var(--font-display);
 	--font-body: var(--font-body);
 	--font-mono: var(--font-mono-stack);
+	--radius-card: var(--radius);
 }
 
 html {
 	scroll-behavior: smooth;
 	background: var(--bg);
+	/* Every in-page anchor on this site (the categories jump bar, #report-switch,
+	   #list) scrolls under the sticky header without this. */
+	scroll-padding-top: 5rem;
 }
 
 body {
@@ -60,6 +98,16 @@ body {
 	color: var(--text);
 	font-family: var(--font-body);
 	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+/* Display type is set tight because Space Grotesk at a heading size is loose by
+   default; doing it here means no heading has to remember `tracking-tight`. */
+h1,
+h2,
+h3 {
+	font-family: var(--font-display);
+	letter-spacing: -0.018em;
 }
 
 /* Tabular figures everywhere a number is compared against another number. */
@@ -67,6 +115,184 @@ body {
 	font-variant-numeric: tabular-nums;
 	font-family: var(--font-mono);
 }
+
+/* ---------------------------------------------------------------------------
+   Component classes.
+
+   These are the four shapes the whole site is built from, named once. They were
+   inline class strings repeated across a dozen files, which is why the same card
+   had three different paddings depending on which page it was on.
+   --------------------------------------------------------------------------- */
+
+/* The resting surface: anything that holds content the page is made of. */
+.card {
+	background: var(--surface);
+	border: 1px solid var(--line);
+	border-radius: var(--radius);
+	box-shadow: var(--shadow-sm);
+}
+
+/* A card that is also a link. The lift is the affordance; the tinted border says
+   which one the pointer is on without repainting the whole cell. */
+.card-link {
+	transition:
+		border-color 0.16s ease,
+		box-shadow 0.16s ease,
+		transform 0.16s ease;
+}
+.card-link:hover {
+	border-color: color-mix(in srgb, var(--brand) 45%, var(--line));
+	box-shadow: var(--shadow-md);
+	transform: translateY(-2px);
+}
+.card-link:active {
+	transform: translateY(0);
+	box-shadow: var(--shadow-sm);
+}
+
+/* The inset panel: grouped facts, stat strips, callouts. Reads as recessed
+   rather than raised, so it can sit inside a card without a second border. */
+.panel {
+	background: var(--surface-2);
+	border: 1px solid var(--line);
+	border-radius: var(--radius);
+}
+
+/* The small mono label above a block. Used ~30 times as a raw class string. */
+.eyebrow {
+	font-family: var(--font-mono);
+	font-size: 10px;
+	line-height: 1.2;
+	text-transform: uppercase;
+	letter-spacing: 0.16em;
+	color: var(--muted);
+}
+
+/* Pills: filters, tags, verdicts, jump links. One shape, three weights. */
+.pill {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.375rem;
+	border: 1px solid var(--line);
+	border-radius: var(--radius-pill);
+	padding: 0.3125rem 0.75rem;
+	font-size: 0.8125rem;
+	line-height: 1.2;
+	background: var(--surface);
+	transition:
+		border-color 0.16s ease,
+		background-color 0.16s ease,
+		color 0.16s ease;
+}
+.pill:hover {
+	border-color: color-mix(in srgb, var(--brand) 50%, var(--line));
+}
+.pill[aria-pressed="true"],
+.pill[data-active="true"] {
+	border-color: var(--brand);
+	background: color-mix(in srgb, var(--brand) 10%, var(--surface));
+	color: var(--brand);
+	font-weight: 500;
+}
+
+/* The one filled button on the site. Used for the single primary action a page
+   has, and never twice on the same screen. */
+.btn-primary {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	border-radius: var(--radius);
+	background: var(--brand);
+	color: #fff;
+	padding: 0.5625rem 1rem;
+	font-size: 0.875rem;
+	font-weight: 500;
+	border: 1px solid transparent;
+	box-shadow: var(--shadow-sm);
+	transition:
+		filter 0.16s ease,
+		transform 0.16s ease,
+		box-shadow 0.16s ease;
+}
+.btn-primary:hover {
+	filter: brightness(1.08);
+	transform: translateY(-1px);
+	box-shadow: var(--shadow-md);
+}
+.btn-primary:active {
+	transform: translateY(0);
+}
+
+/* Its outline counterpart, for the secondary action beside it. */
+.btn-ghost {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	border-radius: var(--radius);
+	border: 1px solid var(--line-strong);
+	background: var(--surface);
+	color: var(--text);
+	padding: 0.5625rem 1rem;
+	font-size: 0.875rem;
+	font-weight: 500;
+	transition:
+		border-color 0.16s ease,
+		transform 0.16s ease,
+		background-color 0.16s ease;
+}
+.btn-ghost:hover {
+	border-color: var(--brand);
+	color: var(--brand);
+	transform: translateY(-1px);
+}
+.btn-ghost:active {
+	transform: translateY(0);
+}
+
+/* The header's own link. The active page is marked by a rule under the word, not
+   by colour alone — the site is read in two themes and one of them is low
+   contrast for a tinted link. */
+.nav-link {
+	position: relative;
+	padding-block: 0.375rem;
+	transition: color 0.16s ease;
+}
+.nav-link:hover {
+	color: var(--text);
+}
+.nav-link[data-current="true"] {
+	color: var(--text);
+	font-weight: 500;
+}
+.nav-link[data-current="true"]::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: -0.75rem;
+	height: 2px;
+	border-radius: 2px;
+	background: var(--brand);
+}
+
+/* The page's top band. A very cheap wash that separates the title block from the
+   content under it without adding a rule the reader has to parse. */
+.page-head {
+	background:
+		radial-gradient(
+			60rem 22rem at 50% -8rem,
+			color-mix(in srgb, var(--brand) 9%, transparent),
+			transparent 70%
+		),
+		linear-gradient(to bottom, var(--surface-2), transparent);
+	border-bottom: 1px solid var(--line);
+}
+
+/* ---------------------------------------------------------------------------
+   Focus, motion, and the two bespoke animations.
+   --------------------------------------------------------------------------- */
 
 /* :where() keeps this at specificity 0, so a bespoke `focus-visible:ring-*` elsewhere still wins the cascade without `!important`. */
 :where(a, button, summary, input, select, textarea, [tabindex]):focus-visible {
@@ -101,6 +327,12 @@ body {
 		transition-duration: 0.01ms !important;
 		scroll-behavior: auto !important;
 		/* biome-ignore-end lint/complexity/noImportantStyles: see above */
+	}
+	/* Transform is not a transition here, so the rule above does not reach it. */
+	.card-link:hover,
+	.btn-primary:hover,
+	.btn-ghost:hover {
+		transform: none;
 	}
 }
 

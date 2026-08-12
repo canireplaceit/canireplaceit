@@ -97,6 +97,132 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Gogs",
+			"source": {
+				"host": "github",
+				"path": "gogs/gogs",
+				"url": "https://github.com/gogs/gogs"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The original single-binary Go forge, fast enough to host git on a tiny box. Lighter than Gitea or Forgejo, and the smaller contributor base means slower releases.",
+				"fr": "Le plus rapide des forges Go en binaire unique, pensé pour une machine modeste. Plus léger que Gitea ou Forgejo, sa base de contributeurs réduite ralentit les versions."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GitBucket",
+			"source": {
+				"host": "github",
+				"path": "gitbucket/gitbucket",
+				"url": "https://github.com/gitbucket/gitbucket"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Full-featured Java forge that fits inside a JVM shop. Pull requests with inline review, plugins for CI, plus GitHub import — for the memory footprint of a JVM and a thin ecosystem.",
+				"fr": "Forge Java complète, à l’aise dans une boîte à JVM. Pull requests avec revue en ligne, plugins de CI, import GitHub — moyennant la mémoire de la JVM et un écosystème étroit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Gerrit",
+			"source": {
+				"host": "github",
+				"path": "gerrit-review/gerrit",
+				"url": "https://github.com/gerrit-review/gerrit"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Archived upstream: this change-based review system that powers Android and Linux workflows is now community-maintained. It needs Java and a database, and ships no issue tracker or CI.",
+				"fr": "Archivé côté amont : ce système de revue par changes qui porte les workflows Android et Linux vit de la communauté. Java et une base de données exigées, sans traqueur d’issues ni CI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Soft Serve",
+			"source": {
+				"host": "github",
+				"path": "charmbracelet/soft-serve",
+				"url": "https://github.com/charmbracelet/soft-serve"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The terminal-first GitHub: host and browse repos over SSH from a zero-dependency binary with a TUI. No pull-request workflow, and issues, wiki and CI are all absent.",
+				"fr": "Le GitHub en mode terminal : on héberge et consulte ses dépôts en SSH depuis un binaire sans dépendances et son TUI. Pas de pull request, ni issues, ni wiki, ni CI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Woodpecker CI",
+			"source": {
+				"host": "github",
+				"path": "woodpecker-ci/woodpecker",
+				"url": "https://github.com/woodpecker-ci/woodpecker"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Not a standalone forge — Woodpecker is an Apache-2.0 CI/CD that bolts onto Gitea, Forgejo, GitLab or GitHub as a self-hosted Actions. YAML pipelines, Docker or Kubernetes exec, native SSO with those forges.",
+				"fr": "Pas une forge à soi seul : Woodpecker branche son CI/CD Apache-2.0 sur Gitea, Forgejo, GitLab ou GitHub, façon Actions auto-hébergées. Pipelines YAML, exécution Docker ou Kubernetes, SSO natif avec ces forges."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Gitblit",
+			"source": {
+				"host": "github",
+				"path": "gitblit-org/gitblit",
+				"url": "https://github.com/gitblit-org/gitblit"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Simple, self-contained Java server for repos with a built-in ticket tracker and git or SVN mirroring. The codebase is aging, and pull-request review stays old-school.",
+				"fr": "Serveur Java autonome et simple pour héberger des dépôts, avec traqueur de tickets intégré et miroir git ou SVN. Le code vieillit, et la revue de pull request reste à l’ancienne."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

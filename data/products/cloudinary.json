@@ -117,6 +117,174 @@
 				"en": "Bolts image transforms onto an already very cheap CDN. Fewer transform primitives than Cloudinary and no upload API.",
 				"fr": "Greffe les transformations d’images sur un CDN déjà très bon marché. Moins de primitives que Cloudinary et pas d’API d’upload."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Flyimg",
+			"source": {
+				"host": "github",
+				"path": "flyimg/flyimg",
+				"url": "https://github.com/flyimg/flyimg"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Drop-in self-hosted resizer: URL parameters drive resize, crop and AVIF/WebP compression via Docker Compose. Slower PHP/Symfony core than Go peers, and no face detection, video or media library.",
+				"fr": "Résizer autohébergé en drop-in : les paramètres d’URL pilotent resize, crop et compression AVIF/WebP via Docker Compose. Noyau PHP/Symfony plus lent que les serveurs Go, pas de détection de visages, ni vidéo ni médiathèque."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Chevereto",
+			"source": {
+				"host": "github",
+				"path": "rodber/chevereto-free",
+				"url": "https://github.com/rodber/chevereto-free"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted image hosting: uploads, albums, roles, moderation, REST API — covers Cloudinary’s library half. The free repo is archived upstream; development moved to commercial v4. A gallery, not a programmatic asset pipeline.",
+				"fr": "Hébergement d’images autohébergé : uploads, albums, rôles, modération, API REST — couvre la moitié bibliothèque de Cloudinary. Le dépôt gratuit est archivé en amont, le développement est parti en v4 commerciale. Une galerie, pas un pipeline d’assets programmatique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "libvips",
+			"source": {
+				"host": "github",
+				"path": "libvips/libvips",
+				"url": "https://github.com/libvips/libvips"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "High-performance engine under imgproxy, imaginary and sharp, with vips CLI and vipsthumbnail for scripted pipelines. It’s a library, not a service — no upload, UI or CDN; you assemble storage and delivery yourself.",
+				"fr": "Moteur haute performance sous imgproxy, imaginary et sharp, avec vips CLI et vipsthumbnail pour pipelines scriptés. Une bibliothèque, pas un service : pas d’upload, d’UI ni de CDN ; vous assemblez stockage et livraison."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Squoosh",
+			"source": {
+				"host": "github",
+				"path": "GoogleChromeLabs/squoosh",
+				"url": "https://github.com/GoogleChromeLabs/squoosh"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Google’s open compressor with preview-first UI and squoosh-cli for batch jobs; codecs run client-side, no server round-trips. Optimization only — no storage, delivery, upload API or URL transforms; you wire the serving layer.",
+				"fr": "Compresseur open source de Google : aperçu comparatif (MozJPEG, WebP, AVIF, OxiPNG) et squoosh-cli pour le batch ; codecs côté client, sans aller-retour serveur. Optimisation seulement : pas de stockage, de livraison, d’API d’upload ni de transforms d’URL ; vous câblez la couche de livraison."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "sharp",
+			"source": {
+				"host": "gitlab",
+				"path": "lovell/sharp",
+				"url": "https://gitlab.com/lovell/sharp"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Libvips-backed Node image library behind Next.js and Nuxt image optimization — resize, crop, rotate, AVIF/WebP/JPEG. A library, not a service: no upload UI, delivery or CDN; you assemble serving and storage.",
+				"fr": "Bibliothèque d’images Node adossée à libvips, derrière l’optimisation d’images de Next.js et Nuxt — resize, crop, rotation, AVIF/WebP/JPEG. Une bibliothèque, pas un service : pas d’UI d’upload, de livraison ni de CDN ; livraison et stockage à assembler."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OxiPNG",
+			"source": {
+				"host": "github",
+				"path": "oxipng/oxipng",
+				"url": "https://github.com/oxipng/oxipng"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Multithreaded Rust CLI that losslessly shrinks PNGs to zopfli-class quality — the final optimization step before caching or CDN delivery. PNG only: no JPEG/WebP/AVIF, no resizing, no GUI or server. A single-purpose optimizer.",
+				"fr": "CLI Rust multithreadée qui réduit sans perte les PNG à la qualité zopfli — dernière étape d’optimisation avant cache ou livraison CDN. PNG uniquement : pas de JPEG/WebP/AVIF, pas de resize, pas d’interface ni de serveur. Un optimiseur à usage unique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "chafa",
+			"source": {
+				"host": "github",
+				"path": "hpjansson/chafa",
+				"url": "https://github.com/hpjansson/chafa"
+			},
+			"license": "LGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Renders WebP, AVIF, GIF and animations as Unicode/ANSI terminal art — a preview layer for file managers and tmux panes. Presentation only: no storage, delivery, server, API or remote access.",
+				"fr": "Affiche WebP, AVIF, GIF et animations en art Unicode/ANSI dans le terminal — couche d’aperçu pour gestionnaires de fichiers et panneaux tmux. Présentation uniquement : pas de stockage, de livraison, de serveur, d’API ni d’accès distant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Immich",
+			"source": {
+				"host": "github",
+				"path": "immich-app/immich",
+				"url": "https://github.com/immich-app/immich"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Most complete self-hosted photo/video library: uploads, thumbnails, ML search, OAuth SSO and mobile apps. A product, not a programmatic asset API — Postgres, Redis and ML workers, no CDN delivery or marketing-style transforms.",
+				"fr": "Bibliothèque photo/vidéo autohébergée la plus complète : uploads, miniatures, recherche ML, SSO OAuth et apps mobiles. Un produit, pas une API d’assets programmatique — Postgres, Redis et des workers ML à faire tourner, sans livraison CDN ni transforms marketing."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

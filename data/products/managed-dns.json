@@ -97,6 +97,153 @@
 				"en": "Free anycast DNS on one of the largest networks in the world. No advanced traffic steering without a paid plan, and you hand Cloudflare your zone.",
 				"fr": "DNS anycast gratuit sur l’un des plus grands réseaux au monde. Pas de routage de trafic avancé sans forfait payant, et vous confiez votre zone à Cloudflare."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "CoreDNS",
+			"source": {
+				"host": "github",
+				"path": "coredns/coredns",
+				"url": "https://github.com/coredns/coredns"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The default DNS in Kubernetes: a single-binary plugin chain for service discovery, forwarding and file/etcd backends. No web UI or management API — zones are a Corefile, aimed at resolution over authoritative serving.",
+				"fr": "Le serveur DNS de Kubernetes : un binaire, des plugins pour service discovery, forward et etcd. Pas d’interface web ni d’API ; zones dans un Corefile, fait pour résoudre plus que servir en autorité."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "BIND9",
+			"source": {
+				"host": "codeberg",
+				"path": "isc-projects/bind9",
+				"url": "https://codeberg.org/isc-projects/bind9"
+			},
+			"license": "MPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The reference implementation since the 1980s, handling authoritative, recursive and forwarding roles with DNSSEC, views and TSIG. Setup is hand-edited named.conf — no web UI, no REST API.",
+				"fr": "L’implémentation de référence depuis les années 80 : autoritatif, récursif et forwarder, avec DNSSEC, vues et TSIG. Tout se règle à la main dans named.conf — pas d’interface web, pas d’API REST."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "NSD",
+			"source": {
+				"host": "github",
+				"path": "NLnetLabs/nsd",
+				"url": "https://github.com/NLnetLabs/nsd"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "The engine behind many root and ccTLD nameservers: authoritative-only, fast, with automatic DNSSEC signing. It resolves nothing itself — pair it with Unbound, and manage zones through files and scripts, no UI.",
+				"fr": "Le logiciel derrière nombre de serveurs racines et ccTLD : autoritatif, rapide, signature DNSSEC automatique. Il ne résout rien — à coupler avec Unbound ; zones en fichiers et scripts, pas d’interface."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Unbound",
+			"source": {
+				"host": "github",
+				"path": "NLnetLabs/unbound",
+				"url": "https://github.com/NLnetLabs/unbound"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "The recursive half of a self-hosted DNS stack: fast, DNSSEC-validating, with ACLs and rate limits. It is not authoritative and serves no zones you host — file-configured, no web UI.",
+				"fr": "La moitié récursive d’un stack DNS self-hosted : rapide, validation DNSSEC, ACL et rate limits. Pas autoritatif — il ne sert aucune zone hébergée ; config fichier, pas d’interface web."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OctoDNS",
+			"source": {
+				"host": "github",
+				"path": "octodns/octodns",
+				"url": "https://github.com/octodns/octodns"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A management layer, not a server: GitHub’s CLI declares records in Python/YAML and syncs them to 40+ providers including NS1. It still needs an authoritative provider upstream — the DSL takes learning.",
+				"fr": "Pas un serveur, une couche de gestion : le CLI de GitHub déclare les enregistrements en Python/YAML, synchronisés vers 40+ providers dont NS1. Il faut un provider autoritatif en amont ; la DSL s’apprend."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "DNSControl",
+			"source": {
+				"host": "github",
+				"path": "DNSControl/dnscontrol",
+				"url": "https://github.com/DNSControl/dnscontrol"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Preview then push: Stack Overflow’s CLI defines records in dnsconfig.js, diffs against 40+ providers (NS1 included) and syncs on approval. It manages rather than serves — an authoritative provider must still sit upstream.",
+				"fr": "D’abord le diff, ensuite le push : le CLI de Stack Overflow décrit les enregistrements dans dnsconfig.js et compare 40+ providers, NS1 compris. Il gère, ne sert pas — un provider autoritatif reste derrière."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Blocky",
+			"source": {
+				"host": "codeberg",
+				"path": "0xERR0R/blocky",
+				"url": "https://codeberg.org/0xERR0R/blocky"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "A filtering resolver in one Go binary: per-client blocking, DoH/DoT upstreams, query-log web UI. Not authoritative — no zone hosting or record management, and the ad-blocking focus skews away from managed-DNS duties.",
+				"fr": "Un résolveur-filtreur en un binaire Go : blocage par client, upstreams DoH/DoT, interface web de logs. Pas autoritatif — pas d’hébergement de zones ni de gestion d’enregistrements ; la focale anti-pub s’éloigne du DNS managé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

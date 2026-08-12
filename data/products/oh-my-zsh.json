@@ -1,0 +1,345 @@
+{
+	"slug": "oh-my-zsh",
+	"name": "Oh My Zsh",
+	"domain": "ohmyz.sh",
+	"category": "shell-terminal",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "Yes — nothing in Oh My Zsh is load-bearing. Its real cost is slow startup and a large surface you never chose, and Starship, zinit or Prezto cover the same ground with less baggage if you configure them yourself.",
+		"fr": "Oui — rien dans Oh My Zsh n’est indispensable. Son vrai coût, c’est un démarrage lent et une grosse surface que vous n’avez pas choisie ; Starship, zinit ou Prezto couvrent la même chose avec moins de bagage, à condition de les configurer vous-même."
+	},
+	"whatYouLose": [
+		{
+			"en": "The theme set on every machine",
+			"fr": "Le jeu de thèmes présent sur toutes les machines"
+		},
+		{
+			"en": "The aliases and options you have memorized",
+			"fr": "Les alias et réglages que vous connaissez par cœur"
+		},
+		{
+			"en": "A shell that works without configuration",
+			"fr": "Un shell qui fonctionne sans configuration"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Starship",
+			"source": {
+				"host": "github",
+				"path": "starship/starship",
+				"url": "https://github.com/starship/starship"
+			},
+			"license": "ISC",
+			"effort": "managed",
+			"note": {
+				"en": "Prompt only, and that is the point: one binary, one TOML, identical in bash, zsh, fish, nu and PowerShell. It replaces the theme half of Oh My Zsh with no framework attached.",
+				"fr": "Uniquement le prompt, et c’est le but : un binaire, un fichier TOML, identique sous bash, zsh, fish, nu et PowerShell. Il remplace la partie thèmes d’Oh My Zsh, sans framework par-dessus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "zinit",
+			"source": {
+				"host": "github",
+				"path": "zdharma-continuum/zinit",
+				"url": "https://github.com/zdharma-continuum/zinit"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Lazy and async loading for the plugins you want, sourcing Oh My Zsh plugins directly. More configuration, much faster shell.",
+				"fr": "Chargement paresseux et asynchrone des plugins souhaités, en chargeant directement ceux d’Oh My Zsh. Plus de configuration, mais un shell bien plus rapide."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Prezto",
+			"source": {
+				"host": "github",
+				"path": "sorin-ionescu/prezto",
+				"url": "https://github.com/sorin-ionescu/prezto"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The same shape — modules and prompts, fewer of them — lean and noticeably quicker.",
+				"fr": "La même forme : modules et prompts, mais moins nombreux — plus léger et nettement plus rapide."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Oh My Bash",
+			"source": {
+				"host": "github",
+				"path": "ohmybash/oh-my-bash",
+				"url": "https://github.com/ohmybash/oh-my-bash"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The bash counterpart of oh-my-zsh: 200+ plugins, 100+ themes and git aliases with the same zero-config approach. Zsh-exclusive plugins don't port over, and bash completion stays weaker than zsh's.",
+				"fr": "Le pendant bash d’oh-my-zsh : 200+ plugins, 100 thèmes, alias git, même philosophie zéro config. Les plugins zsh ne se portent pas, la complétion reste plus faible."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Oh My Fish",
+			"source": {
+				"host": "github",
+				"path": "oh-my-fish/oh-my-fish",
+				"url": "https://github.com/oh-my-fish/oh-my-fish"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Fish's official framework, mirroring oh-my-zsh's structure: package manager, theme engine, bootstrap. Fish isn't POSIX so bash/zsh scripts need rewriting, and the plugin catalog stays smaller.",
+				"fr": "Framework officiel de fish, même structure qu’oh-my-zsh : gestionnaire de paquets, moteur de thèmes, bootstrap. fish n’est pas POSIX, les scripts bash/zsh se réécrivent, et le catalogue de plugins reste plus réduit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Bash-it",
+			"source": {
+				"host": "github",
+				"path": "Bash-it/bash-it",
+				"url": "https://github.com/Bash-it/bash-it"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A bash framework with a proper CLI installer: 300+ aliases and completions, custom themes, per-directory enable/disable. Bash-only, completions below zsh's level, and a smaller contributor base than oh-my-zsh.",
+				"fr": "Framework bash avec un vrai installateur CLI : 300+ alias et complétions, thèmes personnalisables, activation par dossier. Réservé à bash, complétions moins riches qu’en zsh, et une base de contributeurs plus restreinte qu’oh-my-zsh."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "antigen",
+			"source": {
+				"host": "github",
+				"path": "zsh-users/antigen",
+				"url": "https://github.com/zsh-users/antigen"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Consumes oh-my-zsh and Prezto bundles directly, so existing plugin and theme repos work unchanged. In maintenance mode with few releases, and startup is slower than turbo-style managers.",
+				"fr": "Charge directement les bundles oh-my-zsh et Prezto : les repos de plugins et thèmes existants fonctionnent tels quels. En mode maintenance, peu de releases, et un démarrage plus lent que les gestionnaires turbo."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "fish-shell",
+			"source": {
+				"host": "github",
+				"path": "fish-shell/fish-shell",
+				"url": "https://github.com/fish-shell/fish-shell"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Autosuggestions, syntax highlighting and a web-based configurator out of the box — the best of an OMZ setup without the framework. Not POSIX, so bash/zsh scripts need converting.",
+				"fr": "Autosuggestions, coloration syntaxique et configurateur web inclus — le meilleur d’un setup OMZ sans framework. Pas de POSIX : les scripts bash/zsh demandent une conversion."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nushell",
+			"source": {
+				"host": "github",
+				"path": "nushell/nushell",
+				"url": "https://github.com/nushell/nushell"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Structured pipelines carry typed data, not raw text, replacing awk/sed/jq and the prompt-plus-framework stack in one tool. A paradigm shift from POSIX shells, with a steep learning curve.",
+				"fr": "Pipelines structurés, données typées au lieu de texte brut : awk, sed, jq et la pile framework+prompt disparaissent dans un seul outil. Changement de paradigme vs shells POSIX, courbe d’apprentissage raide."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "xonsh",
+			"source": {
+				"host": "github",
+				"path": "xonsh/xonsh",
+				"url": "https://github.com/xonsh/xonsh"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Python expressions at the prompt, shell commands alongside, xontribs for plugins and prompt tweaks. Startup is slower than native zsh — Python runtime — and the community stays niche.",
+				"fr": "Des expressions Python au prompt, à côté des commandes shell ; les xontribs apportent plugins et tweaks de prompt. Démarrage plus lent que zsh natif — runtime Python — et communauté de niche."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Elvish",
+			"source": {
+				"host": "github",
+				"path": "elves/elvish",
+				"url": "https://github.com/elves/elvish"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "A functional scripting shell with structured pipelines and a built-in interactive editor, as a single static binary. Not POSIX, its own scripting model, and a small user base.",
+				"fr": "Un shell de scripting fonctionnel, pipelines structurés et éditeur interactif intégrés, le tout dans un seul binaire statique. Pas de POSIX, un modèle de scripting propre, et une petite communauté."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Powerlevel10k",
+			"source": {
+				"host": "github",
+				"path": "romkatv/powerlevel10k",
+				"url": "https://github.com/romkatv/powerlevel10k"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A zsh prompt with single-digit-millisecond first latency, rich git status and a configuration wizard. Prompt only — no plugins or aliases — and zsh only.",
+				"fr": "Un prompt zsh à latence de quelques millisecondes, statut git détaillé et assistant de configuration. Prompt uniquement — pas de plugins ni d’alias — et zsh uniquement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "oh-my-posh",
+			"source": {
+				"host": "github",
+				"path": "JanDeDobbeleer/oh-my-posh",
+				"url": "https://github.com/JanDeDobbeleer/oh-my-posh"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The same prompt config across zsh, bash, fish, PowerShell and nu, with first-class Windows support. Prompt only — no alias or package management — and heavier than a plain shell function.",
+				"fr": "La même config de prompt sur zsh, bash, fish, PowerShell et nu, support Windows de première classe. Prompt uniquement — pas de gestion d’alias ni de paquets — et plus lourd qu’une fonction shell."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "spaceship-prompt",
+			"source": {
+				"host": "github",
+				"path": "spaceship-prompt/spaceship-prompt",
+				"url": "https://github.com/spaceship-prompt/spaceship-prompt"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A minimal powerline-style prompt with git, node, package and docker sections, rendered asynchronously. Prompt only — aliases and plugins still need a manager; installing it requires a plugin manager for most shells.",
+				"fr": "Prompt powerline minimal, sections git, node, package et docker, rendu asynchrone. Prompt uniquement — les alias et plugins exigent un gestionnaire, et l’installation passe par un plugin manager pour la plupart des shells."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "zsh-autosuggestions",
+			"source": {
+				"host": "github",
+				"path": "zsh-users/zsh-autosuggestions",
+				"url": "https://github.com/zsh-users/zsh-autosuggestions"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Fish-style history autosuggestions for zsh, rendered asynchronously, usable standalone or through any plugin manager. A single feature — no themes, aliases or framework — and zsh only.",
+				"fr": "L’autosuggestion d’historique de fish appliquée à zsh, rendue en asynchrone, utilisable seul ou via n’importe quel gestionnaire de plugins. Une seule fonctionnalité — pas de thèmes, d’alias ni de framework — et zsh uniquement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

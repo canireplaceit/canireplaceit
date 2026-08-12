@@ -95,6 +95,136 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "ACRA",
+			"source": {
+				"host": "github",
+				"path": "ACRA/acra",
+				"url": "https://github.com/ACRA/acra"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Android-only crash and issue reporter posting screenshots, logcat and user feedback to any self-hosted endpoint. No dashboard or crash-free-rate analytics — bring your own collector.",
+				"fr": "Reporter de crash Android pur, qui envoie captures d’écran, logcat et feedback utilisateur vers n’importe quel endpoint auto-hébergé. Pas de dashboard ni d’analytics — apportez votre collecteur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Crashpad",
+			"source": {
+				"host": "github",
+				"path": "chromium/crashpad",
+				"url": "https://github.com/chromium/crashpad"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Chromium’s battle-tested native handler producing minidumps on iOS, Android and desktop, uploaded to your own collector. It’s a library, not a product — symbols, dashboards and alerting are on you.",
+				"fr": "Handler natif hors-processus issu de Chromium, qui produit des minidumps sur iOS, Android et desktop, envoyés à votre collecteur. C’est une bibliothèque, pas un produit : symboles, dashboards et alerting restent à votre charge."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Fider",
+			"source": {
+				"host": "github",
+				"path": "getfider/fider",
+				"url": "https://github.com/getfider/fider"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Public feedback board with upvoting, SSO and admin moderation, run in a single container. A web portal, not an in-app SDK — no crash context, no device metadata.",
+				"fr": "Portail public de feedback avec votes, SSO et modération admin, dans un seul conteneur. Portail web, pas un SDK in-app : pas de contexte de crash, pas de métadonnées appareil."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Matomo",
+			"source": {
+				"host": "github",
+				"path": "matomo-org/matomo",
+				"url": "https://github.com/matomo-org/matomo"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted web and mobile analytics whose official SDKs collect events and crash-ish telemetry, with full export and SSO. Analytics-first — no replay or in-app bug report flow, and GPL constrains derivative distribution.",
+				"fr": "Analytics web et mobile auto-hébergés, dont les SDK officiels collectent événements et télémétrie type crash, avec export complet et SSO. Analytics d’abord : pas de replay ni de flux de rapport in-app, et la GPL contraint la distribution des dérivés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Session replay and premium plugins stay paid.",
+					"fr": "Replay de session et plugins premium restent payants."
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Maestro",
+			"source": {
+				"host": "github",
+				"path": "mobile-dev-inc/Maestro",
+				"url": "https://github.com/mobile-dev-inc/Maestro"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "YAML-defined UI flows driving Android, iOS, emulators and real devices to reproduce and regression-test the bugs Instabug reports. A CLI tester, not a monitor: no dashboards, no data collection.",
+				"fr": "Flux UI définis en YAML qui pilotent Android, iOS, émulateurs et vrais appareils pour reproduire et régresionner les bugs remontés par Instabug. Un outil de test CLI, pas une sonde : pas de dashboard, pas de collecte de données."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Detox",
+			"source": {
+				"host": "github",
+				"path": "wix/Detox",
+				"url": "https://github.com/wix/Detox"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Gray-box e2e tests for React Native and hybrid apps, iOS and Android under one API, run from the terminal in CI. Not plain native, no crash capture — setup is yours.",
+				"fr": "Tests e2e gray-box pour apps React Native et hybrides, iOS et Android sous une même API, lancés depuis le terminal en CI. Pas de natif pur, pas de capture de crash — le setup reste à vous."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

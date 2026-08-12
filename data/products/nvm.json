@@ -1,0 +1,219 @@
+{
+	"slug": "nvm",
+	"name": "nvm",
+	"domain": null,
+	"category": "developer-tooling",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "Yes. nvm is a shell function that adds noticeable latency to every new shell and manages exactly one language — replace it, unless its main advantage, being on every machine already, is what you rely on.",
+		"fr": "Oui. nvm est une fonction shell qui ralentit chaque nouveau shell et ne gère qu’un seul langage — remplacez-le, sauf si son principal atout, être déjà présent sur toutes les machines, est ce sur quoi vous comptez."
+	},
+	"whatYouLose": [
+		{
+			"en": "Nvm, already present on every machine",
+			"fr": "Nvm, déjà présent sur toutes les machines"
+		},
+		{
+			"en": "The muscle memory of its commands",
+			"fr": "Les réflexes de ses commandes"
+		},
+		{
+			"en": "Its place in tutorials and CI",
+			"fr": "Sa place dans les tutos et la CI"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "fnm",
+			"source": {
+				"host": "github",
+				"path": "Schniz/fnm",
+				"url": "https://github.com/Schniz/fnm"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Near-instant shell startup and .nvmrc compatibility, but like nvm it handles only Node — the drop-in only if Node is all you need.",
+				"fr": "Démarrage de shell quasi instantané et compatible .nvmrc, mais comme nvm il ne gère que Node : le remplaçant direct uniquement si Node vous suffit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "mise",
+			"source": {
+				"host": "github",
+				"path": "jdx/mise",
+				"url": "https://github.com/jdx/mise"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "One tool for Node, Python, Go, Ruby and several hundred more, plus per-directory env and tasks — a lot to install if Node is your only language.",
+				"fr": "Un seul outil pour Node, Python, Go, Ruby et des centaines d’autres, avec env et tâches par répertoire — lourd à installer si Node est votre seule langue."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "asdf",
+			"source": {
+				"host": "github",
+				"path": "asdf-vm/asdf",
+				"url": "https://github.com/asdf-vm/asdf"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The original multi-language manager with the largest plugin catalogue, but the shim-based Go rewrite makes it slower than mise or fnm.",
+				"fr": "Le gestionnaire multi-langues originel au plus gros catalogue de plugins, mais la réécriture Go basée sur des shims le rend plus lent que mise ou fnm."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Volta",
+			"source": {
+				"host": "github",
+				"path": "volta-cli/volta",
+				"url": "https://github.com/volta-cli/volta"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Pins Node and the package manager in package.json so every contributor gets the same toolchain without running anything — but it is JavaScript-only by design.",
+				"fr": "Épingle Node et le gestionnaire de paquets dans package.json pour que tout le monde ait la même toolchain sans rien lancer — mais c’est JavaScript uniquement, par choix."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "n",
+			"source": {
+				"host": "github",
+				"path": "tj/n",
+				"url": "https://github.com/tj/n"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Classic minimal switcher: one install, an interactive picker, and auto-switch via .nvmrc or .node-version, with no shell-function overhead. POSIX-only, no per-shell env isolation.",
+				"fr": "Le classique minimaliste : une installation, un menu interactif, et l’auto-switch sur .nvmrc ou .node-version, sans surcoût de fonctions shell. POSIX uniquement, pas d’isolation d’environnement par shell."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "nvm-windows",
+			"source": {
+				"host": "github",
+				"path": "coreybutler/nvm-windows",
+				"url": "https://github.com/coreybutler/nvm-windows"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "De-facto nvm on Windows: versions live in symlinked dirs, npm follows the active one. Mirror config serves internal registries. Windows-only, and symlink switching needs admin rights.",
+				"fr": "L’équivalent Windows de nvm : les versions vivent dans des dossiers en symlinks, npm suit la version active. Un miroir peut servir les registres internes. Windows uniquement, et basculer via symlink exige des droits admin."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "nodenv",
+			"source": {
+				"host": "github",
+				"path": "nodenv/nodenv",
+				"url": "https://github.com/nodenv/nodenv"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "rbenv-style shims give per-directory .node-version switching without shell re-eval, installs via the node-build plugin. Costs shim indirection, and installer and pinning are split across plugins.",
+				"fr": "Des shims à la rbenv : bascule par .node-version sans réévaluation du shell, installations via le plugin node-build. En contrepartie, l’indirection des shims et un installateur éclaté en plugins."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "nave",
+			"source": {
+				"host": "github",
+				"path": "isaacs/nave",
+				"url": "https://github.com/isaacs/nave"
+			},
+			"license": "BlueOak-1.0.0",
+			"effort": "managed",
+			"note": {
+				"en": "The Node author’s own bash tool: installs and runs versions in sandboxed environments from a single script. Sparse features though — no .nvmrc hook, and docs lag the modern managers.",
+				"fr": "L’outil bash du créateur de Node : installe et exécute des versions dans des environnements sandbox, en un seul script. Mais dépouillé : pas de hook .nvmrc, et une doc moins léchée que les managers modernes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "nvm.fish",
+			"source": {
+				"host": "github",
+				"path": "jorgebucaran/nvm.fish",
+				"url": "https://github.com/jorgebucaran/nvm.fish"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A faithful nvm port for fish, with cd auto-switch on .nvmrc and direct node downloads instead of shell sourcing. Fish only, and convenient install needs jorgebucaran/fisher.",
+				"fr": "Un port fidèle de nvm pour fish : auto-switch au cd sur .nvmrc, téléchargement direct de node, sans sourcer le shell. Réservé à fish, et l’installation passe par jorgebucaran/fisher."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

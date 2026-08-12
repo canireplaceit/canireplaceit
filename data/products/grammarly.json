@@ -65,6 +65,216 @@
 				"en": "Cheaper, with much deeper reports for long-form writing. Slower, and weaker as a real-time typing assistant.",
 				"fr": "Moins cher, avec des rapports bien plus fouillés pour les textes longs. Plus lent, et moins bon comme assistant de frappe en temps réel."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Vale",
+			"source": {
+				"host": "github",
+				"path": "vale-cli/vale",
+				"url": "https://github.com/vale-cli/vale"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "CLI prose linter with style rules you define in YAML and wire into CI. Everything runs locally — but there is no real-time typing assistance, no extension.",
+				"fr": "Linter CLI de style et de ton, règles YAML écrites à la main, branché sur la CI. Rien ne quitte la machine — mais pas d’assistance temps réel, pas d’extension navigateur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "write-good",
+			"source": {
+				"host": "github",
+				"path": "btford/write-good",
+				"url": "https://github.com/btford/write-good"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Lightweight JS linter that flags passive voice, weasel words and clichés from a build step or editor. Heuristic checks only, English-only — no grammar engine behind it.",
+				"fr": "Linter JS léger qui repère voix passive, mots frelatés et clichés depuis un build ou un éditeur. Uniquement des heuristiques, anglais seul — pas de moteur de grammaire derrière."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "retext",
+			"source": {
+				"host": "github",
+				"path": "retextjs/retext",
+				"url": "https://github.com/retextjs/retext"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Pluggable processor: combine retext plugins, or pair them with other NLP tools, and your prose is checked your way. Requires coding to set up, no grammar out of the box.",
+				"fr": "Processeur à plugins : combinez les plugins retext, ou associez-les à d’autres outils NLP, pour vérifier votre prose à votre façon. Nécessite du code, aucune grammaire clé en main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "cspell",
+			"source": {
+				"host": "github",
+				"path": "streetsidesoftware/cspell",
+				"url": "https://github.com/streetsidesoftware/cspell"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Spell checker that knows camelCase and tech terms, fast enough for CI and wired into VS Code. Spelling only — no grammar, no style suggestions.",
+				"fr": "Correcteur d’orthographe qui comprend camelCase et les termes techniques, assez rapide pour la CI et présent dans VS Code. Orthographe seulement — ni grammaire ni conseils de style."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "typos",
+			"source": {
+				"host": "github",
+				"path": "crate-ci/typos",
+				"url": "https://github.com/crate-ci/typos"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Rust typo checker fast enough for the largest codebases, tuned for minimal false positives and hookable in pre-commit. Typos only — no grammar, and nothing for running prose.",
+				"fr": "Correcteur de typos en Rust, rapide pour les gros coffres, réglé pour peu de faux positifs, branchable en pre-commit. Typos uniquement — ni grammaire ni prose."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "codespell",
+			"source": {
+				"host": "github",
+				"path": "codespell-project/codespell",
+				"url": "https://github.com/codespell-project/codespell"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Mature spell checker with a big maintained dictionary and an automated fix mode for CI and pre-commit. Spelling only, and the GPL-2.0 licence plus slower scans than the Rust tools.",
+				"fr": "Correcteur d’orthographe mûr, gros dictionnaire maintenu et mode de correction automatique pour la CI et le pre-commit. Orthographe seulement, licence GPL-2.0 et plus lent que les outils Rust."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "proselint",
+			"source": {
+				"host": "github",
+				"path": "amperser/proselint",
+				"url": "https://github.com/amperser/proselint"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Fast prose linter with no dependencies that flags clichés, redundancies and unnecessary words from an editor plugin. English-only with a small rule set — customization stays thin.",
+				"fr": "Linter de prose rapide, sans dépendances, qui repère clichés, redondances et mots inutiles depuis un plugin d’éditeur. Anglais uniquement, petit jeu de règles — peu de réglages possibles."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ltex-ls",
+			"source": {
+				"host": "github",
+				"path": "valentjn/ltex-ls",
+				"url": "https://github.com/valentjn/ltex-ls"
+			},
+			"license": "MPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Archived in 2023 — no more fixes. Still listed because most editor setups actually run this LanguageTool-over-LSP bridge; ltex-ls-plus carries it on.",
+				"fr": "Archivé en 2023 — plus aucun correctif. Toujours listé car la plupart des configs d’éditeur tournent encore avec ce pont LanguageTool–LSP ; ltex-ls-plus reprend le relais."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Harper",
+			"source": {
+				"host": "github",
+				"path": "Automattic/harper",
+				"url": "https://github.com/Automattic/harper"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Grammar checker in Rust that runs fully offline — nothing you type leaves the machine, checks land in milliseconds via an LSP server. English only, with fewer rules than LanguageTool.",
+				"fr": "Correcteur en Rust qui tourne hors ligne — rien ne quitte la machine, les vérifications prennent quelques millisecondes via un serveur LSP. Anglais uniquement, moins de règles que LanguageTool."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ltex-ls-plus",
+			"source": {
+				"host": "github",
+				"path": "ltex-plus/ltex-ls-plus",
+				"url": "https://github.com/ltex-plus/ltex-ls-plus"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The maintained continuation of ltex-ls — same LanguageTool-over-LSP job, drop-in compatible, covering LaTeX, Markdown and code comments. A small project (252 stars), it needs a LanguageTool runtime and fiddly editor setup.",
+				"fr": "Successeur maintenu de ltex-ls, même pont LanguageTool–LSP, compatible en remplacement direct, pour LaTeX, Markdown et commentaires de code. Petit projet (252 étoiles) : il exige un runtime LanguageTool et une config d’éditeur pénible."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 5

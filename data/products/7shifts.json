@@ -105,6 +105,136 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Horilla",
+			"source": {
+				"host": "github",
+				"path": "horilla/horilla-hr",
+				"url": "https://github.com/horilla/horilla-hr"
+			},
+			"license": "LGPL-2.1",
+			"effort": "docker",
+			"note": {
+				"en": "Full HRMS: shift scheduling, biometric and geofenced check-in, leave, mobile. Free self-hosted with a managed cloud tier, but no POS integration and no tip pooling.",
+				"fr": "HRMS complet : plannings, pointage biométrique et géofencé, congés, mobile. Gratuit en auto-hébergement, cloud managé en option ; manquent le POS et le partage des pourboires."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Staffjoy",
+			"source": {
+				"host": "github",
+				"path": "Staffjoy/suite",
+				"url": "https://github.com/Staffjoy/suite"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The company shut down in 2017 and nothing has been committed since March 2018. Still runs on Docker with a real scheduling algorithm, but no POS, payroll or forecasting.",
+				"fr": "La société a fermé en 2017 et plus rien n’a été commité depuis mars 2018. Tourne encore sous Docker, avec un vrai algorithme de planification, mais sans POS, ni paie, ni prévision."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OrangeHRM",
+			"source": {
+				"host": "github",
+				"path": "orangehrm/orangehrm",
+				"url": "https://github.com/orangehrm/orangehrm"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Full HRMS: shift assignment, swap workflows, geolocation and selfie clock-in, leave that blocks double-booked shifts. Feature-complete to the point of being overwhelming — the free starter is limited.",
+				"fr": "HRMS complet : affectation des shifts, échanges, pointage géolocalisé et selfie, congés qui empêchent la double-réservation de shifts. Complet jusqu’à en être étouffant ; le starter gratuit est limité."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Core HR features",
+					"fr": "Fonctions RH de base"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Roster Wizard",
+			"source": {
+				"host": "github",
+				"path": "galojix/roster-wizard",
+				"url": "https://github.com/galojix/roster-wizard"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A constraint solver for rosters — skill mix, shift preferences, sequence rules — but command-line and API only. You build the UI and everything staff-facing yourself; it’s early-stage with a small community.",
+				"fr": "Solveur de contraintes pour rosters : compétences, préférences, règles de séquence — mais uniquement en CLI et API. C’est à vous de construire l’interface et tout le côté employés ; projet jeune, petite communauté."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "AutoShiftPlanner",
+			"source": {
+				"host": "github",
+				"path": "betaiotazeta/AutoShiftPlanner",
+				"url": "https://github.com/betaiotazeta/AutoShiftPlanner"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "No commit since December 2018; dead for seven years. A desktop constraint-based scheduler, heuristic-driven, that solves hard problems — but web, mobile, and staff swaps are simply absent.",
+				"fr": "Aucun commit depuis décembre 2018 ; abandonné depuis sept ans. Un planificateur desktop à base de contraintes et d’heuristiques, taillé pour les problèmes durs — mais sans web, sans mobile, sans échanges entre employés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "TimeTrex",
+			"source": {
+				"host": "github",
+				"path": "timetrex/TimeTrex",
+				"url": "https://github.com/timetrex/TimeTrex"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "No commit since November 2018; seven years dormant. Scheduling, timeclock, payroll and job costing in one AGPL-3.0 stack — the copyleft binds modifications, and the community is small.",
+				"fr": "Aucun commit depuis novembre 2018 ; sept ans de silence. Planification, pointeuse, paie et job costing réunis sous AGPL-3.0 — le copyleft impose de partager ses modifications, et la communauté reste petite."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

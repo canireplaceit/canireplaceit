@@ -93,6 +93,258 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Zed",
+			"source": {
+				"host": "github",
+				"path": "zed-industries/zed",
+				"url": "https://github.com/zed-industries/zed"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Native Rust IDE with built-in agent mode; the closest desktop editor to Cursor. Multi-model and MCP-capable, but agent calls may route through Zed cloud by default and extensions are thin.",
+				"fr": "IDE natif en Rust avec agent intégré ; le plus proche de Cursor. Multi-modèles et MCP, mais appels via le cloud Zed par défaut et peu d’extensions."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Void",
+			"source": {
+				"host": "github",
+				"path": "voideditor/void",
+				"url": "https://github.com/voideditor/void"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Fork of Cursor itself with identical UX and keybindings, any-provider AI, free, no telemetry — but archived, so Cursor updates must be merged by hand.",
+				"fr": "Fork de Cursor lui-même, UX et raccourcis identiques, IA avec n’importe quel fournisseur, gratuit, sans télémétrie — mais archivé : les mises à jour de Cursor doivent être fusionnées à la main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenCode",
+			"source": {
+				"host": "github",
+				"path": "anomalyco/opencode",
+				"url": "https://github.com/anomalyco/opencode"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Terminal coding agent with LSP-aware editing and a large, fast-moving community. Provider-agnostic including local models, at the cost of being TUI-only with no IDE workflow.",
+				"fr": "Agent de codage en terminal avec édition pilotée par LSP et une communauté large et active. N’importe quel fournisseur, y compris les modèles locaux, mais TUI uniquement : pas de workflow IDE."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Gemini CLI",
+			"source": {
+				"host": "github",
+				"path": "google-gemini/gemini-cli",
+				"url": "https://github.com/google-gemini/gemini-cli"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Google’s MCP-capable terminal agent with a very large free tier on a personal account. Routable to other providers, though tied to Gemini models by default.",
+				"fr": "Agent terminal de Google avec MCP et un très grand niveau gratuit sur compte perso. Routable vers d’autres fournisseurs, mais lié aux modèles Gemini par défaut."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "unknown"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Codex CLI",
+			"source": {
+				"host": "github",
+				"path": "openai/codex",
+				"url": "https://github.com/openai/codex"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "OpenAI’s terminal agent with sandboxed execution and approval modes, tuned to OpenAI models. Free tier needs a ChatGPT account; data residency is US-only.",
+				"fr": "Agent terminal d’OpenAI avec exécution sandboxée et modes d’approbation, calibré pour les modèles OpenAI. Le niveau gratuit exige un compte ChatGPT ; résidence des données limitée aux États-Unis."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "us-only"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenHands",
+			"source": {
+				"host": "github",
+				"path": "OpenHands/OpenHands",
+				"url": "https://github.com/OpenHands/OpenHands"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted agent running in a sandboxed container with a real dev environment and browser; the most autonomous of the set. Heaviest to stand up: Docker required, higher resource use.",
+				"fr": "Agent auto-hébergeable qui tourne dans un conteneur sandboxé avec un environnement de dev et un navigateur ; le plus autonome du lot. Le plus lourd à déployer : Docker requis, ressources élevées."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kilo Code",
+			"source": {
+				"host": "github",
+				"path": "Kilo-Org/kilocode",
+				"url": "https://github.com/Kilo-Org/kilocode"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A merge of Cline and Roo Code under MIT, with its own model gateway and any-provider support. Develops fast, which means occasional instability and a smaller community.",
+				"fr": "Fusion de Cline et Roo Code sous MIT, avec sa propre passerelle de modèles et tout fournisseur. Évolue vite, donc parfois instable, et communauté plus réduite que ses projets d’origine."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Roo Code",
+			"source": {
+				"host": "github",
+				"path": "RooCodeInc/Roo-Code",
+				"url": "https://github.com/RooCodeInc/Roo-Code"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The Cline fork that proved agent-extensions at scale, peaking at 3M installs. Still installable, but archived: shut down May 2026, users told to move to Cline or Zoo Code.",
+				"fr": "Fork de Cline qui a prouvé les extensions-agent à grande échelle : 3M d’installations au pic. Toujours installable, mais archivé, fermé en mai 2026, avec migration conseillée vers Cline ou Zoo Code."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gpt-engineer",
+			"source": {
+				"host": "github",
+				"path": "AntonOsika/gpt-engineer",
+				"url": "https://github.com/AntonOsika/gpt-engineer"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Early code-generation agent that builds whole codebases from a single prompt. Archived and one-shot rather than an interactive loop; bring your own OpenAI-compatible API key.",
+				"fr": "Agent pionnier de génération de code qui produit des bases entières depuis un seul prompt. Archivé et monobloc, sans boucle interactive ; il faut sa propre clé API OpenAI-compatible."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gptme",
+			"source": {
+				"host": "github",
+				"path": "gptme/gptme",
+				"url": "https://github.com/gptme/gptme"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "TUI agent that writes code, runs commands and browses the web from one session. Extensible into a persistent agent of your own, but the community is smaller than Aider’s or OpenCode’s.",
+				"fr": "Agent TUI qui écrit du code, lance des commandes et navigue sur le web en une session. Extensible pour bâtir son propre agent persistant, mais communauté plus petite qu’Aider ou OpenCode."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Goose",
+			"source": {
+				"host": "github",
+				"path": "aaif-goose/goose",
+				"url": "https://github.com/aaif-goose/goose"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "MCP-first agent from Block running against local models via CLI, TUI and desktop app. Now community-maintained after moving from block/goose to the aaif-goose org.",
+				"fr": "Agent MCP de Block qui tourne contre des modèles locaux via CLI, TUI et app de bureau. Désormais maintenu par la communauté après le passage de block/goose à l’org aaif-goose."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Crush",
+			"source": {
+				"host": "github",
+				"path": "charmbracelet/crush",
+				"url": "https://github.com/charmbracelet/crush"
+			},
+			"license": "FSL-1.1-MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Charmbracelet’s MCP-capable terminal agent for any provider, source-available under FSL and MIT after two years. Younger than the mature alternatives, and not yet fully open source.",
+				"fr": "Agent terminal de Charmbracelet compatible MCP, pour n’importe quel fournisseur ; code disponible sous FSL, puis MIT après deux ans. Plus jeune que les alternatives matures, et pas encore totalement open source."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

@@ -103,6 +103,262 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "IPFire",
+			"source": {
+				"host": "other",
+				"path": "git.ipfire.org/ipfire-2.x",
+				"url": "https://git.ipfire.org/?p=ipfire-2.x.git;a=summary"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Closest drop-in to a small FortiGate box, with web UI, Snort/Suricata IDS, and IPsec/OpenVPN. Guardian adds packages on a hardened OS. There is no central management, and advanced IPsec stays manual.",
+				"fr": "Le plus proche d’une petite box FortiGate : interface web, IDS Snort/Suricata et VPN IPsec/OpenVPN. Guardian enrichit un OS durci de paquets. Pas de gestion centralisée, et l’IPsec avancé reste à la main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenWrt",
+			"source": {
+				"host": "github",
+				"path": "openwrt/openwrt",
+				"url": "https://github.com/openwrt/openwrt"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The most deployed open router OS. LuCI, firewall4, WireGuard and SQM ride a package system that also assembles its own IPS. Beyond the SOHO edge, nothing is fleet-managed.",
+				"fr": "L’OS routeur ouvert le plus déployé. LuCI, firewall4, WireGuard et SQM tiennent dans un système de paquets qui fabrique aussi son propre IPS. Au-delà du SOHO, rien n’est géré à distance."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "strongSwan",
+			"source": {
+				"host": "github",
+				"path": "strongswan/strongswan",
+				"url": "https://github.com/strongswan/strongswan"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The IKEv2 engine inside most open firewalls: a daemon and VICI JSON API for site-to-site and road-warrior VPN. No GUI, no firewall of its own — policies are expert-level, written beside nftables.",
+				"fr": "Le moteur IKEv2 sous la plupart des pare-feux ouverts, pilotable par API JSON VICI. Ni GUI ni pare-feu propre : les politiques s’écrivent à la main, à côté de nftables."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "WireGuard",
+			"source": {
+				"host": "github",
+				"path": "WireGuard/wireguard-linux",
+				"url": "https://github.com/WireGuard/wireguard-linux"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Kernel VPN with official clients on every desktop and phone, the modern crypto zero-trust vendors build on. But key-based: no per-user auth or PKI UI, no central management without extra tooling.",
+				"fr": "VPN dans le noyau, clients officiels partout, crypto moderne au cœur des produits zero-trust. Mais sans auth par utilisateur : clés seules, pas d’UI PKI, pas de gestion centralisée sans outillage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LibreSwan",
+			"source": {
+				"host": "github",
+				"path": "libreswan/libreswan",
+				"url": "https://github.com/libreswan/libreswan"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Mature IKEv1/v2 IPsec with NSS, X.509, and opportunistic encryption, already shipped inside Fedora and IPFire. Managing it is ipsec.conf CLI work, and it overlaps strongSwan — pick one.",
+				"fr": "IPsec IKEv1/v2 mature, base NSS, X.509 et chiffrement opportuniste, déjà embarqué dans Fedora et IPFire. Administration au CLI ipsec.conf, et doublon avec strongSwan : il faut en choisir un."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenVPN",
+			"source": {
+				"host": "github",
+				"path": "OpenVPN/openvpn",
+				"url": "https://github.com/OpenVPN/openvpn"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The largest client ecosystem of any open VPN, and a TLS daemon proven since 2002. Throughput pays for it: userspace TLS, manual CA/key PKI, single-server with no native HA.",
+				"fr": "Le plus grand écosystème de clients de tout VPN ouvert, un démon TLS éprouvé depuis 2002. Le débit en fait les frais : TLS en espace utilisateur, PKI manuelle, mono-serveur sans HA natif."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tailscale",
+			"source": {
+				"host": "github",
+				"path": "tailscale/tailscale",
+				"url": "https://github.com/tailscale/tailscale"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "WireGuard mesh keyed on identity: ACLs, MagicDNS, an open control plane you can self-host. Hosted mode is the default, self-hosting is young, and SSO plus fine-grained ACLs are paid.",
+				"fr": "Maillage WireGuard adossé à l’identité : ACL, MagicDNS, plan de contrôle open source auto-hébergeable. L’hébergé reste le défaut, l’auto-hébergement est jeune, et SSO + ACL fines sont payants."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Open core — SSO and fine-grained ACLs are the paid tier.",
+					"fr": "Cœur ouvert — SSO et ACL fines au plan payant."
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Headscale",
+			"source": {
+				"host": "github",
+				"path": "juanfont/headscale",
+				"url": "https://github.com/juanfont/headscale"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "ops",
+			"note": {
+				"en": "Runs Tailscale’s whole coordination layer yourself, with OIDC, ACLs and MagicDNS, no Tailscale SaaS. Community-maintained, some features unimplemented, clients still from Tailscale, DNS and DERP on you.",
+				"fr": "Toute la couche de coordination de Tailscale chez vous, OIDC, ACL et MagicDNS compris, sans SaaS. Communautaire, fonctions manquantes, clients toujours de Tailscale, DNS et DERP à votre charge."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "NetBird",
+			"source": {
+				"host": "github",
+				"path": "netbirdio/netbird",
+				"url": "https://github.com/netbirdio/netbird"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "ops",
+			"note": {
+				"en": "Zero-trust networking you can self-host fully — management, signal, relay — with OIDC SSO and WireGuard peers. Expect three components to run, a young ecosystem, and docs aimed at the hosted plan.",
+				"fr": "Du zero-trust entièrement auto-hébergeable — management, signal, relay — avec SSO OIDC et pairs WireGuard. Comptez trois composants à déployer, un écosystème jeune et une doc orientée hébergé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nebula",
+			"source": {
+				"host": "github",
+				"path": "slackhq/nebula",
+				"url": "https://github.com/slackhq/nebula"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Slack’s mesh overlay in one static binary: your own certificate CA, lighthouse nodes, no coordination service. The price is manual cert and lighthouse ops, and no SSO or central admin UI.",
+				"fr": "L’overlay mesh de Slack en un seul binaire statique : votre propre CA, des lighthouses, aucun service de coordination. Le prix : ops certs et lighthouses à la main, ni SSO ni UI d’admin."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Firezone",
+			"source": {
+				"host": "github",
+				"path": "firezone/firezone",
+				"url": "https://github.com/firezone/firezone"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Self-hostable WireGuard gateway with a web admin for users and groups, plus OIDC/SAML SSO. Advanced SSO sits behind the paid plan, the API still churns, and a public endpoint is required.",
+				"fr": "Passerelle WireGuard auto-hébergeable avec admin web pour utilisateurs et groupes, SSO OIDC/SAML compris. Le SSO avancé reste au plan payant, l’API bouge encore, et un endpoint public est indispensable."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "nftables",
+			"source": {
+				"host": "other",
+				"path": "git.netfilter.org/nftables",
+				"url": "https://git.netfilter.org/nftables/"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The kernel firewall engine under any modern FortiGate replacement — iptables’ successor with sets, maps and atomic rulesets. No GUI, expert-level rule authoring, and no VPN or reporting of its own.",
+				"fr": "Le moteur de filtrage du noyau sous tout remplaçant de FortiGate, successeur d’iptables : sets, maps, règles atomiques. Ni GUI ni produit fini — règles de spécialiste, pas de VPN ni de reporting."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

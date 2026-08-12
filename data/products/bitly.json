@@ -128,6 +128,262 @@
 				"en": "Cheaper than Bitly with unlimited branded domains. Smaller company holding your redirect path.",
 				"fr": "Moins cher que Bitly avec des domaines de marque illimités. Une plus petite entreprise détient votre chemin de redirection."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Sink",
+			"source": {
+				"host": "github",
+				"path": "miantiao-me/Sink",
+				"url": "https://github.com/miantiao-me/Sink"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Analytics-heavy shortener that runs on Cloudflare’s free tier or Docker. Tracks geo, referrer, device and browser; custom domains, passwords, expiry. Cloudflare-bound on the worker route, and no multi-tenant user management.",
+				"fr": "Raccourcisseur orienté analytics qui tourne sur le free tier Cloudflare ou Docker. Géolocalisation, referrer, appareil et navigateur ; domaines personnalisés, mots de passe, expiration. Limité au worker Cloudflare, sans gestion multi-tenant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Polr",
+			"source": {
+				"host": "github",
+				"path": "cydrobolt/polr",
+				"url": "https://github.com/cydrobolt/polr"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "No commit since May 2024: the classic self-hosted PHP shortener has stalled. Custom-domain branding, multi-user, QR codes and a REST API, but it drags a PHP/MySQL stack.",
+				"fr": "Plus de commit depuis mai 2024 : ce classique du raccourcisseur PHP auto-hébergé s’est essoufflé. Domaines personnalisés, multi-utilisateur, QR codes et API REST, mais le tout sur un stack PHP/MySQL."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pckd",
+			"source": {
+				"host": "github",
+				"path": "Just-Moh-it/Pckd",
+				"url": "https://github.com/Just-Moh-it/Pckd"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Archived since 2022 but functional: an analytics-heavy shortener with a polished dashboard, custom aliases and domains, and a REST API. Single-user, no team accounts.",
+				"fr": "Archivé depuis 2022 mais fonctionnel : raccourcisseur à fort focus analytics, tableau de bord soigné, alias et domaines personnalisés, API REST. Mono-utilisateur, sans comptes d’équipe."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "UrlHub",
+			"source": {
+				"host": "github",
+				"path": "realodix/urlhub",
+				"url": "https://github.com/realodix/urlhub"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Actively maintained Laravel shortener with role and permission controls, a public links directory, REST API and QR codes. It drags Laravel plus MySQL, and analytics stay shallower than marketing tools.",
+				"fr": "Raccourcisseur Laravel activement maintenu : rôles et permissions, annuaire public de liens, API REST, QR codes. En contrepartie, un stack Laravel + MySQL, et des analytics moins poussés que les outils marketing."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pygmy",
+			"source": {
+				"host": "github",
+				"path": "amitt001/pygmy",
+				"url": "https://github.com/amitt001/pygmy"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Dormant since March 2024: the Python shortener offers click analytics, user accounts, custom aliases and a REST API. Small community, and fewer integrations than YOURLS or Shlink.",
+				"fr": "Dormant depuis mars 2024 : ce raccourcisseur Python fournit analytics de clics, comptes utilisateurs, alias personnalisés et API REST. Communauté réduite et moins d’intégrations que YOURLS ou Shlink."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "chhoto-url",
+			"source": {
+				"host": "github",
+				"path": "SinTan1729/chhoto-url",
+				"url": "https://github.com/SinTan1729/chhoto-url"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Rust plus SQLite in a single image or binary with no extra services: fast and self-hosted. Just a simple admin panel — no marketing analytics suite, and a small project behind it.",
+				"fr": "Rust + SQLite dans une seule image ou un binaire, sans service annexe : rapide et auto-hébergé. Simple panneau d’administration, mais aucune suite d’analytics marketing et un projet de petite taille."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gh-pages-url-shortener",
+			"source": {
+				"host": "github",
+				"path": "nelsontky/gh-pages-url-shortener",
+				"url": "https://github.com/nelsontky/gh-pages-url-shortener"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Dormant since June 2024. Runs free on GitHub Pages with custom aliases and multi-user via GitHub config — no server or database. Public by nature, and analytics only what GitHub itself records.",
+				"fr": "Dormant depuis juin 2024. Gratuit sur GitHub Pages : alias personnalisés courts, multi-utilisateur via la config GitHub, ni serveur ni base à maintenir. Public par nature, analytics limités à ceux de GitHub."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Url-Shorten-Worker",
+			"source": {
+				"host": "github",
+				"path": "xyTom/Url-Shorten-Worker",
+				"url": "https://github.com/xyTom/Url-Shorten-Worker"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "1.7k-star shortener on Cloudflare Workers’ free tier with custom domains, QR codes and preview pages over lightweight KV/D1 storage. Cloudflare-bound, and statistics stay basic.",
+				"fr": "Raccourcisseur 1,7 k étoiles sur le free tier Cloudflare Workers : domaines personnalisés, QR codes et pages d’aperçu sur un stockage KV/D1 léger. Lié à Cloudflare, statistiques rudimentaires."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "zws",
+			"source": {
+				"host": "github",
+				"path": "zws-im/zws",
+				"url": "https://github.com/zws-im/zws"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Stealth links made of invisible zero-width characters, open-sourced behind the zws.im instance. Custom domains and statistics included; self-hosting is fussier than a one-file app and the angle stays niche.",
+				"fr": "Liens furtifs en caractères invisibles de largeur nulle, code ouvert derrière l’instance zws.im. Domaines personnalisés et statistiques inclus ; l’auto-hébergement demande plus qu’une app à un seul fichier, et le positionnement reste confidentiel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Lstu",
+			"source": {
+				"host": "github",
+				"path": "ldidry/lstu",
+				"url": "https://github.com/ldidry/lstu"
+			},
+			"license": "WTFPL",
+			"effort": "docker",
+			"note": {
+				"en": "Featherweight Perl/Dancer shortener that fits a single small box, with multi-user and an API. Single-maintainer WTFPL project, and analytics go no further than visit counts.",
+				"fr": "Raccourcisseur Perl/Dancer tout léger qui tient sur une petite boîte, avec multi-utilisateur et API. Projet WTFPL tenu par un seul mainteneur, analytics limités aux compteurs de visites."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LinkStack",
+			"source": {
+				"host": "github",
+				"path": "LinkStackOrg/LinkStack",
+				"url": "https://github.com/LinkStackOrg/LinkStack"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Link-in-bio platform, 3.7k stars, whose built-in shortening covers Bitly’s marketing-page half. Themed profile pages, Docker self-hosting or hosted linkstack.org — but analytics stay shallow, and premium themes are paid.",
+				"fr": "Plateforme link-in-bio (3,7 k étoiles) dont le raccourcissement intégré couvre la moitié marketing de Bitly. Pages profil personnalisables, Docker ou linkstack.org hébergé — analytics peu poussés, thèmes premium payants."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Premium themes paid; core build open.",
+					"fr": "Thèmes premium payants ; cœur du code libre."
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pyshorteners",
+			"source": {
+				"host": "github",
+				"path": "ellisonleao/pyshorteners",
+				"url": "https://github.com/ellisonleao/pyshorteners"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Archived since 2022 but stable: a pip-installable Python CLI that shortens through dozens of APIs, including self-hosted YOURLS and Kutt. A client, not a server — it needs an upstream service.",
+				"fr": "Archivé depuis 2022 mais stable : CLI Python via pip qui raccourcit par des dizaines d’API, dont YOURLS et Kutt auto-hébergés. Un client, pas un serveur — il faut un service en amont."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

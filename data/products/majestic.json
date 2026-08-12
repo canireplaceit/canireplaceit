@@ -103,6 +103,157 @@
 				"en": "Free, and a far better backlink report than Majestic — but only for domains you can verify. Useless for competitor research, which is the point of Majestic.",
 				"fr": "Gratuit, et un bien meilleur rapport de backlinks que Majestic — mais seulement pour les domaines que vous pouvez vérifier. Inutile pour analyser les concurrents, ce qui est tout l’intérêt de Majestic."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "SerpBear",
+			"source": {
+				"host": "github",
+				"path": "towfiqi/serpbear",
+				"url": "https://github.com/towfiqi/serpbear"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Focused self-hosted SERP tracker spanning many engines and locations, with an API. No backlink index, no historical link metrics; a single-node rank machine.",
+				"fr": "Tracker SERP auto-hébergé ciblé sur beaucoup d’engines et de localisations, avec API. Pas d’index de backlinks ni de métriques de liens historiques : une machine à classements mono-nœud."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SERPOSCOPE",
+			"source": {
+				"host": "github",
+				"path": "serphacker/serposcope",
+				"url": "https://github.com/serphacker/serposcope"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Archived upstream but battle-tested. Google rank tracking with multi-user, per-site targets and proxies. Google-only and no link index — still widely used.",
+				"fr": "Archivé en amont mais éprouvé. Suivi de rank Google multi-utilisateurs, cibles par site et proxys. Uniquement Google, sans index de liens — pourtant encore très utilisé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Seo Panel",
+			"source": {
+				"host": "github",
+				"path": "seopanel/Seo-Panel",
+				"url": "https://github.com/seopanel/Seo-Panel"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Full self-hosted SEO panel: rank tracking, monitoring, reports and a plugin system. Older UI on a PHP/LAMP stack, no proprietary trust-flow metrics.",
+				"fr": "Panel SEO auto-hébergé complet : suivi de rank, monitoring, rapports et système de plugins. Interface vieillissante sur stack PHP/LAMP, pas de métriques trust-flow propriétaires."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CrawlSEO",
+			"source": {
+				"host": "github",
+				"path": "crawlseo/crawlseo",
+				"url": "https://github.com/crawlseo/crawlseo"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Open-source SEO monitor tying GSC data, a site crawler and Core Web Vitals into one dashboard. Tied to a Google account, with no backlink index or global rank positions.",
+				"fr": "Moniteur SEO open source reliant données GSC, crawler et Core Web Vitals dans un même tableau de bord. Lié à un compte Google, sans index de backlinks ni positions globales."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Google Lighthouse",
+			"source": {
+				"host": "github",
+				"path": "GoogleChrome/lighthouse",
+				"url": "https://github.com/GoogleChrome/lighthouse"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "CLI-grade technical SEO and performance audits for any URL or CI run. Per-page only: no rank tracking, no backlink data.",
+				"fr": "Audits techniques SEO et performances de niveau CLI, sur n’importe quelle URL ou en CI. Par page uniquement : pas de suivi de rank, pas de données de backlinks."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LinkChecker",
+			"source": {
+				"host": "github",
+				"path": "wummel/linkchecker",
+				"url": "https://github.com/wummel/linkchecker"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Veteran CLI crawler for broken links, redirects and anchor hygiene at scale. Not a rank tracker: no keyword data, no link-integrity metrics.",
+				"fr": "Crawler CLI vétéran pour liens cassés, redirections et hygiène des ancres à grande échelle. Pas un tracker de rank : ni données de mots-clés, ni métriques d’intégrité des liens."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Matomo",
+			"source": {
+				"host": "github",
+				"path": "matomo-org/matomo",
+				"url": "https://github.com/matomo-org/matomo"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted analytics with organic keyword reports and an SEO web-vitals plugin to round out rank tracking. No backlink index; premium plugins are paid.",
+				"fr": "Analytics auto-hébergé avec rapports de mots-clés organiques et plugin SEO web-vitals pour compléter le suivi de rank. Pas d’index de backlinks ; plugins premium payants."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "premium plugins",
+					"fr": "plugins premium"
+				}
+			}
 		}
 	],
 	"priority": 2

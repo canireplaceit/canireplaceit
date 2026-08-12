@@ -76,6 +76,174 @@
 				"en": "Managed Velero with a free tier for small clusters. Fewer application-consistency hooks than Kasten and your backup catalogue lives in their SaaS.",
 				"fr": "Velero managé avec un palier gratuit pour les petits clusters. Moins de hooks de cohérence applicative que Kasten, et votre catalogue de sauvegardes vit dans leur SaaS."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kanister",
+			"source": {
+				"host": "github",
+				"path": "kanisterio/kanister",
+				"url": "https://github.com/kanisterio/kanister"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Closest FOSS analog to K10 policies: Blueprints quiesce databases before snapshotting. You pay in Blueprint YAML per app, no web UI, and a steeper curve than Velero.",
+				"fr": "L’équivalent libre des politiques K10 : des Blueprints figent les bases avant le snapshot. On paie ça en YAML par application, sans UI web, et une courbe d’apprentissage plus raide que Velero."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "VolSync",
+			"source": {
+				"host": "github",
+				"path": "backube/volsync",
+				"url": "https://github.com/backube/volsync"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "CNCF sandbox operator replicating PVC data to object storage or other clusters. Volume-level only — no database quiesce, no dedup in rsync mode, no built-in UI.",
+				"fr": "Opérateur CNCF sandbox qui réplique les volumes PVC vers de l’object storage ou d’autres clusters. Au niveau volume seulement : pas de quiesce applicatif, pas de dédup en mode rsync, pas d’UI intégrée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "kube-backup",
+			"source": {
+				"host": "github",
+				"path": "pieterlange/kube-backup",
+				"url": "https://github.com/pieterlange/kube-backup"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Simple cron mirroring cluster state to a git repo for config backup and diffing. Config-only — no PVC data; restore means a manual git revert. Dormant since 2023, no release in three years.",
+				"fr": "Un cron qui miroite l’état du cluster dans un dépôt git pour backup config et diffs. Config seulement : pas de PVC, restauration en git revert. Dormant depuis 2023 — trois ans sans commit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "restic",
+			"source": {
+				"host": "github",
+				"path": "restic/restic",
+				"url": "https://github.com/restic/restic"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Battle-tested deduplicating, encrypted CLI backup — the engine under K8up/Kanister, ideal for PVC data off-cluster. Generic file backup though: no k8s awareness; you wire scheduling and rotation yourself.",
+				"fr": "CLI de backup chiffrée et dédupliquée, éprouvée — le moteur sous K8up/Kanister, parfait pour les données PVC hors cluster. Mais backup de fichiers : pas de notion k8s, planif et rotation à câbler soi-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kopia",
+			"source": {
+				"host": "github",
+				"path": "kopia/kopia",
+				"url": "https://github.com/kopia/kopia"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Fast deduplicating backup with a policy engine and web/desktop UI — the easiest CLI-to-server upgrade. Not k8s-native: no volume awareness; the central management and multi-tenant UI only come with server mode.",
+				"fr": "Backup dédupliqué rapide, moteur de politiques et UI web — le chemin CLI→serveur le plus simple. Pas natif k8s : pas de notion de volume, UI par dépôt."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Borg",
+			"source": {
+				"host": "github",
+				"path": "borgbackup/borg",
+				"url": "https://github.com/borgbackup/borg"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Most mature dedup engine: compressed, encrypted, FUSE-mountable archives — great for host-level PVC data. Single-host by design though: no multi-tenant server, no UI, and S3 needs shims or borg1.",
+				"fr": "Le moteur de dédup le plus mature : archives compressées, chiffrées, montables en FUSE — idéal pour les PVC au niveau hôte. Mono-hôte : pas de serveur multi-tenant, pas d’UI, S3 via borg1 ou shims."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Duplicati",
+			"source": {
+				"host": "github",
+				"path": "duplicati/duplicati",
+				"url": "https://github.com/duplicati/duplicati"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted encrypted dedup backup with a friendly web UI and a long cloud-target list — the managed-tier fallback. Not k8s-aware, backs volumes up as files, and runs heavier than restic or kopia.",
+				"fr": "Backup chiffré, dédupliqué, self-hosted, UI web claire, large choix de cibles cloud — recours du niveau managé. Pas conscient de k8s, volumes sauvés en fichiers, runtime plus lourd que restic ou kopia."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "resticprofile",
+			"source": {
+				"host": "github",
+				"path": "creativeprojects/resticprofile",
+				"url": "https://github.com/creativeprojects/resticprofile"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Declarative profiles and scheduling on top of restic turn ad-hoc runs into a K10-like policy layer. But it stays a wrapper: restic required underneath, single-host, no k8s-native features, no web UI.",
+				"fr": "Des profils déclaratifs et une planification par-dessus restic transforment des exécutions ad-hoc en couche de politiques façon K10. Reste un wrapper : restic requis dessous, mono-hôte, sans fonctionnalité k8s ni UI web."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

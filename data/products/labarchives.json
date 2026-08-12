@@ -76,6 +76,262 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Chemotion ELN",
+			"source": {
+				"host": "github",
+				"path": "ComPlat/chemotion_ELN",
+				"url": "https://github.com/ComPlat/chemotion_ELN"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The chemistry ELN: reaction drawing, spectra handling, FAIR/DOI export. Pick it if your lab runs on molecules — biology teams get little from it, and the Rails stack is sizeable to deploy.",
+				"fr": "L’ELN chimie par excellence : dessin de réactions, spectres, export FAIR/DOI. Indispensable quand le labo vit sur les molécules, mais quasi inutile pour la biologie, et le déploiement Rails est lourd."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "RSpace",
+			"source": {
+				"host": "github",
+				"path": "rspace-os/rspace-web",
+				"url": "https://github.com/rspace-os/rspace-web"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "AGPL ELN tying notebook documents to sample and inventory records, with templates and a REST API. Community is thinner than eLabFTW’s, and parts of the integrations sit in paid tiers.",
+				"fr": "ELN AGPL complet reliant les documents aux échantillons et au coffre, avec modèles et API REST. Communauté plus mince qu’eLabFTW, et une partie des intégrations reste en version payante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Some integrations and compliance features",
+					"fr": "Quelques intégrations et fonctions de conformité"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Open Science Framework (OSF)",
+			"source": {
+				"host": "github",
+				"path": "CenterForOpenScience/osf.io",
+				"url": "https://github.com/CenterForOpenScience/osf.io"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Apache-2.0 research platform with project hierarchies, preprints and an open API. Fine for sharing work across a team; there’s no experiment schema and nothing resembling lab inventory.",
+				"fr": "Plateforme de collaboration Apache-2.0 : hiérarchies de projets, prépublications, API ouverte. Bien pour partager le travail d’une équipe, mais sans schéma d’expérience ni modèle de stock de laboratoire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dataverse",
+			"source": {
+				"host": "github",
+				"path": "IQSS/dataverse",
+				"url": "https://github.com/IQSS/dataverse"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Harvard-backed repository with DOI minting and curation workflows. It publishes datasets, not notebook pages, and the Java/Payara stack is heavy to keep running.",
+				"fr": "Dépôt soutenu par Harvard : DOI et workflows de curation. Il publie des jeux de données, pas des pages de cahier, et la pile Java/Payara reste lourde à opérer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "NOMAD",
+			"source": {
+				"host": "github",
+				"path": "FAIRmat-NFDI/nomad",
+				"url": "https://github.com/FAIRmat-NFDI/nomad"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "FAIR platform for materials science: raw-data upload with schema, searchable datasets and analytics. Excellent for materials work; anything else is overkill, and the deployment footprint is large.",
+				"fr": "Plateforme FAIR dédiée aux matériaux : dépôt de données brutes schématisées, jeux de données interrogeables et analyse. Idéal en science des matériaux, démesuré ailleurs, et l’empreinte de déploiement reste grande."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MyTardis",
+			"source": {
+				"host": "github",
+				"path": "mytardis/mytardis",
+				"url": "https://github.com/mytardis/mytardis"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "GPL-3.0 catalog for instrument-heavy labs: metadata schemas, microscopy ingest, files staged to external storage. Development has been dormant since 2025, and it catalogues data rather than running the lab.",
+				"fr": "GPL-3.0 pour labos riches en instruments : schémas, ingestion de microscopie, fichiers mis en file vers un stockage externe. Peu actif depuis 2025 — il catalogue les données, ne gère pas le labo."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "JupyterLab",
+			"source": {
+				"host": "github",
+				"path": "jupyterlab/jupyterlab",
+				"url": "https://github.com/jupyterlab/jupyterlab"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "The default self-hosted notebook: interactive kernels for Python, R, Julia, plus realtime collaboration. As a lab record it’s thin — no inventory or audit trail, and multi-user auth means adding JupyterHub.",
+				"fr": "Le carnet auto-hébergé par défaut : noyaux Python, R, Julia, collaboration en temps réel. Comme registre de laboratoire il est mince — pas de stock ni de piste d’audit, et l’authentification multi-utilisateurs exige JupyterHub."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Papermill",
+			"source": {
+				"host": "github",
+				"path": "nteract/papermill",
+				"url": "https://github.com/nteract/papermill"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Parameterizes notebooks and runs them in batch, recording inputs and outputs for reproducible pipelines. It only executes — you bring the scheduler, the notebook server and any record UI yourself.",
+				"fr": "Paramètre des carnets et les exécute en lot, en enregistrant entrées et sorties pour des pipelines reproductibles. Il ne fait qu’exécuter : à vous le planificateur, le serveur de carnets et l’interface d’archivage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Quarto",
+			"source": {
+				"host": "github",
+				"path": "quarto-dev/quarto-cli",
+				"url": "https://github.com/quarto-dev/quarto-cli"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Markdown to PDF, HTML, docx and beamer, with Jupyter and knitr for literate programming. A local authoring tool though — no shared records, no access control, no audit trail.",
+				"fr": "Du markdown vers PDF, HTML, docx et beamer, avec Jupyter et knitr pour la programmation lettrée. Outil d’écriture local : pas de registres partagés, pas de contrôle d’accès ni de piste d’audit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Trilium Notes",
+			"source": {
+				"host": "github",
+				"path": "TriliumNext/Trilium",
+				"url": "https://github.com/TriliumNext/Trilium"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Outliner-style knowledge base with E2EE sync between devices and desktop apps. Great for personal research notes; nothing lab-aware, so no inventory or compliance tooling.",
+				"fr": "Base de connaissances hiérarchique, sync E2EE entre appareils et apps de bureau. Très bien pour les notes de recherche, mais rien de spécifique au labo : ni stock, ni outillage de conformité."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Joplin",
+			"source": {
+				"host": "github",
+				"path": "laurent22/joplin",
+				"url": "https://github.com/laurent22/joplin"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Markdown notes with E2EE, synced through your own Joplin Server, on desktop, mobile, CLI and web clipper. Solid personal note stack; there’s no structured experiment or inventory model.",
+				"fr": "Notes markdown chiffrées E2EE, synchronisées par votre propre serveur Joplin, sur desktop, mobile, CLI et clipper web. Bonne pile de notes personnelles, mais sans modèle structuré d’expérience ni de stock."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Zotero",
+			"source": {
+				"host": "github",
+				"path": "zotero/zotero",
+				"url": "https://github.com/zotero/zotero"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Reference manager with PDF capture, annotation and citations, syncable yourself over WebDAV. It organises your literature; experiments and inventory never appear in it.",
+				"fr": "Gestionnaire de références avec capture PDF, annotation et citations, synchronisable vous-même via WebDAV. Il organise votre littérature ; expériences et stock n’y apparaissent jamais."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

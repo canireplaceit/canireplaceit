@@ -97,6 +97,270 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "LobeChat",
+			"source": {
+				"host": "github",
+				"path": "lobehub/lobehub",
+				"url": "https://github.com/lobehub/lobehub"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Polished multi-agent chat UI for OpenAI, Claude and Ollama, installable as a PWA with a large plugin store. You bring the model backends; the 1.0+ licence restricts derivatives.",
+				"fr": "UI de chat multi-agents soignée pour OpenAI, Claude et Ollama, installable en PWA, gros catalogue de plugins à la clé. Vous apportez les backends de modèles ; la licence 1.0+ restreint les dérivés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Derivative works beyond the community licence",
+					"fr": "Dérivés au-delà de la licence communautaire"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "NextChat",
+			"source": {
+				"host": "github",
+				"path": "ChatGPTNextWeb/NextChat",
+				"url": "https://github.com/ChatGPTNextWeb/NextChat"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Minimal ChatGPT-style web chat with 20+ providers including local Ollama, deployable in minutes. Thinner than LibreChat or LobeChat, and multi-user setups still need a reverse proxy on top of basic auth.",
+				"fr": "Chat web minimaliste façon ChatGPT, 20+ fournisseurs dont Ollama en local, déployable en quelques minutes. Plus fin que LibreChat ou LobeChat ; pour plusieurs utilisateurs, il faut ajouter un reverse proxy à l’auth basique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dify",
+			"source": {
+				"host": "github",
+				"path": "langgenius/dify",
+				"url": "https://github.com/langgenius/dify"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Full LLMOps platform — visual workflows, RAG pipelines, agents — published as chat apps. It brings PostgreSQL, Redis and a vector DB, and the community licence bars multi-tenant SaaS without a licence.",
+				"fr": "Plateforme LLMOps complète — workflows visuels, pipelines RAG, agents — publiée en apps de chat. Elle traîne PostgreSQL, Redis et une base vectorielle, et la licence communautaire interdit le SaaS multi-tenant sans licence."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Multi-tenant SaaS deployments",
+					"fr": "SaaS multi-tenant"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Jan",
+			"source": {
+				"host": "github",
+				"path": "janhq/jan",
+				"url": "https://github.com/janhq/jan"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Local-first desktop chat running your own GGUF models fully offline, no account; it also reaches OpenAI and Anthropic clouds. Desktop only, and advanced tuning and tooling are still maturing.",
+				"fr": "Chat desktop local d’abord : vos modèles GGUF tournent hors ligne, sans compte, avec les clouds OpenAI et Anthropic au besoin. Desktop uniquement, et le tuning et les outils avancés restent à maturer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GPT4All",
+			"source": {
+				"host": "github",
+				"path": "nomic-ai/gpt4all",
+				"url": "https://github.com/nomic-ai/gpt4all"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Private local chat over thousands of models on CPU, no GPU or account. Larger models crawl on CPU, and with no mobile build the release cadence has slowed.",
+				"fr": "Chat local privé sur des milliers de modèles, en CPU, sans GPU ni compte. Les gros modèles rameutent en CPU, pas de build mobile et un rythme de sorties qui a ralenti."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "AnythingLLM",
+			"source": {
+				"host": "github",
+				"path": "Mintplex-Labs/anything-llm",
+				"url": "https://github.com/Mintplex-Labs/anything-llm"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "All-in-one RAG workspace: chat over your documents, as a desktop app or self-hosted web, with any LLM — local, Ollama, OpenAI. It is workspace-oriented, with enterprise and cloud features behind paid tiers.",
+				"fr": "Workspace RAG tout-en-un : discutez avec vos documents en app desktop ou en web auto-hébergé, avec n’importe quel LLM — local, Ollama, OpenAI. Orienté workspace, et les fonctions entreprise/cloud sont derrière des offres payantes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise and cloud features",
+					"fr": "Fonctions entreprise et cloud"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "llama.cpp",
+			"source": {
+				"host": "github",
+				"path": "ggml-org/llama.cpp",
+				"url": "https://github.com/ggml-org/llama.cpp"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Quantized GGUF on CPU or GPU, an OpenAI-compatible server, a CLI chat: this is the inference engine behind most local-LLM apps. It is an engine, not a product — you assemble the UI.",
+				"fr": "GGUF quantifié en CPU ou GPU, serveur compatible OpenAI, chat en CLI : c’est le moteur d’inférence derrière la plupart des apps LLM locales. Un moteur, pas un produit — l’UI, vous la montez vous-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "shell_gpt",
+			"source": {
+				"host": "github",
+				"path": "TheR1D/shell_gpt",
+				"url": "https://github.com/TheR1D/shell_gpt"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "An AI assistant in the terminal: generate shell commands and summarise files straight from the pipe. Terminal-only, with no GUI, web client or multi-user anything.",
+				"fr": "Assistant IA dans le terminal : génère des commandes shell et résume des fichiers à la volée depuis le pipe. Terminal uniquement, ni GUI, ni client web, ni multiuser."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "aichat",
+			"source": {
+				"host": "github",
+				"path": "sigoden/aichat",
+				"url": "https://github.com/sigoden/aichat"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A single binary, 15+ providers and local Ollama backends in a terminal chat with roles, agents and a REPL. It is CLI-only — no server, no web UI, no sharing.",
+				"fr": "Un binaire unique, 15+ fournisseurs et des backends Ollama locaux dans un chat terminal, avec rôles, agents et REPL. CLI uniquement : ni serveur, ni UI web, ni partage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "llm",
+			"source": {
+				"host": "github",
+				"path": "simonw/llm",
+				"url": "https://github.com/simonw/llm"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A tiny pip-installable CLI for LLM calls, with a plugin registry spanning dozens of models and local servers. Barebones — fine for scripts and cron, not a chat app on its own.",
+				"fr": "Petit CLI installable en pip pour des appels LLM, avec un registre de plugins couvrant des dizaines de modèles et serveurs locaux. Dépouillé — parfait pour scripts et cron, mais pas un chat à lui seul."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Open Interpreter",
+			"source": {
+				"host": "github",
+				"path": "openinterpreter/openinterpreter",
+				"url": "https://github.com/openinterpreter/openinterpreter"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "An LLM that executes code on your machine — natural-language file ops, data and automation from the terminal. Running arbitrary code demands sandboxing, and it is still experimental, desktop app aside.",
+				"fr": "Un LLM qui exécute du code sur votre machine : fichiers, données, automatisation en langage naturel depuis le terminal. Exécuter du code arbitraire exige un bac à sable, et l’app desktop reste expérimentale."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "text-generation-webui",
+			"source": {
+				"host": "github",
+				"path": "oobabooga/textgen",
+				"url": "https://github.com/oobabooga/textgen"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Feature-rich web UI for local LLMs, exposing an OpenAI-compatible API mode. Requires a Python environment and GPU tuning; upstream is slow, so much of the action lives in forks.",
+				"fr": "UI web riche pour LLM locaux, avec un mode API compatible OpenAI. Environnement Python et réglages GPU requis ; le projet avance lentement, et l’essentiel de l’activité vit dans les forks."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

@@ -107,6 +107,178 @@
 				"en": "The same open source product hosted, with a free tier of 50k observations a month. EU and US regions only.",
 				"fr": "Le même produit open source, hébergé, avec un palier gratuit de 50 000 observations par mois. Régions UE et US seulement."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Opik",
+			"source": {
+				"host": "github",
+				"path": "comet-ml/opik",
+				"url": "https://github.com/comet-ml/opik"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Comet's full-stack tracing, evals and prompt management under Apache-2.0, still under rapid development. Not a drop-in for existing LangSmith instrumentation — bring your own SDK calls.",
+				"fr": "Tracing, evals, jeux de données et gestion de prompts de Comet, Apache-2.0, en développement rapide. N’est pas un remplacement direct de l’instrumentation LangSmith existante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Promptfoo",
+			"source": {
+				"host": "github",
+				"path": "promptfoo/promptfoo",
+				"url": "https://github.com/promptfoo/promptfoo"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The closest thing to a CLI LangSmith-eval replacement: declarative configs, multi-model comparisons, red-teaming and CI runs, with a shareable web viewer. No production tracing — results and eval state are yours to manage.",
+				"fr": "Le plus proche d’un remplacement CLI des evals LangSmith : configs déclaratives, comparaison multi-modèles, red-teaming, CI, viewer web partageable. Pas de tracing en production — résultats et état restent à gérer soi-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenLLMetry",
+			"source": {
+				"host": "github",
+				"path": "traceloop/openllmetry",
+				"url": "https://github.com/traceloop/openllmetry"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Traceloop's OpenTelemetry instrumentation pipes LLM traces into any OTel backend you already run. No dashboard built in, no prompt management — bring your own collector and everything else.",
+				"fr": "L’instrumentation OpenTelemetry de Traceloop pousse vos traces LLM dans n’importe quel backend OTel existant. Pas de dashboard ni de gestion de prompts : apportez votre collecteur et le reste."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Agenta",
+			"source": {
+				"host": "github",
+				"path": "Agenta-AI/agenta",
+				"url": "https://github.com/Agenta-AI/agenta"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hostable LLM platform with an MIT core: prompt versioning, evals, playground and human-in-the-loop review. The ee/ enterprise features are paid and observability stays shallower than LangSmith.",
+				"fr": "Plateforme LLM auto-hébergeable au cœur MIT : versioning de prompts, evals, playground et relecture humaine. Les fonctions d’entreprise de ee/ sont payantes et l’observabilité reste moins profonde que LangSmith."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise edition (ee/)",
+					"fr": "Édition entreprise (ee/)"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LangWatch",
+			"source": {
+				"host": "github",
+				"path": "langwatch/langwatch",
+				"url": "https://github.com/langwatch/langwatch"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Apache-2.0 observability dashboard with evaluators and guardrails built in — topic, PII and quality checks plus OTel export. The ecosystem is smaller and the guardrail focus doesn't match LangSmith's breadth.",
+				"fr": "Dashboard d’observabilité Apache-2.0 avec evaluateurs et garde-fous intégrés — topic, PII et qualité, export OTel compris. Écosystème plus petit, et le focus garde-fou ne couvre pas la largeur de LangSmith."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenLIT",
+			"source": {
+				"host": "github",
+				"path": "openlit/openlit",
+				"url": "https://github.com/openlit/openlit"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "OpenTelemetry observability, GPU monitoring, evals, guardrails and prompt vault in one Apache-2.0 stack. A young project — eval tooling is immature and parts steer toward their hosted cloud.",
+				"fr": "Observabilité OpenTelemetry, monitoring GPU, evals, garde-fous et coffre de prompts dans un stack Apache-2.0. Projet jeune : l’outillage d’eval reste immature et certaines fonctions poussent vers leur cloud hébergé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Inspect AI",
+			"source": {
+				"host": "github",
+				"path": "UKGovernmentBEIS/inspect_ai",
+				"url": "https://github.com/UKGovernmentBEIS/inspect_ai"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "UK AISI's MIT framework for structured and agent evals, red-teaming and dataset-driven scoring from the command line, with a web log viewer. Eval-only — no production tracing, and Python-centric throughout.",
+				"fr": "Framework MIT de l’AISI britannique pour evals structurées et d’agents, red-teaming et scoring sur données HuggingFace, en CLI avec viewer web. Eval uniquement : pas de tracing en production, workflow très Python."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Langtrace",
+			"source": {
+				"host": "github",
+				"path": "Scale3-Labs/langtrace",
+				"url": "https://github.com/Scale3-Labs/langtrace"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "OpenTelemetry tracing for LLMs, frameworks and vector DBs, self-hosted with dashboards and evals. AGPL-3.0 bites if you distribute a linked build, and releases have slowed.",
+				"fr": "Tracing OpenTelemetry pour LLMs, frameworks et bases vectorielles, auto-hébergé avec dashboards et evals. L’AGPL-3.0 coince si vous distribuez un build lié, et les releases se font plus rares."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

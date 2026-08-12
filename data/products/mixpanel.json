@@ -74,6 +74,278 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Matomo",
+			"source": {
+				"host": "github",
+				"path": "matomo-org/matomo",
+				"url": "https://github.com/matomo-org/matomo"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Flagship self-hosted analytics; events, goals, funnels, heatmaps and session recording plugins cover Mixpanel’s product slice. PHP/MySQL stack, GPL-3.0, and advanced features sit behind paid plugins.",
+				"fr": "Le fleuron de l’auto-hébergement : événements, objectifs, entonnoirs, heatmaps et enregistrement de session couvrent la tranche produit de Mixpanel. Pile PHP/MySQL, GPL-3.0, et les fonctions avancées derrière des plugins payants."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Paid plugins",
+					"fr": "Plugins payants"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Plausible Analytics",
+			"source": {
+				"host": "github",
+				"path": "plausible/analytics",
+				"url": "https://github.com/plausible/analytics"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Lightweight cookieless analytics with goals and funnels; a lean Mixpanel stand-in for traffic and basic conversion. Single Docker image self-host, but no event-level product analytics or user journeys.",
+				"fr": "Analytics léger sans cookies, objectifs et entonnoirs compris : un substitut discret de Mixpanel pour le trafic et la conversion. Un conteneur Docker à héberger, mais pas d’analyse produit par événement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Umami",
+			"source": {
+				"host": "github",
+				"path": "umami-software/umami",
+				"url": "https://github.com/umami-software/umami"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "MIT, single-command self-host with custom events and funnels — the minimal-effort Mixpanel substitute for usage counts. No built-in retention, no replay or heatmaps, and it gets query-heavy on large datasets.",
+				"fr": "MIT, auto-hébergement en une commande, événements personnalisés et entonnoirs : le substitut minimal à Mixpanel pour compter les usages. Pas de rétention, ni replay ni heatmaps, et requêtes lourdes sur de gros volumes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GoatCounter",
+			"source": {
+				"host": "github",
+				"path": "arp242/goatcounter",
+				"url": "https://github.com/arp242/goatcounter"
+			},
+			"license": "EUPL-1.2",
+			"effort": "managed",
+			"note": {
+				"en": "Privacy-respecting analytics as a single Go binary with a small event API — simple product-usage counting with minimal ops. EUPL-licensed, but there are no funnels, retention or cohort views.",
+				"fr": "Un binaire Go unique, une petite API d’événements, du comptage sans cookies : compter les usages avec un minimum d’ops. Licence EUPL, mais pas d’entonnoirs, de rétention ni de cohortes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ackee",
+			"source": {
+				"host": "github",
+				"path": "electerious/Ackee",
+				"url": "https://github.com/electerious/Ackee"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Node-based, self-hosted, respects Do-Not-Track and ships an anonymous REST API — a simple Mixpanel stand-in for traffic and light events. What you lose: no funnels or retention, and development moves slowly.",
+				"fr": "Node, auto-hébergeable, respecte le Do-Not-Track, API REST anonyme : un substitut de Mixpanel pour le trafic et les événements. En contrepartie, pas d’entonnoirs ni de rétention, et un développement lent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Shynet",
+			"source": {
+				"host": "github",
+				"path": "milesmcc/shynet",
+				"url": "https://github.com/milesmcc/shynet"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Django-based and unique-visitor focused, open enough to hack into a custom tracking pipeline. The Python stack is the draw; funnels, retention and event taxonomy are absent, and development has slowed.",
+				"fr": "Assez ouvert pour être bricolé en pipeline de tracking maison : c’est la pile Django/Python qui attire. Mais pas de taxonomie d’événements, d’entonnoirs ni de rétention, et le développement a ralenti."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Swetrix",
+			"source": {
+				"host": "github",
+				"path": "Swetrix/swetrix",
+				"url": "https://github.com/Swetrix/swetrix"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Cookieless analytics with custom events, error tracking and a browser extension, all in an AGPL-3.0 Docker Compose self-host. The Community Edition trails the cloud feature set and the community is small.",
+				"fr": "Analytics sans cookies, événements personnalisés, suivi d’erreurs et extension navigateur, le tout auto-hébergeable en Docker Compose sous AGPL-3.0. La Community Edition reste en retrait du cloud et la communauté est réduite."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Cloud-only features",
+					"fr": "Fonctions réservées au cloud"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GoAccess",
+			"source": {
+				"host": "github",
+				"path": "allinurl/goaccess",
+				"url": "https://github.com/allinurl/goaccess"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Real-time access-log analysis in a terminal dashboard, no server component at all — a single static binary. But it is log-based: no client-side events, no funnels, no user-level insight.",
+				"fr": "Analyse des journaux en temps réel en terminal, sans aucun serveur : un binaire statique unique. Mais tout passe par les logs — ni événements côté client, ni entonnoirs, ni vue utilisateur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Snowplow",
+			"source": {
+				"host": "github",
+				"path": "snowplow/snowplow",
+				"url": "https://github.com/snowplow/snowplow"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "An open event pipeline — collector, enrich, load into your warehouse — on which you build Mixpanel-grade analytics in SQL. There is no end-user UI, and the ops (Kafka, EMR, Iglu) are heavy.",
+				"fr": "Pipeline d’événements open source — collecte, enrichissement, chargement dans votre entrepôt — pour bâtir en SQL une analytics digne de Mixpanel. Pas d’interface utilisateur, et une infra lourde (Kafka, EMR, registres Iglu)."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise BDP components",
+					"fr": "Composants BDP entreprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Offen",
+			"source": {
+				"host": "github",
+				"path": "offen/offen",
+				"url": "https://github.com/offen/offen"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Consent-first web analytics: visitors opt in before a single datapoint is stored, in one binary or Docker deploy. The tradeoff is depth — no funnels, retention or replay, and a small community.",
+				"fr": "Place le consentement en premier : les visiteurs optent avant qu’une seule donnée soit stockée, en binaire unique ou Docker. Le revers : peu de profondeur, pas d’entonnoirs ni de replay, petite communauté."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Fathom",
+			"source": {
+				"host": "github",
+				"path": "usefathom/fathom",
+				"url": "https://github.com/usefathom/fathom"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The privacy-first lightweight model others copied; the open repo is the v1 codebase, a simple self-host for pageviews and goals. Current Fathom is closed-source, and there are no events or funnels.",
+				"fr": "Le modèle léger et privacy-first que beaucoup ont copié ; le dépôt ouvert n’est que la v1, pour pages vues et objectifs. La version actuelle est fermée, sans événements ni entonnoirs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Closed-source SaaS",
+					"fr": "SaaS fermé"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pirsch",
+			"source": {
+				"host": "github",
+				"path": "pirsch-analytics/pirsch",
+				"url": "https://github.com/pirsch-analytics/pirsch"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Cookieless and GDPR-compliant with a strong REST API and attribution; the Go binary keeps it light. Self-hosting is a paid image or a build from source, and there are no funnels.",
+				"fr": "Sans cookies et conforme RGPD, API REST et attribution solides ; le binaire Go garde le tout léger. L’auto-hébergement passe par une image payante ou une compilation des sources AGPL, sans entonnoirs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Paid self-host image",
+					"fr": "Image auto-hébergement payante"
+				}
+			}
 		}
 	],
 	"priority": 3

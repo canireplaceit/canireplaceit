@@ -76,6 +76,236 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "PostHog",
+			"source": {
+				"host": "github",
+				"path": "PostHog/posthog",
+				"url": "https://github.com/PostHog/posthog"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Self-hostable analytics and event pipeline in one: SDKs, session replay, feature flags and 100+ destinations. Costs you a heavy stack — ClickHouse, Kafka, Redis — to run it.",
+				"fr": "Analytics et pipeline d’événements auto-hébergeables en une pièce : SDK, session replay, feature flags et plus de 100 destinations. À condition d’assumer une lourde infrastructure (ClickHouse, Kafka, Redis)."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Advanced pipelines, experimentation, SSO and more behind the paid ee/ tier.",
+					"fr": "Pipelines avancés, expérimentations, SSO et plus encore dans le tier ee/ payant."
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Snowplow",
+			"source": {
+				"host": "github",
+				"path": "snowplow/snowplow",
+				"url": "https://github.com/snowplow/snowplow"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "For teams who build analytics on their own SQL: collectors, enrichments and warehouse loaders mirror Segment’s model. No analytics UI — and heavy ops (Kafka, EMR) to run.",
+				"fr": "Pour ceux qui font leur analytics en SQL maison : collecteurs, enrichissements et loaders vers l’entrepôt reproduisent le modèle de Segment. Pas d’UI analytics — et une grosse infra à opérer (Kafka, EMR)."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise BDP: managed enrichment and support behind the paid tier.",
+					"fr": "BDP entreprise : enrichissements gérés et support réservés au tier payant."
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Countly",
+			"source": {
+				"host": "github",
+				"path": "Countly/countly-server",
+				"url": "https://github.com/Countly/countly-server"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Web and mobile product analytics — funnels, retention, crash reports — with Docker self-host. Costs an AGPL-3.0 with a modified Section 7 and an ee/ directory for the premium parts.",
+				"fr": "Analytics produit web et mobile — entonnoirs, rétention, crash reports — en auto-hébergement Docker. Prix à payer : AGPL-3.0 modifié à l’article 7 et un dossier ee/ pour le premium."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Session replay and other premium features live in the paid ee/ tier.",
+					"fr": "Session replay et autres fonctions premium réservées au tier ee/ payant."
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Matomo",
+			"source": {
+				"host": "github",
+				"path": "matomo-org/matomo",
+				"url": "https://github.com/matomo-org/matomo"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The flagship self-hosted platform; events, goals, funnels, heatmaps come via plugins. Web-centric, and the interesting plugins are paid — on top of GPL-3.0 and a PHP/MySQL stack.",
+				"fr": "La référence de l’auto-hébergement ; events, objectifs, entonnoirs et heatmaps arrivent par plugins. Centré web, plugins avancés payants, le tout sous GPL-3.0 avec une pile PHP/MySQL."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "A few advanced plugins — tag manager, A/B testing — are paid add-ons.",
+					"fr": "Quelques plugins avancés — tag manager, A/B testing — restent des extensions payantes."
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Grouparoo",
+			"source": {
+				"host": "github",
+				"path": "grouparoo/grouparoo",
+				"url": "https://github.com/grouparoo/grouparoo"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Reverse ETL — syncs warehouse profiles to marketing and analytics destinations. Archived since 2022, so no maintenance and no cloud; it only does reverse-ETL, no events or SDKs.",
+				"fr": "Reverse ETL : synchronise les profils de l’entrepôt vers vos destinations marketing. Archivé depuis 2022 — plus de maintenance ni de cloud — et limité au reverse ETL, sans événements ni SDK."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dittofeed",
+			"source": {
+				"host": "github",
+				"path": "dittofeed/dittofeed",
+				"url": "https://github.com/dittofeed/dittofeed"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Event ingestion, segments and multi-channel journeys — the Segment pipeline with engagement on top. Not a broad destination router, and no funnels or retention UI; still a young project.",
+				"fr": "Ingestion d’événements, segments et parcours multi-canal : le pipeline de Segment avec la couche engagement. Pas un routeur de destinations, pas d’UI funnels/rétention, et un projet encore jeune."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Hosted cloud is the paid option; the engine stays MIT.",
+					"fr": "L’hébergement cloud est payant ; le moteur reste sous MIT."
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GoAccess",
+			"source": {
+				"host": "github",
+				"path": "allinurl/goaccess",
+				"url": "https://github.com/allinurl/goaccess"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Fast real-time log analyzer with an interactive TUI — traffic insight straight from your server logs, zero dependencies. Log-based only: no client events, funnels or user-level analytics.",
+				"fr": "Analyseur de logs temps réel avec TUI interactif — l’état du trafic lu dans vos logs serveur, zéro dépendance. Limité aux logs : pas d’événements client, d’entonnoirs ni d’analytics utilisateur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Plausible Analytics",
+			"source": {
+				"host": "github",
+				"path": "plausible/analytics",
+				"url": "https://github.com/plausible/analytics"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Lean stand-in when you only need traffic and conversions: cookieless, GDPR-clean, one Docker image. Not event-level product analytics and no routing — analytics alone, under AGPL-3.0.",
+				"fr": "Substitut léger quand il ne faut que trafic et conversions : sans cookies, RGPD propre, une image Docker. Pas d’analytics produit par événement ni de routing — de l’analytics seul, sous AGPL-3.0."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Umami",
+			"source": {
+				"host": "github",
+				"path": "umami-software/umami",
+				"url": "https://github.com/umami-software/umami"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "MIT and a trivial Docker deploy for usage counts and custom events with funnels. Depth is shallow — no built-in retention, no replay, no routing — and it gets query-heavy at scale.",
+				"fr": "MIT et un déploiement Docker trivial pour compteurs d’usage et événements avec entonnoirs. Peu de profondeur — pas de rétention, pas de replay ni de routing — et lourd en requêtes à l’échelle."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GoatCounter",
+			"source": {
+				"host": "github",
+				"path": "arp242/goatcounter",
+				"url": "https://github.com/arp242/goatcounter"
+			},
+			"license": "EUPL-1.2",
+			"effort": "managed",
+			"note": {
+				"en": "Privacy-friendly counting in a single Go binary with a small event API — minimal ops. No funnels, retention or cohorts, no replay, and the project has a single maintainer.",
+				"fr": "Comptage respectueux de la vie privée dans un binaire Go unique, petite API d’événements — ops minimales. Pas d’entonnoirs, de rétention ni de cohortes, pas de replay, et un seul mainteneur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

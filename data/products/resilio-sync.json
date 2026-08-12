@@ -118,6 +118,182 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nextcloud",
+			"source": {
+				"host": "github",
+				"path": "nextcloud/server",
+				"url": "https://github.com/nextcloud/server"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Most complete Resilio stand-in: sync, sharing, office, groupware. But a heavy PHP/MySQL stack to run, a central server rather than P2P, and sync slows past a few thousand files.",
+				"fr": "L’alternative Resilio la plus complète : synchro, partage, bureautique, groupware. Lourde pile PHP/MySQL à opérer, serveur central — et la synchro se dégrade au-delà de quelques milliers de fichiers."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise edition features",
+					"fr": "Fonctionnalités de l’édition Entreprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Magic Wormhole",
+			"source": {
+				"host": "github",
+				"path": "magic-wormhole/magic-wormhole",
+				"url": "https://github.com/magic-wormhole/magic-wormhole"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Hand a single code, transfer end-to-end encrypted — no accounts, no server to run. But one-shot, not continuous sync, and everything funnels through a public relay you don’t control.",
+				"fr": "Un code lisible, transfert chiffré de bout en bout, sans compte ni serveur. Mais transfert ponctuel, pas de synchro continue, et débit borné par le relais public."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "croc",
+			"source": {
+				"host": "github",
+				"path": "schollz/croc",
+				"url": "https://github.com/schollz/croc"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "One static binary, one code, end-to-end-encrypted transfer with resumable sends on any OS. It moves files on demand — no folder sync, no GUI, nothing running in the background.",
+				"fr": "Un binaire Go statique, un code, transfert chiffré de bout en bout et reprenable sur tous les OS. Il déplace des fichiers à la demande, sans synchro de dossier ni interface."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Unison",
+			"source": {
+				"host": "github",
+				"path": "bcpierce00/unison",
+				"url": "https://github.com/bcpierce00/unison"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Old-school bidirectional sync over plain SSH: replica logs reconcile even huge trees. Security leans on SSH — no web client, no mobile app, dated CLI/GUI UX.",
+				"fr": "Synchro bidirectionnelle à l’ancienne sur simple SSH : les journaux de réplicas réconcilient même de très gros arborescences. La sécurité repose sur SSH — pas de client web ni mobile, une UX CLI/GUI datée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pydio Cells",
+			"source": {
+				"host": "github",
+				"path": "pydio/cells",
+				"url": "https://github.com/pydio/cells"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "A Dropbox-style platform, not just a web UI: desktop sync clients, Android/iOS apps, WebDAV and REST. Heavier than a single binary, central rather than P2P, and the enterprise tier is paid.",
+				"fr": "Une plateforme façon Dropbox, pas qu’une interface web : clients de synchro desktop, applis Android/iOS, WebDAV et REST. Déploiement plus lourd qu’un binaire, serveur central, et le palier entreprise est payant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise tier",
+					"fr": "Palier entreprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SeaweedFS",
+			"source": {
+				"host": "github",
+				"path": "seaweedfs/seaweedfs",
+				"url": "https://github.com/seaweedfs/seaweedfs"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "An S3 object store with a filer layer for directories — the backend under your sync, not the sync. Real scale means running a cluster; folder UX comes from rclone or clients.",
+				"fr": "Un object store S3 à couche filer exposant des répertoires — le backend sous votre synchro, pas la synchro. L’échelle réclame un cluster ; l’UX dossiers vient de rclone ou des clients."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MinIO",
+			"source": {
+				"host": "github",
+				"path": "minio/minio",
+				"url": "https://github.com/minio/minio"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "The standard self-hosted S3 store, web console and huge ecosystem — but archived upstream. It serves objects, not folders: bring an S3 client or mc, and there are no built-in share links.",
+				"fr": "Le standard des object stores S3 auto-hébergés, console web et gros écosystème — mais archivé en amont. Il sert des objets, pas des dossiers ; prévoyez un client S3 ou mc, pas de liens de partage intégrés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Filestash",
+			"source": {
+				"host": "github",
+				"path": "mickael-kerjean/filestash",
+				"url": "https://github.com/mickael-kerjean/filestash"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "A browser gateway turning S3, SFTP, WebDAV or FTP into a Dropbox-like UI with previews and share links. It stores nothing itself — no sync, no desktop clients, tiny maintainer team.",
+				"fr": "Une passerelle navigateur qui mue S3, SFTP, WebDAV ou FTP en interface façon Dropbox, avec aperçus et partage. Elle ne stocke rien elle-même — pas de synchro ni clients desktop, petite équipe."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

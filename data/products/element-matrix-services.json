@@ -87,6 +87,153 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Continuwuity",
+			"source": {
+				"host": "github",
+				"path": "continuwuity/continuwuity",
+				"url": "https://github.com/continuwuity/continuwuity"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Rust homeserver using a fraction of Synapse's RAM, with fast sync on modest hardware and easy docker deploys. Younger project: some admin and advanced features still lag, history tied to a fork community.",
+				"fr": "Homeserver Rust qui consomme une fraction de la RAM de Synapse, sync rapide même sur du matériel modeste, déploiement docker simple. Projet jeune : certaines fonctions avancées et d’admin accusent encore du retard, l’avenir dépend d’une communauté de fork."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Matrix Media Repo",
+			"source": {
+				"host": "github",
+				"path": "t2bot/matrix-media-repo",
+				"url": "https://github.com/t2bot/matrix-media-repo"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Takes image and file storage plus thumbnailing off the homeserver, onto S3-compatible object storage, with dedup and quarantine tooling. One more service to run, and superfluous at small-instance scale.",
+				"fr": "Décharge le stockage des images et fichiers et la génération de vignettes du homeserver vers un stockage objet compatible S3, avec déduplication et quarantaine. Un service de plus à opérer, superflu sur une petite instance."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nheko",
+			"source": {
+				"host": "github",
+				"path": "Nheko-Reborn/nheko",
+				"url": "https://github.com/Nheko-Reborn/nheko"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Native C++/Qt desktop client, no Electron: full E2EE, VoIP and offline message caching. Desktop only — no mobile or web build — and still needs a homeserver behind it.",
+				"fr": "Client desktop natif C++/Qt, sans Electron : chiffrement de bout en bout complet, appels VoIP et cache hors ligne. Desktop uniquement, pas de build mobile ni web, et il lui faut quand même un homeserver."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FluffyChat",
+			"source": {
+				"host": "github",
+				"path": "krille-chan/fluffychat",
+				"url": "https://github.com/krille-chan/fluffychat"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "One Flutter codebase covering web, mobile and desktop with E2EE, a polished UI and an F-Droid release. Advanced Matrix features lag Element and a small team maintains it.",
+				"fr": "Une seule base Flutter pour web, mobile et desktop, avec chiffrement de bout en bout, interface soignée et sortie sur F-Droid. Certaines fonctions avancées de Matrix accusent un retard sur Element, et l’équipe est petite."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gomuks",
+			"source": {
+				"host": "github",
+				"path": "gomuks/gomuks",
+				"url": "https://github.com/gomuks/gomuks"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Fast Go TUI client with full E2EE, a tiny footprint, and easy scripting in the terminal. Terminal only: no VoIP, no rich media, and it still needs a homeserver.",
+				"fr": "Client TUI Go rapide avec chiffrement de bout en bout complet, empreinte minimale et scriptable facilement en terminal. Terminal uniquement : pas de VoIP ni de contenus riches, et un homeserver reste nécessaire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Matrix Commander",
+			"source": {
+				"host": "github",
+				"path": "8go/matrix-commander",
+				"url": "https://github.com/8go/matrix-commander"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "CLI Matrix client for scripts and automation — send, receive and sync messages, with a TUI mode. Terminal-first and not a full chat experience; E2EE support only partial.",
+				"fr": "Client Matrix en ligne de commande pour scripts et automatisation : envoi, réception et sync des messages, avec un mode TUI. Pensé terminal avant tout, pas une vraie expérience de chat, et le chiffrement de bout en bout reste partiel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Heisenbridge",
+			"source": {
+				"host": "github",
+				"path": "hifi/heisenbridge",
+				"url": "https://github.com/hifi/heisenbridge"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "IRC bouncer bridging any IRC network into Matrix, keeping presence and identity, deployed as one lightweight service. A bridge, not a platform — it needs a homeserver and suits IRC users.",
+				"fr": "Bouncer IRC qui relie n’importe quel réseau IRC à Matrix en conservant présence et identité, déployé comme un unique service léger. Un pont, pas une plateforme : il exige un homeserver et ne concerne que les utilisateurs d’IRC."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

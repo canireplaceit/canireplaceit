@@ -83,8 +83,11 @@ export type NavItem = {
 	count?: number;
 };
 
+// `min-h-11` is the reason this is not just padding: below `lg` these rows ARE
+// the site's navigation and they are tapped with a thumb, so every one of them
+// clears the 44px target regardless of how short its label is.
 export const navRow =
-	"flex items-center gap-2.5 rounded-[calc(var(--radius))] px-2 py-1.5 text-sm hover:bg-[color-mix(in_srgb,var(--brand)_10%,transparent)]";
+	"flex min-h-11 items-center gap-2.5 rounded-[calc(var(--radius))] px-2.5 py-2 text-sm hover:bg-[color-mix(in_srgb,var(--brand)_10%,transparent)] aria-[current=page]:bg-[color-mix(in_srgb,var(--brand)_12%,transparent)] aria-[current=page]:font-medium aria-[current=page]:text-brand";
 
 export function NavRow({ item }: { item: NavItem }) {
 	const Icon = item.icon;
@@ -123,12 +126,16 @@ export function NavMenu({
 	items,
 	allHref,
 	allLabel,
+	current = false,
 	align = "left",
 }: {
 	label: string;
 	items: NavItem[];
 	allHref: string;
 	allLabel: string;
+	/** The reader is on a page under this menu. Marked the same way a plain nav
+	 *  link is, so the row has one rule for "you are here" and not two. */
+	current?: boolean;
 	/**
 	 * Which edge of the panel meets the trigger.
 	 *
@@ -161,7 +168,8 @@ export function NavMenu({
 			{/* biome-ignore lint/a11y/useAriaPropsSupportedByRole: a <summary> is exposed as a disclosure button and the expanded state is the one thing a trigger must announce; browsers derive it from the `open` attribute, this mirrors it for the readers that do not. */}
 			<summary
 				aria-expanded={open}
-				className="flex cursor-pointer list-none items-center gap-1 rounded-[calc(var(--radius))] outline-none hover:text-text focus-visible:ring-2 focus-visible:ring-[color-mix(in_srgb,var(--brand)_35%,transparent)] group-open:text-text [&::-webkit-details-marker]:hidden"
+				data-current={current}
+				className="nav-link flex cursor-pointer list-none items-center gap-1 outline-none focus-visible:ring-2 focus-visible:ring-[color-mix(in_srgb,var(--brand)_35%,transparent)] group-open:text-text [&::-webkit-details-marker]:hidden"
 			>
 				{label}
 				<ChevronDown
@@ -225,7 +233,7 @@ export function NavSheet({
 	groups,
 }: {
 	label: string;
-	links: { href: string; label: string }[];
+	links: { href: string; label: string; current?: boolean }[];
 	groups: {
 		title: string;
 		items: NavItem[];
@@ -262,7 +270,11 @@ export function NavSheet({
 					<ul className="grid grid-cols-1 gap-0.5">
 						{links.map((l) => (
 							<li key={l.href} className="min-w-0">
-								<Link href={l.href} className={`${navRow} font-medium`}>
+								<Link
+									href={l.href}
+									aria-current={l.current ? "page" : undefined}
+									className={`${navRow} font-medium`}
+								>
 									<span className="min-w-0 flex-1 truncate">{l.label}</span>
 								</Link>
 							</li>

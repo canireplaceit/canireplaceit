@@ -93,6 +93,174 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Galène",
+			"source": {
+				"host": "github",
+				"path": "jech/galene",
+				"url": "https://github.com/jech/galene"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Single Go binary, deployed in minutes; server-assisted P2P keeps bandwidth low across screen share, chat, files, recording and subgroups. Browser-only with a functional UI, and a small community means few plugins.",
+				"fr": "Un binaire Go unique ; le P2P assisté par le serveur contient la bande passante, avec partage d’écran, chat, fichiers, enregistrement et sous-groupes. Navigateur uniquement, UI fonctionnelle, petite communauté donc peu de plugins."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mumble",
+			"source": {
+				"host": "github",
+				"path": "mumble-voip/mumble",
+				"url": "https://github.com/mumble-voip/mumble"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Voice-only, but Opus low-latency and positional audio outclass any team app. Certificate auth, per-channel ACLs, a 20-year-old community. No video, a murmur server to run and tune, a native client for joiners.",
+				"fr": "Voix seule, mais l’audio basse latence d’Opus dépasse toute app d’équipe. Auth par certificat, ACL par canal, vingt ans de communauté. Pas de vidéo, un serveur murmur à régler, un client natif."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Element Call",
+			"source": {
+				"host": "github",
+				"path": "element-hq/element-call",
+				"url": "https://github.com/element-hq/element-call"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "E2EE video calls on the federated Matrix network, with breakout rooms, screen share, live captions and widget embedding. You supply a Matrix server and TURN, and it trails Jitsi on large calls.",
+				"fr": "Appels vidéo E2EE sur le réseau Matrix fédéré, avec sous-groupes, partage d’écran et widget embarquable. Vous fournissez le serveur Matrix et TURN ; moins solide que Jitsi sur les gros appels."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Janus",
+			"source": {
+				"host": "github",
+				"path": "meetecho/janus-gateway",
+				"url": "https://github.com/meetecho/janus-gateway"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "A battle-tested WebRTC SFU — plugins for rooms, audio bridges, streaming, recording; REST and WebSocket APIs. Not a meeting app: you build the UI, and the free tier has no managed support.",
+				"fr": "Un SFU WebRTC éprouvé — plugins pour salles, ponts audio, streaming, enregistrement ; API REST et WebSocket. Pas une app de réunion : vous construisez l’UI, et le plan gratuit n’a pas de support géré."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nextcloud Talk",
+			"source": {
+				"host": "github",
+				"path": "nextcloud/spreed",
+				"url": "https://github.com/nextcloud/spreed"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Video meetings inside Nextcloud — screen share, recordings, whiteboard, polls, SIP, LDAP and OIDC. Only worth it if you already run Nextcloud — heavier than a dedicated video server, video lags SFUs at scale.",
+				"fr": "Réunions vidéo dans Nextcloud — partage d’écran, enregistrements, tableau blanc, sondages, LDAP et OIDC. Utile seulement si vous tournez déjà Nextcloud : plus lourd qu’un serveur vidéo dédié, la vidéo décroche à grande échelle."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Rocket.Chat",
+			"source": {
+				"host": "github",
+				"path": "RocketChat/Rocket.Chat",
+				"url": "https://github.com/RocketChat/Rocket.Chat"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Omnichannel team chat with 1:1 and group audio-video calls, screen share, LDAP/OIDC/SAML and native apps. Resource-hungry under MongoDB and Node, video trails Zoom, and some collaboration features sit behind EE.",
+				"fr": "Chat d’équipe omnichannel : appels audio-vidéo 1:1 et de groupe, partage d’écran, LDAP/OIDC/SAML, apps natives. Gourmand en ressources (MongoDB, Node), vidéo en retrait de Zoom, fonctions payantes derrière l’EE."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "qTox",
+			"source": {
+				"host": "github",
+				"path": "qTox/qTox",
+				"url": "https://github.com/qTox/qTox"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Archived since 2025, still the main Tox client. Serverless peer-to-peer E2EE voice and video, files, group chat — no accounts or infrastructure. No official mobile apps; quality depends on peers’ NAT and bandwidth.",
+				"fr": "Archivé depuis 2025, toujours le principal client Tox. Sans serveur ni comptes, voix et vidéo E2EE, chats de groupe. Pas d’app mobile officielle, qualité tributaire du NAT et de la bande passante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Profanity",
+			"source": {
+				"host": "github",
+				"path": "profanity-im/profanity",
+				"url": "https://github.com/profanity-im/profanity"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "An ncurses TUI for XMPP with OMEMO, group chat and file transfer, scriptable and plugin-extensible. Text only — no calls — and it needs an XMPP server (Prosody, ejabberd) and a comfort with terminals.",
+				"fr": "Un TUI ncurses pour XMPP avec OMEMO, MUC et transfert de fichiers, extensible par plugins. Texte uniquement — pas d’appels — et il faut un serveur XMPP (Prosody, ejabberd), et le goût du terminal."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

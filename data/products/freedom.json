@@ -114,6 +114,132 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "AdGuard Home",
+			"source": {
+				"host": "github",
+				"path": "AdguardTeam/AdGuardHome",
+				"url": "https://github.com/AdguardTeam/AdGuardHome"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Full dashboard and per-client schedules, but DNS-layer only: a user who switches DNS resolver slips past it, and it adds one more always-on service.",
+				"fr": "Tableau de bord complet et plannings par client, mais uniquement au niveau DNS : changer de résolveur DNS suffit à contourner le blocage, et il faut maintenir un service de plus en permanence."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Blocky",
+			"source": {
+				"host": "github",
+				"path": "0xERR0R/blocky",
+				"url": "https://github.com/0xERR0R/blocky"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight DNS proxy with per-client allow/deny policies and modern DoH/DoT, but configured via YAML files — no dashboard, no scheduling UI.",
+				"fr": "Proxy DNS léger avec politiques d’autorisation par client et DoH/DoT moderne, mais piloté par fichiers de configuration, sans tableau de bord ni interface de planification."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "hblock",
+			"source": {
+				"host": "github",
+				"path": "hectorm/hblock",
+				"url": "https://github.com/hectorm/hblock"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Headless CLI that merges blocklists straight into /etc/hosts, ideal for cron. It has no scheduling or lockout of its own, and root can edit the file anytime.",
+				"fr": "CLI sans interface qui fusionne les listes de blocage dans /etc/hosts, pensé pour cron. Pas de planification ni de verrouillage en propre, et le fichier reste modifiable par root."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "StevenBlack/hosts",
+			"source": {
+				"host": "github",
+				"path": "StevenBlack/hosts",
+				"url": "https://github.com/StevenBlack/hosts"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "One-line installer drops a curated unified hosts file into place with a cron updater. It is a static file: no schedules, no unblocking controls, root-editable.",
+				"fr": "Un installateur en une ligne dépose une liste hosts unifiée et mise à jour par cron. Fichier statique : ni plannings, ni contrôle de déblocage, modifiable par root."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenSnitch",
+			"source": {
+				"host": "github",
+				"path": "evilsocket/opensnitch",
+				"url": "https://github.com/evilsocket/opensnitch"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Linux app-level firewall that hard-blocks a browser process outright. No time-based schedules and nf_tables/eBPF kernel requirements mean setup and rule tuning are real work.",
+				"fr": "Pare-feu applicatif Linux qui peut bloquer franchement un navigateur. Sans plannings horaires et exigeant nf_tables/eBPF, son réglage demande du travail."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "beyblock20",
+			"source": {
+				"host": "github",
+				"path": "ChrisChrisLoLo/beyblock20",
+				"url": "https://github.com/ChrisChrisLoLo/beyblock20"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Terminal countdown lockout of distracting sites via /etc/hosts, cross-platform and single-purpose. Dormant since February 2023, so treat it as finished rather than maintained.",
+				"fr": "Compte à rebours en terminal pour verrouiller les sites distrayants via /etc/hosts, multi-plateforme et à usage unique. En sommeil depuis février 2023, à considérer comme abandonné plutôt que maintenu."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

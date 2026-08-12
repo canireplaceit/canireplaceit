@@ -63,8 +63,8 @@
 			"license": "Apache-2.0",
 			"effort": "docker",
 			"note": {
-				"en": "Simple pipelines, license changed.",
-				"fr": "Pipelines simples, licence changée."
+				"en": "Absorbed into Harness Open Source; no standalone Drone remains. Kept for the record — the 2019 licence change is why people left it, and that history is the point.",
+				"fr": "Absorbé par Harness Open Source ; il ne reste plus de Drone autonome. Conservé pour mémoire — le changement de licence de 2019 est la raison des départs, et c’est bien là l’intérêt."
 			},
 			"facts": {
 				"selfHostable": true,
@@ -95,6 +95,291 @@
 				"selfHostable": true,
 				"openCore": "none",
 				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Harness Open Source",
+			"source": {
+				"host": "github",
+				"path": "harness/harness",
+				"url": "https://github.com/harness/harness"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "What Drone became: pipelines plus source hosting and artefact registry in one binary. More than a CI server, which is the appeal and the cost.",
+				"fr": "Ce qu’est devenu Drone : pipelines, hébergement du code et registre d’artefacts dans un seul binaire. Plus qu’un serveur de CI, ce qui fait son intérêt et son prix."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"paywalled": {
+					"en": "Hosted cloud tiers and enterprise governance",
+					"fr": "Offres cloud hébergées et gouvernance entreprise"
+				},
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GitLab",
+			"source": {
+				"host": "gitlab",
+				"path": "gitlab-org/gitlab",
+				"url": "https://gitlab.com/gitlab-org/gitlab"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Canonical self-hosted forge with mature CI/CD: auto-scaling runners, merge trains, review apps. You adopt a whole git forge and a RAM-hungry, ops-heavy install, with SSO and security gated to EE.",
+				"fr": "L’alternative self-hosted de référence : forge complète, CI/CD intégrée, runners auto-scaling, merge trains, review apps. On adopte toute une forge git et une install lourde en RAM, SSO et sécurité réservés à l’EE."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "SAML SSO and enterprise security, EE-only",
+					"fr": "SSO SAML et fonctions de sécurité, réservés à l’EE"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Gitea",
+			"source": {
+				"host": "github",
+				"path": "go-gitea/gitea",
+				"url": "https://github.com/go-gitea/gitea"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight forge running GitHub-Actions-compatible workflows via act_runner; repo, issues, PRs and CI in one Go binary, ~100MB RAM. Actions parity trails GitHub upstream and large matrices want dedicated runner boxes.",
+				"fr": "Forge légère : CI compatible GitHub Actions via act_runner, tout dans un binaire Go (~100 Mo de RAM). La parité Actions traîne derrière GitHub et les grosses matrices veulent des runners dédiés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Jenkins",
+			"source": {
+				"host": "github",
+				"path": "jenkinsci/jenkins",
+				"url": "https://github.com/jenkinsci/jenkins"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Battle-tested self-hosted CI/CD with the largest plugin ecosystem anywhere — 1,800+ plugins, distributed master/agent builds. The price: Groovy/Java pipeline-as-code and an aging UI next to YAML-native rivals.",
+				"fr": "CI/CD self-hosté éprouvé, avec le plus gros écosystème de plugins du marché : 1 800+ plugins, topologie maître/agents distribuée. Le prix : des pipelines Groovy/Java et une UI vieillissante face aux CIs en YAML."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Buildbot",
+			"source": {
+				"host": "github",
+				"path": "buildbot/buildbot",
+				"url": "https://github.com/buildbot/buildbot"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Build/test framework declared in Python, master/worker pools with Windows workers and a mature web UI. Config-as-Python is the steepest learning curve here, and the community is smaller than Jenkins’.",
+				"fr": "Framework de build/test décrit en Python, pools maîtres/ouvriers avec workers Windows et une UI web mûre. La config en Python demande plus d’effort d’apprentissage, la communauté est plus petite que Jenkins."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GoCD",
+			"source": {
+				"host": "github",
+				"path": "gocd/gocd",
+				"url": "https://github.com/gocd/gocd"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "CD-focused CI that models fan-in/fan-out dependencies as a visual graph, with value-stream mapping built in. You operate a Java server and hand-write verbose XML/JSON config for it.",
+				"fr": "CI orientée CD qui modélise les dépendances fan-in/fan-out en graphe visuel, avec value-stream mapping intégré. À charge : un serveur Java à opérer et une config XML/JSON verbeuse à écrire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tekton",
+			"source": {
+				"host": "github",
+				"path": "tektoncd/pipeline",
+				"url": "https://github.com/tektoncd/pipeline"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "CNCF-graduated pipelines as Kubernetes CRDs — Tasks, Triggers, tkn CLI. Built for teams already on k8s; needs a cluster and is overkill for a single VPS.",
+				"fr": "Pipelines au catalogue CNCF, déclarées en CRD Kubernetes — Tasks, Triggers, CLI tkn. Fait pour les équipes déjà sur k8s ; il faut un cluster, et c’est du surpoids pour un simple VPS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Agola",
+			"source": {
+				"host": "github",
+				"path": "agola-io/agola",
+				"url": "https://github.com/agola-io/agola"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Modern Go CI/CD in one self-contained server+runner binary, API-first with a full web UI. Dormant since roughly 2023 — small community and thin docs.",
+				"fr": "CI/CD en Go dans un seul binaire serveur+runner, API-first avec UI web complète. En dormance depuis environ 2023 : communauté réduite et docs maigres."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pipelight",
+			"source": {
+				"host": "github",
+				"path": "crocuda/pipelight",
+				"url": "https://github.com/crocuda/pipelight"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Pipelines declared in one config file and run entirely in the terminal, git-triggered or scheduled. No server — but single-host only, no distributed agents or matrix.",
+				"fr": "Pipelines déclarées dans un seul fichier de config et lancées dans le terminal, sur trigger git ou planification. Zéro serveur — mais mono-machine : ni agents distribués, ni matrice."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Laminar",
+			"source": {
+				"host": "github",
+				"path": "ohwgiles/laminar",
+				"url": "https://github.com/ohwgiles/laminar"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Minimal self-hosted CI in a single C++ binary with a clean web UI, running over SSH or any build dir. Config files are hand-written — no YAML pipelines, no matrix parallelism.",
+				"fr": "Mini-CI self-hostée dans un binaire C++ unique, avec une UI web sobre, par SSH ou n’importe quel dossier de build. Config manuelle : pas de pipelines YAML, pas de matrice."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Act",
+			"source": {
+				"host": "github",
+				"path": "nektos/act",
+				"url": "https://github.com/nektos/act"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "CLI that replays GitHub Actions workflows locally with Docker, for fast feedback before opening a PR. It is not a CI server — no scheduling, and image/OS parity gaps remain.",
+				"fr": "CLI qui rejoue les workflows GitHub Actions en local via Docker, pour un retour rapide avant la PR. Pas un serveur CI : ni planification, ni parité garantie avec les runners GitHub."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Earthly",
+			"source": {
+				"host": "github",
+				"path": "earthly/earthly",
+				"url": "https://github.com/earthly/earthly"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Earthfile DSL builds run locally or on your own runners with BuildKit caching, plugging into any orchestrator. Only the web console is paid; core stays OSS, and you operate a BuildKit daemon.",
+				"fr": "Builds reproductibles en DSL Earthfile, en local ou sur vos runners avec cache BuildKit, branchés sur n’importe quel orchestrateur. Seule la console web est payante ; cœur OSS, mais daemon BuildKit requis."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Web console and remote BuildKit cache",
+					"fr": "Console web et cache BuildKit distant"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Stratum CI",
+			"source": {
+				"host": "github",
+				"path": "stratum/stratum",
+				"url": "https://github.com/stratum/stratum"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Self-hosted, local-first CI with a Go binary, web dashboard and GitLab/GitHub/Gitea hooks. No commits since July 2024, though — treat it as dormant, not a live project.",
+				"fr": "CI self-hostée et locale d’abord, en binaire Go avec dashboard web et hooks GitLab/GitHub/Gitea. Aucun commit depuis juillet 2024 : le projet est dormant, à ne pas considérer comme actif."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
 				"dataResidency": "self"
 			}
 		}

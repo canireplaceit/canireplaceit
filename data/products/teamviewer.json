@@ -97,6 +97,174 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "DWService",
+			"source": {
+				"host": "github",
+				"path": "dwservice/agent",
+				"url": "https://github.com/dwservice/agent"
+			},
+			"license": "MPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Any browser, no client to install: file manager, terminal and remote desktop ride a gateway you self-host or use for free. Expect latency on browser sessions and a smaller community behind it.",
+				"fr": "N’importe quel navigateur, sans client à installer : gestionnaire de fichiers, terminal et bureau distant passent par une passerelle auto-hébergée ou gratuite. Sessions navigateur plus lentes, communauté plus petite."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "neko",
+			"source": {
+				"host": "github",
+				"path": "m1k1o/neko",
+				"url": "https://github.com/m1k1o/neko"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "A virtual browser in a container, streamed over WebRTC to any browser with chat and multi-user viewing. Low latency, but scoped to the container — no OS-level control, no file transfer.",
+				"fr": "Un navigateur virtuel en conteneur, diffusé par WebRTC avec chat et visionnage multi-utilisateur. Latence faible, mais cantonné au conteneur : pas de contrôle OS ni de transfert de fichiers."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "xrdp",
+			"source": {
+				"host": "github",
+				"path": "neutrinolabs/xrdp",
+				"url": "https://github.com/neutrinolabs/xrdp"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Your Linux box speaks RDP: log in from any built-in client, including Windows mstsc. Tied to Linux, and the Xorg session setup is on you — no managed suite.",
+				"fr": "Votre machine Linux parle RDP : connectez-vous depuis n’importe quel client intégré, dont mstsc. Linux uniquement, et la session Xorg vous revient à configurer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "noVNC",
+			"source": {
+				"host": "github",
+				"path": "novnc/noVNC",
+				"url": "https://github.com/novnc/noVNC"
+			},
+			"license": "MPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Drops the client-install step: a VNC/RFB client that runs in the browser, proxying any VNC backend over TLS/WS. Needs a VNC server behind it, and brings no auth, chat or file transfer.",
+				"fr": "Supprime l’installation côté client : un client VNC/RFB dans le navigateur, relayant n’importe quel backend VNC via TLS/WS. Il faut un serveur VNC derrière, et ni authentification, ni chat, ni transfert de fichiers."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "TigerVNC",
+			"source": {
+				"host": "github",
+				"path": "TigerVNC/tigervnc",
+				"url": "https://github.com/TigerVNC/tigervnc"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The workhorse for headless Linux desktops: Xvnc virtual displays, TLS auth, a viewer for every platform. VNC protocol means no RDP-grade QoS or audio, and no relay when you’re behind NAT.",
+				"fr": "Le bourreau de travail des bureaux Linux sans écran : affichages virtuels Xvnc, auth TLS, visualiseur multi-plateforme. Le protocole VNC n’offre ni QoS ni audio dignes de RDP, aucun relais derrière un NAT."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "tmate",
+			"source": {
+				"host": "github",
+				"path": "tmate-io/tmate",
+				"url": "https://github.com/tmate-io/tmate"
+			},
+			"license": "ISC",
+			"effort": "managed",
+			"note": {
+				"en": "Share a tmux session in one command, encrypted, over a free hosted relay or your own tmate-ssh-server. Terminal only — no GUI, no file transfer — and onlookers get a web view.",
+				"fr": "Partagez une session tmux en une commande, chiffrée, via le relais gratuit ou votre tmate-ssh-server. Terminal uniquement, sans GUI ni transfert de fichiers ; les observateurs regardent via le web."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Eternal Terminal",
+			"source": {
+				"host": "github",
+				"path": "MisterTea/EternalTerminal",
+				"url": "https://github.com/MisterTea/EternalTerminal"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "An SSH session that shrugs off disconnects, roaming and reboots — Windows included. Needs a client and server on both ends, and a smaller ecosystem than mosh.",
+				"fr": "Une session SSH qui survit aux coupures, aux changements de réseau et aux redémarrages — Windows compris. Client et serveur à installer des deux côtés, écosystème plus restreint que mosh."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mosh",
+			"source": {
+				"host": "github",
+				"path": "mobile-shell/mosh",
+				"url": "https://github.com/mobile-shell/mosh"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The roaming shell: instant reconnect, predictive echo over slow links, UDP that survives IP changes. Terminal only, and it still needs SSH to start the session.",
+				"fr": "Le shell nomade : reconnexion instantanée, écho prédictif sur lien lent, UDP qui encaisse les changements d’IP. Terminal uniquement, et il faut toujours SSH au départ."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

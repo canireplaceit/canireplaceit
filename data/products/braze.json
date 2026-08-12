@@ -105,6 +105,182 @@
 				"en": "Same journey model at a fraction of a Braze contract, and it scales properly. Weaker mobile SDKs and no enterprise account team.",
 				"fr": "Le même modèle de parcours pour une fraction d’un contrat Braze, et ça monte en charge correctement. SDK mobiles plus faibles et pas d’équipe de compte dédiée."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "ntfy",
+			"source": {
+				"host": "github",
+				"path": "binwiederhier/ntfy",
+				"url": "https://github.com/binwiederhier/ntfy"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Single-binary self-hosted push relay with CLI, web app and Android/iOS clients — free Braze push delivery. Raw delivery only: no segments, journeys or scheduling UI, no email or SMS, no per-user analytics.",
+				"fr": "Relais push auto-hébergé en un seul binaire, clients Android/iOS, web et CLI — remplace la diffusion push de Braze gratuitement. Brute uniquement : ni segments, ni parcours, ni e-mail, ni analytics."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apprise",
+			"source": {
+				"host": "github",
+				"path": "caronc/apprise",
+				"url": "https://github.com/caronc/apprise"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "One CLI call fans a message out to 100+ services — email, Slack, Telegram, Gotify, ntfy. One-way only: no scheduling UI, no subscriber management, no analytics.",
+				"fr": "Une seule commande CLI répartit un message vers 100+ services — e-mail, Slack, Telegram, Gotify, ntfy. Sens unique : ni UI de planification, ni gestion d’abonnés, ni analytics."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Gotify",
+			"source": {
+				"host": "github",
+				"path": "gotify/server",
+				"url": "https://github.com/gotify/server"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Minimal self-hosted push server: REST API, web UI, official Android app. Drop-in mobile push, but no iOS or web-push, no email or SMS, no journey automation or segmentation.",
+				"fr": "Serveur push minimal auto-hébergé : API REST, UI web, appli Android officielle. Un push mobile clé en main, mais ni iOS ni web-push, ni e-mail ni SMS, ni automation de parcours ni segmentation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Listmonk",
+			"source": {
+				"host": "github",
+				"path": "knadh/listmonk",
+				"url": "https://github.com/knadh/listmonk"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Fast, single-binary self-hosted email campaigns and newsletters: template editor, subscriber tags, REST API. Email only — automation stays basic, no real-time behavioral journeys, no per-customer analytics.",
+				"fr": "Campagnes e-mail et newsletters auto-hébergées, rapides, en un binaire : éditeur de templates, tags d’abonnés, API REST. E-mail seulement — automation basique, pas de parcours comportementaux en temps réel, ni analytics par client."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Keila",
+			"source": {
+				"host": "github",
+				"path": "pentacent/keila",
+				"url": "https://github.com/pentacent/keila"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Privacy-first email newsletter with block templates, contact segmentation and automation, built for EU data residency. Email only; docs are thin and SMTP delivery is yours to run.",
+				"fr": "Newsletter e-mail axée vie privée : templates en blocs, segmentation des contacts et automation, pensée pour la résidence des données UE. E-mail seulement ; documentation fine et livraison SMTP à votre charge."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Chatwoot",
+			"source": {
+				"host": "github",
+				"path": "chatwoot/chatwoot",
+				"url": "https://github.com/chatwoot/chatwoot"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted support inbox covering engagement: omni-channel email, chat, WhatsApp, proactive campaigns, contact CRM. Support-first though — not a marketing blast engine, limited bulk email, no push to end customers.",
+				"fr": "Boîte de réception support auto-hébergée pour l’engagement : e-mail, chat, WhatsApp, campagnes proactives, CRM contacts. Support d’abord — pas un outil d’envoi marketing ; e-mail en masse limité, pas de push client final."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Little held back (minor openCore)",
+					"fr": "Peu retenu (openCore mineur)"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Formbricks",
+			"source": {
+				"host": "github",
+				"path": "formbricks/formbricks",
+				"url": "https://github.com/formbricks/formbricks"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Targeted in-app surveys and messaging keyed to user attributes and events, via a JS/React widget. In-app only: no email, SMS or push, no full lifecycle automation, enterprise code gated behind ee/.",
+				"fr": "Sondages et messages in-app ciblés par attributs et événements utilisateur, via un widget JS/React. In-app seulement : ni e-mail, ni SMS, ni push, ni automation de cycle de vie ; code entreprise sous ee/."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise features behind ee/ (major openCore)",
+					"fr": "Fonctions entreprise derrière ee/ (openCore majeur)"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Typebot",
+			"source": {
+				"host": "github",
+				"path": "baptisteArno/typebot.io",
+				"url": "https://github.com/baptisteArno/typebot.io"
+			},
+			"license": "FSL-1.1-Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Drag-and-drop chat flow builder with conditional logic, lead capture into CRMs and webhooks, embeddable widget. FSL license, not OSI; chat-first, no bulk email or push campaigns.",
+				"fr": "Constructeur visuel de parcours chat par glisser-déposer, logique conditionnelle, capture de leads vers CRM/webhooks, widget intégrable. Licence FSL, pas OSI ; chat d’abord, pas de campagnes e-mail ou push en masse."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

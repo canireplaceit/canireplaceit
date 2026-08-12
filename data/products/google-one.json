@@ -151,6 +151,321 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Syncthing",
+			"source": {
+				"host": "github",
+				"path": "syncthing/syncthing",
+				"url": "https://github.com/syncthing/syncthing"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Peer-to-peer sync with no server and no account; LAN works offline. Android-only mobile and no share links for non-technical users.",
+				"fr": "Synchronisation pure P2P, sans serveur ni compte, qui fonctionne hors ligne sur le réseau local. En revanche, pas de partage par lien, et mobile uniquement Android."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FileBrowser",
+			"source": {
+				"host": "github",
+				"path": "filebrowser/filebrowser",
+				"url": "https://github.com/filebrowser/filebrowser"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "A web file manager in one binary; browse, upload, authenticate over HTTP. No sync at all, so it cannot mirror anything.",
+				"fr": "Gestionnaire de fichiers web dans un seul binaire, avec connexion et upload via HTTP. Mais aucun sync : il ne peut pas répliquer un dossier."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pydio Cells",
+			"source": {
+				"host": "github",
+				"path": "pydio/cells",
+				"url": "https://github.com/pydio/cells"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "File sharing aimed at teams, OAuth and user management built in. Compared to simpler alternatives, deployment is heavier and the community smaller.",
+				"fr": "Partage de fichiers pensé pour les équipes, avec OAuth et gestion des utilisateurs. Le revers : déploiement plus lourd et communauté plus réduite que sur les alternatives simples."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SFTPGo",
+			"source": {
+				"host": "github",
+				"path": "drakkan/sftpgo",
+				"url": "https://github.com/drakkan/sftpgo"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "SFTP, FTP and WebDAV in one binary, with S3, GCS and Azure as backends. Remote access only — nothing syncs, no browser by default.",
+				"fr": "SFTP, FTP et WebDAV dans un binaire, avec S3, GCS ou Azure en backend. Accès à distance uniquement : rien ne se synchronise, pas de navigateur par défaut."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Copyparty",
+			"source": {
+				"host": "github",
+				"path": "9001/copyparty",
+				"url": "https://github.com/9001/copyparty"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "One portable file that runs WebDAV, SFTP and FTP, with dedup and media thumbnails. Trade: no real sync, no mobile apps, thin admin.",
+				"fr": "Un seul fichier portable qui sert WebDAV, SFTP et FTP, avec déduplication et vignettes. Contrepartie : pas de vraie synchro, pas d’apps mobiles, interface d’admin minimale."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "rclone",
+			"source": {
+				"host": "github",
+				"path": "rclone/rclone",
+				"url": "https://github.com/rclone/rclone"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A CLI that syncs to 150+ cloud backends, bidirectionally, with encryption. The price is a real learning curve; casual users won’t bother.",
+				"fr": "CLI qui synchronise en bidirectionnel vers plus de 150 backends cloud, chiffrement compris. Prix à payer : une vraie courbe d’apprentissage, rédhibitoire pour l’usage occasionnel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "unknown"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "restic",
+			"source": {
+				"host": "github",
+				"path": "restic/restic",
+				"url": "https://github.com/restic/restic"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Encrypted incremental backups with dedup and fast restore to S3, Azure, B2. It backs up — it does not sync, and it is CLI-only.",
+				"fr": "Sauvegardes incrémentales chiffrées, dédupliquées, restauration rapide vers S3, Azure ou B2. Rien d’autre : pas de sync, et tout se passe en CLI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "unknown"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kopia",
+			"source": {
+				"host": "github",
+				"path": "kopia/kopia",
+				"url": "https://github.com/kopia/kopia"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A backup tool with a real GUI, dedup and compression across many backends — friendlier than restic. Still backup, not sync, and no live file access.",
+				"fr": "Outil de sauvegarde avec GUI, déduplication et compression sur de nombreux backends, plus abordable que restic. Mais sauvegarde uniquement : aucun accès aux fichiers en direct."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "unknown"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "BorgBackup",
+			"source": {
+				"host": "github",
+				"path": "borgbackup/borg",
+				"url": "https://github.com/borgbackup/borg"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Mature deduplicating archiver with compression and authenticated encryption. CLI-only, no Windows support — for advanced users prepared to learn.",
+				"fr": "Archiveur mûr, dédupliqué et compressé, avec chiffrement authentifié. CLI uniquement et pas de Windows : réservé aux utilisateurs avancés prêts à apprendre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "unknown"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Duplicati",
+			"source": {
+				"host": "github",
+				"path": "duplicati/duplicati",
+				"url": "https://github.com/duplicati/duplicati"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Web-configured encrypted backups to many clouds, dedup built in, no technical depth required. Backups only; development pace is uneven.",
+				"fr": "Sauvegardes chiffrées configurées dans un navigateur, vers de nombreux clouds, sans compétences techniques. Sauvegarde seulement, et développement irrégulier."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "unknown"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "rsnapshot",
+			"source": {
+				"host": "github",
+				"path": "rsnapshot/rsnapshot",
+				"url": "https://github.com/rsnapshot/rsnapshot"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Rsync hard-link snapshots from a simple Perl config — light on resources, no database. Local or SSH only, unencrypted, and it’s a backup, not sync.",
+				"fr": "Instantanés rsync par liens durs, configurés en Perl, très légers et sans base de données. Local ou SSH seulement, non chiffré, et c’est de la sauvegarde, pas du sync."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "unknown"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MinIO",
+			"source": {
+				"host": "github",
+				"path": "minio/minio",
+				"url": "https://github.com/minio/minio"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Archived upstream but stable, this S3 object store adds a web console to your storage. Not file sync, and S3 concepts are required.",
+				"fr": "Dépôt archivé en amont mais stable : un magasin d’objets S3 avec console web pour votre stockage. Pas du sync de fichiers, et il faut comprendre S3."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Garage",
+			"source": {
+				"host": "github",
+				"path": "deuxfleurs-org/garage",
+				"url": "https://github.com/deuxfleurs-org/garage"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "A lighter, Rust-written S3 store built for small geo-distributed deployments, with encryption. No web UI, no sharing — infrastructure only.",
+				"fr": "Magasin d’objets S3 plus léger, écrit en Rust, pensé pour les petits déploiements géo-répartis, chiffrement compris. Sans interface web ni partage : un outil d’infrastructure."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SeaweedFS",
+			"source": {
+				"host": "github",
+				"path": "seaweedfs/seaweedfs",
+				"url": "https://github.com/seaweedfs/seaweedfs"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "A distributed filesystem and S3 store — billions of files, FUSE mounts, erasure coding. Real ops expertise required; overkill for personal use.",
+				"fr": "Système de fichiers distribué avec API S3 et montage FUSE, pensé pour des milliards de fichiers. Nécessite une vraie expertise ops, et c’est excessif pour un usage perso."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Filestash",
+			"source": {
+				"host": "github",
+				"path": "mickael-kerjean/filestash",
+				"url": "https://github.com/mickael-kerjean/filestash"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "One web client, 50+ backends — S3, Drive, Dropbox — all browsable in a single place with OpenID. A proxy, not a sync tool, and browser-only.",
+				"fr": "Un client web, plus de 50 backends — S3, Drive, Dropbox — accessibles au même endroit, avec OpenID. Simple intermédiaire : ni sync, ni stockage, navigateur uniquement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 5

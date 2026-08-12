@@ -117,6 +117,287 @@
 				"en": "Half the price with more features than QuickBooks Simple Start. The catch is you're now inside Zoho's ecosystem.",
 				"fr": "Deux fois moins cher et plus complet que QuickBooks Simple Start. Le piège : vous entrez dans l’écosystème Zoho."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Firefly III",
+			"source": {
+				"host": "github",
+				"path": "firefly-iii/firefly-iii",
+				"url": "https://github.com/firefly-iii/firefly-iii"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Mature, self-hosted personal finance manager — invoicing through Firefly Bills, a strong community, and an API on top. But it thinks in personal budgets, not business accounts: no double-entry view, no bank feeds.",
+				"fr": "Gestionnaire de finances perso auto-hébergé, mature — facturation via Firefly Bills, communauté solide, API. Mais il pense en budgets perso, pas en comptes d’entreprise : pas de vue partie double, pas de flux bancaires."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Frappe Books",
+			"source": {
+				"host": "github",
+				"path": "frappe/books",
+				"url": "https://github.com/frappe/books"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight invoicing and double-entry bookkeeping on the Frappe framework. Less battle-tested than Bigcapital or Akaunting, desktop and web, and no bank feeds to speak of.",
+				"fr": "Facturation et comptabilité en partie double, légères, bâties sur le framework Frappe. Plus petit projet que Bigcapital ou Akaunting, en desktop comme en web, et pas de flux bancaires."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Crater",
+			"source": {
+				"host": "github",
+				"path": "crater-invoice-inc/crater",
+				"url": "https://github.com/crater-invoice-inc/crater"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Built for freelancers in Laravel: estimates, recurring invoices, payment links, expenses. The trade-off is scope — invoicing first, bookkeeping barely, reporting limited.",
+				"fr": "Conçu pour les freelances, en Laravel : devis, factures récurrentes, liens de paiement, dépenses. Mais c’est de la facturation avant tout — la compta reste sommaire, les rapports limités."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dolibarr",
+			"source": {
+				"host": "github",
+				"path": "Dolibarr/dolibarr",
+				"url": "https://github.com/Dolibarr/dolibarr"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "A mature ERP with an accounting module, all in one and modular — you disable what you don’t need, but everything ships. Larger footprint than an invoicing app; no bank feeds.",
+				"fr": "ERP mature avec module comptable, le tout en un et modulaire — on désactive ce qu’on n’utilise pas, mais tout est embarqué. Plus lourd qu’une simple app de facturation ; pas de flux bancaires."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tryton",
+			"source": {
+				"host": "github",
+				"path": "tryton/tryton",
+				"url": "https://github.com/tryton/tryton"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Enterprise ERP with double-entry accounting and 50+ modules, run in several jurisdictions. Comes with enterprise expectations: steep setup on a Python/PostgreSQL stack, and a smaller community than Dolibarr.",
+				"fr": "ERP d’entreprise, comptabilité en partie double, plus de 50 modules, utilisé dans plusieurs juridictions. Il en a aussi l’exigence : mise en place abrupte sur stack Python/PostgreSQL, communauté plus réduite que Dolibarr."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GnuCash",
+			"source": {
+				"host": "github",
+				"path": "Gnucash/gnucash",
+				"url": "https://github.com/Gnucash/gnucash"
+			},
+			"license": "GPL-2.0+",
+			"effort": "managed",
+			"note": {
+				"en": "The desktop double-entry classic — mature, cross-platform, offline-first with SQLite or XML storage. Renounce the browser and collaboration: no web, no invoicing, no bank feeds.",
+				"fr": "Le classique de la compta desktop en partie double — mature, multiplateforme, hors-ligne d’abord, stockage SQLite ou XML. Faites le deuil du navigateur et du collectif : pas de web, pas de facturation, pas de flux bancaires."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "KMyMoney",
+			"source": {
+				"host": "github",
+				"path": "KDE/kmymoney",
+				"url": "https://github.com/KDE/kmymoney"
+			},
+			"license": "GPL-2.0+",
+			"effort": "managed",
+			"note": {
+				"en": "KDE’s double-entry desktop app, aimed at personal money — budgets, OFX import, investments. Not a business tool: no invoicing, no bank feeds, and a smaller community than GnuCash.",
+				"fr": "L’app desktop en partie double de KDE, tournée vers les finances perso : budgets, import OFX, investissements. Pas un outil pro : pas de facturation, pas de flux bancaires, communauté plus réduite que GnuCash."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "hledger",
+			"source": {
+				"host": "github",
+				"path": "simonmichael/hledger",
+				"url": "https://github.com/simonmichael/hledger"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Plain-text double-entry in Haskell, built for portability: files you own forever, queries everywhere. The cost is a steep start and a terminal habit — web UI ships separately, invoicing nowhere.",
+				"fr": "Partie double en texte brut, en Haskell, pensée pour la portabilité : des fichiers qu’on garde toujours, des requêtes partout. Le prix, c’est une courbe raide et le terminal — l’UI web est un module séparé, la facturation absente."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Beancount + Fava",
+			"source": {
+				"host": "github",
+				"path": "beancount/beancount",
+				"url": "https://github.com/beancount/beancount"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Double-entry in plain text with Fava’s web UI on top — Python, scriptable, you own the data outright. Written for developers: a real learning curve, and invoicing, bank feeds and payroll are absent.",
+				"fr": "Partie double en texte brut, avec l’UI web de Fava par-dessus — Python, scriptable, on possède ses données. Pensé pour les développeurs : vraie courbe d’apprentissage, et facturation, flux bancaires, paie : absents."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ledger (Ledger CLI)",
+			"source": {
+				"host": "github",
+				"path": "ledger/ledger",
+				"url": "https://github.com/ledger/ledger"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "The original plain-text accounting CLI — C++, BSD-3, six thousand stars, portable files and powerful queries. Everything is text-editor and terminal; invoicing, bank feeds and payroll were never in scope.",
+				"fr": "Le CLI de compta en texte brut d’origine — C++, BSD-3, six mille étoiles, fichiers portables et requêtes puissantes. Tout passe par l’éditeur et le terminal ; facturation, flux bancaires, paie n’ont jamais été au menu."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Invoice Ninja",
+			"source": {
+				"host": "github",
+				"path": "invoiceninja/invoiceninja",
+				"url": "https://github.com/invoiceninja/invoiceninja"
+			},
+			"license": "Elastic-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The most complete invoicing app here — quotes, time tracking, mobile apps, self-hosted with no seat limit. But Elastic 2.0 lets you run it, not resell it, and white-labeling is paid.",
+				"fr": "Le plus complet des apps de facturation ici — devis, suivi du temps, apps mobiles, self-hosted sans limite de sièges. Mais la licence Elastic 2.0 permet de l’utiliser, pas de le revendre, et la marque blanche est payante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "White-labeling, pro modules",
+					"fr": "Marque blanche, modules pro"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SolidInvoice",
+			"source": {
+				"host": "github",
+				"path": "SolidInvoice/SolidInvoice",
+				"url": "https://github.com/SolidInvoice/SolidInvoice"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "A small MIT invoicing app for freelancers — quotes to invoices to payments, nothing withheld. Quiet rather than abandoned, but it’s 946 stars and one maintainer: invoicing only, no mobile app.",
+				"fr": "Une petite app de facturation MIT pour freelances — du devis à la facture au paiement, rien de caché. Plutôt calme qu’abandonné, mais c’est 946 étoiles et un seul mainteneur : de la facturation, pas de mobile."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Odoo Accounting Module",
+			"source": {
+				"host": "github",
+				"path": "odoo/odoo",
+				"url": "https://github.com/odoo/odoo"
+			},
+			"license": "LGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Accounting inside a full ERP — inventory, CRM and payroll too, Community edition genuinely LGPL-3.0 free. Heavier than QuickBooks by a wide margin; bank sync and key reports are held for Enterprise.",
+				"fr": "La compta au cœur d’un ERP complet — inventaire, CRM et paie en plus, édition Community réellement gratuite en LGPL-3.0. Bien plus lourde que QuickBooks ; sync bancaire et rapports clés réservés à Enterprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Bank sync, key reports",
+					"fr": "Sync bancaire, rapports clés"
+				}
+			}
 		}
 	],
 	"priority": 5

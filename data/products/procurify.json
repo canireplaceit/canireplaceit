@@ -91,6 +91,153 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache OFBiz",
+			"source": {
+				"host": "github",
+				"path": "apache/ofbiz-framework",
+				"url": "https://github.com/apache/ofbiz-framework"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Apache’s enterprise ERP bundles procurement, e-commerce and supplier management, but the aged Java stack and dated UI demand real commitment to master.",
+				"fr": "L’ERP Java d’Apache regroupe achats, e-commerce et gestion fournisseurs ; la pile vieillissante et une UI datée exigent un réel investissement avant d’être maîtrisés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PartKeepr",
+			"source": {
+				"host": "github",
+				"path": "partkeepr/PartKeepr",
+				"url": "https://github.com/partkeepr/PartKeepr"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Archived upstream since 2021: a supplier-centric parts inventory tracking per-supplier pricing and stock, but built for electronic components, not general goods or services.",
+				"fr": "Archivé en amont depuis 2021 : un inventaire de pièces centré fournisseurs, avec prix et stock par fournisseur, mais conçu pour les composants électroniques, pas pour les biens ou services courants."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "InvenTree",
+			"source": {
+				"host": "github",
+				"path": "inventree/InvenTree",
+				"url": "https://github.com/inventree/InvenTree"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Supplier and purchase-order tracking integrated with stock and pricing history, plus an official REST API and Python CLI — but centred on physical inventory, with no RFQ or auction comparison.",
+				"fr": "Suivi fournisseurs et bons de commande intégré au stock et à l’historique des prix, avec API REST officielle et CLI Python — mais axé sur l’inventaire physique, sans workflow de comparaison RFQ ou d’enchères."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenBoxes",
+			"source": {
+				"host": "github",
+				"path": "openboxes/openboxes",
+				"url": "https://github.com/openboxes/openboxes"
+			},
+			"license": "EPL-1.0",
+			"effort": "docker",
+			"note": {
+				"en": "Procurement and purchase orders built for NGO and pharma distribution: receiving, supplier tracking and multi-facility fulfilment — at the cost of a heavier Grails deployment, focused on physical goods.",
+				"fr": "Achats et bons de commande pensés pour la distribution humanitaire et pharma : réception, suivi fournisseurs et entrepôts multiples, mais appli Grails lourde à déployer et orientée biens physiques."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "openprocurement.api",
+			"source": {
+				"host": "github",
+				"path": "openprocurement/openprocurement.api",
+				"url": "https://github.com/openprocurement/openprocurement.api"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Ukraine’s ProZorro backend: tender, bidding and award workflows exposed through an open REST API — but built for government procurement, developer-centric, and assembled from several services.",
+				"fr": "Le backend du ProZorro ukrainien : enchères, soumissions et attribution via une API REST ouverte — mais pensé pour l’achat public, orienté développeurs et monté à partir de plusieurs services."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "1688-cli",
+			"source": {
+				"host": "github",
+				"path": "superjack2050/1688-cli",
+				"url": "https://github.com/superjack2050/1688-cli"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Sourcing, supplier evaluation and order automation from the terminal, installed as a local npm binary — but tied to the 1688.com marketplace, with no GUI or shared team workflow.",
+				"fr": "Recherche produits, évaluation fournisseurs et automatisation des commandes en terminal, installé comme binaire npm local — mais dépendant de la disponibilité de 1688.com, sans GUI ni workflow d’équipe partagé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Snipe-IT",
+			"source": {
+				"host": "github",
+				"path": "grokability/snipe-it",
+				"url": "https://github.com/grokability/snipe-it"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Asset lifecycle tracking with vendor, purchase-order and depreciation fields, and SAML/LDAP SSO in the free edition — but aimed at IT assets, not procure-to-pay, with no RFQ or quote comparison.",
+				"fr": "Suivi du cycle de vie des actifs avec fournisseurs, bons de commande et dépréciation, SSO SAML et LDAP en édition gratuite — mais orienté actifs IT, pas procure-to-pay, sans RFQ ni comparaison de devis."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

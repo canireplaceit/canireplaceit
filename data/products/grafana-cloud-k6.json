@@ -101,6 +101,178 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "vegeta",
+			"source": {
+				"host": "github",
+				"path": "tsenart/vegeta",
+				"url": "https://github.com/tsenart/vegeta"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Battle-tested Go HTTP load generator: one static binary, a clean CLI, p99 histograms and report plotting. HTTP only — no scripting, scenarios, dashboard or team collaboration.",
+				"fr": "Générateur de charge HTTP en Go, éprouvé au combat : binaire statique unique, CLI net, histogramme p99, tracé de rapports. HTTP seulement — pas de scripting ni scénarios, ni tableau de bord, ni collaboration."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Artillery",
+			"source": {
+				"host": "github",
+				"path": "artilleryio/artillery",
+				"url": "https://github.com/artilleryio/artillery"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "YAML or JS scenario load testing with plugins for HTTP, WebSocket, Socket.io and a Playwright browser mode. Local runs are single-node; distributed testing sits behind Artillery Cloud.",
+				"fr": "Scénarios de charge en YAML ou JS, avec plugins HTTP, WebSocket, Socket.io et un mode navigateur Playwright. Exécution locale mono-nœud ; le mode distribué est réservé à Artillery Cloud."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Distributed cloud load testing",
+					"fr": "Tests de charge distribués en cloud"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "hey",
+			"source": {
+				"host": "github",
+				"path": "rakyll/hey",
+				"url": "https://github.com/rakyll/hey"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Zero-config single-binary HTTP hammer for ad-hoc spike checks: one command, custom method, headers, body, tunable parallelism. No scenario scripting, basic output, nothing retained.",
+				"fr": "Marteau HTTP mono-binaire zéro config pour tests de pic improvisés : une commande, méthode, en-têtes, corps et parallélisme paramétrables. Pas de scripting de scénarios, sortie basique, aucun historique conservé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "bombardier",
+			"source": {
+				"host": "github",
+				"path": "codesenberg/bombardier",
+				"url": "https://github.com/codesenberg/bombardier"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Fast cross-platform Go HTTP benchmarker, fasthttp-backed for high throughput, with text, JSON and table outputs. Static binaries everywhere, but HTTP/HTTPS only — no distributed or scripted tests.",
+				"fr": "Benchmark HTTP rapide et multiplateforme en Go, propulsé par fasthttp pour le débit, sorties texte, JSON et tableau. Binaires statiques partout, mais HTTP/HTTPS uniquement — ni distribué, ni scripté."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "autocannon",
+			"source": {
+				"host": "github",
+				"path": "mcollina/autocannon",
+				"url": "https://github.com/mcollina/autocannon"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Node HTTP load testing CLI with a TUI-style live progress bar and an npm API for scripting, plus WebSocket. Needs the Node runtime and works one target at a time.",
+				"fr": "CLI de test de charge Node avec barre de progression TUI en direct et API npm pour scriptabiliser, WebSocket inclus. Nécessite le runtime Node et ne vise qu’une seule cible par exécution."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "oha",
+			"source": {
+				"host": "github",
+				"path": "hatoo/oha",
+				"url": "https://github.com/hatoo/oha"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Rust HTTP load generator with full TUI dashboards — live latency and locust charts — plus HTTP/2 and TLS 1.3, in one static binary. No scenario scripting and limited protocol depth.",
+				"fr": "Générateur de charge HTTP en Rust : tableaux de bord TUI en direct (latence, locust), HTTP/2 et TLS 1.3, binaire statique. Ni scripting de scénarios, ni profondeur de protocole."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache JMeter",
+			"source": {
+				"host": "github",
+				"path": "apache/jmeter",
+				"url": "https://github.com/apache/jmeter"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The de-facto standard load-testing platform: record-and-replay GUI, hundreds of protocol samplers, headless CLI for CI. JVM and GUI-centric, and resource-heavy compared with Go CLI tools.",
+				"fr": "Plateforme de test de charge, standard de facto : constructeur GUI record-and-replay, des centaines de samplers, CLI headless pour le CI. Centrée JVM et GUI, gourmande en ressources face aux CLI Go."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "siege",
+			"source": {
+				"host": "github",
+				"path": "JoeDog/siege",
+				"url": "https://github.com/JoeDog/siege"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Venerable POSIX load tool with config-file URL lists and distributed runs via the siege/lv2 farm. GPL, packaged in most distros — but aging, HTTP-focused and weak on scenario modeling.",
+				"fr": "Outil de charge POSIX vénérable : listes d’URL en fichier de config, tests distribués via la ferme siege/lv2. GPL, dans la plupart des distros — mais code vieillissant, HTTP seul, scénarios limités."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

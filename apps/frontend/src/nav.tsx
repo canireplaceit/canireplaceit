@@ -62,16 +62,25 @@ export function Link({
 	className,
 	children,
 	title,
+	// "You are here", in the two forms the site needs it: the assistive one, and
+	// the styling hook the header's underline rule keys off. Both are opt-in —
+	// most links are not a destination the reader is currently at.
+	"aria-current": ariaCurrent,
+	"data-current": dataCurrent,
 }: {
 	href: string;
 	className?: string;
 	children: ReactNode;
 	title?: string;
+	"aria-current"?: "page";
+	"data-current"?: boolean;
 }) {
 	return (
 		<a
 			href={href}
 			title={title}
+			aria-current={ariaCurrent}
+			data-current={dataCurrent}
 			className={className}
 			onClick={(e) => {
 				// Anything but a plain left-click is the browser's business.

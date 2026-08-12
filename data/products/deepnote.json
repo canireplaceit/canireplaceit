@@ -97,6 +97,262 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Jupyter Notebook",
+			"source": {
+				"host": "github",
+				"path": "jupyter/notebook",
+				"url": "https://github.com/jupyter/notebook"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Lighter, simpler single-user notebook UI than JupyterLab. Any Jupyter kernel, R included, pip-installed in seconds — but no editor, terminal, auth, or admin, and the legacy UI is being phased down.",
+				"fr": "Interface mono-utilisateur, plus légère que JupyterLab. Tout kernel, R compris, en quelques secondes de pip install — mais ni éditeur, ni auth, et l’interface historique cède la place à JupyterLab."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache Zeppelin",
+			"source": {
+				"host": "github",
+				"path": "apache/zeppelin",
+				"url": "https://github.com/apache/zeppelin"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Polyglot notebook server: Python, R, Spark, SQL in one note with point-and-click data source connections, plus sharing and multi-user. Costs a heavy JVM footprint, a dated UI, and DIY LDAP/SSO.",
+				"fr": "Serveur notebook polyglotte : Python, R, Spark, SQL dans une même note, connexions aux sources de données en clic-clic, partage et multi-utilisateur. Mais empreinte JVM lourde, UI datée, auth LDAP/SSO à monter soi-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Polynote",
+			"source": {
+				"host": "github",
+				"path": "polynote/polynote",
+				"url": "https://github.com/polynote/polynote"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Netflix’s polyglot notebook: Python, Scala, SQL in one session, reactive cell dependencies, structured table output, deployable from a single binary. Development has slowed since Netflix scaled back; the ecosystem stays small.",
+				"fr": "Le notebook polyglotte de Netflix : Python, Scala, SQL dans une même session, dépendances réactives, un seul binaire. Le rythme de développement s’est calmé depuis le retrait de Netflix, l’écosystème reste mince."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pluto.jl",
+			"source": {
+				"host": "github",
+				"path": "JuliaPluto/Pluto.jl",
+				"url": "https://github.com/JuliaPluto/Pluto.jl"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Reactive Julia notebooks that recompute as you edit, sliders and live UI for teaching. Runs on your Julia install, served to the browser, but Julia-only and single-user, no auth.",
+				"fr": "Notebooks Julia réactifs, recalculés à chaque édition, sliders et UI vivante sans code — parfait pour enseigner. Tourne sur votre installation Julia, servi dans le navigateur, mais Julia uniquement, mono-utilisateur, sans auth."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Observable Framework",
+			"source": {
+				"host": "github",
+				"path": "observablehq/framework",
+				"url": "https://github.com/observablehq/framework"
+			},
+			"license": "ISC",
+			"effort": "managed",
+			"note": {
+				"en": "Reactive JavaScript data notebooks from plain markdown, with native SQL, Parquet, and tables, hot-reload dev server, and static output for any host. Not a Python kernel; collaboration is git-based, not realtime.",
+				"fr": "Notebooks JavaScript réactifs depuis du markdown, SQL, Parquet et tables natifs, sortie statique pour n’importe quel hébergeur. Pas de kernel Python ; collaboration via git, pas de temps réel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Streamlit",
+			"source": {
+				"host": "github",
+				"path": "streamlit/streamlit",
+				"url": "https://github.com/streamlit/streamlit"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Plain Python scripts become interactive data apps, backed by a huge widget ecosystem. Not a notebook — no cells, no persistent session; auth and multi-tenancy are yours to build.",
+				"fr": "Des scripts Python ordinaires deviennent des apps data interactives, portés par un énorme écosystème de widgets. Pas un notebook : pas de cellules, pas de session persistante, auth et multi-tenant à construire soi-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Panel",
+			"source": {
+				"host": "github",
+				"path": "holoviz/panel",
+				"url": "https://github.com/holoviz/panel"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Reactive widgets bound to pandas, plotly, and bokeh, served with one CLI command and usable in notebooks. An app framework, not a collaborative notebook — Python-only, with styling and auth on your shoulders.",
+				"fr": "Widgets réactifs liés à pandas, plotly et bokeh, servis par une commande CLI, utilisables dans les notebooks. Un framework d’apps, pas un notebook collaboratif — Python uniquement, style et auth à votre charge."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Voilà",
+			"source": {
+				"host": "github",
+				"path": "voila-dashboards/voila",
+				"url": "https://github.com/voila-dashboards/voila"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Renders a notebook as a shareable web app, reusing existing Jupyter widgets, official Docker image, live kernel per page. Pages are read-only, one app per notebook; auth and scaling are DIY.",
+				"fr": "Transforme un notebook en app web partageable, réutilise les widgets Jupyter existants, image Docker officielle, kernel vivant par page. Pages en lecture seule, une app par notebook, auth et scaling à faire soi-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mercury",
+			"source": {
+				"host": "github",
+				"path": "mljar/mercury",
+				"url": "https://github.com/mljar/mercury"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "YAML frontmatter turns notebook cells into widgets for password-protected web apps, with built-in username/password and social auth. A notebook-as-app workflow, Python only, and team features lean on the paid plan.",
+				"fr": "Un frontmatter YAML transforme les cellules d’un notebook en widgets d’apps web protégées par mot de passe, avec login/mot de passe et réseaux sociaux. Workflow notebook-as-app, Python uniquement, fonctions équipe payantes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CoCalc",
+			"source": {
+				"host": "github",
+				"path": "sagemathinc/cocalc",
+				"url": "https://github.com/sagemathinc/cocalc"
+			},
+			"license": "MS-RSL",
+			"effort": "ops",
+			"note": {
+				"en": "Real-time collaborative notebooks, docs, chat, and course tools under your control, self-hosted via official docker-compose. Source-available MS-RSL, not OSI; a complex multi-service deployment, and the free self-host tier is limited.",
+				"fr": "Notebooks, documents, chat et outils de cours collaboratifs en temps réel, self-hosting via le docker-compose officiel. MS-RSL source-disponible, pas OSI ; déploiement multi-services complexe, tier self-host gratuit limité."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Heavy features",
+					"fr": "Fonctionnalités avancées"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "nbterm",
+			"source": {
+				"host": "github",
+				"path": "davidbrochart/nbterm",
+				"url": "https://github.com/davidbrochart/nbterm"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A TUI notebook: vim-style keys, kernel execution and rich output straight in the terminal, no server. Dormant since August 2023 though — single-user, local-first, and no charts in the TUI.",
+				"fr": "Un notebook en terminal : touches façon vim, exécution du kernel et sorties riches sans serveur. Mais dormant depuis août 2023 — mono-utilisateur, 100 % local, et pas de graphiques dans le TUI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Jupytext",
+			"source": {
+				"host": "github",
+				"path": "jupytext/jupytext",
+				"url": "https://github.com/jupytext/jupytext"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Pairs notebooks with .py, .R, or .md files for clean git diffs — the CLI backbone of notebook git workflows. A versioning tool, not an interface: you still need Jupyter to run.",
+				"fr": "Apparie les notebooks à des fichiers .py, .R ou .md pour des diffs git propres — la brique CLI des workflows git. Un outil de versioning, pas une interface : Jupyter reste nécessaire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

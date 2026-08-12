@@ -93,6 +93,174 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "ffmpeg-normalize",
+			"source": {
+				"host": "github",
+				"path": "slhck/ffmpeg-normalize",
+				"url": "https://github.com/slhck/ffmpeg-normalize"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Batch wrapper around FFmpeg's loudnorm: folders of audio to target LUFS with two-pass true-peak limiting, loudness metadata written back. Normalization only — no denoise, EQ, de-esser — and it needs FFmpeg installed.",
+				"fr": "Enveloppe batch du loudnorm de FFmpeg : normalise des dossiers d’audio vers une cible LUFS, limiteur true-peak en deux passes, métadonnées réécrites. Normalisation seule — pas de débruiteur, EQ ni de-esser — et nécessite FFmpeg."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Audacity",
+			"source": {
+				"host": "github",
+				"path": "audacity/audacity",
+				"url": "https://github.com/audacity/audacity"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Free editor with EBU R128 normalization, spectral noise reduction, compressor and EQ, scriptable via macros and command line. Manual, though: you tune effects per track — no API, no cloud processing.",
+				"fr": "Éditeur gratuit avec normalisation EBU R128, débruitage spectral, compresseur et EQ, scriptable via macros et ligne de commande. Manuel toutefois : on règle les effets piste par piste, sans API ni cloud."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ardour",
+			"source": {
+				"host": "github",
+				"path": "Ardour/ardour",
+				"url": "https://github.com/Ardour/ardour"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Full DAW whose export bus handles mastering: loudness metering, limiter, EQ and compression, LSP/LV2 plugins for the chain. Real control, but DAW complexity and no batch pass.",
+				"fr": "DAW complète dont le bus d’export fait le mastering : mesure LUFS, limiteur, EQ et compression, plugins LSP/LV2 en prime. Un vrai contrôle, mais toute la complexité d’une DAW et aucun pass batch."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Matchering",
+			"source": {
+				"host": "github",
+				"path": "sergree/matchering",
+				"url": "https://github.com/sergree/matchering"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Automatic mastering against a reference track — EQ match, compression, loudness, limiting — scriptable via Python API or matchering-cli. It matches that reference rather than a LUFS target, and speech cleanup isn't covered.",
+				"fr": "Mastering automatique sur piste de référence — égalisation, compression, loudness, limiteur — scriptable via l’API Python ou matchering-cli. Il faut cette référence plutôt qu’une cible LUFS, et pas de traitement de la parole."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "DeepFilterNet",
+			"source": {
+				"host": "github",
+				"path": "Rikorose/DeepFilterNet",
+				"url": "https://github.com/Rikorose/DeepFilterNet"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Neural speech denoising and dereverberation, offline CLI or realtime filter, handles >48kHz and multiple channels. Stronger than RNNoise, but heavier compute, faster modes lose quality, and models download at setup.",
+				"fr": "Débruitage et déréverbération neuronaux pour la parole, en CLI ou temps réel, >48 kHz et multicanal. Plus efficace que RNNoise, mais plus gourmand en calcul et les modèles se téléchargent à l’installation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "RNNoise",
+			"source": {
+				"host": "github",
+				"path": "xiph/rnnoise",
+				"url": "https://github.com/xiph/rnnoise"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Original Xiph recurrent-network suppressor, CPU-cheap and real-time, with rnnoise_demo CLI, embeddable C library and the most permissive license here. Noise only though: no dereverberation, fiddly training, default model tuned for speech.",
+				"fr": "Réducteur de bruit récurrent d’origine Xiph, temps réel et léger en CPU, CLI rnnoise_demo, lib C embarquable. BSD, la plus permissive ici — mais bruit seul : pas de déréverbération, entraînement capricieux."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tenacity",
+			"source": {
+				"host": "github",
+				"path": "tenacityteam/tenacity-legacy",
+				"url": "https://github.com/tenacityteam/tenacity-legacy"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Audacity fork with stronger noise removal and VST support, still installable as Windows/macOS/Linux binaries — but the project is archived, so no development or security fixes. Manual editor workflow like Audacity.",
+				"fr": "Fork communautaire d’Audacity avec débruitage renforcé et support VST, en binaires Windows, macOS et Linux — mais le projet est archivé : plus de développement ni de mises à jour. Workflow manuel, comme Audacity."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SoX",
+			"source": {
+				"host": "github",
+				"path": "chirlu/sox",
+				"url": "https://github.com/chirlu/sox"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Classic CLI toolbox — gain, EQ, compand, sine-based denoise, resampling — composable in shell loops for batch podcast work and a package away everywhere. Dormant since November 2023; no EBU R128 loudness, dated denoise.",
+				"fr": "Boîte à outils CLI classique — gain, EQ, compand, débruitage à sinusoïdes, resampling — pour enchaîner des lots en boucles shell, installable partout. Dormante depuis novembre 2023 : pas d’EBU R128, débruitage daté."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

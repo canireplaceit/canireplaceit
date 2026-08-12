@@ -107,6 +107,136 @@
 				"en": "Encoding, storage and global delivery billed per minute, with no server to keep alive. You are back on someone else's platform and delivery is metered.",
 				"fr": "Encodage, stockage et diffusion mondiale facturés à la minute, sans serveur à maintenir. Vous revenez sur la plateforme d’un tiers et la diffusion est comptée."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "OvenMediaEngine",
+			"source": {
+				"host": "github",
+				"path": "OvenMediaLabs/OvenMediaEngine",
+				"url": "https://github.com/OvenMediaLabs/OvenMediaEngine"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The closest OSS latency competitor: sub-second LLHLS plus WebRTC playback with player SDKs. Built-in clustering, but AGPL-3.0 copyleft and transcoding is thinner than Wowza’s.",
+				"fr": "Le concurrent open source le plus proche en latence : LLHLS sous la seconde et lecture WebRTC, SDK lecteurs inclus. Clustering natif, mais AGPL-3.0 copyleft et transcodage plus limité que chez Wowza."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "nginx-rtmp-module",
+			"source": {
+				"host": "github",
+				"path": "arut/nginx-rtmp-module",
+				"url": "https://github.com/arut/nginx-rtmp-module"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Battle-tested RTMP ingest for push-only broadcast: nginx module with HLS/DASH output, record/notify/push extras and a huge community. No UI, no WebRTC, and development has slowed since 2019.",
+				"fr": "Le module RTMP historique de nginx : ingest RTMP, sortie HLS/DASH, modules record/notify/push et une grosse communauté. Pas d’interface, pas de WebRTC, et le développement marque le pas depuis 2019."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Node-Media-Server",
+			"source": {
+				"host": "github",
+				"path": "illuspas/Node-Media-Server",
+				"url": "https://github.com/illuspas/Node-Media-Server"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "A self-contained Node relay: RTMP in, WebRTC/HLS/HTTP-FLV out, with a web control panel and REST auth hooks. Trivial to deploy via npm or docker, but Node runtime and no transcoding.",
+				"fr": "Relais Node autonome : RTMP en entrée, lecture WebRTC/HLS/HTTP-FLV, panneau d’admin web et hooks d’auth REST. Déploiement trivial via npm ou docker, mais runtime Node et pas de transcodage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "owncast",
+			"source": {
+				"host": "github",
+				"path": "owncast/owncast",
+				"url": "https://github.com/owncast/owncast"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Turnkey single-binary live streaming with built-in chat, web admin and ActivityPub federation. Plays everywhere without plugins; not a multi-tenant platform, single-origin with a modest ceiling.",
+				"fr": "Streaming live clé en main, binaire unique : chat intégré, admin web et fédération ActivityPub. Diffusion sans plugin partout, mais plateforme mono-origine, pas multi-tenant, plafond de charge modeste."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Red5 Server",
+			"source": {
+				"host": "github",
+				"path": "Red5/red5-server",
+				"url": "https://github.com/Red5/red5-server"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Long-running Java media server lineage (RTMP/RTMPS/WebRTC) that wowza-style platforms build on. JVM footprint and ops overhead, while the polished UI and scale features sit in Red5 Pro.",
+				"fr": "La lignée Java sur laquelle se construisent les plateformes type Wowza : RTMP/RTMPS/WebRTC. Empreinte JVM et ops lourds ; l’UI soignée et le passage à l’échelle restent dans Red5 Pro payant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Red5 Pro: polished UI, clustering, scale features (openCore: minor)",
+					"fr": "Red5 Pro : UI soignée, clustering, fonctions d’échelle (openCore : mineur)"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "livego",
+			"source": {
+				"host": "github",
+				"path": "gwuhaolin/livego",
+				"url": "https://github.com/gwuhaolin/livego"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Tiny Go single-binary relay: RTMP in, HLS/HTTP-FLV/WebRTC out, easy rebroadcast via a simple API. Nothing for viewers to install, but low activity, no admin UI and no transcoding.",
+				"fr": "Petit relais Go en binaire unique : RTMP en entrée, HLS/HTTP-FLV/WebRTC en sortie, re-diffusion facile pilotée par API. Rien à installer côté lecteurs, mais activité faible, pas d’admin UI ni de transcodage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

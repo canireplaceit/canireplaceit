@@ -107,6 +107,174 @@
 				"en": "Priced per connector and GB rather than per row, so it doesn't explode on high-churn tables. Smaller connector catalogue and a much smaller company behind it.",
 				"fr": "Facturé au connecteur et au Go plutôt qu’à la ligne, donc pas d’explosion sur les tables très mouvantes. Catalogue plus restreint et société bien plus petite derrière."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache NiFi",
+			"source": {
+				"host": "github",
+				"path": "apache/nifi",
+				"url": "https://github.com/apache/nifi"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Drag-and-drop flow canvas wiring 400+ processors, with provenance on every data packet. Not managed connectors — you build each flow yourself, and the JVM footprint is heavy.",
+				"fr": "Toile de flux drag-and-drop branchant 400+ processeurs, avec provenance sur chaque paquet de données. Pas de connecteurs managés : on câble tout soi-même, et l’empreinte JVM est lourde."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache SeaTunnel",
+			"source": {
+				"host": "github",
+				"path": "apache/seatunnel",
+				"url": "https://github.com/apache/seatunnel"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Binlog CDC for MySQL/Postgres plus 200+ connectors across Zeta, Spark or Flink engines. Docs skew Chinese-first and the ecosystem is younger; scale means running clusters.",
+				"fr": "CDC binlog MySQL/Postgres et 200+ connecteurs, sur les moteurs Zeta, Spark ou Flink. Doc d’abord en chinois, écosystème plus jeune ; à grande échelle, il faut des clusters."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache Hop",
+			"source": {
+				"host": "github",
+				"path": "apache/hop",
+				"url": "https://github.com/apache/hop"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Kettle/Pentaho’s successor: a desktop visual designer that also runs as a server, 200+ plugins. Community is smaller than Kettle’s heyday and it leans single-node.",
+				"fr": "Successeur de Kettle/Pentaho : designer visuel de bureau, mode serveur en option, 200+ plugins. Communauté réduite depuis l’âge d’or de Kettle, et orientation mono-nœud."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PipelineWise",
+			"source": {
+				"host": "github",
+				"path": "transferwise/pipelinewise",
+				"url": "https://github.com/transferwise/pipelinewise"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Singer taps-and-targets framework from Wise, with schema-change handling into Postgres, BigQuery or Snowflake. Code-first with no GUI; fewer maintained taps than Airbyte, and it needs a Python environment.",
+				"fr": "Framework Singer taps/targets issu de Wise, gérant les changements de schéma vers Postgres, BigQuery ou Snowflake. Code d’abord, sans GUI ; moins de taps maintenus qu’Airbyte, et un environnement Python requis."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Embulk",
+			"source": {
+				"host": "github",
+				"path": "embulk/embulk",
+				"url": "https://github.com/embulk/embulk"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Declarative YAML bulk loader, 60+ plugins, parallel and fast at moving data. Fewer SaaS connectors, an aging community, and scheduling isn’t built in.",
+				"fr": "Chargeur bulk parallèle déclaratif en YAML, 60+ plugins, rapide sur les gros volumes. Moins de connecteurs SaaS, communauté vieillissante, et pas d’ordonnancement intégré."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Redpanda Connect (Benthos)",
+			"source": {
+				"host": "github",
+				"path": "redpanda-data/benthos",
+				"url": "https://github.com/redpanda-data/benthos"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "200+ inputs, outputs and processors from one MIT-licensed static binary; Kafka/CDC-first streaming. Not a turnkey DB-to-warehouse sync — YAML-only, and batch orchestration is on you.",
+				"fr": "200+ entrées, sorties et processeurs depuis un seul binaire statique MIT ; streaming d’abord tourné Kafka/CDC. Pas une synchro DB-entrepôt clé en main : YAML uniquement, orchestration batch à la main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache Airflow",
+			"source": {
+				"host": "github",
+				"path": "apache/airflow",
+				"url": "https://github.com/apache/airflow"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "DAG scheduling, retries, backfill and a huge provider ecosystem; XComs pass data between tasks. Not a connector platform — you write the extraction, lineage is thin out of the box.",
+				"fr": "Ordonnancement de DAG, retries, backfill, et un énorme écosystème de providers ; XComs font transiter les données. Pas une plateforme de connecteurs : on écrit l’extraction soi-même, lineage mince par défaut."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dagster",
+			"source": {
+				"host": "github",
+				"path": "dagster-io/dagster",
+				"url": "https://github.com/dagster-io/dagster"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Software-defined assets give a lineage UI and scheduling that follows the data; dlt/dbt integrate natively. Orchestrator, not a connector library — Python required, ecosystem younger than Airflow.",
+				"fr": "Assets software-defined : un UI de lineage et un ordonnancement qui suit les données, avec dlt/dbt en natif. Ordonnanceur, pas bibliothèque de connecteurs ; code Python obligatoire, écosystème plus jeune qu’Airflow."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

@@ -111,6 +111,174 @@
 				"en": "Managed Redpanda, typically well under Confluent for the same throughput. Thinner connector and stream-processing ecosystem than Confluent's.",
 				"fr": "Redpanda managé, généralement bien en dessous de Confluent à débit égal. Écosystème de connecteurs et de traitement de flux plus mince que celui de Confluent."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache Pulsar",
+			"source": {
+				"host": "github",
+				"path": "apache/pulsar",
+				"url": "https://github.com/apache/pulsar"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Kafka-compatible API over a native multi-tenancy core, with tiered storage and built-in stream processing. Runs as a cluster of JVM services and expects a different mental model than a Kafka broker.",
+				"fr": "API compatible Kafka sur un cœur natif multi-tenant, avec stockage hiérarchique et traitement embarqué. C’est un cluster de services JVM à opérer, et un modèle mental différent des brokers Kafka."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache Flink",
+			"source": {
+				"host": "github",
+				"path": "apache/flink",
+				"url": "https://github.com/apache/flink"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The same streaming engine Confluent sells as managed Flink: SQL over Kafka, exactly-once, event time. Self-hosting means running and tuning a real cluster, without schema registry or Connect.",
+				"fr": "Le même moteur que Confluent vend en Flink managé : SQL sur Kafka, exactly-once, event time. Auto-hébergé, il faut régler un vrai cluster, sans schema registry ni Connect."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Debezium",
+			"source": {
+				"host": "github",
+				"path": "debezium/debezium",
+				"url": "https://github.com/debezium/debezium"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Covers the database-capture half of the pipeline: CDC from Postgres, MySQL, Mongo into Kafka topics via Connect. Configured by YAML or API — no web UI, and connector quality varies.",
+				"fr": "Couvre la moitié capture base de données du pipeline : CDC depuis Postgres, MySQL, Mongo vers des topics Kafka via Connect. YAML ou API seulement, sans interface web, connecteurs inégaux."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Benthos (Redpanda Connect)",
+			"source": {
+				"host": "github",
+				"path": "redpanda-data/benthos",
+				"url": "https://github.com/redpanda-data/benthos"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Single-binary ETL that shuttles data between brokers, databases and HTTP via declarative YAML, 300+ connectors. Config-driven rather than a platform — operators author pipelines by hand, with no control plane.",
+				"fr": "ETL en binaire unique, 300+ connecteurs, qui déplace les données entre brokers, bases et HTTP via du YAML déclaratif. Pas une plateforme : pipelines à écrire à la main, sans plan de contrôle."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Karapace",
+			"source": {
+				"host": "github",
+				"path": "Aiven-Open/karapace",
+				"url": "https://github.com/Aiven-Open/karapace"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Drop-in for the pieces Confluent Cloud charges extra: Confluent-compatible schema registry and REST proxy in one plain server. Less polished UI, few contributors, development steered by Aiven.",
+				"fr": "Repli direct sur ce que Confluent Cloud facture en plus : schema registry compatible Confluent et proxy REST dans un même serveur. UI moins soignée, peu de contributeurs, développement piloté par Aiven."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "kaf",
+			"source": {
+				"host": "github",
+				"path": "birdayz/kaf",
+				"url": "https://github.com/birdayz/kaf"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Terminal UI to inspect Kafka clusters — browse topics, messages and consumer offsets without leaving the shell. Read-oriented: limited admin, one local config per cluster, no schema registry.",
+				"fr": "Interface terminal pour explorer les clusters Kafka — topics, messages et offsets de consommation sans quitter le shell. Orienté lecture : administration limitée, une config locale par cluster, pas de schema registry."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "kafkactl",
+			"source": {
+				"host": "github",
+				"path": "deviceinsight/kafkactl",
+				"url": "https://github.com/deviceinsight/kafkactl"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Declarative Kafka admin: describe, diff and apply topics from YAML in the style of kubectl. CLI only, no streaming view, configuration-heavy, and paced by a single maintainer.",
+				"fr": "Administration Kafka déclarative : describe, diff et apply des topics depuis du YAML, à la kubectl. CLI uniquement, pas de vue streaming, config lourde, et un seul mainteneur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kafka UI",
+			"source": {
+				"host": "github",
+				"path": "provectus/kafka-ui",
+				"url": "https://github.com/provectus/kafka-ui"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The closest self-hosted thing to Confluent Cloud's console: web UI for topics, consumers, schemas, live messages. Dormant since July 2024, and you still run Kafka yourself.",
+				"fr": "Le plus proche d’un équivalent auto-hébergé de la console Confluent Cloud : interface web pour topics, consumers, schémas et messages en direct. Aucun commit depuis juillet 2024, et Kafka reste à opérer soi-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

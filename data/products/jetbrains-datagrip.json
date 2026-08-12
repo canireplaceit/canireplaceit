@@ -105,6 +105,262 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Beekeeper Studio Community",
+			"source": {
+				"host": "github",
+				"path": "beekeeper-studio/beekeeper-studio",
+				"url": "https://github.com/beekeeper-studio/beekeeper-studio"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Polished cross-platform client for MySQL, Postgres, SQLite, SQL Server, with autocomplete, SSH tunnels and a dark theme. ER diagrams and some imports are paid; fewer engines than DBeaver.",
+				"fr": "Client multiplateforme soigné pour MySQL, Postgres, SQLite, SQL Server, avec autocomplétion, tunnels SSH et thème sombre. Diagrammes ER et certains imports payants ; moins de moteurs que DBeaver."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "ER diagrams, some import formats",
+					"fr": "Diagrammes ER, certains formats d’import"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "HeidiSQL",
+			"source": {
+				"host": "github",
+				"path": "HeidiSQL/HeidiSQL",
+				"url": "https://github.com/HeidiSQL/HeidiSQL"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The fast, free Windows-native client for the MySQL family plus Postgres and SQL Server; one-click export, scheduling and session tabs. Windows-only, with Wine elsewhere, and no NoSQL support.",
+				"fr": "Client Windows-native rapide et gratuit pour la famille MySQL, Postgres et SQL Server ; export en un clic, planification et onglets de session. Windows uniquement, sinon Wine, et pas de NoSQL."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pgAdmin",
+			"source": {
+				"host": "github",
+				"path": "pgadmin-org/pgadmin4",
+				"url": "https://github.com/pgadmin-org/pgadmin4"
+			},
+			"license": "PostgreSQL",
+			"effort": "docker",
+			"note": {
+				"en": "The official open-source PostgreSQL admin, self-hostable as a web app or desktop; query builder, explain analyzer and a REST API for automation. PostgreSQL only, and heavier than DataGrip on mixed workloads.",
+				"fr": "L’outil PostgreSQL open source officiel, auto-hébergeable en web ou desktop ; constructeur de requêtes, analyseur de plans, API REST. PostgreSQL uniquement, et plus lourd que DataGrip en usage mixte."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Adminer",
+			"source": {
+				"host": "github",
+				"path": "vrana/adminer",
+				"url": "https://github.com/vrana/adminer"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The lightest option: a ~500KB PHP file with zero dependencies that drops onto any PHP host and does full CRUD plus import/export for many databases. Basic UI, and no query plan.",
+				"fr": "Un fichier PHP d’environ 500 Ko, sans dépendance, posé sur n’importe quel hébergement : CRUD complet, import/export et édition de structure pour de nombreuses bases. UI sommaire, pas d’analyseur de plans."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "phpMyAdmin",
+			"source": {
+				"host": "github",
+				"path": "phpmyadmin/phpmyadmin",
+				"url": "https://github.com/phpmyadmin/phpmyadmin"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The most widely deployed MySQL/MariaDB web admin, preinstalled on most shared hosts with export/import in many formats. MySQL family only, and the interface shows its age.",
+				"fr": "L’admin web MySQL/MariaDB le plus déployé au monde, préinstallé sur la plupart des hébergements mutualisés, avec import/export dans de nombreux formats. Famille MySQL uniquement, et l’interface vieillit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MySQL Workbench",
+			"source": {
+				"host": "github",
+				"path": "mysql/mysql-workbench",
+				"url": "https://github.com/mysql/mysql-workbench"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Oracle’s official free desktop client: ER modeling, reverse engineering, server administration and migration wizards in one. MySQL family only, and maintenance has slowed lately.",
+				"fr": "Le client desktop gratuit officiel d’Oracle : modélisation ER, rétro-ingénierie, administration serveur et assistants de migration réunis. Famille MySQL uniquement, et la maintenance a ralenti."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "usql",
+			"source": {
+				"host": "github",
+				"path": "xo/usql",
+				"url": "https://github.com/xo/usql"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "One binary, one REPL, 40+ database drivers — the scripting-focused terminal DataGrip. Variable expansion, per-database commands and SSH for remote boxes, but no GUI and features vary per driver.",
+				"fr": "Un binaire unique et un REPL pour plus de 40 bases : le DataGrip du terminal. SSH pour les bases distantes, mais pas de GUI, et des fonctions variables selon le pilote."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pgcli",
+			"source": {
+				"host": "github",
+				"path": "dbcli/pgcli",
+				"url": "https://github.com/dbcli/pgcli"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "The Postgres terminal client with genuinely smart completion — it reads your schema. Familiar psql meta-commands and a natural fit for dbt workflows, though Postgres only and GUI-free.",
+				"fr": "Le client terminal Postgres à l’autocomplétion vraiment intelligente — il lit votre schéma. Les meta-commandes psql connues et un compagnon naturel de dbt, mais Postgres uniquement et sans GUI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Harlequin",
+			"source": {
+				"host": "github",
+				"path": "tconbeer/harlequin",
+				"url": "https://github.com/tconbeer/harlequin"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "DataGrip energy in the terminal: a TUI with a spreadsheet-style results grid and vim keybindings, extensible to new databases via adapters. For now DuckDB and SQLite, not full client-server management.",
+				"fr": "L’esprit DataGrip dans le terminal : une TUI avec grille de résultats et raccourcis vim, extensible à d’autres bases via des adaptateurs. Pour l’instant DuckDB et SQLite, pas de gestion client-serveur complète."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Sqlectron",
+			"source": {
+				"host": "github",
+				"path": "sqlectron/sqlectron",
+				"url": "https://github.com/sqlectron/sqlectron"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A plain Electron desktop client covering MySQL, Postgres, SQLite, SQL Server and Redis in an uncluttered UI. Smaller feature set and community; no advanced introspection or modeling.",
+				"fr": "Un simple client de bureau Electron pour MySQL, Postgres, SQLite, SQL Server et Redis, avec une interface épurée. Un périmètre et une communauté plus modestes ; ni introspection avancée ni modélisation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OmniDB",
+			"source": {
+				"host": "github",
+				"path": "OmniDB/OmniDB",
+				"url": "https://github.com/OmniDB/OmniDB"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "A self-hosted Docker web tool with a split web/desktop interface and connection sharing for teams. Dormant since February 2023 — development stalled, so expect no new features.",
+				"fr": "Un outil web auto-hébergé sous Docker à l’interface web/bureau séparée, avec partage de connexions pour les équipes. Dormant depuis février 2023 — développement à l’arrêt, donc pas de nouveautés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SQLPad",
+			"source": {
+				"host": "github",
+				"path": "sqlpad/sqlpad",
+				"url": "https://github.com/sqlpad/sqlpad"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "A Docker-hosted web SQL editor where teams share queries, schedules and dashboards behind one login. Upstream is archived — maintenance only — and it is query-first, not a full admin tool.",
+				"fr": "Un éditeur SQL web sous Docker où les équipes partagent requêtes, planifications et tableaux de bord derrière un seul compte. Archivé en amont, maintenance seulement — orienté requêtes, pas un outil d’admin complet."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

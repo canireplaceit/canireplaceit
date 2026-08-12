@@ -139,6 +139,178 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Home Assistant",
+			"source": {
+				"host": "github",
+				"path": "home-assistant/core",
+				"url": "https://github.com/home-assistant/core"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The de facto self-hosted home hub: family dashboards, calendars and to-dos beside 1000+ device integrations. Steep setup for non-technical households; meal planning and grocery lists need extra integrations.",
+				"fr": "Le hub domotique auto-hébergé de référence : calendriers et tâches familiaux aux côtés de 1 000+ intégrations. Installation ardue ; repas et courses demandent des intégrations en plus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Vikunja",
+			"source": {
+				"host": "github",
+				"path": "go-vikunja/vikunja",
+				"url": "https://github.com/go-vikunja/vikunja"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Task manager with list, kanban, gantt and calendar views plus CalDAV sync — the family planner piece Cozi’s to-dos come from. No built-in shopping lists or meal planning; official mobile apps are thin.",
+				"fr": "Gestionnaire de tâches en vues liste, kanban, gantt et calendrier avec synchro CalDAV — d’ici viennent les tâches Cozi. Pas de listes de courses ni de planification de repas ; apps mobiles officielles maigres."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Minor open-core extras",
+					"fr": "Extras open-core mineurs"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Monica",
+			"source": {
+				"host": "github",
+				"path": "monicahq/monica",
+				"url": "https://github.com/monicahq/monica"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Personal relationship manager covering Cozi’s family side — contacts, birthdays, reminders, tasks and a diary. Web-only; no mobile apps, no meal planning or shopping.",
+				"fr": "Gestionnaire de relations couvrant le côté famille de Cozi — contacts, anniversaires, rappels, tâches et journal. Web uniquement : pas d’apps mobiles, pas de repas ni de courses."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mealie",
+			"source": {
+				"host": "github",
+				"path": "mealie-recipes/mealie",
+				"url": "https://github.com/mealie-recipes/mealie"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Recipe manager whose meal planner pushes ingredients into shopping lists — Cozi’s meal-plus-grocery combo, self-hosted. No shared calendar or chore tracking; built for recipes, not general organising.",
+				"fr": "Gestionnaire de recettes dont le planificateur pousse les ingrédients vers les listes de courses — le duo repas+courses de Cozi, auto-hébergé. Pas de calendrier partagé ; pensé recettes, pas organisation familiale."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Homebox",
+			"source": {
+				"host": "github",
+				"path": "hay-kot/homebox",
+				"url": "https://github.com/hay-kot/homebox"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Home inventory tracker with QR labels — records who owns what and where it lives, the household asset piece Cozi never had. Archived June 2024; development moved to a successor.",
+				"fr": "Inventaire de la maison avec étiquettes QR — qui possède quoi et où, le volet biens que Cozi n’a jamais eu. Archivé en juin 2024 ; le développement a migré vers un successeur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Taskwarrior",
+			"source": {
+				"host": "github",
+				"path": "GothenburgBitFactory/taskwarrior",
+				"url": "https://github.com/GothenburgBitFactory/taskwarrior"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Battle-tested CLI task manager with priorities, due dates and recurring tasks — the terminal answer to Cozi’s to-do lists. Sharing across family needs taskserver; no calendar, meals or mobile app.",
+				"fr": "Gestionnaire de tâches CLI éprouvé avec priorités, échéances et tâches récurrentes — la réponse terminal aux listes Cozi. Partager en famille exige taskserver ; pas de calendrier, de repas ni d’app mobile."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "khal",
+			"source": {
+				"host": "github",
+				"path": "pimutils/khal",
+				"url": "https://github.com/pimutils/khal"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Standards-based CLI calendar, CalDAV-synced via vdirsyncer with Radicale or Nextcloud — read and edit family calendars from a terminal. No event timezone editing; calendar only, no tasks, meals or contacts.",
+				"fr": "Calendrier CLI conforme aux standards, synchro CalDAV via vdirsyncer avec Radicale ou Nextcloud — le calendrier familial éditable en terminal. Pas d’édition des fuseaux horaires ; calendrier seul, ni tâches, ni repas, ni contacts."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "calcurse",
+			"source": {
+				"host": "github",
+				"path": "lfos/calcurse",
+				"url": "https://github.com/lfos/calcurse"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Fast ncurses TUI for calendar, appointments and to-dos in one screen — the keyboard-driven family schedule, optionally CalDAV-synced. No shared server of its own; text-only, not for non-terminal users.",
+				"fr": "TUI ncurses rapide : calendrier, rendez-vous et tâches sur un seul écran — l’agenda familial au clavier, synchro CalDAV en option. Pas de serveur intégré ; texte seul, à réserver aux habitués du terminal."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

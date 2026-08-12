@@ -65,6 +65,262 @@
 				"en": "A quarter of the price with collaboration included. Smaller template library and fewer journal integrations.",
 				"fr": "Quatre fois moins cher, collaboration incluse. Bibliothèque de modèles plus réduite et moins d’intégrations avec les revues."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "CoCalc",
+			"source": {
+				"host": "github",
+				"path": "sagemathinc/cocalc",
+				"url": "https://github.com/sagemathinc/cocalc"
+			},
+			"license": "MS-RSL",
+			"effort": "docker",
+			"note": {
+				"en": "Closest self-hostable Overleaf: real-time collaborative LaTeX, server-side compile with error preview, Jupyter and courses built in. But 2025 relicensing to MS-RSL blocks redistribution, and deployment is a heavy multi-container stack.",
+				"fr": "Le plus proche d’Overleaf à auto-héberger : LaTeX collaboratif temps réel, compilation serveur et Jupyter inclus. Mais la relicence MS-RSL de 2025 bloque la redistribution, et le déploiement est une pile multi-conteneurs lourde."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Paid tiers: managed hosting and quotas",
+					"fr": "Forfaits payants : hébergement géré et quotas"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "TeXstudio",
+			"source": {
+				"host": "github",
+				"path": "texstudio-org/texstudio",
+				"url": "https://github.com/texstudio-org/texstudio"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Mature desktop LaTeX IDE: integrated PDF viewer with forward/inverse search, autocomplete, templates for big documents. But single-user — no collaboration, web sharing, or version-control UI.",
+				"fr": "IDE LaTeX de bureau mature : visionneuse PDF intégrée avec recherche avant/arrière, autocomplétion et modèles pour les gros documents. Mais mono-utilisateur — pas de collaboration, de partage web ni d’interface de versionnement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "TeXworks",
+			"source": {
+				"host": "github",
+				"path": "TeXworks/texworks",
+				"url": "https://github.com/TeXworks/texworks"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Minimal PDF-first editor from the TeX Live family, ships everywhere: synchronized SyncTeX preview in one window. Fine for quick compiles, but no completion, outline, or collaboration — desktop only.",
+				"fr": "Éditeur minimaliste axé PDF, issu de la famille TeX Live et livré partout : aperçu synchronisé SyncTeX dans une seule fenêtre. Bon pour compiler vite, mais sans autocomplétion ni plan, et uniquement sur poste local."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Gummi",
+			"source": {
+				"host": "github",
+				"path": "alexandervdm/gummi",
+				"url": "https://github.com/alexandervdm/gummi"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Lightweight GTK editor whose preview refreshes on every save — no manual compile step. Small, fast, native Linux. But single-user, Linux-only, and releases are years apart.",
+				"fr": "Éditeur GTK léger dont l’aperçu se rafraîchit à chaque enregistrement — pas d’étape de compilation manuelle. Petit, rapide, natif Linux. Mais mono-utilisateur, Linux uniquement, et des sorties espacées d’années."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "vimtex",
+			"source": {
+				"host": "github",
+				"path": "lervag/vimtex",
+				"url": "https://github.com/lervag/vimtex"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The Vim/Neovim LaTeX toolkit: async compilation wired to zathura, okular or skim, with motions, folds and cite completion. Works over ssh from any terminal — if you already live in Vim.",
+				"fr": "Le toolkit LaTeX de Vim/Neovim : compilation asynchrone branchée sur zathura, okular ou skim, avec déplacements, replis et complétion de citations. Fonctionne en ssh depuis n’importe quel terminal — si vous vivez déjà dans Vim."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LaTeX Workshop",
+			"source": {
+				"host": "github",
+				"path": "James-Yu/LaTeX-Workshop",
+				"url": "https://github.com/James-Yu/LaTeX-Workshop"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Full LaTeX toolchain inside VS Code: build recipes, chktex linting, errors in the Problems pane, SyncTeX preview. But needs VS Code and a local TeX distribution — no server-side compile or sharing.",
+				"fr": "Chaîne LaTeX complète dans VS Code : recettes de compilation, linting chktex, erreurs dans le panneau Problems et aperçu SyncTeX. Mais exige VS Code et une distribution TeX locale — pas de compilation serveur ni de partage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "texlab",
+			"source": {
+				"host": "github",
+				"path": "latex-lsp/texlab",
+				"url": "https://github.com/latex-lsp/texlab"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "LSP server for LaTeX: completion, signature help and bibliography-aware citations across any editor. Editor-agnostic, but no UI, compilation, or PDF handling of its own — bring your own client.",
+				"fr": "Serveur LSP pour LaTeX : complétion, aide à la signature et citations au fait de la bibliographie, dans n’importe quel éditeur. Agnostique à l’éditeur, mais sans UI, compilation ni gestion des PDF — il faut son propre client."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GNU TeXmacs",
+			"source": {
+				"host": "github",
+				"path": "texmacs/texmacs",
+				"url": "https://github.com/texmacs/texmacs"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Different paradigm: WYSIWYG math with its own typesetter — no LaTeX markup to read, exports LaTeX and PDF. Costs a steep learning curve, a bespoke document format, and no collaboration.",
+				"fr": "Paradigme à part : mathématiques WYSIWYG avec son propre composeur — aucun markup LaTeX à lire, export LaTeX et PDF. Mais le format est maison, la courbe d’apprentissage raide, et aucune collaboration à l’horizon."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LyX",
+			"source": {
+				"host": "other",
+				"path": "git.lyx.org/lyx",
+				"url": "https://www.lyx.org/"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "WYSIWYM processor that writes clean, compilable .tex for you: graphical equation editor, BibTeX management, actively released. Layout-centric workflow can fight fine-grained control, and it is single-user desktop with a TeX distribution required.",
+				"fr": "Traitement WYSIWYM qui produit un .tex propre et compilable : éditeur d’équations graphique, gestion BibTeX, versions actives. Le flux axé mise en page peut contrarier le contrôle fin, et c’est un poste unique avec une distribution TeX obligatoire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Zettlr",
+			"source": {
+				"host": "github",
+				"path": "Zettlr/Zettlr",
+				"url": "https://github.com/Zettlr/Zettlr"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Academic Markdown editor: Zotero/CSL citations, project structure, full-text search, and LaTeX-grade PDF export through Pandoc. Markdown-first, so not a .tex editor — and no built-in collaboration or sync.",
+				"fr": "Éditeur Markdown académique : citations Zotero/CSL, structure de projet, recherche plein texte et export PDF de qualité LaTeX via Pandoc. Pensé Markdown d’abord — pas un éditeur .tex — sans collaboration ni synchronisation intégrées."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kile",
+			"source": {
+				"host": "github",
+				"path": "KDE/kile",
+				"url": "https://github.com/KDE/kile"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Long-running KDE LaTeX IDE: project manager with quick-preview toolbar, structured menus, structure view and labels. Deep Qt integration, but KDE/Linux-focused, single-user, and no web collaboration.",
+				"fr": "IDE LaTeX KDE de longue date : gestionnaire de projet avec barre d’aperçu rapide, menus structurés, vue hiérarchique et labels. Intégration Qt profonde, mais orienté KDE/Linux, mono-utilisateur et sans collaboration web."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tectonic",
+			"source": {
+				"host": "github",
+				"path": "tectonic-typesetting/tectonic",
+				"url": "https://github.com/tectonic-typesetting/tectonic"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "One static binary compiles .tex anywhere: macros and fonts bundled, missing packages fetched on demand, CI-friendly. Engine-only though — no editor, and occasional quirks versus full TeX Live.",
+				"fr": "Un seul binaire statique compile le .tex n’importe où : macros et polices embarquées, paquets manquants téléchargés à la demande, compatible CI. Mais c’est un moteur seul — pas d’éditeur, et des caprices occasionnels face à un TeX Live complet."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

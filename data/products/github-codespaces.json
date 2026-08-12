@@ -97,6 +97,258 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Gitpod",
+			"source": {
+				"host": "github",
+				"path": "gitpod-io/gitpod",
+				"url": "https://github.com/gitpod-io/gitpod"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "The original Codespaces rival, self-hosted and devcontainer-compatible, with prebuilds and snapshots. But the OSS Classic line is deprecated for proprietary Ona, and the install needs a heavy Kubernetes footprint.",
+				"fr": "Le rival originel de Codespaces, self-hébergé et compatible devcontainer, avec prebuilds et snapshots. Mais la ligne OSS Classic est dépréciée au profit de l’Ona propriétaire, et l’installation nécessite un gros Kubernetes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Eclipse Che",
+			"source": {
+				"host": "github",
+				"path": "eclipse-che/che-server",
+				"url": "https://github.com/eclipse-che/che-server"
+			},
+			"license": "EPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Red Hat’s production cloud-IDE platform, but community momentum is thin (143 stars on the current repo). Each devfile workspace gets a browser VS Code on Kubernetes/OpenShift, heavier startups than Codespaces.",
+				"fr": "La plateforme cloud-IDE de production de Red Hat, mais l’élan communautaire s’est aminci (143 étoiles au dépôt). Un VS Code par workspace devfile sur Kubernetes, aux démarrages plus lourds que Codespaces."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "code-server",
+			"source": {
+				"host": "github",
+				"path": "coder/code-server",
+				"url": "https://github.com/coder/code-server"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The simplest self-hosted remote IDE: full VS Code served in the browser from your host on one lightweight server. Single-user unless you wrap it yourself, with no lifecycle or git automation.",
+				"fr": "Le plus simple des IDEs distants auto-hébergés : VS Code servi dans le navigateur sur un seul serveur léger. Mono-utilisateur à moins de l’encapsuler, sans cycle de vie ni automatisation git."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenVSCode Server",
+			"source": {
+				"host": "github",
+				"path": "gitpod-io/openvscode-server",
+				"url": "https://github.com/gitpod-io/openvscode-server"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Browser IDE built from official VS Code sources, with no Microsoft proprietary remote downloader. A single static server, but single-user, and the ecosystem and docs run thinner than code-server’s.",
+				"fr": "VS Code navigateur bâti sur les sources officielles, sans le téléchargeur distant propriétaire de Microsoft. Un seul serveur statique, mono-utilisateur, avec un écosystème et des docs plus minces que code-server."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Eclipse Theia",
+			"source": {
+				"host": "github",
+				"path": "eclipse-theia/theia",
+				"url": "https://github.com/eclipse-theia/theia"
+			},
+			"license": "EPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Not a turnkey dev-environment product: Theia is the framework under Gitpod- and Che-class IDEs, with a VS Code-compatible extension API. You assemble auth, workspaces, and compute yourself.",
+				"fr": "Pas un produit clé en main : Theia est le framework des IDE type Gitpod ou Che, avec une API d’extensions compatible VS Code. À vous d’assembler auth, workspaces et le calcul."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Daytona",
+			"source": {
+				"host": "github",
+				"path": "daytonaio/daytona",
+				"url": "https://github.com/daytonaio/daytona"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "OSS frozen since June 2026 — development moved to a private repo, last AGPL release is as-is, no support. It was the 72k-star self-hosted Codespaces-style platform, with TUI, CLI, and devcontainers.",
+				"fr": "OSS gelé depuis juin 2026, développement passé en dépôt privé, dernière release AGPL en l’état et sans support. Auparavant : la plateforme style Codespaces à 72k étoiles, avec TUI, CLI et devcontainers."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "DevSpace",
+			"source": {
+				"host": "github",
+				"path": "devspace-sh/devspace",
+				"url": "https://github.com/devspace-sh/devspace"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Client-only binary, no server: develop inside your own Kubernetes cluster with hot reload, file sync, and port-forwarding. You need that cluster and your local editor — no built-in team SSO or RBAC.",
+				"fr": "Binaire client seul, sans serveur : développez dans votre cluster Kubernetes, avec hot reload, synchro de fichiers et port-forwarding. Il faut ce cluster et votre éditeur local, sans SSO ni RBAC d’équipe."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Okteto",
+			"source": {
+				"host": "github",
+				"path": "okteto/okteto",
+				"url": "https://github.com/okteto/okteto"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Kubernetes infrastructure required, and advanced platform features push toward the commercial Okteto Cloud. The CLI runs in-cluster dev environments with hot reload and a browser IDE on any Kubernetes.",
+				"fr": "Infrastructure Kubernetes exigée, et les fonctions avancées poussent vers l’Okteto Cloud commercial. Le CLI tourne vos environnements dans le cluster, avec hot reload et IDE navigateur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Devbox",
+			"source": {
+				"host": "github",
+				"path": "jetify-com/devbox",
+				"url": "https://github.com/jetify-com/devbox"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Nix-powered reproducible dev environments from a single CLI, and it can generate a devcontainer.json from devbox.json. But local-only — no remote IDE or team platform — and custom packages mean Nix.",
+				"fr": "Des environnements de dev reproductibles via Nix depuis un seul CLI, qui génère aussi un devcontainer.json depuis devbox.json. Local uniquement : pas d’IDE distant, et le Nix pour les paquets custom."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "JupyterHub",
+			"source": {
+				"host": "github",
+				"path": "jupyterhub/jupyterhub",
+				"url": "https://github.com/jupyterhub/jupyterhub"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "ops",
+			"note": {
+				"en": "Multi-user self-hosted coding environment with per-user JupyterLab or VS Code servers and free OAuth or LDAP SSO. Notebook- and data-science-oriented rather than a devcontainer workflow, and real scale wants a cluster.",
+				"fr": "Environnement multi-utilisateur auto-hébergé : un serveur JupyterLab ou VS Code par utilisateur, avec SSO OAuth ou LDAP gratuit. Orienté notebooks et data-science plutôt que workflow devcontainer, et l’échelle demande un cluster."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Onyxia",
+			"source": {
+				"host": "github",
+				"path": "InseeFrLab/onyxia",
+				"url": "https://github.com/InseeFrLab/onyxia"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Data-science-centric, not a general devcontainer platform — browser RStudio, Jupyter, or VSCode workspaces on Kubernetes with Keycloak SSO, teams, and S3 built in. Small community outside French government IT.",
+				"fr": "Centré data-science, pas une plateforme devcontainer généraliste : des workspaces navigateur RStudio, Jupyter ou VSCode sur Kubernetes, avec Keycloak SSO, équipes et S3 intégrés. Petite communauté hors IT publique française."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "HobbyFarm",
+			"source": {
+				"host": "github",
+				"path": "hobbyfarm/hobbyfarm",
+				"url": "https://github.com/hobbyfarm/hobbyfarm"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "SUSE’s browser-accessed VM and container workspaces on Kubernetes, proven at training scale. But dormant since 2025, built for labs and workshops rather than general development, with a small community.",
+				"fr": "Les workspaces VM ou conteneur de SUSE, accessibles au navigateur sur Kubernetes, éprouvés à l’échelle des formations. Mais dormant depuis 2025, taillé pour les labs et ateliers, pas le dev général."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

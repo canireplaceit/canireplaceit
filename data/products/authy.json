@@ -114,6 +114,153 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "andOTP",
+			"source": {
+				"host": "github",
+				"path": "andOTP/andOTP",
+				"url": "https://github.com/andOTP/andOTP"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Archived since 2022 but fully functional: a tidy Android-only TOTP/HOTP vault with encrypted backups and no network permission. Restoring a backup is manual.",
+				"fr": "Archivé depuis 2022 mais pleinement fonctionnel : un coffre TOTP/HOTP Android uniquement, sauvegardes chiffrées, aucune permission réseau. La restauration d’une sauvegarde reste manuelle."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FreeOTP+",
+			"source": {
+				"host": "github",
+				"path": "helloworld1/FreeOTPPlus",
+				"url": "https://github.com/helloworld1/FreeOTPPlus"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Actively maintained fork of Red Hat’s FreeOTP, with encrypted backups, Wear OS support and F-Droid builds. Android-only, and less polished than Aegis.",
+				"fr": "Fork actif de FreeOTP de Red Hat, avec sauvegardes chiffrées, support Wear OS et builds F-Droid. Android uniquement, et moins soigné qu’Aegis."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OTPClient",
+			"source": {
+				"host": "github",
+				"path": "paolostivanin/OTPClient",
+				"url": "https://github.com/paolostivanin/OTPClient"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Polish Qt desktop app for Linux, the desktop equivalent Aegis lacks: tray icon, keyring-backed storage, HOTP, TOTP and Steam tokens. No mobile companion, and Linux-only.",
+				"fr": "App Qt desktop pour Linux, l’équivalent bureau qu’Aegis n’a pas : icône de tray, stockage adossé au trousseau, tokens HOTP, TOTP et Steam. Linux uniquement, aucun compagnon mobile."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "totp-cli",
+			"source": {
+				"host": "github",
+				"path": "yitsushi/totp-cli",
+				"url": "https://github.com/yitsushi/totp-cli"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Go CLI storing tokens in an AES-GCM-encrypted local store, with CSV import and export. Terminal-only: no GUI, no phone app, and you back up the config file yourself.",
+				"fr": "CLI Go qui range les tokens dans un coffre local chiffré AES-GCM, avec import et export CSV. Terminal uniquement : pas d’interface, pas d’app mobile, et c’est vous qui sauvegardez le fichier de config."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pass-otp",
+			"source": {
+				"host": "github",
+				"path": "tadfisher/pass-otp",
+				"url": "https://github.com/tadfisher/pass-otp"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "GNU pass plugin keeping one-time secrets inside your existing GPG-encrypted store, with insert, generate and validate commands. Requires pass plus a working GPG setup; no GUI, no mobile app.",
+				"fr": "Plugin GNU pass qui range les secrets ponctuels dans votre coffre GPG existant, avec des commandes insert, generate et validate. Exige pass et un GPG configuré ; pas d’interface, pas d’app mobile."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Vaultwarden",
+			"source": {
+				"host": "github",
+				"path": "dani-garcia/vaultwarden",
+				"url": "https://github.com/dani-garcia/vaultwarden"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted Bitwarden-compatible server with TOTP autofill on the free tier, a web vault and all official clients. A password manager first, so you maintain the server for 2FA.",
+				"fr": "Serveur auto-hébergé compatible Bitwarden avec autofill TOTP dans l’offre gratuite, coffre web et tous les clients officiels. Gestionnaire de mots de passe avant tout : la 2FA n’est qu’une fonctionnalité, et c’est vous qui tenez le serveur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "privacyIDEA",
+			"source": {
+				"host": "github",
+				"path": "privacyidea/privacyidea",
+				"url": "https://github.com/privacyidea/privacyidea"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Enterprise self-hosted 2FA server — TOTP, HOTP, WebAuthn, push — with LDAP/OIDC/RADIUS integration, audit logging and a web admin. Needs a server and an admin; tokens live in third-party authenticator apps.",
+				"fr": "Serveur 2FA d’entreprise auto-hébergé — TOTP, HOTP, WebAuthn, push — avec intégration LDAP/OIDC/RADIUS, journal d’audit et admin web. Il faut un serveur et un admin ; les tokens sont scannés dans des apps tierces."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

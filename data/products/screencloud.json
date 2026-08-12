@@ -86,6 +86,115 @@
 				"en": "Managed signage at a third of the price, and free for a single screen forever. Still per-screen, still someone else's cloud.",
 				"fr": "Affichage géré à un tiers du prix, et gratuit à vie pour un seul écran. Toujours à l’écran, toujours le cloud d’un tiers."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Concerto",
+			"source": {
+				"host": "github",
+				"path": "concerto/concerto",
+				"url": "https://github.com/concerto/concerto"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Rails signage CMS with scheduling, permissions and a browser player. Plugins and the API open it up, but the community is small and the Rails stack shows its age.",
+				"fr": "CMS d’affichage en Rails avec planification, permissions et lecteur navigateur. Extensible par plugins et API, mais communauté réduite et pile Rails datée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PiSignage",
+			"source": {
+				"host": "github",
+				"path": "colloqi/pisignage-server",
+				"url": "https://github.com/colloqi/pisignage-server"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Web dashboard, playlists and LAN control under an MIT licence, with an optional free cloud tier. The player is Raspberry Pi only, so the whole fleet is one board.",
+				"fr": "Tableau de bord web, playlists et contrôle en LAN sous licence MIT, avec un cloud gratuit en option. Lecteur réservé au Raspberry Pi : la flotte reste limitée à une carte."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "WTF",
+			"source": {
+				"host": "github",
+				"path": "wtfutil/wtf",
+				"url": "https://github.com/wtfutil/wtf"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Terminal dashboards rendered by a single static binary — widgets, feeds, weather, plus a watch mode for always-on screens. Not a media player: no scheduling, no remote management.",
+				"fr": "Tableaux de bord dans le terminal, rendus par un binaire statique unique : widgets, flux, météo, mode watch pour écrans permanents. Pas un lecteur média, sans planification ni gestion à distance."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Grafana",
+			"source": {
+				"host": "github",
+				"path": "grafana/grafana",
+				"url": "https://github.com/grafana/grafana"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Kiosk mode puts live dashboards on unattended screens; plugins, SSO and RBAC are in the free build. It is not a signage CMS — no layout, no scheduling, heavier setup.",
+				"fr": "Le mode kiosque affiche des dashboards live sur un écran sans surveillance ; plugins, SSO et RBAC inclus dans la version gratuite. Pas un CMS d’affichage : ni mise en page, ni planification, installation plus lourde."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise plugins and advanced features",
+					"fr": "Plugins entreprise et fonctions avancées"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Cage",
+			"source": {
+				"host": "github",
+				"path": "cage-kiosk/cage",
+				"url": "https://github.com/cage-kiosk/cage"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A small MIT-licensed Wayland compositor that pins one app to the full screen. You supply the player and the content pipeline — it does the kiosk lock and nothing else.",
+				"fr": "Petit compositeur Wayland MIT qui verrouille une app en plein écran. Pour le reste, vous fournissez le lecteur et le pipeline de contenu : il ne fait que le kiosque."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

@@ -103,6 +103,195 @@
 				"en": "OpenStreetMap-backed geocoding and maps at a fraction of Google's per-request cost. No Places-style business data.",
 				"fr": "Géocodage et cartes basés sur OpenStreetMap à une fraction du coût par requête de Google. Aucune donnée d’établissements type Places."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "MapLibre GL JS",
+			"source": {
+				"host": "github",
+				"path": "maplibre/maplibre-gl-js",
+				"url": "https://github.com/maplibre/maplibre-gl-js"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Drop-in Mapbox GL replacement rendering vector maps in the browser. Style Spec and free styles work as-is, but tiles and geocoding are yours to source.",
+				"fr": "Remplaçant direct de Mapbox GL qui rend des cartes vectorielles dans le navigateur. Style Spec et styles libres fonctionnent tels quels, mais tu fournis toi-même tuiles et géocodage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MapLibre Native",
+			"source": {
+				"host": "github",
+				"path": "maplibre/maplibre-native",
+				"url": "https://github.com/maplibre/maplibre-native"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Android/iOS/desktop SDKs standing in for the Google Maps mobile SDKs, style-spec compatible with GL JS. Routing and geocoding still need a backend.",
+				"fr": "SDK Android/iOS/desktop à la place des SDK mobiles Google, compatible style-spec avec GL JS. Le routage et le géocodage demandent toujours un backend."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Leaflet",
+			"source": {
+				"host": "github",
+				"path": "Leaflet/Leaflet",
+				"url": "https://github.com/Leaflet/Leaflet"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Lightweight standard for slippy maps and the easiest Maps API swap-in. Huge plugin ecosystem, but display only — no routing, geocoding or WebGL rendering.",
+				"fr": "Le standard léger des cartes déplaçables, le plus simple à substituer à l’API Maps. Gros écosystème de plugins, mais affichage seul — pas de routage, de géocodage ni de rendu WebGL."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OSRM",
+			"source": {
+				"host": "github",
+				"path": "Project-OSRM/osrm-backend",
+				"url": "https://github.com/Project-OSRM/osrm-backend"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "C++ routing engine behind many commercial APIs. Fast shortest/fastest routing with turn-by-turn steps, yet no live traffic and you build the graph first.",
+				"fr": "Moteur de routage C++ derrière bien des API commerciales. Itinéraires rapides avec étapes détaillées, mais pas de trafic en temps réel et il faut d’abord construire le graphe."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GraphHopper",
+			"source": {
+				"host": "github",
+				"path": "graphhopper/graphhopper",
+				"url": "https://github.com/graphhopper/graphhopper"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Java routing engine adding turn costs, isochrones and matrix endpoints. Easy to extend, though OSM import wants RAM and disk, and traffic stays offline.",
+				"fr": "Moteur de routage Java qui ajoute coûts de tourner, isochrones et matrices. Facile à étendre, mais l’import OSM demande RAM et disque, et le trafic reste hors ligne."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pelias",
+			"source": {
+				"host": "github",
+				"path": "pelias/pelias",
+				"url": "https://github.com/pelias/pelias"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Full geocoding stack — autocomplete, place, reverse — standing in for Geocoding and Places. Elasticsearch scales out, yet it’s a microservice cluster to operate.",
+				"fr": "Stack de géocodage complète — autocomplete, lieu, inverse — en remplacement de Geocoding et Places. L’Elasticsearch passe à l’échelle, mais c’est un cluster de microservices à exploiter."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "TileServer GL",
+			"source": {
+				"host": "github",
+				"path": "maptiler/tileserver-gl",
+				"url": "https://github.com/maptiler/tileserver-gl"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted tile server feeding MapLibre-style clients, one container from OpenMapTiles data. Serves MBTiles and renders styles server-side; tile prep stays on you.",
+				"fr": "Serveur de tuiles auto-hébergé pour clients MapLibre, un seul conteneur depuis les données OpenMapTiles. Sert des MBTiles et rend les styles côté serveur ; la préparation des tuiles te revient."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Osmium Tool",
+			"source": {
+				"host": "github",
+				"path": "osmcode/osmium-tool",
+				"url": "https://github.com/osmcode/osmium-tool"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "CLI for slicing, filtering and diffing OSM data — the data-prep step behind the rest. Single static binary, but no serving, routing or geocoding on top.",
+				"fr": "CLI pour découper, filtrer et diff des données OSM — l’étape de préparation derrière tout le reste. Binaire statique unique, mais ni diffusion, ni routage, ni géocodage par-dessus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "mapscii",
+			"source": {
+				"host": "github",
+				"path": "rastapasta/mapscii",
+				"url": "https://github.com/rastapasta/mapscii"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Whole-world interactive map in the terminal, works over SSH and offline with zero server setup. Explorer-grade viewer, not an API platform.",
+				"fr": "Carte interactive du monde entier dans le terminal, utilisable en SSH et hors ligne, sans aucun serveur. Visionneuse de démonstration, pas une plateforme d’API."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

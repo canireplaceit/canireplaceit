@@ -103,6 +103,174 @@
 				"en": "If the merge queue is the only bit you actually wanted, it is included with GitHub Team and needs no new tooling.",
 				"fr": "Si la file de merge est la seule chose qui vous intéressait, elle est incluse dans GitHub Team et n’exige aucun nouvel outil."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "git-spice",
+			"source": {
+				"host": "github",
+				"path": "abhinav/git-spice",
+				"url": "https://github.com/abhinav/git-spice"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Rust CLI that stacks PRs on GitHub and restacks on demand, with a dedicated branch model and `gs stack log`. Locked to GitHub — no GitLab backend, no web UI.",
+				"fr": "CLI Rust dédié à l’empilement de PR GitHub, qui restacke à la demande et suit la pile via `gs stack log`. GitHub uniquement, pas de backend GitLab ni d’interface web."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ghstack",
+			"source": {
+				"host": "github",
+				"path": "ezyang/ghstack",
+				"url": "https://github.com/ezyang/ghstack"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Facebook’s original stacked-diffs tool, pushing each commit as its own diff through the gh CLI. Proven at scale, but one commit per diff, Python toolchain, rougher DX than Rust CLIs.",
+				"fr": "L’outil de stacked diffs originel de Facebook : chaque commit devient son propre diff via le CLI gh. Éprouvé chez Facebook, mais un commit par diff et une toolchain Python."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "git-absorb",
+			"source": {
+				"host": "github",
+				"path": "tummychow/git-absorb",
+				"url": "https://github.com/tummychow/git-absorb"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Folds each fix into the commit it belongs to, keeping stacked branches clean. Single-purpose glue — it manages no PRs itself and shows no stack view.",
+				"fr": "Range chaque correctif dans le commit qui lui correspond, gardant les branches empilées propres. Outil mono-usage : pas de gestion de PR, pas de vue de la pile au-delà de git log."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "lazygit",
+			"source": {
+				"host": "github",
+				"path": "jesseduffield/lazygit",
+				"url": "https://github.com/jesseduffield/lazygit"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Terminal UI with a branch graph, interactive rebase and a natural home for stacked work. Nothing is submitted from it — no PRs, no team web view.",
+				"fr": "TUI avec graphe de branches, rebase interactif et lieu naturel pour le travail empilé. Rien n’est soumis depuis elle : pas de PR, pas de vue web pour l’équipe."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gitui",
+			"source": {
+				"host": "github",
+				"path": "gitui-org/gitui",
+				"url": "https://github.com/gitui-org/gitui"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Fast keyboard-driven Rust TUI for staging, committing and reviewing diffs. Plain git underneath — no stacked-PR awareness, no review or collaboration features.",
+				"fr": "TUI Rust rapide, clavier d’abord, pour staguer, committer et relire les diffs. Git brut dessous : aucune notion de pile, pas de revue ni de collaboration."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gitu",
+			"source": {
+				"host": "codeberg",
+				"path": "altsem/gitu",
+				"url": "https://codeberg.org/altsem/gitu"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Near-instant Rust TUI built for speed: diff, stage, branch and log from one screen. Less complete than lazygit, and stacks or PRs are out of scope.",
+				"fr": "TUI Rust au démarrage quasi instantané, pensé pour le clavier : diff, stage, branche et log sur un seul écran. Moins complet que lazygit, piles et PR hors périmètre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "git-town",
+			"source": {
+				"host": "github",
+				"path": "git-town/git-town",
+				"url": "https://github.com/git-town/git-town"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Orchestrates feature-branch stacks with ship, sync and append, plain git underneath with no lock-in. Submission is not the focus — no hosted dashboard, terminal-first.",
+				"fr": "Orchestre les stacks de branches avec ship, sync et append, du git brut dessous, sans lock-in. La soumission de PR n’est pas son sujet : pas de dashboard hébergé, terminal d’abord."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GitButler",
+			"source": {
+				"host": "github",
+				"path": "gitbutlerapp/gitbutler",
+				"url": "https://github.com/gitbutlerapp/gitbutler"
+			},
+			"license": "FSL-1.1-MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Desktop app stacking multiple branches in one working tree, with per-branch diffs and shipping to GitHub or GitLab. FSL is source-available, not OSI open source, and there’s no hosted dashboard.",
+				"fr": "App de bureau qui empile plusieurs branches dans un seul working tree, diffs par branche, envoi vers GitHub ou GitLab. Licence FSL : source disponible mais pas OSI, pas de dashboard hébergé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

@@ -107,6 +107,190 @@
 				"en": "Hosted by the project's authors with a free tier for small teams. Smaller relay footprint than Tailscale, so cross-continent fallback performance is worse.",
 				"fr": "Hébergé par les auteurs du projet, avec un palier gratuit pour les petites équipes. Empreinte de relais plus faible que Tailscale : le repli intercontinental est moins performant."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "ZeroTier",
+			"source": {
+				"host": "github",
+				"path": "zerotier/ZeroTierOne",
+				"url": "https://github.com/zerotier/ZeroTierOne"
+			},
+			"license": "BSL-1.1",
+			"effort": "managed",
+			"note": {
+				"en": "Own protocol, not WireGuard, so it interops with nothing else here. Self-hosted controller exists but undocumented; ZeroTier Central is the paid path.",
+				"fr": "Son propre protocole, pas WireGuard, donc aucune interopérabilité avec le reste de la liste. Le contrôleur auto-hébergé existe mais sans documentation ; ZeroTier Central, c’est le chemin payant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Central managed control plane",
+					"fr": "plan de contrôle managé Central"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Innernet",
+			"source": {
+				"host": "github",
+				"path": "tonarino/innernet",
+				"url": "https://github.com/tonarino/innernet"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Linux-only, no web UI, no mobile. But the cleanest self-hosted option for small deployments: one coordination server, MIT, WireGuard-native.",
+				"fr": "Réservé à Linux, sans UI web ni mobile. Mais l’option auto-hébergée la plus propre pour les petits déploiements : un serveur de coordination, MIT, et du WireGuard pur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "firezone",
+			"source": {
+				"host": "github",
+				"path": "firezone/firezone",
+				"url": "https://github.com/firezone/firezone"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Zero-trust access, not full mesh, and the OSS build skips admin features the cloud keeps. Enterprise-focused on WireGuard, with a full web UI.",
+				"fr": "De l’accès zéro-trust, pas un mesh complet, et la version OSS écarte les fonctions d’admin réservées au cloud. Orienté entreprise, sur WireGuard, avec une UI web complète."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Cloud admin features",
+					"fr": "fonctions d’admin cloud"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Netmaker",
+			"source": {
+				"host": "github",
+				"path": "gravitl/netmaker",
+				"url": "https://github.com/gravitl/netmaker"
+			},
+			"license": "Apache-2.0 core with a commercial pro/ directory",
+			"effort": "docker",
+			"note": {
+				"en": "Open-core: high-availability and more sit behind the paid tier, and it trails Headscale in maturity. Otherwise a full-stack WireGuard mesh with dashboard and ACLs.",
+				"fr": "Open-core : la haute disponibilité et quelques fonctions restent payantes, et la maturité est en retard sur Headscale. Sinon, un mesh WireGuard complet avec dashboard et ACL."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "High availability, extra features",
+					"fr": "haute disponibilité, fonctions supplémentaires"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "wg-easy",
+			"source": {
+				"host": "github",
+				"path": "wg-easy/wg-easy",
+				"url": "https://github.com/wg-easy/wg-easy"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Not a mesh — hub-and-spoke only — and AGPL limits commercial use. But the simplest way to stand up WireGuard: QR codes, minimal web UI.",
+				"fr": "Pas un mesh — juste hub-and-spoke — et l’AGPL limite l’usage commercial. Mais le moyen le plus simple de monter un WireGuard : codes QR, UI web minimale."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenZiti",
+			"source": {
+				"host": "github",
+				"path": "openziti/ziti",
+				"url": "https://github.com/openziti/ziti"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "No NAT traversal built in, so more ops burden than a mesh VPN, and the learning curve is steep. Zero-trust overlay, SDK integration rather than a traditional mesh.",
+				"fr": "Pas de traversal NAT intégré, donc plus de charge d’exploitation qu’un VPN mesh, et une courbe d’apprentissage raide. Overlay zéro-trust, intégration SDK plutôt que mesh classique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Defguard",
+			"source": {
+				"host": "github",
+				"path": "DefGuard/defguard",
+				"url": "https://github.com/DefGuard/defguard"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "AGPL core with 2FA/MFA and device enrollment baked in — what you want if verified clients matter. Less mature than NetBird, smaller community than Headscale.",
+				"fr": "Cœur AGPL avec 2FA/MFA et inscription des appareils intégrés — ce qu’il faut si les clients vérifiés comptent. Moins mûr que NetBird, communauté plus petite que Headscale."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise tier",
+					"fr": "palier entreprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "EasyTier",
+			"source": {
+				"host": "github",
+				"path": "EasyTier/EasyTier",
+				"url": "https://github.com/EasyTier/EasyTier"
+			},
+			"license": "LGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Young project, unknown UI maturity, LGPL copyleft. Still: decentralized WireGuard mesh, 13k stars, cross-platform P2P.",
+				"fr": "Projet jeune, UI d’une maturité inconnue, LGPL copyleft. Mais un mesh WireGuard décentralisé, 13k étoiles, P2P multiplateforme."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 5

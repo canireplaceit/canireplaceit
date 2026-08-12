@@ -82,6 +82,174 @@
 				"en": "iPad and web only, a third of the price, and you keep 3D Warehouse. No extensions, which is half of why people use SketchUp.",
 				"fr": "iPad et web uniquement, trois fois moins cher, et vous gardez 3D Warehouse. Pas d’extensions, ce qui est la moitié de l’intérêt de SketchUp."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenSCAD",
+			"source": {
+				"host": "github",
+				"path": "openscad/openscad",
+				"url": "https://github.com/openscad/openscad"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Model from code, not the mouse: designs live as text, so Git diffs and scripts drive them, and the CLI exports STL/AMF/3MF. You give up interactive push-pull drawing; 2D drafting is absent.",
+				"fr": "La géométrie naît du texte, pas de la souris : les fichiers sont versionnables, le CLI exporte en STL/AMF/3MF. On renonce au dessin interactif ; il n’y a pas de plan 2D."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SolveSpace",
+			"source": {
+				"host": "github",
+				"path": "solvespace/solvespace",
+				"url": "https://github.com/solvespace/solvespace"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "A parametric sketcher aimed squarely at mechanical SketchUp users: constraints, extrude/revolve, DXF and drawing views, plus headless CLI export. The ecosystem and tutorials are thinner, the assembly tooling minimal.",
+				"fr": "Esquisseur paramétrique taillé pour les mécaniciens qui viennent de SketchUp : contraintes, extrusion/révolution, DXF et vues de mise en plan. L’écosystème et les tutoriels sont maigres, l’assemblage rudimentaire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LibreCAD",
+			"source": {
+				"host": "github",
+				"path": "LibreCAD/LibreCAD",
+				"url": "https://github.com/LibreCAD/LibreCAD"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Mature 2D drafting for floor plans where SketchUp 3D is overkill: full DXF/DWG in and out, layers and blocks. It stays 2D, the UI looks dated, and it won’t read SketchUp files.",
+				"fr": "Dessin 2D mûr pour plans d’étage, là où la 3D de SketchUp est superflue : DXF/DWG complets, calques et blocs. Mais 2D uniquement, interface vieillie, pas d’import de fichiers SketchUp."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CadQuery",
+			"source": {
+				"host": "github",
+				"path": "CadQuery/cadquery",
+				"url": "https://github.com/CadQuery/cadquery"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Python-native parametric CAD: models are scripts you can test and run headless in CI, with STEP in/out via OCCT. Costs a Python habit — no interactive drawing, and designers face a learning curve.",
+				"fr": "CAD paramétrique en Python : les modèles sont des scripts testables, générés en headless dans une CI, STEP via OCCT. Requiert Python, pas de dessin interactif, et une courbe d’apprentissage pour les designers."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "BRL-CAD",
+			"source": {
+				"host": "sourcehut",
+				"path": "brlcad/brlcad",
+				"url": "https://git.sr.ht/~brlcad/brlcad"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "Four decades of stability behind CSG modeling, a batch CLI and raytracer for unattended geometry generation. The tooling is dated and the command line a steep climb for casual users.",
+				"fr": "Quatre décennies de stabilité derrière la modélisation CSG, un CLI par lots et un raytraceur pour générer la géométrie sans surveillance. Outillage daté, ligne de commande abrupte pour les débutants."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dune 3D",
+			"source": {
+				"host": "github",
+				"path": "dune3d/dune3d",
+				"url": "https://github.com/dune3d/dune3d"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Modern and actively developed, with a sketching feel that ex-SketchUp users pick up fast; STEP in/out and a single-file project format. Still young — smaller community, few plugins, assembly not yet mature.",
+				"fr": "Moderne et activement maintenu, un ressenti d’esquisse que les ex-utilisateurs de SketchUp adoptent vite, STEP en entrée comme en sortie. Jeune encore : communauté réduite, peu de plugins, assemblage pas mature."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "build123d",
+			"source": {
+				"host": "github",
+				"path": "gumyr/build123d",
+				"url": "https://github.com/gumyr/build123d"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A cleaner Python take on CadQuery: boundary-representation solids, OCCT STEP in/out, headless validation and algebra-based assembly. Code-only — no interactive sketching, no GUI, built for engineers not drafters.",
+				"fr": "API Python plus propre que celle de CadQuery : solides B-rep, STEP via OCCT, validation headless et assemblage par algèbre. Tout en code — pas d’esquisse interactive, pensé pour les ingénieurs, pas les dessinateurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "libfive",
+			"source": {
+				"host": "github",
+				"path": "libfive/libfive",
+				"url": "https://github.com/libfive/libfive"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Signed-distance-field modeling for organic shapes, with headless mesh export for automation and a Studio GUI for interactive work. It is not a push-pull modeler, and importing from CAD formats is limited.",
+				"fr": "Modélisation par champs de distance signés pour les formes organiques, export de maillage headless et GUI Studio. Pas un modeleur push-pull, et l’import de formats CAD reste limité."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

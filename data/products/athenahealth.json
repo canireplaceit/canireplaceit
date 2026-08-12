@@ -97,6 +97,153 @@
 				"en": "Cloud health record at a fraction of athena's cost, and it's certified. Revenue-cycle management is an add-on you pay separately for.",
 				"fr": "Dossier patient cloud à une fraction du prix d’athena, et certifié. La gestion du recouvrement est une option facturée à part."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "HAPI FHIR",
+			"source": {
+				"host": "github",
+				"path": "hapifhir/hapi-fhir",
+				"url": "https://github.com/hapifhir/hapi-fhir"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Reference FHIR server that anchors a self-hosted interoperability layer above any practice data. API only: no patient UI, no billing, integration work left to you.",
+				"fr": "Serveur FHIR de référence pour bâtir une couche d’interopérabilité auto-hébergée au-dessus des données du cabinet. API uniquement : pas d’interface patient, pas de facturation, l’intégration reste à faire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "EHRbase",
+			"source": {
+				"host": "github",
+				"path": "ehrbase/ehrbase",
+				"url": "https://github.com/ehrbase/ehrbase"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Reference openEHR server for vendor-independent, archetype-driven clinical storage with a full audit trail. Demands openEHR tooling expertise; no UI, no billing, small community.",
+				"fr": "Serveur openEHR de référence pour un stockage clinique piloté par archetypes, indépendant des éditeurs, avec traçabilité d’audit complète. Exige des compétences openEHR ; pas d’interface ni de facturation, petite communauté."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "HospitalRun",
+			"source": {
+				"host": "github",
+				"path": "HospitalRun/hospitalrun-frontend",
+				"url": "https://github.com/HospitalRun/hospitalrun-frontend"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Offline-first hospital information system aimed at low-resource clinics. Archived upstream: no active development, limited billing and lab features, small community.",
+				"fr": "Système d’information hospitalier offline-first pour cliniques à faibles ressources. Archivé côté upstream : plus de développement actif, facturation et labo limités, petite communauté."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ERPNext Healthcare",
+			"source": {
+				"host": "github",
+				"path": "frappe/erpnext",
+				"url": "https://github.com/frappe/erpnext"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "GPL healthcare module on the ERPNext platform: scheduling, billing and clinical records in one system. Healthcare is a side module, clinical depth below dedicated EHRs, ERP learning curve.",
+				"fr": "Module santé GPL sur la plateforme ERPNext : rendez-vous, facturation et dossier clinique dans un seul système. La santé n’est qu’un module, profondeur clinique moindre qu’un EHR, courbe d’apprentissage type ERP."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Bahmni",
+			"source": {
+				"host": "github",
+				"path": "Bahmni/bahmni-core",
+				"url": "https://github.com/Bahmni/bahmni-core"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "OpenMRS plus Odoo fused into an athenaOne-like ambulatory platform covering registration to billing. Complex multi-component deployment, needs implementer expertise, tuned for low-resource countries.",
+				"fr": "OpenMRS couplé à Odoo pour une plateforme ambulatoire intégrée, type athenaOne, de l’enregistrement à la facturation. Déploiement multi-composants complexe, exige des intégrateurs, pensé pour pays à faibles ressources."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SENAITE",
+			"source": {
+				"host": "github",
+				"path": "senaite/senaite.core",
+				"url": "https://github.com/senaite/senaite.core"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted GPL-2.0 LIMS covering the laboratory side of a healthcare workflow: samples, analyzers, QC. Lab-focused only — no patient charting, no billing.",
+				"fr": "LIMS open source GPL-2.0 auto-hébergé pour la partie laboratoire d’un flux de soins : échantillons, analyseurs, CQ. Orienté labo uniquement — pas de dossier patient, pas de facturation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OSCAR EMR",
+			"source": {
+				"host": "github",
+				"path": "scoophealth/oscar",
+				"url": "https://github.com/scoophealth/oscar"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Full ambulatory EMR used by thousands of Canadian physicians, with billing, eReferral and ePrescribe. Dormant — no commit since December 2023 — and the Java/Tomcat core and UX show it.",
+				"fr": "EMR ambulatoire complet utilisé par des milliers de médecins canadiens, avec facturation, eReferral et ePrescription. Dormant — aucun commit depuis décembre 2023 — le cœur Java/Tomcat et l’interface en témoignent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

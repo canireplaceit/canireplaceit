@@ -97,6 +97,157 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Answer",
+			"source": {
+				"host": "github",
+				"path": "apache/answer",
+				"url": "https://github.com/apache/answer"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Apache-2.0 Q&A and knowledge-base platform, home to a self-hosted community hub. Votes and accepted answers work well, but nothing aggregates GitHub or Discord, and analytics stay lighter than Common Room’s.",
+				"fr": "Plateforme Apache-2.0 de Q&A et base de connaissances pour un hub auto-hébergé. Votes et réponses acceptées font le job, mais rien ne fusionne GitHub ou Discord et l’analytique reste plus pauvre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Flarum",
+			"source": {
+				"host": "github",
+				"path": "flarum/framework",
+				"url": "https://github.com/flarum/framework"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "MIT forum engine; a mature extension ecosystem stretches it further than most. It stays forum-only though — no community intelligence, and PHP hosting knowledge is on you.",
+				"fr": "Moteur de forum MIT ; son écosystème d’extensions mûr le tire plus loin que la plupart. Ça reste du forum seulement — pas d’intelligence communautaire, et il faut savoir gérer un hébergement PHP."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "NodeBB",
+			"source": {
+				"host": "github",
+				"path": "NodeBB/NodeBB",
+				"url": "https://github.com/NodeBB/NodeBB"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "GPL-3.0 forum with a real-time feel and a plugin/theme marketplace. Polished out of the box, but the scope stays forum-only — no cross-channel activity to aggregate.",
+				"fr": "Forum GPL-3.0 au rendu temps réel, avec marché de plugins et thèmes. Soigné dès l’installation, mais le périmètre reste du forum — rien à agréger hors de ce canal."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Zulip",
+			"source": {
+				"host": "github",
+				"path": "zulip/zulip",
+				"url": "https://github.com/zulip/zulip"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Apache-2.0 chat where topics keep high-volume conversations searchable and organized. It’s chat, not an analytics layer, the server is heavy, and the topic model has a learning curve.",
+				"fr": "Chat Apache-2.0 où les topics gardent des conversations à fort volume lisibles et recherchables. Mais c’est du chat, pas une couche d’analyse ; le serveur est lourd et le modèle de topics s’apprend."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "A few cloud-only extras",
+					"fr": "Quelques extras réservés au cloud"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ghost",
+			"source": {
+				"host": "github",
+				"path": "TryGhost/Ghost",
+				"url": "https://github.com/TryGhost/Ghost"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "MIT publishing and newsletters, with member subscriptions on your own stack. It does content well, but there’s no activity aggregation, no segmentation — a publishing tool, not a community layer.",
+				"fr": "Publishing MIT et newsletters, abonnements membres sur votre propre infra. Le contenu est bien servi, mais pas d’agrégation d’activité ni de segmentation : un outil de publication, pas une couche communautaire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Forem",
+			"source": {
+				"host": "github",
+				"path": "forem/forem",
+				"url": "https://github.com/forem/forem"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "AGPL-3.0 community publishing — the engine behind DEV.to — with articles, reactions, and a follower graph. Running a Rails app of this weight is on you, and the lens stays article-centric.",
+				"fr": "Publishing communautaire AGPL-3.0 — le moteur de DEV.to — avec articles, réactions et graphe de suiveurs. L’app Rails est lourde à héberger et le prisme reste centré sur l’article."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gh-dash",
+			"source": {
+				"host": "github",
+				"path": "dlvhdr/gh-dash",
+				"url": "https://github.com/dlvhdr/gh-dash"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "MIT terminal dashboard for triaging PRs and issues off your existing gh login. Fast for solo maintainers, but GitHub-only and read-focused — nothing for a team to share.",
+				"fr": "Dashboard terminal MIT pour trier PR et issues depuis votre login gh existant. Rapide pour un mainteneur solo, mais limité à GitHub et à la lecture — rien à partager en équipe."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

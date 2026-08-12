@@ -114,6 +114,174 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Todo.txt CLI",
+			"source": {
+				"host": "github",
+				"path": "todotxt/todo.txt-cli",
+				"url": "https://github.com/todotxt/todo.txt-cli"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Canonical plain-text todo file with a portable shell CLI. Any sync tool moves it, a huge ecosystem of clients reads it. No due dates, reminders or native apps — organizing is on you.",
+				"fr": "Format todo.txt de référence, CLI shell portable. Tout outil de sync déplace le fichier, tout client le lit. Pas de dates, rappels ni app native : la tenue du fichier vous revient."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "TaskLite",
+			"source": {
+				"host": "github",
+				"path": "ad-si/TaskLite",
+				"url": "https://github.com/ad-si/TaskLite"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "SQLite task manager whose selling point is the database: one queryable file with dates parsed from plain language. Its TUI is scriptable. Single-user by design — no calendar or reminders, small community.",
+				"fr": "Gestionnaire de tâches SQLite dont l’atout est la base : un seul fichier interrogeable, des dates comprises en langage naturel. TUI scriptable. Mono-utilisateur par conception — ni calendrier ni rappels, communauté réduite."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "topydo",
+			"source": {
+				"host": "github",
+				"path": "topydo/topydo",
+				"url": "https://github.com/topydo/topydo"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "todo.txt CLI adding what that format lacks: recurring todos and CalDAV sync, atop priorities, due dates and contexts. Terminal-only, single-user, Python runtime — and CalDAV moves the file, not a calendar.",
+				"fr": "CLI todo.txt qui apporte ce qui manque au format : récurrence et sync CalDAV, par-dessus priorités, dates et contextes. Terminal uniquement, mono-utilisateur, runtime Python — et CalDAV déplace le fichier, pas un calendrier."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "calcurse",
+			"source": {
+				"host": "github",
+				"path": "lfos/calcurse",
+				"url": "https://github.com/lfos/calcurse"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "A true ncurses workhorse: calendar and todos in one long-running TUI, with appointments, events, reminders and notifications. CalDAV sync arrives via vdirsyncer. Keyboard-first with a learning curve, and nothing cloud-based built in.",
+				"fr": "Véritable bête de somme ncurses : calendrier et todos dans une TUI, avec rendez-vous, événements, rappels et notifications. Sync CalDAV via vdirsyncer. Tout au clavier, courbe d’apprentissage réelle, aucun cloud intégré."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Radicale",
+			"source": {
+				"host": "github",
+				"path": "Kozea/Radicale",
+				"url": "https://github.com/Kozea/Radicale"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Tiny self-hosted CalDAV server whose one job is syncing todos to Apple Reminders, Tasks.org or any CalDAV client, with pluggable auth. No UI, no push — you run and update it.",
+				"fr": "Serveur CalDAV autohébergé minuscule : son seul rôle est de synchroniser les todos vers Apple Reminders, Tasks.org ou tout client CalDAV, auth enfichable. Pas d’interface ni de push — à vous de le maintenir."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Wekan",
+			"source": {
+				"host": "codeberg",
+				"path": "wekan/wekan",
+				"url": "https://codeberg.org/wekan/wekan"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted Trello-style kanban: boards, lists, swimlanes, due dates, checklists, labels, comments. Fine if kanban is your flow, not an inbox or GTD — and the MongoDB backend and dated UI count against it.",
+				"fr": "Kanban autohébergé façon Trello : tableaux, listes, swimlanes, échéances, checklists, étiquettes. Bien si le kanban est votre flux, pas un inbox ni du GTD — le MongoDB en backend et l’UI datée pèsent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Joplin",
+			"source": {
+				"host": "github",
+				"path": "laurent22/joplin",
+				"url": "https://github.com/laurent22/joplin"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Notes and to-dos in one app across desktop, mobile and CLI, with end-to-end encrypted sync. Tasks are plain checkboxes with basic reminders — no GTD projects, and you arrange your own sync.",
+				"fr": "Notes et to-dos dans une app, desktop, mobile et CLI, sync chiffrée de bout en bout. Tâches : cases à cocher, rappels basiques, pas de projets GTD — la sync, à vous de l’organiser."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tracks",
+			"source": {
+				"host": "github",
+				"path": "TracksApp/tracks",
+				"url": "https://github.com/TracksApp/tracks"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Open-source GTD closest to Things 3 — inbox, next actions, projects, contexts, weekly review — in a mobile-friendly web UI. Dated Rails, yours to deploy and maintain, and no native mobile clients.",
+				"fr": "GTD open source le plus proche de Things 3 — inbox, prochaines actions, projets, contextes, revue hebdomadaire — en UI web mobile. Rails daté, à déployer et maintenir, pas de client mobile natif."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

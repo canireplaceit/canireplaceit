@@ -95,6 +95,153 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "ModernWMS",
+			"source": {
+				"host": "github",
+				"path": "fjykTec/ModernWMS",
+				"url": "https://github.com/fjykTec/ModernWMS"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Purpose-built Apache-2.0 WMS with wave/task picking and an RF barcode terminal UI. The catch: docs and UI are mostly Chinese, and 3PL billing and EDI are absent.",
+				"fr": "WMS Apache-2.0 pensé pour le flux d’entrepôt : picking par vague ou tâche, terminal RF à codes-barres. Reste que la doc et l’interface sont surtout en chinois, sans facturation 3PL ni EDI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenWMS",
+			"source": {
+				"host": "github",
+				"path": "openwms/org.openwms",
+				"url": "https://github.com/openwms/org.openwms"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Modular JVM WMS suite spanning receiving to shipping with multi-tenant warehouse orgs. Pay in operations: microservice sprawl, thin UI, and momentum that varies by module.",
+				"fr": "Suite WMS modulaire en JVM, de la réception à l’expédition, avec organisations multi-entrepôts. Ça se paie en ops : éparpillement de microservices, UI légère, élan inégal selon les modules."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "InvenTree",
+			"source": {
+				"host": "github",
+				"path": "inventree/InvenTree",
+				"url": "https://github.com/inventree/InvenTree"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "MIT inventory with stock locations, barcodes, plugins and a REST API — slot it into the 3PL stack. It thinks in discrete parts, not pallets: no EDI, carrier links, or 3PL billing.",
+				"fr": "Inventaire MIT avec emplacements de stock, codes-barres, plugins et API REST, à brancher dans la stack 3PL. Il pense en pièces unitaires, pas en palettes : ni EDI, ni transporteurs, ni facturation 3PL."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "grocy",
+			"source": {
+				"host": "github",
+				"path": "grocy/grocy",
+				"url": "https://github.com/grocy/grocy"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight MIT inventory for quick self-hosted stock control — barcode workflows, stock, shopping lists. Household scale: no multi-tenancy, no client billing, thin picking.",
+				"fr": "Inventaire MIT léger pour reprendre la main sur le stock : codes-barres, stock et listes de courses. Échelle maison, pas 3PL : ni multi-tenant, ni facturation client, picking limité."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PartKeepr",
+			"source": {
+				"host": "github",
+				"path": "partkeepr/PartKeepr",
+				"url": "https://github.com/partkeepr/PartKeepr"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Mature GPL-3.0 parts inventory with categories, parameters and barcode support. Archived upstream around 2023 — no fixes coming — and it tracks components, not warehouse flows.",
+				"fr": "Inventaire de composants GPL-3.0 avec catégories, paramètres et codes-barres. Archivé en amont vers 2023, sans correctifs à venir — utile pour des pièces, pas pour des flux d’entrepôt."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Part-DB",
+			"source": {
+				"host": "github",
+				"path": "Part-DB/Part-DB-legacy",
+				"url": "https://github.com/Part-DB/Part-DB-legacy"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted GPL-2.0 parts database with parameterised searches and barcodes. Dormant, though — no commit since April 2024, and it covers components, not receiving, picking and shipping.",
+				"fr": "Base de pièces GPL-2.0 auto-hébergée, avec recherches paramétrées et codes-barres. En veille : aucun commit depuis avril 2024, et ça gère des composants, pas la réception, le picking et l’expédition."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dolibarr",
+			"source": {
+				"host": "github",
+				"path": "Dolibarr/dolibarr",
+				"url": "https://github.com/Dolibarr/dolibarr"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "GPL-3.0 open ERP with multi-warehouse stock and invoicing: a back-office hub for a small 3PL. The stock module is thin next to a WMS, and the UI is dated for scanning.",
+				"fr": "ERP GPL-3.0 avec stock, mouvements multi-entrepôts et facturation — hub back-office pour un petit 3PL. Mais le module stock reste simple face à un vrai WMS, et l’UI vieillit pour le scan."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

@@ -95,6 +95,153 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "OSRM",
+			"source": {
+				"host": "github",
+				"path": "Project-OSRM/osrm-backend",
+				"url": "https://github.com/Project-OSRM/osrm-backend"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "High-performance C++ routing engine: matrix, route, nearest endpoints off OSM extracts you source and maintain. No fleet UI, no tracking, no geocoding — just the math.",
+				"fr": "Moteur de routage C++ haute performance : matrices, itinéraires et nearest-neighbors sur extraits OSM que vous maintenez vous-même. Pas d’UI de flotte, pas de suivi, pas de géocodage — seulement la géométrie."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "VROOM",
+			"source": {
+				"host": "github",
+				"path": "VROOM-Project/vroom",
+				"url": "https://github.com/VROOM-Project/vroom"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Turns a delivery manifest into optimized stop sequences, fed by a routing engine like OSRM. It solves the routing math, not the platform — supply the matrix source, dispatchers get no UI.",
+				"fr": "Solveur VRP qui transforme un manifeste en séquences d’arrêts optimisées, alimenté par OSRM. Il résout le calcul, pas la plateforme : à vous la source de matrices, aucune UI de dispatch."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GraphHopper",
+			"source": {
+				"host": "github",
+				"path": "graphhopper/graphhopper",
+				"url": "https://github.com/graphhopper/graphhopper"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "JVM routing engine with truck-aware profiles, matrices, isochrones, and geocoding, embeddable as a Java library. Not a fleet app, and the truck profiles need tuning — nothing ingests your GPS.",
+				"fr": "Moteur de routage JVM : profils camion, matrices, isochrones, géocodage, intégrable en bibliothèque Java. Pas une app de flotte, profils camion à régler — et rien n’ingère vos GPS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "openrouteservice",
+			"source": {
+				"host": "github",
+				"path": "GIScience/openrouteservice",
+				"url": "https://github.com/GIScience/openrouteservice"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Routing, geocoding, isochrones, and truck profiles in one offline-capable container. Ships turn-key, but GPL limits embedded use, large-region data prep is yours, and tracking is out of scope.",
+				"fr": "Routage, géocodage, isochrones et profils camion dans un conteneur hors-ligne unique. Clé en main, mais GPL pour l’embarqué, préparation des données lourde pour les grandes régions, et aucun suivi de flotte."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GPSBabel",
+			"source": {
+				"host": "github",
+				"path": "GPSBabel/gpsbabel",
+				"url": "https://github.com/GPSBabel/gpsbabel"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Converts and normalizes GPX, KML, CSV, NMEA, and hundreds of device formats, scriptable for pipelines. Data plumbing only: no tracking, no analytics, nothing a fleet platform would call an API.",
+				"fr": "Convertit et normalise GPX, KML, CSV, NMEA et des centaines de formats d’appareils, scriptable pour vos pipelines. Simple tuyauterie de données : ni suivi, ni analytics, ni service de flotte."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gpxpy",
+			"source": {
+				"host": "github",
+				"path": "tkrajina/gpxpy",
+				"url": "https://github.com/tkrajina/gpxpy"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Python library and minimal CLI for parsing, merging, and simplifying GPX tracks, dependency-free, drops into fleet pipelines. It is a library: no app, no map, no tracking server.",
+				"fr": "Bibliothèque Python et CLI minimale pour parser, fusionner et simplifier des traces GPX, sans dépendances, à glisser dans vos pipelines. Une bibliothèque : ni app, ni carte, ni serveur de suivi."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Timefold",
+			"source": {
+				"host": "github",
+				"path": "TimefoldAI/timefold-solver",
+				"url": "https://github.com/TimefoldAI/timefold-solver"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Open-source optimization engine, the OptaPlanner successor, embedding in Java or Python to solve routing and shift scheduling. You build the domain model and the UI; the engine does not ship one.",
+				"fr": "Moteur d’optimisation open source, successeur d’OptaPlanner, embarquable en Java ou Python pour le routing et les plannings d’équipes. À vous le modèle métier et l’interface : le moteur ne fournit pas d’UI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

@@ -97,6 +97,174 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Gatus",
+			"source": {
+				"host": "github",
+				"path": "TwiN/gatus",
+				"url": "https://github.com/TwiN/gatus"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Config-as-code health checks with a built-in status page — the closest UX to Cronitor. You run the checkers yourself, though: no global PoPs, and alert routing is DIY.",
+				"fr": "Checks santé en config-as-code, page de statut intégrée : l’UX la plus proche de Cronitor. Mais on héberge soi-même les checkers — pas de PoPs mondiaux, routage d’alertes artisanal."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Changedetection.io",
+			"source": {
+				"host": "github",
+				"path": "dgtlmoon/changedetection.io",
+				"url": "https://github.com/dgtlmoon/changedetection.io"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Schedules page-diffing on cron-like intervals — visual diffs, REST API, 80+ notification integrations. It watches content changes, not service health, and stays one process to keep alive with no distributed checkers.",
+				"fr": "Diff de contenu planifié façon cron : diff visuel, API REST, 80+ intégrations de notifications. Il observe les pages, pas la santé des services — un seul processus à maintenir."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Statping",
+			"source": {
+				"host": "github",
+				"path": "statping/statping",
+				"url": "https://github.com/statping/statping"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "One binary, one docker command: uptime checks, incident history, and a shareable status page. Dormant since 2024 — forks like statping-ng exist — and alert routing is basic next to Cronitor.",
+				"fr": "Un binaire, une commande docker : checks d’uptime, historique d’incidents et page de statut partageable. Abandonné depuis 2024 — des forks comme statping-ng existent — et le routage d’alertes reste sommaire face à Cronitor."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Netdata",
+			"source": {
+				"host": "github",
+				"path": "netdata/netdata",
+				"url": "https://github.com/netdata/netdata"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Real-time per-second metrics from thousands of integrations, built-in anomaly detection and alerts, one-command install. It covers hosts, not heartbeats or URL checks; on big fleets high cardinality demands storage/ops attention.",
+				"fr": "Télémétrie temps réel depuis des milliers d’intégrations, anomalies et alertes intégrées, installation en une commande. Il voit les hôtes, pas les heartbeats ni les URLs ; haute cardinalité rime avec stockage et ops."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Prometheus",
+			"source": {
+				"host": "github",
+				"path": "prometheus/prometheus",
+				"url": "https://github.com/prometheus/prometheus"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Scrape-based telemetry: a Watchdog rule in Alertmanager fires when metrics go silent — the dead man’s switch. PromQL, TSDB, CNCF stack. No status page or URL-check workflow, and it needs real ops.",
+				"fr": "Télémétrie par scrape : une règle Watchdog sonne quand les métriques se taisent — le dead man’s switch. PromQL, TSDB, stack CNCF. Ni page de statut ni checks URL, et de l’ops à assumer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Beszel",
+			"source": {
+				"host": "github",
+				"path": "henrygd/beszel",
+				"url": "https://github.com/henrygd/beszel"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Tiny self-hosted server telemetry — memory in MBs — with instant Telegram/webhook/email alerts and a clean dashboard, up via docker-compose. System metrics only: no URL or cron checks, and a young, small community.",
+				"fr": "Télémétrie serveur légère self-hosted — quelques Mo de RAM — alertes Telegram/webhook/email instantanées, dashboard propre, docker-compose up et c’est parti. Système uniquement : pas de checks URL ni cron, communauté jeune et petite."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Komari",
+			"source": {
+				"host": "github",
+				"path": "komari-monitor/komari",
+				"url": "https://github.com/komari-monitor/komari"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Active, fast-growing multi-server monitor with a polished dashboard and webhook/Telegram alerts at low resource overhead. It sticks to system telemetry — no cron-heartbeat semantics — and features are still maturing.",
+				"fr": "Moniteur multi-serveurs actif et à forte croissance, dashboard soigné, alertes webhook/Telegram, faible consommation de ressources. Reste sur la télémétrie système — pas de sémantique de cron-heartbeat — et des fonctionnalités encore en maturation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Monit",
+			"source": {
+				"host": "bitbucket",
+				"path": "tildeslash/monit",
+				"url": "https://bitbucket.org/tildeslash/monit"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Zero-dependency daemon: watches processes, services, ports, and files, auto-restarts, and alerts by mail or M/Monit — real CLI fit. Config is file-based, the UX dated, and there’s no API or hosted dashboard.",
+				"fr": "Démon sans dépendance : surveille processus, services, ports et fichiers, relance automatiquement, alerte par mail ou M/Monit — un vrai outil CLI. Config par fichiers, UX datée, pas d’API ni de dashboard hébergé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

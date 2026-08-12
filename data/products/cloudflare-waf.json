@@ -97,6 +97,270 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "ModSecurity",
+			"source": {
+				"host": "github",
+				"path": "owasp-modsecurity/ModSecurity",
+				"url": "https://github.com/owasp-modsecurity/ModSecurity"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Classic open-source WAF engine, full OWASP CRS support and the SecRule DSL. Needs webserver integration, no GUI, and the Java fork lags the C engine.",
+				"fr": "Le WAF open source de référence, support CRS OWASP complet et DSL SecRule. Sans GUI, à brancher sur nginx, apache ou IIS ; le fork Java traîne derrière le moteur C."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "NAXSI",
+			"source": {
+				"host": "github",
+				"path": "nbs-system/naxsi",
+				"url": "https://github.com/nbs-system/naxsi"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Archived since 2023. Compiles into nginx, near-zero overhead, and auto-learns a whitelist so base protection needs no signature updates. Rules stay low-level and nginx-only.",
+				"fr": "Archivé depuis 2023. Se compile dans nginx, surcoût quasi nul, et apprend une liste blanche : protection de base sans mise à jour de signatures. Règles de bas niveau, nginx uniquement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SafeLine",
+			"source": {
+				"host": "github",
+				"path": "chaitin/SafeLine",
+				"url": "https://github.com/chaitin/SafeLine"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Chaitin’s community WAF: one docker-compose command and a visual detection-rule builder over a commercial-grade engine. Self-host needs Linux + Docker, and pro features sit behind the community build.",
+				"fr": "Le WAF communautaire de Chaitin : un docker-compose, un éditeur visuel de règles sur un moteur de niveau commercial. Auto-hébergé, Linux + Docker requis, les fonctions pro restent hors édition communautaire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Pro features",
+					"fr": "Fonctions pro"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Janusec",
+			"source": {
+				"host": "github",
+				"path": "Janusec/janusec",
+				"url": "https://github.com/Janusec/janusec"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Application gateway with a built-in WAF and admin console in a single binary, covering SQL, XSS and CC attacks. PostgreSQL backend; a smaller community and AGPL licensing.",
+				"fr": "Passerelle applicative, WAF intégré et console d’admin dans un seul binaire, contre SQL, XSS et attaques CC. Backend PostgreSQL, communauté plus réduite, licence AGPL."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Nothing significant",
+					"fr": "Rien de majeur"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CrowdSec",
+			"source": {
+				"host": "github",
+				"path": "crowdsecurity/crowdsec",
+				"url": "https://github.com/crowdsecurity/crowdsec"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Crowd-sourced blocklist of bad IPs, enforced by an nginx WAF/IPS bouncer with a local console. Value grows as you share signals, and the bouncer installs per server.",
+				"fr": "Liste noire collaborative d’IP, appliquée par un bouncer WAF/IPS nginx avec console locale. Le gain monte quand on partage ses signaux, et le bouncer s’installe serveur par serveur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache APISIX",
+			"source": {
+				"host": "github",
+				"path": "apache/apisix",
+				"url": "https://github.com/apache/apisix"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "API gateway with Coraza and ModSecurity WAF plugins pre-loaded with CRS, plus routing, rate limiting and auth. Managed via admin API; the Lua-based architecture has a learning curve.",
+				"fr": "Passerelle API avec plugins WAF Coraza et ModSecurity préchargés CRS, plus routage, rate limiting et auth. Pilotée par admin API, l’architecture Lua a une courbe d’apprentissage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kong Gateway",
+			"source": {
+				"host": "github",
+				"path": "Kong/kong",
+				"url": "https://github.com/Kong/kong"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Mature open-source API gateway: rate limiting, auth and IP-restriction plugins across a huge ecosystem. The full WAF rule engine sits in Enterprise, and the Lua + Postgres footprint is heavy.",
+				"fr": "Passerelle API open source mature : rate limiting, auth, restriction d’IP, vaste écosystème de plugins. Le moteur WAF complet est en Enterprise, et l’empreinte Lua + Postgres est lourde."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Full WAF rule engine",
+					"fr": "Moteur WAF complet"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Fail2ban",
+			"source": {
+				"host": "github",
+				"path": "fail2ban/fail2ban",
+				"url": "https://github.com/fail2ban/fail2ban"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Log-scanning daemon that bans IPs after repeated failures, driven by a jail and filter rule library. No content inspection, no GUI, and jails need tuning per app.",
+				"fr": "Démon qui bannit les IP après échecs répétés, piloté par des jails et une bibliothèque de filtres. Pas d’inspection du contenu, pas de GUI, des jails à régler par application."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "IPBan",
+			"source": {
+				"host": "github",
+				"path": "DigitalRuby/IPBan",
+				"url": "https://github.com/DigitalRuby/IPBan"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Cross-platform IP-ban daemon writing to iptables, firewalld, nginx or pfSense backends via CLI. Blocks abusers, not content, and needs the .NET runtime.",
+				"fr": "Démon de bannissement d’IP multiplateforme, qui écrit dans les backends iptables, firewalld, nginx ou pfSense via CLI. Bloque les abuseurs, pas le contenu, et exige le runtime .NET."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Traefik",
+			"source": {
+				"host": "github",
+				"path": "traefik/traefik",
+				"url": "https://github.com/traefik/traefik"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Container-native reverse proxy: automatic Let’s Encrypt, rate limiting and security headers set per route. No CRS-class WAF rules, and middleware is configured per route.",
+				"fr": "Reverse proxy natif conteneur : Let’s Encrypt automatique, rate limiting et en-têtes de sécurité par route. Pas de règles WAF classe CRS, et le middleware se règle route par route."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Caddy",
+			"source": {
+				"host": "github",
+				"path": "caddyserver/caddy",
+				"url": "https://github.com/caddyserver/caddy"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Single static binary, automatic HTTPS, and community plugins for security filtering. Minimal WAF out of the box; anything deeper means adding plugins.",
+				"fr": "Un seul binaire statique, HTTPS automatique, et des plugins communautaires de filtrage. WAF minimal par défaut, le reste passe par des plugins."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Shadow Daemon",
+			"source": {
+				"host": "github",
+				"path": "zecure/shadowd",
+				"url": "https://github.com/zecure/shadowd"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Archived since 2022. Web UI for rules and alerts across separate collector, analyzer and protector daemons, with apache, nginx and haproxy connectors. The multi-daemon setup is involved.",
+				"fr": "Archivé depuis 2022. Interface web pour règles et alertes, répartie entre démons collector, analyzer et protector, avec connecteurs apache, nginx et haproxy. Montage multi-démons assez lourd."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

@@ -234,7 +234,13 @@ export function collectionMembers(
 				projects: projects.filter(
 					(p) => !p.fossVary && classifyLicense(p.license) === "not-foss",
 				),
-				unresolved: projects.filter((p) => p.fossVary),
+				// The licence gate applies here too, or the comment above is a lie: a
+				// project whose citations disagree AND whose licence we cannot grade is
+				// named on a source-available page purely for being contested, which
+				// asserts something about its licence that nobody established.
+				unresolved: projects.filter(
+					(p) => p.fossVary && classifyLicense(p.license) !== "unknown",
+				),
 			};
 
 		default:

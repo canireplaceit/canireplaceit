@@ -109,6 +109,157 @@
 				"en": "Published pricing and far cheaper for residential builders. Nowhere near Procore for commercial project controls.",
 				"fr": "Tarifs affichés et bien moins cher pour la construction résidentielle. Loin de Procore pour le pilotage de projets commerciaux."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "BIMserver",
+			"source": {
+				"host": "github",
+				"path": "opensourceBIM/BIMserver",
+				"url": "https://github.com/opensourceBIM/BIMserver"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted openBIM CDE for IFC sharing, versioning and query via Java APIs and a web viewer. Development has slowed since 2020 and the UI is dated; no scheduling, cost or field modules.",
+				"fr": "CDE openBIM auto-hébergé : partage, versionnage et requêtes sur modèles IFC via API Java et visionneuse web. Développement au ralenti depuis 2020, interface vieillissante, pas de planning, coûts ni terrain."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FreeCAD",
+			"source": {
+				"host": "github",
+				"path": "FreeCAD/FreeCAD",
+				"url": "https://github.com/FreeCAD/FreeCAD"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "Parametric CAD with a BIM workbench that authors native IFC files — desktop-only, so no web, mobile or multi-user work, and the BIM tooling is rougher than Revit or Bonsai.",
+				"fr": "CAO paramétrique avec atelier BIM qui écrit des IFC natifs. Bureau uniquement : pas de web, mobile ni travail multi-utilisateur, et les outils BIM restent plus frustes que Revit ou Bonsai."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GanttProject",
+			"source": {
+				"host": "github",
+				"path": "bardsoftware/ganttproject",
+				"url": "https://github.com/bardsoftware/ganttproject"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Desktop Gantt tool with dependencies, baselines and MS Project import/export covering the planning slice of Procore’s schedule. Single-user and local files only: no CPM or float, no cost, RFI or field.",
+				"fr": "Gantt de bureau avec dépendances, référentiels et échange MS Project pour la partie planning du module schedule de Procore. Mono-utilisateur, fichiers locaux : pas de CPM, ni coûts, RFI ou terrain."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Leantime",
+			"source": {
+				"host": "github",
+				"path": "Leantime/leantime",
+				"url": "https://github.com/Leantime/leantime"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted project management — Gantt, milestones, goals, portfolios — that construction teams run on-prem with one docker command. Generic rather than construction-specific, and there is no drawings, RFI or field module.",
+				"fr": "Gestion de projet auto-hébergée — Gantt, jalons, objectifs, portefeuilles — déployable en une commande docker pour le on-premise. Générique, pas spécifique au BTP, et sans module plans, RFI ou terrain."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "LDAP/SSO sign-in and some reports",
+					"fr": "connexion LDAP/SSO et certains rapports"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ODK Central",
+			"source": {
+				"host": "github",
+				"path": "getodk/central",
+				"url": "https://github.com/getodk/central"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted field-data platform for daily logs, inspections and punch lists through offline mobile forms (ODK Collect). Form-centric rather than project management, with no drawings or schedule hook-up; iOS needs third-party clients.",
+				"fr": "Plateforme terrain auto-hébergée (journaux de chantier, inspections, punch lists) via formulaires hors ligne ODK Collect. Centrée formulaires, pas de gestion de projet, ni plans ou planning ; iOS via clients tiers."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "IFC.js (engine_web-ifc)",
+			"source": {
+				"host": "github",
+				"path": "ThatOpen/engine_web-ifc",
+				"url": "https://github.com/ThatOpen/engine_web-ifc"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "IFC parsing and geometry engine powering self-hosted web model viewers, from IFC2x3/IFC4 to WebGL in the browser. A library, not an app: building a viewer takes effort, no field, schedule or cost.",
+				"fr": "Moteur de parsing et de géométrie IFC alimentant des visionneuses web auto-hébergées, d’IFC2x3/IFC4 au WebGL. Une bibliothèque, pas une app : construire sa visionneuse demande du travail, sans terrain, planning ni coûts."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pyRevit",
+			"source": {
+				"host": "github",
+				"path": "pyrevitlabs/pyRevit",
+				"url": "https://github.com/pyrevitlabs/pyRevit"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Open-source scripting framework that automates sheets, schedules and QA inside Revit via Python and a shared library. You still need a paid Autodesk Revit on Windows, plus scripting skills — no UI suite.",
+				"fr": "Framework open-source pour automatiser plans, nomenclatures et QA dans Revit avec des scripts Python. Exige un Revit Autodesk payant sous Windows et des compétences en script — pas de suite UI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

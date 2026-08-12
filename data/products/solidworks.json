@@ -97,6 +97,174 @@
 				"en": "Cloud-native, real version control, but your models live on their servers and the free tier makes everything public.",
 				"fr": "Nativement cloud, vrai contrôle de version, mais vos modèles vivent sur leurs serveurs et l’offre gratuite rend tout public."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenSCAD",
+			"source": {
+				"host": "github",
+				"path": "openscad/openscad",
+				"url": "https://github.com/openscad/openscad"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Models as code: the scripting-first standard for reproducible, headless-rendered parts. No interactive sketching, no assemblies — you trade the mouse for a text editor.",
+				"fr": "La CAO par le code : scriptée, reproductible, rendu en ligne de commande. Pas d’esquisse interactive ni d’assemblages — on troque la souris contre l’éditeur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LibreCAD",
+			"source": {
+				"host": "github",
+				"path": "LibreCAD/LibreCAD",
+				"url": "https://github.com/LibreCAD/LibreCAD"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "2D-only drafting for DXF workflows, complementing a 3D kernel for the drawing half of the job. No parametric 3D; the native format is DXF, not design history.",
+				"fr": "Le dessin 2D au format DXF, en complément d’un noyau 3D pour la moitié plan du travail. Pas de paramétrique 3D, et c’est DXF qui sert de format natif, pas l’historique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "BRL-CAD",
+			"source": {
+				"host": "github",
+				"path": "BRL-CAD/brlcad",
+				"url": "https://github.com/BRL-CAD/brlcad"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "Army-grade CSG with 400+ CLI tools and decades of defense and simulation use. Not parametric, dated UI, and a steep learning curve for niche workflows.",
+				"fr": "CSG niveau armée, 400+ outils en CLI et des décennies de simulation et de défense. Non paramétrique, interface datée, courbe d’apprentissage raide."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CadQuery",
+			"source": {
+				"host": "github",
+				"path": "CadQuery/cadquery",
+				"url": "https://github.com/CadQuery/cadquery"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Python code-first solids on the OpenCascade kernel, usable in Jupyter, exporting STEP and STL. Costs a programming habit: constraints via code are verbose, and CQ-editor stays a dated afterthought.",
+				"fr": "Des solides paramétriques en Python sur le noyau OpenCascade, scriptables dans Jupyter, export STEP et STL. Il faut coder : les contraintes en script sont verbeuses, et CQ-editor reste l’outil daté."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CascadeStudio",
+			"source": {
+				"host": "github",
+				"path": "zalo/CascadeStudio",
+				"url": "https://github.com/zalo/CascadeStudio"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Parametric B-Rep modeling in the browser, offline, zero install, with STL and STEP export. Early-stage feature set — no assemblies, no drawings, no CAM, and a small community.",
+				"fr": "Modélisation B-Rep paramétrique dans le navigateur, hors ligne, sans installation, export STL et STEP. Fonctions encore balbutiantes : pas d’assemblages ni de plans, communauté réduite."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenJSCAD",
+			"source": {
+				"host": "github",
+				"path": "jscad/OpenJSCAD.org",
+				"url": "https://github.com/jscad/OpenJSCAD.org"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "CAD geometry as JavaScript with an npm CLI and headless STL/3MF output. Programming required, and the mesh-based result never reaches native B-Rep accuracy.",
+				"fr": "La géométrie en JavaScript, avec un CLI npm et une sortie STL/3MF en headless. Il faut coder, et le résultat maillé n’atteint jamais la précision B-Rep native."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenCascade Technology",
+			"source": {
+				"host": "github",
+				"path": "Open-Cascade-SAS/OCCT",
+				"url": "https://github.com/Open-Cascade-SAS/OCCT"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "The industrial B-Rep kernel behind FreeCAD, CadQuery and CascadeStudio. Not an application: you build the UI and workflows yourself, on a steep C++ learning curve.",
+				"fr": "Le noyau B-Rep industriel derrière FreeCAD, CadQuery et CascadeStudio. Pas une application : interface et flux à construire soi-même, sur une courbe C++ abrupte."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ImplicitCAD",
+			"source": {
+				"host": "github",
+				"path": "Haskell-Things/ImplicitCAD",
+				"url": "https://github.com/Haskell-Things/ImplicitCAD"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Haskell functional CAD where parts are pure functions, made for math-heavy generated geometry. Haskell-only and niche: no editing GUI, no assemblies, no CAM.",
+				"fr": "CAO fonctionnelle en Haskell, où les pièces sont des fonctions pures, faite pour la géométrie générée à la math. Réservé à Haskell et confidentiel : pas d’interface d’édition, d’assemblages ni de CAM."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

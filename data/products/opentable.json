@@ -105,6 +105,258 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "LibreBooking",
+			"source": {
+				"host": "github",
+				"path": "LibreBooking/librebooking",
+				"url": "https://github.com/LibreBooking/librebooking"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Actively maintained booking for rooms, resources and appointments, with official Docker images. Geared to rooms rather than booking links — dated UI, no payments or video.",
+				"fr": "Réservation active de salles, ressources et rendez-vous, avec images Docker officielles. Orientée salles plutôt que liens de réservation — UI datée, sans paiements ni visio."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pretix",
+			"source": {
+				"host": "github",
+				"path": "pretix/pretix",
+				"url": "https://github.com/pretix/pretix"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted ticketing with dozens of payment providers and a plugin ecosystem. Built for ticketed events, not walk-ins; a polished invitee flow needs email/PDF setup, and advanced features sit behind paid plugins.",
+				"fr": "Ticketing auto-hébergé, dizaines de fournisseurs de paiement, écosystème de plugins. Pensé pour les billets, pas les tables ; le flux invité soigné exige email/PDF, les fonctions avancées restent derrière des plugins payants."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Attendize",
+			"source": {
+				"host": "github",
+				"path": "Attendize/Attendize",
+				"url": "https://github.com/Attendize/Attendize"
+			},
+			"license": "AAL",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted ticketing with QR check-in, promo codes and multi-currency sales, though development has slowed. Payments lean on PayPal and Mailgun, and there is no POS or table model.",
+				"fr": "Ticketing auto-hébergé avec check-in QR, codes promo et ventes multi-devises, mais le développement a ralenti. Les paiements s’appuient sur PayPal et Mailgun ; pas de POS ni de modèle de tables."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Open Event Server",
+			"source": {
+				"host": "github",
+				"path": "fossasia/open-event-server",
+				"url": "https://github.com/fossasia/open-event-server"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Archived — no longer maintained, though historically solid. Conference-oriented (sessions, sponsors, microsites) with a heavy backend-plus-frontend stack, so not a fit for restaurant reservations.",
+				"fr": "Archivé — plus maintenu, historiquement solide. Orienté conférences (sessions, sponsors, microsites) avec une grosse pile backend-plus-frontend, donc inadapté aux réservations de restaurant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "EspoCRM",
+			"source": {
+				"host": "github",
+				"path": "espocrm/espocrm",
+				"url": "https://github.com/espocrm/espocrm"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "A self-hosted CRM whose events, tasks and calendar can host booking workflows, with a guest portal. No table or party-size logic, and the advanced modules are paid extensions.",
+				"fr": "CRM auto-hébergé : événements, tâches et agenda couvrent les workflows de réservation, avec portail invité. Pas de logique de table ni de taille de groupe ; les modules avancés sont des extensions payantes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dolibarr",
+			"source": {
+				"host": "github",
+				"path": "Dolibarr/dolibarr",
+				"url": "https://github.com/Dolibarr/dolibarr"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Modular ERP/CRM whose agenda tracks events and attendees, with invoicing around bookings. It is a general ERP — no table model, dated UI, and modules need manual configuration.",
+				"fr": "ERP/CRM modulaire dont l’agenda suit événements et participants, avec facturation autour des réservations. ERP général : pas de modèle de tables, UI datée, et modules à configurer à la main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CiviCRM",
+			"source": {
+				"host": "github",
+				"path": "civicrm/civicrm-core",
+				"url": "https://github.com/civicrm/civicrm-core"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Event and membership management with paid and free registrations, contacts and an API. Requires WordPress, Drupal or Joomla, leans nonprofit — not restaurant tables — and the admin UI is dated.",
+				"fr": "Gestion d’événements et d’adhésions avec inscriptions payantes et gratuites, contacts et API. Nécessite WordPress, Drupal ou Joomla, orienté associations — pas les tables de restaurant — et l’admin est datée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Radicale",
+			"source": {
+				"host": "github",
+				"path": "Kozea/Radicale",
+				"url": "https://github.com/Kozea/Radicale"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Minimal self-hosted CalDAV/CardDAV server that gives a booking stack a private calendar backend. Storage only — no booking pages or web admin, so pair it with a client.",
+				"fr": "Serveur CalDAV/CardDAV auto-hébergé minimal, backend de calendrier privé pour une stack de réservation. Stockage uniquement — pas de pages de réservation ni d’admin web, à coupler avec un client."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Baikal",
+			"source": {
+				"host": "github",
+				"path": "sabre-io/Baikal",
+				"url": "https://github.com/sabre-io/Baikal"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight CalDAV/CardDAV server with a web admin and Docker images. A clean infrastructure piece, but there is no booking, scheduling or reminder logic inside.",
+				"fr": "Serveur CalDAV/CardDAV léger avec admin web et images Docker. Un bon composant d’infrastructure, mais sans logique de réservation, d’agenda ni de rappels."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "khal",
+			"source": {
+				"host": "github",
+				"path": "pimutils/khal",
+				"url": "https://github.com/pimutils/khal"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Python CLI calendar that syncs with Radicale, Nextcloud and other CalDAV servers. Terminal only — no booking links or invitee UX, and no team scheduling or notifications.",
+				"fr": "Calendrier CLI en Python, synchro avec Radicale, Nextcloud et autres serveurs CalDAV. Terminal uniquement — pas de liens de réservation ni d’UX invité, ni d’agenda d’équipe ni de notifications."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "calcurse",
+			"source": {
+				"host": "github",
+				"path": "lfos/calcurse",
+				"url": "https://github.com/lfos/calcurse"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Classic terminal calendar with agenda, recurrence, todos and iCalendar import/export. Purely personal — no shareable booking links, no CalDAV sync, single-user.",
+				"fr": "Calendrier TUI classique avec agenda, récurrence, tâches et import/export iCalendar. Strictement personnel — pas de liens de réservation partageables, pas de synchro CalDAV, mono-utilisateur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "resy-cli",
+			"source": {
+				"host": "github",
+				"path": "lgrees/resy-cli",
+				"url": "https://github.com/lgrees/resy-cli"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "No commit since April 2024 — two years dormant. Hunts open tables and books Resy reservations via their API, yet stays a thin client for a proprietary, US-centric service.",
+				"fr": "Aucun commit depuis avril 2024 — deux ans d’inactivité. Chasse les tables libres et réserve chez Resy via leur API, mais reste un client mince pour un service propriétaire, centré sur les États-Unis."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "us-only"
+			}
 		}
 	],
 	"priority": 3

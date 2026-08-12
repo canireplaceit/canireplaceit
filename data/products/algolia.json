@@ -93,6 +93,266 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Sonic",
+			"source": {
+				"host": "github",
+				"path": "valeriansaliou/sonic",
+				"url": "https://github.com/valeriansaliou/sonic"
+			},
+			"license": "MPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Featherweight 2 MB single binary with no dependencies, but a custom protocol and no BM25 tuning. Bare-bones too: no facets, highlighting, or analytics.",
+				"fr": "Binaire unique de 2 Mo, zéro dépendance, mais protocole maison et aucun réglage de pertinence. Dépouillé : pas de facettes, ni surbrillance, ni analytics."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ZincSearch",
+			"source": {
+				"host": "github",
+				"path": "zincsearch/zincsearch",
+				"url": "https://github.com/zincsearch/zincsearch"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Elasticsearch-compatible API in a low-footprint Go binary with a built-in web UI. Development has slowed — the team moved to Zinc Observe logging — and there’s no managed path to graduate to.",
+				"fr": "API compatible Elasticsearch dans un binaire Go léger, avec interface web intégrée. Le développement a ralenti — l’équipe s’est tournée vers Zinc Observe — et aucun service managé pour évoluer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tantivy",
+			"source": {
+				"host": "github",
+				"path": "quickwit-oss/tantivy",
+				"url": "https://github.com/quickwit-oss/tantivy"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Fast Rust library, not a server: you build the HTTP layer yourself. Gives BM25, facets, highlighters, and powers Quickwit — but single-node only, no distributed search.",
+				"fr": "Bibliothèque Rust rapide, pas un serveur : c’est vous qui bâtissez la couche HTTP. BM25, facettes, surlignage, et Quickwit repose dessus — mais nœud unique, sans recherche distribuée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Elasticsearch",
+			"source": {
+				"host": "github",
+				"path": "elastic/elasticsearch",
+				"url": "https://github.com/elastic/elasticsearch"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "The de-facto engine — unmatched query DSL, huge ecosystem, hybrid keyword and vector search. Source-available under AGPL/SSPL, heavy on the JVM, and security and ML sit behind paid x-pack.",
+				"fr": "Le moteur de référence : DSL de requête imbattable, écosystème énorme, recherche hybride mots-clés et vecteurs. Source-available sous AGPL/SSPL, lourd côté JVM, et sécurité comme ML restent dans x-pack payant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "x-pack security, ML, alerting",
+					"fr": "x-pack : sécurité, ML, alertes"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache Solr",
+			"source": {
+				"host": "github",
+				"path": "apache/solr",
+				"url": "https://github.com/apache/solr"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Mature Lucene engine with SolrCloud sharding and strong faceting. The catch: XML config and Java ops feel dated, and the community moves slower than Elasticsearch’s.",
+				"fr": "Moteur Lucene éprouvé, avec SolrCloud et un facettage solide. Le revers : configuration XML et ops Java datées, et une communauté plus lente que celle d’Elasticsearch."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Manticore Search",
+			"source": {
+				"host": "github",
+				"path": "manticoresoftware/manticoresearch",
+				"url": "https://github.com/manticoresoftware/manticoresearch"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Tiny-resource C++ engine speaking MySQL: SQL queries, real-time indexes, custom ranking. Community is small, clustering is commercial, and no major managed offering exists.",
+				"fr": "Moteur C++ très léger qui parle MySQL : requêtes SQL, index temps réel, ranking sur mesure. Communauté réduite, clustering commercial, et pas d’offre managée majeure."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "clustering (distributed search)",
+					"fr": "clustering (recherche distribuée)"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Vespa",
+			"source": {
+				"host": "github",
+				"path": "vespa-engine/vespa",
+				"url": "https://github.com/vespa-engine/vespa"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Search plus ML ranking in one engine, proven at high QPS with strict latency. Costs a steep learning curve and container-based ops — overkill for a small site.",
+				"fr": "Recherche et ranking ML dans un même moteur, prouvé à haut QPS avec des latences strictes. Au prix d’une courbe d’apprentissage raide et d’ops en conteneurs — excessif pour un petit site."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Quickwit",
+			"source": {
+				"host": "github",
+				"path": "quickwit-oss/quickwit",
+				"url": "https://github.com/quickwit-oss/quickwit"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Distributed search that indexes to S3, so storage scales without disk. Sub-second on TB-scale logs via the CLI — but append-only data and an API still settling, no UI.",
+				"fr": "Recherche distribuée qui indexe sur S3 : le stockage suit sans disque local. Sous la seconde sur des logs en téraoctets, via la CLI — mais données en append-only et API encore mouvante, pas d’UI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Bleve",
+			"source": {
+				"host": "github",
+				"path": "blevesearch/bleve",
+				"url": "https://github.com/blevesearch/bleve"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Pure-Go embeddable library, zero dependencies, with facets and highlighting — but it’s a library, not a server. Single-node, no distributed search, smaller surface than Lucene-based engines.",
+				"fr": "Bibliothèque Go embarquable, zéro dépendance, facettes et surlignage compris — mais c’est une bibliothèque, pas un serveur. Nœud unique, sans recherche distribuée, surface plus petite que les moteurs Lucene."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Qdrant",
+			"source": {
+				"host": "github",
+				"path": "qdrant/qdrant",
+				"url": "https://github.com/qdrant/qdrant"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Top-tier self-hosted vector search with payload filtering and quantization, but keyword search is weak. You supply the embedding pipeline and reranker — not a drop-in for typo-tolerant instant search.",
+				"fr": "Recherche vectorielle autonome de premier ordre, avec filtrage de payload et quantification, mais le plein-texte est faible. Il faut fournir le pipeline d’embeddings et le reranker — pas un remplaçant direct de la recherche instantanée tolérante aux fautes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Milvus",
+			"source": {
+				"host": "github",
+				"path": "milvus-io/milvus",
+				"url": "https://github.com/milvus-io/milvus"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Billion-scale vector search with hybrid sparse+dense retrieval, but deployment is heavy: etcd, object storage, query nodes. Keyword search is secondary, and ops get real for small setups.",
+				"fr": "Recherche vectorielle à l’échelle du milliard, hybride sparse + dense, mais un déploiement lourd : etcd, stockage d’objets, nœuds de requête. Le plein-texte reste secondaire, et l’ops devient réelle sur de petits setups."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Weaviate",
+			"source": {
+				"host": "github",
+				"path": "weaviate/weaviate",
+				"url": "https://github.com/weaviate/weaviate"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Hybrid vector+keyword (BM25) search over GraphQL/REST, and a one-line docker-compose start. Semantic-first: classic typo-tolerant full-text is weaker, and tuning beyond defaults takes work.",
+				"fr": "Recherche hybride vecteurs + mots-clés (BM25) via GraphQL/REST, démarrage en docker-compose. Le sémantique prime : le plein-texte classique tolérant aux fautes est plus faible, et le tuning demande du travail."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

@@ -105,6 +105,182 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Redmine",
+			"source": {
+				"host": "github",
+				"path": "redmine/redmine",
+				"url": "https://github.com/redmine/redmine"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Proven self-hosted issue engine with custom fields, attachments and roles — close fit for RFI-style workflows, but the UI is dated and there’s no native field app for markup and photos.",
+				"fr": "Moteur de tickets auto-hébergé éprouvé, avec champs personnalisés, pièces jointes et rôles — proche des flux RFI, mais l’UI est datée et pas d’appli terrain native pour l’annotation de plans et photos."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Plane",
+			"source": {
+				"host": "github",
+				"path": "makeplane/plane",
+				"url": "https://github.com/makeplane/plane"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Built for software teams, not construction: no field, photo or punch-list concepts. Cycles, boards, timelines, wiki and issues in one self-hosted system, though the Postgres/Redis/RabbitMQ stack is heavy and SSO is enterprise.",
+				"fr": "Conçu pour les équipes logicielles, pas pour le chantier : pas de terrain, photos ou punch-lists. Cycles, tableaux, timelines, wiki et tickets réunis, mais stack lourde (Postgres/Redis/RabbitMQ) et SSO payant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise-only SSO",
+					"fr": "SSO réservé à l’entreprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Vikunja",
+			"source": {
+				"host": "github",
+				"path": "go-vikunja/vikunja",
+				"url": "https://github.com/go-vikunja/vikunja"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight self-hosted task boards with kanban, gantt and list views, assignees and labels, plus free OIDC SSO and native mobile apps. Generic though: no RFI or submittal workflow, no sheet markup.",
+				"fr": "Kanban, gantt et listes légers en auto-hébergement, avec assignés, labels, SSO OIDC gratuit et applis mobiles natives. Générique en revanche : pas de flux RFI ni soumissions, pas d’annotation de plans."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kimai",
+			"source": {
+				"host": "github",
+				"path": "kimai/kimai",
+				"url": "https://github.com/kimai/kimai"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted timesheets for crew hours — clock-in/out against projects, activities and rates, with exports for payroll. Time only: no drawings, tasks or photos, and mobile clients are thin third-party apps.",
+				"fr": "Pointage auto-hébergé des heures d’équipe — entrée/sortie par projet, activité et taux, exports pour la paie. Que du temps : pas de plans, tâches ni photos, et les clients mobiles tiers restent maigres."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FreeCAD",
+			"source": {
+				"host": "github",
+				"path": "FreeCAD/FreeCAD",
+				"url": "https://github.com/FreeCAD/FreeCAD"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "Desktop CAD/BIM workbench that opens IFC and DWG for local viewing and measuring, scriptable headless via Python. Desktop only: not a shared field platform, steep curve, no crew collaboration.",
+				"fr": "Banc CAD/BIM de bureau : ouvre IFC et DWG pour visualiser et mesurer en local, scriptable sans tête via Python. Desktop uniquement — pas de plateforme terrain partagée, courbe raide, zéro collaboration."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "BIMserver",
+			"source": {
+				"host": "github",
+				"path": "opensourceBIM/BIMserver",
+				"url": "https://github.com/opensourceBIM/BIMserver"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted IFC model repository with revision history and a query engine, plus BCF issue exchange with BIM tools. Maintenance mode: treat as a reference deployment, no field photos or daily logs.",
+				"fr": "Dépôt de modèles IFC auto-hébergé — historique de révisions, moteur de requêtes, échange de tickets BCF avec les outils BIM. En maintenance : référence seulement, sans photos ni journaux de chantier."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mergin Maps (Input)",
+			"source": {
+				"host": "github",
+				"path": "MerginMaps/mobile",
+				"url": "https://github.com/MerginMaps/mobile"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Offline field capture app — GPS survey forms and photos synced to a self-hosted MerginMaps server, with QGIS workflows for QA. Survey-focused, not drawing markup or task management; the server is dual-licensed AGPL/commercial.",
+				"fr": "Relevés terrain hors ligne — formulaires GPS et photos synchronisés sur serveur MerginMaps auto-hébergé, flux QGIS pour la QA. Orienté levés, pas d’annotation de plans ni de tâches ; serveur AGPL + licence commerciale."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Commercial server tier",
+					"fr": "Offre serveur commerciale"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ODK Collect",
+			"source": {
+				"host": "github",
+				"path": "getodk/collect",
+				"url": "https://github.com/getodk/collect"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Battle-tested Android forms for inspections, daily logs and QA checklists — offline, with photos, GPS, signatures and barcodes, feeding self-hosted ODK Central or KoboToolbox. Android-only and form-centric, so no task or drawing platform.",
+				"fr": "Formulaires Android éprouvés pour inspections, journaux de chantier et checklists QA — hors ligne, photos, GPS, signatures et codes-barres, sur backend ODK Central ou KoboToolbox. Centré formulaires, sans tâches ni plans, Android uniquement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

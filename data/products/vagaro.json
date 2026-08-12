@@ -97,6 +97,157 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pretix",
+			"source": {
+				"host": "github",
+				"path": "pretix/pretix",
+				"url": "https://github.com/pretix/pretix"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Serious self-hosted ticketing for paid events — checkout, seat maps, a plugin ecosystem, ticket scanning. Its weakness: no appointments or retail, and some add-ons sit in the paid tier.",
+				"fr": "Billetterie auto-hébergée sérieuse pour événements payants — checkout, plans de salle, écosystème de plugins, scan des billets. Point faible : pas d’agenda ni de commerce, et certains plugins restent dans l’offre payante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Some add-ons in the paid enterprise tier",
+					"fr": "Quelques modules dans l’offre payante"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Indico",
+			"source": {
+				"host": "github",
+				"path": "indico/indico",
+				"url": "https://github.com/indico/indico"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Conference platform for abstracts, registrations, and timetables, with native LDAP/OIDC/SAML. Heavyweight and aimed at academic events — and there is no built-in payments.",
+				"fr": "Plateforme de conférences — appels à contributions, inscriptions, timetables, avec auth LDAP/OIDC/SAML native. Lourd et taillé pour l’académique, et sans paiement intégré."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mobilizon",
+			"source": {
+				"host": "gitlab",
+				"path": "kaihuri/mobilizon",
+				"url": "https://framagit.org/kaihuri/mobilizon"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Federated event pages and groups — the no-tracking answer to Meetup. What it costs: no ticketing, no payments, and a small Elixir ecosystem.",
+				"fr": "Événements et groupes fédérés — la réponse sans tracking à Meetup. En contrepartie : pas de billetterie ni de paiement, et un écosystème Elixir modeste."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Gancio",
+			"source": {
+				"host": "github",
+				"path": "lesion/gancio",
+				"url": "https://github.com/lesion/gancio"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Smallest self-hostable community calendar, federated via ActivityPub and deploys with one docker compose line. A single maintainer, and nothing resembling booking or payment.",
+				"fr": "L’agenda communautaire le plus léger en auto-hébergement, fédéré via ActivityPub et lancé en une ligne docker compose. Projet d’un seul mainteneur, sans réservation ni paiement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Booked (MRBS)",
+			"source": {
+				"host": "github",
+				"path": "meeting-room-booking-system/mrbs-code",
+				"url": "https://github.com/meeting-room-booking-system/mrbs-code"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Room and resource booking on a time grid, with repeats, approvals, and LDAP — the closest OSS match for venue rental. The catch: a dated UI, no payments, no customer records.",
+				"fr": "Réservation de salles sur grille horaire, récurrences, approbations, LDAP — le plus proche équivalent OSS d’une location de salle. En échange : interface datée, pas de paiement ni de clients."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "khal",
+			"source": {
+				"host": "github",
+				"path": "pimutils/khal",
+				"url": "https://github.com/pimutils/khal"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A terminal CalDAV calendar for staff glancing at appointments — syncs through vdirsyncer. But it is a client only: you still need a server and a booking app.",
+				"fr": "Un calendrier CalDAV en terminal pour que le staff consulte ses rendez-vous — synchronisé via vdirsyncer. Simple client, donc : il faut quand même un serveur CalDAV et une appli de réservation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "calcurse",
+			"source": {
+				"host": "github",
+				"path": "lfos/calcurse",
+				"url": "https://github.com/lfos/calcurse"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Offline ncurses calendar and todo list on plain files — no server, nothing to install. Trade it for no CalDAV sync and a strictly single-user workflow.",
+				"fr": "Calendrier ncurses hors ligne avec todos, stocké en fichiers plats — pas de serveur, rien à installer. En contrepartie : pas de synchro CalDAV, usage mono-utilisateur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

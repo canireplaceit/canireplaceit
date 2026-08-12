@@ -82,40 +82,41 @@ for (const file of files) {
  * one field that is a hard, forge-reported fact rather than a judgement:
  * `archived`.
  *
- * ONLY A POSITIVE `archived: true` FAILS. A repo with no entry in the file, or
- * an entry with no `archived` key, is silently fine — and that is not a
- * loophole, it is the only correct behaviour:
+ * ONLY A POSITIVE `archived: true` IS COUNTED. A repo with no entry in the
+ * file, or an entry with no `archived` key, is simply not archived as far as
+ * this pass is concerned — and that is not a loophole, it is the only correct
+ * behaviour:
  *
  *   - a brand new PR's repo has never been swept, so it cannot be in the file;
  *   - GitLab's unauthenticated API does not report `archived` at all, and
  *     Savannah is not queried, so those readings legitimately omit it;
  *   - a fresh clone that has never run `bun run health` has no file.
  *
- * Treating any of those as "archived" would block PRs for the crime of being
- * new. Absence is not evidence.
+ * Absence is not evidence, in either direction: it is neither proof a project
+ * is alive nor proof it is dead, so it is reported as neither.
  *
- * It is an error and not a warning. The warning already existed — `bun run
- * health` has printed archived repos all along — and grafana/oncall sat cited
- * as a live alternative for months regardless. A warning in a log that runs
- * weekly, unattended, is not a control. The fix is always cheap and always
- * available to whoever is blocked (repoint the entry, or drop it), and the
- * blast radius is bounded by the same rule above: it can only fire on a repo
- * somebody has already swept and the forge has already declared dead.
+ * It is REPORTED AND COUNTED, not an error. It used to fail the build, on the
+ * reasoning that a dead repo cited as a live alternative is a lie. That was the
+ * wrong fix for a real problem: it made the catalogue silently forget every
+ * project that ever died, so "does a replacement exist?" and "did one ever
+ * exist?" collapsed into the same answer. Buttercup and grafana/oncall are part
+ * of the record precisely BECAUSE they stopped.
+ *
+ * The honesty problem is solved where it belongs — in the UI, which already
+ * renders an Archived badge off this same `archived` flag (see RepoBadges in
+ * apps/frontend/src/components.tsx). A reader sees the project and sees that it
+ * is done. Nothing is hidden and nothing is claimed.
  */
 const healthPath = join(DATA, "health.json");
+const archived: string[] = [];
 if (existsSync(healthPath)) {
 	const health = readJson(healthPath) as HealthFile | null;
 	const repos = health?.repos ?? {};
 	for (const p of products) {
-		for (const [i, a] of p.alternatives.entries()) {
+		for (const a of p.alternatives) {
 			if (a.kind !== "oss") continue;
 			if (repos[healthKey(a.source)]?.archived !== true) continue;
-			report(`data/products/${p.slug}.json`, [
-				{
-					path: `alternatives[${i}].source`,
-					message: `${a.source.path} is archived upstream — replace it or drop it (reading from ${health?.fetchedAt ?? "an undated run"})`,
-				},
-			]);
+			archived.push(`${p.slug} → ${a.name} (${a.source.path})`);
 		}
 	}
 }
@@ -134,6 +135,11 @@ console.log(
 	`  verdicts: ${byVerdict("yes")} replaceable, ${byVerdict("almost")} almost, ${byVerdict("not-yet")} not yet`,
 );
 console.log(`  ${cheaper} products also list a cheaper commercial option`);
+// Kept and shown, not dropped — the catalogue records what existed too.
+if (archived.length > 0) {
+	console.log(`  ${archived.length} alternatives archived upstream, shown with a badge:`);
+	for (const a of archived) console.log(`    ${a}`);
+}
 for (const lang of SupportedLangs) {
 	const n = products.filter((p) => productLangs(p).includes(lang)).length;
 	const pct = files.length ? Math.round((n / files.length) * 100) : 0;

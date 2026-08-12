@@ -118,6 +118,174 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "llama.cpp",
+			"source": {
+				"host": "github",
+				"path": "ggml-org/llama.cpp",
+				"url": "https://github.com/ggml-org/llama.cpp"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Canonical GGUF inference on CPU and consumer GPUs, with an OpenAI-compatible server and a huge field of finetunes. Costs single-node serving only, plus manual GGUF conversion for models outside the ecosystem.",
+				"fr": "L’inférence GGUF de référence sur CPU et GPU grand public, avec un serveur compatible OpenAI. Un seul nœud, sans montée en charge, et conversion GGUF manuelle pour les modèles hors écosystème."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LocalAI",
+			"source": {
+				"host": "github",
+				"path": "mudler/LocalAI",
+				"url": "https://github.com/mudler/LocalAI"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted drop-in for the OpenAI API serving chat, vision, audio, and embeddings, on CPU alone. Throughput trails vLLM at scale and there is no native distributed inference.",
+				"fr": "Remplacement autonome de l’API OpenAI qui sert chat, vision, audio et embeddings, même sans GPU. Mais le débit reste en dessous de vLLM à l’échelle, sans inférence distribuée native."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Text Generation Inference",
+			"source": {
+				"host": "github",
+				"path": "huggingface/text-generation-inference",
+				"url": "https://github.com/huggingface/text-generation-inference"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The backend Hugging Face itself built for Inference Endpoints, still the reference production setup. Archived upstream, no active development, and tooling closer to Hugging Face than to neutral vLLM.",
+				"fr": "Le backend que Hugging Face a conçu pour Inference Endpoints, toujours la référence en production. Mais archivé en amont : plus aucun développement actif, et un outillage aligné sur HF plutôt que neutre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LMDeploy",
+			"source": {
+				"host": "github",
+				"path": "InternLM/lmdeploy",
+				"url": "https://github.com/InternLM/lmdeploy"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "TurboMind serving with paged attention, launched as an OpenAI-compatible API in one line. The advanced features lean NVIDIA, and ops are heavier than a plain CLI runner.",
+				"fr": "Un serveur TurboMind à attention paginée, avec une API compatible OpenAI lancée en une ligne. Ses fonctions avancées penchent côté NVIDIA, et l’exploitation est plus lourde qu’un simple binaire CLI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Xorbits Inference (Xinference)",
+			"source": {
+				"host": "github",
+				"path": "xorbitsai/inference",
+				"url": "https://github.com/xorbitsai/inference"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "One command brings up chat, embedding, rerank, and image models behind a single OpenAI-compatible API. The community is smaller than vLLM’s and the newest models can lag dedicated engines.",
+				"fr": "Chat, embedding, rerank et images derrière une même API compatible OpenAI, lancés d’une seule commande. Communauté plus réduite que vLLM, et les tout nouveaux modèles arrivent en retard."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FastChat",
+			"source": {
+				"host": "github",
+				"path": "lm-sys/FastChat",
+				"url": "https://github.com/lm-sys/FastChat"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "A controller–worker stack exposing an OpenAI-compatible API, a Gradio web UI, and CLI chat, routing across models. Development has slowed and it is less optimized than dedicated engines.",
+				"fr": "Une architecture contrôleur–worker qui expose une API compatible OpenAI, une UI Gradio et un chat CLI, avec routage multi-modèles. Le développement s’est ralenti et l’optimisation peine face aux moteurs dédiés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "llama-cpp-python",
+			"source": {
+				"host": "github",
+				"path": "abetlen/llama-cpp-python",
+				"url": "https://github.com/abetlen/llama-cpp-python"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The pip-installable llama.cpp bindings, with an OpenAI-compatible server for embedding into Python apps. Single-process, not built for large-scale serving, and it duplicates what llama.cpp already does.",
+				"fr": "Les bindings llama.cpp installables via pip, avec un serveur compatible OpenAI pour embarquer dans une app Python. Monoprocessus, pas pour la grande échelle, et un doublon du binaire llama.cpp."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "koboldcpp",
+			"source": {
+				"host": "github",
+				"path": "LostRuins/koboldcpp",
+				"url": "https://github.com/LostRuins/koboldcpp"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Single-binary GGUF runner serving KoboldAI and OpenAI APIs with lightweight RAG, easy to install locally. Built for one user rather than production, and AGPL-3.0 copyleft.",
+				"fr": "Un binaire unique pour le GGUF qui sert les API KoboldAI et OpenAI avec un RAG léger. Pensé pour un seul utilisateur plutôt que pour la production, sous AGPL-3.0."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

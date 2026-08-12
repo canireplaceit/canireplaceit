@@ -97,6 +97,174 @@
 				"en": "A fraction of the price with threat feeds and roaming clients. Nothing like Umbrella's reporting or its Cisco integrations.",
 				"fr": "Une fraction du prix, avec flux de menaces et clients nomades. Rien de comparable aux rapports d’Umbrella ni à ses intégrations Cisco."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pi-hole",
+			"source": {
+				"host": "github",
+				"path": "pi-hole/pi-hole",
+				"url": "https://github.com/pi-hole/pi-hole"
+			},
+			"license": "EUPL-1.2",
+			"effort": "docker",
+			"note": {
+				"en": "Most-deployed self-hosted DNS sinkhole, blocking ads, trackers and malware network-wide from an admin web UI with per-client policies. DNS-only: no HTTPS inspection or cloud threat-intel feed, and HA needs extra work.",
+				"fr": "DNS sinkhole auto-hébergé très déployé : bloque pubs, traceurs et malwares du réseau entier, UI web et politiques par client. DNS uniquement, sans inspection HTTPS ni flux menaces ; la HA exige du travail."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Technitium DNS Server",
+			"source": {
+				"host": "github",
+				"path": "TechnitiumSoftware/DnsServer",
+				"url": "https://github.com/TechnitiumSoftware/DnsServer"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Full recursive DNS server with blocklist zones, DoH/DoT/DoQ and a web console for per-zone, per-client policy. Resolver, authority and security layer in one box — but DNS only, no proxy or category feed.",
+				"fr": "Récursif et autoritaire, blocklists, DoH/DoT/DoQ, console web : tout le filtrage DNS en un serveur. Mais DNS uniquement, sans proxy ni flux de réputation, et plus lourd qu’un simple résolveur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OPNsense",
+			"source": {
+				"host": "github",
+				"path": "opnsense/core",
+				"url": "https://github.com/opnsense/core"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "ops",
+			"note": {
+				"en": "Hardened BSD firewall distro that bundles Squid proxy, Suricata IPS and Zenarmor into a full Umbrella-style secure web gateway. Full OS install, dedicated hardware or VM, and HTTPS inspection means cert management.",
+				"fr": "Distro firewall BSD durcie assemblant Squid, Suricata IPS et Zenarmor en passerelle web sécurisée façon Umbrella. OS complet à installer, matériel ou VM dédiés, et l’inspection HTTPS réclame de gérer des certificats."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pfSense",
+			"source": {
+				"host": "github",
+				"path": "pfsense/pfsense",
+				"url": "https://github.com/pfsense/pfsense"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Battle-tested firewall gateway whose pfBlockerNG handles DNS/IP blocking and Squid adds proxy filtering. Filtering mostly stitched from plugins, the web UI is dated, and some features sit in paid Netgate tiers.",
+				"fr": "Passerelle firewall éprouvée : pfBlockerNG assure le blocage DNS/IP, Squid le filtrage proxy. Filtrage surtout bricolé à partir de plugins, UI web datée, et certaines fonctions sont réservées aux offres Netgate payantes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Squid",
+			"source": {
+				"host": "github",
+				"path": "squid-cache/squid",
+				"url": "https://github.com/squid-cache/squid"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The classic forward proxy anchoring self-hosted SWG stacks — URL, domain and SSL ACLs, caching, auth. Not a security appliance alone: config-driven, no modern UI, and HTTPS bump needs cert rollout.",
+				"fr": "Le proxy forward des stacks SWG : ACL URL, domaine et SSL, cache, auth. C’est un composant, pas une appliance de sécurité : config texte, pas d’UI, et le bump HTTPS impose des certificats."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "e2guardian",
+			"source": {
+				"host": "github",
+				"path": "e2guardian/e2guardian",
+				"url": "https://github.com/e2guardian/e2guardian"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Maintained DansGuardian fork filtering phrase, URL and category in front of Squid via ICAP or parent proxy, with per-user, per-group policies. Text config, dated docs, no UI, needs a proxy in front.",
+				"fr": "Fork maintenu de DansGuardian : filtrage phrase, URL et catégorie devant Squid, en ICAP ou proxy parent, politiques par utilisateur et par groupe. Config texte, docs datées, pas d’interface, exige un proxy devant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Portmaster",
+			"source": {
+				"host": "github",
+				"path": "safing/portmaster",
+				"url": "https://github.com/safing/portmaster"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Desktop agent giving each endpoint a per-app firewall, DNS filtering and blocklists — a lightweight SWG on the machine. Per-host, not network-wide, fleet control is a paid add-on, and no server-side web filtering.",
+				"fr": "Agent par poste, pas réseau entier : firewall par application, filtrage DNS et blocklists, un SWG léger local. Gestion de flotte payante, aucun filtrage web côté serveur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenSnitch",
+			"source": {
+				"host": "github",
+				"path": "evilsocket/opensnitch",
+				"url": "https://github.com/evilsocket/opensnitch"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Linux application firewall with daemon and GUI/TUI clients, blocking egress per process through iptables/nftables and an interactive popup. Linux only, per-host rules with no fleet console, and no DNS sinkhole.",
+				"fr": "Firewall d’application Linux : démon et clients GUI/TUI, blocage des flux sortants par processus via iptables/nftables et popup interactif. Linux uniquement, règles par machine sans console de flotte, et pas de sinkhole DNS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

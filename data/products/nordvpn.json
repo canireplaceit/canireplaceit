@@ -107,6 +107,174 @@
 				"en": "Flat €5/month, no accounts, no email, cash accepted, and repeatedly audited. If you are buying crowd cover, buy it from the people who ask you for the least.",
 				"fr": "5 €/mois fixes, sans compte, sans e-mail, espèces acceptées, et audité à répétition. Si vous achetez l’anonymat de la foule, achetez-le à ceux qui vous demandent le moins."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "headscale",
+			"source": {
+				"host": "github",
+				"path": "juanfont/headscale",
+				"url": "https://github.com/juanfont/headscale"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted control server that brings Tailscale mesh networking to your own infra; native Tailscale clients connect. No official web UI, needs a reachable server and DERP relays — coordination, not a classic tunnel.",
+				"fr": "Le mesh Tailscale sur votre infra, via un serveur de contrôle auto-hébergé, clients officiels inclus. Sans web UI, serveur joignable et relais DERP requis — de la coordination, pas un tunnel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Firezone",
+			"source": {
+				"host": "github",
+				"path": "firezone/firezone",
+				"url": "https://github.com/firezone/firezone"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted WireGuard access with a web dashboard, SSO and policy-based rules. Built for org access control, not anonymous egress, and heavier than a bare WireGuard box.",
+				"fr": "Accès zéro-trust auto-hébergé sur WireGuard, avec tableau de bord web, SSO et règles d’accès. Destiné au contrôle d’accès des organisations, pas à une sortie anonyme, et plus lourd qu’une box WireGuard."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Innernet",
+			"source": {
+				"host": "github",
+				"path": "tonarino/innernet",
+				"url": "https://github.com/tonarino/innernet"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Builds a private WireGuard mesh from a TOML config and manages peers from an interactive CLI. Linux-focused, no GUI or mobile apps, and you sign and coordinate peers by hand.",
+				"fr": "Construit un mesh WireGuard privé depuis un TOML, pairs gérés en CLI interactive. Orienté Linux, sans GUI ni apps mobiles ; la signature et la coordination des pairs restent manuelles."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nebula",
+			"source": {
+				"host": "github",
+				"path": "slackhq/nebula",
+				"url": "https://github.com/slackhq/nebula"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Encrypted mesh from Dropbox that traverses NAT without open ports, lighthouses instead of a central server. Config is hand-written YAML and certs, no admin UI, and not a one-exit consumer VPN.",
+				"fr": "Mesh chiffré Dropbox qui traverse le NAT sans port ouvert, des lighthouses au lieu d’un serveur central. YAML et certificats écrits à la main, sans UI — pas un VPN à sortie unique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Outline Server",
+			"source": {
+				"host": "github",
+				"path": "OutlineFoundation/outline-server",
+				"url": "https://github.com/OutlineFoundation/outline-server"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Jigsaw’s Shadowsocks server with a web manager, one-click VPS install and official Android/iOS clients. An anti-censorship tunnel, not a full VPN — Shadowsocks only, no split tunnel, all access through one admin token.",
+				"fr": "Serveur Shadowsocks de Jigsaw avec manager web, install VPS en un clic et clients Android/iOS. Tunnel anti-censure, pas un VPN complet : Shadowsocks uniquement, sans split tunnel, accès via un seul token admin."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SoftEther VPN",
+			"source": {
+				"host": "github",
+				"path": "SoftEtherVPN/SoftEtherVPN",
+				"url": "https://github.com/SoftEtherVPN/SoftEtherVPN"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "One server that serves OpenVPN, L2TP/IPsec, EtherIP and SSTP clients at once, with bridging and NAT. Legacy feature-heavy codebase managed by a thick client — it hides behind its virtual hub model.",
+				"fr": "Un seul serveur qui sert à la fois OpenVPN, L2TP/IPsec, EtherIP et SSTP, avec pont et NAT. Codebase legacy surchargée, gérée par un client lourd, au travers d’un modèle de hub virtuel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "vopono",
+			"source": {
+				"host": "github",
+				"path": "jamesmcm/vopono",
+				"url": "https://github.com/jamesmcm/vopono"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Routes only the apps you choose through a VPN using network namespaces, against your own WireGuard or OpenVPN endpoints. Linux-only, needs an existing endpoint, and rough edges on unsupported apps.",
+				"fr": "Fait passer par un VPN les apps que vous choisissez, via des network namespaces, sur vos endpoints WireGuard ou OpenVPN. Linux uniquement, exige un endpoint existant, des angles morts sur certaines apps."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "wireproxy",
+			"source": {
+				"host": "github",
+				"path": "windtf/wireproxy",
+				"url": "https://github.com/windtf/wireproxy"
+			},
+			"license": "ISC",
+			"effort": "managed",
+			"note": {
+				"en": "One userspace binary runs WireGuard without root and exposes a SOCKS5/HTTP proxy — no kernel module. Client-side, it needs your own peer and routes only some traffic, not a full tunnel.",
+				"fr": "Un binaire userland fait tourner WireGuard sans module kernel et expose un proxy SOCKS5/HTTP. Côté client, il exige son propre peer et ne route qu’une partie du trafic — pas un tunnel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

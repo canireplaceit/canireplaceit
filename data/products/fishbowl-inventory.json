@@ -107,6 +107,153 @@
 				"en": "Cloud inventory with barcode scanning and B2B portal for a published price. No manufacturing depth.",
 				"fr": "Stock en cloud avec lecture de codes-barres et portail B2B à prix affiché. Aucune profondeur en production."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dolibarr",
+			"source": {
+				"host": "github",
+				"path": "Dolibarr/dolibarr",
+				"url": "https://github.com/Dolibarr/dolibarr"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The closest all-in-one to Fishbowl: stock and warehouse modules, barcode scanning, POS. Downsides are a dated UI and module sprawl, all in a single-server PHP app.",
+				"fr": "Le plus proche tout-en-un de Fishbowl : modules stock et entrepôt, scan de codes-barres, caisse. Le revers : UI datée, éparpillement des modules, appli PHP monolithique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "grocy",
+			"source": {
+				"host": "github",
+				"path": "grocy/grocy",
+				"url": "https://github.com/grocy/grocy"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "A lightweight self-hosted stock and grocery manager with barcode scanning, shopping lists and chores. Handy for small operations, but there is no multi-warehouse shipping workflow.",
+				"fr": "Gestionnaire léger de stock et de courses en self-hosted, avec scan de codes-barres, listes de courses et tâches. Suffisant pour de petites structures, sans workflow multi-entrepôts ni comptabilité multi-sociétés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenBoxes",
+			"source": {
+				"host": "github",
+				"path": "openboxes/openboxes",
+				"url": "https://github.com/openboxes/openboxes"
+			},
+			"license": "EPL-1.0",
+			"effort": "docker",
+			"note": {
+				"en": "A real warehouse system — receiving, picking, shipments — proven in healthcare supply chains. The Java/Grails stack makes setup heavier than most.",
+				"fr": "Vrai logiciel d’entrepôt — réception, picking, expéditions — éprouvé dans les chaînes d’approvisionnement médicales. Mais pile Java/Grails, installation plus lourde que la moyenne."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Part-DB",
+			"source": {
+				"host": "github",
+				"path": "Part-DB/Part-DB-server",
+				"url": "https://github.com/Part-DB/Part-DB-server"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Modern self-hosted inventory database with barcode labels, supplier price comparison and stock history — but the depth is for electronics parts, with no warehouse module.",
+				"fr": "Base d’inventaire moderne en self-hosted : étiquettes code-barres, comparaison des prix fournisseurs, historique des stocks. Mais orientée composants électroniques, sans module entrepôt."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PartKeepr",
+			"source": {
+				"host": "github",
+				"path": "partkeepr/PartKeepr",
+				"url": "https://github.com/partkeepr/PartKeepr"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Classic self-hosted electronics parts database with barcoding, categories and a REST API. Archived upstream since 2023: no active development, use it only as-is.",
+				"fr": "Base de pièces électroniques classique en self-hosted, avec codes-barres, catégories et API REST. Archivé en amont depuis 2023 : plus aucun développement actif."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GreaterWMS",
+			"source": {
+				"host": "github",
+				"path": "GreaterWMS/GreaterWMS",
+				"url": "https://github.com/GreaterWMS/GreaterWMS"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The closest pure WMS to Fishbowl’s warehouse side: inbound/outbound, transfers, mobile-first picking. Distribution leans SaaS, and the docs and UI are largely Chinese-first.",
+				"fr": "Le plus proche d’un pur WMS côté entrepôt : entrées/sorties, transferts, picking mobile-first. Mais distribution tournée vers le SaaS, et docs et UI surtout en chinois."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Snipe-IT",
+			"source": {
+				"host": "github",
+				"path": "grokability/snipe-it",
+				"url": "https://github.com/grokability/snipe-it"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Hugely popular asset and license manager with barcode checkout, depreciation and LDAP/SAML SSO. Good as an asset layer, but it will not do warehouse receiving or stock valuation.",
+				"fr": "Gestionnaire d’actifs et de licences très populaire : check-in/check-out par code-barres, amortissement, SSO LDAP/SAML. Solide pour l’inventaire d’actifs, mais ni réception d’entrepôt ni valorisation des stocks."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

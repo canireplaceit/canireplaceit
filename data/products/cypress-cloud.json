@@ -114,6 +114,132 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kiwi TCMS",
+			"source": {
+				"host": "github",
+				"path": "kiwitcms/Kiwi",
+				"url": "https://github.com/kiwitcms/Kiwi"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Open-source test management and analytics covering the planning half of Cypress Cloud. QA-centric rather than run-centric: no live execution video or logs, but one-command docker deploy.",
+				"fr": "Gestion de tests et analytique open source qui couvre la partie planification de Cypress Cloud. Centré QA plutôt qu’exécution : ni vidéo ni logs en direct, mais un déploiement docker en une commande."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Argos",
+			"source": {
+				"host": "github",
+				"path": "argos-ci/argos",
+				"url": "https://github.com/argos-ci/argos"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hostable visual regression monitoring with GitHub/GitLab PR checks. Replaces Cypress Cloud screenshot review, but only the visual part — needs Postgres and object storage, no orchestration.",
+				"fr": "Monitoring de régression visuelle auto-hébergeable avec checks de PR GitHub/GitLab. Remplace la revue de screenshots de Cypress Cloud, mais uniquement le volet visuel : Postgres et stockage objet requis, pas d’orchestration."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Selenium Grid",
+			"source": {
+				"host": "github",
+				"path": "SeleniumHQ/docker-selenium",
+				"url": "https://github.com/SeleniumHQ/docker-selenium"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted grid giving you the parallel cross-browser execution Cypress Cloud runs for you, with per-session video and logs. Execution infrastructure only — add Allure or Sorry Cypress for reporting.",
+				"fr": "Grille auto-hébergée qui fournit l’exécution parallèle multi-navigateurs gérée par Cypress Cloud, avec vidéo et logs par session. Simple couche d’infra : ajoutez Allure ou Sorry Cypress pour le reporting."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Grafana k6",
+			"source": {
+				"host": "github",
+				"path": "grafana/k6",
+				"url": "https://github.com/grafana/k6"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Load-testing CLI covering the analytics half locally: scriptable JS tests, single binary, no server to operate. Dashboards need a Grafana stack you wire yourself; it stops at performance, not E2E.",
+				"fr": "CLI de test de charge couvrant l’analytique en local : tests JS scriptables, un binaire, aucun serveur à opérer. Dashboards à monter soi-même via Grafana ; domaine perf, pas d’E2E."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Locust",
+			"source": {
+				"host": "github",
+				"path": "locustio/locust",
+				"url": "https://github.com/locustio/locust"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted load-testing with a built-in web UI that doubles as local analytics. Python scenarios, distributed workers, no vendor lock-in — but performance scope only, with no per-test video or screenshots.",
+				"fr": "Plateforme de test de charge auto-hébergée avec UI web intégrée servant d’analytique locale. Scénarios Python, workers distribués, pas de lock-in — mais périmètre perf uniquement, ni vidéo ni screenshots par test."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mochawesome",
+			"source": {
+				"host": "github",
+				"path": "adamgruber/mochawesome",
+				"url": "https://github.com/adamgruber/mochawesome"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Report generator that turns Cypress and Mocha runs into self-contained HTML, with screenshots and failures embedded. Runs as an npm dependency — static output, no live dashboard or orchestration.",
+				"fr": "Générateur de rapports qui transforme les runs Cypress et Mocha en HTML autonome, screenshots et échecs embarqués. Simple dépendance npm — sortie statique, ni dashboard en direct ni orchestration."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

@@ -90,6 +90,111 @@
 				"en": "A twentieth of the price with rich snippets and photo reviews for e-commerce. No consumer-facing directory and far less brand recognition.",
 				"fr": "Vingt fois moins cher avec extraits enrichis et avis photo pour l’e-commerce. Pas d’annuaire grand public et bien moins de notoriété."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Fider",
+			"source": {
+				"host": "github",
+				"path": "getfider/fider",
+				"url": "https://github.com/getfider/fider"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted idea portal with voting and OAuth SSO — the review-collection side of Trustpilot. But it’s an ideas tool, not a star-rating widget: no verified-buyer or syndication workflow.",
+				"fr": "Portail d’idées auto-hébergé, votes et SSO OAuth inclus : il couvre la collecte d’avis côté Trustpilot. Reste que c’est un outil d’idées, pas un widget d’étoiles, sans workflow d’acheteur vérifié ni syndication."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Review Board",
+			"source": {
+				"host": "github",
+				"path": "reviewboard/reviewboard",
+				"url": "https://github.com/reviewboard/reviewboard"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Reviewers are internal accounts, no public ratings or SEO pages: this MIT tool reviews code, documents and images, not customer-facing widgets. Inline diff comments and LDAP auth included.",
+				"fr": "Comptes internes, pas de notes publiques : c’est un outil de revue de code, documents et images, pas un widget client. Commentaires inline et LDAP inclus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Discourse",
+			"source": {
+				"host": "github",
+				"path": "discourse/discourse",
+				"url": "https://github.com/discourse/discourse"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "A forum, not a review engine: testimonials become topics with likes, but there’s no star rating or verified-buyer check, and it needs active moderation.",
+				"fr": "Un forum, pas un moteur d’avis : les témoignages deviennent des topics à likes, mais pas d’étoiles, pas d’acheteur vérifié, et une modération active à assumer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Magento Open Source",
+			"source": {
+				"host": "github",
+				"path": "magento/magento2",
+				"url": "https://github.com/magento/magento2"
+			},
+			"license": "OSL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Native product ratings, moderation queue and SEO review URLs are built in — but you must run the whole e-commerce stack, and the review system stays store-centric with no syndication.",
+				"fr": "Notes produit, file de modération et URLs d’avis optimisées SEO sont natives — mais il faut toute une stack e-commerce, et le système d’avis reste centré sur la boutique, sans syndication."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "reviewdog",
+			"source": {
+				"host": "github",
+				"path": "reviewdog/reviewdog",
+				"url": "https://github.com/reviewdog/reviewdog"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A single-binary CLI that posts linter comments to GitHub, GitLab or Gerrit. It automates code review, not customer reviews: no ratings, no SEO, no moderation UI.",
+				"fr": "Un binaire sans serveur poste des commentaires de linters vers GitHub, GitLab ou Gerrit. De la revue de code, pas des avis clients : pas de notes, pas de SEO, pas de modération."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

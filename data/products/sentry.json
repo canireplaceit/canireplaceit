@@ -93,6 +93,178 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Prometheus",
+			"source": {
+				"host": "github",
+				"path": "prometheus/prometheus",
+				"url": "https://github.com/prometheus/prometheus"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The de-facto metrics and alerting backbone — scrape, store, query with PromQL. Metrics only: no traces, no stack traces, no log correlation; alerting needs Alertmanager.",
+				"fr": "Le standard open source des métriques et de l’alerting : scraping, stockage, requêtes PromQL. Métriques uniquement — pas de traces ni de pile d’appels ; l’alerting passe par Alertmanager."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Grafana",
+			"source": {
+				"host": "github",
+				"path": "grafana/grafana",
+				"url": "https://github.com/grafana/grafana"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The standard self-hosted observability UI, uniting dashboards and alerting across data sources. But it is a visualization layer, not an error tracker — with no backing store it shows nothing.",
+				"fr": "UI d’observabilité auto-hébergée de référence, unifiant dashboards et alertes sur toutes les sources. Mais c’est une couche de visualisation, pas un tracker d’erreurs : sans source de données, elle ne montre rien."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise features gated behind a paid plan",
+					"fr": "Fonctionnalités Enterprise, derrière l’abonnement payant"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Grafana Loki",
+			"source": {
+				"host": "github",
+				"path": "grafana/loki",
+				"url": "https://github.com/grafana/loki"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted log aggregation with LogQL search, giving Sentry-style searchability over application logs. On its own there is no stack-trace UI or issue grouping — plan on pairing it with Grafana.",
+				"fr": "Agrégation de logs auto-hébergée, interrogée en LogQL, pour retrouver des traces d’application façon Sentry. Seul, il n’a ni UI de stack traces ni regroupement d’issues : prévoyez de le coupler à Grafana."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Glowroot",
+			"source": {
+				"host": "github",
+				"path": "glowroot/glowroot",
+				"url": "https://github.com/glowroot/glowroot"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight Java APM running as a single self-hosted JAR, tracking errors with stack traces and distributed tracing. The catch: JVM-only — no frontend or mobile SDKs, no session replay.",
+				"fr": "APM Java léger, déployable en un seul JAR auto-hébergé, avec tracking d’erreurs, stack traces et tracing distribué. Mais JVM uniquement : pas de SDK frontend ni mobile, pas de session replay."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Uptrace",
+			"source": {
+				"host": "github",
+				"path": "uptrace/uptrace",
+				"url": "https://github.com/uptrace/uptrace"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "OpenTelemetry-native APM folding traces, errors, logs, and metrics into one ClickHouse-backed self-hosted service. Real use needs ClickHouse, and it is heavier than a GlitchTip or Bugsink.",
+				"fr": "APM natif OpenTelemetry, qui regroupe traces, erreurs, logs et métriques dans un seul service auto-hébergé adossé à ClickHouse. En pratique il exige ClickHouse, et pèse plus lourd qu’un GlitchTip ou Bugsink."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Uptime Kuma",
+			"source": {
+				"host": "github",
+				"path": "louislam/uptime-kuma",
+				"url": "https://github.com/louislam/uptime-kuma"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "MIT uptime monitoring with status pages and push monitors, complementing error tracking with availability checks. Uptime only: no errors, traces, or app-level metrics.",
+				"fr": "Supervision d’uptime MIT auto-hébergée, pages de statut et push monitors, qui complète le tracking d’erreurs par des contrôles de disponibilité. De l’uptime seulement : ni erreurs, ni traces, ni métriques applicatives."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "lnav",
+			"source": {
+				"host": "github",
+				"path": "tstack/lnav",
+				"url": "https://github.com/tstack/lnav"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Mature terminal log navigator that turns local logs into SQL-queryable data with timelines and histograms. Offline only: no live ingestion, no SDKs, no alerting.",
+				"fr": "Navigateur de logs TUI mature, qui transforme les logs locaux en données interrogeables en SQL, avec timelines et histogrammes. Hors-ligne seulement : pas d’ingestion live, pas de SDK, pas d’alerting."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Vector",
+			"source": {
+				"host": "github",
+				"path": "vectordotdev/vector",
+				"url": "https://github.com/vectordotdev/vector"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Single-binary pipeline collecting, shaping, and routing logs, metrics, and traces to any backend via VRL. It ships data onward — no UI or error tracking; config-first, with a learning curve.",
+				"fr": "Pipeline en binaire unique qui collecte, transforme et route logs, métriques et traces vers n’importe quel backend via VRL. Simple transport : pas d’UI ni de tracking d’erreurs, et tout est à configurer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

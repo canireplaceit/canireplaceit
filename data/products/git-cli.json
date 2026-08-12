@@ -1,0 +1,261 @@
+{
+	"slug": "git-cli",
+	"name": "git (porcelain)",
+	"domain": "git-scm.com",
+	"category": "developer-tooling",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "Partly. The plumbing is free and GPL, and nobody is replacing it. What people replace is the porcelain: staging a hunk and reading a log in ten keystrokes and a pager.",
+		"fr": "En partie. La plomberie est libre, sous GPL, et personne ne la remplace. Ce que l’on remplace, c’est le porcelain : mettre une hunk en stage et lire un log en dix frappes, dans un pager."
+	},
+	"whatYouLose": [
+		{
+			"en": "Ubiquity of the git CLI",
+			"fr": "L’ubiquité de la CLI git"
+		},
+		{
+			"en": "Your git muscle memory",
+			"fr": "Vos réflexes git"
+		},
+		{
+			"en": "Git already on every machine",
+			"fr": "Git déjà présent sur chaque machine"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "lazygit",
+			"source": {
+				"host": "github",
+				"path": "jesseduffield/lazygit",
+				"url": "https://github.com/jesseduffield/lazygit"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A terminal UI for staging hunks and lines, with interactive rebase by dragging commits, stashing, bisecting and cherry-picking. It is the one that changes how often you commit.",
+				"fr": "Une interface terminal pour stage des hunks et des lignes, avec un rebase interactif en déplaçant les commits, stash, bisect et cherry-pick. C’est celle qui change la fréquence à laquelle on commit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gitui",
+			"source": {
+				"host": "github",
+				"path": "gitui-org/gitui",
+				"url": "https://github.com/gitui-org/gitui"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Written in Rust, deliberately lean. Stays responsive on very large repositories where a JS or Go UI stalls.",
+				"fr": "Écrit en Rust, volontairement léger. Reste réactif sur les très gros dépôts là où une UI en JS ou en Go se fige."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "tig",
+			"source": {
+				"host": "github",
+				"path": "jonas/tig",
+				"url": "https://github.com/jonas/tig"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "An ncurses log and blame browser, in distro repos for twenty years. Read-heavy rather than a full porcelain, and packaged everywhere.",
+				"fr": "Un navigateur ncurses de log et de blame, présent dans les dépôts des distributions depuis vingt ans. Orienté lecture plutôt qu’un porcelain complet, et packagé partout."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gh",
+			"source": {
+				"host": "github",
+				"path": "cli/cli",
+				"url": "https://github.com/cli/cli"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Official GitHub CLI turns issue, PR and repo workflows into scriptable commands, including GitHub Enterprise. It needs an auth token, only speaks GitHub, and leaves core git untouched.",
+				"fr": "CLI officiel de GitHub : les issues, PR et repos deviennent des commandes scriptables, Enterprise compris. Il exige un jeton d’auth, ne parle que GitHub et ne remplace pas git lui-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gitoxide",
+			"source": {
+				"host": "github",
+				"path": "GitoxideLabs/gitoxide",
+				"url": "https://github.com/GitoxideLabs/gitoxide"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Pure-Rust reimplementation of git plumbing and porcelain, orders of magnitude faster on clone, fetch and diff. Safe parsing, embeddable — but some commands still lag and the porcelain keeps evolving.",
+				"fr": "Réimplémentation 100% Rust du plumbing et de la porcelain de git, de plusieurs ordres de grandeur plus rapide. Parsing sûr, embarquable, mais des commandes manquent encore et la porcelain bouge."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "jujutsu",
+			"source": {
+				"host": "github",
+				"path": "jj-vcs/jj",
+				"url": "https://github.com/jj-vcs/jj"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A next-generation VCS (jj) that works directly on git repos with a cleaner revision model: automatic snapshots, easy rewriting. Its mental model differs from git habits, so it's not a drop-in.",
+				"fr": "VCS nouvelle génération (jj) qui travaille directement sur les repos git, avec un modèle de révisions plus propre : snapshots automatiques, réécriture aisée. Modèle mental différent des habitudes git, pas un drop-in."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "delta",
+			"source": {
+				"host": "github",
+				"path": "dandavison/delta",
+				"url": "https://github.com/dandavison/delta"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Syntax-highlighting diff pager with word-level highlighting and side-by-side view. Companion, not a porcelain — wire it into git config as diff.pager to make diffs readable.",
+				"fr": "Pager de diffs avec coloration syntaxique, surlignage mot à mot et vue côte à côte. Compagnon, pas une porcelain : à brancher dans git config comme diff.pager pour des diffs lisibles."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "git-town",
+			"source": {
+				"host": "github",
+				"path": "git-town/git-town",
+				"url": "https://github.com/git-town/git-town"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Automates branch workflows — sync, append, stack — across GitHub, GitLab, Bitbucket, Gitea and Gerrit. Opinionated about conventions, it's a workflow layer over git rather than a standalone tool.",
+				"fr": "Automatise les workflows de branches — sync, append, stack — pour GitHub, GitLab, Bitbucket, Gitea et Gerrit. Opinioné sur les conventions, c’est une surcouche de workflow, pas un outil autonome."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "forgit",
+			"source": {
+				"host": "github",
+				"path": "wfxr/forgit",
+				"url": "https://github.com/wfxr/forgit"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "fzf-backed shell shortcuts turning git commands into fuzzy-interactive pickers for add, checkout, commit, log and stash. Needs fzf and a POSIX-ish shell; shell-heavy, with no standalone binary.",
+				"fr": "Raccourcis shell basés sur fzf qui transforment les commandes git en sélecteurs flous et interactifs : add, checkout, commit, log, stash. Exige fzf et un shell quasi POSIX ; pas de binaire autonome."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "grv",
+			"source": {
+				"host": "github",
+				"path": "rgburke/grv",
+				"url": "https://github.com/rgburke/grv"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Vim-inspired TUI to browse refs, commits and diffs through its own regex-based parser, without touching the repo. Dormant since 2019 — no releases, and write operations stay limited.",
+				"fr": "TUI inspirée de vim pour parcourir refs, commits et diffs grâce à son propre parseur regex, sans toucher au dépôt. En sommeil depuis 2019, aucune sortie récente, écritures limitées."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "magit",
+			"source": {
+				"host": "github",
+				"path": "magit/magit",
+				"url": "https://github.com/magit/magit"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The Emacs porcelain: staging, log, blame, merge and rebase in one interface, driven by transient buffers. Locked to Emacs, so non-Emacs users face a steep learning curve.",
+				"fr": "La porcelain d’Emacs : staging, log, blame, merge et rebase dans une seule interface pilotée par des buffers transient. Réservé à Emacs — courbe d’apprentissage raide pour les autres."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 4
+}

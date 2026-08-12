@@ -92,6 +92,153 @@
 				"en": "The real Nuke for a revenue-capped indie, at about one percent of the commercial price. Output is restricted and scripts are locked.",
 				"fr": "Le vrai Nuke pour un indépendant sous plafond de revenus, à environ un pour cent du prix commercial. Sorties restreintes et scripts verrouillés."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "TuttleOFX",
+			"source": {
+				"host": "github",
+				"path": "tuttleofx/TuttleOFX",
+				"url": "https://github.com/tuttleofx/TuttleOFX"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Node-graph compositor on the OpenFX standard, with Sam CLI batch tools and Docker images. No maintained GUI frontend, and a community smaller than Natron.",
+				"fr": "Compositing en node graph basé sur la norme OpenFX, outils batch en CLI (Sam) et images Docker. Pas de frontend graphique maintenu, et une communauté plus réduite que Natron."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "VapourSynth",
+			"source": {
+				"host": "github",
+				"path": "vapoursynth/vapoursynth",
+				"url": "https://github.com/vapoursynth/vapoursynth"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "Python-scripted frame serving: the filter graph is code, not nodes. Lossless serving and GPU plugins, at the price of no visual editor.",
+				"fr": "Traitement vidéo scripté en Python : le graphe de filtres est du code, pas des nodes. Serving de frames sans perte et plugins GPU, au prix d’aucun éditeur visuel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "G'MIC",
+			"source": {
+				"host": "github",
+				"path": "GreycLab/gmic",
+				"url": "https://github.com/GreycLab/gmic"
+			},
+			"license": "CECILL-C",
+			"effort": "managed",
+			"note": {
+				"en": "CLI-first image processing, 640+ filters, scriptable for batch VFX. Fine for retouching, but not a node compositor and no editorial timeline.",
+				"fr": "Traitement d’image en CLI, plus de 640 filtres, scriptable pour du VFX en lot. Bien pour retoucher, mais pas un compositing en nodes, ni timeline éditoriale."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GStreamer",
+			"source": {
+				"host": "gitlab",
+				"path": "gstreamer/gstreamer",
+				"url": "https://gitlab.freedesktop.org/gstreamer/gstreamer"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "You wire the graph in code or gst-launch: no visual editor. Hardware acceleration, live mixing, and packaged everywhere — just not as a Nuke workalike.",
+				"fr": "Le graphe se câble en code ou via gst-launch, sans éditeur visuel. Accélération matérielle, mixage live, présent partout — mais pas un équivalent de Nuke."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Shotcut",
+			"source": {
+				"host": "github",
+				"path": "mltframework/shotcut",
+				"url": "https://github.com/mltframework/shotcut"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Timeline NLE on MLT: multi-track compositing, filters, color grading, GPU effects. Capable, but the workflow is timeline-first, not a node graph.",
+				"fr": "NLE à timeline sur MLT : compositing multicouche, filtres, étalonnage, effets GPU. Efficace, mais le workflow reste orienté timeline, pas node graph."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MLT",
+			"source": {
+				"host": "github",
+				"path": "mltframework/mlt",
+				"url": "https://github.com/mltframework/mlt"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "A toolkit, not an app: melt and XML profiles drive the engine behind Shotcut and Kdenlive, so expect to write the pipeline yourself.",
+				"fr": "Une boîte à outils, pas une app : melt et les profils XML pilotent le moteur derrière Shotcut et Kdenlive — le pipeline, c’est vous qui l’écrivez."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Motion Canvas",
+			"source": {
+				"host": "github",
+				"path": "motion-canvas/motion-canvas",
+				"url": "https://github.com/motion-canvas/motion-canvas"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Not a node compositor: TypeScript animations edited live in the browser and versioned in git. 2D motion graphics only, no footage IO.",
+				"fr": "Pas un compositing en nodes : des animations TypeScript éditées en direct dans le navigateur et versionnées en git. De l’infographie 2D uniquement, pas d’IO footage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

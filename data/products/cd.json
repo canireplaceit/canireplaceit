@@ -1,0 +1,240 @@
+{
+	"slug": "cd",
+	"name": "cd",
+	"domain": null,
+	"category": "shell-terminal",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "Replaceable on your own machine: a jumper is faster on directories you visit daily. Not replaceable for portability: cd is on every machine and only knows the path you type.",
+		"fr": "Remplaçable sur votre machine : un sauteur est plus rapide sur les dossiers que vous visitez chaque jour. Pas remplaçable en portabilité : cd est sur toutes les machines et ne connaît que le chemin tapé."
+	},
+	"whatYouLose": [
+		{
+			"en": "The cd that is everywhere",
+			"fr": "Le cd qui est partout"
+		},
+		{
+			"en": "Years of muscle memory",
+			"fr": "Des années de réflexes"
+		},
+		{
+			"en": "The path you type, nothing more",
+			"fr": "Le chemin tapé, et rien de plus"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "zoxide",
+			"source": {
+				"host": "github",
+				"path": "ajeetdsouza/zoxide",
+				"url": "https://github.com/ajeetdsouza/zoxide"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "One binary, a shell hook, an fzf picker. It jumps by frecency: only places you have visited, ranked by habit.",
+				"fr": "Un binaire, un hook de shell, un sélecteur fzf. Il saute par frecency : uniquement les endroits déjà visités, classés par habitude."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "autojump",
+			"source": {
+				"host": "github",
+				"path": "wting/autojump",
+				"url": "https://github.com/wting/autojump"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The Python original, still found everywhere, but slower to start and needs a Python runtime.",
+				"fr": "L’original : encore présent partout, mais plus lent au démarrage et nécessite un runtime Python."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "z",
+			"source": {
+				"host": "github",
+				"path": "rupa/z",
+				"url": "https://github.com/rupa/z"
+			},
+			"license": "WTFPL",
+			"effort": "managed",
+			"note": {
+				"en": "One shell script, no compiler, no runtime: the lowest-dependency way to jump there is.",
+				"fr": "Un script shell, pas de compilateur, pas de runtime : l’option la moins dépendante qui soit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "jump",
+			"source": {
+				"host": "github",
+				"path": "gsamokovarov/jump",
+				"url": "https://github.com/gsamokovarov/jump"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A Go binary that explains its own scoring, and will not shadow cd unless you ask.",
+				"fr": "Un binaire Go qui explique son propre classement, et qui ne remplace cd que si vous le lui demandez."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "fzf",
+			"source": {
+				"host": "github",
+				"path": "junegunn/fzf",
+				"url": "https://github.com/junegunn/fzf"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The de-facto fuzzy finder; its alt-C binding turns it into an interactive cd across the whole filesystem. But you wire that binding in yourself — it’s a picker, not a jump tool.",
+				"fr": "Le fuzzy finder de facto; sa liaison alt-C en fait un cd interactif sur tout le système de fichiers. Mais vous le câblez vous-même : un sélecteur, pas un outil de saut."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "fasd",
+			"source": {
+				"host": "github",
+				"path": "clvv/fasd",
+				"url": "https://github.com/clvv/fasd"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Archived upstream, but still the frecent ranker behind the f and d aliases — a POSIX script that drags on huge histories.",
+				"fr": "Archivé en amont, mais toujours le classement frecent derrière les alias f et d — un script POSIX qui rame sur les gros historiques."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "z.lua",
+			"source": {
+				"host": "github",
+				"path": "skywind3000/z.lua",
+				"url": "https://github.com/skywind3000/z.lua"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A z clone that learns from your shell, quick cold start in Lua, works even on cmd and PowerShell. Needs a Lua runtime; its interactive mode needs fzf.",
+				"fr": "Un clone de z qui apprend de votre shell, démarrage à froid rapide en Lua, même sous cmd et PowerShell. Il demande un runtime Lua ; son mode interactif, fzf."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "broot",
+			"source": {
+				"host": "github",
+				"path": "Canop/broot",
+				"url": "https://github.com/Canop/broot"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Fuzzy-filtered tree, previews and disk usage, and a cd via the br shell function you define. A TUI, not a plain command.",
+				"fr": "Arbre filtré au fuzzy avec aperçus et usage disque, et un cd via la fonction br que vous définissez. Une TUI, pas une simple commande."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "lf",
+			"source": {
+				"host": "github",
+				"path": "gokcehan/lf",
+				"url": "https://github.com/gokcehan/lf"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A ranger-style TUI manager in a single Go binary; lfcd leaves you in the dir you quit from. Overkill for a quick jump, and no frecent history.",
+				"fr": "Un gestionnaire TUI façon ranger en un seul binaire Go ; lfcd vous laisse dans le dossier à la sortie. Excessif pour un simple saut, et pas d’historique frecent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "wd",
+			"source": {
+				"host": "github",
+				"path": "mfaerevaag/wd",
+				"url": "https://github.com/mfaerevaag/wd"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Jump to your own named warp points from zsh — plays nicely with oh-my-zsh and fzf. zsh-only, and you must bookmark every jump by hand.",
+				"fr": "Sautez vers vos propres points de repère nommés depuis zsh — s’entend bien avec oh-my-zsh et fzf. Réservé à zsh, et chaque cible se marque à la main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

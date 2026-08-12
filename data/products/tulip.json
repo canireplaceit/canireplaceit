@@ -122,6 +122,161 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "ThingsBoard",
+			"source": {
+				"host": "github",
+				"path": "thingsboard/thingsboard",
+				"url": "https://github.com/thingsboard/thingsboard"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Mature IoT platform: device provisioning, telemetry over MQTT/HTTP/CoAP/OPC-UA, rule chains and OEE dashboards. Logic lives in rule chains, not a no-code app UI; CE misses some enterprise dashboard features.",
+				"fr": "Plateforme IoT mature : provisionnement d’appareils, télémétrie MQTT/HTTP/CoAP/OPC-UA, rule chains et dashboards OEE. La logique vit dans les rule chains, pas dans une UI no-code ; certains dashboards entreprise manquent à la CE."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Some enterprise dashboard features",
+					"fr": "Certains dashboards d’entreprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Grafana",
+			"source": {
+				"host": "github",
+				"path": "grafana/grafana",
+				"url": "https://github.com/grafana/grafana"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Visualization and alerting for telemetry in InfluxDB, Postgres or MQTT; OIDC SSO comes in OSS. It graphs and alerts only — no app or workflow layer, so operator screens need extra software.",
+				"fr": "Visualisation et alerting de la télémétrie InfluxDB, Postgres ou MQTT ; le SSO OIDC est dans l’OSS. Il trace et alerte, pas de builder d’apps : les écrans opérateur se construisent à côté."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Grafana Enterprise features",
+					"fr": "Fonctions Grafana Enterprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Eclipse Mosquitto",
+			"source": {
+				"host": "github",
+				"path": "eclipse-mosquitto/mosquitto",
+				"url": "https://github.com/eclipse-mosquitto/mosquitto"
+			},
+			"license": "EPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The de-facto open MQTT broker, tiny enough for edge devices, with TLS, WebSockets and ACL auth. Transport only — no UI, no storage, so a DB and dashboard are on you.",
+				"fr": "Le broker MQTT open source standard, léger pour l’edge, avec TLS, WebSockets et auth par ACL. Transport seul : pas d’UI ni de stockage, à coupler avec une base et un dashboard."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "mqttui",
+			"source": {
+				"host": "github",
+				"path": "EdJoPaTo/mqttui",
+				"url": "https://github.com/EdJoPaTo/mqttui"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Watching a live topic tree from a terminal in a single binary, TLS and MQTT 5 included. Strictly inspect-and-debug — nothing persists, no dashboards, no history.",
+				"fr": "Un arbre de topics machine en direct, depuis un terminal, dans un binaire unique, TLS et MQTT 5 compris. Strictement de l’inspection : rien ne persiste, pas de dashboards ni d’historique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MQTTX",
+			"source": {
+				"host": "github",
+				"path": "emqx/MQTTX",
+				"url": "https://github.com/emqx/MQTTX"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Nothing is captured server-side — MQTTX is a client tool, though a scriptable one: desktop app plus headless CLI for batch connectivity tests over WS/TLS and MQTT 5.",
+				"fr": "Rien n’est capturé côté serveur : MQTTX reste un outil client, mais scriptable — app desktop et CLI headless pour des tests de connectivité en série sur WS/TLS et MQTT 5."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache PLC4X",
+			"source": {
+				"host": "github",
+				"path": "apache/plc4x",
+				"url": "https://github.com/apache/plc4x"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A connectivity layer to Siemens, Allen-Bradley, Modbus and OPC-UA PLCs, bridged to MQTT by a gateway. You still write the app around its libraries, and driver maturity varies by protocol.",
+				"fr": "Une couche vers les PLC Siemens, Allen-Bradley, Modbus et OPC-UA, pontée vers MQTT par une gateway. L’app reste à écrire autour des bibliothèques, la maturité des drivers varie selon le protocole."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mainflux",
+			"source": {
+				"host": "github",
+				"path": "mainflux/mainflux",
+				"url": "https://github.com/mainflux/mainflux"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Archived in August 2024 — head to successor Magistrala. Before that: multitenant IoT middleware for provisioning and pub/sub over MQTT, CoAP, HTTP, WebSocket, with no app-builder or OEE UI.",
+				"fr": "Archivé en août 2024 — son successeur : Magistrala. Avant ça, un middleware IoT multi-tenant pour le provisionnement et le pub/sub sur MQTT, CoAP, HTTP, WebSocket, sans app-builder ni UI OEE."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

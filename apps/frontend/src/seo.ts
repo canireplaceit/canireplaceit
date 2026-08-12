@@ -10,7 +10,8 @@ import {
 	resolveTranslation,
 	SupportedLangs,
 } from "core/src/index";
-import { paths } from "core/src/routes";
+import { type LegalDoc, paths } from "core/src/routes";
+import { legalCopy } from "./legal";
 
 export const SITE = "https://canireplaceit.com";
 
@@ -499,6 +500,7 @@ export const standingMeta = (
 		| "submit"
 		| "contact"
 		| "stats"
+		| "features"
 		| "signin"
 		| "dashboard"
 		| "admin",
@@ -518,12 +520,22 @@ export const standingMeta = (
 		},
 		sponsor: {
 			en: [
-				"Sponsor canireplaceit — reach people mid-switch",
-				"Flat prices, 30-day runs, one rate for everyone. Every open slot shows its price, and the audience numbers are published only once they are real.",
+				"Sponsor canireplaceit",
+				"Sponsors keep the site free and independent. Flat prices, 30-day runs, one rate for everyone, and the audience numbers are published only once they are real.",
 			],
 			fr: [
-				"Sponsoriser canireplaceit — touchez des gens en pleine migration",
-				"Tarifs fixes, campagnes de 30 jours, un seul tarif pour tous. Chaque emplacement libre affiche son prix, et les chiffres d'audience ne sont publiés qu'une fois réels.",
+				"Soutenir canireplaceit",
+				"Les sponsors permettent au site de rester gratuit et indépendant. Tarifs fixes, campagnes de 30 jours, un seul tarif pour tous, et les chiffres d'audience ne sont publiés qu'une fois réels.",
+			],
+		},
+		features: {
+			en: [
+				"What these open source projects actually do",
+				"A closed vocabulary of features — SSO, real-time editing, public docs, offline, backups — answered per project from its own docs and repo. A dash means nobody checked, never that the answer is no.",
+			],
+			fr: [
+				"Ce que ces projets open source font vraiment",
+				"Un vocabulaire fermé de fonctionnalités — SSO, édition simultanée, docs publiques, hors ligne, sauvegardes — renseigné projet par projet depuis sa documentation et son dépôt. Un tiret veut dire que personne n'a vérifié, jamais que la réponse est non.",
 			],
 		},
 		submit: {
@@ -613,6 +625,31 @@ export const standingMeta = (
 			]),
 		],
 		noindex: page === "signin" || page === "dashboard" || page === "admin",
+	};
+};
+
+/**
+ * The legal pages. Indexable — they are required reading, they are linked from
+ * every page in the footer, and a `noindex` on a legal notice defeats the point
+ * of publishing one. Their descriptions are the documents' own first lines, so
+ * the summary and the page can never drift apart.
+ */
+export const legalMeta = (doc: LegalDoc | undefined, lang: Lang): Meta => {
+	const copy = legalCopy(doc, lang);
+	const url = paths.legal(lang, doc);
+	const trail = [
+		{ name: HOME_LABEL[lang], url: paths.home(lang) },
+		{ name: legalCopy(undefined, lang).title, url: paths.legal(lang) },
+	];
+	if (doc) trail.push({ name: copy.title, url });
+	return {
+		title:
+			copy.title.length <= TITLE_MAX
+				? copy.title
+				: clamp(copy.title, TITLE_MAX),
+		description: clamp(copy.description),
+		canonical: `${SITE}${url}`,
+		jsonLd: [breadcrumbJsonLd(trail)],
 	};
 };
 

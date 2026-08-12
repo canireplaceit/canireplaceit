@@ -97,6 +97,195 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apprise",
+			"source": {
+				"host": "github",
+				"path": "caronc/apprise",
+				"url": "https://github.com/caronc/apprise"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "One CLI/library that fans a notification out to 100+ services, ideal glue for automation. You wire the triggers and delivery targets yourself, and there are no mobile apps.",
+				"fr": "Une CLI ou une bibliothèque qui dispatche une notification vers 100+ services, idéale comme colle pour l’automatisation. Vous branchez vous-même déclencheurs et cibles, sans applications mobiles."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Bark Server",
+			"source": {
+				"host": "github",
+				"path": "Finb/bark-server",
+				"url": "https://github.com/Finb/bark-server"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted APNs backend for the Bark iOS app, pushable from curl or scripts with auth tokens. iOS only, needs your own Apple Developer credentials, no dashboard.",
+				"fr": "Backend APNs auto-hébergé pour l’app iOS Bark, pilotable depuis curl ou des scripts avec jetons d’auth. iOS uniquement, exige vos propres identifiants Apple Developer, pas de dashboard."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PushBits",
+			"source": {
+				"host": "github",
+				"path": "pushbits/server",
+				"url": "https://github.com/pushbits/server"
+			},
+			"license": "ISC",
+			"effort": "managed",
+			"note": {
+				"en": "Privacy-focused pushes routed through a Matrix appservice, no APNs/FCM credentials needed. Costs a Matrix homeserver plus appservice to run, a small community, and browser-centric clients only.",
+				"fr": "Les pushes passent par un appservice Matrix au lieu d’APNs/FCM, pour rester privé et minimal. Nécessite un homeserver Matrix en plus, petite communauté, clients web sans app native."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "AirNotifier",
+			"source": {
+				"host": "github",
+				"path": "dcai/airnotifier",
+				"url": "https://github.com/dcai/airnotifier"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "A Python/Tornado server for APNs and GCM push with an admin dashboard, dormant since 2023 — dated stack, native push only, small community.",
+				"fr": "Serveur Python/Tornado pour le push APNs et GCM, avec dashboard d’admin — mais dormant depuis 2023, pile datée, push natif uniquement et petite communauté."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Centrifugo",
+			"source": {
+				"host": "github",
+				"path": "centrifugal/centrifugo",
+				"url": "https://github.com/centrifugal/centrifugo"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "A realtime pub/sub backbone over WebSocket and SSE, with FCM/APNs push for channel subscribers. It’s a realtime framework, not a notification console — you build the flow and campaigns yourself.",
+				"fr": "Un socle temps réel pub/sub WebSocket/SSE, avec push FCM/APNs aux abonnés de canaux. Framework temps réel plutôt que console de notifications : le flux et les campagnes sont à construire vous-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pushpin",
+			"source": {
+				"host": "github",
+				"path": "fastly/pushpin",
+				"url": "https://github.com/fastly/pushpin"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "An HTTP push proxy that delivers long-polling, SSE and WebSocket from any backend. Infrastructure, not a platform — no UI, no device management, no mobile push.",
+				"fr": "Un proxy HTTP qui délivre long-polling, SSE et WebSocket depuis n’importe quel backend. De l’infrastructure plutôt qu’une plateforme : pas d’UI, pas de gestion d’appareils, pas de push mobile."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Gotify CLI",
+			"source": {
+				"host": "github",
+				"path": "gotify/cli",
+				"url": "https://github.com/gotify/cli"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Official Go terminal client that pushes messages and files to Gotify, multi-server aware. Client only — you still need a Gotify server, and there’s no TUI.",
+				"fr": "Client Go officiel qui pousse messages et fichiers vers Gotify depuis le terminal, multi-serveurs. Client uniquement : il faut quand même un serveur Gotify, et pas de TUI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mercure",
+			"source": {
+				"host": "github",
+				"path": "dunglas/mercure",
+				"url": "https://github.com/dunglas/mercure"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "An open SSE hub with JWT-authenticated topic subscriptions, ready to pair with any web app. Browser push only — you build the subscriber UI, no analytics or campaigns.",
+				"fr": "Un hub SSE ouvert aux abonnements par topics authentifiés en JWT, prêt à s’accrocher à n’importe quelle app web. Push navigateur uniquement : vous construisez l’UI d’abonnement, sans analytics ni campagnes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "AeroGear UnifiedPush Server",
+			"source": {
+				"host": "github",
+				"path": "aerogear/aerogear-unifiedpush-server",
+				"url": "https://github.com/aerogear/aerogear-unifiedpush-server"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Red Hat’s unified APNs and GCM server, historically the reference OneSignal alternative — archived, unmaintained, and heavy on Java/WildFly to deploy.",
+				"fr": "Le serveur unifié APNs et GCM de Red Hat, historiquement l’alternative de référence à OneSignal — archivé, sans maintenance, et lourd à déployer en Java/WildFly."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

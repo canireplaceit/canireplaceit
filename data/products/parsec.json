@@ -97,6 +97,174 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache Guacamole",
+			"source": {
+				"host": "github",
+				"path": "apache/guacamole-server",
+				"url": "https://github.com/apache/guacamole-server"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Clientless RDP/VNC/SSH gateway — any machine reachable from a browser, no app install. Every path goes through the gateway, and HTML5 rendering adds overhead you won’t want for game-grade latency.",
+				"fr": "Passerelle RDP/VNC/SSH sans client — tout poste joignable depuis un navigateur, sans rien installer. Tout passe par la passerelle et le rendu HTML5 alourdit le flux : pas pour la latence du jeu."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MeshCentral",
+			"source": {
+				"host": "github",
+				"path": "Ylianst/MeshCentral",
+				"url": "https://github.com/Ylianst/MeshCentral"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Unattended agents for Windows/Linux/macOS give shell, file, and desktop control behind a self-hosted TLS server. Management-focused rather than low-latency streaming, and the Node.js stack adds moving parts to secure.",
+				"fr": "Agents sans surveillance pour Windows/Linux/macOS : shell, fichiers, bureau, pilotés par un serveur TLS auto-hébergé. Orienté administration, pas streaming basse latence — le stack Node.js, lui, reste à sécuriser."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "KasmVNC",
+			"source": {
+				"host": "github",
+				"path": "kasmtech/KasmVNC",
+				"url": "https://github.com/kasmtech/KasmVNC"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Modern VNC server streaming X11 desktops to the browser, built on TurboVNC with audio and clipboard. Latency stays in VNC-family territory — fine for container work, not twitch gaming.",
+				"fr": "Bâti sur TurboVNC, il pousse les bureaux X11 vers le navigateur, audio et presse-papiers compris. Latence de la famille VNC : très bien pour les conteneurs, pas pour le jeu nerveux."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "xrdp",
+			"source": {
+				"host": "github",
+				"path": "neutrinolabs/xrdp",
+				"url": "https://github.com/neutrinolabs/xrdp"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Serves Linux desktops to the stock RDP client already on every OS — no install on the viewer. Interactive latency trails Parsec, and session-backend setup can turn fiddly.",
+				"fr": "Bureaux Linux servis au client RDP natif de chaque OS, rien à installer. La latence interactive reste en retrait de Parsec, et la config des sessions peut être capricieuse."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FreeRDP",
+			"source": {
+				"host": "github",
+				"path": "FreeRDP/FreeRDP",
+				"url": "https://github.com/FreeRDP/FreeRDP"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The xfreerdp CLI and libfreerdp SDK many GUI clients are built on — NLA, smartcard, gateway, multi-monitor. Client only, so it needs an RDP server on the far end.",
+				"fr": "Le CLI xfreerdp et le SDK libfreerdp qui font tourner bien des clients graphiques : NLA, smartcard, gateway, multi-écran. Client uniquement — il faut donc un serveur RDP en face."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Xpra",
+			"source": {
+				"host": "github",
+				"path": "Xpra-org/xpra",
+				"url": "https://github.com/Xpra-org/xpra"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Detached remote X sessions survive network drops, and you share single apps, not just the whole desktop. X11-centric — Wayland support is partial — and not tuned for 60fps game streaming.",
+				"fr": "Sessions X détachables qui survivent aux coupures réseau, avec partage d’applis individuelles plutôt que du bureau entier. Reste centré X11 — Wayland partiellement géré — et loin du streaming 60 fps."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Neko",
+			"source": {
+				"host": "github",
+				"path": "m1k1o/neko",
+				"url": "https://github.com/m1k1o/neko"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Virtual browser and desktop in a container, multi-user watch-party with WebRTC streaming and optional GPU. It shares that container, not your machine — and WebRTC/GPU setup can be finicky.",
+				"fr": "Navigateur et bureau virtuels dans un conteneur, sessions multi-utilisateurs en WebRTC avec GPU en option. Il partage ce conteneur, pas votre machine — et la config WebRTC/GPU peut être capricieuse."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Looking Glass",
+			"source": {
+				"host": "github",
+				"path": "gnif/LookingGlass",
+				"url": "https://github.com/gnif/LookingGlass"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Sub-10ms KVM framebuffer sharing over shared memory — the nearest OSS reach to Parsec-grade latency. Needs KVM with PCIe GPU passthrough, so niche hardware and one machine only, no Internet P2P.",
+				"fr": "Framebuffer KVM partagé via mémoire partagée (IVSHMEM), sous 10 ms — l’équivalent OSS le plus proche de la latence Parsec. Matériel de niche : KVM plus passthrough GPU PCIe, une machine, pas de P2P."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

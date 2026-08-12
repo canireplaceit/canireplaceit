@@ -92,6 +92,237 @@
 				"en": "Managed Valkey at a flat, predictable price. No modules (no RedisJSON, no search), so check what you're using first.",
 				"fr": "Valkey managé à prix fixe et prévisible. Aucun module (ni RedisJSON ni recherche) : vérifiez d’abord ce que vous utilisez."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Redis",
+			"source": {
+				"host": "github",
+				"path": "redis/redis",
+				"url": "https://github.com/redis/redis"
+			},
+			"license": "SSPL-1.0",
+			"effort": "docker",
+			"note": {
+				"en": "The exact engine Redis Cloud runs on, self-hosted with the full command set, modules, and clustering. Since 7.4 it's SSPL-1.0, and you supply HA, backups, and monitoring.",
+				"fr": "Le moteur exact que Redis Cloud fait tourner, auto-hébergé, avec le jeu complet de commandes, les modules et le clustering. Depuis 7.4, licence SSPL-1.0 : HA, sauvegardes et supervision sont à votre charge."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Garnet",
+			"source": {
+				"host": "github",
+				"path": "microsoft/garnet",
+				"url": "https://github.com/microsoft/garnet"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Microsoft's C# drop-in for the Redis protocol, focused on raw throughput and low latency, MIT-licensed. Younger than Redis, so not every module or command is supported.",
+				"fr": "Le drop-in C# de Microsoft pour le protocole Redis, taillé pour le débit brut et la faible latence, sous licence MIT. Plus jeune, il ne couvre pas tous les modules et commandes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "KeyDB",
+			"source": {
+				"host": "github",
+				"path": "Snapchat/KeyDB",
+				"url": "https://github.com/Snapchat/KeyDB"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Snapchat's multithreaded Redis fork, protocol-compatible, with active replication and flash storage. Dormant — nothing committed since May 2024.",
+				"fr": "Le fork multithread de Redis maintenu par Snapchat, compatible protocole, avec réplication active et stockage flash. En sommeil : aucun commit depuis mai 2024."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Redict",
+			"source": {
+				"host": "codeberg",
+				"path": "redict/redict",
+				"url": "https://codeberg.org/redict/redict"
+			},
+			"license": "LGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Community fork of Redis 7.2 relicensed under LGPL — classic feature set, no SSPL. Trails upstream development and has a smaller ecosystem.",
+				"fr": "Fork communautaire de Redis 7.2 passé en LGPL : ensemble de fonctionnalités classique, pas de SSPL. En retard sur l’amont, écosystème plus réduit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pikiwidb",
+			"source": {
+				"host": "github",
+				"path": "OpenAtomFoundation/pikiwidb",
+				"url": "https://github.com/OpenAtomFoundation/pikiwidb"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "OpenAtom's RocksDB-backed Redis-compatible store, successor to Pika, holding datasets bigger than RAM. Disk-backed, so slower than memory, and not every command exists.",
+				"fr": "Le successeur de Pika, signé OpenAtom : store Redis-compatible sur RocksDB qui tient des données plus grosses que la RAM. Sur disque, donc plus lent que la mémoire, et certaines commandes manquent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Titan",
+			"source": {
+				"host": "github",
+				"path": "distributedio/titan",
+				"url": "https://github.com/distributedio/titan"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Distributed NoSQL store speaking Redis, Memcached, and LevelDB protocols in one cluster for scale-out. Dormant since 2023, and clustered ops are heavier to run.",
+				"fr": "Store NoSQL distribué parlant les protocoles Redis, Memcached et LevelDB dans un même cluster, pour passer à l’échelle. En sommeil depuis 2023, et l’exploitation en cluster est plus lourde."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tair",
+			"source": {
+				"host": "github",
+				"path": "alibaba/tair",
+				"url": "https://github.com/alibaba/tair"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Alibaba's distributed in-memory KV store with a Redis-compatible mode, proven at Alibaba scale. Dormant since 2019 — steep cluster setup, docs mostly Chinese.",
+				"fr": "Le KV distribué en mémoire d’Alibaba, avec un mode compatible Redis, éprouvé à l’échelle Alibaba. En sommeil depuis 2019 : configuration de cluster abrupte, documentation surtout en chinois."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SSDB",
+			"source": {
+				"host": "github",
+				"path": "ideawu/ssdb",
+				"url": "https://github.com/ideawu/ssdb"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight LevelDB-backed store with a Redis-compatible API plus an HTTP interface, a simple durable cache. Dormant since 2022 — single-writer, limited clustering.",
+				"fr": "Petit store sur LevelDB avec une API compatible Redis et une interface HTTP, cache durable et simple à déployer. En sommeil depuis 2022 : écriture mono-écrivain, clustering limité."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "iredis",
+			"source": {
+				"host": "github",
+				"path": "laixintao/iredis",
+				"url": "https://github.com/laixintao/iredis"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Not a database — an interactive CLI for Redis with autocompletion, highlighting, and inline docs. A friendlier redis-cli, still needs a server to talk to.",
+				"fr": "Pas une base : un CLI interactif pour Redis, avec autocomplétion, coloration et aide en ligne. Un redis-cli plus aimable, mais il lui faut toujours un serveur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Another Redis Desktop Manager",
+			"source": {
+				"host": "github",
+				"path": "qishibo/AnotherRedisDesktopManager",
+				"url": "https://github.com/qishibo/AnotherRedisDesktopManager"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The most-starred open Redis client: a cross-platform GUI for browsing and editing keys, SSH tunnels included. Needs its own server — no managed-cloud features.",
+				"fr": "Le client Redis open source le plus étoilé : GUI multiplateforme pour parcourir et éditer les clés, tunnels SSH compris. Il faut son propre serveur, pas de fonctions cloud managé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "RedisInsight",
+			"source": {
+				"host": "github",
+				"path": "redis/RedisInsight",
+				"url": "https://github.com/redis/RedisInsight"
+			},
+			"license": "SSPL-1.0",
+			"effort": "managed",
+			"note": {
+				"en": "The official GUI, covering the Cloud-console essentials — key browser, command workbench, memory analysis. A client, not a managed database, under SSPL-1.0.",
+				"fr": "Le GUI officiel, qui couvre l’essentiel de la console Cloud : navigateur de clés, workbench de commandes, analyse mémoire. Un client, pas une base managée, sous SSPL-1.0."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

@@ -57,6 +57,7 @@ import {
 import { Logo, ProductLogo, Tag, VerdictMark } from "./components";
 import type { Key, Lang } from "./i18n";
 import { MEASURE } from "./listShared";
+import { PageShell } from "./shell";
 
 type T = (k: Key) => string;
 type TC = (v: { en: string }) => string;
@@ -745,21 +746,21 @@ export function EstimatePage({
 	);
 
 	return (
-		<main className={`mx-auto ${MEASURE} px-4 pt-10 pb-16`}>
-			<p
-				className="font-mono text-[10px] uppercase tracking-[0.2em]"
-				style={{ color: "var(--brand)" }}
-			>
-				{t("plan.eyebrow")}
-			</p>
-			<h1 className="mt-2 font-display text-3xl font-bold tracking-tight text-balance">
-				{t("plan.title")}
-			</h1>
-			<p className="mt-3 max-w-2xl text-pretty text-muted">{t("plan.blurb")}</p>
-
+		<PageShell
+			measure={MEASURE}
+			trail={[
+				{ label: t("page.home"), href: paths.home(lang) },
+				{ label: t("plan.eyebrow") },
+			]}
+			eyebrow={
+				<span style={{ color: "var(--brand)" }}>{t("plan.eyebrow")}</span>
+			}
+			title={t("plan.title")}
+			lede={t("plan.blurb")}
+		>
 			{/* ---------------- step 1 ---------------- */}
 
-			<section className="mt-10">
+			<section>
 				{/* The count comes from the catalogue in hand, never from a number
 				    written into the copy — the catalogue grows every week. */}
 				<Step
@@ -1077,6 +1078,6 @@ export function EstimatePage({
 					</form>
 				)}
 			</section>
-		</main>
+		</PageShell>
 	);
 }

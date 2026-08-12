@@ -1,0 +1,261 @@
+{
+	"slug": "cat",
+	"name": "cat",
+	"domain": null,
+	"category": "shell-terminal",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "Yes, for interactive reading. bat reproduces cat exactly when piped, so aliasing it is safe; for byte-for-byte concatenation cat remains the right tool.",
+		"fr": "Oui, pour la lecture interactive. bat reproduit le comportement de cat dans les pipes, donc l’alias est sans risque ; pour la concaténation brute d’octets, cat reste le bon outil."
+	},
+	"whatYouLose": [
+		{
+			"en": "Ubiquity on every Unix-like machine",
+			"fr": "Omniprésence sur chaque machine Unix"
+		},
+		{
+			"en": "Decades of muscle memory",
+			"fr": "Des décennies de réflexes"
+		},
+		{
+			"en": "Out-of-the-box availability",
+			"fr": "Disponibilité immédiate sur tout système"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "bat",
+			"source": {
+				"host": "github",
+				"path": "sharkdp/bat",
+				"url": "https://github.com/sharkdp/bat"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Highlighting, line numbers, git gutter and paging only pay off interactively; in a pipe bat does exactly what cat does, so the extra features are dead weight for scripts.",
+				"fr": "La coloration, les numéros de ligne, le gutter git et la pagination ne servent qu’en lecture interactive ; dans un pipe, bat se contente de reproduire cat, autant d’options inutiles pour les scripts."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "hexyl",
+			"source": {
+				"host": "github",
+				"path": "sharkdp/hexyl",
+				"url": "https://github.com/sharkdp/hexyl"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "sharkdp's hex dumper renders binary with colored offset/hex/ASCII columns and byte boundaries. Sane defaults for quick inspection, but the dense output is not meant for plain text.",
+				"fr": "Hexdump coloré de sharkdp : binaire en colonnes offset/hex/ASCII délimitées, regroupements configurables. Parfait pour inspecter vite un binaire, trop dense pour un texte brut."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "viu",
+			"source": {
+				"host": "github",
+				"path": "atanunq/viu",
+				"url": "https://github.com/atanunq/viu"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Renders pictures in the terminal via kitty, wezterm, iTerm2 or sixel, falling back to ANSI blocks. Tiny single binary with archive previews, but true color needs a capable terminal.",
+				"fr": "Affiche les images dans le terminal via kitty, wezterm, iTerm2 ou sixel, repli sur blocs ANSI. Binaire unique minuscule, archives et dossiers inclus ; vraies couleurs selon le terminal."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "chafa",
+			"source": {
+				"host": "github",
+				"path": "hpjansson/chafa",
+				"url": "https://github.com/hpjansson/chafa"
+			},
+			"license": "LGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Renders images as ANSI art, so it works anywhere, including headless SSH sessions. Symbol stretching and sixel/kitty output help, but you trade true pixels for block-art approximation and tuning.",
+				"fr": "Rend les images en art ANSI : utilisable partout, même en SSH sans écran. Sortie sixel/kitty au choix, mais approximatif — des blocs à régler, pas de vrais pixels."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "mdcat",
+			"source": {
+				"host": "github",
+				"path": "swsnr/mdcat",
+				"url": "https://github.com/swsnr/mdcat"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Archived upstream — the author stopped. Still, it renders markdown with highlighted code blocks, tables, links and OSC 8-aware features. Markdown only, not a general cat.",
+				"fr": "Archivé en amont — l’auteur a stoppé le projet. Rend néanmoins le markdown : blocs de code surlignés, tableaux, liens, fonctions OSC 8. Markdown uniquement, pas un cat général."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "glow",
+			"source": {
+				"host": "github",
+				"path": "charmbracelet/glow",
+				"url": "https://github.com/charmbracelet/glow"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Charmbracelet’s markdown renderer: styled output with an interactive pager that searches and wraps. Runs piped or standalone with configurable themes. Not a general viewer; interactive mode costs keystrokes.",
+				"fr": "Rendu markdown soigné de charmbracelet : pager interactif avec recherche et retour à la ligne, thèmes configurables. Fonctionne en pipe comme en solo. Pas un visualiseur général ; le mode interactif s’apprend."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ccat",
+			"source": {
+				"host": "github",
+				"path": "owenthereal/ccat",
+				"url": "https://github.com/owenthereal/ccat"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Dormant since September 2022 — no commit in three years. The Go binary still highlights common languages, but its language set and themes trail bat.",
+				"fr": "Dormant depuis septembre 2022, trois ans sans commit. Le binaire Go surligne toujours les langages courants, mais son éventail de langues et ses thèmes restent en retard sur bat."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "lolcat",
+			"source": {
+				"host": "github",
+				"path": "busyloop/lolcat",
+				"url": "https://github.com/busyloop/lolcat"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Dormant since March 2024 — no commit in two years. Chainable rainbow gradient over any command’s output, with ports in Ruby, Go, Rust and Python. Purely cosmetic and slow on big dumps.",
+				"fr": "Dormant depuis mars 2024, deux ans sans commit. Dégradé arc-en-ciel chaînable sur n’importe quelle sortie, porté en Ruby, Go, Rust et Python. Purement décoratif, et lent sur les gros dumps."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "fx",
+			"source": {
+				"host": "github",
+				"path": "antonmedv/fx",
+				"url": "https://github.com/antonmedv/fx"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Interactive JSON explorer with jq and gron-style queries, streaming input for huge files, and a plain formatter mode. JSON only — the TUI takes a little learning.",
+				"fr": "Explorateur JSON interactif : requêtes façon jq ou gron, flux en continu pour les gros fichiers, et mode formatage simple. JSON uniquement ; l’interface TUI demande un peu de pratique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "catimg",
+			"source": {
+				"host": "github",
+				"path": "posva/catimg",
+				"url": "https://github.com/posva/catimg"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Displays images via ANSI escape codes, as thumbnails or direct files, from a C binary with a single dependency. Image-only scope, and quality hinges on the terminal.",
+				"fr": "Affiche les images via codes d’échappement ANSI, en vignettes ou en direct, depuis un binaire C à dépendance unique. Borné aux images, et le rendu dépend du terminal."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "rich-cli",
+			"source": {
+				"host": "github",
+				"path": "Textualize/rich-cli",
+				"url": "https://github.com/Textualize/rich-cli"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "General pretty-printer from Textualize: syntax highlighting for many file types, plus dedicated JSON, CSV and markdown handling and a Rich TUI. Pip-installed Python, so heavier startup than a bare binary.",
+				"fr": "Pretty-print général signé Textualize : surlignage de nombreux types de fichiers, traitements dédiés JSON, CSV et markdown, TUI Rich. Installé via pip en Python, démarrage plus lourd qu’un binaire nu."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

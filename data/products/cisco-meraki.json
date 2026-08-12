@@ -97,6 +97,178 @@
 				"en": "Buy the hardware once, run the controller yourself, pay nothing per year. The controller is proprietary and Ubiquiti support is a community forum.",
 				"fr": "Achetez le matériel une fois, faites tourner le contrôleur vous-même, ne payez rien par an. Le contrôleur est propriétaire et le support Ubiquiti est un forum communautaire."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "OPNsense",
+			"source": {
+				"host": "github",
+				"path": "opnsense/core",
+				"url": "https://github.com/opnsense/core"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Hardened firewall/router distro with Suricata IDS/IPS, WireGuard and a web GUI. Solid default pick, but config is per-box: no cloud multi-site dashboard, and HA or multi-WAN mean manual setup.",
+				"fr": "Distro pare-feu/routeur avec IDS/IPS Suricata, WireGuard et une interface web. Bon choix par défaut, mais config est par boîte : pas de dashboard cloud multi-sites, et HA ou multi-WAN demandent du réglage manuel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pfSense",
+			"source": {
+				"host": "gitlab",
+				"path": "pfsense/pfsense",
+				"url": "https://gitlab.com/pfsense/pfsense"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Mature firewall/VPN gateway, and the plugin set is why people stay: pfBlockerNG, Netflow, CARP HA. No cloud fleet dashboard, and the community plugins are uneven.",
+				"fr": "Passerelle pare-feu/VPN mature, et l’écosystème de plugins fait qu’on y reste : pfBlockerNG, Netflow, haute disponibilité CARP. Pas de dashboard cloud pour la flotte, et la qualité des plugins communautaires varie."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "VyOS",
+			"source": {
+				"host": "github",
+				"path": "vyos/vyos-build",
+				"url": "https://github.com/vyos/vyos-build"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Junos-style CLI network OS for routing, BGP and IPsec on commodity x86 hardware. The rest — WAN failover, SD-WAN orchestration — is DIY: no web UI, no wireless.",
+				"fr": "OS réseau à CLI façon Junos pour le routage, BGP et l’IPsec sur du x86 standard. Le reste (failover WAN, orchestration SD-WAN) est à monter soi-même : sans interface web ni sans-fil."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Subscription image; OpenCore free build loses little.",
+					"fr": "Image abonnés : la build OpenCore perd peu."
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Headscale",
+			"source": {
+				"host": "github",
+				"path": "juanfont/headscale",
+				"url": "https://github.com/juanfont/headscale"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted Tailscale control server: WireGuard mesh VPN with ACLs and OIDC SSO, driven from the CLI. It is node-level VPN, not firewall or AP management, and there is no built-in web UI.",
+				"fr": "Serveur de contrôle Tailscale auto-hébergé : VPN maillé WireGuard, ACL et SSO OIDC, piloté en CLI. C’est un VPN de nœuds, pas un pare-feu ou une gestion de bornes, sans interface web intégrée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "NetBird",
+			"source": {
+				"host": "github",
+				"path": "netbirdio/netbird",
+				"url": "https://github.com/netbirdio/netbird"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Zero-trust WireGuard overlay with identity-aware access policies, self-hostable and SSO-backed. It is connectivity only — no firewall or AP management — and the advanced features push toward paid cloud.",
+				"fr": "Overlay WireGuard zero-trust avec politiques d’accès liées à l’identité, auto-hébergeable et adossé au SSO. Connectivité pure, sans pare-feu ni gestion de bornes ; les fonctions avancées poussent vers le cloud payant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "NetBox",
+			"source": {
+				"host": "github",
+				"path": "netbox-community/netbox",
+				"url": "https://github.com/netbox-community/netbox"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Source of truth for IPAM, devices, racks, circuits and VLANs — the Meraki inventory story. REST/GraphQL, custom fields, tags. It records devices, it does not control them: no wireless, no VPN.",
+				"fr": "Source de vérité pour IPAM, appareils, baies, circuits et VLAN — l’histoire de l’inventaire Meraki. API REST et GraphQL, champs personnalisés, tags. Il recense les appareils, sans les piloter : ni sans-fil ni VPN."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenNDS",
+			"source": {
+				"host": "github",
+				"path": "openNDS/openNDS",
+				"url": "https://github.com/openNDS/openNDS"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Captive portal daemon for guest WiFi — the Meraki splash-page role. Themeable, with voucher/token auth and a central FAS API. A single daemon, not a platform: no dashboard on its own.",
+				"fr": "Démon de portail captif pour le WiFi invité — le rôle splash de Meraki. Vouchers, jetons, API FAS centrale. Une pièce, pas une plateforme : pas de tableau de bord."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FreeRADIUS",
+			"source": {
+				"host": "github",
+				"path": "FreeRADIUS/freeradius-server",
+				"url": "https://github.com/FreeRADIUS/freeradius-server"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The de-facto open RADIUS/AAA server, powering 802.1X and WPA2-Enterprise with LDAP, AD or SQL backends. A backend service: it needs a controller to be useful, and there is no web management UI.",
+				"fr": "Le serveur RADIUS/AAA open de référence, qui alimente 802.1X et WPA2-Enterprise sur LDAP, AD ou SQL. Service de fond : sans contrôleur il ne sert à rien, et pas d’interface de gestion web."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

@@ -87,6 +87,174 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Zotero",
+			"source": {
+				"host": "github",
+				"path": "zotero/zotero",
+				"url": "https://github.com/zotero/zotero"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "One-click capture from any web page, 10,000+ CSL citation styles, self-hostable sync server. But it manages references; it is no discovery or citation-index service, and no journal metrics come with it.",
+				"fr": "Capture en un clic depuis n’importe quelle page, 10 000 styles CSL, serveur de sync auto-hébergeable. Gestion de références, pas service de découverte : pas de métriques de revues."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "JabRef",
+			"source": {
+				"host": "github",
+				"path": "JabRef/jabref",
+				"url": "https://github.com/JabRef/jabref"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Edit and validate BibTeX/BibLaTeX entries, fetching metadata from Crossref, OpenAlex or arXiv and matching journal abbreviations. It stays on your desktop for LaTeX workflows — no web UI, no citation metrics.",
+				"fr": "Édition et validation d’entrées BibTeX/BibLaTeX, métadonnées depuis Crossref, OpenAlex, arXiv, abréviations de revues. Application de bureau pour workflows LaTeX : pas d’interface web ni métriques de citations."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "papis",
+			"source": {
+				"host": "github",
+				"path": "papis/papis",
+				"url": "https://github.com/papis/papis"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Terminal bibliography manager that stores BibTeX as plain, git-friendly files and fetches metadata from OpenAlex, Crossref or arXiv. Built for scripting, not discovery — no web UI, no impact factors.",
+				"fr": "Gestionnaire de bibliographie en terminal, bibliothèque BibTeX en fichiers versionnables git, métadonnées depuis OpenAlex, Crossref ou arXiv. Pour le scripting, pas la découverte : pas d’interface web ni facteurs d’impact."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "fatcat",
+			"source": {
+				"host": "github",
+				"path": "internetarchive/fatcat",
+				"url": "https://github.com/internetarchive/fatcat"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Open catalog behind scholar.archive.org — CC0 metadata dumps, editable metadata API — but dormant since 31 July 2024. Runs on serious infra (Rust, Postgres, indexer); no journal rankings or citation metrics.",
+				"fr": "Catalogue ouvert derrière scholar.archive.org : dumps CC0 et API de métadonnées éditable — mais dormant depuis le 31 juillet 2024. Nécessite une infra lourde : ni classements ni métriques de citations."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GROBID",
+			"source": {
+				"host": "github",
+				"path": "grobidOrg/grobid",
+				"url": "https://github.com/grobidOrg/grobid"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "REST service with an official Docker image that converts PDFs to structured TEI — reference lists, affiliations, DOIs. Ingestion layer only: no search UI, no citation index; batch research needs orchestration.",
+				"fr": "Service REST, image Docker officielle, qui convertit les PDF en TEI structuré — références, affiliations, DOIs. Couche d’ingestion seulement : pas de recherche, pas d’index ; le batch exige de l’orchestration."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ASReview",
+			"source": {
+				"host": "github",
+				"path": "asreview/asreview",
+				"url": "https://github.com/asreview/asreview"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Active learning puts the most relevant papers first as you screen, importing WoS, Scopus, RIS and BibTeX exports. It screens; it does not discover — you supply the dataset; no journal metrics.",
+				"fr": "L’apprentissage actif remonte les plus pertinents en premier au screening, import de WoS, Scopus, RIS et BibTeX. Il trie, il ne découvre pas : vous fournissez le dataset, pas de métriques."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dissemin",
+			"source": {
+				"host": "github",
+				"path": "dissemin/dissemin",
+				"url": "https://github.com/dissemin/dissemin"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "It harvests Crossref, OpenAlex and Unpaywall to flag open-access availability, and deposits papers into repositories — but upstream it is archived since 2021, and it does no citation analysis, no rankings.",
+				"fr": "Signale la disponibilité en accès ouvert depuis Crossref, OpenAlex et Unpaywall, avec dépôt web — mais archivé en amont depuis 2021. Accès ouvert, pas analyse de citations : ni classements ni métriques."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "scholarly",
+			"source": {
+				"host": "github",
+				"path": "scholarly-python-package/scholarly",
+				"url": "https://github.com/scholarly-python-package/scholarly"
+			},
+			"license": "Unlicense",
+			"effort": "managed",
+			"note": {
+				"en": "Python library that scrapes Google Scholar for citation counts, h-index and cited-by — a scripted shortcut to WoS-style numbers. It scrapes, though: ToS gray zone, breaks when Scholar changes, no self-hosted index.",
+				"fr": "Librairie Python qui scrape Google Scholar pour citations, h-index et cited-by — raccourci scripté vers les chiffres façon WoS. Zone grise des CGU, fragile aux changements de page, pas d’index auto-hébergé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

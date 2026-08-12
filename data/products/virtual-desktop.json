@@ -93,6 +93,111 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Moonlight",
+			"source": {
+				"host": "github",
+				"path": "moonlight-stream/moonlight-qt",
+				"url": "https://github.com/moonlight-stream/moonlight-qt"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Open client half of Sunshine. Streams desktop and games, PCVR included, to any device at low-latency 4K/HDR. Client only — you bring the host. Originally tied to NVIDIA GameStream.",
+				"fr": "Côté client open-source de Sunshine. Diffuse desktop et jeux, PCVR compris, vers n’importe quel écran, en 4K/HDR à faible latence. Client uniquement : il faut fournir l’hôte, issu de NVIDIA GameStream."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Simula",
+			"source": {
+				"host": "github",
+				"path": "SimulaVR/Simula",
+				"url": "https://github.com/SimulaVR/Simula"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "VR window manager for Linux: your real desktop as floating panels, X11-composited under OpenXR, moved by hand or gamepad. X11 only — no Wayland, no streaming; the desktop runs on the PC itself.",
+				"fr": "Gestionnaire de fenêtres VR pour Linux : le vrai desktop en panneaux flottants, composité via X11 sous OpenXR. X11 uniquement, pas de Wayland ni de streaming : le desktop tourne sur le PC."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenHMD",
+			"source": {
+				"host": "github",
+				"path": "OpenHMD/OpenHMD",
+				"url": "https://github.com/OpenHMD/OpenHMD"
+			},
+			"license": "BSL-1.0",
+			"effort": "managed",
+			"note": {
+				"en": "Open HMD driver layer, not a streaming app: a cross-platform C library so VR stacks can talk to Quest, Index and others. Support varies by model; momentum has moved to OpenXR.",
+				"fr": "Couche pilote HMD, pas une app de streaming : bibliothèque C multiplateforme pour que les piles VR parlent aux Quest, Index et autres. Support variable selon les modèles ; l’écosystème est parti vers OpenXR."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Monado",
+			"source": {
+				"host": "gitlab",
+				"path": "monado/monado",
+				"url": "https://gitlab.freedesktop.org/monado/monado"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Your real Linux desktop composited into VR: an open-source OpenXR 1.x runtime with controller and hand tracking, plus remote/streamed desktop. Linux-first, headset coverage uneven; graphics tuning required.",
+				"fr": "Votre vrai desktop Linux composité dans le VR : runtime OpenXR 1.x open-source avec manettes et suivi des mains, et desktop distant/streamé. D’abord Linux, couverture casques inégale ; réglages graphiques requis."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "xrdesktop",
+			"source": {
+				"host": "gitlab",
+				"path": "xrdesktop/xrdesktop",
+				"url": "https://gitlab.freedesktop.org/xrdesktop/xrdesktop"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Archived: development folded into Monado. Still usable — pioneer of floating desktop windows in VR for Linux, grab/resize/position with controllers, atop SteamVR or Monado. Linux only; needs an OpenVR/OpenXR runtime present.",
+				"fr": "Archivé : le développement a rejoint Monado, mais il reste utilisable. Pionnier des fenêtres de desktop flottantes en VR sous Linux, saisies, redimensionnées et déplacées à la manette. Runtime OpenVR/OpenXR requis."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

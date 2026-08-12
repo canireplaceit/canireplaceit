@@ -1,0 +1,324 @@
+{
+	"slug": "npm",
+	"name": "npm",
+	"domain": "npmjs.com",
+	"category": "developer-tooling",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "Yes. pnpm and Bun both replace npm as an installer, and Bun goes further. npm ships with Node on every machine, so keeping it is free and switching stays a choice, not a necessity.",
+		"fr": "Oui. pnpm comme Bun remplacent npm en tant qu’installeur, et Bun va plus loin. npm est livré avec Node sur toutes les machines, le garder ne coûte donc rien : changer reste un choix, pas une obligation."
+	},
+	"whatYouLose": [
+		{
+			"en": "The default installer shipped with Node",
+			"fr": "L’installeur par défaut livré avec Node"
+		},
+		{
+			"en": "Muscle memory of npm commands",
+			"fr": "Les automatismes des commandes npm"
+		},
+		{
+			"en": "Npm on every machine already",
+			"fr": "Npm déjà présent sur chaque machine"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "pnpm",
+			"source": {
+				"host": "github",
+				"path": "pnpm/pnpm",
+				"url": "https://github.com/pnpm/pnpm"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Dependencies live once on disk in a content-addressed store with hard links. Strict by default, it catches undeclared dependencies, which is both its strength and its friction. Workspaces are excellent.",
+				"fr": "Un store à adressage par contenu avec hard links, donc chaque dépendance n’existe qu’une fois sur disque. Strict par défaut, il repère les dépendances non déclarées, à la fois sa force et sa friction. Les workspaces sont excellents."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Bun",
+			"source": {
+				"host": "github",
+				"path": "oven-sh/bun",
+				"url": "https://github.com/oven-sh/bun"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Installs dramatically faster and is also a runtime, bundler and test runner, so several devDependencies disappear. That reach is the cost: adopting Bun is a bigger commitment than adopting an installer.",
+				"fr": "Installe nettement plus vite et sert aussi de runtime, de bundler et de test runner, donc plusieurs devDependencies disparaissent. Ce rayon d’action est aussi le prix à payer : adopter Bun est un engagement plus lourd que d’adopter un simple installeur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Yarn (Classic)",
+			"source": {
+				"host": "github",
+				"path": "yarnpkg/yarn",
+				"url": "https://github.com/yarnpkg/yarn"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Defined workspace support and deterministic lockfiles, but it is now in maintenance mode, security fixes only — reach for Berry or pnpm for new projects.",
+				"fr": "A défini le support des workspaces et les lockfiles déterministes, mais en maintenance depuis : correctifs de sécurité uniquement, et Berry ou pnpm pour les nouveaux projets."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Yarn Berry (v4)",
+			"source": {
+				"host": "github",
+				"path": "yarnpkg/berry",
+				"url": "https://github.com/yarnpkg/berry"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Plug'n'Play stores dependencies as zips, so a clone runs immediately, and its constraint solver is genuinely unique — but anything assuming node_modules exists breaks, and the community is smaller than npm's.",
+				"fr": "Le Plug'n'Play stocke les dépendances en zips, le clone tourne immédiatement, son moteur de contraintes est unique — mais les outils qui supposent node_modules cassent, et la communauté reste plus réduite."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Deno",
+			"source": {
+				"host": "github",
+				"path": "denoland/deno",
+				"url": "https://github.com/denoland/deno"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "URL-based imports, built-in TypeScript and explicit permissions — but the ecosystem is tiny next to npm's millions, and it is not a drop-in: projects must be written for Deno.",
+				"fr": "Imports par URL, TypeScript intégré, permissions explicites — mais l’écosystème est minuscule à côté des millions de paquets npm, et ce n’est pas un remplacement direct : il faut écrire pour Deno."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ni",
+			"source": {
+				"host": "github",
+				"path": "antfu-collective/ni",
+				"url": "https://github.com/antfu-collective/ni"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A zero-dependency wrapper that reads the lockfile and maps the command — handy in mixed teams, but not a manager, and the underlying tool must be installed.",
+				"fr": "Un wrapper sans dépendance qui lit le lockfile et traduit la commande vers le bon gestionnaire — pratique, mais ce n’est pas un gestionnaire et l’outil sous-jacent doit être installé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "volta",
+			"source": {
+				"host": "github",
+				"path": "volta-cli/volta",
+				"url": "https://github.com/volta-cli/volta"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Pins Node and package-manager versions per project so the whole team shares one toolchain and 'works on my machine' disappears — but it is an extra tool to learn, not a manager.",
+				"fr": "Épingle les versions de Node et du gestionnaire par projet pour aligner l’équipe et tuer le « ça marche chez moi » — mais c’est un outil de plus à apprendre, pas un gestionnaire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "corepack",
+			"source": {
+				"host": "github",
+				"path": "nodejs/corepack",
+				"url": "https://github.com/nodejs/corepack"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Ships with Node, so no global install, and pins the manager version per project. But it only manages versions — the manager itself does the work, and it needs Node 16.13+.",
+				"fr": "Livré avec Node, sans installation globale, il épingle la version du gestionnaire par projet. Mais il ne gère que des versions — le gestionnaire fait le travail, et il faut Node 16.13+."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "nypm",
+			"source": {
+				"host": "github",
+				"path": "unjs/nypm",
+				"url": "https://github.com/unjs/nypm"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A programmatic API that detects the installed manager and handles npm, pnpm, yarn, bun or deno alike — but a young project (704 stars) that wraps rather than replaces.",
+				"fr": "Une API programmatique qui détecte le gestionnaire installé et parle indifféremment à npm, pnpm, yarn, bun ou deno — mais un jeune projet (704 étoiles) qui enveloppe sans remplacer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Verdaccio",
+			"source": {
+				"host": "github",
+				"path": "verdaccio/verdaccio",
+				"url": "https://github.com/verdaccio/verdaccio"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "A lightweight proxy registry that caches npmjs.com hits and hosts private packages — good for cutting registry load, but it mirrors npmjs rather than replacing it, and it is npm-only.",
+				"fr": "Un registre proxy léger qui met en cache les requêtes vers npmjs.com et héberge des paquets privés — mais il reflète npmjs sans le remplacer et ne parle que npm."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "cnpmcore",
+			"source": {
+				"host": "github",
+				"path": "cnpm/cnpmcore",
+				"url": "https://github.com/cnpm/cnpmcore"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Successor to cnpmjs.org, it powers China's npmmirror.com and syncs from any upstream registry — but it needs a database, and like any private registry it mirrors npmjs rather than replacing it.",
+				"fr": "Successeur de cnpmjs.org, il alimente npmmirror.com et se synchronise depuis n’importe quel registre amont — mais il exige une base de données et, comme tout registre privé, reflète npmjs sans le remplacer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "local-npm",
+			"source": {
+				"host": "github",
+				"path": "local-npm/local-npm",
+				"url": "https://github.com/local-npm/local-npm"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Last commit February 2020, so treat it as frozen: it mirrored npm's registry to disk for offline work, a niche idea that eats disk space and still needed npm underneath.",
+				"fr": "Dernier commit en février 2020, donc à considérer comme figé : il dupliquait le registre npm sur disque pour travailler hors ligne, une idée de niche gourmande en espace, qui exigeait npm."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "sinopia",
+			"source": {
+				"host": "github",
+				"path": "rlidwka/sinopia",
+				"url": "https://github.com/rlidwka/sinopia"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "No commits since February 2024, archived — the ancestor Verdaccio forked, a lightweight npm proxy in its day, but long since superseded; pick Verdaccio instead.",
+				"fr": "Plus de commit depuis février 2024, archivé : l’ancêtre que Verdaccio a forké, un proxy npm léger en son temps — mais dépassé depuis, autant prendre Verdaccio."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Gitea",
+			"source": {
+				"host": "github",
+				"path": "go-gitea/gitea",
+				"url": "https://github.com/go-gitea/gitea"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "A full self-hosted Git platform with a built-in npm registry, one deployment for code and packages — but the registry rides on the platform, which you must run and maintain.",
+				"fr": "Une plateforme Git auto-hébergée complète avec registre npm intégré, un seul déploiement pour le code et les paquets — mais le registre ne vient qu’avec la plateforme, qu’il faut faire tourner et maintenir."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 4
+}

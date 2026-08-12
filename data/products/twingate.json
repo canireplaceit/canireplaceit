@@ -101,6 +101,186 @@
 				"ssoInFree": true,
 				"dataResidency": "us-only"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Headscale",
+			"source": {
+				"host": "github",
+				"path": "juanfont/headscale",
+				"url": "https://github.com/juanfont/headscale"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted control server for the Tailscale protocol in a single binary, official clients work against it. SSO and ACLs come from config files — no web admin UI.",
+				"fr": "Serveur de contrôle auto-hébergé du protocole Tailscale dans un seul binaire, les clients officiels fonctionnent contre lui. SSO et ACL pilotés par fichiers de config, pas d’interface d’admin web."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenZiti",
+			"source": {
+				"host": "github",
+				"path": "openziti/ziti",
+				"url": "https://github.com/openziti/ziti"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Zero-trust overlay with in-kernel TLS, SDKs and a tunneler — the closest self-hostable Twingate equivalent. The controller/router cluster is real operational work.",
+				"fr": "Overlay zero-trust avec TLS in-kernel, SDK et tunneler — l’équivalent Twingate auto-hébergeable le plus fidèle. Le cluster contrôleur/routeurs demande du vrai travail d’exploitation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Teleport",
+			"source": {
+				"host": "github",
+				"path": "gravitational/teleport",
+				"url": "https://github.com/gravitational/teleport"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Identity-aware access to SSH, Kubernetes and databases with SSO and short-lived certs — a gate for infrastructure, not an overlay network. Cluster deployment is heavy.",
+				"fr": "Accès identité-aware à SSH, Kubernetes et bases de données, SSO et certificats éphémères — on verrouille l’infra, pas le réseau. Déployer le cluster est lourd."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise SSO and discovery",
+					"fr": "SSO entreprise et découverte"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Netmaker",
+			"source": {
+				"host": "github",
+				"path": "gravitl/netmaker",
+				"url": "https://github.com/gravitl/netmaker"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "WireGuard mesh with a web dashboard, ACL engine and remote-access gateways. The self-hostable management plane is the draw; HA and some features are paywalled.",
+				"fr": "Mesh WireGuard avec tableau de bord web, moteur d’ACL et passerelles d’accès distant. Le plan de gestion auto-hébergeable est l’attrait ; la HA et certaines fonctions sont payantes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "HA and some features",
+					"fr": "La HA et certaines fonctions"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "wg-easy",
+			"source": {
+				"host": "github",
+				"path": "wg-easy/wg-easy",
+				"url": "https://github.com/wg-easy/wg-easy"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Web UI, QR-code configs, one-command Docker — the simplest WireGuard layer out there. Hub-and-spoke only: no ACLs, no SSO, no identity.",
+				"fr": "UI web, configs par QR-code, Docker en une commande — la couche WireGuard la plus simple qui soit. En étoile uniquement : pas d’ACL, pas de SSO, pas d’identité."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nebula",
+			"source": {
+				"host": "github",
+				"path": "slackhq/nebula",
+				"url": "https://github.com/slackhq/nebula"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "MIT-licensed P2P mesh from Slack, secured by PKI certificates and tiny lighthouse relays. Operates as one static binary, but cert and config handling is manual, no web UI.",
+				"fr": "Mesh P2P de Slack sous licence MIT, sécurisé par certificats PKI et relais lighthouse. Un binaire statique, mais gestion manuelle des certificats et pas d’UI web."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "sshuttle",
+			"source": {
+				"host": "github",
+				"path": "sshuttle/sshuttle",
+				"url": "https://github.com/sshuttle/sshuttle"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "A CLI-only ‘poor man's VPN’ that tunnels traffic over an existing SSH connection, zero server config. No ACLs, no mesh, no clients beyond the command line.",
+				"fr": "Un « VPN du pauvre » en CLI qui tunnelise le trafic sur une connexion SSH, zéro config serveur. Pas d’ACL, pas de mesh, pas de client hors ligne de commande."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ZeroTier",
+			"source": {
+				"host": "github",
+				"path": "zerotier/ZeroTierOne",
+				"url": "https://github.com/zerotier/ZeroTierOne"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Overlay SDN with P2P paths and clients on every OS — its own protocol, not WireGuard. Self-hosted controller is under-documented, and Central’s managed UI is the paid path.",
+				"fr": "SDN overlay avec chemins P2P et clients sur tous les OS — son propre protocole, pas WireGuard. Le contrôleur auto-hébergé est sous-documenté, et l’UI managée Central est la voie payante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Managed Central UI",
+					"fr": "L’UI managée Central"
+				}
+			}
 		}
 	],
 	"priority": 3

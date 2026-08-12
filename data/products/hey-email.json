@@ -128,6 +128,153 @@
 				"en": "A third of the price, JMAP, real IMAP export and no lock-in on your own domain. You do not get HEY's opinions, which for many people was the point.",
 				"fr": "Un tiers du prix, JMAP, un vrai export IMAP et aucun verrouillage sur votre propre domaine. Vous n’avez pas les convictions de HEY, ce qui pour beaucoup était l’intérêt."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "neomutt",
+			"source": {
+				"host": "gitlab",
+				"path": "neomutt/neomutt",
+				"url": "https://gitlab.com/neomutt/neomutt"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Active fork of mutt, the most scriptable mail client around — IMAP, SMTP, POP3, notmuch sync. The muttrc learning curve is steep and threading still looks like the 90s.",
+				"fr": "Fork actif de mutt, le client mail le plus scriptable qui soit — IMAP, SMTP, notmuch. Une config muttrc à l’apprentissage raide et un threading daté des années 90."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "himalaya",
+			"source": {
+				"host": "github",
+				"path": "pimalaya/himalaya",
+				"url": "https://github.com/pimalaya/himalaya"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Single static Rust binary with IMAP and JMAP backends, scriptable straight from the shell. No TUI or GUI — SMTP and OAuth are manual config — and the feature set is younger than mutt’s.",
+				"fr": "Un binaire Rust statique, backends IMAP et JMAP, scriptable depuis le shell. Pas de TUI ni de GUI — SMTP et OAuth à la main — et moins de fonctions que mutt."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mailspring",
+			"source": {
+				"host": "github",
+				"path": "Foundry376/Mailspring",
+				"url": "https://github.com/Foundry376/Mailspring"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Most polished fully-open desktop client — unified inbox, templates, fast IMAP sync on macOS, Windows and Linux. It’s Electron, the optional cloud features run through Mailspring ID, and development has slowed.",
+				"fr": "Le client de bureau open le plus soigné — boîte unifiée, modèles, sync IMAP rapide. C’est de l’Electron, le cloud passe par Mailspring ID et le développement a ralenti."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "mu",
+			"source": {
+				"host": "github",
+				"path": "djcb/mu",
+				"url": "https://github.com/djcb/mu"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Indexes maildir into Xapian for instant search, with the mu4e client wrapping it in Emacs. Search is superb, but the best experience demands Emacs and IMAP only arrives through mbsync.",
+				"fr": "Indexe le maildir dans Xapian pour une recherche instantanée, mu4e l’enveloppe dans Emacs. La recherche est excellente, mais le meilleur usage demande Emacs et l’IMAP passe par mbsync."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "alot",
+			"source": {
+				"host": "github",
+				"path": "pazz/alot",
+				"url": "https://github.com/pazz/alot"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Keyboard-driven urwid TUI over notmuch: threads, tags, inline PGP compose in buffers. Needs notmuch and a maildir setup, and its community and docs run thinner than mutt’s.",
+				"fr": "TUI urwid pilotée au clavier sur notmuch — fils, tags, chiffrement PGP en ligne dans des buffers. Exige notmuch et un maildir ; communauté et doc plus minces que chez mutt."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "sup",
+			"source": {
+				"host": "github",
+				"path": "sup-heliotrope/sup",
+				"url": "https://github.com/sup-heliotrope/sup"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Curses TUI whose threads-with-tags model reads like HEY — inbox as search, not fixed folders. The sup toolchain underpins everything, releases are infrequent, and there is no web or GUI front end.",
+				"fr": "TUI curses dont le modèle fils-avec-tags évoque HEY — la boîte comme recherche, pas comme dossiers. Tout repose sur la chaîne sup, les versions sont rares, sans web ni GUI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "astroid",
+			"source": {
+				"host": "github",
+				"path": "astroidmail/astroid",
+				"url": "https://github.com/astroidmail/astroid"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Development largely dormant and Linux-only, astroid is still the closest GTK stand-in for HEY’s threads-and-tags — keyboard-driven over notmuch, which you pair with your own fetch and sync.",
+				"fr": "Développement quasi dormant, orienté Linux — astroid reste l’équivalent GTK le plus proche du fils-et-tags de HEY, piloté au clavier sur notmuch, à compléter par son propre fetch et sync."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

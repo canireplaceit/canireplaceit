@@ -70,6 +70,237 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "JupyterLab",
+			"source": {
+				"host": "github",
+				"path": "jupyterlab/jupyterlab",
+				"url": "https://github.com/jupyterlab/jupyterlab"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Jupyter’s flagship browser IDE, one pip or docker command to run. No users or access control in plain JupyterLab, R is a kernel not a first-class IDE, big notebooks get sluggish.",
+				"fr": "L’IDE phare de Jupyter, une commande pip ou docker suffit. JupyterLab nu ignore utilisateurs et contrôle d’accès, R n’y est qu’un kernel, et les gros notebooks se traînent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "marimo",
+			"source": {
+				"host": "github",
+				"path": "marimo-team/marimo",
+				"url": "https://github.com/marimo-team/marimo"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Reactive Python notebooks that recompute only what changed, with auth and sharing as web apps. SQL cells and a dataframe viewer included. Python only, no R; a notebook tool, not an IDE.",
+				"fr": "Notebooks Python réactifs qui ne recalculent que ce qui change, auth et partage en apps web. Cells SQL et visionneuse de dataframes. Python uniquement, pas de R ; un notebook, pas un IDE."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "code-server",
+			"source": {
+				"host": "github",
+				"path": "coder/code-server",
+				"url": "https://github.com/coder/code-server"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "VS Code over HTTP, same UI and extension market, one binary or Docker image. Auth is one shared password, not per-user SSO, one workspace per instance; R tooling is yours.",
+				"fr": "Le vrai VS Code en HTTP, même UI et mêmes extensions, un binaire ou une image Docker. Auth : mot de passe partagé, pas de SSO ; outillage R à monter soi-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenVSCode Server",
+			"source": {
+				"host": "github",
+				"path": "gitpod-io/openvscode-server",
+				"url": "https://github.com/gitpod-io/openvscode-server"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Upstream VS Code, no proprietary telemetry, a tarball or Docker to run. No auth layer at all, you add your own, and a smaller community and slower cadence than code-server.",
+				"fr": "Le VS Code amont pur, sans télémétrie propriétaire, un tarball ou un Docker suffit. Aucune couche d’auth, à ajouter soi-même, communauté plus petite et cadence plus lente que code-server."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Positron",
+			"source": {
+				"host": "github",
+				"path": "posit-dev/positron",
+				"url": "https://github.com/posit-dev/positron"
+			},
+			"license": "Elastic-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Posit’s VS Code fork, built for R and Python, a free desktop app for macOS, Windows and Linux. Not a server — no admin or multi-user — and Elastic-2.0, source-available, not OSI-certified.",
+				"fr": "Le fork VS Code de Posit taillé pour R et Python, appli de bureau gratuite (macOS, Windows, Linux). Pas un serveur, ni admin ni multi-utilisateurs ; Elastic-2.0, pas open source OSI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Spyder",
+			"source": {
+				"host": "github",
+				"path": "spyder-ide/spyder",
+				"url": "https://github.com/spyder-ide/spyder"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Python IDE with a variable explorer and dataframe viewer, IPython console, pip or conda install. Python only, no R; a desktop Qt app, no server or multi-user mode.",
+				"fr": "L’IDE scientifique Python à l’explorateur de variables et visionneuse de dataframes, console IPython, installé via pip ou conda. Python uniquement, pas de R ; appli desktop Qt, sans serveur ni mode multi-utilisateurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "BinderHub",
+			"source": {
+				"host": "github",
+				"path": "jupyterhub/binderhub",
+				"url": "https://github.com/jupyterhub/binderhub"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "ops",
+			"note": {
+				"en": "Turns any git repo into on-demand Jupyter sessions, free OAuth-protected quotas per user, great for courses and workshops. Sessions are ephemeral — not a persistent workbench — and it assumes a Kubernetes cluster.",
+				"fr": "Transforme tout dépôt git en sessions Jupyter à la demande, quotas OAuth gratuits par utilisateur, fait pour les cours et ateliers. Sessions éphémères, pas un workbench persistant, via un cluster Kubernetes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Jupyter Notebook",
+			"source": {
+				"host": "github",
+				"path": "jupyter/notebook",
+				"url": "https://github.com/jupyter/notebook"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Lightest single-user option: the classic notebook UI, seconds to install, any kernel, R included. Notebooks only, no editor or terminal, a legacy UI being phased out in favour of JupyterLab.",
+				"fr": "Le plus léger pour un seul utilisateur : UI notebook classique, tout kernel, R compris. Que des notebooks, ni éditeur ni terminal, et une UI héritée, supplantée par JupyterLab."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "nteract",
+			"source": {
+				"host": "github",
+				"path": "nteract/nteract",
+				"url": "https://github.com/nteract/nteract"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Desktop notebook editor, Python, R and Julia kernels, local files first, no server needed. Small community, thin roadmap, desktop-centric, weak multi-user story; notebook editing, not an IDE.",
+				"fr": "Éditeur de notebooks de bureau, kernels Python, R et Julia, fichiers locaux avant tout, sans serveur. Communauté petite, feuille de route mince, centré desktop sans vrai multi-utilisateur ; du notebook, pas un IDE."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Rodeo",
+			"source": {
+				"host": "github",
+				"path": "yhat/rodeo",
+				"url": "https://github.com/yhat/rodeo"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Yhat’s R-flavoured desktop IDE with data and plot viewers, packaged for every major OS. Archived upstream since 2018 — no updates, no fixes — desktop only, and superseded by RStudio and Positron.",
+				"fr": "L’IDE desktop orienté R de Yhat avec visionneuses de données et de graphiques. Archivé upstream depuis 2018, sans mises à jour ni correctifs ; desktop uniquement, dépassé par RStudio et Positron."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pluto.jl",
+			"source": {
+				"host": "github",
+				"path": "JuliaPluto/Pluto.jl",
+				"url": "https://github.com/JuliaPluto/Pluto.jl"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Reactive Julia notebooks recompute as you edit, served from a local Julia install, sliders and live UI without extra code. Julia only, no R or Python; no auth or multi-user.",
+				"fr": "Notebooks Julia réactifs, recalculés à l’édition, servis depuis une install Julia locale, sliders et UI vivante sans code. Julia uniquement, pas de R ni Python ; ni auth ni multi-utilisateurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

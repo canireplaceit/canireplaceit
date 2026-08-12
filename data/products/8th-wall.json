@@ -93,6 +93,174 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "three.js",
+			"source": {
+				"host": "github",
+				"path": "mrdoob/three.js",
+				"url": "https://github.com/mrdoob/three.js"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "De-facto WebGL engine with first-class WebXR rendering under MIT. No tracking or AR framework built in — the 8th Wall-style stack is yours to assemble.",
+				"fr": "Moteur WebGL de référence, rendu WebXR sous MIT. Pas de tracking ni de framework AR intégré — à vous de monter la stack façon 8th Wall."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Babylon.js",
+			"source": {
+				"host": "github",
+				"path": "BabylonJS/Babylon.js",
+				"url": "https://github.com/BabylonJS/Babylon.js"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Full WebGL/WebXR engine with GUI, physics and AR tooling included. Web image and plane tracking still trails 8th Wall’s cloud SLAM, and it asks more than an HTML framework.",
+				"fr": "Moteur WebGL/WebXR complet : GUI, physique, outils AR inclus. Le tracking image/plan web reste en retrait du SLAM cloud de 8th Wall, et la courbe d’apprentissage dépasse celle d’un framework HTML."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MindAR",
+			"source": {
+				"host": "github",
+				"path": "hiukim/mind-ar-js",
+				"url": "https://github.com/hiukim/mind-ar-js"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Dormant since mid-2024, but still the closest drop-in to 8th Wall’s JS API: image and face tracking, fully self-hosted. No plane tracking, and the community is one maintainer.",
+				"fr": "En sommeil depuis mi-2024, mais reste le remplaçant le plus proche de l’API JS de 8th Wall : tracking d’images et de visages, 100 % auto-hébergé. Pas de tracking de plans, communauté réduite à un mainteneur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Model Viewer",
+			"source": {
+				"host": "github",
+				"path": "google/model-viewer",
+				"url": "https://github.com/google/model-viewer"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A web component that drops AR-ready glTF into any page: iOS Quick Look, Android ARCore Scene Viewer, animation and configurator built in. A presentation component, not a tracking framework.",
+				"fr": "Composant web qui injecte du glTF prêt pour l’AR dans n’importe quelle page : Quick Look iOS, Scene Viewer ARCore, animation et configurateur inclus. Un composant de présentation, pas un framework de tracking."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Monado",
+			"source": {
+				"host": "gitlab",
+				"path": "monado/monado",
+				"url": "https://gitlab.freedesktop.org/monado/monado"
+			},
+			"license": "BSL-1.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted OpenXR runtime for running your own HMDs, with SLAM and inside-out tracking drivers. Linux-centric and DIY on hardware; it replaces the runtime layer, not the app framework.",
+				"fr": "Runtime OpenXR auto-hébergé pour piloter vos propres casques, avec drivers SLAM et tracking inside-out. Linux et bricolage matériel au programme : il remplace la couche runtime, pas le framework applicatif."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gltf-transform",
+			"source": {
+				"host": "github",
+				"path": "donmccurdy/glTF-Transform",
+				"url": "https://github.com/donmccurdy/glTF-Transform"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "CLI and library for converting, validating and compressing glTF/GLB — Draco, Meshopt, texture resizing — the pipeline glue for self-hosted AR. Asset tooling only, aimed at developers.",
+				"fr": "CLI et bibliothèque pour convertir, valider et compresser glTF/GLB — Draco, Meshopt, redimensionnement de textures — le ciment de pipeline pour l’AR auto-hébergée. Outillage d’assets uniquement, destiné aux développeurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Vircadia",
+			"source": {
+				"host": "github",
+				"path": "vircadia/vircadia-native-core",
+				"url": "https://github.com/vircadia/vircadia-native-core"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Self-hostable metaverse platform in the High Fidelity lineage: domain server, persistent worlds, native Windows/macOS/Linux clients. Running a domain is heavy ops, and there is no web or mobile AR.",
+				"fr": "Plateforme métaverse auto-hébergeable de la lignée High Fidelity : serveur de domaine, mondes persistants, clients natifs Windows/macOS/Linux. Opérer un domaine demande de l’ops lourde, et pas d’AR web ni mobile."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "React Native Viro",
+			"source": {
+				"host": "github",
+				"path": "ReactVision/viro",
+				"url": "https://github.com/ReactVision/viro"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Free MIT core bringing native ARKit/ARCore rendering to React Native, with image and face tracking. Archived and unmaintained, and it needs a native mobile build pipeline.",
+				"fr": "Cœur MIT gratuit qui apporte le rendu natif ARKit/ARCore à React Native, avec tracking d’images et de visages. Archivé et non maintenu, et il exige une chaîne de build mobile native."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

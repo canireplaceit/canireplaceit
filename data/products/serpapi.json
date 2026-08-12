@@ -103,6 +103,178 @@
 				"en": "Same idea, priced per thousand queries and much cheaper at low volume. Fewer engines and less structured output.",
 				"fr": "Même idée, facturée au millier de requêtes et bien moins chère à faible volume. Moins de moteurs et une sortie moins structurée."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Serpbear",
+			"source": {
+				"host": "github",
+				"path": "towfiqi/serpbear",
+				"url": "https://github.com/towfiqi/serpbear"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Closest self-hosted drop-in for SerpApi's rank tracking: a ready dashboard that polls Google and Bing and alerts via Slack, Telegram or webhook. Fewer engines than SerpApi; scraping is on you.",
+				"fr": "Le plus proche équivalent auto-hébergé du suivi de positions de SerpApi : tableau de bord prêt à l’emploi, relevés Google/Bing planifiés, alertes. Moins de moteurs ; scraping et uptime à votre charge."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Whoogle",
+			"source": {
+				"host": "github",
+				"path": "benbusby/whoogle-search",
+				"url": "https://github.com/benbusby/whoogle-search"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Privacy-first Google SERP proxy with a clean UI — the easiest way to pull Google results, JSON included, on your own infra. Google-only, breaks when Google changes markup, and captcha-prone; no rank history.",
+				"fr": "Proxy SERP Google respectueux de la vie privée — le plus simple pour récupérer les résultats Google, JSON compris, sur votre infra. Google uniquement, cassé par chaque changement de markup ; pas d’historique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "googler",
+			"source": {
+				"host": "github",
+				"path": "jarun/googler",
+				"url": "https://github.com/jarun/googler"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Terminal Google-search tool, ideal for quick CLI rank checks with zero server setup. Archived since 2021: brittle to layout changes, no rank history or notifications.",
+				"fr": "Outil de recherche Google en terminal, parfait pour des relevés de positions rapides en CLI, sans aucun serveur. Archivé depuis 2021 : fragile face aux changements de markup, pas d’historique ni d’alertes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Surfraw",
+			"source": {
+				"host": "gitlab",
+				"path": "surfraw/Surfraw",
+				"url": "https://gitlab.com/surfraw/Surfraw"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "CLI frontend that shells out to 100+ search engines, so scripted rank checks across providers from one tool. Needs a text browser to view pages, and some engines drift stale.",
+				"fr": "Frontend CLI qui délègue à plus de 100 moteurs : relevés de positions scriptés, un seul outil. Nécessite un navigateur texte pour afficher les pages, certains moteurs se périment."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "browsh",
+			"source": {
+				"host": "github",
+				"path": "browsh-org/browsh",
+				"url": "https://github.com/browsh-org/browsh"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "TUI browser that renders JavaScript-heavy search pages to terminal text, even over SSH. Heavy Firefox dependency, overkill for a plain SERP pull, no ranking or history.",
+				"fr": "Navigateur TUI qui rend les pages de recherche chargées en JavaScript lisibles dans le terminal, même en SSH. Dépendance lourde à Firefox, surdimensionné pour un simple relevé, pas de suivi de positions."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Crawl4AI",
+			"source": {
+				"host": "github",
+				"path": "unclecode/crawl4ai",
+				"url": "https://github.com/unclecode/crawl4ai"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Headless-browser crawler that turns any page into clean, LLM-friendly structured output — usable for turning SERP HTML into JSON yourself. You write the parsing and rank logic; it needs a browser runtime.",
+				"fr": "Crawler headless-browser qui sort de n’importe quelle page des données structurées, propres et compatibles LLM — à vous d’en faire du JSON. Parsing et logique de positions à écrire ; runtime navigateur requis."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Scrapy",
+			"source": {
+				"host": "github",
+				"path": "scrapy/scrapy",
+				"url": "https://github.com/scrapy/scrapy"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Battle-tested Python framework for building SERP scrapers at any scale, when extraction is yours to control. A framework, not a product: rank logic, storage and captcha handling are DIY.",
+				"fr": "Framework Python éprouvé pour bâtir des scrapers SERP à toute échelle, quand l’extraction est vôtre. Un framework, pas un produit : positions, stockage et captchas gérés à la main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Crawlee",
+			"source": {
+				"host": "github",
+				"path": "apify/crawlee",
+				"url": "https://github.com/apify/crawlee"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Apify's open-source scraping framework — the same stack behind their hosted APIs, self-hosted. Needs Node.js, and the scrapers, parsers, proxies and anti-bot strategy are yours.",
+				"fr": "Framework open-source d’Apify, la même pile que leurs API hébergées, en auto-hébergé. Node.js requis ; scrapers, parsers, proxies et stratégie anti-bot à écrire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "A few Apify platform extras",
+					"fr": "Quelques options de la plateforme Apify"
+				}
+			}
 		}
 	],
 	"priority": 3

@@ -1,0 +1,261 @@
+{
+	"slug": "vim",
+	"name": "Vim",
+	"domain": "vim.org",
+	"category": "shell-terminal",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "Yes. Every alternative drops the Vimscript core and its thirty years of compatibility, and Helix and Kakoune drop the keymap as well. You trade the editor that is already on every server for modern LSP and tree-sitter tooling.",
+		"fr": "Oui. On quitte un noyau mono-thread, son Vimscript et trente ans de contraintes de compatibilité — Helix et Kakoune abandonnent aussi le keymap. Vous gagnez un outillage moderne (LSP, tree-sitter), vous perdez l’éditeur déjà présent sur chaque serveur."
+	},
+	"whatYouLose": [
+		{
+			"en": "The editor already on every server",
+			"fr": "Déjà installé sur chaque serveur"
+		},
+		{
+			"en": "Thirty years of muscle memory",
+			"fr": "Trente ans de mémoire musculaire"
+		},
+		{
+			"en": "Your vimrc and its Vimscript",
+			"fr": "Votre vimrc et son écosystème Vimscript"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Neovim",
+			"source": {
+				"host": "github",
+				"path": "neovim/neovim",
+				"url": "https://github.com/neovim/neovim"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The fork that won. Lua config, built-in LSP and tree-sitter, async plugins, an embedding API — and your vimrc mostly still works. The trade-off: you keep the Vimscript and single-threaded core along with it.",
+				"fr": "Le fork qui a gagné. Config en Lua, LSP et tree-sitter intégrés, plugins async, API d’embedding — et votre vimrc fonctionne encore en grande partie. Vous gardez donc aussi Vimscript et son noyau mono-thread : hériter du passé fait partie du prix."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Helix",
+			"source": {
+				"host": "github",
+				"path": "helix-editor/helix",
+				"url": "https://github.com/helix-editor/helix"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Selection-then-action instead of verb-then-motion, with LSP and tree-sitter built in and zero config to be useful. The cost is the point: the keymap is not vim's, so you relearn from scratch.",
+				"fr": "Sélection puis action, au lieu de verbe puis mouvement, avec LSP et tree-sitter intégrés et aucune configuration pour être utile. Le prix fait partie du projet : le keymap n’est pas celui de Vim, tout est à réapprendre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kakoune",
+			"source": {
+				"host": "github",
+				"path": "mawww/kakoune",
+				"url": "https://github.com/mawww/kakoune"
+			},
+			"license": "Unlicense",
+			"effort": "managed",
+			"note": {
+				"en": "Multiple selections are the core primitive, and it composes with shell tools instead of reimplementing them. Small, sharp, and a real relearn — the vim grammar is gone.",
+				"fr": "La sélection multiple est la primitive centrale, et il compose avec les outils shell plutôt que de les réimplémenter. Petit, tranchant, vraiment à réapprendre : la grammaire de Vim a disparu."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GNU Emacs",
+			"source": {
+				"host": "github",
+				"path": "emacs-mirror/emacs",
+				"url": "https://github.com/emacs-mirror/emacs"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Extensible terminal editor whose Lisp lets Evil reproduce full Vim behaviour; org-mode and tramp remote editing come along. Heavier than Vim, and the learning curve is steep.",
+				"fr": "Éditeur terminal extensible dont le Lisp permet à Evil de reproduire Vim à l’identique, avec org-mode et tramp pour l’édition à distance. Plus lourd que Vim, et la courbe d’apprentissage est raide."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Micro",
+			"source": {
+				"host": "github",
+				"path": "zyedidia/micro",
+				"url": "https://github.com/zyedidia/micro"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A single binary that works out of the box: mouse, undo, plugins, config, and keybindings familiar to Vim and nano users. Not modal, and not a Vim clone either.",
+				"fr": "Un binaire unique qui fonctionne immédiatement : souris, annulation, plugins, config et raccourcis familiers aux utilisateurs de Vim et nano. Pas modal, et pas non plus un clone de Vim."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GNU nano",
+			"source": {
+				"host": "savannah",
+				"path": "nano-editor/nano",
+				"url": "https://git.savannah.gnu.org/cgit/nano.git/"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Preinstalled everywhere, GPL and fully self-hostable; syntax highlighting, regex search and spell check need no setup. Modeless, and scripting options stay limited.",
+				"fr": "Préinstallé partout, sous GPL et entièrement auto-hébergeable ; coloration syntaxique, recherche regex et vérification orthographique sans configuration. Non modal, et le scripting reste limité."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Vis",
+			"source": {
+				"host": "github",
+				"path": "martanne/vis",
+				"url": "https://github.com/martanne/vis"
+			},
+			"license": "ISC",
+			"effort": "managed",
+			"note": {
+				"en": "Modal editing with Vim keybindings and Kakoune’s multiple selections, scriptable in Lua. The community is smaller, so fewer plugins than Vim or Neovim.",
+				"fr": "Édition modale avec les raccourcis de Vim et les sélections multiples de Kakoune, scriptable en Lua. Communauté plus réduite, donc moins de plugins que Vim ou Neovim."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Textadept",
+			"source": {
+				"host": "github",
+				"path": "orbitalquark/textadept",
+				"url": "https://github.com/orbitalquark/textadept"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "One codebase yields a curses terminal UI and a GTK GUI; Lua, readline bindings, tiny and fast. A single maintainer, and few plugins.",
+				"fr": "Un même code fournit une interface terminal curses et une GUI GTK ; Lua, raccourcis readline, minuscule et rapide. Un seul mainteneur, et peu de plugins."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Slap",
+			"source": {
+				"host": "github",
+				"path": "slap-editor/slap",
+				"url": "https://github.com/slap-editor/slap"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A Sublime-Text-style TUI in Python with Vim bindings, split panes, tree navigation and full-text search. Dormant: no commit since November 2021.",
+				"fr": "Une TUI façon Sublime Text en Python, avec raccourcis Vim, panneaux, navigation arborescente et recherche plein texte. Dormant : aucun commit depuis novembre 2021."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Amp",
+			"source": {
+				"host": "github",
+				"path": "jmacdonald/amp",
+				"url": "https://github.com/jmacdonald/amp"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Vi-inspired and Rust-built, with multiple selections, a fuzzy finder and Emacs-style aliases in a single binary. A small team, and fewer integrations than Neovim.",
+				"fr": "Inspiré de Vi, écrit en Rust : sélections multiples, recherche floue et alias façon Emacs dans un binaire unique. Petite équipe, et moins d’intégrations que Neovim."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Joe",
+			"source": {
+				"host": "github",
+				"path": "joe-editor/joe",
+				"url": "https://github.com/joe-editor/joe"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Long-lived and configurable in C, with WordStar, Pico and Emacs profiles, multiple windows and built-in macros. Old-school, and the community is small.",
+				"fr": "Longue durée de vie, configurable en C : profils WordStar, Pico et Emacs, fenêtres multiples et macros intégrées. À l’ancienne, et la communauté est petite."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 4
+}

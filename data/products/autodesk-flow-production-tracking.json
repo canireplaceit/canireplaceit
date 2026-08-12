@@ -86,6 +86,157 @@
 				"en": "Half the price, strong review tooling, and a real alternative if you want it hosted. Still a per-seat subscription.",
 				"fr": "Deux fois moins cher, de bons outils de revue, et une vraie alternative si vous le voulez hébergé. Cela reste un abonnement par utilisateur."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "TACTIC",
+			"source": {
+				"host": "github",
+				"path": "Southpaw-TACTIC/TACTIC",
+				"url": "https://github.com/Southpaw-TACTIC/TACTIC"
+			},
+			"license": "EPL-1.0",
+			"effort": "docker",
+			"note": {
+				"en": "EPL asset-management server tracking data since 2008: custom schemas, pipeline triggers, asset versioning. You pay in a dated UI, an involved install and a small community.",
+				"fr": "Serveur EPL de gestion d’assets, tient les données depuis 2008 : schémas personnalisés, déclencheurs de pipeline, versioning. Vous payez une interface datée, une installation lourde et une petite communauté."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CGRU",
+			"source": {
+				"host": "github",
+				"path": "CGRU/cgru",
+				"url": "https://github.com/CGRU/cgru"
+			},
+			"license": "LGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Keeper asset management bundled with the Afanasy render farm, Qt and CLI tools on all three desktops. More pipeline suite than tracker, and dated — heavyweight to stand up.",
+				"fr": "Gestion d’assets avec Keeper et ferme de rendu Afanasy, clients Qt et CLI sur les trois OS. Plutôt suite de pipeline que tracker, interfaces datées, mise en place lourde."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Prism",
+			"source": {
+				"host": "github",
+				"path": "PrismPipeline/Prism",
+				"url": "https://github.com/PrismPipeline/Prism"
+			},
+			"license": "LGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Desktop pipeline manager with no central server: per-artist installs share a project folder on a shared drive. Maya, Blender, Houdini, Nuke integrations, versioning and review — collaborative review limited, paid plugins.",
+				"fr": "Gestionnaire de pipeline desktop sans serveur central : chaque artiste installe sa version, tous partagent un dossier projet. Intégrations Maya, Blender, Houdini, Nuke, versioning et review — review collaborative limitée, plugins payants."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Plugins; the open-core gap is minor.",
+					"fr": "Plugins ; l’écart open-core est mineur."
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenRV",
+			"source": {
+				"host": "github",
+				"path": "AcademySoftwareFoundation/OpenRV",
+				"url": "https://github.com/AcademySoftwareFoundation/OpenRV"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Autodesk's RV review player, open-sourced — the dailies heart of a ShotGrid workflow, with frame-accurate playback and shared sessions. Playback only: pair it with a tracker; GPL may clash with commercial pipelines.",
+				"fr": "Le player RV d’Autodesk, open-sourcé, cœur des dailies ShotGrid : lecture image par image, sessions partagées. Review seule, à coupler à un tracker ; la GPL peut gêner les pipelines commerciaux."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenCue",
+			"source": {
+				"host": "github",
+				"path": "AcademySoftwareFoundation/OpenCue",
+				"url": "https://github.com/AcademySoftwareFoundation/OpenCue"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Sony Pictures' render-farm scheduler: frame-level job scheduling across nodes with CLI, API and a PySide GUI. Scheduler only — no shot or asset tracking, no web UI, and Postgres is mandatory.",
+				"fr": "L’ordonnanceur de rendu de Sony Pictures : jobs planifiés image par image, CLI, API, GUI PySide. Scheduler seul — pas de suivi de shots ni d’assets, pas d’UI web, Postgres obligatoire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Flamenco",
+			"source": {
+				"host": "gitea",
+				"path": "studio/flamenco",
+				"url": "https://projects.blender.org/studio/flamenco"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Blender Studio's render manager handles the heavy compute only — jobs, frames, web UI, REST API, CLI — proven on its films. No review or approval, and it's Blender-centric.",
+				"fr": "Gestionnaire de rendu de Blender Studio : UI web pilotant manager et workers, éprouvé sur les films du studio. Ferme de rendu — pas de review ni d’approbation, pensé pour Blender."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pyblish",
+			"source": {
+				"host": "github",
+				"path": "pyblish/pyblish-base",
+				"url": "https://github.com/pyblish/pyblish-base"
+			},
+			"license": "LGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "A pip-installable publish-and-validate framework inside Maya, Nuke, Houdini, Blender, Unreal, with headless CI mode. The checking-in half of a pipeline, not a tracker — no database or UI, you build the rest.",
+				"fr": "Framework pip-installable de publish/validation dans Maya, Nuke, Houdini, Blender, Unreal, en CLI headless pour la CI. Un framework, pas un tracker : pas de base de données ni d’UI, reste à bâtir."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

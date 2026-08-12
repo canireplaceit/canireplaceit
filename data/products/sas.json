@@ -87,6 +87,174 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "R",
+			"source": {
+				"host": "github",
+				"path": "wch/r-source",
+				"url": "https://github.com/wch/r-source"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The canonical free replacement for SAS statistical programming, covering regression, ANOVA and GLM. Expect a steep syntax curve and no point-and-click; RMarkdown keeps reports reproducible.",
+				"fr": "Le remplacement libre canonique de la programmation statistique SAS : régression, ANOVA et GLM complets. Syntaxe à courbe d’apprentissage raide, pas d’interface cliquable ; RMarkdown rend les rapports reproductibles."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Julia",
+			"source": {
+				"host": "github",
+				"path": "JuliaLang/julia",
+				"url": "https://github.com/JuliaLang/julia"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Near-C performance with Matlab- and SAS-like matrix syntax. Compile latency and a thinner ecosystem than R or Python are the price, but notebooks and scripts both work.",
+				"fr": "Performance proche de C avec une syntaxe matricielle façon Matlab/SAS. On paie en latence de compilation et en écosystème plus maigre que R ou Python, mais notebooks comme scripts sont supportés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Jupyter",
+			"source": {
+				"host": "github",
+				"path": "jupyter/notebook",
+				"url": "https://github.com/jupyter/notebook"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Kernel-agnostic notebooks with inline plots, deployable on a self-hosted server. Alone it replaces little of SAS, and cell statefulness trips up long runs; strong for sharing literate analysis.",
+				"fr": "Notebooks sans attache de noyau, avec résultats en ligne, déployables sur serveur maison. Seul, il ne remplace guère SAS, et l’état des cellules piège les longues exécutions ; excellente vitrine pour l’analyse reproductible."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "scikit-learn",
+			"source": {
+				"host": "github",
+				"path": "scikit-learn/scikit-learn",
+				"url": "https://github.com/scikit-learn/scikit-learn"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Regression, classification and clustering through one consistent model API, with built-in cross-validation and preprocessing pipelines. Less classical-stats depth than statsmodels, and the API takes learning.",
+				"fr": "Régression, classification et clustering derrière une API de modèle unique, avec validation croisée et pipelines de prétraitement intégrés. Moins de profondeur statistique classique que statsmodels, et une API à assimiler."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "statsmodels",
+			"source": {
+				"host": "github",
+				"path": "statsmodels/statsmodels",
+				"url": "https://github.com/statsmodels/statsmodels"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "OLS, logit and GLM with SAS-style summary tables plus time-series, via a formula API close to R's. It needs Python scripting, and output is plainer than SAS's.",
+				"fr": "OLS, logit et GLM avec tables de résumé façon SAS, plus la série temporelle, via une API de formules proche de R. Scripts Python obligatoires, sortie moins léchée que SAS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "visidata",
+			"source": {
+				"host": "github",
+				"path": "saulpw/visidata",
+				"url": "https://github.com/saulpw/visidata"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Terminal-only spreadsheet that browses multi-gigabyte CSVs by keyboard, with column tricks for reshaping. The shortcut learning curve is real, but so is the speed on big flat files.",
+				"fr": "Tableur en pur terminal qui parcourt les CSV multi-giga au clavier, avec des astuces de colonnes pour reformater. Courbe d’apprentissage des raccourcis réelle, mais vitesse réelle aussi sur gros fichiers."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "csvkit",
+			"source": {
+				"host": "github",
+				"path": "wireservice/csvkit",
+				"url": "https://github.com/wireservice/csvkit"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A scriptable CLI suite that turns CSVs into SQL tables, with schema inference and one-line summaries. Sets larger than RAM fall, and statistics stop at summaries.",
+				"fr": "Suite CLI scriptable qui transforme les CSV en tables SQL, avec inférence de schéma et résumés en une ligne. Au-delà de la RAM, ça casse, et les stats s’arrêtent aux résumés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "xsv",
+			"source": {
+				"host": "github",
+				"path": "BurntSushi/xsv",
+				"url": "https://github.com/BurntSushi/xsv"
+			},
+			"license": "Unlicense",
+			"effort": "managed",
+			"note": {
+				"en": "Archived upstream, so no new releases. Still a fast, memory-mapped CSV tool for shell pipelines, with column stats and joins — but analysis only, no editing.",
+				"fr": "Archivé en amont, donc plus de nouvelles versions. Reste un outil CSV rapide, mappé en mémoire, pour pipelines shell, avec stats et jointures de colonnes — mais lecture seule, pas d’édition."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

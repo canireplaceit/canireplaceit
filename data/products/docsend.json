@@ -72,6 +72,274 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "DocuSeal",
+			"source": {
+				"host": "github",
+				"path": "docusealco/docuseal",
+				"url": "https://github.com/docusealco/docuseal"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The leading self-hosted DocuSign alternative: fill and sign PDFs with an audit trail, templates, a REST API and OIDC SSO. PDF-only though — no rich document formats, and no document analytics.",
+				"fr": "L’alternative DocuSign self-hosted de référence : signer et remplir des PDF avec journal d’audit, modèles, API REST et SSO OIDC. Mais PDF uniquement — pas de formats riches ni d’analytique documentaire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenSign",
+			"source": {
+				"host": "github",
+				"path": "OpenSignLabs/OpenSign",
+				"url": "https://github.com/OpenSignLabs/OpenSign"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Drag-and-drop signing fields, role-based workflows, templates and a REST API — plus Google Drive and Zoho hooks. Heavier Node/React stack than DocuSeal though, and its cloud plan is commercial.",
+				"fr": "Champs de signature en drag-and-drop, workflows par rôle, modèles et API REST, avec des hooks Google Drive et Zoho. Pile Node/React plus lourde que DocuSeal, et plan cloud commercial."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Managed cloud plan",
+					"fr": "Plan cloud managé"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Documenso",
+			"source": {
+				"host": "github",
+				"path": "documenso/documenso",
+				"url": "https://github.com/documenso/documenso"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Multiple signature types — typed, drawn, uploaded — with parallel signer workflows, teams and an embeddable widget. Younger project with a smaller ecosystem, and no sharing analytics built in.",
+				"fr": "Plusieurs types de signature — tapée, dessinée, importée — workflows à signataires parallèles, équipes et widget intégrable. Projet jeune à l’écosystème réduit, et pas d’analytique de partage intégrée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LibreSign",
+			"source": {
+				"host": "github",
+				"path": "LibreSign/libresign",
+				"url": "https://github.com/LibreSign/libresign"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Requires LibreOffice in the stack. Builds on it to sign and certify documents with visible digital signatures, plus users, teams and audit logs. Qualified or regulated certificates need external tooling.",
+				"fr": "Exige LibreOffice dans la pile : il s’en sert pour signer et certifier avec signatures numériques visibles, utilisateurs, équipes et journaux d’audit. Mais certificats qualifiés ou réglementés : outillage externe requis."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Seafile",
+			"source": {
+				"host": "github",
+				"path": "haiwen/seafile",
+				"url": "https://github.com/haiwen/seafile"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Battle-tested file sync and share: encrypted libraries, expiring passworded links, granular permissions, LDAP and 2FA. Sharing only — no signing or analytics, and office preview and SSO sit in the paid edition.",
+				"fr": "Synchro et partage éprouvés : bibliothèques chiffrées, liens expirables à mot de passe, permissions fines, LDAP et 2FA. Partage uniquement — pas de signature ni d’analytique, aperçu Office et SSO en édition payante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Office preview and SSO",
+					"fr": "Aperçu Office et SSO"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pydio Cells",
+			"source": {
+				"host": "github",
+				"path": "pydio/cells",
+				"url": "https://github.com/pydio/cells"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "No e-signature to be found — this is a sharing portal with expiring passworded links, granular ACLs, built-in OIDC and S3 storage. Enterprise features are carved into a paid edition, though.",
+				"fr": "Pas de signature ici — c’est un portail de partage : liens expirables à mot de passe, ACL granulaires, OIDC intégré et stockage S3. Mais les fonctions entreprise sont réparties dans une édition payante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise features",
+					"fr": "Fonctionnalités entreprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pingvin Share",
+			"source": {
+				"host": "github",
+				"path": "stonith404/pingvin-share",
+				"url": "https://github.com/stonith404/pingvin-share"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Polished file share with custom URLs, expiry, passwords and a clean responsive UI — no account needed to download. Archived upstream: development is halted, and there’s no signing or analytics.",
+				"fr": "Partage de fichiers soigné : URLs personnalisées, expiration, mot de passe, UI responsive — aucun compte requis pour télécharger. Son auteur a archivé le dépôt : développement stoppé, ni signature ni analytique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Gokapi",
+			"source": {
+				"host": "github",
+				"path": "Forceu/Gokapi",
+				"url": "https://github.com/Forceu/Gokapi"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "A lightweight Firefox Send alternative in a single Go binary: expiring passworded links, S3 storage, a REST API and no public uploads. Simple single-file sharing only — no tracking or signatures.",
+				"fr": "Alternative légère à Firefox Send en un seul binaire Go : liens expirables à mot de passe, stockage S3, API REST, pas d’upload public. Partage mono-fichier seulement — ni suivi ni signature."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Firefox Send",
+			"source": {
+				"host": "github",
+				"path": "mozilla/send",
+				"url": "https://github.com/mozilla/send"
+			},
+			"license": "MPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Mozilla’s E2E-encrypted share links with auto-expiry and self-destruct — the ancestor Gokapi and Pingvin grew from. Officially discontinued and archived; lean on the maintained forks; single-file focus, no analytics or signing.",
+				"fr": "Les liens de partage chiffrés de bout en bout de Mozilla, à expiration automatique et autodestruction — l’ancêtre de Gokapi et Pingvin. Officiellement abandonné et archivé : passez aux forks maintenus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Teedy",
+			"source": {
+				"host": "github",
+				"path": "sismics/docs",
+				"url": "https://github.com/sismics/docs"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "A self-hosted document manager — OCR full-text search, tags, sharing links, workflows, audit trail — for organizing contract PDFs. A DMS, not a portal or signer, and the niche community moves slowly.",
+				"fr": "Gestionnaire de documents self-hosted : recherche OCR, tags, liens de partage, workflows et journal d’audit pour les PDF de contrats. Un DMS, pas un portail ni un signeur — communauté de niche, développement lent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "A few paid extras",
+					"fr": "Quelques extras payants"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Filebrowser",
+			"source": {
+				"host": "github",
+				"path": "filebrowser/filebrowser",
+				"url": "https://github.com/filebrowser/filebrowser"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A web file manager in one static Go binary: share files and folders via links, with user management and RBAC. Not signing or analytics — a simple share model, no DocSend data rooms.",
+				"fr": "Gestionnaire de fichiers web en un binaire Go statique : partage par liens, gestion d’utilisateurs et RBAC. Ni signature ni analytique — un modèle de partage simple, sans data rooms à la DocSend."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "magic-wormhole",
+			"source": {
+				"host": "github",
+				"path": "magic-wormhole/magic-wormhole",
+				"url": "https://github.com/magic-wormhole/magic-wormhole"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Move files between computers over a one-time code: PAKE end-to-end encryption, a relay for crossing networks, no accounts. CLI and scriptable only — no web UI, no link tracking, no audit.",
+				"fr": "Déplace des fichiers entre machines via un code à usage unique : chiffrement PAKE, relais pour traverser les réseaux, aucun compte. CLI scriptable uniquement — pas d’interface web, ni suivi de liens, ni audit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

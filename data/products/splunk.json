@@ -101,6 +101,178 @@
 				"en": "Object-storage-backed log platform with a generous free tier and no ingest cliff. No SIEM features and no SPL — you rewrite every query.",
 				"fr": "Plateforme de logs sur stockage objet, palier gratuit généreux et pas de mur d’ingestion. Aucune fonction SIEM ni SPL — vous réécrivez chaque requête."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Grafana Loki",
+			"source": {
+				"host": "github",
+				"path": "grafana/loki",
+				"url": "https://github.com/grafana/loki"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Labels, not full-text indexing, keep petabyte-scale logging cheap. LogQL and Grafana cover dashboards and alerting, but search is weaker than Splunk's free-text extraction.",
+				"fr": "Labels plutôt qu’indexation plein texte : des logs pétabyte à moindre coût. LogQL et Grafana couvrent dashboards et alerting, mais la recherche reste en-deçà de l’extraction de Splunk."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenSearch",
+			"source": {
+				"host": "github",
+				"path": "opensearch-project/OpenSearch",
+				"url": "https://github.com/opensearch-project/OpenSearch"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Apache-2.0 fork of Elasticsearch: full-text search, dashboards and a Security Analytics SIEM without the proprietary stack. The catch is the cluster — JVM, shards and backups are yours to run.",
+				"fr": "Fork Apache-2.0 d’Elasticsearch : recherche plein texte, dashboards et SIEM Security Analytics sans la pile propriétaire. Le vrai coût, c’est le cluster : JVM, shards et sauvegardes à opérer soi-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SigNoz",
+			"source": {
+				"host": "github",
+				"path": "SigNoz/signoz",
+				"url": "https://github.com/SigNoz/signoz"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "OpenTelemetry-native APM and logs in one MIT-licensed product with a SaaS-style UI. Fast on ClickHouse, but SIEM and security analytics are not its focus.",
+				"fr": "APM natif OpenTelemetry et logs dans un produit MIT unique à l’UI façon SaaS. Rapide grâce à ClickHouse, mais le SIEM et l’analyse de sécurité ne sont pas son propos."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "SSO, RBAC and high availability",
+					"fr": "SSO, RBAC et haute disponibilité"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "VictoriaMetrics",
+			"source": {
+				"host": "github",
+				"path": "VictoriaMetrics/VictoriaMetrics",
+				"url": "https://github.com/VictoriaMetrics/VictoriaMetrics"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Single-binary time-series, VictoriaLogs apart for logs: 10-100x compression, Splunk-sized volume on a small VM. VMUI is spartan — real dashboards go through Grafana.",
+				"fr": "Binaire unique pour la série temporelle, VictoriaLogs à part pour les logs : 10-100x de compression, du volume Splunk sur une petite VM. VMUI spartiate — les vrais dashboards passent par Grafana."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Arkime",
+			"source": {
+				"host": "github",
+				"path": "arkime/arkime",
+				"url": "https://github.com/arkime/arkime"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Splunk's indexer-for-packets: full network capture, fast search and a web UI built for pcap forensics. It only speaks packets though — app logs need another stack, plus OpenSearch and capture hardware.",
+				"fr": "L’indexeur de paquets : capture réseau complète, recherche rapide, UI web. Il ne parle que paquets — les logs applicatifs demandent une autre pile, plus OpenSearch et le matériel de capture."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Angle Grinder",
+			"source": {
+				"host": "github",
+				"path": "rcoh/angle-grinder",
+				"url": "https://github.com/rcoh/angle-grinder"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "SPL-style agg/SIP queries on your own logs, straight from the terminal: kubectl, journalctl or plain files. Interactive hunting only — no retention, no dashboards, no multi-user.",
+				"fr": "Requêtes agg/SIP façon SPL sur vos propres logs, depuis le terminal : kubectl, journalctl ou fichiers bruts. Du hunt interactif uniquement — ni rétention, ni dashboards, ni multi-utilisateur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "lnav",
+			"source": {
+				"host": "github",
+				"path": "tstack/lnav",
+				"url": "https://github.com/tstack/lnav"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "A full TUI log viewer: search, filters, SQL, timeline correlation across sources, charts and alerts — all in the terminal. Local files only, single-user by design, no web UI or API.",
+				"fr": "Un visualiseur de logs en TUI complet : recherche, filtres, SQL, corrélation temporelle multi-sources, graphes et alertes — tout dans le terminal. Fichiers locaux uniquement, mono-utilisateur par conception, pas d’UI web ni d’API."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GoAccess",
+			"source": {
+				"host": "github",
+				"path": "allinurl/goaccess",
+				"url": "https://github.com/allinurl/goaccess"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Real-time web log analysis in an ncurses TUI plus HTML dashboard: millions of lines by host, URL or user-agent on tiny RAM. Web access logs only — descriptive, no ad-hoc search.",
+				"fr": "Analyse web temps réel en TUI ncurses ou dashboard HTML : millions de lignes par hôte, URL, user-agent, avec peu de RAM. Uniquement des logs d’accès web, pas de recherche ad hoc."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

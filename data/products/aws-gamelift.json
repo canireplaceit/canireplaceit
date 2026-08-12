@@ -97,6 +97,174 @@
 					"fr": "Le clustering multi-nœuds est réservé à Nakama Enterprise ; la version open source tourne sur un seul nœud."
 				}
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Open Match",
+			"source": {
+				"host": "github",
+				"path": "googleforgames/open-match",
+				"url": "https://github.com/googleforgames/open-match"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The FlexMatch equivalent: a gRPC service that queues and pairs players, with extensible evaluator functions and a CLI for testing. Matchmaking only — it assumes Kubernetes; the fleet and session hosters stay yours.",
+				"fr": "L’équivalent de FlexMatch : service gRPC qui met en file et apparie les joueurs, avec fonctions d’évaluation extensibles et CLI de test. Matchmaking seul, suppose Kubernetes — à vous la flotte et les hosteurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Colyseus",
+			"source": {
+				"host": "github",
+				"path": "colyseus/colyseus",
+				"url": "https://github.com/colyseus/colyseus"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "You write and host the room server code yourself — this realtime TypeScript framework only provides matchmaking and state-sync. Web/Unity/native SDKs, but no auto-scaling, queues, or global placement.",
+				"fr": "Ce framework temps réel TypeScript fournit matchmaking, sync d’état et logique autoritaire — mais vous écrivez et hébergez le code serveur. SDK web/Unity/natif, pas d’auto-scaling ni de files."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LinuxGSM",
+			"source": {
+				"host": "github",
+				"path": "GameServerManagers/LinuxGSM",
+				"url": "https://github.com/GameServerManagers/LinuxGSM"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "For bare Linux, a CLI installs, runs, and updates 100+ dedicated game servers, with backups, monitoring, and cron-friendly automation. Per-box tooling — no fleet orchestration, auto-scaling, matchmaking, or session APIs.",
+				"fr": "Sur Linux nu, un CLI installe, lance et met à jour 100+ serveurs dédiés, avec sauvegardes, monitoring et automatisation cron. Outil par boîte — pas d’orchestration, d’auto-scaling ni de matchmaking."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pterodactyl Panel",
+			"source": {
+				"host": "github",
+				"path": "pterodactyl/panel",
+				"url": "https://github.com/pterodactyl/panel"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Instances, not a fleet: the Pterodactyl web panel plus Wings daemon runs game servers across your machines, with nest/egg installers, a REST API, and per-user permissions. No auto-scaling, queues, or matchmaking.",
+				"fr": "Des instances, pas une flotte : panneau web et démon Wings gèrent des serveurs sur vos machines, avec nests/eggs, API REST et permissions par utilisateur. Pas d’auto-scaling, de files ni de matchmaking."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MCSManager",
+			"source": {
+				"host": "github",
+				"path": "MCSManager/MCSManager",
+				"url": "https://github.com/MCSManager/MCSManager"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Minecraft-first: a self-hosted web panel and daemon with terminal, file management, permissions, and Docker backends. It manages instances, not a fleet — no auto-scaling, queues, or session APIs.",
+				"fr": "D’abord Minecraft : un panneau web et un démon auto-hébergeables avec terminal, fichiers, permissions et backends Docker. Il gère des instances, pas une flotte — pas d’auto-scaling, de files ni d’API de sessions."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Quilkin",
+			"source": {
+				"host": "github",
+				"path": "EmbarkStudios/quilkin",
+				"url": "https://github.com/EmbarkStudios/quilkin"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "A UDP routing layer, not a fleet: proxy with load-balancing, session affinity, declarative config, and an admin API. Rust binary, sidecar or standalone — pair it with your fleet.",
+				"fr": "Proxy UDP à répartition de charge pour le trafic de jeux, avec affinité de session, config déclarative et API d’admin. Binaire Rust, sidecar ou autonome — à associer à votre flotte."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Crafty Controller",
+			"source": {
+				"host": "gitlab",
+				"path": "crafty-controller/crafty-4",
+				"url": "https://gitlab.com/crafty-controller/crafty-4"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Minecraft/Bedrock-centric: a self-hosted controller with a web dashboard to create, start, and back up servers, plus SteamCMD installs and scheduled tasks. No cross-region auto-scaling or matchmaking.",
+				"fr": "Centré Minecraft et Bedrock : un contrôleur auto-hébergeable avec tableau de bord web pour créer, lancer et sauvegarder des serveurs, installs SteamCMD et tâches planifiées. Pas d’auto-scaling multi-régions ni de matchmaking."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "steam-tui",
+			"source": {
+				"host": "github",
+				"path": "dmadisetti/steam-tui",
+				"url": "https://github.com/dmadisetti/steam-tui"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Steam ecosystem only, consumer-oriented: an interactive TUI over SteamCMD for installing and updating dedicated servers, with library browsing and download management. No fleet orchestration, matchmaking, or session APIs.",
+				"fr": "Écosystème Steam uniquement, orienté grand public : une interface terminal sur SteamCMD pour installer et mettre à jour des serveurs dédiés, avec gestion des téléchargements. Pas d’orchestration, de matchmaking ni d’API de sessions."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

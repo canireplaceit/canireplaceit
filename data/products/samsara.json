@@ -120,6 +120,153 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "ERPNext",
+			"source": {
+				"host": "github",
+				"path": "frappe/erpnext",
+				"url": "https://github.com/frappe/erpnext"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Full ERP with fleet, delivery and shipping modules in one stack, accounting and inventory included. Heavy: Frappe upkeep, and telematics only via integrations — no native GPS.",
+				"fr": "ERP complet avec modules flotte, livraison et expédition, compta et stock dans une seule pile. Lourd : la maintenance Frappe, et la télématique uniquement par intégrations — pas de GPS natif."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dolibarr",
+			"source": {
+				"host": "github",
+				"path": "Dolibarr/dolibarr",
+				"url": "https://github.com/Dolibarr/dolibarr"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight open ERP; the expeditions and vehicle modules cover shipping and fleet admin. Dated UI, sprawling modules, and no live telematics or geofencing.",
+				"fr": "ERP open source léger ; les modules expéditions et véhicules couvrent livraisons et gestion de flotte. Interface vieillie, modules en pagaille, pas de télématique temps réel ni de géofencing."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenBoxes",
+			"source": {
+				"host": "github",
+				"path": "openboxes/openboxes",
+				"url": "https://github.com/openboxes/openboxes"
+			},
+			"license": "EPL-1.0",
+			"effort": "docker",
+			"note": {
+				"en": "Supply-chain platform for inventory and inbound/outbound shipment tracking, REST API included, battle-tested in health supply chains. Built for warehouse ops, not live vehicle tracking, on a niche Grails stack.",
+				"fr": "Plateforme supply-chain pour le stock et les expéditions entrantes et sortantes, API REST fournie, éprouvée dans les chaînes sanitaires. De l’entrepôt, pas du véhicule en direct — et la pile Grails est niche."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "VROOM",
+			"source": {
+				"host": "github",
+				"path": "VROOM-Project/vroom",
+				"url": "https://github.com/VROOM-Project/vroom"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Open-source VRP solver for last-mile dispatch planning — time windows, capacity, breaks. Headless API/CLI into your own UI; no fleet console, no GPS, and needs OSRM or Valhalla for distances.",
+				"fr": "Solveur VRP open source pour la planification de tournées — fenêtres horaires, capacité, pauses. API/CLI headless pour votre UI ; pas de flotte ni de GPS, et OSRM ou Valhalla requis pour les distances."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OSRM",
+			"source": {
+				"host": "github",
+				"path": "Project-OSRM/osrm-backend",
+				"url": "https://github.com/Project-OSRM/osrm-backend"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted routing engine with a fast route/matrix API over OpenStreetMap data — full data control, and what VROOM runs on. No fleet console or GPS tracking; you preprocess your own extracts.",
+				"fr": "Moteur de routage auto-hébergé, API route/matrice rapide sur OpenStreetMap — contrôle des données, et c’est lui qui fait tourner VROOM. Pas de console flotte ni suivi GPS ; à vous de pré-traiter vos extraits."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GraphHopper",
+			"source": {
+				"host": "github",
+				"path": "graphhopper/graphhopper",
+				"url": "https://github.com/graphhopper/graphhopper"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted routing and map-matching engine; profiles for trucks and EVs, and GPS-track reconciliation. Runs on modest hardware as a pure Java backend — JVM memory aside, there is no fleet UI.",
+				"fr": "Moteur de routage et map-matching auto-hébergé ; profils camion et VE, réconciliation de traces GPS. Tourne sur du matériel modeste en backend Java pur — mémoire JVM en contrepartie, et aucune UI de flotte."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gpsd",
+			"source": {
+				"host": "gitlab",
+				"path": "gpsd/gpsd",
+				"url": "https://gitlab.com/gpsd/gpsd"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Daemon exposing serial or USB GPS receivers on a TCP socket — NMEA, AIS, drift-corrected fixes. The standard telematics building block; raw telemetry only, and it needs hardware attached.",
+				"fr": "Daemon qui expose un récepteur GPS série/USB sur un socket TCP — parsing NMEA et AIS, corrections de dérive. Brique standard des pipelines télématiques, mais télémétrie brute ; il faut du matériel GPS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

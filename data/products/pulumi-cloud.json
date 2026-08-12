@@ -97,6 +97,228 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Atlantis",
+			"source": {
+				"host": "github",
+				"path": "runatlantis/atlantis",
+				"url": "https://github.com/runatlantis/atlantis"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Self-hosted PR plan/apply for Terraform, OpenTofu and Pulumi alike. You run the server and patch it yourself, and approvals and policy are yours to build — no managed dashboard or org-wide RBAC.",
+				"fr": "Plan/apply piloté par pull request, auto-hébergé, pour Terraform, OpenTofu et Pulumi. Vous opérez le serveur, et approbations comme politiques restent à construire — pas de dashboard managé ni de RBAC."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Digger",
+			"source": {
+				"host": "github",
+				"path": "diggerhq/digger",
+				"url": "https://github.com/diggerhq/digger"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Runs Terraform, OpenTofu and Pulumi in your existing CI, with drift detection and PR approval gates. Depends on that CI’s permissions, richer orchestration lives in Digger Cloud, and the project is young.",
+				"fr": "Exécute Terraform, OpenTofu et Pulumi dans votre CI existante, avec détection de drift et gates d’approbation. Dépend des permissions de cette CI ; orchestration riche dans Digger Cloud, projet encore jeune."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Richer orchestration in Digger Cloud",
+					"fr": "Orchestration avancée dans Digger Cloud"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Terragrunt",
+			"source": {
+				"host": "github",
+				"path": "gruntwork-io/terragrunt",
+				"url": "https://github.com/gruntwork-io/terragrunt"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "DRY multi-environment OpenTofu and Terraform config from Gruntwork — a thin wrapper that still needs its own state backend and CI, with no approvals built in.",
+				"fr": "Config OpenTofu et Terraform multi-environnements et DRY, signée Gruntwork — un wrapper qui garde besoin de son propre backend d’état et de CI, sans approbations intégrées."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Terramate",
+			"source": {
+				"host": "github",
+				"path": "terramate-io/terramate",
+				"url": "https://github.com/terramate-io/terramate"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Stack orchestration, change detection and code generation over OpenTofu and Terraform, driven by its own DSL. It does not manage state or approvals, and collaboration funnels into Terramate Cloud.",
+				"fr": "Orchestration de stacks, détection de changements et génération de code sur OpenTofu et Terraform, pilotées par son propre DSL. Ni état ni approbations gérés ; la collaboration avancée passe par Terramate Cloud."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Drift and status via Terramate Cloud",
+					"fr": "Drift et statut via Terramate Cloud"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Stategraph (Terrateam)",
+			"source": {
+				"host": "github",
+				"path": "stategraph/stategraph",
+				"url": "https://github.com/stategraph/stategraph"
+			},
+			"license": "MPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Self-hosted GitOps for OpenTofu and Terraform: PR plan/apply, encrypted secrets and SSO free. GitHub-centric, you operate the server, and a recent rename means docs still answer to Terrateam.",
+				"fr": "GitOps auto-hébergé pour OpenTofu et Terraform : plan/apply par PR, secrets chiffrés et SSO gratuits. Centré GitHub, serveur à opérer, et un renommage récent laisse des docs au nom de Terrateam."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Terraspace",
+			"source": {
+				"host": "github",
+				"path": "boltops-tools/terraspace",
+				"url": "https://github.com/boltops-tools/terraspace"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Layers and code generation to tame many OpenTofu and Terraform stacks, from BoltOps. You manage a Ruby gem, a small community, and still need your own state backend and CI.",
+				"fr": "Des couches et de la génération de code pour organiser de nombreuses stacks OpenTofu et Terraform. Un gem Ruby à gérer, une petite communauté, et il faut fournir backend d’état et CI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "cdk8s",
+			"source": {
+				"host": "github",
+				"path": "cdk8s-team/cdk8s",
+				"url": "https://github.com/cdk8s-team/cdk8s"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Kubernetes manifests in TypeScript, Python, Go or Java, purely client-side with CRD imports. It stops at the cluster — no cloud provisioning, no state or approvals, and it still emits YAML.",
+				"fr": "Des manifests Kubernetes en TypeScript, Python, Go ou Java, purement côté client, avec import des CRD. Il s’arrête au cluster : pas de provisioning cloud, pas d’état ni d’approbations, du YAML en sortie."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Infracost",
+			"source": {
+				"host": "github",
+				"path": "infracost/infracost",
+				"url": "https://github.com/infracost/infracost"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Self-hostable CLI that prices IaC diffs in CI — the cost slice of Pulumi Cloud. It only prices, the full catalog is self-host configuration work, and it neither provisions nor manages state.",
+				"fr": "Un CLI auto-hébergeable qui chiffre les diffs IaC en CI — la brique coût de Pulumi Cloud. Il chiffre, ne provisionne pas, et le catalogue complet de prix reste à configurer soi-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Hosted pricing engine and full catalog",
+					"fr": "Moteur de prix hébergé et catalogue complet"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SST",
+			"source": {
+				"host": "github",
+				"path": "anomalyco/sst",
+				"url": "https://github.com/anomalyco/sst"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "TypeScript full-stack apps on your own infra, hot-reload local dev, state in your S3. It targets web apps over general infra, moves fast, and ships no hosted approvals or console.",
+				"fr": "Apps full-stack TypeScript sur votre propre infra, dev local hot reload, état dans votre S3. Pour le web plutôt que l’infra générale, il évolue vite, sans approbations ni console."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "driftctl",
+			"source": {
+				"host": "github",
+				"path": "snyk/driftctl",
+				"url": "https://github.com/snyk/driftctl"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Finds unmanaged and drifted resources against Terraform state — a compliance scanner more than a manager. It only detects: no reconciliation, no apply, and Snyk has stopped developing it.",
+				"fr": "Trouve les ressources non gérées et en dérive contre l’état Terraform — un scanner de conformité plus qu’un gestionnaire. Détection seule, pas de réconciliation ni d’apply, et Snyk a arrêté le développement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

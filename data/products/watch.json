@@ -1,0 +1,177 @@
+{
+	"slug": "watch",
+	"name": "watch",
+	"domain": null,
+	"category": "shell-terminal",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "watch is replaceable when your need is comparing runs, but it stays the zero-install default on every machine. Honest verdict: switch for colour and history, keep watch when one command, one interval, no setup is all you want.",
+		"fr": "watch reste l’outil par défaut, présent sur toute machine Unix. On le quitte sans regret quand l’historique et la couleur comptent, mais pour relancer une commande sans rien installer, rien ne le détrône."
+	},
+	"whatYouLose": [
+		{
+			"en": "Presence on every machine",
+			"fr": "Présence sur toute machine"
+		},
+		{
+			"en": "Zero-install, zero-config start",
+			"fr": "Démarrage sans installation, sans réglage"
+		},
+		{
+			"en": "Decades of muscle memory",
+			"fr": "Des années de réflexes acquis"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "viddy",
+			"source": {
+				"host": "github",
+				"path": "sachaos/viddy",
+				"url": "https://github.com/sachaos/viddy"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Viddy keeps the history of every run, lets you scroll back in time and diff two moments, and renders the ANSI colour that watch mangles; in return it holds state across runs.",
+				"fr": "Viddy conserve l’historique de chaque exécution, remonte le temps et diff deux instants, et rend les couleurs ANSI que watch dénature. En échange, il garde l’état de toutes ses passes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "hwatch",
+			"source": {
+				"host": "github",
+				"path": "blacknon/hwatch",
+				"url": "https://github.com/blacknon/hwatch"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Full-screen TUI watch with inline diff of successive outputs. Writes snapshots to file; mouse and key navigation. No release binary, so Rust build required; polling and TUI only, no headless.",
+				"fr": "TUI plein écran type watch avec diff des sorties successives ; écrit dans un fichier, navigation souris/clavier. Pas de binaire fourni, build Rust requis ; polling uniquement, pas de mode headless."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "watchexec",
+			"source": {
+				"host": "github",
+				"path": "watchexec/watchexec",
+				"url": "https://github.com/watchexec/watchexec"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Generalist answer: event-driven reruns on file change, plus interval mode and signal-aware restarts. Aimed at file watching, not periodic display; busy projects get noisy, and no built-in diff view.",
+				"fr": "La réponse généraliste : relance la commande sur changement de fichier, mode intervalle et redémarrage sur signal. Pensé pour le file watching, pas l’affichage périodique ; bavard sur gros projets, pas de vue diff."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "when-changed",
+			"source": {
+				"host": "github",
+				"path": "joh/when-changed",
+				"url": "https://github.com/joh/when-changed"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Dormant since April 2024. Ran commands on file change from a when-changed.yaml config, with shell-accurate parsing and GitHub-release binaries. Event-driven only — no fixed interval, no diff or TUI, single host.",
+				"fr": "Dormant depuis avril 2024. Lançait des commandes sur changement de fichier depuis when-changed.yaml, parsing shell exact, binaires en GitHub releases. Événementiel uniquement — pas d’intervalle fixe, pas de diff ni TUI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "fswatch",
+			"source": {
+				"host": "github",
+				"path": "emcrisostomo/fswatch",
+				"url": "https://github.com/emcrisostomo/fswatch"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Raw change events for your own loop: watches file and directory trees across FSEvents, inotify, kqueue; apt or brew installable. It emits events but runs nothing itself — no periodic UI, and GPL-3.0.",
+				"fr": "Des événements bruts pour votre propre boucle : surveille fichiers et dossiers via FSEvents, inotify, kqueue ; installable via apt ou brew. Il émet des événements sans rien exécuter — pas d’interface périodique, et GPL-3.0."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "watchman",
+			"source": {
+				"host": "github",
+				"path": "facebook/watchman",
+				"url": "https://github.com/facebook/watchman"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Meta’s file-watching daemon: efficient large-tree watching, JSON-config triggers, stable clock query protocol; Rust port of C++ original. Overkill for a plain periodic watch — daemon model and config API have a learning curve.",
+				"fr": "Le démon de Meta : surveille de grands arbres, déclencheurs en JSON, protocole horloge stable ; port Rust de l’original C++. Trop lourd pour un watch périodique — modèle démon et config à apprendre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "loop",
+			"source": {
+				"host": "github",
+				"path": "Miserlou/Loop",
+				"url": "https://github.com/Miserlou/Loop"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Minimal `loop every 2s` — direct periodic execution, optional delay, pip-installable. Dormant since September 2022, tiny feature set, and no diff highlighting or TUI.",
+				"fr": "`loop every 2s` minimal : exécution périodique directe, délai optionnel, installable via pip. Dormant depuis septembre 2022, tout petit jeu de fonctionnalités, pas de diff ni TUI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 1
+}

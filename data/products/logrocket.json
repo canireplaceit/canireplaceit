@@ -101,6 +101,241 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "highlight",
+			"source": {
+				"host": "github",
+				"path": "highlight/highlight",
+				"url": "https://github.com/highlight/highlight"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Self-hostable session replay with error monitoring, logs and traces. Multi-container deployment, the enterprise/ directory stays closed under open-core, and the integration catalog is smaller than LogRocket’s.",
+				"fr": "Replay de session auto-hébergeable avec monitoring d’erreurs, logs et traces, au prix d’un déploiement multi-conteneurs. Le dossier enterprise/ reste fermé (open-core) et le catalogue d’intégrations est plus réduit que LogRocket."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise directory — closed",
+					"fr": "Répertoire enterprise/ — fermé"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "HyperDX",
+			"source": {
+				"host": "github",
+				"path": "hyperdxio/hyperdx",
+				"url": "https://github.com/hyperdxio/hyperdx"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Full-stack logs, traces, metrics and session replay in one OpenTelemetry-native MIT stack. Self-hosting pulls in ClickHouse, and replay/RUM coverage is still maturing.",
+				"fr": "Logs, traces, métriques et replay de session en un seul stack MIT natif OpenTelemetry. L’auto-hébergement impose ClickHouse et le replay/RUM mûrit encore."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Sentry",
+			"source": {
+				"host": "github",
+				"path": "getsentry/sentry",
+				"url": "https://github.com/getsentry/sentry"
+			},
+			"license": "FSL-1.1-Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Reference self-hosted error tracking, now with SDK-based session replay, tracing and releases. FSL is source-available, not OSI, the install is heavyweight, and replay analysis is less purpose-built than LogRocket’s.",
+				"fr": "La référence de l’auto-hébergement pour le suivi d’erreurs, avec replay de session via SDK, traces et releases. FSL source-disponible, pas OSI, installation lourde ; analyse de replay moins dédiée que LogRocket."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Talivia",
+			"source": {
+				"host": "github",
+				"path": "talivia-group/talivia",
+				"url": "https://github.com/talivia-group/talivia"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "MIT self-hosted analytics tying session replay to web analytics and Stripe revenue attribution. Founder-and-revenue-centric, narrower than full observability, and the ecosystem is still small.",
+				"fr": "Analytics MIT auto-hébergeables mêlant replay de session, analytics web et attribution de revenus Stripe. Pensé pour les fondateurs, plus étroit qu’une observabilité complète, écosystème encore petit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "temps",
+			"source": {
+				"host": "github",
+				"path": "gotempsh/temps",
+				"url": "https://github.com/gotempsh/temps"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "One Rust binary bundles replay, error tracking, analytics and OpenTelemetry behind 440+ CLI operations. Young, opinionated all-in-one with limited documentation and a fast-moving API.",
+				"fr": "Un seul binaire Rust regroupe replay, tracking d’erreurs, analytics et OpenTelemetry, avec 440+ opérations CLI. Jeune, tout-en-un assumé, doc encore limitée et API en évolution rapide."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "WireQuery",
+			"source": {
+				"host": "github",
+				"path": "wirequery/wirequery",
+				"url": "https://github.com/wirequery/wirequery"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Full-stack replay exposing every XHR/fetch call for time-travel debugging of payloads. Dormant since mid-2024 though: no commit in two years, small community, and product analytics are skipped.",
+				"fr": "Replay full-stack exposant chaque appel XHR/fetch pour débugger les payloads en time-travel. Dormant depuis mi-2024 : plus aucun commit depuis deux ans, petite communauté, pas d’analytics produit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "replaya",
+			"source": {
+				"host": "github",
+				"path": "s2-streamstore/replaya",
+				"url": "https://github.com/s2-streamstore/replaya"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "MIT browser session replay with live tailing, built on the S2 streamstore. Niche and young: it leans on less battle-tested storage and a minimal feature set next to LogRocket.",
+				"fr": "Replay de session navigateur MIT avec tail en direct, sur le streamstore S2. Jeune et de niche : stockage moins éprouvé, fonctionnalités minimales face à LogRocket."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Rejourney",
+			"source": {
+				"host": "github",
+				"path": "rejourneyco/rejourney",
+				"url": "https://github.com/rejourneyco/rejourney"
+			},
+			"license": "SSPL-1.0",
+			"effort": "ops",
+			"note": {
+				"en": "Self-hosted product analytics with replay, crash/ANR reporting and revenue-leak prediction, plus a React Native SDK. Backend SSPL-1.0 source-available (SDK Apache-2.0), and still a young project.",
+				"fr": "Analytics produit auto-hébergeables avec replay, crash/ANR et prédiction de fuite de revenus, SDK React Native inclus. Backend SSPL-1.0 source-disponible (SDK en Apache-2.0), projet encore jeune."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GoAccess",
+			"source": {
+				"host": "github",
+				"path": "allinurl/goaccess",
+				"url": "https://github.com/allinurl/goaccess"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Real-time CLI/TUI log analyzer with browser dashboards and geolocation. It reads server access logs, so no session replay or error tracking — you must already run a log pipeline.",
+				"fr": "Analyseur de logs temps réel en CLI/TUI, avec dashboards navigateur et géolocalisation. Il lit les logs serveur : pas de replay ni de tracking d’erreurs, et il faut déjà un pipeline de logs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Logdy",
+			"source": {
+				"host": "github",
+				"path": "logdyhq/logdy-core",
+				"url": "https://github.com/logdyhq/logdy-core"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Single-binary realtime log tail in the browser, local or remote. Log-only: no session replay, no tracing, no app SDKs, and the UI ships as a separate component.",
+				"fr": "Tail de logs temps réel dans le navigateur, un seul binaire, en local ou à distance. Centré logs : pas de replay, ni tracing, ni SDK applicatif, et l’UI est un composant séparé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "lnav",
+			"source": {
+				"host": "github",
+				"path": "tstack/lnav",
+				"url": "https://github.com/tstack/lnav"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "TUI log navigator running SQL over logs, with auto-format parsing, timelines and statistics. Offline local files only — no live ingestion, no SDK, no web UI.",
+				"fr": "Navigateur de logs en TUI, requêtes SQL sur les logs, parsing auto des formats, timelines et statistiques. Fichiers locaux hors-ligne uniquement : pas d’ingestion live, ni SDK, ni interface web."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

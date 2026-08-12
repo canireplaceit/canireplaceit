@@ -107,6 +107,153 @@
 				"en": "A flat add-on on an already cheap CDN, an order of magnitude below imgix at volume. Fewer transformation options.",
 				"fr": "Un supplément forfaitaire sur un CDN déjà bon marché, un ordre de grandeur sous imgix en volume. Moins d’options de transformation."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "willnorris/imageproxy",
+			"source": {
+				"host": "github",
+				"path": "willnorris/imageproxy",
+				"url": "https://github.com/willnorris/imageproxy"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Go caching proxy in a single deployable binary, with signed URLs and a whitelist. A minimal imgix stand-in, but transforms are fewer than imgproxy’s and caching is disk-only.",
+				"fr": "Un binaire Go unique à déployer, avec URLs signées et liste blanche au choix. Remplaçant minimal d’imgix : transformations plus minces qu’imgproxy, cache disque uniquement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Imageflow",
+			"source": {
+				"host": "github",
+				"path": "imazen/imageflow",
+				"url": "https://github.com/imazen/imageflow"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Rust-core resizer exposed as a JSON URL API, with fast JPEG, PNG and WebP encoders. AGPL-3.0 can bite commercial embedding and prebuilt integrations are thin.",
+				"fr": "Moteur de redimensionnement en Rust exposé en API URL JSON, encodeurs JPEG, PNG et WebP rapides. L’AGPL-3.0 peut gêner l’embarquement commercial et les intégrations toutes faites manquent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "AWS Dynamic Image Transformation for CloudFront",
+			"source": {
+				"host": "github",
+				"path": "aws-solutions/dynamic-image-transformation-for-amazon-cloudfront",
+				"url": "https://github.com/aws-solutions/dynamic-image-transformation-for-amazon-cloudfront"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Serverless CloudFront handler, deployed in one CloudFormation stack and billed per request. The AWS-native imgix path, at the cost of being bound to AWS.",
+				"fr": "Handler serverless posé sur CloudFront, déployé en un CloudFormation et facturé à la requête. Le chemin imgix façon AWS, au prix d’un enfermement dans l’écosystème."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Squoosh",
+			"source": {
+				"host": "github",
+				"path": "GoogleChromeLabs/squoosh",
+				"url": "https://github.com/GoogleChromeLabs/squoosh"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Compress in the browser with a live preview, batch from the CLI — AVIF, WebP, MozJPEG and more. A local tool though, with no URL API or CDN.",
+				"fr": "Compression côté navigateur avec aperçu en direct, et batch via squoosh-cli — AVIF, WebP, MozJPEG et compagnie. Outil local tout de même : pas d’API URL ni de CDN."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "libvips",
+			"source": {
+				"host": "github",
+				"path": "libvips/libvips",
+				"url": "https://github.com/libvips/libvips"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "Under the hood of imgproxy and imaginary; vipsthumbnail turns it into a one-line resizer with extreme memory efficiency. A library, so no HTTP layer or cache of its own.",
+				"fr": "Derrière imgproxy et imaginary ; vipsthumbnail en fait un redimensionneur en une ligne, d’une économe mémoire exemplaire. Une bibliothèque : pas de couche HTTP ni de cache."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "flyimg",
+			"source": {
+				"host": "github",
+				"path": "flyimg/flyimg",
+				"url": "https://github.com/flyimg/flyimg"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "PHP resizing server with a clean URL API, docker-compose out of the box and S3, Glacier and object-storage support. AGPL-3.0, and PHP trails Go and Rust on throughput.",
+				"fr": "Serveur de redimensionnement PHP à l’API URL propre, docker-compose livré et support S3, Glacier et stockage objet. AGPL-3.0, et le PHP passe derrière Go et Rust en débit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Glide",
+			"source": {
+				"host": "github",
+				"path": "thephpleague/glide",
+				"url": "https://github.com/thephpleague/glide"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "League PHP library: plug a URL API into your app with source, cache and output adapters. Not a standalone daemon, and it pins you to a PHP runtime.",
+				"fr": "Bibliothèque PHP de la league : branchez une API URL dans votre app avec adaptateurs source, cache et sortie. Pas un démon autonome, et vous voilà lié au runtime PHP."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

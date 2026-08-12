@@ -118,6 +118,174 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "notmuch",
+			"source": {
+				"host": "github",
+				"path": "notmuch/notmuch",
+				"url": "https://github.com/notmuch/notmuch"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Canonical CLI triage engine — tag, search and filter the inbox fast, scriptable, with emacs and vim frontends. The catch: a real learning curve, external maildir sync, no digest or snooze.",
+				"fr": "Le triage CLI canonique : taguer, chercher, filtrer vite, scriptable, frontaux emacs et vim. La note à payer : courbe d’apprentissage réelle, sync maildir externe, ni digest ni snooze."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "mu",
+			"source": {
+				"host": "github",
+				"path": "djcb/mu",
+				"url": "https://github.com/djcb/mu"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Read-only maildir indexer: fast query triage in the terminal via mu4e. It searches but never moves mail — no web or mobile interface, and sync still lives elsewhere.",
+				"fr": "Indexeur maildir en lecture seule : triage par requêtes rapides dans le terminal, via mu4e. Il indexe mais ne déplace pas le courrier ; pas d’interface web ni mobile, la sync reste ailleurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "neomutt",
+			"source": {
+				"host": "gitlab",
+				"path": "neomutt/neomutt",
+				"url": "https://gitlab.com/neomutt/neomutt"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Scriptable TUI where score, limit and pattern views do the filing — bulk macros, notmuch integration. No AI triage or digest, terminal only, and the config curve is real.",
+				"fr": "TUI scriptable : le tri se fait par score, limite et patterns, macros de classement en masse, intégration notmuch. Pas d’IA ni de digest, terminal seul, config exigeante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "aerc",
+			"source": {
+				"host": "sourcehut",
+				"path": "rjarry/aerc",
+				"url": "https://git.sr.ht/~rjarry/aerc"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Modern lightweight TUI: vim-style keys, thread and folder views, IMAP and maildir. What it gives up: AI triage and digest, plus any official mobile client.",
+				"fr": "TUI moderne et léger : touches façon vim, navigation par fils et dossiers, comptes IMAP et maildir. Il renonce à l’IA et au digest, et n’a aucun client mobile officiel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "astroid",
+			"source": {
+				"host": "github",
+				"path": "astroidmail/astroid",
+				"url": "https://github.com/astroidmail/astroid"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Notmuch-backed TUI for rapid triage: thread collapsing, tag workflow, gpg, all from the keyboard. The project moves slowly, targets the Linux desktop, and skips AI scoring and digest.",
+				"fr": "TUI adossé à notmuch : repli des fils, workflow par tags, gpg, le tout au clavier. Le projet avance lentement, vise le desktop Linux, zappe score IA et digest."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mailpile",
+			"source": {
+				"host": "github",
+				"path": "mailpile/Mailpile",
+				"url": "https://github.com/mailpile/Mailpile"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted webmail with a priority-inbox view and tagging — the closest to a server-side SaneBox. But no commit since 2023-11-01: two years dormant, straining on huge mailboxes, and no AI digest.",
+				"fr": "Webmail auto-hébergé, vue boîte prioritaire et tags : le plus proche d’un SaneBox côté serveur. Mais aucun commit depuis 2023-11-01, deux ans inactif, à la peine sur les grosses boîtes, sans digest IA."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dovecot Pigeonhole",
+			"source": {
+				"host": "codeberg",
+				"path": "dovecot/pigeonhole",
+				"url": "https://codeberg.org/dovecot/pigeonhole"
+			},
+			"license": "LGPL-2.1",
+			"effort": "ops",
+			"note": {
+				"en": "Server-side Sieve auto-files, forwards and sends vacation replies from any IMAP client — the folder brain. Rules stay manual, it only runs inside Dovecot, and there is no digest or priority scoring.",
+				"fr": "Règles Sieve côté serveur : classement, transfert, réponses auto, depuis tout client IMAP — le cerveau des dossiers. Écrites à la main, Dovecot obligatoire, pas de digest ni de score."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SimpleLogin",
+			"source": {
+				"host": "github",
+				"path": "simple-login/app",
+				"url": "https://github.com/simple-login/app"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hostable disposable-alias server: one alias per sender, disable it to block — the blackhole half of SaneBox. Triage is untouched, mail still lands in the real inbox, and self-hosting is fiddly.",
+				"fr": "Serveur d’alias jetables auto-hébergeable : un alias par expéditeur, désactivé pour bloquer — la moitié blackhole de SaneBox. Le tri n’est pas couvert, le mail arrive dans la vraie boîte, l’auto-hébergement demande du bricolage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

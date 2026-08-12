@@ -1,0 +1,282 @@
+{
+	"slug": "ls",
+	"name": "ls",
+	"domain": null,
+	"category": "shell-terminal",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "Yes. eza and lsd bring colour, icons and tree views that plain ls lacks, at the cost of a third-party dependency and, with eza, a copyleft licence.",
+		"fr": "Oui. eza comme lsd apportent couleurs, icônes et vue en arborescence, au prix d’une dépendance tierce et, pour eza, d’une licence copyleft."
+	},
+	"whatYouLose": [
+		{
+			"en": "Ubiquity on every machine",
+			"fr": "Disponibilité sur toutes les machines"
+		},
+		{
+			"en": "Years of shell muscle memory",
+			"fr": "Des années de réflexes en shell"
+		},
+		{
+			"en": "Coreutils on every system",
+			"fr": "Présent dans coreutils sur chaque système"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "eza",
+			"source": {
+				"host": "github",
+				"path": "eza-community/eza",
+				"url": "https://github.com/eza-community/eza"
+			},
+			"license": "EUPL-1.2",
+			"effort": "managed",
+			"note": {
+				"en": "Maintained fork of exa: git status column, tree mode, icons, hyperlinks. EUPL-1.2 is copyleft, worth knowing before vendoring it.",
+				"fr": "Fork maintenu d’exa, avec colonne de statut git, mode arborescence, icônes et hyperliens. EUPL-1.2 est copyleft : à savoir avant de l’intégrer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "lsd",
+			"source": {
+				"host": "github",
+				"path": "lsd-rs/lsd",
+				"url": "https://github.com/lsd-rs/lsd"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Closer to plain ls in flags, so muscle memory survives. Icons and colours, but no git column.",
+				"fr": "Plus proche de ls côté drapeaux, les réflexes survivent. Icônes et couleurs, mais pas de colonne git."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "exa",
+			"source": {
+				"host": "github",
+				"path": "ogham/exa",
+				"url": "https://github.com/ogham/exa"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The Rust ls that invented modern colourful output, still the most-clicked answer. Git status inline, tree view, icons — but unmaintained since 2021, superseded by its fork eza, and no Windows build.",
+				"fr": "Le ls Rust qui a inventé la sortie moderne colorée, la réponse la plus cliquée. Git inline, arborescence, icônes, mais abandonné depuis 2021 — son fork eza a pris le relais, sans Windows."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "colorls",
+			"source": {
+				"host": "github",
+				"path": "athityakumar/colorls",
+				"url": "https://github.com/athityakumar/colorls"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Ruby ls with nerd-font icons and colour-coded tags. Sort by mtime, size or extension; shell completion built in. Needs Ruby at runtime, and icons only render on a patched font.",
+				"fr": "Le ls Ruby aux icônes nerd-font et aux tags colorés. Tri par date, taille ou extension, complétion shell intégrée, mais exige Ruby au runtime — icônes visibles seulement sur police nerd-font."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ls-go",
+			"source": {
+				"host": "github",
+				"path": "acarl005/ls-go",
+				"url": "https://github.com/acarl005/ls-go"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Single static binary, zero runtime deps — drop it on any box and colourised, directories-first output just works. Cross-compiles to any platform, but no git integration, no icons, small community.",
+				"fr": "Un seul binaire statique, zéro dépendance runtime — on le pose n’importe où et la sortie colorisée, répertoires d’abord, fonctionne. Cross-compile partout, mais pas de git, pas d’icônes, communauté réduite."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "broot",
+			"source": {
+				"host": "github",
+				"path": "Canop/broot",
+				"url": "https://github.com/Canop/broot"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A TUI where the tree deepens only as far as your filter reaches — fuzzy-match, browse, then cd into the result. Git-aware and size-sorted, but interactive, so no scripting drop-in for plain ls.",
+				"fr": "Un TUI dont l’arbre ne pousse que selon votre filtre — fuzzy-match, puis cd dans le résultat. Git-aware, trié par taille, mais interactif : pas un remplaçant scriptable pour un simple ls."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "lf",
+			"source": {
+				"host": "github",
+				"path": "gokcehan/lf",
+				"url": "https://github.com/gokcehan/lf"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A file manager for when listing isn’t the point: vi keys, previews, plain shell commands, pairs with fzf and rg. But it navigates instead of listing, and previews lean on external tools.",
+				"fr": "Pour quand lister ne suffit pas : touches vi, aperçus, shell sans langage de config, s’associe à fzf et rg. Il navigue au lieu de lister, aperçus fournis par des outils externes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "yazi",
+			"source": {
+				"host": "github",
+				"path": "sxyazi/yazi",
+				"url": "https://github.com/sxyazi/yazi"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Async I/O that loads large directories instantly, image, video and PDF previews in the terminal, vim keys, themes, plugin API. A full file-manager workflow and a bigger install — not a bare ls.",
+				"fr": "E/S asynchrones, chargement instantané des gros répertoires, aperçus image, vidéo et PDF, touches vim, thèmes, API de plugins. Plus lourd qu’un simple ls : un workflow complet de gestionnaire de fichiers."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "nnn",
+			"source": {
+				"host": "github",
+				"path": "jarun/nnn",
+				"url": "https://github.com/jarun/nnn"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Sub-10ms loads, tiny RAM footprint, no runtime deps, one static binary. Behaviour comes from a plugin system rather than config files, and visuals are deliberately sparse.",
+				"fr": "Sous 10 ms au chargement, empreinte RAM minuscule, un seul binaire statique sans dépendance. Comportement réglé par plugins plutôt que par config ; le rendu reste volontairement spartiate."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "superfile",
+			"source": {
+				"host": "github",
+				"path": "yorukot/superfile",
+				"url": "https://github.com/yorukot/superfile"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Glamour-styled TUI that opens as one panel and splits on demand: sidebar, tabs, mouse, async loading. A young project — config and themes shift between releases, and it’s heavier than a bare ls.",
+				"fr": "TUI élégant qui démarre en un panneau puis se scinde : sidebar, onglets, souris, chargement asynchrone. Projet jeune, config et thèmes instables d’une release à l’autre, plus lourd qu’un simple ls."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ranger",
+			"source": {
+				"host": "github",
+				"path": "ranger/ranger",
+				"url": "https://github.com/ranger/ranger"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The classic Python file manager with a previewer that reads as you move: bookmarks, multi-columns, a large plugin ecosystem. But Python startup shows on big directories — slower than Rust or Go TUIs.",
+				"fr": "Le classique des gestionnaires de fichiers Python, aperçu qui lit en naviguant. Marque-pages, colonnes multiples, gros écosystème de plugins, mais le démarrage Python pèse sur les gros répertoires, au ressenti plus lent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "xplr",
+			"source": {
+				"host": "github",
+				"path": "sayanarijit/xplr",
+				"url": "https://github.com/sayanarijit/xplr"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "An ls you compose through Lua: peek and preview panes, custom layouts, chosen path returned to the shell. Lean defaults, though — real power means writing Lua config.",
+				"fr": "Un ls que vous composez en Lua : panneaux de peek et preview, layouts personnalisés, le chemin choisi revient au shell. Des réglages sobres par défaut — la vraie puissance, c’est votre config Lua."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

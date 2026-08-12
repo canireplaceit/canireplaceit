@@ -103,6 +103,174 @@
 				"en": "Event-driven loops and a modern API at a fraction of the price. Far weaker segmentation and no multichannel.",
 				"fr": "Boucles pilotées par événements et API moderne pour une fraction du prix. Segmentation bien plus faible et pas de multicanal."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Postal",
+			"source": {
+				"host": "github",
+				"path": "postalserver/postal",
+				"url": "https://github.com/postalserver/postal"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Closest functional match: full self-hosted outbound sending with bounces, webhooks, REST API, and per-server queues. No campaign or journey automation though, and deliverability rides on your IPs.",
+				"fr": "Le plus proche fonctionnel : plateforme d’envoi auto-hébergée complète avec bounces, webhooks, API REST et files par serveur. Pas d’automatisation de campagnes en revanche, et la délivrabilité dépend de vos IP."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mailtrain",
+			"source": {
+				"host": "github",
+				"path": "Mailtrain-org/mailtrain",
+				"url": "https://github.com/Mailtrain-org/mailtrain"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted newsletter and campaign platform with list management and scheduling. Slower-moving codebase, and far less behavioral automation than Customer.io.",
+				"fr": "Plateforme auto-hébergée de newsletters et campagnes, avec gestion des listes et planification. Code qui avance lentement, et beaucoup moins d’automatisation comportementale que Customer.io."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "parsedmarc",
+			"source": {
+				"host": "github",
+				"path": "domainaware/parsedmarc",
+				"url": "https://github.com/domainaware/parsedmarc"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The genuinely open deliverability-monitoring stack: DMARC, SPF, and DKIM reports land in dashboards with alignment checks and geo lookups. Monitoring only — no sending — and the full stack wants Elasticsearch.",
+				"fr": "Le stack de supervision de délivrabilité vraiment open : rapports DMARC/SPF/DKIM agrégés en tableaux de bord, vérifications d’alignement et géolocalisation. Surveillance uniquement, aucun envoi, et la stack complète demande Elasticsearch."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mailcow",
+			"source": {
+				"host": "github",
+				"path": "mailcow/mailcow-dockerized",
+				"url": "https://github.com/mailcow/mailcow-dockerized"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Full self-hosted mail suite — Postfix, Dovecot, SOGo, admin UI — so outbound deliverability starts from a clean, inspectable stack. An email server, not marketing automation; multi-container footprint is heavy.",
+				"fr": "Suite mail auto-hébergée complète — Postfix, Dovecot, SOGo, interface admin — pour partir d’une stack de délivrabilité propre et inspectable. Un serveur mail, pas de l’automation marketing ; l’empreinte multi-conteneurs est lourde."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Haraka",
+			"source": {
+				"host": "github",
+				"path": "haraka/Haraka",
+				"url": "https://github.com/haraka/Haraka"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Pluggable Node.js SMTP server with full control over outbound queueing, rate limiting, and the headers that shape deliverability. DIY — you build the deliverability logic; there is no marketing UI.",
+				"fr": "Serveur SMTP Node.js enfichable : contrôle total sur la file d’envoi, le rate limiting et les en-têtes qui façonnent la délivrabilité. Vous bâtissez la logique vous-même, sans la moindre UI marketing."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mailpit",
+			"source": {
+				"host": "github",
+				"path": "axllent/mailpit",
+				"url": "https://github.com/axllent/mailpit"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Lightweight SMTP test catcher with web UI, CLI, and spam scoring for validating delivery and rendering. A dev tool — it cannot send real mail, so no reputation or bounce management.",
+				"fr": "Catcheur SMTP de test, léger, avec UI web, CLI et score anti-spam pour valider livraison et rendu. Outil de dev : pas d’envoi réel possible, donc ni réputation ni gestion des bounces."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "swaks",
+			"source": {
+				"host": "github",
+				"path": "jetmore/swaks",
+				"url": "https://github.com/jetmore/swaks"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Swiss-army SMTP debugging CLI for hand-checking SPF/DKIM/DMARC, STARTTLS, and auth. Two years dormant — last commit March 2024 — and single-purpose: no UI, no reporting.",
+				"fr": "CLI de débogage SMTP passe-partout pour vérifier à la main SPF/DKIM/DMARC, STARTTLS et l’auth. Dormant depuis deux ans — dernier commit mars 2024 — et mono-tâche : ni UI ni reporting."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Neomutt",
+			"source": {
+				"host": "gitlab",
+				"path": "neomutt/neomutt",
+				"url": "https://gitlab.com/neomutt/neomutt"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Mature TUI mail client for reading and sending from the terminal, with tagging, threading, and scriptable workflows. A personal client — nothing for campaigns or analytics.",
+				"fr": "Client mail TUI mature pour lire et envoyer depuis le terminal, avec taguage, fils de discussion et workflows scriptables. Un client personnel : rien pour les campagnes ni l’analytique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

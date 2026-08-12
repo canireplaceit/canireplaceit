@@ -86,8 +86,8 @@
 			"name": "Baserow",
 			"source": {
 				"host": "github",
-				"path": "bram2w/baserow",
-				"url": "https://github.com/bram2w/baserow"
+				"path": "baserow/baserow",
+				"url": "https://github.com/baserow/baserow"
 			},
 			"license": "MIT",
 			"effort": "docker",
@@ -103,6 +103,278 @@
 					"fr": "SSO/SAML, RBAC, journal d’audit, outils d’administration"
 				},
 				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Grist",
+			"source": {
+				"host": "github",
+				"path": "gristlabs/grist-core",
+				"url": "https://github.com/gristlabs/grist-core"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Python-style formulas plus row-level access control; closest to Airtable’s formula engine. No kanban or calendar in core, and integrations are fewer than the hosted original.",
+				"fr": "Formules en Python et contrôle d’accès à la ligne près ; le moteur de formules le plus proche d’Airtable. Pas de kanban ni de calendrier dans le cœur, et moins d’intégrations que l’original hébergé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SeaTable",
+			"source": {
+				"host": "github",
+				"path": "seatable/seatable",
+				"url": "https://github.com/seatable/seatable"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Unlimited rows per base and kanban, timeline, gallery views, with big-table search for millions of records. The core server went proprietary, and SSO/LDAP sits in the enterprise tier.",
+				"fr": "Lignes illimitées par base, vues kanban, frise et galerie, avec une recherche sur des millions d’enregistrements. Le serveur central est passé propriétaire et le SSO/LDAP reste en édition entreprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "dtable-server core (proprietary)",
+					"fr": "noyau dtable-server (propriétaire)"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "NocoBase",
+			"source": {
+				"host": "github",
+				"path": "nocobase/nocobase",
+				"url": "https://github.com/nocobase/nocobase"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Builds business systems on your own database with workflows and granular roles. Steeper learning curve, not a drop-in table editor, and the licence is now a commercial agreement.",
+				"fr": "Construit des systèmes métier sur votre propre base de données, workflows et rôles fins compris. Courbe d’apprentissage raide, inutilisable comme simple éditeur de tableau, et la licence est désormais un accord commercial."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "pure AGPL license",
+					"fr": "licence AGPL pure"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Rowy",
+			"source": {
+				"host": "github",
+				"path": "buildship-ai/rowy",
+				"url": "https://github.com/buildship-ai/rowy"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Spreadsheet grid over Firestore where cloud functions deploy straight from cells. Tied to Google’s stack, dormant since late 2024, and no kanban or calendar views.",
+				"fr": "Grille façon tableur sur Firestore, avec des fonctions cloud déployées directement depuis les cellules. Lié à l’écosystème Google, dormant depuis fin 2024, et sans vues kanban ni calendrier."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Saltcorn",
+			"source": {
+				"host": "github",
+				"path": "saltcorn/saltcorn",
+				"url": "https://github.com/saltcorn/saltcorn"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Permissive MIT licence with click-to-build views, forms and formulas. The tradeoff is a small community, few integrations, a basic UI and a limited mobile experience.",
+				"fr": "Licence MIT permissive et vues, formulaires et formules à construire au clic. En échange : petite communauté, peu d’intégrations, interface basique et expérience mobile limitée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Appsmith",
+			"source": {
+				"host": "github",
+				"path": "appsmithorg/appsmith",
+				"url": "https://github.com/appsmithorg/appsmith"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Mature internal-tool builder: drag widgets, wire them to your DBs and APIs, inline JS. It’s an app builder, not a spreadsheet, SSO sits in the paid tier, and overkill for simple tracking.",
+				"fr": "Builder d’outils internes mature : glisser des widgets, les brancher sur vos bases et API, du JS en ligne. Une fabrique d’apps, pas un tableur, SSO réservé à l’édition payante, et surdimensionné pour un simple suivi."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "SSO/SAML sign-in",
+					"fr": "connexion SSO/SAML"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Budibase",
+			"source": {
+				"host": "github",
+				"path": "Budibase/budibase",
+				"url": "https://github.com/Budibase/budibase"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Built-in database, automation flows and CRUD screens generated for you, with external DB connectors. Heavier footprint, GPL-plus-BSL licensing, and a builder paradigm rather than a spreadsheet.",
+				"fr": "Base intégrée, flux d’automation et écrans CRUD générés, avec connecteurs vers des bases externes. Empreinte plus lourde, licence GPL+BSL, et un paradigme de builder plutôt qu’un tableur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "BSL-licensed pro packages",
+					"fr": "paquets pro sous licence BSL"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ToolJet",
+			"source": {
+				"host": "github",
+				"path": "ToolJet/ToolJet",
+				"url": "https://github.com/ToolJet/ToolJet"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "One command to self-host; visual query builder over DBs and APIs, workflows included. It’s an app-builder, not a table view, SSO is enterprise-priced, and the ops burden stays with you.",
+				"fr": "Une commande pour s’auto-héberger, un constructeur de requêtes visuelles sur bases et API, workflows compris. Une fabrique d’apps, pas une vue tableau, SSO au prix entreprise, et l’exploitation vous incombe."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "multi-tenancy and SSO",
+					"fr": "multi-tenant et SSO"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "VisiData",
+			"source": {
+				"host": "github",
+				"path": "saulpw/visidata",
+				"url": "https://github.com/saulpw/visidata"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Terminal spreadsheet that slices millions of rows from CSV, TSV, SQLite or JSON, with macros and type-aware columns. Single-user and local: no collaboration, no automations, no sharing.",
+				"fr": "Tableur en terminal qui explore des millions de lignes depuis CSV, TSV, SQLite ou JSON, avec macros et colonnes typées. Mono-utilisateur et local : pas de collaboration, ni d’automations, ni de partage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Datasette",
+			"source": {
+				"host": "github",
+				"path": "simonw/datasette",
+				"url": "https://github.com/simonw/datasette"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Publish SQLite as an explorable web UI with a JSON API, straight from the CLI. Plugins add auth and visualisation; deploy to Vercel or Glitch. SQLite-only, no multi-user editing, no Airtable-style editor.",
+				"fr": "Publier une base SQLite en interface web explorable avec une API JSON, depuis le CLI. Des plugins ajoutent auth et visualisation, déploiement sur Vercel ou Glitch. SQLite uniquement, pas d’édition multi-utilisateur, pas d’éditeur façon Airtable."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "sqlite-utils",
+			"source": {
+				"host": "github",
+				"path": "simonw/sqlite-utils",
+				"url": "https://github.com/simonw/sqlite-utils"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "CLI that pours CSV, JSON or XLSX into SQLite, with schema and index helpers for scripting. No UI at all — you need SQL, and the workflow stays single-user and local.",
+				"fr": "CLI qui verse CSV, JSON ou XLSX dans SQLite, avec aides pour le schéma et les index, scriptable. Aucune interface : il faut connaître le SQL, et tout reste en local, mono-utilisateur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Miller",
+			"source": {
+				"host": "github",
+				"path": "johnkerl/miller",
+				"url": "https://github.com/johnkerl/miller"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "An awk for name-indexed CSV/TSV/JSON/Parquet: join, summarize, reshape from a single static binary. Batch-only, no interactivity, no persistence — a processor, not a database.",
+				"fr": "Un awk pour CSV/TSV/JSON/Parquet à champs nommés : joindre, résumer, remodeler depuis un unique binaire statique. Uniquement en lot, sans interactivité ni persistance — un processeur, pas une base de données."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
 				"dataResidency": "self"
 			}
 		}

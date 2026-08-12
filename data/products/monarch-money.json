@@ -103,6 +103,220 @@
 				"en": "A quarter of Monarch's price with the same bank sync. Weaker on shared household accounts and investment detail.",
 				"fr": "Quatre fois moins cher que Monarch, avec la même synchronisation bancaire. Plus faible sur les comptes partagés et le détail des placements."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Maybe",
+			"source": {
+				"host": "github",
+				"path": "maybe-finance/maybe",
+				"url": "https://github.com/maybe-finance/maybe"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Archived upstream: this YNAB/Mint competitor open-sourced its AGPL code when the startup shut down. No active development, and bank sync needs your own Plaid key.",
+				"fr": "Archivé en amont : ce concurrent de YNAB/Mint a publié son code AGPL à la fermeture de la startup. Plus aucun développement actif, et la synchro bancaire exige votre propre clé Plaid."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Wealthfolio",
+			"source": {
+				"host": "github",
+				"path": "wealthfolio/wealthfolio",
+				"url": "https://github.com/wealthfolio/wealthfolio"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Privacy-first native desktop tracker for the wealth side of Monarch: investments and net worth, local data, no cloud. But no transactions or budgets, and no official mobile app.",
+				"fr": "Suivi de patrimoine natif de bureau, soucieux de la vie privée : investissements et valeur nette en local, sans cloud. Mais pas de transactions ni de budgets, et aucune app mobile officielle."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Paisa",
+			"source": {
+				"host": "github",
+				"path": "ananthakumaran/paisa",
+				"url": "https://github.com/ananthakumaran/paisa"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Ledger-style double-entry accounting in a slick self-hosted web UI. Multi-currency, budgets, CLI import — but you author data in ledger format and there is no automated bank sync.",
+				"fr": "Comptabilité en partie double façon ledger, avec une interface web self-hosted soignée. Multi-devises, budgets, import CLI — mais vous saisissez les données au format ledger, et aucune synchro bancaire automatique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ezbookkeeping",
+			"source": {
+				"host": "github",
+				"path": "mayswind/ezbookkeeping",
+				"url": "https://github.com/mayswind/ezbookkeeping"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight multi-user bookkeeping with double entry, categories, tags, REST API and CSV import/export, all behind one Docker deploy. Community is smaller and budgeting thinner than Monarch’s.",
+				"fr": "Tenue de livres légère et multi-utilisateurs : partie double, catégories, tags, API REST et import/export CSV, le tout derrière un déploiement Docker. Communauté plus petite et budgets plus légers que chez Monarch."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MoneyNote",
+			"source": {
+				"host": "github",
+				"path": "getmoneynote/moneynote-api",
+				"url": "https://github.com/getmoneynote/moneynote-api"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hostable MIT backend that syncs transactions across the MoneyNote desktop and mobile apps. Multi-currency, multi-account. Official clients are closed-source, so you run the companion apps against your own server.",
+				"fr": "Backend MIT auto-hébergeable qui synchronise les transactions entre les apps desktop et mobile MoneyNote. Multi-devises, multi-comptes. Les clients officiels sont closed-source : vous lancez les apps compagnons contre votre propre serveur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Closed-source official apps",
+					"fr": "Apps officielles closed-source"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Economizzer",
+			"source": {
+				"host": "github",
+				"path": "gugoan/economizzer",
+				"url": "https://github.com/gugoan/economizzer"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A simple PHP expense manager, more money journal than aggregator: income and expenses, categories, recurring entries, receipt uploads, multi-user. Dated LAMP stack, manual entry only — no bank feeds.",
+				"fr": "Gestionnaire de dépenses PHP simple, plutôt journal de compte qu’agrégateur : entrées et sorties, catégories, opérations récurrentes, photo des reçus, multi-utilisateurs. Stack LAMP datée, saisie manuelle uniquement — pas de flux bancaires."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Money Manager Ex",
+			"source": {
+				"host": "github",
+				"path": "moneymanagerex/android-money-manager-ex",
+				"url": "https://github.com/moneymanagerex/android-money-manager-ex"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Classic double-entry manager with envelope budgets, cash-flow reports and CSV/OFX import, on desktop and Android. Dated UI, no hosted bank feeds, and syncing between devices is manual.",
+				"fr": "Gestionnaire classique en partie double, budgets par enveloppes, rapports de trésorerie et import CSV/OFX, sur desktop et Android. Interface datée, pas de flux bancaires hébergés, et la synchro entre appareils est manuelle."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "hledger",
+			"source": {
+				"host": "github",
+				"path": "simonmichael/hledger",
+				"url": "https://github.com/simonmichael/hledger"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Battle-tested plain-text double-entry accounting from the CLI, with a curses UI and web reports. Powerful queries, JSON API — but a steep learning curve, and imports stay manual, no bank sync.",
+				"fr": "Comptabilité en partie double en texte brut, éprouvée, pilotée depuis le CLI, avec une interface curses et des rapports web. Requêtes puissantes, API JSON — mais courbe d’apprentissage raide, imports manuels, pas de synchro bancaire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Beancount",
+			"source": {
+				"host": "github",
+				"path": "beancount/beancount",
+				"url": "https://github.com/beancount/beancount"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "A developer-grade plain-text accounting engine, precise and extensible, that powers the separate Fava web UI. Text-file workflow, no official GUI — not for casual users.",
+				"fr": "Moteur comptable en texte brut de qualité développeur, précis et extensible, qui alimente l’interface web séparée Fava. Workflow de fichiers texte, pas de GUI officielle — pas pour les utilisateurs occasionnels."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kresus",
+			"source": {
+				"host": "github",
+				"path": "kresusapp/kresus",
+				"url": "https://github.com/kresusapp/kresus"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Mint-style self-hosted aggregator that pulls bank transactions automatically and applies rules and budgets. No cloud, REST API — but connector coverage varies by country and setup is heavier than a pure tracker.",
+				"fr": "Agrégateur self-hosted façon Mint qui récupère automatiquement vos transactions bancaires et applique règles et budgets. Sans cloud, API REST — mais la couverture des connecteurs varie selon le pays et la mise en place est plus lourde qu’un simple suivi."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

@@ -72,6 +72,304 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Domoticz",
+			"source": {
+				"host": "github",
+				"path": "domoticz/domoticz",
+				"url": "https://github.com/domoticz/domoticz"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "C++ hub running under 50 MB of RAM, proven since 2012, supports 150+ device types. Pick it for old hardware; you trade Home Assistant's integration breadth, and there's no native voice.",
+				"fr": "Hub en C++ tenant sous 50 Mo de RAM, éprouvé depuis 2012, 150+ périphériques. Choisissez-le pour le vieux matériel : vous perdez la couverture d’intégrations de Home Assistant et son assistant vocal."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Gladys Assistant",
+			"source": {
+				"host": "github",
+				"path": "GladysAssistant/Gladys",
+				"url": "https://github.com/GladysAssistant/Gladys"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "French, privacy-first, built-in Zigbee2MQTT, Matter and local LLM via Ollama, one-click Pi Imager install. Aimed at non-technical users; smaller ecosystem than Home Assistant, and remote access needs paid Gladys Plus.",
+				"fr": "Alternative française, privacy-first, avec Zigbee2MQTT, Matter et LLM local via Ollama, install en un clic via Pi Imager. Vise les non-techniciens ; écosystème plus restreint que Home Assistant, accès distant derrière Gladys Plus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ioBroker",
+			"source": {
+				"host": "github",
+				"path": "ioBroker/ioBroker.js-controller",
+				"url": "https://github.com/ioBroker/ioBroker.js-controller"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Node.js hub with JavaScript scripting, Blockly blocks and 200+ adapters (Zigbee, Z-Wave, MQTT, KNX). For developers; smaller community than Home Assistant, thinner English docs, no native voice.",
+				"fr": "Hub Node.js avec scripting JavaScript, blocs Blockly et 200+ adaptateurs (Zigbee, Z-Wave, MQTT, KNX). Pensé pour les développeurs ; communauté plus petite que Home Assistant, documentation anglaise mince, pas d’assistant vocal natif."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Scrypted",
+			"source": {
+				"host": "github",
+				"path": "koush/scrypted",
+				"url": "https://github.com/koush/scrypted"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "High-performance camera bridge: sub-second streams into HomeKit, Google Home, Alexa and Home Assistant, with local AI detection. It's cameras only, not a full hub, and the licensing splits between open and paid.",
+				"fr": "Pont vidéo : flux sous la seconde vers HomeKit, Google Home, Alexa et Home Assistant, détection IA locale. Axé caméra, pas un hub complet, et une licence partagée entre open source et payant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "NVR recording plugin",
+					"fr": "Plugin NVR d’enregistrement"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Frigate",
+			"source": {
+				"host": "github",
+				"path": "blakeblackshear/frigate",
+				"url": "https://github.com/blakeblackshear/frigate"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Open-source NVR, local AI detection (person, car, dog) on Coral TPU or Intel iGPU, no cloud, Home Assistant integration. Camera-only and it wants real hardware; Google Coral drivers were archived April 2026.",
+				"fr": "NVR open source, détection IA locale sans cloud (personne, voiture, chien), intégré à Home Assistant. Caméras seules, exige du matériel ; drivers Google Coral archivés avril 2026."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Homebridge",
+			"source": {
+				"host": "github",
+				"path": "homebridge/homebridge",
+				"url": "https://github.com/homebridge/homebridge"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Bridge adding 4,000+ non-HomeKit devices to Apple HomeKit; 2.0 brings experimental Matter. Runs on an old Mac or Pi. Bridge only — you still need a hub for everything that isn't HomeKit.",
+				"fr": "Pont vers HomeKit pour appareils non supportés (4 000+ plugins) ; la 2.0 ajoute un Matter expérimental. Tourne sur un vieux Mac ou un Pi. Pont seul : il faut un hub pour le reste."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Zigbee2MQTT",
+			"source": {
+				"host": "github",
+				"path": "Koenkk/zigbee2mqtt",
+				"url": "https://github.com/Koenkk/zigbee2mqtt"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "5,473 Zigbee devices from 577 vendors into local MQTT — no vendor hub, everything stays home. Use it with any MQTT-speaking hub; you supply a coordinator stick, and 2.12.0 removed legacy APIs.",
+				"fr": "5 473 appareils Zigbee, 577 fabricants, vers un MQTT — pas de hub constructeur, tout reste local. Fonctionne avec tout hub MQTT ; apportez la clé coordinatrice, et la 2.12.0 a supprimé d’anciennes API."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Z-Wave JS UI",
+			"source": {
+				"host": "github",
+				"path": "zwave-js/zwave-js-ui",
+				"url": "https://github.com/zwave-js/zwave-js-ui"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Z-Wave bridge: mesh diagnostics and automatic NVM backups, feeds Home Assistant's Z-Wave JS. Bring your own hub and USB stick; for fresh installs the simpler Z-Wave JS app is now preferred.",
+				"fr": "Pont Z-Wave : diagnostic de mesh, sauvegardes NVM automatiques, alimente le Z-Wave JS de Home Assistant. Hub et clé USB à fournir ; côté installations neuves, la simple app Z-Wave JS est à préférer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Node-RED",
+			"source": {
+				"host": "github",
+				"path": "node-red/node-red",
+				"url": "https://github.com/node-red/node-red"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Automation engine, not a hub: visual flows over MQTT, HTTP, WebSocket — no YAML — beside Home Assistant, Dashboard 2.0 included. Complex logic comes easy, but the visual model has a steeper learning curve.",
+				"fr": "Moteur d’automatisation, pas un hub : flux visuels sur MQTT, HTTP, WebSocket, sans YAML, à côté de Home Assistant, Dashboard 2.0 inclus. La logique complexe devient simple, mais la courbe d’apprentissage est raide."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ESPHome",
+			"source": {
+				"host": "github",
+				"path": "esphome/esphome",
+				"url": "https://github.com/esphome/esphome"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "YAML-to-C++ firmware for ESP32/ESP8266 with native Home Assistant API, OTA updates, no cloud. Turns your board into a smart device — not a hub, and wiring sensors assumes some electronics.",
+				"fr": "Firmware YAML vers C++ pour ESP32/ESP8266, API native Home Assistant, mises à jour OTA, sans cloud. Transforme votre carte en appareil connecté — pas un hub, et câbler des capteurs suppose de l’électronique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tasmota",
+			"source": {
+				"host": "github",
+				"path": "arendst/Tasmota",
+				"url": "https://github.com/arendst/Tasmota"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The go-to for flashing smart plugs locally: ESP8266/ESP32 firmware with web UI setup, MQTT/HTTP/KNX output, OTA after first flash. First flash needs a USB cable, and hub work stays elsewhere.",
+				"fr": "Le choix pour flasher ses prises en local : firmware ESP8266/ESP32, config via interface web, sorties MQTT/HTTP/KNX, OTA après flash initial. Premier flash en USB ; firmware de périphérique, pas un hub."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Open Voice Operating System (OVOS)",
+			"source": {
+				"host": "github",
+				"path": "OpenVoiceOS/ovos-core",
+				"url": "https://github.com/OpenVoiceOS/ovos-core"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Mycroft's community fork: local speech-to-text, text-to-speech and intent recognition, with a Home Assistant skill. Voice quality runs noticeably behind Google Assistant or Alexa, and you supply your own mic and speaker.",
+				"fr": "Fork communautaire de Mycroft : reconnaissance vocale, synthèse et intentions en local, avec un skill Home Assistant. La qualité vocale reste derrière Google Assistant ou Alexa, et il faut fournir micro et haut-parleur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Wyoming Protocol",
+			"source": {
+				"host": "github",
+				"path": "OHF-Voice/wyoming",
+				"url": "https://github.com/OHF-Voice/wyoming"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Peer-to-peer protocol that wires voice pieces together — Faster-Whisper STT, Piper TTS, openWakeWord, local Ollama — inside Home Assistant's Assist pipeline. Infrastructure only: you assemble the STT, TTS and wake-word yourself.",
+				"fr": "Protocole pair-à-pair qui relie les briques vocales — Faster-Whisper en STT, Piper en TTS, openWakeWord, Ollama local — dans le pipeline Assist de Home Assistant. Simple infrastructure : vous assemblez STT, TTS et wake-word vous-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "openWakeWord",
+			"source": {
+				"host": "github",
+				"path": "dscripka/openWakeWord",
+				"url": "https://github.com/dscripka/openWakeWord"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Local wake-word detection with custom phrases, no cloud, no audio uploads, wired to Home Assistant over Wyoming. Component only: pair with STT and TTS, and expect lower accuracy than cloud wake words.",
+				"fr": "Wake-word local, phrases personnalisées, sans cloud ni envoi d’audio, relié à Home Assistant via Wyoming. Brique seule : à coupler à un STT et un TTS, précision moindre que les wake-words cloud."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

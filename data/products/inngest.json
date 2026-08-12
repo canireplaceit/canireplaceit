@@ -126,6 +126,161 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Windmill",
+			"source": {
+				"host": "github",
+				"path": "windmill-labs/windmill",
+				"url": "https://github.com/windmill-labs/windmill"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Low-code flow builder with scripts in Python, TS, Go or Bash; cron and webhook triggers. AGPL copyleft, and SSO and RBAC tiers sit behind the paid edition.",
+				"fr": "Builder de flows low-code, scripts en Python, TS, Go ou Bash, déclencheurs cron et webhooks. AGPL copyleft ; SSO et échelons RBAC réservés à l’édition payante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "SSO and RBAC tiers",
+					"fr": "SSO et échelons RBAC"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kestra",
+			"source": {
+				"host": "github",
+				"path": "kestra-io/kestra",
+				"url": "https://github.com/kestra-io/kestra"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Declarative YAML orchestration with webhooks, schedules and a plugin ecosystem. You write flows in YAML, not code; SSO and advanced auth are in the paid edition.",
+				"fr": "Orchestration déclarative en YAML, avec webhooks, planifications et un écosystème de plugins. Les flows s’écrivent en YAML, pas en code ; SSO et authentification avancée restent dans l’édition payante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "SSO and advanced auth",
+					"fr": "SSO et authentification avancée"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dagu",
+			"source": {
+				"host": "github",
+				"path": "dagucloud/dagu",
+				"url": "https://github.com/dagucloud/dagu"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Single-binary cron and DAG executor with a terminal TUI and embedded web dashboard. The CLI/TUI pick, but GPL, and it is DAG steps only — no durable step-function semantics.",
+				"fr": "Un seul binaire, cron et exécuteur de DAG, TUI terminal et dashboard web embarqué. Le choix CLI/TUI, mais GPL : étapes de DAG seulement, sans sémantique de step function durable."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "BullMQ",
+			"source": {
+				"host": "github",
+				"path": "taskforcesh/bullmq",
+				"url": "https://github.com/taskforcesh/bullmq"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Redis-backed job queue for Node and TypeScript; priority, delayed and repeatable jobs with at-least-once delivery. A library, not a service: you bring Redis, and the UI is a separate package.",
+				"fr": "File de jobs Redis pour Node et TypeScript : jobs prioritaires, différés et récurrents, livraison au moins une fois. Une bibliothèque, pas un service : vous apportez Redis, l’interface est un paquet séparé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Asynq",
+			"source": {
+				"host": "github",
+				"path": "hibiken/asynq",
+				"url": "https://github.com/hibiken/asynq"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Go task queue on Redis, embedded in your app, with asynq CLI and asynqmon dashboard. A library, not a service: Go-only SDK, no webhook or event triggers.",
+				"fr": "File de tâches Go sur Redis, embarquée dans votre app, avec CLI asynq et dashboard asynqmon. Une bibliothèque, pas un service : SDK Go uniquement, pas de déclencheurs webhook ou événement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Celery",
+			"source": {
+				"host": "github",
+				"path": "celery/celery",
+				"url": "https://github.com/celery/celery"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Battle-tested Python task queue with beat scheduling, retries and chains over RabbitMQ, Redis or SQS. Python-only, the web UI is the separate Flower project, and there is no durable step-function model.",
+				"fr": "File de tâches Python éprouvée, avec beat, retries et chaînes sur RabbitMQ, Redis ou SQS. Python uniquement, l’interface web est le projet séparé Flower, pas de step function durable."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Airflow",
+			"source": {
+				"host": "github",
+				"path": "apache/airflow",
+				"url": "https://github.com/apache/airflow"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The reference DAG orchestrator for scheduled pipelines: Python DAGs, scale-out executors, a mature operator library. A heavy cluster to run, and batch-oriented rather than event or step-function native.",
+				"fr": "L’orchestrateur de DAG de référence pour les pipelines planifiés : DAG Python, exécuteurs à l’échelle, bibliothèque d’opérateurs mûre. Un cluster lourd à opérer, orienté batch, pas événement ni step function."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

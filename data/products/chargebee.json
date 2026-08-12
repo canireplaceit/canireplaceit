@@ -117,6 +117,186 @@
 				"en": "Lower per-transaction cut than Paddle, merchant of record, developer-first. Young company — that is a real risk for your billing layer.",
 				"fr": "Commission par transaction plus faible que Paddle, vendeur officiel, orienté développeurs. Entreprise jeune — un vrai risque pour votre couche de facturation."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "BillaBear",
+			"source": {
+				"host": "github",
+				"path": "billabear/billabear",
+				"url": "https://github.com/billabear/billabear"
+			},
+			"license": "FCL-1.0",
+			"effort": "docker",
+			"note": {
+				"en": "A purpose-built self-hostable Chargebee replacement for subscription billing. Source-available under Fair Core, still needs an upstream payment processor, and young.",
+				"fr": "Alternative auto-hébergeable à Chargebee, taillée pour la facturation d’abonnements. Sous Fair Core, source visible mais pas open source ; il faut un processeur de paiement en amont, et le projet est jeune."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise-tier features",
+					"fr": "Fonctions de l’édition entreprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Invoice Ninja",
+			"source": {
+				"host": "github",
+				"path": "invoiceninja/invoiceninja",
+				"url": "https://github.com/invoiceninja/invoiceninja"
+			},
+			"license": "Elastic-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The collections half of billing: self-hosted invoicing with 30+ gateways and a strong API. Elastic-2.0, source-available; no usage metering or revenue recognition.",
+				"fr": "La moitié encaissement de la facturation : facturation auto-hébergée, plus de 30 passerelles et une API solide. Licence Elastic-2.0, source visible ; pas de métrage d’usage ni de comptabilisation des revenus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise features",
+					"fr": "Fonctions entreprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Firefly III",
+			"source": {
+				"host": "codeberg",
+				"path": "firefly-iii/firefly-iii",
+				"url": "https://codeberg.org/firefly-iii/firefly-iii"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Replaces Chargebee’s reporting with a full double-entry ledger. Personal single-user finance — no multi-tenant subscription billing, no dunning automation.",
+				"fr": "Remplace le reporting de Chargebee par une vraie comptabilité en partie double. Outil personnel mono-utilisateur : pas de facturation SaaS multi-tenant, pas d’automatisation des relances."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Akaunting",
+			"source": {
+				"host": "github",
+				"path": "akaunting/akaunting",
+				"url": "https://github.com/akaunting/akaunting"
+			},
+			"license": "BUSL-1.1",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted accounting with invoicing and bills on a free core. Business Source License converts later, not OSI; it’s accounting-focused, not subscription-billing ops.",
+				"fr": "Comptabilité auto-hébergée avec factures clients et fournisseurs, cœur gratuit. Licence Business Source, convertible plus tard, non OSI ; orientée comptabilité, pas gestion d’abonnements."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Integration apps (PayPal/Stripe)",
+					"fr": "Applications d’intégration (PayPal/Stripe)"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "hledger",
+			"source": {
+				"host": "github",
+				"path": "simonmichael/hledger",
+				"url": "https://github.com/simonmichael/hledger"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Plain-text double-entry CLI, plus TUI and web UIs. Full control of your revenue ledger, zero SaaS — but manual entry, no client billing or dunning.",
+				"fr": "Comptabilité en partie double en texte brut, avec TUI et interface web : contrôle total du grand livre, zéro SaaS — mais saisie manuelle, pas de facturation client ni de relances."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Beancount",
+			"source": {
+				"host": "github",
+				"path": "beancount/beancount",
+				"url": "https://github.com/beancount/beancount"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Strict double-entry plaintext ledger with auditing-grade semantics. No invoicing or collections — it’s a ledger; CSV/OFX imports and setup are entirely DIY.",
+				"fr": "Grand livre en texte brut à partie double stricte, à la sémantique précise pour des comptes audités. Pas de facturation ni d’encaissement — simple registre ; imports CSV/OFX et installation à la main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Crater",
+			"source": {
+				"host": "github",
+				"path": "crater-invoice-inc/crater",
+				"url": "https://github.com/crater-invoice-inc/crater"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Polished self-hosted invoicing with a client portal and built-in Stripe/Authorize.net collection. Not a subscription billing engine, and maintenance has slowed — last release 2024.",
+				"fr": "Facturation auto-hébergée soignée, avec portail client et encaissement Stripe/Authorize.net intégré. Pas un moteur de facturation d’abonnements, et la maintenance ralentit — dernière version en 2024."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Medusa",
+			"source": {
+				"host": "github",
+				"path": "medusajs/medusa",
+				"url": "https://github.com/medusajs/medusa"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "MIT headless commerce engine — cart, checkout, payments, tax as API, fully open, no open-core gate. It’s commerce, not recurring billing, and you own the payment-provider wiring.",
+				"fr": "Moteur de commerce headless sous MIT — panier, commandes, paiements, taxes en API, tout open, sans open-core. Commerce, pas facturation récurrente : les passerelles de paiement, vous les gérez."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

@@ -97,6 +97,153 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "FauxPilot",
+			"source": {
+				"host": "github",
+				"path": "fauxpilot/fauxpilot",
+				"url": "https://github.com/fauxpilot/fauxpilot"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Dormant since April 2024. Self-hosted Triton completions on Salesforce CodeGen, multi-GPU ready — if you accept the Docker complexity and an NVIDIA GPU of Compute Capability 6.0+.",
+				"fr": "Aucun commit depuis avril 2024, dormant depuis deux ans. Completions auto-hébergées via Triton et CodeGen, multi-GPU possible, mais config Docker lourde et GPU NVIDIA Compute Capability ≥ 6.0."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CodeGeeX",
+			"source": {
+				"host": "github",
+				"path": "zai-org/CodeGeeX",
+				"url": "https://github.com/zai-org/CodeGeeX"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Tsinghua’s 20+ language model with VS Code and JetBrains plugins and a web playground. The model downloads separately, inference really wants a GPU, and support leans academic.",
+				"fr": "Modèle 20+ langues de Tsinghua avec plugins VS Code et JetBrains, plus un playground web. Téléchargement du modèle à part, inférence qui réclame un GPU, support académique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "localpilot",
+			"source": {
+				"host": "github",
+				"path": "danielgross/localpilot",
+				"url": "https://github.com/danielgross/localpilot"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "No commit since February 2024. A proxy that answers the Copilot VS Code extension locally, drop-in via proxy settings — once you hand-configure those, and pick the model yourself.",
+				"fr": "Aucun commit depuis février 2024. Un proxy qui répond en local à l’extension VS Code de Copilot, drop-in via les réglages proxy — à configurer à la main, modèle choisi par vous."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "twinny",
+			"source": {
+				"host": "github",
+				"path": "twinnydotdev/twinny",
+				"url": "https://github.com/twinnydotdev/twinny"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Archived in 2025 — no fixes coming. Local-first VS Code completion and chat against Ollama or llama.cpp, the cleanest bring-your-own-model plugin of its generation.",
+				"fr": "Archivé en 2025, plus aucun correctif à venir. Complétion et chat VS Code en local contre Ollama ou llama.cpp, le plugin bring-your-own-model le plus propre de sa génération."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Refact (legacy)",
+			"source": {
+				"host": "github",
+				"path": "smallcloudai/refact",
+				"url": "https://github.com/smallcloudai/refact"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Archived in May 2026. The only one here that fine-tuned on your own codebase before completing, with Docker self-hosting and agent workflows — a GPU to make it worthwhile.",
+				"fr": "Archivé en mai 2026. Le seul ici à s’affiner sur votre code avant de compléter, self-hosting Docker et agents — mais il fallait un GPU pour que ça vaille le coup."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "TurboPilot",
+			"source": {
+				"host": "github",
+				"path": "ravenscroftj/turbopilot",
+				"url": "https://github.com/ravenscroftj/turbopilot"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Archived in 2023 — llama.cpp tooling has moved past it. Ran a 6B model on CPU in 4GB RAM, with CodeGen and WizardCoder, back when that was news.",
+				"fr": "Archivé en 2023, dépassé par l’outillage llama.cpp. Faisait tourner un modèle 6B sur CPU dans 4 Go de RAM, CodeGen et WizardCoder, à l’époque où c’était une première."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "llm-vscode",
+			"source": {
+				"host": "github",
+				"path": "huggingface/llm-vscode",
+				"url": "https://github.com/huggingface/llm-vscode"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "HuggingFace’s official extension, pulling models from their marketplace for local completion and chat. Needs a separate backend, docs stay thin, community small.",
+				"fr": "L’extension officielle de HuggingFace, qui puise ses modèles dans leur marketplace pour complétion et chat en local. Backend à monter à part, documentation mince, petite communauté."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 5

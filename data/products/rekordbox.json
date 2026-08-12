@@ -82,6 +82,216 @@
 				"en": "Free with supported hardware and stable in a club. Two decks only, and it is another closed library format.",
 				"fr": "Gratuit avec du matériel compatible et stable en club. Deux platines seulement, et encore un format de bibliothèque fermé."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "xwax",
+			"source": {
+				"host": "github",
+				"path": "xwax/xwax",
+				"url": "https://github.com/xwax/xwax"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Timecode DVS that runs headless, scriptable from the terminal; turntable control of digital files. No GUI, so waveform, beatgrid and library come from elsewhere.",
+				"fr": "DVS à timecode pour platines réelles, sans interface, scriptable depuis le terminal. Pas de GUI : forme d’onde, beatgrid et bibliothèque sont à chercher ailleurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "beets",
+			"source": {
+				"host": "github",
+				"path": "beetbox/beets",
+				"url": "https://github.com/beetbox/beets"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "MusicBrainz automation for the tagging and organizing side: fingerprints, BPM and key plugins. Config-heavy terminal tool; no mixing, and rekordbox playlists need extra tooling to move.",
+				"fr": "Côté tagging et classement, l’automatisation MusicBrainz : empreintes, plugins BPM et tonalité. Outil en ligne de commande, config lourde ; pas de mix, et les playlists rekordbox exigent un outil d’export."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MusicBrainz Picard",
+			"source": {
+				"host": "github",
+				"path": "metabrainz/picard",
+				"url": "https://github.com/metabrainz/picard"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The reliable way to normalize a DJ library: acoustic-fingerprint tagging with cover art, then rekordbox reads the result. Tagging only — no playback, no BPM or key without plugins.",
+				"fr": "Le moyen fiable d’assainir une bibliothèque DJ : tagging par empreintes acoustiques avec pochettes, puis rekordbox lit le résultat. Que du tagging — pas de lecture, pas de BPM ni tonalité sans plugins."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "rekordcrate",
+			"source": {
+				"host": "github",
+				"path": "Holzhaus/rekordcrate",
+				"url": "https://github.com/Holzhaus/rekordcrate"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Reads and writes rekordbox XML and ANLZ files so crates survive a move to open tooling. A developer library, not an app: no playback, no UI, modest activity.",
+				"fr": "Lit et écrit les fichiers XML et ANLZ de rekordbox : vos crates survivent au passage vers l’open source. Bibliothèque pour développeurs, pas une app — pas de lecture, pas d’interface, activité modeste."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "aubio",
+			"source": {
+				"host": "github",
+				"path": "aubio/aubio",
+				"url": "https://github.com/aubio/aubio"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Batch BPM and beat annotation across a library, rekordbox-style analysis without the cloud. Analysis only — no library, no playback — and the raw output needs per-genre tuning.",
+				"fr": "Annote BPM et beats en lot sur toute une bibliothèque, l’analyse de rekordbox sans le cloud. Analyse seulement — ni bibliothèque, ni lecture — et le résultat brut demande un réglage par genre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Navidrome",
+			"source": {
+				"host": "github",
+				"path": "navidrome/navidrome",
+				"url": "https://github.com/navidrome/navidrome"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Your own always-on music library: a Subsonic-compatible streaming server in a single binary, reachable from a large client ecosystem. No decks, no beatgrids — streaming, not performance.",
+				"fr": "Votre bibliothèque en ligne : serveur de streaming compatible Subsonic en un seul binaire, accessible par tout un écosystème de clients. Pas de decks ni de beatgrids — streaming, pas performance."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Funkwhale",
+			"source": {
+				"host": "gitlab",
+				"path": "funkwhale/funkwhale",
+				"url": "https://dev.funkwhale.audio/funkwhale/funkwhale"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Federated music server: sharing, playlists and listening rooms on your own instance via ActivityPub. Social and streaming focus — no DJ work, and the Django/Postgres/Redis stack is heavy.",
+				"fr": "Serveur musical fédéré : partage, playlists et salles d’écoute sur votre instance via ActivityPub. Pensé social et streaming, pas DJ, avec une stack lourde (Django, Postgres, Redis)."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Giada",
+			"source": {
+				"host": "github",
+				"path": "monocasual/giada",
+				"url": "https://github.com/monocasual/giada"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Loop machine for building live sets: MIDI-driven sampler and sequencer with LV2/VST hosting. Live-looping focus, not a DJ library — no track database, no beatgrids.",
+				"fr": "Boucleur audio pour les live : sampler et séquenceur pilotés en MIDI, hôte de plugins LV2/VST. Axé loop en direct, pas bibliothèque DJ — ni base de titres, ni beatgrids."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "cmus",
+			"source": {
+				"host": "github",
+				"path": "cmus/cmus",
+				"url": "https://github.com/cmus/cmus"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Fast TUI player and library browser: filterable views, playlists, gapless playback, scriptable via cmus-remote. Terminal-only — no beatgrids, no BPM analysis, no mixing.",
+				"fr": "Lecteur TUI rapide et navigateur de bibliothèque : vues filtrables, playlists, lecture gapless, pilotable par cmus-remote. Terminal uniquement — ni beatgrids, ni analyse BPM, ni mix."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MPD",
+			"source": {
+				"host": "github",
+				"path": "MusicPlayerDaemon/MPD",
+				"url": "https://github.com/MusicPlayerDaemon/MPD"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Headless library and playlist server, driven by ncmpcpp, web or mobile clients. No mixing or analysis built in, no rekordbox interchange — and it needs a client.",
+				"fr": "Serveur de bibliothèque et playlists sans interface, piloté par ncmpcpp, clients web ou mobiles. Pas de mix ni d’analyse intégrés, aucune interop avec rekordbox — et il exige un client."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

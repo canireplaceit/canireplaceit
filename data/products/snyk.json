@@ -107,6 +107,228 @@
 				"en": "Bundles SCA, SAST, secrets and cloud posture into one flat plan rather than Snyk's per-product per-seat stack. Less mature triage and a much smaller rule corpus.",
 				"fr": "Regroupe SCA, SAST, secrets et posture cloud dans un forfait unique, au lieu de l’empilement par produit et par utilisateur de Snyk. Triage moins mature et corpus de règles bien plus réduit."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Grype",
+			"source": {
+				"host": "github",
+				"path": "anchore/grype",
+				"url": "https://github.com/anchore/grype"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Fast SCA for containers and filesystems, the closest pure match to Snyk. It consumes Syft SBOMs without rescanning and knows distroless layers, but no license or IaC scanning and no fix-PR automation.",
+				"fr": "SCA pour conteneurs et fichiers, le plus proche de Snyk. Lit les SBOM Syft sans re-scan, connaît les couches distroless, mais ignore licences et IaC et n’automatise pas les PR de fix."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dependency-Track",
+			"source": {
+				"host": "github",
+				"path": "DependencyTrack/dependency-track",
+				"url": "https://github.com/DependencyTrack/dependency-track"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "OWASP's SBOM-first platform that turns scanner output into org policy, workflows and notifications. Self-hosted and API-driven, but it is a server to run — and SSO/OIDC only in the enterprise build.",
+				"fr": "Plateforme SBOM-first d’OWASP : sorties de scanners en politiques, workflows et notifications d’org. Self-hébergée et pilotée par API, mais serveur à opérer, et SSO/OIDC réservé à l’édition entreprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "SSO/OIDC, enterprise build only",
+					"fr": "SSO/OIDC réservé à l’édition entreprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "DefectDojo",
+			"source": {
+				"host": "github",
+				"path": "DefectDojo/django-DefectDojo",
+				"url": "https://github.com/DefectDojo/django-DefectDojo"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Vuln management that ingests 100+ scanner formats — Trivy, Semgrep and more — into one dashboard for dedupe, triage and SLA. It orchestrates rather than scans, and the Django deployment needs real care.",
+				"fr": "Gestion de vulns qui ingère 100+ formats de scanners dans un tableau de bord : dédup, triage, SLA. Il orchestre, il ne scanne pas, et le déploiement Django demande du soin."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Gitleaks",
+			"source": {
+				"host": "github",
+				"path": "gitleaks/gitleaks",
+				"url": "https://github.com/gitleaks/gitleaks"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "De-facto open-source secret scanner for git and CI, Snyk's secrets capability on-prem. Rule-configurable and pre-commit friendly — but secrets only: no SCA or SAST, no fix automation, and fixtures trigger false positives.",
+				"fr": "Détection de secrets open source pour git et CI, l’équivalent de Snyk en local. Compatible pre-commit, règles configurables, mais secrets uniquement : ni SCA ni SAST, ni fix auto, faux positifs sur fixtures."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "TruffleHog",
+			"source": {
+				"host": "github",
+				"path": "trufflesecurity/trufflehog",
+				"url": "https://github.com/trufflesecurity/trufflehog"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Deep secret discovery across git, Docker, filesystems and cloud — entropy detection plus live verification against real services. AGPL license and third-party API hits give orgs pause; a commercial cloud adds extras.",
+				"fr": "Détection profonde de secrets dans git, Docker, fichiers et cloud — entropie plus vérification en direct contre des services. AGPL et appels API tiers font hésiter ; cloud commercial vend les fonctions d’org."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Org features in the commercial cloud",
+					"fr": "Fonctions d’org dans le cloud commercial"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OWASP Dependency-Check",
+			"source": {
+				"host": "github",
+				"path": "dependency-check/DependencyCheck",
+				"url": "https://github.com/dependency-check/DependencyCheck"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "OWASP SCA across Java, JS, Python, .NET, Ruby and Go, CLI or Jenkins plugin. NVD CPE matching — but NVD lag and rate limits bite; large trees scan slower than lockfile-based tools.",
+				"fr": "SCA OWASP pour Java, JS, Python, .NET, Ruby et Go, CLI ou plugin Jenkins. CPE via NVD, mais latence et quotas NVD ; les gros arbres scannent plus lentement que les outils lockfile."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Clair",
+			"source": {
+				"host": "github",
+				"path": "quay/clair",
+				"url": "https://github.com/quay/clair"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Quietest community among major container scanners. Classic self-hosted, API-driven engine that slots into registries like Quay or Harbor, no vendor cloud — but needs client or registry to drive, and no PR-fix workflow.",
+				"fr": "Le plus discret des gros scanners de conteneurs. Moteur classique auto-hébergé, piloté par API, pour Quay ou Harbor, sans cloud vendor — mais il faut un client, et pas de workflow fix-PR."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OWASP ZAP",
+			"source": {
+				"host": "github",
+				"path": "zaproxy/zaproxy",
+				"url": "https://github.com/zaproxy/zaproxy"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The reference open-source DAST — the interactive and passive web-app scanning Snyk's SCA tools miss. GUI, daemon and CLI modes, CI automation framework; setup needs expertise and it scans no dependencies.",
+				"fr": "Le DAST open source de référence — le scan web applicatif que les outils SCA de Snyk ratent. GUI, daemon, CLI, framework d’automatisation CI ; config experte requise, et aucun scan de dépendances."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Bearer",
+			"source": {
+				"host": "github",
+				"path": "Bearer/bearer",
+				"url": "https://github.com/Bearer/bearer"
+			},
+			"license": "Elastic-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Go-based SAST/SCA with Snyk-like issue output in CI and zero-config setup. Data-flow aware rules cover OWASP Top 10, but Elastic-2.0 is source-available rather than OSI open source, and ecosystems trail Semgrep.",
+				"fr": "SAST/SCA en Go, sortie d’issues façon Snyk dans le CI, zéro config. Règles orientées flux de données sur l’OWASP Top 10, mais Elastic-2.0 est source-available, pas OSI, et moins d’écosystèmes que Semgrep."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Cloud product, the commercial upsell",
+					"fr": "Le cloud, l’upsell commercial"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Syft",
+			"source": {
+				"host": "github",
+				"path": "anchore/syft",
+				"url": "https://github.com/anchore/syft"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Standard open-source SBOM generator — SPDX and CycloneDX for 100+ package types, feeding Grype and downstream scanners. CI-friendly, but SBOMs only: no vuln assessment of its own, and large repos scan slowly.",
+				"fr": "Générateur de SBOM open source standard — SPDX et CycloneDX pour 100+ types de paquets, alimente Grype et scanners aval. Compatible CI, mais SBOM uniquement : pas d’évaluation de vulns, gros repos lents."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

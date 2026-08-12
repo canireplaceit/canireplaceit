@@ -97,6 +97,195 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Open Match",
+			"source": {
+				"host": "github",
+				"path": "googleforgames/open-match",
+				"url": "https://github.com/googleforgames/open-match"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "FlexMatch-style matchmaking layer that queues and pairs players against your own session hosters. gRPC API with extensible evaluators; companion CLI. Matchmaking only — bring your own fleet, and the microservice setup assumes Kubernetes.",
+				"fr": "Couche de matchmaking façon FlexMatch : file d’attente et appariement contre vos propres hosteurs de session. API gRPC, évaluateurs extensibles, CLI d’appoint. Matchmaking uniquement — apportez votre fleet, et le setup microservices suppose Kubernetes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Agones",
+			"source": {
+				"host": "github",
+				"path": "agones-dev/agones",
+				"url": "https://github.com/agones-dev/agones"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Kubernetes-native dedicated game servers: GameServer and Fleet CRDs, fleet auto-scaling on buffer policies, session and allocation SDK. You operate the cluster, and matchmaking is left to you — pair it with Open Match.",
+				"fr": "Serveurs de jeu dédiés natifs Kubernetes : CRD GameServer et Fleet, auto-scaling par politiques de buffer, SDK de session. Vous opérez le cluster — le matchmaking reste à vous, à coupler avec Open Match."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Hathora",
+			"source": {
+				"host": "github",
+				"path": "hathora/builder",
+				"url": "https://github.com/hathora/builder"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Boots a container per session, connection auth and transport built in, SDKs for Unity, Unreal, JS. Dormant since 2024 — last push 2024-05-19, little maintenance, small community versus Agones or Nakama.",
+				"fr": "Démarre un conteneur par session, auth et transport intégrés, SDK Unity, Unreal et JS. En sommeil depuis 2024 — dernier push 2024-05-19, peu de maintenance, petite communauté face à Agones ou Nakama."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LinuxGSM",
+			"source": {
+				"host": "github",
+				"path": "GameServerManagers/LinuxGSM",
+				"url": "https://github.com/GameServerManagers/LinuxGSM"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "One-command install and update for 100+ dedicated game servers, with backup and monitoring alerts, cron-friendly. Per-box tool — no fleet orchestration, auto-scaling, or matchmaking, no session APIs.",
+				"fr": "Installation et mise à jour en une commande pour plus de 100 serveurs de jeu dédiés, sauvegardes et alertes de monitoring. Outil par machine — pas d’orchestration de fleet, d’auto-scaling ni de matchmaking."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pterodactyl",
+			"source": {
+				"host": "github",
+				"path": "pterodactyl/wings",
+				"url": "https://github.com/pterodactyl/wings"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Web panel and Wings daemon manage game servers across your machines, nests and eggs install hundreds of types, REST API with per-user access control. Manages instances — no auto-scaling, regional placement, or matchmaking.",
+				"fr": "Panneau web et démon Wings pour gérer des serveurs sur plusieurs machines, nests et eggs pour des centaines de types, API REST. Gère des instances — pas d’auto-scaling ni de matchmaking."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Supabase",
+			"source": {
+				"host": "github",
+				"path": "supabase/supabase",
+				"url": "https://github.com/supabase/supabase"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hostable BaaS: auth, Postgres, realtime, storage, and edge functions, with SDKs for Unity, Flutter, JS, and Swift. Covers the data layer, not the game layer — no matchmaking, fleets, or session hosting.",
+				"fr": "BaaS auto-hébergeable : auth, Postgres, realtime, storage et edge functions, avec SDK Unity, Flutter, JS et Swift. Couvre la couche données, pas la couche jeu — ni matchmaking, ni fleets, ni hébergement de session."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PocketBase",
+			"source": {
+				"host": "github",
+				"path": "pocketbase/pocketbase",
+				"url": "https://github.com/pocketbase/pocketbase"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Single binary: auth, DB, file storage, realtime, admin UI, Go plugins. Trivial to host, but generic — no matchmaking or fleet hosting, and big player loads need your own ops.",
+				"fr": "Binaire unique : auth, base de données, stockage, realtime, UI d’admin et plugins Go. Trivial à héberger, mais générique — pas de matchmaking ni de fleet, les grosses charges de joueurs demandent vos ops."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Appwrite",
+			"source": {
+				"host": "github",
+				"path": "appwrite/appwrite",
+				"url": "https://github.com/appwrite/appwrite"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hostable BaaS: auth, databases, storage, functions, realtime, with fine-grained permissions and a teams model. Generic — no matchmaking or session servers, and heavier to run than a single-binary backend.",
+				"fr": "BaaS auto-hébergeable : auth, bases de données, storage, functions, realtime, permissions fines et modèle par équipes. Générique — pas de matchmaking ni de serveurs de session, plus lourd à opérer qu’un backend mono-binaire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Skynet",
+			"source": {
+				"host": "github",
+				"path": "cloudwu/skynet",
+				"url": "https://github.com/cloudwu/skynet"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Actor-based C/Lua runtime proven in Chinese production games, self-contained, compiled and run directly. A bare framework — you build auth, economy, and matchmaking, and the docs skew Chinese.",
+				"fr": "Runtime C/Lua à acteurs, éprouvé dans des jeux de production chinois, autonome, à compiler et lancer tel quel. Framework nu — vous construisez auth, économie et matchmaking, doc orientée chinois."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

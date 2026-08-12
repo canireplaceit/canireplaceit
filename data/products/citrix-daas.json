@@ -91,6 +91,178 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "RustDesk",
+			"source": {
+				"host": "github",
+				"path": "rustdesk/rustdesk",
+				"url": "https://github.com/rustdesk/rustdesk"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Peer-to-peer remote desktop, self-hostable hbbs/hbbr rendezvous server, one of the most active projects in the space. No pooled VDI or app publishing, and the AGPL server adds compliance work.",
+				"fr": "Bureau à distance pair-à-pair, serveur de rendez-vous hbbs/hbbr auto-hébergeable, projet parmi les plus actifs du domaine. Pas de VDI mutualisée ni de publication d’applications ; le serveur AGPL ajoute de la conformité."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MeshCentral",
+			"source": {
+				"host": "github",
+				"path": "Ylianst/MeshCentral",
+				"url": "https://github.com/Ylianst/MeshCentral"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted remote management with per-OS agents, full web console, REST API and meshctrl CLI. Agent-per-machine, not session brokering — more RMM than VDI, and scale means HA design around a single-server default.",
+				"fr": "Auto-hébergé : agent par OS, console web, API REST, CLI meshctrl. Agent-par-machine, pas de courtage de session — plus RMM que VDI ; passer à l’échelle exige un design HA autour d’un serveur unique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FreeRDP",
+			"source": {
+				"host": "github",
+				"path": "FreeRDP/FreeRDP",
+				"url": "https://github.com/FreeRDP/FreeRDP"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The reference RDP stack — client, server, library — beneath xfreerdp and most other clients and gateways. A building block: no broker, portal or console, so any DaaS-like experience you assemble yourself.",
+				"fr": "Référence RDP — client, serveur, bibliothèque — sous xfreerdp et la plupart des autres clients et passerelles. Brique, pas produit : aucun broker, portail ou console ; l’expérience DaaS se monte à la main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Teleport",
+			"source": {
+				"host": "github",
+				"path": "gravitational/teleport",
+				"url": "https://github.com/gravitational/teleport"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "CLI-first access to SSH, RDP, Kubernetes and databases under one RBAC and audit umbrella, with OIDC/SAML SSO in the OSS build. Aimed at infrastructure access — desktop is single-node RDP, no session brokering.",
+				"fr": "Accès CLI-first à SSH, RDP, Kubernetes et bases de données, RBAC et audit, SSO OIDC/SAML en OSS. Pour l’infrastructure : le bureau reste du RDP mono-nœud, sans courtage de session."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise tier: trust, compliance, some connectors.",
+					"fr": "Niveau entreprise : trust, conformité, certains connecteurs."
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ShellHub",
+			"source": {
+				"host": "github",
+				"path": "shellhub-io/shellhub",
+				"url": "https://github.com/shellhub-io/shellhub"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted SSH gateway that reaches devices behind NAT from any browser, with device groups, RBAC and a REST API. Session access, not desktop streaming — no VDI brokering, and a smaller community.",
+				"fr": "Passerelle SSH auto-hébergeable qui atteint les machines derrière NAT depuis un navigateur, avec groupes de périphériques, RBAC et API REST. Accès session, pas de streaming bureau ni de VDI ; communauté plus réduite."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Remmina",
+			"source": {
+				"host": "github",
+				"path": "FreeRDP/Remmina",
+				"url": "https://github.com/FreeRDP/Remmina"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The closest Linux analogue to the Workspace client — GTK, with RDP, VNC, SPICE and SSH in one app, bookmarks and plugins. Client only: bring your own server, no brokering, no app publishing.",
+				"fr": "L’analogue Linux le plus proche du client Workspace — GTK, RDP, VNC, SPICE et SSH dans une app, signets et plugins. Client seul : serveur à fournir soi-même, ni courtage ni publication d’applications."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Myrtille",
+			"source": {
+				"host": "github",
+				"path": "myrtille-rdp/myrtille",
+				"url": "https://github.com/myrtille-rdp/myrtille"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "HTML5 gateway that exposes RDP and VNC hosts in the browser, with accounts and session management. Dormant since March 2024 — treat it as maintenance-only, not a fabric for pooled desktops.",
+				"fr": "Passerelle HTML5 qui expose des hôtes RDP et VNC dans le navigateur, avec comptes et gestion de sessions. Dormant depuis mars 2024 — en maintenance, pas une plateforme de bureaux mutualisés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Neko",
+			"source": {
+				"host": "github",
+				"path": "m1k1o/neko",
+				"url": "https://github.com/m1k1o/neko"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "WebRTC server streaming virtual Firefox, Chromium or desktop sessions with near-zero latency, role controls and recording. Built for shared demos and support, not managed desktops — no AD, SSO or profiles.",
+				"fr": "Serveur WebRTC diffusant des sessions Firefox, Chromium ou bureau virtuelles à latence quasi nulle, rôles et enregistrement. Pour démos et support partagés, non pour des postes gérés : pas d’AD ni de SSO."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

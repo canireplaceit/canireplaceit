@@ -107,6 +107,174 @@
 				"en": "Priced per message volume rather than per mailbox, so unlimited addresses for a family or a small company. No large-attachment storage and a spartan webmail.",
 				"fr": "Tarifé au volume de messages plutôt qu’à la boîte : adresses illimitées pour une famille ou une petite société. Pas de stockage de grosses pièces jointes et un webmail spartiate."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mailu",
+			"source": {
+				"host": "github",
+				"path": "Mailu/Mailu",
+				"url": "https://github.com/Mailu/Mailu"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Docker-compose mail suite — Postfix, Dovecot, antispam, antivirus — with webmail and admin UI. MIT-licensed and per-service scaling, but the stack wants a few GB RAM and IP reputation stays yours.",
+				"fr": "Suite mail en docker-compose — Postfix, Dovecot, antispam, antivirus — avec webmail et admin. Licence MIT et services scalables, mais il faut quelques Go de RAM et la réputation IP reste à votre charge."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Postal",
+			"source": {
+				"host": "github",
+				"path": "postalserver/postal",
+				"url": "https://github.com/postalserver/postal"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "App and transactional mail with a REST API, web UI for domains and webhooks, built-in spam filtering. MIT and actively developed, but SMTP-only: no IMAP/POP3 inbox, so not a personal mailbox.",
+				"fr": "Mail applicatif et transactionnel via API REST, interface web pour domaines et webhooks, anti-spam intégré. MIT et communauté active, mais SMTP uniquement : pas de boîte IMAP/POP3, donc pas un vrai courrier personnel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Maddy",
+			"source": {
+				"host": "github",
+				"path": "foxcpp/maddy",
+				"url": "https://github.com/foxcpp/maddy"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "One static binary serves SMTP and IMAP, low memory, DKIM/SPF/DMARC out of the box. Simple to operate, but no webmail or admin UI and a single-file text config.",
+				"fr": "Un binaire statique unique couvre SMTP et IMAP, mémoire très basse, DKIM/SPF/DMARC d’office. Simple à déployer, mais pas de webmail ni d’admin, config en un seul fichier texte."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mail-in-a-Box",
+			"source": {
+				"host": "github",
+				"path": "mail-in-a-box/mailinabox",
+				"url": "https://github.com/mail-in-a-box/mailinabox"
+			},
+			"license": "CC0-1.0",
+			"effort": "managed",
+			"note": {
+				"en": "One script turns a clean Ubuntu box into a full mail stack — DNS, DKIM, SPF, DMARC, webmail, contacts, calendar, control panel. Requires its own machine and DNS; an opinionated stack.",
+				"fr": "Un script installe sur un Ubuntu propre toute la chaîne mail : DNS, DKIM, SPF, DMARC, webmail, contacts, calendrier, panneau de contrôle. Il lui faut sa propre machine et son DNS, stack orientée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Modoboa",
+			"source": {
+				"host": "github",
+				"path": "modoboa/modoboa",
+				"url": "https://github.com/modoboa/modoboa"
+			},
+			"license": "ISC",
+			"effort": "managed",
+			"note": {
+				"en": "Quotas, aliases, DKIM keys, REST API — webmail and admin in one Python app for multi-domain hosting. It wraps Postfix/Dovecot, adds a Python stack to maintain, and no antivirus by default.",
+				"fr": "Quotas, alias, clés DKIM, API REST : webmail et admin dans une app Python pensée pour le multi-domaines. Elle s’appuie sur Postfix/Dovecot, ajoute une stack Python à maintenir, pas d’antivirus par défaut."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache James",
+			"source": {
+				"host": "github",
+				"path": "apache/james-project",
+				"url": "https://github.com/apache/james-project"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Java server covering SMTP, IMAP, and POP3 — Apache project since 2001 — with a Mailet pipeline for message processing. Heavier than Go or Rust rivals, no webmail, config has a learning curve.",
+				"fr": "Serveur Java couvrant SMTP, IMAP et POP3, projet Apache depuis 2001, pipeline Mailet pour traiter les messages. Plus lourd que les rivaux Go ou Rust, pas de webmail, config à courbe d’apprentissage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "swaks",
+			"source": {
+				"host": "github",
+				"path": "jetmore/swaks",
+				"url": "https://github.com/jetmore/swaks"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Battle-tested single Perl script that crafts arbitrary SMTP transactions — headers, TLS, AUTH, pipelining — scriptable for deliverability checks. Sends only, no inbox, needs a reachable SMTP endpoint. Dormant since March 2024.",
+				"fr": "Script Perl éprouvé qui envoie des transactions SMTP arbitraires — headers, TLS, AUTH, pipelining — scriptable pour les tests de délivrabilité. Envoi seul, pas de boîte, endpoint SMTP requis. Dormant depuis mars 2024."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mailpit",
+			"source": {
+				"host": "github",
+				"path": "axllent/mailpit",
+				"url": "https://github.com/axllent/mailpit"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Single static binary SMTP catcher; web UI to inspect, search, and relay messages, REST API and CLI. Handy for verifying app email before sending, but it catches instead of delivering, no IMAP.",
+				"fr": "Catcher SMTP, binaire statique unique ; interface web d’inspection, recherche et relais, API REST et CLI. Pratique pour vérifier l’e-mail d’une app avant envoi, mais il capture au lieu de livrer, pas d’IMAP."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

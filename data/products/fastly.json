@@ -111,6 +111,174 @@
 				"en": "From $0.01/GB on a large anycast network with edge scripting. Fewer POPs than Fastly and a much smaller enterprise story.",
 				"fr": "À partir de 0,01 $/Go sur un grand réseau anycast avec scripting au edge. Moins de POPs que Fastly et une offre entreprise bien plus modeste."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Varnish Cache",
+			"source": {
+				"host": "github",
+				"path": "varnishcache/varnish-cache",
+				"url": "https://github.com/varnishcache/varnish-cache"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Archived upstream, yet the closest match to Fastly's VCL edge logic: in-memory HTTP caching, purging, ESI. No TLS on its own — pair a proxy, and you run the caches and PoPs.",
+				"fr": "Dépôt archivé (le développement continue sur varnish-cache.org), plus fidèle à la logique VCL de Fastly : cache en mémoire, purge, ESI. Pas de TLS seul — à coupler, PoP opérés par vous."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "HAProxy",
+			"source": {
+				"host": "github",
+				"path": "haproxy/haproxy",
+				"url": "https://github.com/haproxy/haproxy"
+			},
+			"license": "GPL-2.0-only",
+			"effort": "docker",
+			"note": {
+				"en": "Fronts Fastly-scale traffic with zero single point of failure, battle-tested. L4/L7 proxy with health checks, stickiness, ACLs, TLS. No caching layer, config reload rather than dynamic API, no edge compute.",
+				"fr": "Absorbe un trafic à l’échelle Fastly sans point unique de défaillance, éprouvé. Proxy L4/L7 : health checks, stickiness, ACL, TLS. Pas de cache intégré, rechargement de config, pas d’edge compute."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Traefik",
+			"source": {
+				"host": "github",
+				"path": "traefik/traefik",
+				"url": "https://github.com/traefik/traefik"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The easiest Fastly-class edge to stand up in Docker/K8s: auto-config from labels, Let's Encrypt HTTPS, dashboard, metrics. No HTTP cache built in — bring a cache companion, HA needs a state store.",
+				"fr": "Le plus simple des edges façon Fastly à monter sous Docker/K8s : config auto via labels, HTTPS Let’s Encrypt, dashboard. Pas de cache intégré — prévoyez un compagnon, la HA exige un store d’état."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Envoy",
+			"source": {
+				"host": "github",
+				"path": "envoyproxy/envoy",
+				"url": "https://github.com/envoyproxy/envoy"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The programmable edge dataplane behind many CDN-like stacks: CNCF L7 proxy, xDS hot reload, HTTP/3, gRPC, rich observability. Complex config, no caching tier — a dataplane, not a managed CDN.",
+				"fr": "Le dataplane d’edge programmable derrière des stacks façon CDN : proxy L7 CNCF, config xDS à chaud, HTTP/3, gRPC, observabilité. Config complexe, pas de couche de cache — un dataplane, pas un CDN managé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache APISIX",
+			"source": {
+				"host": "github",
+				"path": "apache/apisix",
+				"url": "https://github.com/apache/apisix"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Fastly-style control plane for APIs, self-hosted: 60+ plugins, etcd-backed hot config, dashboard. Needs etcd — real cluster ops — and it's a gateway, not a cache or CDN PoP.",
+				"fr": "Contrôle façon Fastly pour les API, self-hosté : 60+ plugins, config à chaud via etcd, dashboard. Exige etcd — vraie ops de cluster — et reste une gateway, pas un cache ni PoP CDN."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "workerd",
+			"source": {
+				"host": "github",
+				"path": "cloudflare/workerd",
+				"url": "https://github.com/cloudflare/workerd"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The closest open-source stand-in for Fastly Compute@Edge hosting: Workers-compatible JS/WASM, Durable Objects, isolation. No PoP network or cache — you supply it; it's not a CDN on its own.",
+				"fr": "Le plus proche substitut open-source de l’hébergement Fastly Compute@Edge : runtime JS/WASM compatible Workers, Durable Objects, isolation. Pas de réseau de PoP ni cache — à vous de fournir, ce n’est pas un CDN."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Coraza",
+			"source": {
+				"host": "github",
+				"path": "corazawaf/coraza",
+				"url": "https://github.com/corazawaf/coraza"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Fastly's WAF layer, self-hosted: Go engine, OWASP CRS-compatible, plugs into Caddy/nginx/Traefik. WAF only — one of Fastly's edge features — and you wire it into your own stack.",
+				"fr": "Le WAF de Fastly en self-hosted : moteur Go compatible OWASP CRS, s’installe dans Caddy/nginx/Traefik. WAF uniquement — une des briques edge de Fastly — à raccorder vous-même à votre stack."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "k6",
+			"source": {
+				"host": "github",
+				"path": "grafana/k6",
+				"url": "https://github.com/grafana/k6"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The standard tool to prove your self-hosted edge matches Fastly: scriptable Go/JS load tests, thresholds, Prometheus export. A test harness only — no caching, routing or edge functions.",
+				"fr": "L’outil standard pour prouver que votre edge self-hosted tient le niveau de Fastly : tests de charge scriptables, seuils, export Prometheus. Juste un harnais de test — ni cache, ni routage, ni fonctions edge."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

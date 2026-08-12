@@ -101,6 +101,178 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "webhook (adnanh)",
+			"source": {
+				"host": "github",
+				"path": "adnanh/webhook",
+				"url": "https://github.com/adnanh/webhook"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The most popular self-hosted receiver: a single Go binary maps URLs to shell scripts, declaratively, with no delivery queue or signing attached.",
+				"fr": "Le receveur self-hosted le plus populaire : un binaire Go mappe des URLs vers des scripts shell, déclarativement, sans file de livraison ni signature."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "webhookd",
+			"source": {
+				"host": "github",
+				"path": "ncarlier/webhookd",
+				"url": "https://github.com/ncarlier/webhookd"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Every incoming POST runs a script; the admin API and SSE stream make it a glue tool rather than delivery infrastructure.",
+				"fr": "Chaque POST entrant exécute un script ; l’API admin et le flux SSE en font un outil de collage, pas une infrastructure de livraison."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Activepieces",
+			"source": {
+				"host": "github",
+				"path": "activepieces/activepieces",
+				"url": "https://github.com/activepieces/activepieces"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "A visual flow engine that turns webhook triggers into automations with retries and connectors, though SSO and RBAC sit behind the EE license.",
+				"fr": "Un moteur de flux visuel qui transforme les triggers webhook en automatisations avec retries et connecteurs, mais SSO et RBAC restent derrière la licence EE."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "SSO and RBAC",
+					"fr": "SSO et RBAC"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Novu",
+			"source": {
+				"host": "github",
+				"path": "novuhq/novu",
+				"url": "https://github.com/novuhq/novu"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "A notification platform whose trigger API adds digests, retries and channel routing — heavier than pure webhook delivery, and it signs nothing.",
+				"fr": "Une plateforme de notifications dont l’API trigger ajoute digest, retries et routage par canal — plus lourde qu’une simple livraison webhook, et rien n’est signé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kestra",
+			"source": {
+				"host": "github",
+				"path": "kestra-io/kestra",
+				"url": "https://github.com/kestra-io/kestra"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Event-driven orchestration that replaces dispatch with declarative workflows, retries and a full UI — at the cost of running a JVM stack with database and storage.",
+				"fr": "De l’orchestration event-driven qui remplace le dispatch par des workflows déclaratifs, retries et UI complète — moyennant une stack JVM, base de données et stockage à opérer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Node-RED",
+			"source": {
+				"host": "github",
+				"path": "node-red/node-red",
+				"url": "https://github.com/node-red/node-red"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "A flow editor whose http/webhook nodes transform and re-dispatch events; general automation though, with no signing or delivery SLA to be found.",
+				"fr": "Un éditeur de flux dont les nœuds http/webhook transforment et redispatchent les événements ; de l’automatisation généraliste, sans signature ni SLA de livraison."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "localtunnel",
+			"source": {
+				"host": "github",
+				"path": "localtunnel/localtunnel",
+				"url": "https://github.com/localtunnel/localtunnel"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Exposes localhost on a public URL so API development can receive live callbacks — a dev-time tunnel only, with no retries, signing or fan-out.",
+				"fr": "Expose localhost sur une URL publique pour recevoir des callbacks en cours de dev — un simple tunnel de développement, sans retries, signature ni fan-out."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "wuzz",
+			"source": {
+				"host": "github",
+				"path": "asciimoo/wuzz",
+				"url": "https://github.com/asciimoo/wuzz"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "An interactive TUI for hand-crafting and replaying HTTP requests against webhook endpoints — a client, so no server, no retries, no delivery.",
+				"fr": "Un TUI interactif pour fabriquer et rejouer des requêtes HTTP vers des endpoints webhook — un simple client, donc pas de serveur, ni retries, ni livraison."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

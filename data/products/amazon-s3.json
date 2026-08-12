@@ -104,11 +104,11 @@
 		},
 		{
 			"kind": "oss",
-			"name": "MinIO (pgsty fork)",
+			"name": "Silo (MinIO fork)",
 			"source": {
 				"host": "github",
-				"path": "pgsty/minio",
-				"url": "https://github.com/pgsty/minio"
+				"path": "pgsty/silo",
+				"url": "https://github.com/pgsty/silo"
 			},
 			"license": "AGPL-3.0",
 			"effort": "docker",
@@ -141,6 +141,153 @@
 			"note": {
 				"en": "Zero egress fees, which is where the S3 bill actually comes from. Weaker consistency guarantees and no lifecycle sophistication.",
 				"fr": "Zéro frais de sortie — c’est précisément d’où vient la facture S3. Garanties de cohérence plus faibles et gestion du cycle de vie rudimentaire."
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ceph with RADOS Gateway",
+			"source": {
+				"host": "github",
+				"path": "ceph/ceph",
+				"url": "https://github.com/ceph/ceph"
+			},
+			"license": "LGPL-2.1",
+			"effort": "ops",
+			"note": {
+				"en": "Enterprise-scale distributed storage; RADOS Gateway exposes the S3 API. Datacentre-grade, but 3+ nodes minimum and a serious ops learning curve — not a single-server affair.",
+				"fr": "Stockage distribué d’envergure datacentre ; RADOS Gateway expose l’API S3. Complexité d’exploitation réelle : 3 nœuds minimum, grosse courbe d’apprentissage, rien d’adapté à un serveur unique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Storj",
+			"source": {
+				"host": "github",
+				"path": "storj/storj",
+				"url": "https://github.com/storj/storj"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Not self-hosted storage but a node network with erasure coding and zero egress fees. Pricing tracks the market, and the distributed model suits private or EU-resident data poorly.",
+				"fr": "Pas du self-hosted : un réseau de nœuds non fiables, erasure-codé, zéro frais d’egress. Le prix suit le marché et le modèle convient mal aux données privées ou UE."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "unknown"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Zenko",
+			"source": {
+				"host": "github",
+				"path": "scality/Zenko",
+				"url": "https://github.com/scality/Zenko"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "An unusual middle ground: a multi-cloud controller that proxies S3 to several backends, self-hosted or cloud, with replication. Adds a proxy layer; not a pure replacement.",
+				"fr": "Cas à part : un contrôleur multi-cloud qui proxy l’API S3 vers plusieurs backends, self-hosted ou cloud, avec réplication. Ajoute une couche de proxy — pas un remplacement pur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "s5cmd",
+			"source": {
+				"host": "github",
+				"path": "peak/s5cmd",
+				"url": "https://github.com/peak/s5cmd"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Fast parallel S3 client, quicker than s3cmd on bulk jobs, single portable binary. It is a CLI, not a server — you still need an S3-compatible backend.",
+				"fr": "Client S3 parallèle et rapide, plus véloce que s3cmd en masse, binaire portable unique. Ce n’est qu’un CLI, pas un serveur : il faut déjà un backend S3-compatible derrière."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "unknown"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "rclone",
+			"source": {
+				"host": "github",
+				"path": "rclone/rclone",
+				"url": "https://github.com/rclone/rclone"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Universal sync tool whose serve s3 exposes any of 60+ backends as an S3 server in-process. A process, not a service — and sync-focused, without stateful S3 semantics like ACLs or versioning.",
+				"fr": "Outil de synchro universel : rclone serve s3 expose un backend quelconque de ses 60+ comme serveur S3 en mémoire. Un process, pas un service — pas de sémantique S3 d’état (ACL, versioning)."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "unknown"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "s3cmd",
+			"source": {
+				"host": "github",
+				"path": "s3tools/s3cmd",
+				"url": "https://github.com/s3tools/s3cmd"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The classic Python S3 CLI, predating AWS CLI and simple to deploy. Fewer advanced features than AWS CLI and slower than s5cmd on bulk operations.",
+				"fr": "Le CLI S3 classique en Python, antérieur à l’AWS CLI, déploiement trivial. Moins de fonctions avancées que l’AWS CLI et plus lent que s5cmd sur les gros volumes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "unknown"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Versity Gateway",
+			"source": {
+				"host": "github",
+				"path": "versity/versitygw",
+				"url": "https://github.com/versity/versitygw"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "S3 API in front of storage you already have — POSIX, tape or another object store — so no migration. Durability stays your problem; community smaller than MinIO or Ceph, no web console.",
+				"fr": "L’API S3 devant le stockage existant — POSIX, bande ou autre objet store — donc pas de migration. Durabilité à votre charge ; communauté plus petite que MinIO ou Ceph, pas de console web."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
 			}
 		}
 	],

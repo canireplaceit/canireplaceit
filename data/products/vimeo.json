@@ -72,6 +72,258 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "MediaCMS",
+			"source": {
+				"host": "github",
+				"path": "mediacms-io/mediacms",
+				"url": "https://github.com/mediacms-io/mediacms"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Full-featured self-hosted video CMS: upload, transcoding, HLS, livestreaming, channels and a REST API — the closest all-in-one Vimeo analogue. Simpler permissions than Vimeo's org model and no native mobile apps.",
+				"fr": "CMS vidéo auto-hébergé complet : upload, transcodage, HLS, direct, chaînes et API REST — l’analogue Vimeo tout-en-un le plus proche. Permissions plus simples que le modèle org de Vimeo, pas d’apps mobiles natives."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Jellyfin",
+			"source": {
+				"host": "gitlab",
+				"path": "jellyfin/jellyfin",
+				"url": "https://gitlab.com/jellyfin/jellyfin"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Best option for hosting a personal collection: transcodes any format to any device, multi-user accounts, apps everywhere. Library-centric — no ingestion API, not built for public publishing.",
+				"fr": "Le meilleur choix pour héberger sa collection perso : transcode tout format vers tout appareil, comptes multi-utilisateurs, apps partout. Pensé bibliothèque, pas publication publique — pas d’API d’ingestion pour les créateurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GNU MediaGoblin",
+			"source": {
+				"host": "savannah",
+				"path": "gnu/mediagoblin",
+				"url": "https://savannah.gnu.org/projects/mediagoblin"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Federated publishing for video, audio and images, privacy-first, with federation between instances. Development slow for years; no live streaming and a manual Python/buildout setup.",
+				"fr": "Publie vidéo, audio et images en fédéré entre instances, éthique vie privée. Développement au ralenti depuis des années : pas de direct, installation manuelle buildout/Python, interface datée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Plumi",
+			"source": {
+				"host": "github",
+				"path": "plumi/plumi.app",
+				"url": "https://github.com/plumi/plumi.app"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Video-sharing platform built on Plone — re-encoding, communities, moderation, RSS/iTunes syndication. No commit since May 2019; seven years dormant, the Plone buildout stack is heavy.",
+				"fr": "Plateforme vidéo sur Plone — re-encodage, communautés, modération, syndication RSS/iTunes. Aucun commit depuis mai 2019, sept ans de sommeil : pile buildout Plone lourde."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Open Streaming Platform",
+			"source": {
+				"host": "github",
+				"path": "Open-Streaming-Platform/open-streaming-platform",
+				"url": "https://github.com/Open-Streaming-Platform/open-streaming-platform"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Vimeo/Twitch-style portal in one Docker container: RTMP ingest, user channels, VOD, chat, FFmpeg transcoding. Maintenance stalled since 2024 and single-node Docker-first deployment.",
+				"fr": "Portail façon Vimeo/Twitch dans un seul conteneur Docker : ingest RTMP, chaînes utilisateurs, VOD, chat, transcodage FFmpeg. Maintenance en panne depuis 2024, déploiement Docker mono-nœud."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SRS",
+			"source": {
+				"host": "github",
+				"path": "ossrs/srs",
+				"url": "https://github.com/ossrs/srs"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The backbone media server of self-hosted stacks — RTMP, HLS, SRT, WebRTC, low latency, REST API, K8s-friendly. No UI or accounts: bring your own front end.",
+				"fr": "Serveur média, colonne vertébrale des stacks self-hosted — RTMP, HLS, SRT, WebRTC, faible latence, API REST, compatible K8s. Pas d’UI ni de comptes : il faut son propre front."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OvenMediaEngine",
+			"source": {
+				"host": "github",
+				"path": "OvenMediaLabs/OvenMediaEngine",
+				"url": "https://github.com/OvenMediaLabs/OvenMediaEngine"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Sub-second LLHLS and WebRTC streaming built for broadcast scale, with REST API and clustering. Live-first, no VOD or user accounts, and AGPL-3.0 if you modify and serve it.",
+				"fr": "Direct LLHLS et WebRTC sous la seconde, conçu pour l’échelle broadcast, API REST et clustering. Orienté live, pas de VOD ni de comptes ; AGPL-3.0 si vous modifiez et servez."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MistServer",
+			"source": {
+				"host": "github",
+				"path": "DDVTECH/mistserver",
+				"url": "https://github.com/DDVTECH/mistserver"
+			},
+			"license": "Unlicense",
+			"effort": "docker",
+			"note": {
+				"en": "Adaptive-bitrate HLS/DASH, on-the-fly transcoding, web admin, public-domain Unlicense. Streaming infrastructure, not a publishing portal — no user-facing accounts.",
+				"fr": "HLS/DASH adaptive-bitrate, transcodage à la volée, admin web, licence Unlicense façon domaine public. Infra de streaming, pas un portail de publication — aucun compte utilisateur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ZLMediaKit",
+			"source": {
+				"host": "github",
+				"path": "ZLMediaKit/ZLMediaKit",
+				"url": "https://github.com/ZLMediaKit/ZLMediaKit"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Fast embeddable C++ engine for RTSP, RTMP, HLS, WebRTC and GB28181, the backend behind many self-hosted video products. No user-facing portal, docs largely Chinese-first — you build the product.",
+				"fr": "Moteur C++ embarquable pour RTSP, RTMP, HLS, WebRTC et GB28181, backend de nombreux produits vidéo self-hosted. Pas de portail utilisateur, docs surtout en chinois — le produit est à construire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Red5",
+			"source": {
+				"host": "github",
+				"path": "Red5/red5-server",
+				"url": "https://github.com/Red5/red5-server"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Java RTMP server with plugins, the Flash-era original that Red5 Pro is built on. RTMP-centric design, heavy Java deployment, active development now in the proprietary fork.",
+				"fr": "Serveur RTMP Java à plugins, l’original de l’ère Flash sur lequel Red5 Pro est bâti. Design centré RTMP, déploiement Java lourd, le développement actif vit dans le fork propriétaire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "yt-dlp",
+			"source": {
+				"host": "codeberg",
+				"path": "yt-dlp/yt-dlp",
+				"url": "https://codeberg.org/yt-dlp/yt-dlp"
+			},
+			"license": "Unlicense",
+			"effort": "managed",
+			"note": {
+				"en": "CLI downloader for 2000+ sites, how you pull video off Vimeo into your self-hosted platform, with subtitles and playlists. Download-only: scrapes break without notice, ToS grey areas.",
+				"fr": "Téléchargeur CLI de plus de 2000 sites, le moyen d’extraire la vidéo de Vimeo vers votre plateforme self-hosted, sous-titres et playlists inclus. Téléchargement seul : les scrapes cassent sans prévenir, zones grises ToS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "mpv",
+			"source": {
+				"host": "github",
+				"path": "mpv-player/mpv",
+				"url": "https://github.com/mpv-player/mpv"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Terminal player over libmpv with hardware acceleration, extensive codec support and Lua scripting. Plays only — no upload or sharing, manual configuration, and no server or library.",
+				"fr": "Lecteur terminal basé sur libmpv : accélération matérielle, support codec étendu, scripting Lua. Lit seulement — pas d’upload ni de partage, configuration manuelle, ni serveur ni bibliothèque."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

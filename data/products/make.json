@@ -1,0 +1,345 @@
+{
+	"slug": "make",
+	"name": "GNU Make",
+	"domain": "gnu.org",
+	"category": "developer-tooling",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "Replaceable when all you do is run tasks. The dependency tracking behind real file builds is what a task runner cannot replace; keep Make if you actually build files.",
+		"fr": "Remplaçable si vous ne faites que lancer des tâches. Le suivi de dépendances derrière les vraies compilations est ce qu’un task runner ne remplace pas ; gardez Make si vous compilez des fichiers."
+	},
+	"whatYouLose": [
+		{
+			"en": "Pre-installed on every Unix box",
+			"fr": "Déjà installé sur chaque machine Unix"
+		},
+		{
+			"en": "Tabs and .PHONY muscle memory",
+			"fr": "Le réflexe des tabulations et de .PHONY"
+		},
+		{
+			"en": "A file format every developer has already seen",
+			"fr": "Un format de fichier que tout développeur connaît déjà"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "just",
+			"source": {
+				"host": "github",
+				"path": "casey/just",
+				"url": "https://github.com/casey/just"
+			},
+			"license": "CC0-1.0",
+			"effort": "managed",
+			"note": {
+				"en": "No tabs, no .PHONY, real arguments, per-recipe shells — the direct answer if your Makefile never built a file. Building files is out of scope.",
+				"fr": "Pas de tabulation, pas de .PHONY, de vrais arguments, un shell par recette : la réponse directe si votre Makefile n’a jamais compilé de fichier. La construction de fichiers n’est pas son affaire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Task",
+			"source": {
+				"host": "github",
+				"path": "go-task/task",
+				"url": "https://github.com/go-task/task"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Heavier syntax than just, but real dependency and up-to-date checks buy you incremental builds in a single Go binary that runs well on Windows.",
+				"fr": "Une syntaxe YAML plus lourde que just, mais de vraies vérifications de dépendances et d’actualisation pour des compilations incrémentales, dans un unique binaire Go qui fonctionne bien sous Windows."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "mise",
+			"source": {
+				"host": "github",
+				"path": "jdx/mise",
+				"url": "https://github.com/jdx/mise"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Tasks, tool versions and per-directory environment in one tool — the Makefile and the .nvmrc collapse into one file. The cost is a wider tool to install and configure.",
+				"fr": "Un seul outil pour les tâches, les versions d’outils et l’environnement par répertoire : le Makefile et le .nvmrc fusionnent dans un seul fichier. Le prix, c’est un outil plus large à installer et à configurer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ninja",
+			"source": {
+				"host": "github",
+				"path": "ninja-build/ninja",
+				"url": "https://github.com/ninja-build/ninja"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Fastest parallel incremental builds with correct dependency tracking. But declarative only — a generator target for Meson/CMake, painful to hand-write, no shell loops.",
+				"fr": "Le plus rapide en parallèle, suivi des dépendances fiable. Mais purement déclaratif : cible de Meson/CMake, pénible à la main, pas de boucles shell."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CMake",
+			"source": {
+				"host": "github",
+				"path": "Kitware/CMake",
+				"url": "https://github.com/Kitware/CMake"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "The de-facto standard generator, producing native files for make, Ninja, Xcode, Visual Studio. Capable of running any command, but the CMake language is a wart and a steep learning curve.",
+				"fr": "Le générateur de facto, qui produit des fichiers natifs pour make, Ninja, Xcode et Visual Studio. Il peut lancer n’importe quelle commande, mais son langage est une verrue, à l’apprentissage raide."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Meson",
+			"source": {
+				"host": "github",
+				"path": "mesonbuild/meson",
+				"url": "https://github.com/mesonbuild/meson"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Modern build system whose backend replaces make for most compiled projects. Clean Python-defined descriptions compile via Ninja. But it targets compiled projects — awkward for task scripting, needs Python at configure time.",
+				"fr": "Build dont le backend remplace make pour la plupart des projets compilés. Descriptions Python propres, compilées via Ninja. Mais orienté projets compilés : maladroit pour du scripting, exige Python à la config."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Samurai",
+			"source": {
+				"host": "github",
+				"path": "michaelforney/samurai",
+				"url": "https://github.com/michaelforney/samurai"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Tiny C89 reimplementation of Ninja, single dependency-free binary, very fast startup — ideal for embedded or minimal toolchains. But it reads build.ninja only: needs a generator frontend, smaller community.",
+				"fr": "Réimplémentation de Ninja en C89, un seul binaire sans dépendance, démarrage très rapide — idéal pour l’embarqué et les toolchains minimales. Mais ne lit que build.ninja : exige un générateur amont, communauté réduite."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tup",
+			"source": {
+				"host": "github",
+				"path": "gittup/tup",
+				"url": "https://github.com/gittup/tup"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Guaranteed-correct builds via a persistent dependency database and inotify/FSEvents watching, auto-detecting missing dependencies. GPL-2.0 may deter integrations; initial setup is trickier than make.",
+				"fr": "Correctness garantie par une base de dépendances persistante et le watching inotify/FSEvents, qui détecte seul les dépendances manquantes. La licence GPL-2.0 peut refroidir les intégrations, mise en route plus délicate que make."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Redo",
+			"source": {
+				"host": "github",
+				"path": "apenwarr/redo",
+				"url": "https://github.com/apenwarr/redo"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Builds defined as .do shell scripts, concurrency-safe, with correctness proven by the redo design and no phony-target hacks. Tiny, but dormant since late 2023 and script-per-target model is unusual.",
+				"fr": "Builds définis par des scripts shell .do, sûrs en concurrence, corrects par conception redo, sans hacks de phony targets. Implémentation minuscule, mais en sommeil depuis fin 2023, et le modèle script-par-cible déroute."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mage",
+			"source": {
+				"host": "github",
+				"path": "magefile/mage",
+				"url": "https://github.com/magefile/mage"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Tasks as plain Go functions with compile-time checking and dependency graphs derived from signatures. Cross-platform, no makefile syntax. But it only pays off in Go projects and recompiles magefile on first run.",
+				"fr": "Tâches en Go, vérifiées à la compilation, graphe de dépendances déduit des signatures. Multiplateforme, pas de syntaxe makefile. Mais réservé aux projets Go, et le binaire magefile se recompile au premier run."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Invoke",
+			"source": {
+				"host": "github",
+				"path": "pyinvoke/invoke",
+				"url": "https://github.com/pyinvoke/invoke"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Tasks as decorated Python functions with params and docs, in tasks.py mirroring Makefile structure. Full Python expressiveness with env and shell helpers. But no real file-artifact dependency tracking, and it needs Python.",
+				"fr": "Tâches en fonctions Python décorées (params, docs), dans un tasks.py qui mime le Makefile. Expressivité Python, helpers shell et env. Mais pas de suivi de dépendances de fichiers, et il faut Python."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "doit",
+			"source": {
+				"host": "github",
+				"path": "pydoit/doit",
+				"url": "https://github.com/pydoit/doit"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Declarative Python tasks with file targets, uptodate checks and actions, offered three ways: CLI, Python API, task dicts. Handles builds and pipelines. Smaller community than make or Invoke, and Python-only.",
+				"fr": "Tâches déclaratives Python avec cibles de fichiers, checks uptodate et actions, en trois formats : CLI, API Python, dictionnaires. Pour builds comme pipelines. Communauté plus petite que make ou Invoke, et Python-only."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Rake",
+			"source": {
+				"host": "github",
+				"path": "ruby/rake",
+				"url": "https://github.com/ruby/rake"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Ruby's make: tasks, prerequisites and file-based rules in a make-style DSL, namespaces and task descriptions. Ships with Ruby. But it assumes a Ruby environment and has no automatic parallelism like make -j.",
+				"fr": "Le make de Ruby : tâches, prérequis, règles par fichiers, DSL façon make, namespaces et descriptions. Livré avec Ruby. Mais suppose un environnement Ruby et pas de parallélisme automatique comme make -j."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SCons",
+			"source": {
+				"host": "github",
+				"path": "SCons/scons",
+				"url": "https://github.com/SCons/scons"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Python build definitions with full programming power, automatic dependency scanning via MD5 checksums, cross-platform and mature since 2000. But famously slower than Ninja, and its configuration model is not the CMake/Meson one.",
+				"fr": "Définitions de build en Python, puissance Python, scan auto des dépendances par checksums MD5, multiplateforme, mûr depuis 2000. Mais réputé plus lent que Ninja, et un modèle de configuration différent de CMake/Meson."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Gulp",
+			"source": {
+				"host": "github",
+				"path": "gulpjs/gulp",
+				"url": "https://github.com/gulpjs/gulp"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Streaming Node.js pipeline tasks for assets, bundling and deploys, with 30k+ plugins and watch mode. Good for frontend automation. But it locks you into Node and is awkward for compiled C/C++ targets.",
+				"fr": "Pipeline streaming Node.js pour assets, bundling, deploys, 30 000+ plugins et watch mode. Bien pour le front. Mais enferme dans Node, et maladroit pour les cibles C/C++ compilées."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

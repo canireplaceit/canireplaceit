@@ -118,6 +118,186 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Logseq",
+			"source": {
+				"host": "github",
+				"path": "logseq/logseq",
+				"url": "https://github.com/logseq/logseq"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Block-based outliner on plain Markdown/Org files, git-syncable, with backlinks and graph view. Sync is paid and proprietary, the web version is dead, and outliner-first is a workflow shift.",
+				"fr": "Outlineur par blocs sur fichiers Markdown/Org en clair, synchro via git, rétroliens et graphe. La synchro officielle est payante et propriétaire, la version web a disparu, le flux outlineur diffère de Craft."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Logseq Sync, proprietary cross-device sync",
+					"fr": "Logseq Sync, la synchro propriétaire entre appareils"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "AppFlowy",
+			"source": {
+				"host": "github",
+				"path": "AppFlowy-IO/AppFlowy",
+				"url": "https://github.com/AppFlowy-IO/AppFlowy"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Notion-style docs, wikis and databases, local-first Rust core with self-hosted AppFlowy Cloud sync. The sync backend is only partially open, web and mobile are still maturing, and notes are not plain markdown.",
+				"fr": "Façon Notion — docs, wikis, bases —, cœur local-first en Rust et sync auto-hébergeable. Le backend de sync n’est qu’en partie ouvert, le mobile et le web mûrissent encore, pas de Markdown en clair."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "AppFlowy Cloud, partially closed sync",
+					"fr": "AppFlowy Cloud, une sync partiellement fermée"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "memos",
+			"source": {
+				"host": "github",
+				"path": "usememos/memos",
+				"url": "https://github.com/usememos/memos"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Minimal self-hosted note stream in a single Go binary, with tags and a PWA client. Short-form only — no hierarchy, no desktop app, far fewer features than Craft.",
+				"fr": "Flux de notes courtes auto-hébergé, un seul binaire Go et un client PWA, tags et recherche. Sans hiérarchie ni application desktop, le jeu de fonctionnalités reste bien plus mince que Craft."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SiYuan",
+			"source": {
+				"host": "github",
+				"path": "siyuan-note/siyuan",
+				"url": "https://github.com/siyuan-note/siyuan"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Markdown block editor with WYSIWYG and source mode, bidirectional links and E2E-encrypted sync to your own storage. Cloud sync is paywalled, docs skew Chinese-first, and the workspace format is its own.",
+				"fr": "Blocs Markdown en WYSIWYG ou source, liens bidirectionnels et sync chiffrée E2E vers votre stockage. La sync cloud est payante, la doc privilégie le chinois, le format d’espace reste propriétaire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Notesnook",
+			"source": {
+				"host": "github",
+				"path": "streetwriters/notesnook",
+				"url": "https://github.com/streetwriters/notesnook"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "E2E encryption on every device, self-hostable sync server, web clipper and cross-platform clients. Own data format, a separate sync service to run, and some convenience features behind the paid tier.",
+				"fr": "Notes chiffrées E2E partout, serveur de sync auto-hébergeable, web clipper et clients multi-plateformes. Format de données propre, un service de sync à faire tourner, quelques fonctions pratiques derrière l’abonnement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Some convenience features",
+					"fr": "Quelques fonctions pratiques"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Zettlr",
+			"source": {
+				"host": "github",
+				"path": "Zettlr/Zettlr",
+				"url": "https://github.com/Zettlr/Zettlr"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Markdown editor built for long-form writing, with Zettelkasten support, bibliography and multi-format export on plain files. Desktop-only, no built-in sync — lean on external storage, and nothing collaborative.",
+				"fr": "Éditeur Markdown pensé pour l’écriture longue, méthode Zettelkasten, bibliographie et export multi-formats sur fichiers en clair. Desktop uniquement, pas de sync intégrée — comptez sur un stockage externe, rien de collaboratif."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "zk",
+			"source": {
+				"host": "github",
+				"path": "zk-org/zk",
+				"url": "https://github.com/zk-org/zk"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Terminal-native Zettelkasten: plain-text notes in any editor, wiki IDs, backlinks, an sqlite index and git sync. CLI-only, nothing shared or collaborative — you own sync and backups.",
+				"fr": "Zettelkasten en ligne de commande : notes en texte brut dans votre éditeur, IDs façon wiki, rétroliens, index sqlite, sync via git. Terminal uniquement, rien de partagé — sync et sauvegardes vous reviennent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "kb",
+			"source": {
+				"host": "github",
+				"path": "gnebbia/kb",
+				"url": "https://github.com/gnebbia/kb"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Minimalist knowledge base in one portable binary: Markdown notes with tags, instant grep-like search and a TUI reader. Terminal-first — no sync, no collaboration, no cloud, and barely any formatting.",
+				"fr": "Base de connaissances minimale dans un binaire portable : notes Markdown avec tags, recherche façon grep instantanée et lecteur en TUI. Terminal d’abord — pas de sync, ni collaboration, ni cloud, quasi aucun formatage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

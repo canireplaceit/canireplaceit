@@ -93,6 +93,153 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "SerpBear",
+			"source": {
+				"host": "github",
+				"path": "towfiqi/serpbear",
+				"url": "https://github.com/towfiqi/serpbear"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted rank tracker; scheduled checks chart keyword positions over time. Simple API. Covers only the position half of the workflow — no crawling, and Google results only.",
+				"fr": "Tracker de positions auto-hébergé : contrôles planifiés, graphiques d’historique, API simple. Ne couvre que la moitié position du workflow — pas de crawl, et uniquement les résultats Google."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "spider",
+			"source": {
+				"host": "github",
+				"path": "spider-rs/spider",
+				"url": "https://github.com/spider-rs/spider"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Rust crawler: fast parallel crawling with per-domain user-agent and robots controls, CLI or library, exports data. No visual SEO reports — on-page analysis is yours to script.",
+				"fr": "Crawler Rust à haut débit : crawl parallèle, agents utilisateur et options par domaine, CLI ou bibliothèque, export des données. Pas de rapports SEO visuels — l’analyse on-page se scripte à la main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gospider",
+			"source": {
+				"host": "github",
+				"path": "jaeles-project/gospider",
+				"url": "https://github.com/jaeles-project/gospider"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Lightweight Go link spider that pulls links, JS files, forms and assets, with subdomain and sitemap crawling. Dormant since April 2024 — no rank tracking, no reporting.",
+				"fr": "Spider Go léger qui extrait liens, fichiers JS, formulaires et assets, et crawle sous-domaines et sitemaps. Dormant depuis avril 2024 — pas de suivi de positions, pas de rapports."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "crawl4ai",
+			"source": {
+				"host": "github",
+				"path": "unclecode/crawl4ai",
+				"url": "https://github.com/unclecode/crawl4ai"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Crawler that turns whole sites into clean, JS-rendered markdown with structured output — built for feeding LLM audits, not for SEO metrics. No built-in reporting.",
+				"fr": "Crawler qui réduit des sites entiers en markdown propre rendu en JS, avec sortie structurée — taillé pour les audits LLM, pas pour les métriques SEO. Pas de rapports intégrés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache Nutch",
+			"source": {
+				"host": "github",
+				"path": "apache/nutch",
+				"url": "https://github.com/apache/nutch"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Distributed crawler for enterprise-scale indexing: Hadoop-backed, with plugin architecture and SOLR/Elasticsearch export. Mature, but you run Java/Hadoop and add all SEO analysis yourself.",
+				"fr": "Crawler distribué pour l’indexation à l’échelle entreprise : crawl via Hadoop, architecture de plugins, export SOLR/Elasticsearch. Mature, mais l’ops Java/Hadoop pèse, et l’analyse SEO se fait toute seule."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Lighthouse",
+			"source": {
+				"host": "github",
+				"path": "GoogleChrome/lighthouse",
+				"url": "https://github.com/GoogleChrome/lighthouse"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Google’s own per-page auditor: SEO, performance and accessibility scores, exportable as JSON or HTML. One page at a time — no whole-site crawl, no link or redirect analysis.",
+				"fr": "Auditeur officiel de Google, page par page : scores SEO, performance et accessibilité, export JSON ou HTML. Jamais un site entier — pas de crawl global, pas d’analyse de liens ni de redirections."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Colly",
+			"source": {
+				"host": "github",
+				"path": "gocolly/colly",
+				"url": "https://github.com/gocolly/colly"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Go scraping framework with callbacks, sitemap/robots extensions and distributed crawling — you assemble the crawler and write the SEO analysis yourself. A library, not a tool.",
+				"fr": "Framework Go de scraping à callbacks, extensions sitemap/robots et crawl distribué — vous montez le crawler et écrivez l’analyse SEO vous-même. Une bibliothèque, pas un outil."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

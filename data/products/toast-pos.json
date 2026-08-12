@@ -119,6 +119,132 @@
 				"en": "Free tier covers a single location with table service. You still pay per card transaction.",
 				"fr": "L’offre gratuite couvre un seul établissement avec service en salle. Vous payez toujours à la transaction."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "ERPNext (Frappe)",
+			"source": {
+				"host": "github",
+				"path": "frappe/erpnext",
+				"url": "https://github.com/frappe/erpnext"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Full open-source ERP whose POS module handles checkout, inventory and accounting end-to-end; heavier than a dedicated register, and restaurant table-flow needs custom work.",
+				"fr": "ERP open source complet dont le module POS couvre encaissement, stocks et comptabilité de bout en bout ; plus lourd qu’une caisse dédiée, et le service à table demande du développement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "eu-option"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Open Source Point of Sale (OSP)",
+			"source": {
+				"host": "github",
+				"path": "opensourcepos/opensourcepos",
+				"url": "https://github.com/opensourcepos/opensourcepos"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The most-starred dedicated web POS, with official Docker images and single-command deployment; a decade old, though: dated Bootstrap 3 and a single-store focus.",
+				"fr": "POS web dédié le plus étoilé, images Docker officielles et déploiement en une commande ; dix ans d’âge : Bootstrap 3 et positionnement mono-boutique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ViewTouch",
+			"source": {
+				"host": "github",
+				"path": "ViewTouch/viewtouch",
+				"url": "https://github.com/ViewTouch/viewtouch"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Touchscreen restaurant POS with kitchen display and multi-terminal LAN operation; the desktop UI is dated and setup is manual on Windows or Linux.",
+				"fr": "POS restaurant à écrans tactiles, écran cuisine et multi-postes en LAN ; interface desktop vieillissante et installation manuelle sur Windows ou Linux."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "POS Awesome",
+			"source": {
+				"host": "github",
+				"path": "ucraft-com/POS-Awesome",
+				"url": "https://github.com/ucraft-com/POS-Awesome"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "A Vue.js frontend giving the ERPNext register a fast keyboard-first screen; frontend only — it needs ERPNext behind it — and development has been quiet since 2024.",
+				"fr": "Frontend Vue.js qui donne au registre ERPNext un écran rapide orienté clavier ; frontend seulement, il exige ERPNext en arrière-plan, et plus de développement depuis 2024."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Laravel POS (angkosal)",
+			"source": {
+				"host": "github",
+				"path": "angkosal/laravel-pos",
+				"url": "https://github.com/angkosal/laravel-pos"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Multi-outlet web POS in a single Laravel app — sales, inventory, purchases, reporting — under a permissive MIT licence; a small single-maintainer project, no native app.",
+				"fr": "POS web multi-boutiques dans une seule app Laravel — ventes, stocks, achats, reporting — sous licence MIT permissive ; petit projet d’un seul mainteneur, pas d’app native."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "go-pos",
+			"source": {
+				"host": "github",
+				"path": "bagashiz/go-pos",
+				"url": "https://github.com/bagashiz/go-pos"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Headless Go POS REST API (Gin, Postgres, Redis) in hexagonal layout, with a Compose file for the whole stack; API only — you build the cashier UI — and proof-of-concept scale.",
+				"fr": "API REST POS headless en Go (Gin, Postgres, Redis), architecture hexagonale, Compose pour toute la pile ; API seulement — vous construisez la caisse — et encore à l’échelle d’une preuve de concept."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

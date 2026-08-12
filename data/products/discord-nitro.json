@@ -97,6 +97,224 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Spacebar",
+			"source": {
+				"host": "github",
+				"path": "spacebarchat/spacebarchat",
+				"url": "https://github.com/spacebarchat/spacebarchat"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Drop-in Discord server reimplementation: run a Discord-compatible API and existing Discord clients connect to your own instance. Voice, bots and discovery lag behind Discord; compatibility is partial and evolving.",
+				"fr": "Réimplémentation de serveur Discord : expose une API compatible et vos clients Discord existants se connectent à votre instance. Voix, bots et découvrabilité restent en retard sur Discord."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Rocket.Chat",
+			"source": {
+				"host": "github",
+				"path": "RocketChat/Rocket.Chat",
+				"url": "https://github.com/RocketChat/Rocket.Chat"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Feature-complete self-hostable team chat: channels, threads, voice/video, omnichannel and a large marketplace. The MongoDB backend is heavier to operate and enterprise features sit behind a paid plan.",
+				"fr": "Chat d’équipe auto-hébergeable complet : canaux, fils, voix/vidéo, omnicanal et un vaste marketplace. Le backend MongoDB est plus lourd à opérer et les fonctions entreprise restent payantes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "SAML and compliance",
+					"fr": "SAML et conformité"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Zulip",
+			"source": {
+				"host": "github",
+				"path": "zulip/zulip",
+				"url": "https://github.com/zulip/zulip"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Built around topic-based threading, good for async teams, with first-party web, desktop and mobile apps. It is a different mental model than Discord and a heavier footprint for small groups.",
+				"fr": "Chat par sujets, pensé pour les équipes async, avec apps web, desktop et mobile maison. L’organisation en fils déstabilise venant de Discord, et le serveur est lourd pour un petit groupe."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mattermost",
+			"source": {
+				"host": "github",
+				"path": "mattermost/mattermost",
+				"url": "https://github.com/mattermost/mattermost"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted Slack-style platform: channels, calls, playbooks and incident workflows. Enterprise SAML is paid and the footprint is heavier than a simple self-host; aimed at teams, not Discord-style communities.",
+				"fr": "Plateforme auto-hébergée façon Slack : canaux, appels, playbooks et workflows d’incident. SSO SAML payant, serveur plus lourd qu’un simple auto-hébergement ; orientée équipes, pas communautés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "SAML SSO and enterprise features",
+					"fr": "SSO SAML et fonctions entreprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gomuks",
+			"source": {
+				"host": "github",
+				"path": "gomuks/gomuks",
+				"url": "https://github.com/gomuks/gomuks"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Fast keyboard-driven Matrix client that lives in the terminal, with olm encryption in a lightweight binary. Terminal-only and useless to casual or mobile-first users; you still need a homeserver.",
+				"fr": "Client Matrix rapide piloté au clavier, qui vit dans le terminal, chiffrement olm dans un binaire léger. Terminal uniquement, sans GUI ni mobile ; il faut aussi un serveur Matrix."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "iamb",
+			"source": {
+				"host": "github",
+				"path": "ulyssa/iamb",
+				"url": "https://github.com/ulyssa/iamb"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Vim-keyed Matrix TUI: fast terminal chat, end-to-end encrypted, scriptable. Keyboard-first and terminal-only, with a smaller community; it still needs a Matrix homeserver.",
+				"fr": "TUI Matrix aux raccourcis Vim : chat terminal rapide, chiffré de bout en bout, scriptable. Clavier d’abord, terminal uniquement, communauté plus réduite ; il faut quand même un serveur Matrix."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Cinny",
+			"source": {
+				"host": "github",
+				"path": "cinnyapp/cinny",
+				"url": "https://github.com/cinnyapp/cinny"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Modern Matrix web client with a clean UI, responsive and installable as a PWA against any homeserver. Web-only, with no native apps, and encryption still maturing.",
+				"fr": "Client web Matrix moderne à l’interface soignée, responsive et installable en PWA, branché sur n’importe quel serveur. Web uniquement, sans apps natives, et le chiffrement reste en maturation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nheko",
+			"source": {
+				"host": "github",
+				"path": "Nheko-Reborn/nheko",
+				"url": "https://github.com/Nheko-Reborn/nheko"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Native desktop Matrix client, C++/Qt, with full end-to-end encryption and voice and video calls. Desktop only, no mobile or web; the UI is utilitarian rather than Discord-polished.",
+				"fr": "Client Matrix desktop natif, C++/Qt, chiffrement de bout en bout complet, appels voix et vidéo. Desktop uniquement, sans mobile ni web ; l’interface est utilitaire, pas du poli Discord."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dendrite",
+			"source": {
+				"host": "github",
+				"path": "element-hq/dendrite",
+				"url": "https://github.com/element-hq/dendrite"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight Matrix homeserver in Go, single binary or Docker, with federation — the easiest to self-host. Fewer features than Synapse, and you must pair it with a client for anything Discord-like.",
+				"fr": "Serveur Matrix en Go, binaire unique ou Docker, avec fédération — le plus simple à auto-héberger. Moins de fonctions que Synapse ; jumelez-le à un client pour du chat façon Discord."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "matrix-commander",
+			"source": {
+				"host": "github",
+				"path": "8go/matrix-commander",
+				"url": "https://github.com/8go/matrix-commander"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Scriptable command-line Matrix client for sending and receiving messages from terminal or CI, with encryption and multi-room support. Not an interactive chat, and no substitute for Discord's community UI.",
+				"fr": "Client Matrix en ligne de commande pour envoyer et recevoir des messages depuis le terminal ou la CI, chiffré. Pas un chat interactif, ni un remplaçant de l’UI communautaire de Discord."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

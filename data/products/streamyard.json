@@ -103,6 +103,182 @@
 				"en": "A real production app for less, with better Mac hardware integration. macOS only, and remote guests are the weakest part of it.",
 				"fr": "Une vraie application de production pour moins cher, mieux intégrée au matériel Mac. macOS uniquement, et la gestion des invités distants est son point faible."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Owncast",
+			"source": {
+				"host": "github",
+				"path": "owncast/owncast",
+				"url": "https://github.com/owncast/owncast"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Single Go binary runs a full live-stream: RTMP ingest, web player, chat. No transcoding — publishers encode themselves; no VOD, no clustering.",
+				"fr": "Un seul binaire Go suffit : ingest RTMP, player web et chat. Pas de transcodage — l’éditeur doit encoder lui-même ; pas de VOD ni de cluster."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Restreamer",
+			"source": {
+				"host": "github",
+				"path": "datarhei/restreamer",
+				"url": "https://github.com/datarhei/restreamer"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Push one browser capture to dozens of platforms from a single UI. Great reach, but no guest invites, no multi-camera switching, no built-in chat.",
+				"fr": "Une capture navigateur vers des dizaines de plateformes depuis une seule UI. Bonne diffusion, mais pas d’invités, pas de multi-caméra, pas de chat intégré."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Some enterprise UI features",
+					"fr": "Quelques fonctionnalités UI d’entreprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MediaMTX",
+			"source": {
+				"host": "github",
+				"path": "bluenviron/mediamtx",
+				"url": "https://github.com/bluenviron/mediamtx"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight single-binary relay for RTSP, RTMP, WebRTC, HLS, SRT. Sources arrive pre-encoded — no transcoding, no UI, no chat; you bring the player and auth.",
+				"fr": "Relais léger à binaire unique : RTSP, RTMP, WebRTC, HLS, SRT. Sources pré-encodées — pas de transcodage, pas d’UI ni de chat ; le player et l’auth, c’est vous."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PeerTube",
+			"source": {
+				"host": "github",
+				"path": "Chocobozzz/PeerTube",
+				"url": "https://github.com/Chocobozzz/PeerTube"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Federated self-hosted video with live, VOD, transcoding, mobile apps. Heavy Node/PostgreSQL/Redis stack; viewers must come to your instance rather than a one-click social push.",
+				"fr": "Vidéo fédérée auto-hébergée : live, VOD, transcodage, apps mobiles. Stack Node/PostgreSQL/Redis lourde ; les viewers doivent venir sur votre instance, pas de push social en un clic."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SRS",
+			"source": {
+				"host": "github",
+				"path": "ossrs/srs",
+				"url": "https://github.com/ossrs/srs"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Production-proven server for HLS, HTTP-FLV, WebRTC, RTMP at scale. Configuration-heavy with mostly Chinese docs; no VOD, chat, or analytics, and support is community-only.",
+				"fr": "Serveur éprouvé en production : HLS, HTTP-FLV, WebRTC, RTMP. Config lourde, docs surtout en chinois ; pas de VOD ni de chat, support uniquement communautaire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OvenMediaEngine",
+			"source": {
+				"host": "github",
+				"path": "OvenMediaLabs/OvenMediaEngine",
+				"url": "https://github.com/OvenMediaLabs/OvenMediaEngine"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Sub-second LL-HLS and WebRTC broadcast with origin-edge clustering. AGPL copyleft plus paid commercial licenses, a heavy C++ build, and little VOD — ingest-focused.",
+				"fr": "Diffusion LL-HLS et WebRTC sous la seconde, clustering origin-edge. AGPL copyleft avec licences commerciales payantes, build C++ lourd, peu de VOD — orienté ingest."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Commercial licenses on top of AGPL",
+					"fr": "Licences commerciales en plus de l’AGPL"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenVidu",
+			"source": {
+				"host": "github",
+				"path": "OpenVidu/openvidu",
+				"url": "https://github.com/OpenVidu/openvidu"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "A building block: WebRTC sessions, recording, broadcast to RTMP, SDKs for web/iOS/Android. You assemble the studio yourself; nothing turnkey, and the server plus KMS stack is heavier than a single binary.",
+				"fr": "Une brique : sessions WebRTC, enregistrement, broadcast RTMP, SDK web/iOS/Android. Le studio, vous l’assemblez vous-même ; rien de clé en main, et la stack serveur + KMS est lourde."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "VLC",
+			"source": {
+				"host": "github",
+				"path": "videolan/vlc",
+				"url": "https://github.com/videolan/vlc"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Headless streaming from any terminal: transcode on the fly and push to RTMP or socials via --sout. One source stream only — no scenes, no guests, no chat; you wire the whole pipeline.",
+				"fr": "Stream headless depuis n’importe quel terminal : transcodage à la volée et push RTMP via --sout. Une seule source — pas de scènes, pas d’invités, pas de chat ; à vous de tout câbler."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

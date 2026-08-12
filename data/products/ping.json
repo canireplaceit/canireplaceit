@@ -1,0 +1,177 @@
+{
+	"slug": "ping",
+	"name": "ping",
+	"domain": null,
+	"category": "shell-terminal",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "Yes, for diagnosis. gping plots latency over time and puts several hosts on the same axes, so you can tell a local link problem from a remote server problem at a glance. The cost is one more binary on machines that already ship ping.",
+		"fr": "Oui, pour le diagnostic. gping trace la latence sur un graphe et superpose plusieurs hôtes, ce qui permet de distinguer d’un coup d’œil un problème de lien local d’un problème de serveur distant. Coût : un binaire de plus sur des machines qui ont déjà ping."
+	},
+	"whatYouLose": [
+		{
+			"en": "Presence on every machine",
+			"fr": "Présence sur toutes les machines"
+		},
+		{
+			"en": "Muscle memory from decades of use",
+			"fr": "Des automatismes ancrés depuis toujours"
+		},
+		{
+			"en": "Troubleshooting with zero setup",
+			"fr": "Diagnostic sans aucune installation"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "gping",
+			"source": {
+				"host": "github",
+				"path": "orf/gping",
+				"url": "https://github.com/orf/gping"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Graphs latency in the terminal and plots several hosts on the same axes, which is how you actually tell whether it is your link or their server. It is one more dependency to install on machines that already have ping.",
+				"fr": "Trace la latence dans le terminal et superpose plusieurs hôtes sur le même graphe, pour distinguer réellement son lien du serveur distant. C’est une dépendance de plus à installer sur des machines qui ont déjà ping."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pingu",
+			"source": {
+				"host": "github",
+				"path": "sheepla/pingu",
+				"url": "https://github.com/sheepla/pingu"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Dormant since January 2024. Tiny Go TUI that draws a latency histogram live, with sortable hosts and color-coded bands — but it watches one host and its output is not meant for scripts.",
+				"fr": "Dormant depuis janvier 2024. TUI Go minuscule qui trace l’histogramme de latence en direct avec tri des hôtes — mais un seul hôte, et la sortie n’est pas faite pour les scripts."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "prettyping",
+			"source": {
+				"host": "github",
+				"path": "denilsonsa/prettyping",
+				"url": "https://github.com/denilsonsa/prettyping"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Pure-bash wrapper around whatever ping the system ships, coloring each latency as it lands and printing stats on a timer. No graph, no interaction — just color on top of the real thing.",
+				"fr": "Wrapper bash pur, sans dépendance, qui colorise la latence en continu autour du ping système et résume les stats périodiquement. Pas de graphe ni d’interaction : de la couleur sur le vrai ping."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "smoke",
+			"source": {
+				"host": "github",
+				"path": "SamirTalwar/smoke",
+				"url": "https://github.com/SamirTalwar/smoke"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Probes ICMP, TCP, DNS and HTTP with colored latency output, timeouts you control, and exit codes meant for scripts. No live graph, and the flags will not match system ping.",
+				"fr": "Sonde ICMP, TCP, DNS et HTTP avec latence colorisée, timeout et intervalle réglables, codes de sortie faits pour les scripts. Pas de graphe en direct, et des flags différents du ping système."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "mtr",
+			"source": {
+				"host": "github",
+				"path": "traviscross/mtr",
+				"url": "https://github.com/traviscross/mtr"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Classic live TUI that fuses ping and traceroute into per-hop latency statistics, with report mode for scripts and IPv6 support. Needs root for raw ICMP and targets routes, not one host.",
+				"fr": "TUI classique qui fusionne ping et traceroute en stats de latence par saut, avec mode report et l’IPv6. Nécessite root pour l’ICMP brut et vise les routes, pas un hôte."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "tcping",
+			"source": {
+				"host": "github",
+				"path": "pouriyajamshidi/tcping",
+				"url": "https://github.com/pouriyajamshidi/tcping"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Static Go binary that pings a TCP port, with optional SNI and HTTP checks, for when ICMP is firewalled. It measures TCP, not ICMP, latency, and draws nothing.",
+				"fr": "Binaire Go statique qui ping un port TCP, avec checks SNI et HTTP en option, utile quand l’ICMP est filtré. Il mesure la latence TCP, pas l’ICMP, et n’affiche aucun graphe."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "liboping",
+			"source": {
+				"host": "github",
+				"path": "octo/liboping",
+				"url": "https://github.com/octo/liboping"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "Dormant since January 2023. C library with a minimal oping CLI for parallel ICMP at high rates, nanosecond timing and multicast. The CLI is an afterthought, and raw sockets need root.",
+				"fr": "Dormant depuis janvier 2023. Bibliothèque C avec un CLI oping minimaliste pour du ping ICMP parallèle à haut débit, nanosecondes et multicast. Le CLI est secondaire, et les sockets brutes exigent root."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 1
+}

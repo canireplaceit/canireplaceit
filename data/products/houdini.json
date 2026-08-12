@@ -71,6 +71,132 @@
 				"en": "A one-off purchase for real-time volumetric FX. Does one slice of Houdini's job, extremely fast.",
 				"fr": "Un achat unique pour des effets volumétriques en temps réel. Ne fait qu’une tranche du travail de Houdini, mais très vite."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Gaffer",
+			"source": {
+				"host": "github",
+				"path": "GafferHQ/gaffer",
+				"url": "https://github.com/GafferHQ/gaffer"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Built by Image Engine for film pipelines, this USD-native node graph assembles and renders scenes without the modeling and solver tools that make Houdini a one-stop shop.",
+				"fr": "Assemblage et rendu de scènes par graphe de nœuds natif USD, signé Image Engine pour les pipelines de film. Pas de modélisation ni de solveurs comme chez Houdini."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tixl (Tooll3)",
+			"source": {
+				"host": "github",
+				"path": "tixl3d/tixl",
+				"url": "https://github.com/tixl3d/tixl"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "For the TD/effect side of Houdini, this MIT node editor does realtime GPU playback of procedural motion graphics and exports to the web, but stays 2D and pre-1.0.",
+				"fr": "Pour le côté TD/effets de Houdini : graphe de nœuds 2D, lecture temps réel sur GPU, export web et vidéo. Toujours en pré-1.0, l’API bouge encore."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Antimony",
+			"source": {
+				"host": "github",
+				"path": "mkeeter/antimony",
+				"url": "https://github.com/mkeeter/antimony"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Parametric 3D modeling through a node graph that mirrors Houdini’s procedural workflow, though a near-solo maintainer means slow releases and no animation, FX, or HDA ecosystem.",
+				"fr": "Modélisation paramétrique par graphe de nœuds fidèle à l’approche procédurale de Houdini, mais quasi-mainteneur unique : rythme de sorties lent, pas d’animation ni d’écosystème de HDA."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenSCAD",
+			"source": {
+				"host": "github",
+				"path": "openscad/openscad",
+				"url": "https://github.com/openscad/openscad"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Design-as-code: parametric models defined in code and exported headless to STL, 3MF, or AMF, git-friendly. No node graph, no animation, simulation, or rendering.",
+				"fr": "Le design en code : modèles paramétriques décrits par script, export headless STL/3MF/AMF, workflow qui vit bien dans git. Ni graphe de nœuds, ni animation, ni simulation, ni rendu."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dust3D",
+			"source": {
+				"host": "github",
+				"path": "huxingyi/dust3d",
+				"url": "https://github.com/huxingyi/dust3d"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Rapid characters: procedural low-poly modeling with one-click auto-rigging and auto-UV. None of the node graph or solver framework, and the cadence is slow.",
+				"fr": "Pour l’asset rapide : personnages low-poly procéduraux avec auto-rig et auto-UV en un clic. Pas de graphe de nœuds ni de solveurs, et un rythme de développement faible."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Sverchok",
+			"source": {
+				"host": "github",
+				"path": "nortikin/sverchok",
+				"url": "https://github.com/nortikin/sverchok"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "A Houdini-style node graph for procedural geometry that runs inside Blender — the free DCC it needs as host. No film-grade pyro or fluid solvers.",
+				"fr": "Graphe de nœuds façon Houdini pour la géométrie procédurale, mais il tourne dans Blender, qui sert d’hôte obligé. Pas de solveurs pyro ou fluides niveau film."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

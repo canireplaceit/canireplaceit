@@ -17,9 +17,11 @@ export const SEGMENTS: Record<
 		submit: string;
 		contact: string;
 		stats: string;
+		features: string;
 		signin: string;
 		dashboard: string;
 		admin: string;
+		legal: string;
 		page: string;
 	}
 > = {
@@ -33,9 +35,11 @@ export const SEGMENTS: Record<
 		submit: "submit",
 		contact: "contact",
 		stats: "stats",
+		features: "features",
 		signin: "signin",
 		dashboard: "dashboard",
 		admin: "admin",
+		legal: "legal",
 		page: "page",
 	},
 	fr: {
@@ -48,13 +52,69 @@ export const SEGMENTS: Record<
 		submit: "proposer",
 		contact: "contact",
 		stats: "statistiques",
+		// One word, unaccented like every other FR segment, so the URL never percent-encodes.
+		features: "fonctionnalites",
 		signin: "connexion",
 		dashboard: "tableau-de-bord",
 		// Not the bare "admin" — that would read as untranslated English in a French address bar.
 		admin: "administration",
+		// One French word for the whole section, so `/fr/legal/cgu` reads as an
+		// address rather than as an untranslated path.
+		legal: "legal",
 		page: "page",
 	},
 };
+
+/**
+ * The legal pages. One segment with a document under it, not seven top-level
+ * segments: they share a parent in the breadcrumb, they are found together or
+ * not at all, and an eighth one later costs a line here instead of a route.
+ *
+ * The slug is translated like every other segment — a French reader gets
+ * `/fr/legal/cgu`, not `/fr/legal/terms` — and `parseRoute` accepts either
+ * language's spelling so an EN link pasted into an FR context still resolves.
+ */
+export const LEGAL_DOCS = [
+	"terms",
+	"privacy",
+	"cookies",
+	"notice",
+	"sponsorship",
+	"disclosure",
+	"licences",
+] as const;
+
+export type LegalDoc = (typeof LEGAL_DOCS)[number];
+
+export const LEGAL_SLUGS: Record<Lang, Record<LegalDoc, string>> = {
+	en: {
+		terms: "terms",
+		privacy: "privacy",
+		cookies: "cookies",
+		notice: "legal-notice",
+		sponsorship: "sponsorship-terms",
+		disclosure: "disclosure",
+		licences: "licences",
+	},
+	fr: {
+		terms: "cgu",
+		privacy: "confidentialite",
+		cookies: "cookies",
+		notice: "mentions-legales",
+		sponsorship: "cgv",
+		disclosure: "transparence",
+		licences: "licences",
+	},
+};
+
+/** Every spelling of every legal slug, in every locale, back to its document. */
+const LEGAL_KINDS: ReadonlyMap<string, LegalDoc> = new Map(
+	SupportedLangs.flatMap((lang) =>
+		(Object.entries(LEGAL_SLUGS[lang]) as [LegalDoc, string][]).map(
+			([doc, slug]) => [slug, doc] as const,
+		),
+	),
+);
 
 export type SegmentKey = keyof (typeof SEGMENTS)[Lang];
 
@@ -77,10 +137,16 @@ export type Route =
 	| { name: "submit"; lang: Lang }
 	| { name: "contact"; lang: Lang }
 	| { name: "stats"; lang: Lang }
+	// One route, never one per filter combination: 137 feature keys would mint a
+	// combinatorial space of near-duplicate URLs. Filter state is query params,
+	// the parameterised states are noindex, and the canonical is the bare path.
+	| { name: "features"; lang: Lang }
 	| { name: "signin"; lang: Lang }
 	| { name: "dashboard"; lang: Lang }
 	// Public route, gated data: everything on it is fetched after hydration and refused server-side unless the session email is in SITE_ADMIN.
 	| { name: "admin"; lang: Lang }
+	// `doc` absent is the index of the legal pages, not a missing document.
+	| { name: "legal"; lang: Lang; doc?: LegalDoc }
 	| { name: "unknown"; lang: Lang };
 
 /** `/page/3` appended to a base, or nothing at all for page 1. */
@@ -113,9 +179,14 @@ export const paths = {
 	submit: (lang: Lang): string => `/${lang}/${SEGMENTS[lang].submit}`,
 	contact: (lang: Lang): string => `/${lang}/${SEGMENTS[lang].contact}`,
 	stats: (lang: Lang): string => `/${lang}/${SEGMENTS[lang].stats}`,
+	features: (lang: Lang): string => `/${lang}/${SEGMENTS[lang].features}`,
 	signin: (lang: Lang): string => `/${lang}/${SEGMENTS[lang].signin}`,
 	dashboard: (lang: Lang): string => `/${lang}/${SEGMENTS[lang].dashboard}`,
 	admin: (lang: Lang): string => `/${lang}/${SEGMENTS[lang].admin}`,
+	legal: (lang: Lang, doc?: LegalDoc): string => {
+		const base = `/${lang}/${SEGMENTS[lang].legal}`;
+		return doc ? `${base}/${LEGAL_SLUGS[lang][doc]}` : `${base}/`;
+	},
 };
 
 // Segment word → route kind, across all locales, so `/fr/tools/x` resolves even though the canonical form is `/fr/outils/x`.
@@ -181,6 +252,18 @@ export function parseRoute(url: URL): Route {
 			: { name: "unknown", lang };
 	}
 
+	if (kind === "legal") {
+		if (slug === undefined) {
+			return parts.length === 2
+				? { name: "legal", lang }
+				: { name: "unknown", lang };
+		}
+		const doc = LEGAL_KINDS.get(slug);
+		return doc !== undefined && parts.length === 3
+			? { name: "legal", lang, doc }
+			: { name: "unknown", lang };
+	}
+
 	if (kind === "sponsor") {
 		const slot = url.searchParams.get("slot");
 		return { name: "sponsor", lang, ...(slot ? { slot } : {}) };
@@ -191,6 +274,7 @@ export function parseRoute(url: URL): Route {
 		kind === "submit" ||
 		kind === "contact" ||
 		kind === "stats" ||
+		kind === "features" ||
 		kind === "signin" ||
 		kind === "dashboard" ||
 		kind === "admin"
@@ -235,6 +319,9 @@ export function alternateUrls(route: Route): Record<Lang, string> {
 			case "categories":
 				out[lang] = paths.categories(lang);
 				break;
+			case "legal":
+				out[lang] = paths.legal(lang, route.doc);
+				break;
 			case "home":
 				out[lang] = paths.home(lang, route.page);
 				break;
@@ -249,6 +336,9 @@ export function alternateUrls(route: Route): Record<Lang, string> {
 				break;
 			case "contact":
 				out[lang] = paths.contact(lang);
+				break;
+			case "features":
+				out[lang] = paths.features(lang);
 				break;
 			case "stats":
 				out[lang] = paths.stats(lang);

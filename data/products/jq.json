@@ -1,0 +1,345 @@
+{
+	"slug": "jq",
+	"name": "jq",
+	"domain": null,
+	"category": "shell-terminal",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "Mostly — the clones cover the core language and fix real quirks. But jq is the default that already ships on every machine, and each alternative pays for its fixes by dropping something jq has.",
+		"fr": "En grande partie, oui — les clones couvrent le langage de base et corrigent de vraies bizarreries. Mais jq reste le défaut de fabrique présent sur chaque machine, et chaque remplaçant paie ses corrections par une perte ailleurs."
+	},
+	"whatYouLose": [
+		{
+			"en": "Jq on every machine already",
+			"fr": "Jq déjà présent sur chaque machine"
+		},
+		{
+			"en": "Your existing jq muscle memory",
+			"fr": "Vos réflexes jq déjà acquis"
+		},
+		{
+			"en": "The ecosystem everyone standardised on",
+			"fr": "L’écosystème sur lequel tout le monde s’est aligné"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "jaq",
+			"source": {
+				"host": "github",
+				"path": "01mf02/jaq",
+				"url": "https://github.com/01mf02/jaq"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Faster startup and saner arithmetic, close to jq-compatible. Some jq builtins are still missing, so not a drop-in for every script.",
+				"fr": "Démarrage bien plus rapide et arithmétique plus saine, proche de la compatibilité jq. Certains builtins manquent encore, ce n’est donc pas un remplaçant systématique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gojq",
+			"source": {
+				"host": "github",
+				"path": "itchyny/gojq",
+				"url": "https://github.com/itchyny/gojq"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Fixes several jq quirks, keeps object keys sorted and reads YAML too. Deliberately not bug-compatible, so output can diverge from jq.",
+				"fr": "Corrige plusieurs bizarreries de jq, garde les clés d’objets triées et lit aussi le YAML. Volontairement non compatible bug-pour-bug, la sortie peut donc diverger de jq."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "yq",
+			"source": {
+				"host": "github",
+				"path": "mikefarah/yq",
+				"url": "https://github.com/mikefarah/yq"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "jq-style expressions over YAML, TOML, XML and properties files. The one to reach for a Kubernetes manifest rather than an API response.",
+				"fr": "Des expressions à la jq sur YAML, TOML, XML et fichiers properties. L’outil à prendre pour un manifest Kubernetes plutôt que pour une réponse d’API."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "jless",
+			"source": {
+				"host": "github",
+				"path": "PaulJuliusMartinez/jless",
+				"url": "https://github.com/PaulJuliusMartinez/jless"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Polished TUI pager for nested JSON — collapse, search, command bar. Reads stdin or files as a single static Rust binary. Viewer only: no filtering for scripts, interactive, not automation.",
+				"fr": "Pager TUI soigné pour explorer le JSON imbriqué — repli, recherche, barre de commande. Lit stdin ou un fichier, binaire Rust statique. Vue seule : pas de filtre pour les scripts, interactif, pas d’automatisation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "fx",
+			"source": {
+				"host": "github",
+				"path": "antonmedv/fx",
+				"url": "https://github.com/antonmedv/fx"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Interactive viewer you can edit in place and query with jq-style filters; headless mode does one-shot filtering. Go single binary. Differs from pipe-based jq and is not byte-for-byte jq.",
+				"fr": "Visionneuse interactive à édition en place et requêtes façon jq ; mode headless pour un filtrage en une passe. Binaire Go. Diffère du jq en pipe et n’en est pas une implémentation exacte."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "jid",
+			"source": {
+				"host": "github",
+				"path": "simeji/jid",
+				"url": "https://github.com/simeji/jid"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Type a JMESPath query and watch results update live over a tree; fuzzy matching finds nodes in large JSON. Pipes nicely. Exploratory, not batch — traversal, not full jq transformation.",
+				"fr": "Tapez une requête JMESPath, le résultat se met à jour en direct ; filtrage flou dans les gros JSON, se pipe bien. Exploratoire, pas du lot : traversée plutôt que transformation jq complète."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "jello",
+			"source": {
+				"host": "github",
+				"path": "kellyjonbrazil/jello",
+				"url": "https://github.com/kellyjonbrazil/jello"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Full Python expressions and lambdas as the query language, no DSL to learn — if you know Python. Needs a Python runtime, not a standalone binary, and existing jq filters don’t port over.",
+				"fr": "Des expressions et lambdas Python comme langage de requête, sans DSL — si vous connaissez déjà Python. Il faut un runtime Python, pas un binaire, et les filtres jq existants ne passent pas."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "jc",
+			"source": {
+				"host": "github",
+				"path": "kellyjonbrazil/jc",
+				"url": "https://github.com/kellyjonbrazil/jc"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Front-end of the pipeline: turns output of 100+ Unix commands (df, ps, ss, dig) into JSON for jq or jello to query. Parsing fidelity varies on exotic or locale-dependent output.",
+				"fr": "Bout amont du pipeline : convertit la sortie de 100+ commandes Unix (df, ps, ss, dig) en JSON pour jq ou jello. Fidélité d’analyse variable sur sorties exotiques ou dépendantes de la locale."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gron",
+			"source": {
+				"host": "github",
+				"path": "tomnomnom/gron",
+				"url": "https://github.com/tomnomnom/gron"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Flattens JSON into one grep-able 'path = value' line per leaf, so plain grep/sed does the work — -u rebuilds valid JSON. No query language, and the flat view hides structure.",
+				"fr": "Aplatit le JSON en lignes « path = value » greppables, une par feuille : grep/sed suffisent, et -u reconstruit du JSON valide. Pas de langage de requête, et la vue aplatie masque la structure."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "jql",
+			"source": {
+				"host": "github",
+				"path": "yamafaktory/jql",
+				"url": "https://github.com/yamafaktory/jql"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Fast Rust CLI with an ergonomic jq-inspired syntax — filtering, grouping, sorting, CSV or JSON output, JSON Lines streaming. Syntax differs from jq, so filters don’t port, and the community is young.",
+				"fr": "CLI Rust rapide à syntaxe ergonomique inspirée de jq — filtrage, regroupement, tri, sortie CSV/JSON, streaming JSON Lines. La syntaxe diffère de jq, pas de portage des filtres, et la communauté reste jeune."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "fq",
+			"source": {
+				"host": "github",
+				"path": "wader/fq",
+				"url": "https://github.com/wader/fq"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A gojq engine aimed at binary formats: decode JPEG, PNG, MP3, ELF, protobuf into JSON, then run real jq filters on it. Not a general JSON tool, and format coverage varies.",
+				"fr": "Moteur gojq dédié aux formats binaires : décode JPEG, PNG, MP3, ELF, protobuf en JSON, puis laissez vos filtres jq s’appliquer. Pas un outil JSON généraliste, couverture variable selon les formats."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "jqjq",
+			"source": {
+				"host": "github",
+				"path": "wader/jqjq",
+				"url": "https://github.com/wader/jqjq"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Pure-Go interpreter that runs genuine jq programs where the C original won’t build; embeddable, with a WASM build for browsers. Slower than C on big inputs, fewer contributors than gojq.",
+				"fr": "Interpréteur jq en Go pur : fait tourner de vrais programmes jq là où le C ne se compile pas, embarquable, build WASM pour navigateur. Plus lent que C sur gros volumes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "jp",
+			"source": {
+				"host": "github",
+				"path": "jmespath/jp",
+				"url": "https://github.com/jmespath/jp"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The official JMESPath CLI: spec-defined queries power AWS CLI --query and cloud tooling, single Go binary. Dormant since mid-2023 — stable, but the CLI hasn’t seen a commit in three years.",
+				"fr": "Le CLI officiel de JMESPath : requêtes définies par la spec, au cœur de AWS CLI --query et des outils cloud, binaire Go. Dormant depuis mi-2023 — stable, mais aucun commit depuis trois ans."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "rq",
+			"source": {
+				"host": "github",
+				"path": "dflemstr/rq",
+				"url": "https://github.com/dflemstr/rq"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Embedded SQLite over JSON, CSV and TSV: think in joins and aggregations instead of jq pipelines, with schema inference. Dormant since late 2023 — stable but not growing.",
+				"fr": "SQLite embarqué sur JSON, CSV et TSV : raisonnez en jointures et agrégations plutôt qu’en pipelines jq, inférence de schéma incluse. Dormant depuis fin 2023 — stable mais sans évolution."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "jj",
+			"source": {
+				"host": "github",
+				"path": "tidwall/jj",
+				"url": "https://github.com/tidwall/jj"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "High-throughput streamer from the tidwall toolbox — path syntax with key=value updates and filters, handles JSON, YAML, TOML, CSV, msgpack. Path-based, not a full jq language, and quiet since late 2023.",
+				"fr": "Processeur à haut débit signé tidwall : syntaxe par chemin, filtres et key=value ; lit JSON, YAML, TOML, CSV, msgpack. Pas un langage type jq, silencieux depuis fin 2023."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

@@ -93,6 +93,174 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Shaka Player",
+			"source": {
+				"host": "github",
+				"path": "shaka-project/shaka-player",
+				"url": "https://github.com/shaka-project/shaka-player"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Google-backed DASH/HLS player with first-class DRM and offline — the closest OSS match to Bitmovin’s SDK. You build the skin yourself; DRM still needs your own license server.",
+				"fr": "Porté par Google, le plus proche équivalent OSS du SDK Bitmovin : DASH/HLS, DRM et offline. L’UI par défaut est nue, à habiller vous-même — le DRM veut votre serveur de licences."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "hls.js",
+			"source": {
+				"host": "github",
+				"path": "video-dev/hls.js",
+				"url": "https://github.com/video-dev/hls.js"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The de-facto open HLS engine for browsers, LL-HLS and fMP4 via MSE. Bundle it anywhere — HLS-only though: no DASH, no DRM abstraction, and the UI is on you.",
+				"fr": "Le moteur HLS open du navigateur : LL-HLS et fMP4 via MSE, empaquetable dans n’importe quel framework. Mais c’est HLS-only : pas de DASH, pas d’abstraction DRM, et l’UI reste à faire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Video.js",
+			"source": {
+				"host": "github",
+				"path": "videojs/video.js",
+				"url": "https://github.com/videojs/video.js"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The most-adopted open HTML5 player framework, plugin and skin ecosystem for ads, analytics, DRM. DRM takes a third-party plugin plus your license server, and the UI depends on your skin.",
+				"fr": "Le framework HTML5 open le plus adopté — plugins et skins pour pub, analytics, DRM. Le DRM exige un plugin tiers, votre serveur de licences ; l’UI dépend de votre skin."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dash.js",
+			"source": {
+				"host": "github",
+				"path": "Dash-Industry-Forum/dash.js",
+				"url": "https://github.com/Dash-Industry-Forum/dash.js"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "The DASH Industry Forum’s reference player, tested against real dashboards, with multi-period, live, CMAF and content steering. DASH-only — no HLS, and no hosted analytics or monetization.",
+				"fr": "Le player de référence du DASH Industry Forum, validé contre de vrais dashboards : multi-périodes, live, CMAF et content steering. DASH-only — pas de HLS, ni analytics hébergés ni monétisation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GPAC",
+			"source": {
+				"host": "github",
+				"path": "gpac/gpac",
+				"url": "https://github.com/gpac/gpac"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "MP4Box and mp4box.js: the full DASH/HLS/fMP4 packaging suite, on the CLI and in the browser. Packaging tooling, though — no delivery platform, no GUI, config lives in commands and files.",
+				"fr": "MP4Box et mp4box.js : la suite de packaging DASH/HLS/fMP4, en CLI comme dans le navigateur. Reste un outil, pas une plateforme de livraison — pas de GUI, la config passe par commandes et fichiers."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "mpv",
+			"source": {
+				"host": "github",
+				"path": "mpv-player/mpv",
+				"url": "https://github.com/mpv-player/mpv"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The de-facto open media player, scriptable via Lua/JavaScript, GPU-accelerated, and happy to play HLS/DASH from the terminal. Terminal-centric: no hosted web player, no built-in DRM or ad frameworks.",
+				"fr": "Le lecteur média open, scriptable en Lua/JavaScript, rendu GPU, et qui joue HLS/DASH depuis le terminal. Centré terminal : pas de player web hébergé, pas de DRM ni de framework pub intégrés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Owncast",
+			"source": {
+				"host": "github",
+				"path": "owncast/owncast",
+				"url": "https://github.com/owncast/owncast"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "A single Go binary: RTMP ingest to HLS, integrated web player and chat, webhooks and a JSON API. Live-only, though — no VOD or catch-up, no transcoding, and publishers encode themselves.",
+				"fr": "Un seul binaire Go : ingest RTMP vers HLS, player web et chat intégrés, webhooks et API JSON. Live-only — pas de VOD ni de catch-up, pas de transcodage, et l’encodage revient aux diffuseurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Jellyfin",
+			"source": {
+				"host": "github",
+				"path": "jellyfin/jellyfin",
+				"url": "https://github.com/jellyfin/jellyfin"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Full self-hosted media server: FFmpeg transcoding to HLS, rich web UI, native clients, plugins for live TV and DRM. Personal-media scope — not a CDN or API platform, no billing, analytics, or SLA.",
+				"fr": "Serveur média self-hosted complet : transcodage FFmpeg vers HLS, web UI riche, clients natifs, plugins TV et DRM. Média perso, pas un CDN — ni facturation, ni analytics, ni SLA."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

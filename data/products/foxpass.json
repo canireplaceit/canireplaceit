@@ -91,6 +91,132 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Keycloak",
+			"source": {
+				"host": "github",
+				"path": "keycloak/keycloak",
+				"url": "https://github.com/keycloak/keycloak"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The dominant open IAM: LDAP/AD federation, OIDC/SAML SSO with MFA. No native RADIUS — pair it with FreeRADIUS. JVM footprint and realm machinery outweigh a single VPN auth backend.",
+				"fr": "L’IAM open dominant : fédération LDAP/AD, SSO OIDC/SAML avec MFA. Pas de RADIUS natif — associer FreeRADIUS. Empreinte JVM et logique de realms, plus lourd qu’un backend d’auth VPN."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Authelia",
+			"source": {
+				"host": "github",
+				"path": "authelia/authelia",
+				"url": "https://github.com/authelia/authelia"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "2FA-first SSO portal fronting VPN gateways and web apps. Needs an LDAP/OIDC backend — it is not a user directory. No RADIUS either; it protects the gateway, not the 802.1X port.",
+				"fr": "Portail SSO 2FA-first posé devant passerelles VPN et apps web. Pas un annuaire — il lui faut un backend LDAP/OIDC. Sans RADIUS : il protège la passerelle, pas le port 802.1X."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kanidm",
+			"source": {
+				"host": "github",
+				"path": "kanidm/kanidm",
+				"url": "https://github.com/kanidm/kanidm"
+			},
+			"license": "MPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Leaner than Keycloak: single-binary Rust server, passwordless WebAuthn, built-in OAuth2, accounts and RBAC. No RADIUS/TACACS — add FreeRADIUS. Ecosystem is younger.",
+				"fr": "Plus léger que Keycloak : serveur Rust monobinaire, WebAuthn sans mot de passe, OAuth2 intégré, comptes et RBAC. Pas de RADIUS/TACACS — ajouter FreeRADIUS. Écosystème plus jeune."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Casdoor",
+			"source": {
+				"host": "github",
+				"path": "casdoor/casdoor",
+				"url": "https://github.com/casdoor/casdoor"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Go-based IAM, lighter ops than Keycloak: OIDC/OAuth2, SAML, LDAP sync, MFA, single service. No RADIUS — auth for apps and VPN portals, not ports. Per-project licenses get confusing at scale.",
+				"fr": "Plus léger que Keycloak : IAM Go à service unique, OIDC/OAuth2, SAML, sync LDAP, MFA. Sans RADIUS : des apps et portails VPN, pas des ports. Licences par projet déroutantes à grande échelle."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PacketFence",
+			"source": {
+				"host": "github",
+				"path": "inverse-inc/packetfence",
+				"url": "https://github.com/inverse-inc/packetfence"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Full NAC appliance with built-in RADIUS, captive portal and device onboarding over LDAP/AD. Closest drop-in for Foxpass’s 802.1X. Heavy to run; overkill if you only need RADIUS for one VPN.",
+				"fr": "Appliance NAC complète : RADIUS intégré, portail captif, onboarding d’appareils sur LDAP/AD. Le plus proche du 802.1X de Foxpass. Lourd à installer et à opérer ; overkill si on ne sécurise qu’un VPN."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Headscale",
+			"source": {
+				"host": "github",
+				"path": "juanfont/headscale",
+				"url": "https://github.com/juanfont/headscale"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted WireGuard control server with OIDC SSO through an external IdP — covers the VPN half, not identity. Per-node ACLs, Tailscale-compatible clients. Mesh, not classic hub-spoke.",
+				"fr": "Serveur de contrôle WireGuard auto-hébergé, SSO OIDC via un IdP externe — couvre la moitié VPN, pas l’identité. ACL par nœud, clients compatibles Tailscale. Un mesh, pas un hub-spoke classique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

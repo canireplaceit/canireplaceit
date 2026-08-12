@@ -111,6 +111,111 @@
 				"en": "Free software with a marketplace, monetised by commission on new clients and card processing. Read the commission terms carefully.",
 				"fr": "Logiciel gratuit avec place de marché, monétisé par commission sur les nouveaux clients et sur l’encaissement. Lisez attentivement les conditions de commission."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Cal.diy",
+			"source": {
+				"host": "github",
+				"path": "calcom/cal.diy",
+				"url": "https://github.com/calcom/cal.diy"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "100% MIT scheduling platform, a Cal.com fork stripped of enterprise code. Booking links, CalDAV, webhooks, self-hosted. SSO and SMS automation are gone, and the Node/Postgres stack is heavier than PHP rivals.",
+				"fr": "Planification 100 % MIT, fork de Cal.com sans code entreprise : liens de réservation, CalDAV, webhooks, auto-hébergement. SSO et l’automation SMS en moins, stack Node/Postgres plus lourde que les rivaux PHP."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CiviCRM",
+			"source": {
+				"host": "github",
+				"path": "civicrm/civicrm-core",
+				"url": "https://github.com/civicrm/civicrm-core"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Closest open source to Mindbody's client and membership layer: events, memberships, payments, mail-merge. Built for nonprofits, not studio retail — the LAMP install and dated UX show it, and there's no mobile booking.",
+				"fr": "Le plus proche en open source de la couche clients/adhésions de Mindbody : événements, adhésions, paiements, publipostage. Pensé pour les associations, pas pour studio — LAMP lourde, UX datée, et pas de réservation mobile."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MRBS",
+			"source": {
+				"host": "other",
+				"path": "projects/mrbs",
+				"url": "https://sourceforge.net/projects/mrbs/"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Mature booking grid for rooms, resources and assets: monthly, weekly, daily views, approvals, iCal feeds. Meeting-room oriented though — no client bookings, memberships or payments, and the PHP UI shows its age.",
+				"fr": "Grille de réservation éprouvée pour salles, ressources et matériel : vues mois/semaine/jour, approbations, flux iCal. Mais orienté salles de réunion : ni réservations client, ni adhésions, ni paiements, et une UI PHP vieillissante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "khal",
+			"source": {
+				"host": "github",
+				"path": "pimutils/khal",
+				"url": "https://github.com/pimutils/khal"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Terminal CalDAV client for booking straight from the shell: quick entries, recurring events, pip-installable. No server included, so it needs a CalDAV backend, and there's no booking page or multi-user workflow.",
+				"fr": "Client CalDAV en terminal pour planifier depuis le shell : saisie rapide, récurrences, installable via pip. Sans serveur intégré, il lui faut un backend CalDAV, et ni page de réservation ni multi-utilisateur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "calcurse",
+			"source": {
+				"host": "github",
+				"path": "lfos/calcurse",
+				"url": "https://github.com/lfos/calcurse"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Lightweight terminal agenda for personal scheduling: monthly view, appointments with repeat rules, ICS import, Vim keybindings. A local tool — no web, no multi-user, and no one else can book against it.",
+				"fr": "Agenda terminal léger pour la planification perso : vue mensuelle, rendez-vous récurrents, import ICS, raccourcis façon Vim. Outil local — pas de web, pas de multi-utilisateur, et personne ne peut réserver dessus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

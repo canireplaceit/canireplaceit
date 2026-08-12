@@ -61,6 +61,111 @@
 				"en": "Free and very widely used in Europe. Owned by a bank, and the free tier now shows ads.",
 				"fr": "Gratuit et très répandu en Europe. Propriété d’une banque, et l’offre gratuite affiche désormais de la publicité."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "SplitPro",
+			"source": {
+				"host": "github",
+				"path": "oss-apps/split-pro",
+				"url": "https://github.com/oss-apps/split-pro"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Closest drop-in to Splitwise: imports your existing groups, handles multi-currency and flexible splits, runs as a self-hosted PWA. Web-only though, and far fewer users than the original.",
+				"fr": "Le plus proche d’un clone de Splitwise : importe les groupes existants, gère multi-devises et répartitions souples, en PWA auto-hébergée. Mais web uniquement, et bien moins d’utilisateurs que l’original."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "IHateMoney",
+			"source": {
+				"host": "github",
+				"path": "spiral-project/ihatemoney",
+				"url": "https://github.com/spiral-project/ihatemoney"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Invited members need no account; balances compute automatically behind a minimal, dependency-light interface. Downside: it lives in the browser — no mobile apps, so no native experience.",
+				"fr": "Les membres invités n’ont besoin d’aucun compte ; soldes calculés automatiquement, interface minimale et légère. Mais tout se passe dans le navigateur : pas d’apps mobiles, pas d’expérience native."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Cospend",
+			"source": {
+				"host": "github",
+				"path": "julien-nc/cospend-nc",
+				"url": "https://github.com/julien-nc/cospend-nc"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Not standalone: it needs a Nextcloud instance, then syncs across the Wespend PWA, a CLI, and MoneyBuster. The Android client is unmaintained and iOS support is still in progress.",
+				"fr": "Pas autonome : il exige une instance Nextcloud, puis synchronise la PWA Wespend, un CLI et MoneyBuster. Mais le client Android n’est plus maintenu, et l’iOS reste en développement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Rosplata",
+			"source": {
+				"host": "github",
+				"path": "johnSamilin/rosplata",
+				"url": "https://github.com/johnSamilin/rosplata"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "A plain-JavaScript PWA for who-paid-what: fast, framework-free, installable on mobile and desktop. Still a 25-star project with a slim feature set, and WebKit limits installs on iOS.",
+				"fr": "Une PWA JavaScript pur pour qui a payé quoi : rapide, sans framework, installable sur mobile et desktop. Mais projet de 25 étoiles, fonctionnalités limitées, et WebKit bride l’installation sur iOS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Splitastic",
+			"source": {
+				"host": "github",
+				"path": "plankes-projects/splitastic",
+				"url": "https://github.com/plankes-projects/splitastic"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Dormant since August 2024 — no commits for two years. Otherwise a GPL self-hosted Docker tool for splitting chores and expenses, at 13 stars, web-only with little documentation.",
+				"fr": "Plus aucun commit depuis août 2024, deux ans de sommeil. Pour le reste : outil auto-hébergé en Docker, GPL, pour partager corvées et dépenses — 13 étoiles, web uniquement, documentation mince."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

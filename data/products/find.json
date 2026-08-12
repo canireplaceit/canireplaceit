@@ -1,0 +1,240 @@
+{
+	"slug": "find",
+	"name": "find",
+	"domain": null,
+	"category": "shell-terminal",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "For everyday searches, yes: fd does most of it with shorter syntax. But find’s predicate syntax is the reason people keep a snippet file, and fd does not cover every predicate — keep find for the exotic ones.",
+		"fr": "Pour les recherches courantes, oui : fd suffit, avec une syntaxe plus courte. Mais la syntaxe prédicative de find est ce qui pousse à garder un fichier de snippets, et fd ne couvre pas tous les prédicats : gardez find pour les cas exotiques."
+	},
+	"whatYouLose": [
+		{
+			"en": "Ubiquity on every machine",
+			"fr": "La présence sur toutes les machines"
+		},
+		{
+			"en": "The muscle memory for find syntax",
+			"fr": "La mémoire de la syntaxe de find"
+		},
+		{
+			"en": "The predicate snippet file",
+			"fr": "Le fichier de snippets de prédicats"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "fd",
+			"source": {
+				"host": "github",
+				"path": "sharkdp/fd",
+				"url": "https://github.com/sharkdp/fd"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "`fd pattern` replaces `find . -name '*pattern*'` with a shorter, parallel, gitignore-aware search. Does not cover every find predicate, so keep find for the exotic ones.",
+				"fr": "`fd pattern` remplace `find . -name '*pattern*'` par une recherche parallèle, consciente du gitignore, à la syntaxe plus courte. Il ne couvre pas tous les prédicats de find : réservez donc find aux cas exotiques."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "bfs",
+			"source": {
+				"host": "github",
+				"path": "tavianator/bfs",
+				"url": "https://github.com/tavianator/bfs"
+			},
+			"license": "0BSD",
+			"effort": "managed",
+			"note": {
+				"en": "Same POSIX/GNU syntax as find, but breadth-first and faster, with ls-style colors. Single C file, no deps — a smaller ecosystem than fd, and the 0BSD licence stays niche.",
+				"fr": "La même syntaxe POSIX/GNU que find, mais en largeur d’abord et plus rapide, avec les couleurs de ls. Un seul fichier C sans dépendance — écosystème plus petit que fd, licence 0BSD marginale."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "fselect",
+			"source": {
+				"host": "github",
+				"path": "jhspetersson/fselect",
+				"url": "https://github.com/jhspetersson/fselect"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Treats the filesystem like a database: SELECT, WHERE, GROUP BY over file metadata, with aggregates and dimension filters. Prebuilt binaries for three OSes — but you learn its dialect, not a drop-in find.",
+				"fr": "Le filesystem devient une base de données : SELECT, WHERE, GROUP BY sur les métadonnées. Binaires pour trois OS — mais dialecte à apprendre, pas un find compatible."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "fzf",
+			"source": {
+				"host": "github",
+				"path": "junegunn/fzf",
+				"url": "https://github.com/junegunn/fzf"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The de facto interactive fuzzy finder: type a query, get files and a preview, and pipe it with find, fd or ripgrep. Interactive only — needs an upstream traversal tool to feed it.",
+				"fr": "Le finder interactif de référence : on tape une requête, on obtient fichiers et aperçu, ça se compose avec find, fd ou ripgrep. Interactif seulement — il faut un outil de parcours en amont."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "broot",
+			"source": {
+				"host": "github",
+				"path": "Canop/broot",
+				"url": "https://github.com/Canop/broot"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "An interactive TUI that blends find-style browsing, fuzzy search and actions: git-status aware, launches commands, spawns a shell in the chosen directory. Not a scripting drop-in, and heavier than a bare find.",
+				"fr": "TUI qui mêle navigation façon find, recherche floue et actions : statut git, commandes lancées depuis l’UI, shell dans le dossier choisi. Pas un remplaçant scriptable, plus lourd qu’un simple find."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "walk",
+			"source": {
+				"host": "github",
+				"path": "antonmedv/walk",
+				"url": "https://github.com/antonmedv/walk"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A Go find replacement with Python pathlib-flavored semantics, content search and sized listings in one static binary. Not a GNU find-compatible CLI, and an older command set, less active than fd.",
+				"fr": "Remplacement de find en Go, sémantique façon pathlib Python, recherche par contenu, listes par taille, un seul binaire. CLI non compatible GNU find, jeu de commandes daté, moins actif que fd."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "uutils findutils",
+			"source": {
+				"host": "github",
+				"path": "uutils/findutils",
+				"url": "https://github.com/uutils/findutils"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "GNU find syntax, reimplemented in memory-safe Rust as part of the uutils coreutils family. Cross-platform — but GNU parity is still a work in progress and the project is young.",
+				"fr": "La syntaxe GNU de find, réécrite en Rust sûr, au sein de la famille coreutils uutils. Multiplateforme — mais la parité GNU est encore en cours, et le projet est jeune."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "skim",
+			"source": {
+				"host": "github",
+				"path": "skim-rs/skim",
+				"url": "https://github.com/skim-rs/skim"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "An fzf-alike in Rust: same interactive fuzzy finder, with tmux splits, custom scoring, preview and multi-select, or embed it as a library. Fewer plugins than fzf, interactive only, needs find/fd for traversal.",
+				"fr": "Un clone de fzf en Rust : même finder interactif, split tmux, scoring personnalisé, aperçu et sélection multiple, ou à embarquer comme bibliothèque. Moins de plugins que fzf, interactif seulement, associer à find/fd."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "peco",
+			"source": {
+				"host": "github",
+				"path": "peco/peco",
+				"url": "https://github.com/peco/peco"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Pipe find output into this interactive filter and pick files in a terminal UI. A simple zero-dep Go binary, but no traversal of its own and a basic UI.",
+				"fr": "On y pipe la sortie de find pour choisir ses fichiers dans une UI terminal. Binaire Go simple, zéro dépendance — mais aucun parcours propre, UI basique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "fzy",
+			"source": {
+				"host": "github",
+				"path": "jhawthorn/fzy",
+				"url": "https://github.com/jhawthorn/fzy"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The fuzzy-ranking engine inside many finders, also a tiny standalone selector for find results. A dependency-free C binary, but filter-only: pair it with find, no previews.",
+				"fr": "Le moteur de classement flou derrière bien des finders, aussi un mini sélecteur autonome pour les résultats de find. Binaire C sans dépendance — mais filtre uniquement, à associer à find, sans aperçu."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

@@ -113,6 +113,195 @@
 				"en": "Flat fee, keeps 100% of subscription revenue, and has its own recommendation network. Pricier at the entry tier than Buttondown.",
 				"fr": "Forfait fixe, vous gardez 100 % des revenus d’abonnement, et il a son propre réseau de recommandations. Plus cher que Buttondown à l’entrée."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Keila",
+			"source": {
+				"host": "github",
+				"path": "pentacent/keila",
+				"url": "https://github.com/pentacent/keila"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Polished React list manager with automation, segmentation and subscriber forms. Sends lists only: pair it with a publishing and a payment platform, and mail via SMTP or an external service.",
+				"fr": "Gestionnaire de listes React soigné, avec automatisation, segmentation et formulaires d’abonnement. Il n’envoie que des listes : à associer à une plateforme de publication et de paiement, avec envoi par SMTP ou service externe."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mailtrain",
+			"source": {
+				"host": "github",
+				"path": "Mailtrain-org/mailtrain",
+				"url": "https://github.com/Mailtrain-org/mailtrain"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Mature email list manager: imports, custom fields, templates, bounce handling. Still the established choice, but the UI is slower and it only sends lists — no publishing, payments or discovery.",
+				"fr": "Gestionnaire de listes mûr et établi : import/export d’abonnés, champs personnalisés, éditeur de modèles, gestion des rebonds. Code vieillissant, interface plus lente, et uniquement de l’envoi — ni publication, ni paiement, ni découverte."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "phpList",
+			"source": {
+				"host": "github",
+				"path": "phpList/core",
+				"url": "https://github.com/phpList/core"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Mature but aging PHP list manager with bounce handling, segmentation and RSS-to-email. Sends lists only — you supply the publishing and payment platforms, and the community is smaller than Listmonk’s.",
+				"fr": "Ancien gestionnaire de listes PHP, mûr mais vieillissant : rebonds, segmentation, RSS vers e-mail. Il n’envoie que des listes, la publication et les paiements sont à brancher ailleurs, et sa communauté est plus petite que celle de Listmonk."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Plume",
+			"source": {
+				"host": "github",
+				"path": "Plume-org/Plume",
+				"url": "https://github.com/Plume-org/Plume"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Federated multi-author blogging over ActivityPub, with comments. Publishing is all it does: no email delivery, no analytics, no monetization, no discovery network.",
+				"fr": "Blogging fédéré multi-auteurs basé sur ActivityPub, avec commentaires. Tout juste de la publication : pas d’envoi par e-mail, pas d’analytics, pas de monétisation, pas de réseau de découverte."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Markdown Ninja",
+			"source": {
+				"host": "github",
+				"path": "skerkour/markdown-ninja",
+				"url": "https://github.com/skerkour/markdown-ninja"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Markdown-first, self-hosted CMS with a minimalist editor. Marketed squarely at Substack, yet it ships no newsletter delivery, no memberships, and a smaller community than Ghost.",
+				"fr": "CMS auto-hébergeable, markdown d’abord, éditeur minimaliste. Vendu comme alternative à Substack, mais sans envoi de newsletter, sans abonnements payants, et avec une communauté plus petite que Ghost."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Postal",
+			"source": {
+				"host": "github",
+				"path": "postalserver/postal",
+				"url": "https://github.com/postalserver/postal"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Full mail server with web UI, webhooks, logs and an API. It completes the toolchain but does not do newsletters: you own IP reputation, SPF/DKIM/DMARC and the deliverability that follows.",
+				"fr": "Serveur mail complet avec UI web, webhooks, journaux et API. Il complète la chaîne sans faire de newsletters : réputation d’IP, SPF/DKIM/DMARC et délivrabilité restent entièrement à votre charge."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mailcow",
+			"source": {
+				"host": "github",
+				"path": "mailcow/mailcow-dockerized",
+				"url": "https://github.com/mailcow/mailcow-dockerized"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Complete mail suite — SMTP, IMAP, POP3 — behind a management UI, with spam filtering and backups. It is infrastructure, not publishing: expect to run DKIM/SPF/DMARC and chase IP reputation.",
+				"fr": "Suite mail complète — SMTP, IMAP, POP3 — pilotée par une UI web, avec filtrage anti-spam et sauvegardes. De l’infrastructure, pas de la publication : DKIM/SPF/DMARC à gérer et réputation d’IP à entretenir."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Hyvor Relay",
+			"source": {
+				"host": "github",
+				"path": "hyvor/relay",
+				"url": "https://github.com/hyvor/relay"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Email API for developers — REST, webhooks, templates — an SES/SendGrid replacement. Transactional and integration-only: there is no newsletter UI, and you build the sending logic yourself.",
+				"fr": "API e-mail pour développeurs — REST, webhooks, modèles — dans la veine de SES/SendGrid. Orientée transactionnel et intégration uniquement : pas d’UI de newsletter, la logique d’envoi est à construire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Posta",
+			"source": {
+				"host": "github",
+				"path": "goposta/posta",
+				"url": "https://github.com/goposta/posta"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "HTTP delivery API with SMTP, templates, analytics and multiple senders — a SendGrid/Mailgun replacement. Developer-facing only: no user UI, no campaign logic, everything hangs off your own integration.",
+				"fr": "API d’envoi HTTP avec SMTP, modèles, analytics et plusieurs expéditeurs — un remplaçant de SendGrid/Mailgun. Outil 100 % développeur : pas d’UI utilisateur, pas de campagne, tout dépend de votre intégration."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 5

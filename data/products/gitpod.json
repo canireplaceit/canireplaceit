@@ -143,6 +143,182 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "code-server",
+			"source": {
+				"host": "github",
+				"path": "coder/code-server",
+				"url": "https://github.com/coder/code-server"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Single container gives a team VS Code in the browser. Syncs settings and extensions to the remote box. Scope stops at one machine: no multi-user workspaces, no per-PR prebuilds.",
+				"fr": "Un conteneur unique suffit pour servir VS Code dans le navigateur. Synchronise réglages et extensions sur la machine distante. Limité à une machine : ni espaces multi-utilisateurs ni prébuilds par PR."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Eclipse Theia",
+			"source": {
+				"host": "github",
+				"path": "eclipse-theia/theia",
+				"url": "https://github.com/eclipse-theia/theia"
+			},
+			"license": "EPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The framework behind Gitpod’s own editor: a suite for building custom IDEs, not an appliance. Assembly required, and the extension ecosystem runs thinner than stock VS Code.",
+				"fr": "Derrière l’éditeur de Gitpod : un framework pour construire son propre IDE, pas un outil clé en main. Assemblage requis, écosystème d’extensions plus maigre que celui de VS Code."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenVSCode Server",
+			"source": {
+				"host": "github",
+				"path": "gitpod-io/openvscode-server",
+				"url": "https://github.com/gitpod-io/openvscode-server"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Upstream Microsoft VS Code served in the browser. Full marketplace support, but no multi-user auth and one IDE per container — orchestration is on you, momentum lighter than code-server’s.",
+				"fr": "Le VS Code Microsoft d’origine, servi dans le navigateur par l’équipe Gitpod. Marketplace complète, mais pas d’auth multi-utilisateur, un IDE par conteneur : orchestration à votre charge, dynamique moindre que code-server."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Daytona",
+			"source": {
+				"host": "github",
+				"path": "daytonaio/daytona",
+				"url": "https://github.com/daytonaio/daytona"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "One CLI spins up workspace VMs or containers and hands them to your local or web IDE. Fast-growing, but advanced features sit behind Daytona Enterprise and the API moves quickly.",
+				"fr": "Un CLI unique provisionne des VMs ou conteneurs et les ouvre dans votre IDE local ou web. Croissance rapide, mais fonctions avancées derrière Daytona Enterprise et une API qui bouge vite."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Advanced features",
+					"fr": "fonctions avancées"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Devbox",
+			"source": {
+				"host": "github",
+				"path": "jetify-com/devbox",
+				"url": "https://github.com/jetify-com/devbox"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Nix without the learning curve: one CLI turns devbox.json into reproducible dev shells for docker or direnv. Local only — no web IDE, no multi-user anything, a flake lockfile some find brittle.",
+				"fr": "Nix sans la courbe d’apprentissage : un CLI transforme devbox.json en shells reproductibles pour docker ou direnv. Local uniquement — pas d’IDE web ni multi-utilisateur, lockfile flake jugé fragile."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Distrobox",
+			"source": {
+				"host": "gitlab",
+				"path": "89luca89/distrobox",
+				"url": "https://gitlab.com/89luca89/distrobox"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Linux only, single-user: one person’s shell wrapper, no sharing or remote access. Otherwise the simplest way to integrate containerized dev envs — GUI apps, files, and clipboard come along.",
+				"fr": "Linux uniquement, mono-utilisateur : un simple wrapper shell, sans partage ni accès distant. Sinon le moyen le plus simple d’intégrer des envs containerisées — apps graphiques, fichiers et presse-papiers inclus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Flox",
+			"source": {
+				"host": "github",
+				"path": "flox/flox",
+				"url": "https://github.com/flox/flox"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Nix environments with a friendlier CLI: manifests, activation hooks, a REPL for adding packages. The open build has no dashboard or team sharing — those live in the FloxHub SaaS.",
+				"fr": "Environnements Nix au CLI plus aimable : manifests, hooks d’activation, un REPL pour ajouter des paquets. La build OSS n’a ni tableau de bord ni partage d’équipe ; FloxHub SaaS les héberge."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "FloxHub SaaS",
+					"fr": "le SaaS FloxHub"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "JupyterHub",
+			"source": {
+				"host": "github",
+				"path": "jupyterhub/jupyterhub",
+				"url": "https://github.com/jupyterhub/jupyterhub"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Multi-user notebook servers with SSO out of the box — OAuth, GitHub, LDAP. Scoped to data science though: not a full VS Code workspace, and scaling per-user resources wants the k8s spawner.",
+				"fr": "Serveurs notebook multi-utilisateurs avec SSO d’entrée — OAuth, GitHub, LDAP. Reste centré data science : pas un espace VS Code complet, et l’échelle des ressources par utilisateur exige le spawner k8s."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

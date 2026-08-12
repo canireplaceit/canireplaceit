@@ -107,6 +107,174 @@
 				"en": "3,000 free emails a month then $1 per thousand, with templates and inbound routing. Younger IP pools, so watch your first sends.",
 				"fr": "3 000 e-mails gratuits par mois puis 1 $ pour mille, avec modèles et routage entrant. Pools d’IP plus jeunes : surveillez vos premiers envois."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Maddy",
+			"source": {
+				"host": "github",
+				"path": "foxcpp/maddy",
+				"url": "https://github.com/foxcpp/maddy"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Single-binary Go mail server signing all outbound with DKIM/DMARC/SPF. Queued retries, aliases, forwarding. Configured by file alone: no web admin, no transactional API, no webmail.",
+				"fr": "Serveur mail Go en binaire unique qui signe tout l’envoi en DKIM/DMARC/SPF. Retries en file, alias et redirection. Config par fichier uniquement : ni admin web, ni API transactionnelle, ni webmail."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mailpit",
+			"source": {
+				"host": "github",
+				"path": "axllent/mailpit",
+				"url": "https://github.com/axllent/mailpit"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Fast single-binary SMTP sink for testing: web UI, REST API, HTML rendering and search. Stands in for SendGrid or Mailgun sandboxes. Testing only — nothing actually leaves the box.",
+				"fr": "Sink SMTP de test en binaire unique et rapide : UI web, API REST, rendu HTML et recherche. Se substitue aux sandbox SendGrid ou Mailgun. Pour tester uniquement, rien ne part réellement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MailHog",
+			"source": {
+				"host": "github",
+				"path": "mailhog/MailHog",
+				"url": "https://github.com/mailhog/MailHog"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The classic SMTP test sink, still the common local stand-in for Mailgun and SendGrid. Web UI, API, MongoDB or bolt storage — but no commit since February 2024, so treat it as dormant.",
+				"fr": "Le sink SMTP de test classique, toujours le stand-in local habituel de Mailgun ou SendGrid. UI web, API, stockage MongoDB ou bolt — mais aucun commit depuis février 2024, à considérer comme dormant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Haraka",
+			"source": {
+				"host": "github",
+				"path": "haraka/Haraka",
+				"url": "https://github.com/haraka/Haraka"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Plugin-based Node SMTP server for high-throughput transactional sending: outbound queue and retries, DKIM/SPF/DMARC via plugins. No web UI, no IMAP/POP3, and every extension is JavaScript you must write.",
+				"fr": "Serveur SMTP Node piloté par plugins pour l’envoi transactionnel à fort débit : file de sortie et retries, DKIM/SPF/DMARC via plugins. Pas d’UI web, pas d’IMAP/POP3, chaque extension demande du JavaScript à écrire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Modoboa",
+			"source": {
+				"host": "github",
+				"path": "modoboa/modoboa",
+				"url": "https://github.com/modoboa/modoboa"
+			},
+			"license": "ISC",
+			"effort": "docker",
+			"note": {
+				"en": "Web admin for domains, aliases, mailboxes on top of Postfix, Dovecot and Rspamd, with REST API and multi-user dashboards. Management layer, not a server: needs Postfix and Dovecot, no transactional send API.",
+				"fr": "Admin web pour domaines, alias, boîtes par-dessus Postfix, Dovecot et Rspamd, avec API REST et dashboards multi-utilisateurs. Couche de gestion, pas un serveur : nécessite Postfix et Dovecot, pas d’API d’envoi transactionnel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mailu",
+			"source": {
+				"host": "github",
+				"path": "Mailu/Mailu",
+				"url": "https://github.com/Mailu/Mailu"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Whole mail server in one docker-compose file — Postfix, Dovecot, Rspamd, Roundcube — with admin UI exposing DKIM keys, webmail and IMAP/POP3. Opinionated Docker-only stack with a heavier footprint to run.",
+				"fr": "Tout le serveur mail dans un seul fichier docker-compose — Postfix, Dovecot, Rspamd, Roundcube — avec UI d’admin exposant les clés DKIM, webmail et IMAP/POP3. Stack Docker opiniâtre au poids d’exploitation plus lourd."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "mailcow",
+			"source": {
+				"host": "github",
+				"path": "mailcow/mailcow-dockerized",
+				"url": "https://github.com/mailcow/mailcow-dockerized"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Mature all-in-one docker mail suite: multi-domain admin UI and API, DKIM/DMARC/SPF plus DANE, Rspamd with a quarantine UI. Heavy compose footprint, upgrades only through the shipped script, no managed IP pools.",
+				"fr": "Suite mail docker tout-en-un : UI d’admin et API multi-domaines, DKIM/DMARC/SPF plus DANE, Rspamd avec UI de quarantaine. Empreinte compose lourde, mise à jour via le script fourni, pas de pools d’IP gérés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache James",
+			"source": {
+				"host": "github",
+				"path": "apache/james-project",
+				"url": "https://github.com/apache/james-project"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Enterprise Java mail server with SMTP/IMAP/POP3 and JMAP, a mailet pipeline for complex routing, scaling over Cassandra and Elasticsearch. A heavy monolith: hard to operate, intricate wiring, no modern web UI.",
+				"fr": "Serveur mail Java d’entreprise : SMTP/IMAP/POP3 et JMAP, pipeline de mailets pour un routage complexe, montée en charge sur Cassandra et Elasticsearch. Un monolithe lourd : exploitation difficile, câblage pointu, pas d’UI web moderne."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

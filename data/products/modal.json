@@ -101,6 +101,157 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "SkyPilot",
+			"source": {
+				"host": "github",
+				"path": "skypilot-org/skypilot",
+				"url": "https://github.com/skypilot-org/skypilot"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Closest Modal analogue: one CLI serves Python/GPU jobs scale-to-zero across any cloud. Bring your own cloud accounts; autoscaling runs per service, not per function, and there's no Python decorator API.",
+				"fr": "Le plus proche analogue de Modal : CLI unique, jobs Python/GPU servis scale-to-zero sur n’importe quel cloud. Vous apportez vos comptes cloud, l’autoscaling est par service, pas par fonction, sans API à décorateurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Cog",
+			"source": {
+				"host": "github",
+				"path": "replicate/cog",
+				"url": "https://github.com/replicate/cog"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Turns any ML model into a deployable GPU container with one command; run on your own infra or any registry. Container per model, no scheduler or autoscaler, batch orchestration out of scope.",
+				"fr": "Transforme n’importe quel modèle ML en conteneur GPU déployable en une commande ; à héberger sur sa propre infra ou tout registry. Un conteneur par modèle, sans scheduler, autoscaler, ni orchestration batch."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Metaflow",
+			"source": {
+				"host": "github",
+				"path": "Netflix/metaflow",
+				"url": "https://github.com/Netflix/metaflow"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Decorator-driven Python ML orchestration with resumable, versioned runs — the closest DX to Modal's @app on your own compute. Orchestration-first: no on-demand serving, no scale-to-zero; scaling needs a cloud account or k8s.",
+				"fr": "Orchestration ML Python par décorateurs, runs reprises, versionnées — le DX le plus proche du @app de Modal sur votre compute. Ni serving à la demande, ni scale-to-zero : orchestration d’abord."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Prefect",
+			"source": {
+				"host": "github",
+				"path": "PrefectHQ/prefect",
+				"url": "https://github.com/PrefectHQ/prefect"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hostable orchestration with the same decorator-to-cloud flow and a real web UI. Job orchestration, not function compute — no GPU-first primitives; SSO and advanced features sit in hosted Cloud.",
+				"fr": "Orchestration auto-hébergeable, même flux décorateur-vers-cloud et vraie UI web. Orchestration de jobs, pas de compute à la demande : pas de primitives GPU-first ; SSO et fonctions avancées relèvent du Cloud hébergé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "SSO and advanced features in hosted Cloud",
+					"fr": "SSO et fonctions avancées dans le Cloud hébergé"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Fission",
+			"source": {
+				"host": "github",
+				"path": "fission/fission",
+				"url": "https://github.com/fission/fission"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Kubernetes-native FaaS with millisecond cold starts from a warm pool and a first-class CLI. Self-hostable function serving — but you bring a cluster, config-first not decorators, and GPU/ML is not first-class.",
+				"fr": "FaaS natif Kubernetes, cold starts en millisecondes via un pool tiède, CLI au premier plan. Serveur de fonctions auto-hébergeable, mais cluster à monter, config plutôt que décorateurs, GPU/ML en retrait."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nuclio",
+			"source": {
+				"host": "github",
+				"path": "nuclio/nuclio",
+				"url": "https://github.com/nuclio/nuclio"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Serverless data/ML platform that also runs standalone on Docker with a web dashboard, no cluster required. Event- and stream-oriented rather than request-style; GPU serving needs manual config, no local-to-cloud sync.",
+				"fr": "Plateforme serverless data/ML, tourne en standalone sur Docker avec dashboard web, sans cluster. Orientée événements et flux, pas fonctions à la demande ; GPU à configurer manuellement, pas de sync local-cloud."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenWhisk",
+			"source": {
+				"host": "github",
+				"path": "apache/openwhisk",
+				"url": "https://github.com/apache/openwhisk"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Apache-governed FaaS you fully own, with trigger/action composition and a large ecosystem. Heavier cluster footprint, real ops work to deploy, and Python GPU/ML is not the focus.",
+				"fr": "FaaS gouverné par Apache, totalement à vous, composition trigger/action, gros écosystème. Empreinte cluster plus lourde, déploiement qui demande du travail d’ops, le GPU/ML Python pas au premier plan."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

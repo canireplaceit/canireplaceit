@@ -103,6 +103,216 @@
 				"en": "A quarter of the price for a thinner index and rougher numbers. Fine for directional work, not for competitive link research.",
 				"fr": "Quatre fois moins cher pour un index plus maigre et des chiffres plus grossiers. Correct pour dégrossir, pas pour de la vraie analyse de liens concurrentielle."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Katana",
+			"source": {
+				"host": "github",
+				"path": "projectdiscovery/katana",
+				"url": "https://github.com/projectdiscovery/katana"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "CLI-first Go crawler for your own site, headless Chromium/Firefox, fast on JavaScript-heavy pages. Manual setup for automation, and no backlink index, rank, or keyword data at all.",
+				"fr": "Crawler Go en CLI pour son propre site, Chromium/Firefox headless, rapide sur les pages JavaScript. Setup manuel pour l’automatisation, et aucun index de backlinks ni rang ni volume de mots-clés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Unlighthouse",
+			"source": {
+				"host": "github",
+				"path": "harlan-zw/unlighthouse",
+				"url": "https://github.com/harlan-zw/unlighthouse"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Runs Google Lighthouse across the whole site in parallel — performance, accessibility, best practices — behind a web dashboard. Covers technical page quality only: no rank, backlinks, or keywords.",
+				"fr": "Lance Lighthouse sur tout le site en parallèle : performance, accessibilité, bonnes pratiques, derrière un dashboard web. Limité à la qualité technique des pages : ni rang, ni backlinks, ni mots-clés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Lighthouse CI",
+			"source": {
+				"host": "github",
+				"path": "andreasonny83/lighthouse-ci",
+				"url": "https://github.com/andreasonny83/lighthouse-ci"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Wraps the Lighthouse CLI for CI/CD: performance regressions fail the build, works with GitHub Actions. Requires Node.js, and only looks at performance metrics, never rank or authority.",
+				"fr": "Enveloppe le CLI Lighthouse pour la CI/CD : une régression de performance fait échouer le build, compatible GitHub Actions. Requiert Node.js, et ne regarde que les métriques de performance, jamais le rang."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Matomo",
+			"source": {
+				"host": "github",
+				"path": "matomo-org/matomo",
+				"url": "https://github.com/matomo-org/matomo"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Open-source, self-hosted or cloud analytics for traffic, goals, conversions, ecommerce. Replaces the analytics side only: no rank, no backlinks, and GPL-3.0 is a viral license.",
+				"fr": "Analytics open-source orientée vie privée, self-hosted ou cloud : trafic, objectifs, conversions, e-commerce. Ne remplace que le volet analytics : ni rang, ni backlinks, et la licence GPL-3.0 est virale."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Plausible",
+			"source": {
+				"host": "github",
+				"path": "plausible/analytics",
+				"url": "https://github.com/plausible/analytics"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Minimal, cookie-free, GDPR-compliant analytics, lighter than Matomo. No rank or backlink data, and AGPL-3.0 carries the stronger copyleft clause.",
+				"fr": "Analytics minimaliste, sans cookies, conforme RGPD, plus léger que Matomo. Pas de rang ni de backlinks, et l’AGPL-3.0 porte une clause copyleft plus stricte."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "eu-option"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Umami",
+			"source": {
+				"host": "github",
+				"path": "umami-software/umami",
+				"url": "https://github.com/umami-software/umami"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight privacy analytics, MIT-licensed, multi-site dashboards and custom events, minimal setup. Fewer advanced features than Matomo, and still no rank or backlink data.",
+				"fr": "Analytics léger et respectueux de la vie privée, licence MIT, dashboards multi-sites et événements personnalisés, setup minimal. Moins de fonctions avancées que Matomo, toujours pas de rang ni de backlinks."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Colly",
+			"source": {
+				"host": "github",
+				"path": "gocolly/colly",
+				"url": "https://github.com/gocolly/colly"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Go scraping framework, not a finished tool: you write the crawler, fast and concurrent with robots.txt handling. No UI, no reports, no backlink index — only what you build.",
+				"fr": "Framework Go de scraping, pas un outil fini : on écrit soi-même le crawler, rapide, concurrent, avec gestion du robots.txt. Pas d’UI ni de rapports, pas d’index de backlinks — seulement ce qu’on construit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Broken Link Checker",
+			"source": {
+				"host": "github",
+				"path": "stevenvachon/broken-link-checker",
+				"url": "https://github.com/stevenvachon/broken-link-checker"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Finds dead links and missing images on your own site; the tool most SEO scripts still shell out to. Dormant since January 2024 — no commit since, and Node.js required.",
+				"fr": "Trouve les liens morts et images manquantes sur son propre site ; l’outil auquel la plupart des scripts SEO font encore appel. Aucun commit depuis janvier 2024, et dépend de Node.js."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SEO Keyword Research Tool",
+			"source": {
+				"host": "github",
+				"path": "chukhraiartur/seo-keyword-research-tool",
+				"url": "https://github.com/chukhraiartur/seo-keyword-research-tool"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Pulls keyword ideas from Google Autocomplete and People Also Ask for free, via Python CLI. No volume data, no ranks, dormant since May 2023 — scraping Google can break.",
+				"fr": "Récupère des suggestions Google Autocomplete et People Also Ask, gratuitement, en CLI Python. Pas de volume ni de rangs, aucun commit depuis mai 2023, et le scraping Google peut casser."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pytrends",
+			"source": {
+				"host": "github",
+				"path": "GeneralMills/pytrends",
+				"url": "https://github.com/GeneralMills/pytrends"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Unofficial Python client for Google Trends: relative interest over time and by region, plus related queries. Archived upstream, no volume numbers, no license, scraper-level ToS risk.",
+				"fr": "Client Python non officiel de Google Trends : intérêt relatif dans le temps et par région, requêtes associées. Archivé en amont, sans volumes ni licence, risque vis-à-vis des CGU."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 5

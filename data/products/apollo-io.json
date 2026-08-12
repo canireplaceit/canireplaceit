@@ -107,6 +107,186 @@
 				"en": "Cheaper database plus sequencing with a similar shape. Smaller coverage outside North America.",
 				"fr": "Base moins chère plus séquences, de forme similaire. Couverture plus faible hors Amérique du Nord."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Twenty",
+			"source": {
+				"host": "github",
+				"path": "twentyhq/twenty",
+				"url": "https://github.com/twentyhq/twenty"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Fastest-growing open-source CRM, AGPL, Docker. Pipeline, sequences and enrichment APIs; REST and GraphQL. No built-in B2B contact database — enrichment leans on external providers, and the API is still stabilizing.",
+				"fr": "Open-source CRM à la croissance la plus rapide, AGPL, Docker. Pipeline, séquences et API REST/GraphQL. Pas de base B2B intégrée : l’enrichissement repose sur des fournisseurs externes, et l’API se stabilise encore."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "A few enterprise extras",
+					"fr": "Quelques extras entreprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SuiteCRM",
+			"source": {
+				"host": "github",
+				"path": "SuiteCRM/SuiteCRM",
+				"url": "https://github.com/SuiteCRM/SuiteCRM"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Full-featured SugarCRM fork, AGPL, Docker: leads, accounts, contacts, email campaigns, lead scoring and reporting. Dated UI, and automation trails Apollo’s sequences; expects LAMP/DB tuning.",
+				"fr": "Fork complet de SugarCRM, AGPL, Docker : leads, comptes, contacts, campagnes e-mail, scoring et reporting. UI datée, automatisation plus faible que les séquences d’Apollo, et un LAMP/DB à régler."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Minor enterprise add-ons",
+					"fr": "Extras entreprise mineurs"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Krayin CRM",
+			"source": {
+				"host": "github",
+				"path": "krayin/laravel-crm",
+				"url": "https://github.com/krayin/laravel-crm"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight Laravel CRM, MIT, Docker. Pipeline and deals, contacts, accounts, activities, email templates, REST API. No native B2B data or enrichment; email and sequence tooling stays basic.",
+				"fr": "CRM Laravel léger, MIT, Docker. Pipeline de deals, contacts, comptes, activités, modèles d’e-mail, API REST. Pas de données B2B ni d’enrichissement natifs ; l’e-mailing et les séquences restent basiques."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Listmonk",
+			"source": {
+				"host": "github",
+				"path": "knadh/listmonk",
+				"url": "https://github.com/knadh/listmonk"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Single Go binary, self-hosted bulk outbound and outreach engine — newsletters, lists, drip campaigns. You build the contact lists: no CRM, no lead scoring, no verification built in.",
+				"fr": "Binaire Go unique, moteur auto-hébergé d’outbound et de prospection : newsletters, listes, drip campaigns. Les listes de contacts, c’est vous qui les construisez — pas de CRM, pas de scoring, pas de vérification."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Keila",
+			"source": {
+				"host": "github",
+				"path": "pentacent/keila",
+				"url": "https://github.com/pentacent/keila"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Simplest self-hosted email marketing, AGPL, Docker: drip campaigns and automations, contact import and tags. Newsletter-focused rather than full sequences, smaller community, no B2B data.",
+				"fr": "L’e-mail marketing auto-hébergé le plus simple, AGPL, Docker : drip campaigns et automatisations, import de contacts et tags. Plutôt newsletter que vraies séquences, communauté restreinte, pas de données B2B."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "theHarvester",
+			"source": {
+				"host": "github",
+				"path": "laramies/theHarvester",
+				"url": "https://github.com/laramies/theHarvester"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "CLI harvesting prospect emails and domains from public sources — search engines, PGP, LinkedIn. Raw output needs dedupe and cleanup; no verification or CRM, and check each source’s TOS.",
+				"fr": "CLI qui moissonne e-mails et domaines dans les sources publiques — moteurs de recherche, PGP, LinkedIn. Sortie brute à dédupliquer et nettoyer ; pas de vérification ni de CRM, TOS à surveiller."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "recon-ng",
+			"source": {
+				"host": "github",
+				"path": "lanmaster53/recon-ng",
+				"url": "https://github.com/lanmaster53/recon-ng"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Interactive recon console, module-driven: harvest companies, contacts, emails into workspaces with API-backed storage. Module ecosystem is aging, learning curve is steep, results still need manual processing.",
+				"fr": "Console de recon interactive, pilotée par modules : entreprises, contacts, e-mails vers des workspaces, stockage via API. Écosystème de modules vieillissant, courbe d’apprentissage raide, résultats à traiter à la main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "erxes",
+			"source": {
+				"host": "github",
+				"path": "erxes/erxes",
+				"url": "https://github.com/erxes/erxes"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "All-in-one sales and marketing engagement platform, AGPL, Docker: campaigns, contact management, inbound messaging, AI chatbot integrations. Heavy deployment, and core features sit behind a major openCore split — direction now ExteAi.",
+				"fr": "Plateforme open source tout-en-un de sales et marketing : campagnes, gestion des contacts, messagerie entrante, intégrations de chatbots IA. Déploiement lourd, fonctions cœur derrière un openCore majeur — cap sur ExteAi."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Core features",
+					"fr": "Fonctions cœur"
+				}
+			}
 		}
 	],
 	"priority": 4

@@ -118,6 +118,140 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "TestLink",
+			"source": {
+				"host": "github",
+				"path": "TestLinkOpenSourceTRMS/testlink-code",
+				"url": "https://github.com/TestLinkOpenSourceTRMS/testlink-code"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Classic self-hosted test and requirement management, still maintained in 2025, but the 1.9.x UI is dated, the 2.x rewrite is unfinished, and TestRail import must be built manually.",
+				"fr": "TMS classique auto-hébergé pour tests et exigences, toujours maintenu en 2025, mais l’interface 1.9.x date, la réécriture 2.x traîne, et l’import TestRail se construit à la main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nitrate",
+			"source": {
+				"host": "github",
+				"path": "Nitrate/Nitrate",
+				"url": "https://github.com/Nitrate/Nitrate"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Red Hat’s Django TMS, Testopia lineage, still active: per-plan and per-run access control, Kerberos auth, prebuilt quay.io images. But the community is small and the UI utilitarian — runs over reporting.",
+				"fr": "TMS Django né chez Red Hat, lignée Testopia, toujours actif : contrôle d’accès par plan et par run, auth Kerberos, images quay.io. Mais communauté réduite et UI utilitaire : orienté runs, pas reporting."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Robot Framework",
+			"source": {
+				"host": "github",
+				"path": "robotframework/robotframework",
+				"url": "https://github.com/robotframework/robotframework"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Not a manual test-case database — a huge, active acceptance-test framework whose suites, tags and logs cover much of TestRail’s reporting from the CLI. Dashboards still need Allure or listener tools.",
+				"fr": "Framework d’acceptation générique, énorme, actif : suites, tags et logs couvrent l’essentiel du reporting TestRail via le CLI. Mais pas de base de cas manuels — tableaux de bord à monter avec Allure, listeners."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ZenTao",
+			"source": {
+				"host": "github",
+				"path": "easysoft/zentaopms",
+				"url": "https://github.com/easysoft/zentaopms"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "All-in-one self-hosted project management with a built-in QA module — cases, builds, runs, bugs, reports, REST API. But heavier than a pure TMS, and advanced QA sits in the paid Biz/Max/Cloud tiers.",
+				"fr": "Gestion de projet tout-en-un auto-hébergeable avec module QA intégré : cas, builds, runs, bugs, reporting, API REST. Plus lourd qu’un TMS pur, et la QA avancée vit dans les offres payantes Biz/Max/Cloud."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Advanced QA features behind paid tiers",
+					"fr": "Fonctions QA avancées derrière les offres payantes"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FitNesse",
+			"source": {
+				"host": "github",
+				"path": "unclebob/fitnesse",
+				"url": "https://github.com/unclebob/fitnesse"
+			},
+			"license": "CPL-1.0",
+			"effort": "managed",
+			"note": {
+				"en": "The acceptance-test wiki: suites edited and run in-browser, with run history and result comparison. A niche, aging paradigm without the structure large orgs need, and CPL-1.0 tests enterprise legal review.",
+				"fr": "Le wiki des tests d’acceptation : suites éditées et lancées dans le navigateur, historique et comparaison des runs. Paradigme de niche, vieillissant, sans structure pour grandes orgs ; CPL-1.0, la review juridique grincera."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "check-tests",
+			"source": {
+				"host": "github",
+				"path": "testomatio/check-tests",
+				"url": "https://github.com/testomatio/check-tests"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "No server, just governance: a CLI/GitHub Action scanning JS tests in PRs and flagging skipped or .only cases. But JS-only, vendor-backed, and its import path targets Testomat.io SaaS, not a TMS.",
+				"fr": "Gouvernance de tests légère, sans serveur : CLI/Action GitHub qui scanne les tests JS des PR et signale skipped/.only. Mais JS seul, porté par un éditeur, import vers Testomat.io et non un TMS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Full features behind Testomat.io SaaS",
+					"fr": "Fonctions complètes derrière le SaaS Testomat.io"
+				}
+			}
 		}
 	],
 	"priority": 2

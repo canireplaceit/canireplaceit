@@ -72,6 +72,249 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "CapRover",
+			"source": {
+				"host": "github",
+				"path": "caprover/caprover",
+				"url": "https://github.com/caprover/caprover"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Push-to-deploy PaaS for any Docker host, one-click apps, built-in registry and SSL. No preview branches or serverless layer, though, and the single-box focus is less turnkey than Coolify.",
+				"fr": "PaaS sur tout hôte Docker : push-to-deploy, apps en un clic, registre et SSL intégrés. Pas de branches de préview ni de serverless, et l’approche mono-machine reste moins clé en main que Coolify."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dokku",
+			"source": {
+				"host": "github",
+				"path": "dokku/dokku",
+				"url": "https://github.com/dokku/dokku"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The original mini-Heroku: git-push deploys with herokuish buildpacks and 200+ plugins on a plain VPS. CLI-only, so no dashboard, previews or CDN-backed static files, and the VPS is yours to run.",
+				"fr": "Le mini-Heroku open source : deploys par git-push, buildpacks herokuish et 200+ plugins sur un simple VPS. CLI uniquement : pas de dashboard, de previews ni de CDN, et le VPS reste à gérer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dokploy",
+			"source": {
+				"host": "github",
+				"path": "Dokploy/dokploy",
+				"url": "https://github.com/Dokploy/dokploy"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The closest open-source clone of Netlify/Vercel deploy flows — Git auto-deploys, templates, realtime logs over built-in Traefik. No managed edge, and the stack is heavier than Dokku or CapRover.",
+				"fr": "Le clone open source le plus proche de Netlify : auto-deploys Git, templates, logs temps réel via Traefik intégré. Pas d’edge managé, une stack plus lourde que Dokku ou CapRover."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Pro-tier features",
+					"fr": "Fonctions du plan pro"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Traefik",
+			"source": {
+				"host": "github",
+				"path": "traefik/traefik",
+				"url": "https://github.com/traefik/traefik"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Automatic HTTPS, Docker and Kubernetes discovery, load balancing — it replaces Netlify’s TLS and routing layer. Edge only: no builds, functions or previews, and it takes more ops than Netlify.",
+				"fr": "Routeur edge : découverte Docker/Kubernetes, load balancing et HTTPS auto en un seul binaire. Il remplace la couche TLS et routage de Netlify, mais sans builds, fonctions ni previews — et demande plus d’ops."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise features",
+					"fr": "Fonctions entreprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "static-web-server",
+			"source": {
+				"host": "github",
+				"path": "static-web-server/static-web-server",
+				"url": "https://github.com/static-web-server/static-web-server"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "A single ~MB Rust binary with HTTP/2, brotli and SPA fallback — the leanest stand-in for Netlify’s static tier. Pure file serving though: no builds, deploys, functions, previews, and no HTTPS.",
+				"fr": "Un binaire Rust de ~1 Mo, HTTP/2, brotli, fallback SPA : l’hébergement statique Netlify le plus léger à auto-héberger. Mais pur service de fichiers, sans builds, fonctions, previews ni HTTPS géré."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Hugo",
+			"source": {
+				"host": "github",
+				"path": "gohugoio/hugo",
+				"url": "https://github.com/gohugoio/hugo"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Sub-second builds from a single binary, no runtime deps, a huge theme ecosystem — it produces the output Netlify hosts. Generator only: hosting, SSL, CDN, functions and forms are all yours.",
+				"fr": "Des builds sous la seconde, zéro dépendance runtime, un vaste écosystème de thèmes : il génère ce que Netlify héberge. Générateur uniquement : hébergement, SSL, CDN, fonctions et formulaires restent à gérer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Zola",
+			"source": {
+				"host": "github",
+				"path": "getzola/zola",
+				"url": "https://github.com/getzola/zola"
+			},
+			"license": "EUPL-1.2",
+			"effort": "docker",
+			"note": {
+				"en": "One Rust binary with Sass, syntax highlighting, i18n and instant incremental builds. Generator only, though — hosting is yours to manage, the ecosystem is smaller than Hugo’s, and there’s no deploy pipeline.",
+				"fr": "Un seul binaire Rust : Sass, coloration syntaxique, i18n et builds incrémentaux instantanés. Générateur uniquement, donc : hébergement à gérer, écosystème plus réduit que celui d’Hugo, et pas de pipeline de déploiement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Eleventy",
+			"source": {
+				"host": "github",
+				"path": "11ty/buildawesome",
+				"url": "https://github.com/11ty/buildawesome"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Any templating language, zero-config, runs anywhere Node does — a blog-friendly build step for any static host. Node only: no hosting or CDN, and large sites build slower than Hugo or Zola.",
+				"fr": "Générateur JS agnostique au templating, zéro config : un simple build step à poser sur n’importe quel hôte statique. Node uniquement, sans hébergement ni CDN, et plus lent que Hugo ou Zola."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Decap CMS",
+			"source": {
+				"host": "github",
+				"path": "decaporg/decap-cms",
+				"url": "https://github.com/decaporg/decap-cms"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The git-based editing UI that used to be Netlify CMS — editorial workflow, any SSG output. Editing only: no hosting or builds, auth needs a Git provider or OAuth, and no database.",
+				"fr": "L’interface d’édition git-based qui était Netlify CMS : workflow éditorial, fonctionne avec toute sortie de SSG. Édition seulement : ni hébergement ni builds, auth via Git provider ou OAuth, sans base de données."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Woodpecker CI",
+			"source": {
+				"host": "github",
+				"path": "woodpecker-ci/woodpecker",
+				"url": "https://github.com/woodpecker-ci/woodpecker"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Docker-native CI, Drone’s successor, with Gitea, Forgejo, GitHub or GitLab integration and self-hosted agents. Gives Netlify-style pipelines minus the lock-in, but you wire the deploy step and preview URLs yourself.",
+				"fr": "CI Docker-native, successeur de Drone, avec intégration Gitea, Forgejo, GitHub ou GitLab. Des pipelines style Netlify sans vendor lock, mais l’étape de déploiement et les URLs de preview restent à câbler."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenFaaS",
+			"source": {
+				"host": "github",
+				"path": "openfaas/faas",
+				"url": "https://github.com/openfaas/faas"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Serverless functions gateway (faas-cli included): auto-scaling, async invocations, runs on Docker or Kubernetes. Functions only — no static hosting or CDN — with more infra than managed functions.",
+				"fr": "Une gateway serverless avec auto-scaling et invocations async, via faas-cli sur Docker ou Kubernetes. Des fonctions uniquement — pas d’hébergement statique ni de CDN — et plus d’infra à gérer que des fonctions managées."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Commercial-use license",
+					"fr": "Licence pour usage commercial"
+				}
+			}
 		}
 	],
 	"priority": 3

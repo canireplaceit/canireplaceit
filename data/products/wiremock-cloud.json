@@ -112,6 +112,174 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Hoverfly",
+			"source": {
+				"host": "github",
+				"path": "SpectoLabs/hoverfly",
+				"url": "https://github.com/SpectoLabs/hoverfly"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Go-based capture-and-replay proxy mocking HTTP and gRPC, CLI plus optional Java agent. Handles latency and faults; no GUI, basic scenarios, quieter than its peak.",
+				"fr": "Proxy de capture/rejeu en Go pour mocker HTTP et gRPC, CLI et agent Java optionnel. Gère latence et pannes ; pas d’interface, scénarios rudimentaires, projet moins actif qu’à son sommet."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mountebank",
+			"source": {
+				"host": "github",
+				"path": "mountebank-testing/mountebank",
+				"url": "https://github.com/mountebank-testing/mountebank"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Language-agnostic mock server for HTTP, SMTP, TCP driven purely by a REST API. Faults and latency injected per stub; no GUI, and it never records real traffic.",
+				"fr": "Serveur de mock multi-protocoles (HTTP, SMTP, TCP) piloté uniquement par API REST. Pannes et latence injectées par stub ; pas d’interface, aucun enregistrement du trafic réel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MockServer",
+			"source": {
+				"host": "github",
+				"path": "mock-server/mockserver-monorepo",
+				"url": "https://github.com/mock-server/mockserver-monorepo"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The direct WireMock Cloud analog: expectations via REST API, record/replay, web UI, Docker or Helm. Costs a Java runtime and a dated-looking UI.",
+				"fr": "L’équivalent direct de WireMock Cloud : expectations via API REST, record/replay, interface web, Docker ou Helm. Exige un runtime Java et une UI vieillissante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Moto",
+			"source": {
+				"host": "github",
+				"path": "getmoto/moto",
+				"url": "https://github.com/getmoto/moto"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Emulates a wide range of AWS services locally, Python library or standalone server. Perfect for AWS tests; useless anywhere else.",
+				"fr": "Émule une large gamme de services AWS en local, bibliothèque Python ou serveur autonome. Parfait pour tester l’AWS ; inutile ailleurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pact Broker",
+			"source": {
+				"host": "github",
+				"path": "pact-foundation/pact_broker",
+				"url": "https://github.com/pact-foundation/pact_broker"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted hub for contract testing: publishes contracts, runs can-i-deploy, feeds CI. Needs Postgres and complements mocks rather than replacing them.",
+				"fr": "Hub auto-hébergé de testing par contrats : publie les contrats, vérifie can-i-deploy, alimente le CI. Nécessite Postgres, complète les mocks sans les remplacer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Schemathesis",
+			"source": {
+				"host": "github",
+				"path": "schemathesis/schemathesis",
+				"url": "https://github.com/schemathesis/schemathesis"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Property-based API tester that fuzzes OpenAPI and GraphQL specs and reports found bugs as JUnit. Strong in CI; it never hosts stubs.",
+				"fr": "Testeur d’API par propriétés qui fuzz les specs OpenAPI et GraphQL et exporte les bugs trouvés en JUnit. Solide en CI ; n’héberge aucun stub."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MSW",
+			"source": {
+				"host": "github",
+				"path": "mswjs/msw",
+				"url": "https://github.com/mswjs/msw"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Mocks at the browser network level via Service Workers — no server to run, any framework. The frontend-QA standard; not a shared mock server, no admin API.",
+				"fr": "Mock au niveau réseau du navigateur via Service Workers, sans serveur à lancer, pour tout framework. Le standard du QA frontend ; pas un serveur partagé, pas d’API d’admin."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "WireMock.Net",
+			"source": {
+				"host": "github",
+				"path": "wiremock/WireMock.Net",
+				"url": "https://github.com/wiremock/WireMock.Net"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The official .NET port: WireMock API parity, admin web UI, record/replay, OpenAPI import. Locked to Microsoft stacks, smaller community than Java WireMock.",
+				"fr": "Le port .NET officiel : parité d’API WireMock, interface web d’admin, record/replay, import OpenAPI. Réservé aux stacks Microsoft, communauté plus réduite que celle de Java WireMock."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

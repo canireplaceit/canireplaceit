@@ -86,6 +86,174 @@
 				"en": "The whiteboard app is free to use and the code is public — but the tldraw licence is a bespoke source-available one, not open source. Commercial embedding requires a paid licence.",
 				"fr": "L’application de tableau blanc est gratuite et le code est public — mais la licence tldraw est une licence maison à code visible, pas de l’open source. L’intégration commerciale exige une licence payante."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mermaid",
+			"source": {
+				"host": "github",
+				"path": "mermaid-js/mermaid",
+				"url": "https://github.com/mermaid-js/mermaid"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Text-to-diagram DSL rendered straight into docs, markdown, and CI. Diagrams live as versionable text — flows, sequences, Gantt, class, git, mindmaps. No freeform whiteboard, layout stays automatic.",
+				"fr": "DSL texte-à-diagramme rendue dans les docs, le markdown et la CI. Les diagrammes sont du texte versionnable. Pas de tableau blanc libre : mise en page automatique, pas de collaboration temps réel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kroki",
+			"source": {
+				"host": "github",
+				"path": "yuzutech/kroki",
+				"url": "https://github.com/yuzutech/kroki"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Not an interactive editor, but a self-hosted server that renders 20+ diagram engines through one API — Mermaid, PlantUML, D2, graphviz and more, built for static docs and ADRs.",
+				"fr": "Un seul serveur auto-hébergé rend 20+ moteurs de diagrammes via une API — Mermaid, PlantUML, D2, graphviz. Idéal pour docs et ADR, mais à opérer soi-même : des images rendues, pas un tableau vivant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PlantUML",
+			"source": {
+				"host": "github",
+				"path": "plantuml/plantuml",
+				"url": "https://github.com/plantuml/plantuml"
+			},
+			"license": "LGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The old hand of text UML: one jar, scriptable in CI, and a vast palette of diagram types. Default looks dated, and there is no interactive or collaborative canvas.",
+				"fr": "L’ancien du genre : un seul jar, trivial à script dans la CI, une palette énorme de types UML et non-UML. Le rendu par défaut a vieilli, et pas de canevas collaboratif."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "D2",
+			"source": {
+				"host": "github",
+				"path": "d2lang/d2",
+				"url": "https://github.com/d2lang/d2"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Declarative diagramming with zero-config layout and a single static binary — themes, animations, watch mode included. Text-first, no GUI editor, and younger than Mermaid and PlantUML.",
+				"fr": "Langage de diagrammes déclaratif avec mise en page zéro-config et un binaire statique unique — thèmes, animations, watch mode. Du texte d’abord, pas d’éditeur graphique, et plus jeune que Mermaid et PlantUML."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Diagrams",
+			"source": {
+				"host": "github",
+				"path": "mingrammer/diagrams",
+				"url": "https://github.com/mingrammer/diagrams"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Cloud system diagrams written in Python and reviewed in PRs — AWS, Azure, GCP, Kubernetes, on-prem icon sets. Aimed at infrastructure code, not general whiteboarding, and nothing is interactive once drawn.",
+				"fr": "Des diagrammes d’architecture cloud écrits en Python, relus dans les PR — icônes AWS, Azure, GCP, Kubernetes et on-prem. Fait pour l’infra-as-code, pas pour du whiteboarding, et rien n’est interactif une fois rendu."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "WBO",
+			"source": {
+				"host": "github",
+				"path": "lovasoa/whitebophir",
+				"url": "https://github.com/lovasoa/whitebophir"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Closest to a Whimsical-style board you can self-host: realtime multi-user, no login, runs from a container. Thin feature set next to Whimsical’s boards and mindmaps, AGPL, basic UI.",
+				"fr": "Le plus proche d’un board façon Whimsical à auto-héberger : temps réel multi-utilisateurs, pas de login, tourne dans un conteneur. Fonctions minces face aux boards et mindmaps de Whimsical, AGPL, UI basique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenBoard",
+			"source": {
+				"host": "github",
+				"path": "openboard-team/openboard",
+				"url": "https://github.com/openboard-team/openboard"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "No commit since May 2024 — two years dormant. A native offline whiteboard for teaching: annotations, page management, full desktop app. No collaboration, and it targets classrooms, not product diagramming.",
+				"fr": "Aucun commit depuis mai 2024 — deux ans de sommeil. Tableau blanc natif hors ligne pour l’enseignement : annotations, gestion de pages, appli desktop. Pas de collaboration, une cible scolaire, pas le diagramming produit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Goat",
+			"source": {
+				"host": "github",
+				"path": "blampe/goat",
+				"url": "https://github.com/blampe/goat"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A tiny zero-dependency CLI that turns plain text into ASCII diagrams, happy in scripts and editors. Static ASCII only, and a small project covering few diagram kinds.",
+				"fr": "Un petit CLI zéro dépendance qui transforme du texte en diagrammes ASCII, pratique dans les scripts et les éditeurs. Sortie ASCII statique uniquement, et un projet modeste aux types de diagrammes limités."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

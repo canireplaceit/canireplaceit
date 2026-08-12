@@ -105,6 +105,182 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Huginn",
+			"source": {
+				"host": "github",
+				"path": "huginn/huginn",
+				"url": "https://github.com/huginn/huginn"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The original self-hosted Zapier: MIT agents that poll sites and APIs, then react via RSS, email or webhooks. Rails monolith at 49k stars; custom agents mean writing Ruby, dated UI.",
+				"fr": "Le Zapier auto-hébergé d’origine : des agents MIT qui surveillent sites et APIs puis réagissent par RSS, e-mail ou webhooks. Monolithe Rails, 49k étoiles ; coder un agent maison demande du Ruby."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Node-RED",
+			"source": {
+				"host": "github",
+				"path": "node-red/node-red",
+				"url": "https://github.com/node-red/node-red"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Visual flow editor in the browser for APIs and hardware, at home on a Pi or in a container. Flows are plain JSON, so governance, multi-user and audit stay DIY.",
+				"fr": "Éditeur de flux visuel dans le navigateur pour APIs et matériel, à l’aise sur un Pi ou dans un conteneur. Flux stockés en JSON : gouvernance, multi-utilisateur et audit restent faits maison."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Automatisch",
+			"source": {
+				"host": "github",
+				"path": "automatisch/automatisch",
+				"url": "https://github.com/automatisch/automatisch"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosts in one Docker command: triggers and actions across 100+ apps, free webhooks and email triggers. The ecosystem trails n8n, and the open-core split keeps enterprise connectors out of the free build.",
+				"fr": "S’auto-héberge en une commande Docker : triggers et actions sur plus de 100 apps, webhooks et e-mails gratuits. Écosystème plus petit que n8n ; les connecteurs entreprise sont payants."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise .ee. connectors",
+					"fr": "Connecteurs entreprise (.ee.)"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kestra",
+			"source": {
+				"host": "github",
+				"path": "kestra-io/kestra",
+				"url": "https://github.com/kestra-io/kestra"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Declarative orchestration for workflows and data pipelines: YAML-defined flows, built-in scheduler, retries, thousands of data/cloud plugins. Tilted at data engineering — a YAML-first learning curve, and real scale outgrows docker-compose.",
+				"fr": "Flux en YAML pour workflows et pipelines de données : scheduler intégré, retries, des milliers de plugins. Orienté data : le YAML rebute les no-coders, et le vrai scale dépasse le docker-compose."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dagu",
+			"source": {
+				"host": "github",
+				"path": "dagucloud/dagu",
+				"url": "https://github.com/dagucloud/dagu"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Single Go binary, no external services — DAG-based schedules in YAML, with a TUI and web UI for runs, retries and manual triggers. A CLI-first cron replacement, not an app-connector platform; GPL-3.0.",
+				"fr": "Binaire Go unique, sans service externe — tâches DAG en YAML, TUI et interface web pour exécutions, retries et déclenchements manuels. Réponse CLI-first à cron, pas une plateforme de connecteurs ; GPL-3.0."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OliveTin",
+			"source": {
+				"host": "github",
+				"path": "OliveTin/OliveTin",
+				"url": "https://github.com/OliveTin/OliveTin"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Static-binary web UI that triggers shell commands, timers and webhooks on a LAN box, with permissions and audit logs. No flow builder, no app connectors — homelab glue, not SaaS glue.",
+				"fr": "Web UI en binaire statique : commandes shell, minuteries et webhooks sur une box du LAN, avec permissions et journal d’audit. Ni builder ni connecteurs d’apps : glue homelab, pas glue SaaS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "StackStorm",
+			"source": {
+				"host": "github",
+				"path": "StackStorm/st2",
+				"url": "https://github.com/StackStorm/st2"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Ops-grade engine under many SOAR stacks: rules, workflows, 1000+ actions, sensors, ChatOps for Slack. The price is a multi-service install — RabbitMQ and Mongo — and overkill for simple personal automation.",
+				"fr": "Le moteur ops-grade sous de nombreuses stacks SOAR : règles, workflows, 1000+ actions, capteurs et ChatOps pour Slack. Une installation multi-services (RabbitMQ, Mongo), trop lourde pour une automation perso."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Trigger.dev",
+			"source": {
+				"host": "github",
+				"path": "triggerdotdev/trigger.dev",
+				"url": "https://github.com/triggerdotdev/trigger.dev"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Background jobs as typed async TypeScript functions with timeouts, retries and deterministic replay; framework-agnostic, self-host free. Code-first, so no visual builder for non-devs, and the ecosystem is younger than n8n.",
+				"fr": "Jobs d’arrière-plan en fonctions TypeScript async typées : timeouts, retries, rejeu déterministe ; agnostique au framework, auto-hébergement gratuit. Code-first, donc pas de builder visuel pour les non-dev, écosystème plus jeune que n8n."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Hosted cloud tiers",
+					"fr": "Forfaits cloud hébergés"
+				}
+			}
 		}
 	],
 	"priority": 3

@@ -97,6 +97,174 @@
 				"en": "Journalist search and pitching at a fraction of an agency-tier contract. Much smaller database and no coverage analytics.",
 				"fr": "Recherche de journalistes et pitch pour une fraction d’un contrat de niveau agence. Base bien plus petite et pas d’analyse des retombées."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Newsboat",
+			"source": {
+				"host": "github",
+				"path": "newsboat/newsboat",
+				"url": "https://github.com/newsboat/newsboat"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "TUI RSS reader turning press feeds into a daily scanning loop: OPML media lists, query filters, scriptable macros. No social mention monitoring, no journalist contacts, no PR reporting.",
+				"fr": "Lecteur RSS en TUI qui transforme les flux presse en boucle de veille quotidienne : listes OPML, filtres, macros scriptables. Pas de mentions sociales, ni contacts journalistes, ni reporting RP."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Miniflux",
+			"source": {
+				"host": "codeberg",
+				"path": "miniflux/v2",
+				"url": "https://codeberg.org/miniflux/v2"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Fast self-hosted RSS reader whose filter rules tag and pin press items, with a Fever-compatible API and read-it-later support. RSS only: no social listening, no outreach database, no dashboards.",
+				"fr": "Lecteur RSS auto-hébergé rapide : règles de filtrage pour taguer et épingler la presse, API compatible Fever, lecture différée. RSS seulement : pas d’écoute sociale, ni contacts, ni dashboards."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "RSSHub",
+			"source": {
+				"host": "github",
+				"path": "DIYgod/RSSHub",
+				"url": "https://github.com/DIYgod/RSSHub"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Generates RSS from hundreds of sites and socials so any brand mention becomes watchable; self-hosting dodges API rate limits. No journalist database, no sentiment, feed quality follows upstream scraping.",
+				"fr": "Génère du RSS depuis des centaines de sites et réseaux : chaque mention de marque devient surveillable, sans limites d’API. Pas de base journalistes ni sentiment ; la fidélité dépend du scraping amont."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SearXNG",
+			"source": {
+				"host": "github",
+				"path": "searxng/searxng",
+				"url": "https://github.com/searxng/searxng"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Privacy metasearch that aggregates engines and news verticals to track a brand or journalist by keyword. Search only: no scheduled alerts, no contact database, and reporting stays manual.",
+				"fr": "Métamoteur privé qui agrège les moteurs et verticales news pour suivre une marque ou un journaliste par mot-clé. Recherche seulement : pas d’alertes planifiées, ni base de contacts, et le reporting reste manuel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Monica",
+			"source": {
+				"host": "github",
+				"path": "monicahq/monica",
+				"url": "https://github.com/monicahq/monica"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted personal CRM for logging journalist and influencer relationships, touchpoints and follow-up reminders. Built for one person: no media monitoring, no team PR workflow, no outreach tracking.",
+				"fr": "CRM personnel auto-hébergé pour journaliser les relations journalistes et influenceurs, les échanges et les relances. Pensé pour une personne : pas de veille média, ni workflow d’équipe, ni suivi d’outreach."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Matomo",
+			"source": {
+				"host": "github",
+				"path": "matomo-org/matomo",
+				"url": "https://github.com/matomo-org/matomo"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Web analytics that shows how PR and campaign traffic lands on your own properties, with goals, events and a cookieless option. It measures your site only: no third-party mentions, no social listening.",
+				"fr": "Mesure le trafic généré par vos campagnes et RP sur vos propres sites, avec objectifs, événements et option sans cookie. Ne mesure que votre site : pas de mentions tierces, ni écoute sociale."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Huginn",
+			"source": {
+				"host": "github",
+				"path": "huginn/huginn",
+				"url": "https://github.com/huginn/huginn"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Event-driven agents that watch feeds, sites and APIs for brand mentions and fire email, Slack or webhook alerts. No media database: you assemble the monitoring, and the learning curve is steep.",
+				"fr": "Agents événementiels qui surveillent flux, sites et APIs pour les mentions de marque et alertent par mail, Slack ou webhook. Pas de base média : on assemble la veille soi-même, courbe d’apprentissage raide."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tiny Tiny RSS",
+			"source": {
+				"host": "github",
+				"path": "tt-rss/tt-rss",
+				"url": "https://github.com/tt-rss/tt-rss"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Long-standing self-hosted RSS reader with plugins, offline reading, filters and an Android client. RSS only: no social monitoring, no PR reporting, no contact management.",
+				"fr": "Lecteur RSS auto-hébergé éprouvé, avec plugins, lecture hors ligne, filtres et client Android. RSS seulement : pas de monitoring social, ni reporting RP, ni gestion des contacts."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

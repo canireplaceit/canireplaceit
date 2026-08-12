@@ -118,6 +118,161 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Bytebase",
+			"source": {
+				"host": "github",
+				"path": "bytebase/bytebase",
+				"url": "https://github.com/bytebase/bytebase"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "The closest self-hosted answer to Atlas Cloud: schema changes routed through review, approval and issue tracking. Runs as a server with GitOps and drift detection, so it’s not a drop-in CLI.",
+				"fr": "Le plus proche équivalent self-hosted d’Atlas Cloud : changements de schéma avec revue, approbation et suivi de tickets. Serveur avec GitOps et détection de dérive, pas un CLI drop-in."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise SSO and advanced review rules",
+					"fr": "SSO entreprise et règles de revue avancées"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Skeema",
+			"source": {
+				"host": "github",
+				"path": "skeema/skeema",
+				"url": "https://github.com/skeema/skeema"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Declarative MySQL: the filesystem is the source of truth, pushed, pulled and diffed against live instances. No migration files, but MySQL/MariaDB only and the advanced features sit in a paid tier.",
+				"fr": "MySQL déclaratif : le filesystem fait foi, push, pull et diff face aux instances live. Pas de fichiers de migration, mais MySQL/MariaDB uniquement, et les fonctions avancées sont payantes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Advanced enterprise-tier features",
+					"fr": "Fonctions avancées du palier entreprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Sqitch",
+			"source": {
+				"host": "github",
+				"path": "sqitchers/sqitch",
+				"url": "https://github.com/sqitchers/sqitch"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Dependency-aware, taggable change plans that live happily in git, spanning Postgres, MySQL, SQLite, Oracle and more. No schema diffing: you author SQL by hand, on a Perl runtime.",
+				"fr": "Des plans de changement dépendants et taggables qui vivent dans git, de Postgres à Oracle. Pas de diff de schéma : le SQL s’écrit à la main, sur un runtime Perl."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "migra",
+			"source": {
+				"host": "github",
+				"path": "djrobstep/migra",
+				"url": "https://github.com/djrobstep/migra"
+			},
+			"license": "Unlicense",
+			"effort": "managed",
+			"note": {
+				"en": "A Python diff engine that compares two live Postgres databases, handy in CI for drift detection. Postgres-only, and ambiguous diffs still need a human to sign off.",
+				"fr": "Un moteur de diff Python qui compare deux bases Postgres live, pratique en CI pour repérer la dérive. Postgres uniquement, et les diffs ambigus demandent toujours un œil humain."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SchemaHero",
+			"source": {
+				"host": "github",
+				"path": "schemahero/schemahero",
+				"url": "https://github.com/schemahero/schemahero"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Schema expressed as Kubernetes custom resources, reconciled continuously against Postgres, MySQL or CockroachDB. Only makes sense inside Kubernetes, and classic migration history is secondary.",
+				"fr": "Le schéma se déclare en custom resources Kubernetes, réconciliées en continu sur Postgres, MySQL ou CockroachDB. Réservé aux workflows Kubernetes, l’historique de migration passe au second plan."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pgroll",
+			"source": {
+				"host": "github",
+				"path": "xataio/pgroll",
+				"url": "https://github.com/xataio/pgroll"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Zero-downtime, reversible Postgres changes: expand, backfill, contract, with rollback built in, as a CLI or Go library. Postgres-only, and the flow won’t match plain migration-file habits.",
+				"fr": "Des changements Postgres réversibles et sans interruption : expand, backfill, contract, rollback intégré, en CLI ou bibliothèque Go. Postgres uniquement, et le flux diffère des fichiers de migration classiques."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "tern",
+			"source": {
+				"host": "github",
+				"path": "jackc/tern",
+				"url": "https://github.com/jackc/tern"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A single static binary for Postgres migrations, in the django/south mould, from the pgx author. Nothing but a schema-version table — no diffing or drift detection.",
+				"fr": "Un binaire statique unique pour les migrations Postgres, dans l’esprit de django/south, signé l’auteur de pgx. Rien qu’une table de version : pas de diff, pas de détection de dérive."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

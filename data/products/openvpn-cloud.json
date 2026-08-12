@@ -97,6 +97,266 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "WireGuard",
+			"source": {
+				"host": "github",
+				"path": "WireGuard/wireguard-linux",
+				"url": "https://github.com/WireGuard/wireguard-linux"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The reference protocol engine behind wg-easy and most modern stacks. Fast, audited, kernel-resident, cryptokey routing. No users, no UI, no auth — peers and keys managed by hand or wrapper tools.",
+				"fr": "Moteur de protocole de référence derrière wg-easy et la plupart des stacks modernes : rapide, audité, intégré au noyau. Pas d’utilisateurs, pas d’UI, pas d’auth : pairs et clés gérés à la main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tailscale",
+			"source": {
+				"host": "github",
+				"path": "tailscale/tailscale",
+				"url": "https://github.com/tailscale/tailscale"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "The most popular mesh VPN; the open client pairs with self-hosted Headscale. WireGuard mesh with NAT traversal and declarative ACLs, SSO built in. Mesh, not a classic single-gateway VPN.",
+				"fr": "Le mesh VPN le plus populaire : le client open-source s’associe à Headscale auto-hébergé. Mesh WireGuard avec traversée NAT et ACL déclaratives, SSO intégré. Un mesh, pas une passerelle unique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": true,
+				"dataResidency": "us-only",
+				"paywalled": {
+					"en": "Proprietary control plane",
+					"fr": "Plan de contrôle propriétaire"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Headscale",
+			"source": {
+				"host": "github",
+				"path": "juanfont/headscale",
+				"url": "https://github.com/juanfont/headscale"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "ops",
+			"note": {
+				"en": "The coordination server that makes Tailscale fully self-hostable. tailscaled-compatible, OIDC SSO, ACLs and DERP relay. Community project at single-maintainer pace, short of SaaS parity.",
+				"fr": "Le serveur de coordination qui rend Tailscale entièrement auto-hébergeable. Compatible tailscaled, SSO OIDC, ACL et relais DERP. Projet communautaire au rythme d’un seul mainteneur, sans parité SaaS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Netbird",
+			"source": {
+				"host": "github",
+				"path": "netbirdio/netbird",
+				"url": "https://github.com/netbirdio/netbird"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "ops",
+			"note": {
+				"en": "Self-hostable mesh with SSO and a control plane you own end-to-end. WireGuard mesh, NAT traversal, OIDC with group sync. Younger ecosystem; self-hosted stack is several services to run.",
+				"fr": "Mesh auto-hébergeable avec SSO et un plan de contrôle que vous possédez de bout en bout : WireGuard, traversée NAT, OIDC et synchro de groupes. Écosystème jeune ; la stack auto-hébergée demande plusieurs services."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nebula",
+			"source": {
+				"host": "github",
+				"path": "slackhq/nebula",
+				"url": "https://github.com/slackhq/nebula"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Slack's lightweight mesh for hostile cloud networks. Certificate-based, lighthouse nodes for NAT traversal, one static binary. No web UI or user management; certificate lifecycle is hand-managed.",
+				"fr": "Mesh léger de Slack pour réseaux cloud hostiles. Certificats, nœuds lighthouse pour la traversée NAT, un binaire statique. Pas d’UI web ni d’utilisateurs : le cycle des certificats se gère à la main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tinc",
+			"source": {
+				"host": "github",
+				"path": "gsliepen/tinc",
+				"url": "https://github.com/gsliepen/tinc"
+			},
+			"license": "GPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Fully distributed mesh, zero central server, tiny footprint. Pure P2P, UDP with TCP fallback, on Linux/BSD/macOS/Windows. Everything lives in config files; no UI, users, or SSO, and development is slow.",
+				"fr": "Mesh entièrement distribué, zéro serveur central, empreinte minimale. P2P pur, UDP avec repli TCP, sur Linux/BSD/macOS/Windows. Tout passe par des fichiers de config : pas d’UI, d’utilisateurs ni de SSO, développement lent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ZeroTier",
+			"source": {
+				"host": "github",
+				"path": "zerotier/ZeroTierOne",
+				"url": "https://github.com/zerotier/ZeroTierOne"
+			},
+			"license": "MPL-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Virtual layer-2 network joined by network ID, self-hostable controller, runs on 40+ platforms. Strong NAT traversal. Core has non-free portions; the default central service is proprietary, no SSO in core.",
+				"fr": "Réseau de couche 2 rejoint par ID, contrôleur auto-hébergeable, 40+ plateformes. Forte traversée NAT. Le core contient des portions non libres : service central propriétaire, pas de SSO dans le core."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "us-only",
+				"paywalled": {
+					"en": "Non-free core",
+					"fr": "Noyau non libre"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SoftEther",
+			"source": {
+				"host": "github",
+				"path": "SoftEtherVPN/SoftEtherVPN",
+				"url": "https://github.com/SoftEtherVPN/SoftEtherVPN"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "One daemon speaking OpenVPN, L2TP/IPsec, SSTP and WireGuard. Built-in NAT, DHCP, firewall, clustering. Admin is a Windows GUI plus CLI — protocol breadth beats polish, no SSO.",
+				"fr": "Un seul démon parle OpenVPN, L2TP/IPsec, SSTP et WireGuard, avec NAT, DHCP, firewall et clustering intégrés. L’admin se fait en GUI Windows plus CLI : la largeur de protocole prime sur le fini."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Firezone",
+			"source": {
+				"host": "github",
+				"path": "firezone/firezone",
+				"url": "https://github.com/firezone/firezone"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Self-hosted zero-trust WireGuard platform with SAML/OIDC SSO, SCIM and group sync, plus a web admin portal. Needs a public-facing server and domain; young, fast-iterating, heavier than a bare tunnel.",
+				"fr": "Plateforme WireGuard zero-trust auto-hébergée avec SSO SAML/OIDC, SCIM et synchro de groupes, plus un portail d’admin web. Exige un serveur public et un domaine : jeune, itérations rapides, plus lourd qu’un simple tunnel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Innernet",
+			"source": {
+				"host": "github",
+				"path": "tonarino/innernet",
+				"url": "https://github.com/tonarino/innernet"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Rust WireGuard mesh with a tiny coordination server, per-user ACLs and auto-generated configs. Interactive CLI onboards peers easily. No UI or SSO, no official mobile clients, maintenance has slowed.",
+				"fr": "Mesh WireGuard en Rust, petit serveur de coordination, ACL par utilisateur, configs générées. CLI interactif qui simplifie l’ajout des pairs. Pas d’UI ni de SSO, pas de clients mobiles officiels, maintenance ralentie."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "wg-access-server",
+			"source": {
+				"host": "github",
+				"path": "freifunkMUC/wg-access-server",
+				"url": "https://github.com/freifunkMUC/wg-access-server"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Minimal self-hosted WireGuard gateway with a web admin, client-config download, QR codes, auth codes and audit logs. Simple docker or single-binary deploy. Device-token auth, no per-user SSO; single gateway, not a mesh.",
+				"fr": "Passerelle WireGuard auto-hébergée avec admin web, config téléchargeable, QR codes et audit. Déploiement docker ou binaire unique. Auth par jeton d’appareil, pas de SSO par utilisateur : passerelle unique, pas un mesh."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Algo",
+			"source": {
+				"host": "github",
+				"path": "trailofbits/algo",
+				"url": "https://github.com/trailofbits/algo"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Turnkey personal WireGuard/IPsec VPN for a cloud VPS, hardened defaults, no logging, blocked admin access, Wi-Fi protection and DNS blocking. Audited by Trail of Bits. Single-user, no UI or SSO, VPS-only.",
+				"fr": "VPN WireGuard/IPsec clé en main sur VPS cloud : défauts durcis, pas de journaux, accès admin bloqué, blocage DNS. Audité par Trail of Bits. Mono-utilisateur, sans UI ni SSO, pensé pour le VPS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

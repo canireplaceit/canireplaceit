@@ -97,6 +97,182 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "authentik",
+			"source": {
+				"host": "github",
+				"path": "goauthentik/authentik",
+				"url": "https://github.com/goauthentik/authentik"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "All-in-one identity provider and access gateway with a visual flow builder and app portal — the fullest self-hosted Access stand-in, though heavier than a pure proxy and overkill if forward-auth suffices.",
+				"fr": "Tout-en-un : fournisseur d’identité et gateway avec builder de flux et portail d’applications — le plus complet des remplaçants d’Access, mais lourd à faire tourner et excessif si seul un forward-auth est requis."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise SAML/RBAC",
+					"fr": "SAML/RBAC entreprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Keycloak",
+			"source": {
+				"host": "github",
+				"path": "keycloak/keycloak",
+				"url": "https://github.com/keycloak/keycloak"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The de-facto self-hosted IdP: OIDC/SAML/OAuth2, identity brokering and fine-grained authorization for any gateway, at the cost of JVM-hefty ops and no built-in proxy layer.",
+				"fr": "L’IdP auto-hébergé de référence : OIDC/SAML/OAuth2, fédération d’identités et autorisation fine pour n’importe quel gateway — mais une JVM lourde à opérer et aucune couche proxy intégrée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ZITADEL",
+			"source": {
+				"host": "github",
+				"path": "zitadel/zitadel",
+				"url": "https://github.com/zitadel/zitadel"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Single-binary event-sourced IdP with OIDC/SAML, orgs and a built-in audit trail; the catch is AGPL copyleft if run as a service and managed Postgres for HA.",
+				"fr": "IdP event-sourced en un seul binaire, avec OIDC/SAML, organisations et journal d’audit intégré ; revers : copyleft AGPL si offert en tant que service et Postgres managé pour la haute disponibilité."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kanidm",
+			"source": {
+				"host": "github",
+				"path": "kanidm/kanidm",
+				"url": "https://github.com/kanidm/kanidm"
+			},
+			"license": "MPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Rust identity provider built around WebAuthn/passkeys, CLI-first and tiny to self-host, though young with a small ecosystem — identity only, so pair it with a proxy.",
+				"fr": "Fournisseur d’identité Rust bâti autour de WebAuthn/passkeys, piloté en CLI et minuscule à auto-héberger, mais jeune, à l’écosystème réduit — identité seulement, à coupler avec un proxy."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenZiti",
+			"source": {
+				"host": "github",
+				"path": "openziti/ziti",
+				"url": "https://github.com/openziti/ziti"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "True zero-trust overlay with no open inbound ports and per-identity microsegmentation, at the price of running controller and edge routers plus a tunneler client on every device.",
+				"fr": "Réseau zéro-confiance avec aucun port ouvert et microsegmentation par identité, au prix d’un controller et d’edge routers à opérer et d’un client tunneler sur chaque appareil."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "HA controller clustering",
+					"fr": "Clustering HA du contrôleur"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Firezone",
+			"source": {
+				"host": "github",
+				"path": "firezone/firezone",
+				"url": "https://github.com/firezone/firezone"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "WireGuard zero-trust network with SSO/MFA, ABAC policies and a web console — network-level access rather than per-app HTTP proxying, on a heavier Elixir stack.",
+				"fr": "Réseau WireGuard avec SSO/MFA, politiques ABAC et console web — mais accès au niveau réseau, pas de proxying HTTP par application, et une pile Elixir plus lourde à auto-héberger."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "headscale",
+			"source": {
+				"host": "github",
+				"path": "juanfont/headscale",
+				"url": "https://github.com/juanfont/headscale"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted Tailscale control plane on WireGuard with CLI and TUI — full data residency, but no bundled IdP (OIDC/Google bridges) and you run DERP relays, DNS and key management yourself.",
+				"fr": "Plan de contrôle Tailscale auto-hébergé sur WireGuard, avec CLI et TUI — maîtrise totale des données, mais sans IdP fourni (pont OIDC/Google), clients mobiles Tailscale, DERP, DNS et clés à votre charge."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "innernet",
+			"source": {
+				"host": "github",
+				"path": "tonarino/innernet",
+				"url": "https://github.com/tonarino/innernet"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Minimal private WireGuard network — CLI and ncurses TUI, automatic IPs from a CIDR/VRF hierarchy, invite-based onboarding — but no SSO or IdP, just invites and ACLs.",
+				"fr": "Réseau WireGuard privé minimaliste : CLI et TUI ncurses, attribution automatique d’IP par hiérarchie CIDR/VRF et inscription par invitation — mais pas de SSO ni d’IdP, que des invitations et des ACLs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

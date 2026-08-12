@@ -82,6 +82,174 @@
 				"en": "Free weekly GPU and TPU quota with no card on file. Harder session limits and a 12-hour ceiling.",
 				"fr": "Quota GPU et TPU hebdomadaire gratuit sans carte bancaire. Limites de session plus dures et plafond de 12 heures."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "JupyterLab",
+			"source": {
+				"host": "github",
+				"path": "jupyterlab/jupyterlab",
+				"url": "https://github.com/jupyterlab/jupyterlab"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "The standard next-gen notebook IDE and the front-end behind JupyterHub, extensible enough to cover terminal and file browsing. Single-user by default and no GPU quota management.",
+				"fr": "L’IDE notebook de nouvelle génération, face-avant de JupyterHub, assez extensible pour couvrir terminal et explorateur de fichiers. Mono-utilisateur par défaut, sans gestion de quotas GPU."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Marimo",
+			"source": {
+				"host": "github",
+				"path": "marimo-team/marimo",
+				"url": "https://github.com/marimo-team/marimo"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Reactive notebooks that recompute only changed cells, plain Python you can export as scripts. Younger ecosystem than Jupyter; not multi-user out of the box.",
+				"fr": "Notebooks réactifs qui ne recalculent que les cellules modifiées, en pur Python, exportables en scripts. Écosystème plus jeune que Jupyter et pas multi-utilisateur d’origine."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "JupyterLite",
+			"source": {
+				"host": "github",
+				"path": "jupyterlite/jupyterlite",
+				"url": "https://github.com/jupyterlite/jupyterlite"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "JupyterLab running in the browser through WebAssembly, deployed as a static site with no server. No heavy GPU in-browser and the pyodide kernel limits library support.",
+				"fr": "JupyterLab tourne dans le navigateur via WebAssembly, déployable comme site statique, sans serveur. Pas de gros calcul GPU en ligne et le noyau pyodide limite les bibliothèques disponibles."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "BinderHub",
+			"source": {
+				"host": "github",
+				"path": "jupyterhub/binderhub",
+				"url": "https://github.com/jupyterhub/binderhub"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "ops",
+			"note": {
+				"en": "Turns any GitHub repo into a shareable live notebook; the engine behind MyBinder. Ephemeral per-user pods with no persistence, and scaling means Kubernetes.",
+				"fr": "Transforme n’importe quel dépôt GitHub en notebook vivant partageable, le moteur de MyBinder. Sessions éphémères sans persistance, et pour passer à l’échelle il faut Kubernetes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kubeflow",
+			"source": {
+				"host": "github",
+				"path": "kubeflow/kubeflow",
+				"url": "https://github.com/kubeflow/kubeflow"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "A full ML platform on Kubernetes: notebook servers, pipelines, GPU sharing and RBAC multi-user. The cost is a heavy Kubernetes footprint and a steep ops learning curve.",
+				"fr": "Plateforme ML complète sur Kubernetes : serveurs notebook, pipelines, partage GPU et multi-utilisateur RBAC. En échange, une empreinte Kubernetes lourde et une courbe d’apprentissage ops raide."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Determined AI",
+			"source": {
+				"host": "github",
+				"path": "determined-ai/determined",
+				"url": "https://github.com/determined-ai/determined"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Distributed training with built-in experiment tracking, Jupyter notebooks on the cluster. Cluster-grade deployment, and more ML-ops than plain Colab-style use.",
+				"fr": "Entraînement distribué avec suivi d’expériences intégré et notebooks Jupyter sur le cluster. Déploiement niveau cluster, plus ML-ops qu’un usage Colab simple."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dstack",
+			"source": {
+				"host": "github",
+				"path": "dstackai/dstack",
+				"url": "https://github.com/dstackai/dstack"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A CLI that runs dev environments and training on your own GPUs or any cloud, portable across clouds. Bring your own hardware — no notebook platform.",
+				"fr": "Un CLI qui lance environnements de dev et entraînements sur vos propres GPU ou n’importe quel cloud, portable entre fournisseurs. À vous le matériel, mais pas de plateforme notebook."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Papermill",
+			"source": {
+				"host": "github",
+				"path": "nteract/papermill",
+				"url": "https://github.com/nteract/papermill"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "The batch half of Colab workflows: parameterize notebooks and run them headlessly, driven from CI or cron with any kernel. No interactive UI — an engine, not an environment.",
+				"fr": "La moitié batch des workflows Colab : paramétrer les notebooks et les exécuter sans interface, depuis CI ou cron, sur n’importe quel noyau. Pas d’UI interactive, juste un moteur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

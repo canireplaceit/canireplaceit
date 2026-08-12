@@ -1,5 +1,5 @@
-// Two vertical sponsor rails flanking the page, five slots each. An empty slot renders as "your product here" with
-// its price rather than blank space, so the rails are never empty and the ask is never hidden behind a link nobody clicks.
+// Two vertical sponsor rails flanking the page, five slots each. An empty slot renders as "sponsor this project"
+// rather than blank space, so the rails are never empty. Prices live on the rate card, not on the ambient ask.
 // Every ad unit carries `data-ad-slot` (and `data-ad-purchase` when sold) — `adTracking.ts` finds these via
 // MutationObserver, since the rails never unmount and the marquee renders each slot twice, so nothing render-shaped
 // can count a view without double-counting.
@@ -13,7 +13,7 @@ import {
 	tintStyle,
 	useAdPreview,
 } from "./ads";
-import { money, type Slot, sponsorClickUrl } from "./api";
+import { type Slot, sponsorClickUrl } from "./api";
 import { Logo } from "./components";
 import type { Key, Lang } from "./i18n";
 
@@ -153,20 +153,11 @@ function RailSlot({
 			<span className="block font-mono text-[9px] text-muted uppercase tracking-[0.16em]">
 				{slot.id} · {t("ads.openSlot")}
 			</span>
+			{/* No price here: the ask sits on the page all day, the rate card is one click away. */}
 			<span
-				className="nums mt-1 block font-semibold text-lg"
+				className="mt-1 block font-semibold text-[15px] leading-snug"
 				style={{ color: "var(--accent)" }}
 			>
-				{slot.priceCents === null ? (
-					<span className="text-sm">{t("ads.priceOnRequest")}</span>
-				) : (
-					<>
-						{money(slot.priceCents, lang)}
-						<span className="text-muted text-sm">/30d</span>
-					</>
-				)}
-			</span>
-			<span className="mt-1 block text-[13px] text-muted leading-snug">
 				{t("ads.yourProductHere")} →
 			</span>
 			<span className="sr-only">{tc(slot.label)}</span>
@@ -302,18 +293,8 @@ export function InListSponsor({
 					</span>
 				</span>
 			</span>
-			<span
-				className="nums shrink-0 text-sm"
-				style={{ color: "var(--accent)" }}
-			>
-				{slot.priceCents === null ? (
-					t("ads.priceOnRequest")
-				) : (
-					<>
-						{money(slot.priceCents, lang)}
-						<span className="text-muted">/30d</span>
-					</>
-				)}
+			<span className="shrink-0 text-sm" style={{ color: "var(--accent)" }}>
+				→
 			</span>
 		</a>
 	);
@@ -433,11 +414,6 @@ function TapeItem({
 				+
 			</span>
 			<span className="text-muted">{t("ads.yourProductHere")}</span>
-			<span className="nums font-medium" style={{ color: "var(--accent)" }}>
-				{slot.priceCents === null
-					? t("ads.priceOnRequest")
-					: `${money(slot.priceCents, lang)}/30d`}
-			</span>
 		</a>
 	);
 }

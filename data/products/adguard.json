@@ -114,6 +114,178 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Blocky",
+			"source": {
+				"host": "github",
+				"path": "0xERR0R/blocky",
+				"url": "https://github.com/0xERR0R/blocky"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Go DNS proxy matching AdGuard Home filtering on a fraction of the memory, config from a YAML file and a minimal query-log view. Smaller community than Pi-hole, fewer ready-made recipes.",
+				"fr": "Proxy DNS en Go qui reproduit le filtrage d’AdGuard Home pour une fraction de la mémoire, config via YAML et vue sommaire du journal. Communauté plus restreinte que Pi-hole, moins de recettes toutes prêtes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Technitium DNS Server",
+			"source": {
+				"host": "github",
+				"path": "TechnitiumSoftware/DnsServer",
+				"url": "https://github.com/TechnitiumSoftware/DnsServer"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The closest drop-in for AdGuard Home: full DNS server, web UI, encrypted DNS, blocklist blocking. Heavier surface than a pure ad-blocker, with zones and forwarders to manage.",
+				"fr": "Le remplaçant le plus direct d’AdGuard Home : serveur DNS complet, interface web, DNS chiffré, blocage par blocklists. Surface plus lourde qu’un simple bloqueur de pubs, zones et forwarders à gérer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dnscrypt-proxy",
+			"source": {
+				"host": "github",
+				"path": "DNSCrypt/dnscrypt-proxy",
+				"url": "https://github.com/DNSCrypt/dnscrypt-proxy"
+			},
+			"license": "ISC",
+			"effort": "managed",
+			"note": {
+				"en": "Encrypted DNS proxy whose built-in blacklist engine filters ads with zero web UI, config-file only. Per-machine scope unless you point the whole LAN at it.",
+				"fr": "Proxy DNS chiffré dont le moteur de blacklist filtre les pubs sans aucune interface web, config par fichier uniquement. Limité à une machine sauf à le dédier à tout le LAN."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "StevenBlack/hosts",
+			"source": {
+				"host": "github",
+				"path": "StevenBlack/hosts",
+				"url": "https://github.com/StevenBlack/hosts"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "One unified hosts file blocks ads and trackers at the OS level, applied by script, no daemon. Exact hostname matches only, no wildcards, no dashboard, re-apply on updates.",
+				"fr": "Un fichier hosts unifié bloque pubs et traqueurs au niveau OS, appliqué par script, sans démon. Correspondances exactes uniquement, pas de wildcard, pas de tableau de bord, à réappliquer à chaque mise à jour."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "RethinkDNS",
+			"source": {
+				"host": "github",
+				"path": "serverless-dns/serverless-dns",
+				"url": "https://github.com/serverless-dns/serverless-dns"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Android firewall plus DNS filter with per-app blocking over a local VPN, no root, blocklists configurable, F-Droid builds. The same codebase runs the open serverless DoH resolver.",
+				"fr": "Pare-feu et filtre DNS Android, blocage par application via un VPN local sans root, blocklists configurables, builds F-Droid. La même base alimente le résolveur DoH serverless ouvert."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Blokada",
+			"source": {
+				"host": "github",
+				"path": "blokadaorg/blokada",
+				"url": "https://github.com/blokadaorg/blokada"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Mature Android blocker filtering every app via a local VPN, per-app control, no root, open core on F-Droid. Recent versions push proprietary Plus cloud features and the core sees little development.",
+				"fr": "Bloqueur Android éprouvé qui filtre chaque application via un VPN local, contrôle par app, sans root, cœur open source sur F-Droid. Les versions récentes poussent le cloud propriétaire Plus et le cœur évolue peu."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Open core; newer Plus cloud features are proprietary",
+					"fr": "Cœur ouvert ; le cloud Plus récent est propriétaire"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Portmaster",
+			"source": {
+				"host": "github",
+				"path": "safing/portmaster",
+				"url": "https://github.com/safing/portmaster"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Desktop privacy firewall with per-app network rules and DNS blocking in one GUI, self-hostable, live activity dashboard, SPN optional. Windows and Linux only, per-machine scope, no web UI.",
+				"fr": "Pare-feu desktop avec règles réseau par application et blocage DNS dans une même interface, auto-hébergeable, tableau de bord en direct, SPN en option. Windows et Linux uniquement, par machine, sans interface web."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GoodbyeDPI",
+			"source": {
+				"host": "github",
+				"path": "ValdikSS/GoodbyeDPI",
+				"url": "https://github.com/ValdikSS/GoodbyeDPI"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "CLI that defeats DPI blocking of DNS and VPN on censored networks via packet-splitting, no configuration. Not an ad blocker, no blocklists or filtering UI, mostly Windows binaries.",
+				"fr": "CLI qui contourne le blocage DNS/VPN par DPI sur les réseaux censurés grâce au split de paquets, sans configuration. Pas un bloqueur de pubs, ni blocklists ni UI de filtrage, binaires surtout Windows."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

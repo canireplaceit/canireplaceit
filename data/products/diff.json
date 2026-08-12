@@ -1,0 +1,282 @@
+{
+	"slug": "diff",
+	"name": "diff",
+	"domain": null,
+	"category": "shell-terminal",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "Replaceable, but only where you can give up its zero-setup ubiquity. diff is line-based and knows nothing about structure, so the honest verdict is that it still wins whenever a parser or install isn't warranted.",
+		"fr": "Remplaçable, à condition de renoncer à son ubiquité sans configuration. diff travaille ligne à ligne et ignore toute structure, donc il reste le bon choix quand un parser ou une installation ne se justifie pas."
+	},
+	"whatYouLose": [
+		{
+			"en": "Present on every machine",
+			"fr": "Présent sur toutes les machines"
+		},
+		{
+			"en": "Zero-setup line-by-line comparison",
+			"fr": "Comparaison ligne à ligne sans aucune configuration"
+		},
+		{
+			"en": "Years of built-in muscle memory",
+			"fr": "Des années de réflexes déjà acquis"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "delta",
+			"source": {
+				"host": "github",
+				"path": "dandavison/delta",
+				"url": "https://github.com/dandavison/delta"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A pager for git and diff output: syntax highlighting, side-by-side and word-level changes, navigable file list. Drops in via core.pager in git config.",
+				"fr": "Un pager pour la sortie de git et diff : coloration syntaxique, vue côte à côte, changements au mot près, liste de fichiers navigable. Il s’installe dans git via core.pager."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "difftastic",
+			"source": {
+				"host": "github",
+				"path": "Wilfred/difftastic",
+				"url": "https://github.com/Wilfred/difftastic"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Parses both files and diffs the syntax tree, so reformatting and reindentation stop showing as changes. Slower, and limited to languages it has a parser for.",
+				"fr": "Analyse les deux fichiers et compare leurs arbres syntaxiques : reformatage et réindentation ne ressortent plus comme des changements. Plus lent, et seulement pour les langages couverts par un parser."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "icdiff",
+			"source": {
+				"host": "github",
+				"path": "jeffkaufman/icdiff",
+				"url": "https://github.com/jeffkaufman/icdiff"
+			},
+			"license": "PSF-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Two-column colored diff that keeps unicode aligned on wide terminals, with no git dependency. Line-oriented only — no word-level or structural diff — and PSF-licensed rather than Apache or MIT.",
+				"fr": "Diff en deux colonnes qui garde l’alignement unicode sur les terminaux larges, sans dépendance à git. Ligne par ligne seulement — pas de diff de mots, licence PSF plutôt qu’Apache ou MIT."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "colordiff",
+			"source": {
+				"host": "github",
+				"path": "daveewart/colordiff",
+				"url": "https://github.com/daveewart/colordiff"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Drop-in Perl wrapper that colorizes diff output with themeable palettes. Still line-level: no side-by-side, no word highlighting, and no interactive paging of its own.",
+				"fr": "Wrapper Perl en remplacement direct qui colorise la sortie de diff avec des palettes personnalisables. Toujours au niveau ligne : pas de vue côte à côte, ni surbrillance par mot, ni pagination interactive."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "diff-so-fancy",
+			"source": {
+				"host": "github",
+				"path": "so-fancy/diff-so-fancy",
+				"url": "https://github.com/so-fancy/diff-so-fancy"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Formats git and unified diffs into cleaner headers, line numbers, and icons, plugging into any git diff via a pager. It never computes a diff itself — unified-diff input only.",
+				"fr": "Met en forme les diffs git et unifiés : en-têtes nettoyés, icônes, branché sur n’importe quel diff via un pager. Ne calcule rien lui-même, il n’accepte que du diff unifié."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ydiff",
+			"source": {
+				"host": "github",
+				"path": "ymattw/ydiff",
+				"url": "https://github.com/ymattw/ydiff"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Side-by-side terminal diff with inline word highlighting and an interactive TUI; works with git, svn, bzr, mercurial, and plain diffs. Needs a pip install, and is narrower than delta or difftastic.",
+				"fr": "Diff terminal côte à côte avec surbrillance des mots et TUI interactive ; gère git, svn, bzr, mercurial et les diffs unifiés. Installation via pip obligatoire, et moins complet que delta ou difftastic."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "diffr",
+			"source": {
+				"host": "github",
+				"path": "mookid/diffr",
+				"url": "https://github.com/mookid/diffr"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Fast Rust line diff with word-level emphasis and a focus mode that collapses hunks to surface real changes. No side-by-side layout, and a smaller option set than delta or difftastic.",
+				"fr": "Diff en Rust, rapide, avec surbrillance des mots ajoutés et un mode focus qui réduit les hunks aux changements intéressants. Pas de vue côte à côte, moins d’options que delta ou difftastic."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "diffoscope",
+			"source": {
+				"host": "gitlab",
+				"path": "reproducible-builds/diffoscope",
+				"url": "https://salsa.debian.org/reproducible-builds/diffoscope"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Recursively unpacks and diffs archives, filesystems, and binaries — the reference tool of the reproducible-builds project. Slow and heavy on large trees, and overkill for a quick text diff.",
+				"fr": "Démonte et compare récursivement archives, systèmes de fichiers et binaires — l’outil de référence du projet reproducible-builds. Lent et lourd sur les grosses arborescences, trop pour un simple diff texte."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "csv-diff",
+			"source": {
+				"host": "github",
+				"path": "simonw/csv-diff",
+				"url": "https://github.com/simonw/csv-diff"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "CSV/TSV CLI reporting added, removed, and changed rows, keyed on a chosen column via --key — easy to wire into pipelines. Not a general text diff; Python tooling required.",
+				"fr": "CLI CSV/TSV qui signale les lignes ajoutées, supprimées et modifiées, indexées sur une colonne au choix via --key — simple à brancher dans des pipelines. Pas un diff texte général ; outillage Python requis."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "diffsitter",
+			"source": {
+				"host": "github",
+				"path": "afnanenayet/diffsitter",
+				"url": "https://github.com/afnanenayet/diffsitter"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Tree-sitter diff ignoring whitespace and formatting churn, one Rust binary. Coverage ends where grammars end, and hunks stay line-based rather than semantic.",
+				"fr": "Diff via tree-sitter qui ignore les variations d’espacement et de formatage, en un seul binaire Rust. La couverture s’arrête avec les grammaires, et les hunks restent au niveau ligne, pas sémantiques."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "cwdiff",
+			"source": {
+				"host": "github",
+				"path": "junghans/cwdiff",
+				"url": "https://github.com/junghans/cwdiff"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Word-level coloring via wdiff underneath, and directory-aware output — a single bash script with zero build. Dormant since April 2024, requires wdiff and diff, and stays minimal by design.",
+				"fr": "Colorisation au niveau mot via wdiff et sortie par répertoire — un seul script bash, zéro build. Dormant depuis avril 2024, exige wdiff et diff, et reste volontairement minimal."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "diff2html-cli",
+			"source": {
+				"host": "github",
+				"path": "rtfpessoa/diff2html-cli",
+				"url": "https://github.com/rtfpessoa/diff2html-cli"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Turns git or unified diff input into a standalone interactive HTML file with side-by-side and inline views. It renders rather than computes diffs, and needs Node.js to install.",
+				"fr": "Convertit un diff git ou unifié en fichier HTML autonome et interactif, avec vues côte à côte et en ligne. Il rend les diffs, ne les calcule pas ; installation via Node.js."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

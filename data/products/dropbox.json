@@ -97,6 +97,262 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "File Browser",
+			"source": {
+				"host": "github",
+				"path": "filebrowser/filebrowser",
+				"url": "https://github.com/filebrowser/filebrowser"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Single-binary web file manager: share links, accounts and permissions. The easiest self-hosted web file access, but a single node only — no sync, no desktop clients, no teams.",
+				"fr": "Gestionnaire de fichiers web en binaire unique : liens de partage, comptes et permissions. L’accès web autohébergé le plus simple, mais mono-nœud — pas de sync, ni clients desktop, ni équipes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MinIO",
+			"source": {
+				"host": "github",
+				"path": "minio/minio",
+				"url": "https://github.com/minio/minio"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Archived upstream. The standard self-hosted S3-compatible object store, erasure-coded, with web console and OIDC — but object-store, not folder sync: you need S3 clients or mc CLI, and sharing links are missing.",
+				"fr": "Projet archivé. Le standard autohébergé du stockage objet S3 : console web, OIDC, erasure coding — mais objet, pas dossiers : il faut un client S3 ou le CLI mc, sans liens de partage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Filestash",
+			"source": {
+				"host": "github",
+				"path": "mickael-kerjean/filestash",
+				"url": "https://github.com/mickael-kerjean/filestash"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "A browser gateway, not a store: it turns S3, SFTP, WebDAV and FTP backends into a Dropbox-like UI with previews, share links and plugins. No sync or desktop clients; small maintainer team.",
+				"fr": "Passerelle navigateur, pas un stockage : S3, SFTP, WebDAV et FTP deviennent une UI façon Dropbox, avec aperçus, liens de partage et plugins. Ni sync ni clients desktop ; équipe de maintenance réduite."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SFTPGo",
+			"source": {
+				"host": "github",
+				"path": "drakkan/sftpgo",
+				"url": "https://github.com/drakkan/sftpgo"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Production-grade SFTP, FTPS, S3 and WebDAV server with a web admin, quotas, OIDC and 2FA — your own private file-access layer, but protocol-oriented: no desktop or mobile apps, admin UX over consumer UX.",
+				"fr": "Serveur SFTP, FTPS, S3 et WebDAV de niveau production : admin web, quotas, OIDC et 2FA — orienté protocole, pas une drive grand public : sans apps desktop ni mobile, une UX d’admin avant tout."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Cloudreve",
+			"source": {
+				"host": "github",
+				"path": "cloudreve/cloudreve",
+				"url": "https://github.com/cloudreve/cloudreve"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Multi-user self-hosted drive with share links, transfer tasks, OSS/S3/WebDAV backends and speed limits. No official sync or mobile clients, effectively one maintainer, and documentation is largely Chinese-first.",
+				"fr": "Drive autohébergé multi-utilisateur : liens de partage, tâches de transfert, backends OSS/S3/WebDAV et limite de débit. Pas de clients sync ni mobile officiels, un mainteneur quasi unique et une doc largement en chinois."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pydio Cells",
+			"source": {
+				"host": "github",
+				"path": "pydio/cells",
+				"url": "https://github.com/pydio/cells"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "True Dropbox-style platform: native sync clients on Win/Mac/Linux, Android and iOS apps, team sharing, WebDAV and REST — heavier than a single binary, smaller community than Nextcloud, enterprise tier paid open-core.",
+				"fr": "Vraie plateforme façon Dropbox : clients de sync natifs, apps Android et iOS, partage d’équipe, WebDAV et REST. Plus lourde qu’un binaire unique, communauté plus petite que Nextcloud, niveau entreprise en open-core payant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise tier",
+					"fr": "Niveau entreprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PicoShare",
+			"source": {
+				"host": "github",
+				"path": "mtlynch/picoshare",
+				"url": "https://github.com/mtlynch/picoshare"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Upload-and-share links that expire, in a tiny single binary with one-command setup. Single-user only — no accounts, no sync or desktop apps, so not a full personal drive.",
+				"fr": "Liens de partage à expiration, dans un binaire unique minuscule, installé en une commande. Mono-utilisateur : ni comptes, ni sync, ni apps desktop — pas un vrai drive personnel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "rclone",
+			"source": {
+				"host": "github",
+				"path": "rclone/rclone",
+				"url": "https://github.com/rclone/rclone"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "CLI Swiss-army knife: sync, copy and FUSE-mount across 40+ backends with client-side encryption — Dropbox-style sync without the lock-in. But a tool, not a service: no UI, no multi-user; continuous sync means scripting.",
+				"fr": "Couteau suisse en CLI : sync, copie, montage FUSE sur 40+ backends, chiffrement côté client. Pas un service hébergé multi-utilisateur : pas d’UI, et la sync continue exige du script."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kopia",
+			"source": {
+				"host": "github",
+				"path": "kopia/kopia",
+				"url": "https://github.com/kopia/kopia"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Fast encrypted snapshot backups with content-addressed dedup, plus a desktop app and web UI, targeting S3, local disk or WebDAV. Backup-only: no sharing, sync or mobile apps — and you manage the repo.",
+				"fr": "Sauvegardes chiffrées par snapshots, dédup adressée par contenu, app desktop et web UI vers S3, local ou WebDAV. Sauvegarde seule : pas de partage, sync ni apps mobile — dépôt à gérer soi-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Restic",
+			"source": {
+				"host": "github",
+				"path": "restic/restic",
+				"url": "https://github.com/restic/restic"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Battle-tested encrypted incremental backups to S3, SFTP or WebDAV, with solid dedup and fast restore. CLI only — no web or desktop UI, no multi-user, and it backs up rather than syncs.",
+				"fr": "Sauvegardes incrémentales chiffrées et éprouvées vers S3, SFTP ou WebDAV, dédup solide et restauration rapide. CLI uniquement : pas d’UI ni de multi-utilisateur, et c’est une sauvegarde, pas de la sync."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "BorgBackup",
+			"source": {
+				"host": "github",
+				"path": "borgbackup/borg",
+				"url": "https://github.com/borgbackup/borg"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Mature deduplicating backup with encrypted, FUSE-mountable archives and space-efficient storage. POSIX-only — no native Windows — and it is a backup tool, not a sharing drive: no web UI.",
+				"fr": "Sauvegarde dédupliquée et mature, archives chiffrées montables via FUSE, peu d’espace utilisé. POSIX uniquement — pas de Windows natif — et c’est un outil de sauvegarde, pas un drive de partage : pas d’UI web."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Duplicati",
+			"source": {
+				"host": "github",
+				"path": "duplicati/duplicati",
+				"url": "https://github.com/duplicati/duplicati"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Aging codebase and a dated UI, but scheduled AES-encrypted backups to S3, cloud, WebDAV or SFTP from a tray app with a browser UI. Backup, not live sync, and no mobile client.",
+				"fr": "Code vieillissant, UI datée, mais sauvegardes AES chiffrées et planifiées vers S3, cloud, WebDAV ou SFTP via une app de tray à UI navigateur. Sauvegarde, pas de sync live, ni client mobile."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

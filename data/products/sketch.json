@@ -82,6 +82,174 @@
 				"en": "Free, opens .sketch files natively, and runs on Windows and Linux too. Closed source and Icons8 wants you in their asset ecosystem.",
 				"fr": "Gratuit, ouvre nativement les fichiers .sketch, et fonctionne aussi sous Windows et Linux. Code fermé, et Icons8 veut vous garder dans son écosystème d’assets."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Inkscape",
+			"source": {
+				"host": "gitlab",
+				"path": "inkscape/inkscape",
+				"url": "https://gitlab.com/inkscape/inkscape"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The OSS staple for SVG production, with a full CLI export/convert toolchain. But the UI is dense and dated, and it won't do prototyping, shared libraries, or real collaboration.",
+				"fr": "Le pilier open source de la production SVG, avec une chaîne CLI complète d’export et de conversion. L’interface est dense et datée, et point de prototypage ni de bibliothèques partagées."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Excalidraw",
+			"source": {
+				"host": "github",
+				"path": "excalidraw/excalidraw",
+				"url": "https://github.com/excalidraw/excalidraw"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Fully self-hostable whiteboard for the hand-drawn sketch side of design, with real-time collaboration and e2e-encrypted scenes. No component workflow, and styling precision stays well below Sketch.",
+				"fr": "Tableau blanc auto-hébergeable pour le côté croquis du design, collaboration temps réel et chiffrement de bout en bout inclus. Pas de flux composants ; précision stylistique bien en deçà de Sketch."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SVG-Edit",
+			"source": {
+				"host": "github",
+				"path": "SVG-Edit/svgedit",
+				"url": "https://github.com/SVG-Edit/svgedit"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Feature set stays basic — no prototypes, collaboration or versioning — but the zero-install SVG editor self-hosts from static files and is multi-language and embeddable.",
+				"fr": "L’ensemble reste basique — pas de prototype, ni collaboration, ni versionnage — mais l’éditeur SVG zéro installation s’héberge depuis des fichiers statiques, multilingue et intégrable."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GrapesJS",
+			"source": {
+				"host": "github",
+				"path": "GrapesJS/grapesjs",
+				"url": "https://github.com/GrapesJS/grapesjs"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Drag-and-drop web page builder you self-host, usable as a library or standalone, with a component system and HTML/CSS export. Aimed at pages, not UI tooling — real power needs code.",
+				"fr": "Constructeur de pages web par glisser-déposer, auto-hébergeable, avec système de composants et export HTML/CSS. Fait pour des pages, pas de l’outillage UI ; la pleine puissance demande du code."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pixelorama",
+			"source": {
+				"host": "github",
+				"path": "Orama-Interactive/Pixelorama",
+				"url": "https://github.com/Orama-Interactive/Pixelorama"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "More illustration than UI design — a Godot-based open editor for pixel art, vectors and animation frames with non-destructive layers. No prototyping, no collaboration, and a small community.",
+				"fr": "Plus illustration que conception d’interface — un éditeur libre basé sur Godot pour pixel art, vecteurs et animation, calques non destructifs. Pas de prototypage, ni collaboration, communauté restreinte."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SVGO",
+			"source": {
+				"host": "github",
+				"path": "svg/svgo",
+				"url": "https://github.com/svg/svgo"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The standard CLI optimizer for design-to-production SVG cleanup, plugin-based with presets, at home in CI and build steps. No editor behind it — and careless config can change what renders.",
+				"fr": "L’optimiseur CLI de référence pour nettoyer les SVG entre design et production, plugins et presets compris, taillé pour la CI. Pas d’interface d’édition ; une config négligée peut changer le rendu."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "resvg",
+			"source": {
+				"host": "github",
+				"path": "linebender/resvg",
+				"url": "https://github.com/linebender/resvg"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Rust SVG renderer that turns designs into PNG/PDF in pipelines — tiny, fast, near-complete SVG support, usable as a library or CLI. Pure rendering: no editor, no SVG scripting.",
+				"fr": "Rendu SVG en Rust, minuscule et rapide, support quasi complet, en CLI ou bibliothèque — transforme les designs en PNG/PDF dans les pipelines. Rendu pur : pas d’édition, ni scripting SVG."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CairoSVG",
+			"source": {
+				"host": "github",
+				"path": "Kozea/CairoSVG",
+				"url": "https://github.com/Kozea/CairoSVG"
+			},
+			"license": "LGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Partial SVG coverage and a Cairo dependency, but a pip-installable Python CLI and library that turn SVG into PDF/PNG/PS — handy for batch asset generation.",
+				"fr": "Couverture SVG partielle et dépendance à Cairo, mais un CLI et une bibliothèque Python installables via pip qui transforment le SVG en PDF/PNG/PS — pratiques pour générer des assets en lot."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

@@ -101,6 +101,153 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "GLPI",
+			"source": {
+				"host": "github",
+				"path": "glpi-project/glpi",
+				"url": "https://github.com/glpi-project/glpi"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The strongest community of the bunch, pairing battle-tested asset inventory with ITIL work orders, REST API and official mobile apps. Its ITSM framing and field-service jargon sit awkwardly on technician workflows.",
+				"fr": "La plus grosse communauté du lot : inventaire d’actifs et ordres de travail ITIL éprouvés, API REST et apps mobiles. Cadrage ITSM et jargon terrain qui collent mal aux flux technicien."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ERPNext",
+			"source": {
+				"host": "github",
+				"path": "frappe/erpnext",
+				"url": "https://github.com/frappe/erpnext"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Mature ERP with asset registers, maintenance schedules and work-order modules under a huge community. Real ops work: bench-based cluster deployment, and far more scope than a focused CMMS.",
+				"fr": "ERP mûr avec registre d’actifs, plannings de maintenance et modules d’ordre de travail, énorme communauté. Déploiement cluster par bench : vrai travail d’exploitation, et périmètre bien plus large qu’un CMMS ciblé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dolibarr",
+			"source": {
+				"host": "github",
+				"path": "Dolibarr/dolibarr",
+				"url": "https://github.com/Dolibarr/dolibarr"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight ERP whose asset and intervention modules run on modest hardware. The work-order side stays simpler than a dedicated CMMS, and reporting trails UpKeep.",
+				"fr": "ERP léger dont les modules actifs et interventions tournent sur du matériel modeste. Suivi des ordres de travail plus simple qu’un CMMS dédié, rapports moins riches qu’UpKeep."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "osTicket",
+			"source": {
+				"host": "github",
+				"path": "osTicket/osTicket",
+				"url": "https://github.com/osTicket/osTicket"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Email-driven ticket intake, SLAs, queues and canned responses that non-technical crews actually adopt. No asset register or preventive-maintenance scheduling, and nothing field-service specific.",
+				"fr": "Tickets par e-mail, SLA, files d’attente et réponses pré-enregistrées que les équipes non techniques adoptent vraiment. Ni registre d’actifs, ni maintenance préventive, ni rien de spécifique au terrain."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenSupports",
+			"source": {
+				"host": "github",
+				"path": "opensupports/opensupports",
+				"url": "https://github.com/opensupports/opensupports"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Clean self-hosted ticketing for work-order intake and technician dispatch, with a user portal and official mobile apps. Unmaintained since April 2024 — two dormant years and counting.",
+				"fr": "Ticketing self-hosted propre pour l’entrée des ordres de travail et la répartition entre techniciens, avec portail utilisateur et apps mobiles officielles. Plus de commit depuis avril 2024 : deux ans de dormance."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Neatlogic ITSM",
+			"source": {
+				"host": "github",
+				"path": "neatlogic/neatlogic-itsm",
+				"url": "https://github.com/neatlogic/neatlogic-itsm"
+			},
+			"license": "AGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "The heaviest of the picks to host — a multi-service Java stack — built for work-order routing, SLAs and approval chains. No mobile app, and it targets IT operations more than field crews.",
+				"fr": "Le plus lourd à héberger du lot — pile Java multi-services — fait pour la distribution des ordres de travail, SLA et chaînes d’approbation. Pas d’app mobile, et tourné exploitation IT plutôt que terrain."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Taskwarrior",
+			"source": {
+				"host": "github",
+				"path": "GothenburgBitFactory/taskwarrior",
+				"url": "https://github.com/GothenburgBitFactory/taskwarrior"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Offline-first CLI task manager with due dates, dependencies and recurring jobs for preventive maintenance, synced via Taskserver. No asset database, no forms or photos — text-first, and steep for non-technical crews.",
+				"fr": "CLI hors-ligne d’abord : échéances, dépendances et tâches récurrentes pour la maintenance préventive, synchronisé via Taskserver. Pas de base d’actifs ni de formulaires ou photos, et rude pour les équipes non techniques."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

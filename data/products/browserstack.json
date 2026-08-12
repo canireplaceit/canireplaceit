@@ -82,6 +82,258 @@
 				"en": "Same real-device model at roughly half the price with a usable free tier. Smaller device catalogue and the flakiness reports are less good.",
 				"fr": "Même modèle d’appareils réels à environ la moitié du prix, avec un palier gratuit exploitable. Catalogue d’appareils plus réduit et rapports d’instabilité moins bons."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Cypress",
+			"source": {
+				"host": "github",
+				"path": "cypress-io/cypress",
+				"url": "https://github.com/cypress-io/cypress"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Time-travel debugging with live DOM snapshots is the standout; it runs headless in CI. Firefox/WebKit support lags, and parallel runs need the paid Cypress Cloud.",
+				"fr": "Son atout : le voyage dans le temps avec instantanés du DOM. Il tourne headless en CI ; le support Firefox/WebKit est en retard, le parallélisme passe par le cloud payant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "WebdriverIO",
+			"source": {
+				"host": "github",
+				"path": "webdriverio/webdriverio",
+				"url": "https://github.com/webdriverio/webdriverio"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Runs the full WebDriver protocol against any Selenium-compatible grid or real browser, with hundreds of plugins. Costs more boilerplate and config than all-in-one runners, and there is no built-in dashboard.",
+				"fr": "Protocole WebDriver complet, valable sur tout grid compatible Selenium ou vrai navigateur, avec des centaines de plugins. Le revers : plus de boilerplate et de config, pas de tableau de bord intégré."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "TestCafe",
+			"source": {
+				"host": "github",
+				"path": "DevExpress/testcafe",
+				"url": "https://github.com/DevExpress/testcafe"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Drives browsers directly, no WebDriver or plugins, with smart waits and a debug REPL. Trade: smaller ecosystem and fewer integrations than Cypress, and parallel execution is CLI flags only.",
+				"fr": "Pilote les navigateurs sans WebDriver ni plugin, avec attentes intelligentes et REPL de débogage. En contrepartie : écosystème plus petit que Cypress, et le parallélisme passe par des flags CLI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nightwatch",
+			"source": {
+				"host": "github",
+				"path": "nightwatchjs/nightwatch",
+				"url": "https://github.com/nightwatchjs/nightwatch"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Mature WebDriver-based framework with built-in assertions, parallel workers and rerun-failed support, plus Appium mobile. You manage browsers and grid yourself, and mindshare is smaller than Cypress.",
+				"fr": "Framework WebDriver mature : assertions intégrées, exécution parallèle, relance des échecs, mobile via Appium. Vous gérez navigateurs et grid vous-même, et sa notoriété reste derrière Cypress."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Karma",
+			"source": {
+				"host": "github",
+				"path": "karma-runner/karma",
+				"url": "https://github.com/karma-runner/karma"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Launches real browsers, not a mock DOM, for unit and component tests, headless in CI via ChromiumHeadless. It is not a full E2E runner and wants more config than modern runners.",
+				"fr": "Lance de vrais navigateurs plutôt qu’un DOM factice, pour tests unitaires et de composants, headless en CI via ChromiumHeadless. Pas un runner E2E complet, et plus de config que les runners modernes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Puppeteer",
+			"source": {
+				"host": "github",
+				"path": "puppeteer/puppeteer",
+				"url": "https://github.com/puppeteer/puppeteer"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Chrome DevTools Protocol control of Chromium as a CLI and library, for headless screenshots, PDFs and scraping. Chromium only, no Firefox/WebKit via the core API, and you build the orchestration.",
+				"fr": "Contrôle de Chromium via le protocole DevTools, en CLI ou en bibliothèque : captures headless, PDF, scraping. Chromium uniquement, pas de Firefox/WebKit dans l’API de base, et vous montez l’orchestration."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Appium",
+			"source": {
+				"host": "github",
+				"path": "appium/appium",
+				"url": "https://github.com/appium/appium"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The WebDriver protocol for native, hybrid and web mobile apps, self-hosted to drive emulators, simulators and real devices. Owning a real device matrix is on you, and setup is involved.",
+				"fr": "Le protocole WebDriver du mobile : natif, hybride, web, en self-hosted pour émulateurs, simulateurs et vrais appareils. La flotte de vrais terminaux vous appartient, et la config des drivers reste touffue."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Maestro",
+			"source": {
+				"host": "github",
+				"path": "mobile-dev-inc/Maestro",
+				"url": "https://github.com/mobile-dev-inc/Maestro"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Mobile UI tests (iOS and Android) as plain YAML flows, single-binary CLI, no build step. Not a general browser matrix, and real-device farms still need the hardware.",
+				"fr": "Des flows UI mobiles (iOS et Android) en YAML, binaire unique, aucun build à préparer. Pas une matrice navigateurs, et les fermes de vrais appareils demandent toujours le matériel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Browserless",
+			"source": {
+				"host": "github",
+				"path": "browserless/browserless",
+				"url": "https://github.com/browserless/browserless"
+			},
+			"license": "SSPL-1.0",
+			"effort": "managed",
+			"note": {
+				"en": "Self-hosted headless browser pool with sessions API and Docker scaling — an in-house browser cloud. SSPL-1.0 forces a paid licence for closed-source consumers, and you run the instances.",
+				"fr": "Pool self-hosted de navigateurs headless, API de sessions, scaling Docker : un browser cloud maison. La SSPL-1.0 impose une licence payante aux consommateurs propriétaires, et vous opérez les instances."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Selenoid",
+			"source": {
+				"host": "github",
+				"path": "aerokube/selenoid",
+				"url": "https://github.com/aerokube/selenoid"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Archived upstream. Dockerized Selenium grid that spawns browser containers on demand with live session video; forks carry it forward, and you operate browser images and hosts.",
+				"fr": "Archivé en amont. Grid Selenium dockerisée, conteneurs navigateurs à la demande et vidéo de session en direct ; les forks prennent le relais, images et hôtes restent à votre charge."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Zalenium",
+			"source": {
+				"host": "github",
+				"path": "zalando/zalenium",
+				"url": "https://github.com/zalando/zalenium"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Archived and dormant since 2021. Docker grid that scales Selenium and Appium sessions with live preview, on compose or Kubernetes. Custom Apache-2.0 adds fork and data-collection terms.",
+				"fr": "Archivé, sans commit depuis 2021. Grid Docker qui scale les sessions Selenium et Appium avec aperçu en direct ; l’Apache-2.0 modifié ajoute des clauses sur forks et collecte de données."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "STF (Smartphone Test Farm)",
+			"source": {
+				"host": "github",
+				"path": "openstf/stf",
+				"url": "https://github.com/openstf/stf"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Three years dormant, no commit since 2023-05-31. A browser-controlled farm of real Android devices, the closest open answer to a live device lab. You buy and rack the devices; no iOS.",
+				"fr": "Trois ans sans commit (mai 2023). Une ferme d’appareils Android réels pilotée depuis le navigateur, la réponse ouverte la plus proche d’un lab d’appareils en direct. Matériel à vos frais ; pas d’iOS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

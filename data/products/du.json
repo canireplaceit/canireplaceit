@@ -1,0 +1,286 @@
+{
+	"slug": "du",
+	"name": "du",
+	"domain": null,
+	"category": "shell-terminal",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "Yes, but only when you can install something. du is on every machine and works on bare shells; the alternatives are better for the daily question — what is eating my disk — at the cost of not always being available.",
+		"fr": "Oui, à condition de pouvoir installer quelque chose. du est présent partout et fonctionne sur un shell nu ; les alternatives répondent mieux à la question quotidienne — qu’est-ce qui mange mon disque — au prix de ne pas toujours être disponibles."
+	},
+	"whatYouLose": [
+		{
+			"en": "Presence on every machine",
+			"fr": "La présence sur toutes les machines"
+		},
+		{
+			"en": "Muscle memory for the flags",
+			"fr": "La mémoire des drapeaux"
+		},
+		{
+			"en": "Reliability on bare shells",
+			"fr": "Le fonctionnement sur shell nu"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "dust",
+			"source": {
+				"host": "github",
+				"path": "bootandy/dust",
+				"url": "https://github.com/bootandy/dust"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Sorted tree with bar graphs; biggest offenders at a glance. Trade-off: no interaction, only a better printout.",
+				"fr": "Arborescence triée avec barres ; les gros consommateurs se repèrent d’un coup d’œil. En échange : aucune interaction, juste un affichage amélioré."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gdu",
+			"source": {
+				"host": "github",
+				"path": "dundee/gdu",
+				"url": "https://github.com/dundee/gdu"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Interactive and parallel-scanning, made for SSDs; you can delete from inside it. Trade-off: another tool you must keep installed.",
+				"fr": "Interactif, scan parallèle pensé pour les SSD ; suppression possible depuis l’interface. En échange : un outil de plus à installer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ncdu",
+			"source": {
+				"host": "other",
+				"path": "yorhel/ncdu",
+				"url": "https://dev.yorhel.nl/ncdu"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The classic ncurses browser, packaged everywhere and graceful over ssh. Trade-off: ncurses UI on a remote session.",
+				"fr": "Le navigateur ncurses classique, empaqueté partout et confortable en ssh. En échange : une interface ncurses en session distante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dua-cli",
+			"source": {
+				"host": "github",
+				"path": "Byron/dua-cli",
+				"url": "https://github.com/Byron/dua-cli"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Rust du with a polished interactive TUI, parallel scanning, regex ignore and file-type aggregation. Heavier than ncdu on small trees, and the CLI output churns between releases.",
+				"fr": "du en Rust avec TUI interactif soigné, scan parallèle, ignore par regex et agrégation par type de fichier. Plus lourd que ncdu sur petits arbres, et la sortie CLI bouge entre versions."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "diskonaut",
+			"source": {
+				"host": "github",
+				"path": "imsnif/diskonaut",
+				"url": "https://github.com/imsnif/diskonaut"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Animated treemap TUI — the closest terminal gets to a GUI disk map, with zoom and in-UI deletion. Dormant since early 2024, and no scan caching or exports.",
+				"fr": "Treemap animé en TUI, l’expérience terminal la plus proche d’une carte graphique du disque, avec zoom et suppression depuis l’interface. Dormant depuis début 2024, sans cache de scan ni export."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dutree",
+			"source": {
+				"host": "github",
+				"path": "nachoparker/dutree",
+				"url": "https://github.com/nachoparker/dutree"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Instant ASCII colour treemap with per-file-type aggregation — the fastest shell one-liner for what a filesystem is made of. Dormant since 2022, and non-interactive.",
+				"fr": "Treemap ASCII couleur instantané avec agrégation par type de fichier : la ligne de commande la plus rapide pour voir la composition d’un disque. Dormant depuis 2022, sans mode interactif."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "duviz",
+			"source": {
+				"host": "github",
+				"path": "soxofaan/duviz",
+				"url": "https://github.com/soxofaan/duviz"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Tiny pure-Python CLI that prints a full-width terminal treemap — easy to embed in scripts and CI. Dormant since 2024, and slower than native du on huge trees.",
+				"fr": "Petit CLI 100 % Python qui affiche un treemap pleine largeur, facile à embarquer dans des scripts ou du CI. Dormant depuis 2024, plus lent que du natif sur les gros disques."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "btdu",
+			"source": {
+				"host": "github",
+				"path": "CyberShadow/btdu",
+				"url": "https://github.com/CyberShadow/btdu"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Sampling-based TUI profiler that stays fast on huge filesystems by sampling instead of walking — sizes are statistical, not exact. btrfs-aware, runs on Windows and Linux.",
+				"fr": "Profileur TUI à échantillonnage, rapide même sur d’énormes volumes en évitant le parcours complet — mais les tailles restent statistiques, pas exactes. Compatible btrfs, Windows et Linux."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "duc",
+			"source": {
+				"host": "github",
+				"path": "zevv/duc",
+				"url": "https://github.com/zevv/duc"
+			},
+			"license": "LGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "C library plus CLI/TUI/CGI that indexes scans into a database, so repeated queries are fast after one full scan. The database adds operational complexity and the UX shows its age.",
+				"fr": "Bibliothèque C plus CLI/TUI/CGI qui indexe les scans dans une base, rendant les requêtes répétées rapides après un premier balayage. La base ajoute de la complexité et l’UX date."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "diskover-community",
+			"source": {
+				"host": "github",
+				"path": "diskoverdata/diskover-community",
+				"url": "https://github.com/diskoverdata/diskover-community"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Elasticsearch-backed web dashboard for file analytics, search and duplicate-finding across whole fleets of machines. Heavy ELK stack, and overkill for a single machine.",
+				"fr": "Tableau de bord web adossé à Elasticsearch pour l’analyse, la recherche et la détection de doublons à l’échelle d’une flotte de machines. Stack ELK lourde, surdimensionnée pour une machine isolée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Paid tier: minor extras",
+					"fr": "Édition payante : extras mineurs"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "WinDirStat",
+			"source": {
+				"host": "gitlab",
+				"path": "windirstat/windirstat",
+				"url": "https://gitlab.com/windirstat/windirstat"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The canonical Windows GUI du: whole-drive treemap with per-file drill-down, still maintained after its community revival. Windows only, no CLI or TUI.",
+				"fr": "Le du en GUI Windows par excellence : treemap de tout le disque avec navigation fichier par fichier, toujours maintenu depuis sa reprise communautaire. Windows uniquement, sans CLI ni TUI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "QDirStat",
+			"source": {
+				"host": "github",
+				"path": "shundhammer/qdirstat",
+				"url": "https://github.com/shundhammer/qdirstat"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Qt successor to KDirStat: cross-platform GUI with treemaps, cleanup actions and MIME-type awareness. GUI only with a Qt runtime dependency, and slow initial scans on huge trees.",
+				"fr": "Successeur Qt de KDirStat : GUI multiplateforme avec treemaps, actions de nettoyage et conscience des types MIME. GUI uniquement, dépend du runtime Qt, scan initial lent sur les gros arbres."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 3
+}

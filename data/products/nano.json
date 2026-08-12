@@ -1,0 +1,198 @@
+{
+	"slug": "nano",
+	"name": "GNU nano",
+	"domain": "nano-editor.org",
+	"category": "shell-terminal",
+	"priceMonthly": null,
+	"pricing": null,
+	"verdict": "yes",
+	"why": {
+		"en": "Yes, with a caveat. micro keeps the no-manual promise and adds real conveniences, but it must be installed first, while nano is already on every machine. Honest verdict: switch only if you will actually use the extras.",
+		"fr": "Oui, à une condition. micro tient la promesse du zéro prise en main et ajoute de vrais conforts, mais il faut l’installer alors que nano est déjà présent sur chaque machine. Verdict honnête : ne le remplacez que si vous utilisez vraiment ses extras."
+	},
+	"whatYouLose": [
+		{
+			"en": "A binary on every machine",
+			"fr": "Un binaire présent partout"
+		},
+		{
+			"en": "Keybindings you already know",
+			"fr": "Des raccourcis déjà mémorisés"
+		},
+		{
+			"en": "The zero-install rescue editor",
+			"fr": "L’éditeur de secours sans installation"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "micro",
+			"source": {
+				"host": "github",
+				"path": "micro-editor/micro",
+				"url": "https://github.com/micro-editor/micro"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Keeps the no-manual promise with ctrl-c/ctrl-v that behaves, mouse support, syntax highlighting, multiple cursors and plugins, but it is a single Go binary you must install yourself.",
+				"fr": "Tient la promesse du zéro prise en main avec un ctrl-c/ctrl-v qui fonctionne, le support de la souris, la coloration syntaxique, plusieurs curseurs et des plugins, mais c’est un binaire Go unique qu’il faut installer soi-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "helix",
+			"source": {
+				"host": "github",
+				"path": "helix-editor/helix",
+				"url": "https://github.com/helix-editor/helix"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Modal Rust editor with LSP, formatting, and diagnostics out of the box. Multiple cursors handle refactors; config is TOML and plugins are still experimental. No nano-style menus.",
+				"fr": "Éditeur modal Rust avec LSP, formatage et diagnostics par défaut. Multi-sélection pour refactorer ; config TOML, plugins encore expérimentaux. Pas de menus façon nano."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "neovim",
+			"source": {
+				"host": "github",
+				"path": "neovim/neovim",
+				"url": "https://github.com/neovim/neovim"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Vim-compatible editor with embedded Lua and the largest plugin ecosystem. Runs anywhere vim does, headless included, at the cost of a steep modal curve and a configuration culture.",
+				"fr": "Éditeur compatible vim, Lua embarqué, plus gros écosystème de plugins. Tourne partout où vim tourne, headless compris, au prix d’une courbe modale raide et d’une culture de la config."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "vim",
+			"source": {
+				"host": "github",
+				"path": "vim/vim",
+				"url": "https://github.com/vim/vim"
+			},
+			"license": "Vim",
+			"effort": "managed",
+			"note": {
+				"en": "The terminal editor that ships with virtually every Unix. Modal editing and cryptic commands baffle beginners, and LSP needs plugins — but it is always already there.",
+				"fr": "L’éditeur terminal présent sur pratiquement tous les Unix. Les commandes modales et cryptiques rebutent les débutants, et le LSP exige des plugins — mais il est toujours déjà là."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "vis",
+			"source": {
+				"host": "github",
+				"path": "martanne/vis",
+				"url": "https://github.com/martanne/vis"
+			},
+			"license": "ISC",
+			"effort": "managed",
+			"note": {
+				"en": "Lightweight vi-like editor with native multiple cursors and Lua plugins, staying close to libcurses. The community is small and Windows support is spotty and unofficial.",
+				"fr": "Éditeur style vi léger : curseurs multiples natifs et plugins Lua, au plus près de libcurses. Communauté réduite, support Windows incertain et non officiel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "kakoune",
+			"source": {
+				"host": "github",
+				"path": "mawww/kakoune",
+				"url": "https://github.com/mawww/kakoune"
+			},
+			"license": "Unlicense",
+			"effort": "managed",
+			"note": {
+				"en": "Modal editor built around selections as a first-class primitive. Keybindings invert vim’s philosophy and will confuse vim users; the plugin ecosystem stays small.",
+				"fr": "Éditeur modal fondé sur les sélections comme primitive de premier ordre. Les raccourcis inversent la philosophie de vim et dérouteront ses habitués ; l’écosystème de plugins reste mince."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "emacs",
+			"source": {
+				"host": "github",
+				"path": "emacs-mirror/emacs",
+				"url": "https://github.com/emacs-mirror/emacs"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Turing-complete Lisp editor: org-mode, magit, and thousands of packages in one terminal/GUI codebase. A paradigm shift with memory and startup far beyond nano.",
+				"fr": "Éditeur Lisp Turing-complet : org-mode, magit, des milliers de paquets dans un même codebase terminal/GUI. Changement de paradigme, avec mémoire et démarrage bien au-delà de nano."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "joe",
+			"source": {
+				"host": "github",
+				"path": "joe-editor/joe",
+				"url": "https://github.com/joe-editor/joe"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "WordStar/pico keybindings in wordstar, jmacs, and pico emulation modes — gentle for ex-nano users. The community is much smaller and there is no native LSP.",
+				"fr": "Les raccourcis WordStar/pico, avec les modes wordstar, jmacs et pico, adoucissent le passage depuis nano. Communauté bien plus petite, pas de LSP natif."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	],
+	"priority": 1
+}

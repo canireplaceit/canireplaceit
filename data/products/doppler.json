@@ -107,6 +107,132 @@
 				"en": "The same open source product hosted by its authors, with a free tier that covers small teams entirely. Smaller company, fewer enterprise integrations.",
 				"fr": "Le même produit open source hébergé par ses auteurs, avec un palier gratuit qui couvre entièrement les petites équipes. Société plus petite, moins d’intégrations entreprise."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "External Secrets Operator",
+			"source": {
+				"host": "github",
+				"path": "external-secrets/external-secrets",
+				"url": "https://github.com/external-secrets/external-secrets"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Kubernetes-native: reconciles Secrets from 30+ providers, Vault and Doppler included, with automatic rotation. Pure sync layer — no UI or team access; you still need an upstream source.",
+				"fr": "Natif Kubernetes : resynchronise les Secrets depuis 30+ fournisseurs, Vault et Doppler compris, rotation automatique incluse. Couche de sync pure — pas d’interface ni de contrôle d’accès, il faut toujours une source en amont."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Sealed Secrets",
+			"source": {
+				"host": "github",
+				"path": "bitnami/sealed-secrets",
+				"url": "https://github.com/bitnami/sealed-secrets"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Encrypt Secrets into git-safe CRDs; the operator unseals them in-cluster. One-way static sealing, one simple component. No rotation or dynamic secrets, Kubernetes only.",
+				"fr": "Chiffre les Secrets dans des CRD sûres pour git, déverrouillées dans le cluster par l’operator. Scellement statique à sens unique, un composant simple. Pas de rotation ni de secrets dynamiques, Kubernetes uniquement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gopass",
+			"source": {
+				"host": "github",
+				"path": "gopasspw/gopass",
+				"url": "https://github.com/gopasspw/gopass"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Mature GPG-over-git store: CLI, TUI, browser extension, team sync via remotes. Costs GPG key discipline and DIY git setup — no central audit, no dynamic secrets.",
+				"fr": "Coffre GPG sur git, mûr : CLI, TUI, extension navigateur, partage d’équipe via remotes. Coût : discipline GPG et montage git maison — pas d’audit central, pas de secrets dynamiques."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "git-secret",
+			"source": {
+				"host": "github",
+				"path": "sobolevn/git-secret",
+				"url": "https://github.com/sobolevn/git-secret"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "GPG-encrypt files straight in the repo, whitelist users per file, CI-friendly, no server. Manual key trust, no rotation or audit, file-level rather than key-value.",
+				"fr": "Chiffre des fichiers GPG dans le repo, liste blanche d’utilisateurs par fichier, compatible CI, aucun serveur. Confiance manuelle dans les clés, pas de rotation ni d’audit, par fichier et non par clé-valeur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "teller",
+			"source": {
+				"host": "github",
+				"path": "tellerops/teller",
+				"url": "https://github.com/tellerops/teller"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "One .teller.yml reads dev/prod from Doppler, Vault, AWS, GCP — easing vendor migration. CLI only: storage stays with a backing provider, velocity trails Doppler.",
+				"fr": "Un seul .teller.yml lit dev/prod chez Doppler, Vault, AWS, GCP — facile pour changer de fournisseur. CLI uniquement : le stockage reste chez un fournisseur sous-jacent, le rythme suit moins Doppler."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "chamber",
+			"source": {
+				"host": "github",
+				"path": "segmentio/chamber",
+				"url": "https://github.com/segmentio/chamber"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Exports env from AWS SSM and Secrets Manager with KMS encryption and parameter history. Firmly AWS-only — portable nowhere else, AWS console for a UI.",
+				"fr": "Exporte l’env depuis AWS SSM et Secrets Manager, chiffrement KMS et historique des paramètres. Résolument AWS-only — non portable ailleurs, la console AWS tient lieu d’interface."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

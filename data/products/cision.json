@@ -101,6 +101,182 @@
 				"en": "A real media database and pitching workflow at a fraction of a Cision contract. Smaller database, no newswire.",
 				"fr": "Une vraie base média et un flux de pitch pour une fraction d’un contrat Cision. Base plus petite, pas de fil de presse."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mautic",
+			"source": {
+				"host": "github",
+				"path": "mautic/mautic",
+				"url": "https://github.com/mautic/mautic"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The open-source marketing-automation half of Cision: campaigns, segments, email and lead scoring. No journalist database or distribution network, and a PHP stack with a real production footprint.",
+				"fr": "La moitié marketing automation open source de Cision : campagnes, segments, e-mail, lead scoring. Sans base journalistes ni réseau de diffusion ; stack PHP lourde en production."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Miniflux",
+			"source": {
+				"host": "github",
+				"path": "miniflux/v2",
+				"url": "https://github.com/miniflux/v2"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Tiny single-Go-binary RSS reader for press feeds. Very low resource use and a fast, keyboard-driven interface. Costs you social and broadcast coverage, and sentiment or impact metrics.",
+				"fr": "Lecteur RSS minimaliste, un seul binaire Go, pour suivre les flux presse. Très faible consommation de ressources, interface rapide pilotée au clavier. Reste sans couverture sociale ou broadcast, ni métriques d’impact."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Newsboat",
+			"source": {
+				"host": "github",
+				"path": "newsboat/newsboat",
+				"url": "https://github.com/newsboat/newsboat"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Terminal RSS aggregator for headless media-monitoring sessions over SSH, scriptable via macros and systemd hooks. Text-only, no discovery or analytics, and you maintain the source lists yourself.",
+				"fr": "Agrégateur RSS en terminal pour des sessions de veille headless en SSH, scriptable par macros et hooks systemd. Texte seul, sans découverte ni analytics ; à vous de tenir les listes de sources."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "RSS-Bridge",
+			"source": {
+				"host": "github",
+				"path": "RSS-Bridge/rss-bridge",
+				"url": "https://github.com/RSS-Bridge/rss-bridge"
+			},
+			"license": "Unlicense",
+			"effort": "docker",
+			"note": {
+				"en": "Turns feed-less sites, news and social, into RSS for FreshRSS and the like, via 500+ bridges. Bridges break when targets change, scraping can breach ToS, and there is no analytics or alerting.",
+				"fr": "Transforme les sites sans flux (presse, réseaux sociaux) en RSS pour FreshRSS via 500+ bridges. Les bridges cassent quand les cibles changent, le scraping peut violer les CGU ; sans analytics ni alertes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Huginn",
+			"source": {
+				"host": "github",
+				"path": "huginn/huginn",
+				"url": "https://github.com/huginn/huginn"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "DIY media monitoring by wiring agents that scrape sites, watch feeds and post webhooks. Steep learning curve, no packaged PR workflow, and it needs a database plus Redis just to run.",
+				"fr": "Veille médias DIY : des agents qui scrapent, surveillent les flux, déclenchent des webhooks. Courbe d’apprentissage raide, pas de workflow PR clé en main ; base de données et Redis requises."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Twenty",
+			"source": {
+				"host": "github",
+				"path": "twentyhq/twenty",
+				"url": "https://github.com/twentyhq/twenty"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted, API-first CRM with a modern React UI, for outreach on a contact database you seed yourself. Not PR-specific, enterprise features cost extra, and the schema still moves fast.",
+				"fr": "CRM self-hosted, API-first, à l’UI React moderne, pour l’outreach sur une base de contacts que vous peuplez vous-même. Pas spécifique RP, fonctionnalités entreprise payantes, schéma encore instable."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise features",
+					"fr": "Fonctionnalités entreprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "EspoCRM",
+			"source": {
+				"host": "github",
+				"path": "espocrm/espocrm",
+				"url": "https://github.com/espocrm/espocrm"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Generic but mature CRM for media contacts and outreach logs, with LDAP/SAML and role-based access free. Not tuned for PR, no monitoring or distribution, and some extensions cost money.",
+				"fr": "CRM générique mais mûr pour les contacts médias et le suivi d’outreach, LDAP/SAML et accès par rôles inclus. Pas calibré pour les RP, ni veille ni diffusion, et certaines extensions sont payantes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Paid extensions",
+					"fr": "Extensions payantes"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SuiteCRM",
+			"source": {
+				"host": "github",
+				"path": "SuiteCRM/SuiteCRM",
+				"url": "https://github.com/SuiteCRM/SuiteCRM"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "SugarCRM fork whose marketing-campaign module covers contact and email campaigns under Cision. Dated UX, a heavier stack, external SMTP required, and no monitoring or news database.",
+				"fr": "Fork de SugarCRM dont le module campagnes marketing gère contacts et e-mails sous Cision. UX vieillotte, stack lourde, SMTP externe requis, et pas de veille ni de base de données presse."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

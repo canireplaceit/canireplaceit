@@ -103,6 +103,262 @@
 				"en": "A third of Docker Business, macOS only, and materially faster with better battery life. No Windows or Linux version, and it's a single small vendor.",
 				"fr": "Le tiers de Docker Business, macOS uniquement, sensiblement plus rapide et meilleur pour la batterie. Pas de version Windows ou Linux, et c’est un tout petit éditeur."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Podman",
+			"source": {
+				"host": "github",
+				"path": "podman-container-tools/podman",
+				"url": "https://github.com/podman-container-tools/podman"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The open-source Docker Engine replacement, rootless by default and VM-free on Linux. Docker CLI mostly works; macOS needs a VM, and some Docker tooling doesn’t.",
+				"fr": "Alternative open-source au moteur Docker, rootless par défaut, sans VM sous Linux. Docker CLI fonctionne la plupart du temps ; macOS impose une VM, et certains outils Docker passent mal."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Lima",
+			"source": {
+				"host": "github",
+				"path": "lima-vm/lima",
+				"url": "https://github.com/lima-vm/lima"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Minimal Linux VM, lighter than Docker Desktop’s; pairs with containerd or Podman. macOS-only and CLI-only, and you wire up the container runtime yourself.",
+				"fr": "VM Linux minimale, plus légère que celle de Docker Desktop ; s’apparie à containerd ou Podman. macOS uniquement, ligne de commande uniquement, et le runtime conteneurs se monte à la main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nerdctl",
+			"source": {
+				"host": "github",
+				"path": "containerd/nerdctl",
+				"url": "https://github.com/containerd/nerdctl"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Docker-compatible CLI that makes containerd behave like Docker. Still a CLI, needs a separate containerd install, and is rougher than the original.",
+				"fr": "CLI compatible Docker qui fait se comporter containerd comme Docker. Ligne de commande toujours, containerd à installer séparément, et moins fini que l’original."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Minikube",
+			"source": {
+				"host": "github",
+				"path": "kubernetes/minikube",
+				"url": "https://github.com/kubernetes/minikube"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Local single-node Kubernetes with a built-in Docker runtime. Simpler than Rancher Desktop if you only want k8s, but heavier than k3d and geared to testing, not day-to-day dev.",
+				"fr": "Kubernetes local mono-nœud avec runtime Docker intégré. Plus simple que Rancher Desktop si seuls les k8s vous intéressent, mais plus lourd que k3d et pensé pour tester, pas pour le dev quotidien."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kind",
+			"source": {
+				"host": "github",
+				"path": "kubernetes-sigs/kind",
+				"url": "https://github.com/kubernetes-sigs/kind"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Kubernetes-in-Docker for testing clusters, lighter than minikube when you already run Docker. K8s-only, needs Docker or Podman, and thinner docs than minikube.",
+				"fr": "Kubernetes dans Docker, plus léger que minikube quand Docker tourne déjà. Que des k8s, exige Docker ou Podman, et une doc plus mince que minikube."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "K3d",
+			"source": {
+				"host": "github",
+				"path": "k3d-io/k3d",
+				"url": "https://github.com/k3d-io/k3d"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Runs k3s in Docker, faster and simpler than kind or minikube — if you accept k3s rather than full Kubernetes. Requires Docker or Podman; not a general container tool.",
+				"fr": "k3s dans Docker, plus rapide et plus simple que kind ou minikube — à condition d’accepter k3s plutôt que Kubernetes complet. Exige Docker ou Podman ; pas un outil conteneur généraliste."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Portainer",
+			"source": {
+				"host": "github",
+				"path": "portainer/portainer",
+				"url": "https://github.com/portainer/portainer"
+			},
+			"license": "Zlib",
+			"effort": "docker",
+			"note": {
+				"en": "Web GUI that manages containers on an existing Docker or Podman daemon; useful once, not a dev environment on its own. Web-only, and advanced features sit behind paid tiers.",
+				"fr": "Interface web qui gère les conteneurs sur un démon Docker ou Podman existant ; utile en appoint, mais pas un environnement de dev. Web uniquement, et les fonctions avancées sont payantes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "RBAC and team management",
+					"fr": "RBAC et gestion d’équipe"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Lazydocker",
+			"source": {
+				"host": "github",
+				"path": "jesseduffield/lazydocker",
+				"url": "https://github.com/jesseduffield/lazydocker"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Terminal UI over an existing Docker daemon for container inspection and compose work. TUI-only, can’t start the daemon itself, and never replaces Desktop.",
+				"fr": "Interface terminal par-dessus un démon Docker existant, pour inspecter les conteneurs et piloter Compose. Rien que le terminal, ne démarre pas le démon, et ne remplace pas Desktop."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dive",
+			"source": {
+				"host": "github",
+				"path": "wagoodman/dive",
+				"url": "https://github.com/wagoodman/dive"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Layer-by-layer image inspection, sized per layer with a file-tree view. A one-purpose tool that needs a built image first, not a dev environment.",
+				"fr": "Inspection d’image couche par couche, tailles au détail près avec une arborescence de fichiers. Outil mono-tâche qui suppose une image déjà construite, pas un environnement de dev."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Buildah",
+			"source": {
+				"host": "github",
+				"path": "podman-container-tools/buildah",
+				"url": "https://github.com/podman-container-tools/buildah"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Builds OCI images, Dockerfile-compatible and rootless, but ships no runtime — pair it with Podman. Build-only and Linux-focused, with a steeper curve than docker build.",
+				"fr": "Construit des images OCI, compatible Dockerfile et rootless, mais sans runtime — à associer à Podman. Construction uniquement, tourné Linux, et courbe d’apprentissage plus raide que docker build."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Skopeo",
+			"source": {
+				"host": "github",
+				"path": "podman-container-tools/skopeo",
+				"url": "https://github.com/podman-container-tools/skopeo"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Copies and inspects images across registries with signature verification. A manual CLI utility that complements Podman and Buildah, not a dev environment.",
+				"fr": "Copie et inspecte les images entre registres, avec vérification de signature. Utilitaire CLI manuel qui complète Podman et Buildah, pas un environnement de dev."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Finch",
+			"source": {
+				"host": "github",
+				"path": "runfinch/finch",
+				"url": "https://github.com/runfinch/finch"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Amazon’s client: a Lima VM, nerdctl and containerd assembled and supported by AWS. macOS and Windows only, a thin wrapper — bugs land upstream.",
+				"fr": "Le client d’Amazon : une VM Lima, nerdctl et containerd, assemblés et soutenus par AWS. macOS et Windows seulement, un simple wrapper — les bugs remontent en amont."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 5

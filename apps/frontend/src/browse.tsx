@@ -312,8 +312,10 @@ export function applyProjectFilters(
 	});
 }
 
+// `min-h-10` matches the search input beside it: a filter bar whose select is
+// 4px shorter than its text field reads as misaligned at every width.
 const select =
-	"rounded-[calc(var(--radius))] border border-border bg-surface px-2.5 py-2 text-sm min-w-0";
+	"min-h-10 min-w-0 rounded-[calc(var(--radius))] border border-border bg-surface px-3 py-2 text-sm transition hover:border-[color-mix(in_srgb,var(--brand)_50%,var(--color-border))]";
 
 /** One labelled `<select>`. The label is visually hidden but always announced. */
 export function Choice({
@@ -341,16 +343,18 @@ export function Choice({
 	);
 }
 
-const pill =
-	"rounded-[calc(var(--radius))] border px-3 py-1.5 text-sm transition hover:border-[color-mix(in_srgb,var(--brand)_50%,var(--color-border))]";
-
 // The sheet's tappable replacement for an <option>.
+//
+// The pressed look is `.pill[aria-pressed="true"]` in index.css rather than an
+// inline style, so the state a screen reader announces and the state a sighted
+// reader sees are driven by the same attribute and cannot come apart.
 export function Pill({
 	label,
 	active,
 	onClick,
 }: {
-	label: string;
+	// A node, not a string: the features page appends a match count to the label.
+	label: React.ReactNode;
 	active: boolean;
 	onClick: () => void;
 }) {
@@ -359,13 +363,7 @@ export function Pill({
 			type="button"
 			onClick={onClick}
 			aria-pressed={active}
-			className={pill}
-			style={{
-				borderColor: active ? "var(--brand)" : "var(--color-border)",
-				background: active
-					? "color-mix(in srgb, var(--brand) 8%, transparent)"
-					: "var(--surface)",
-			}}
+			className="pill"
 		>
 			{label}
 		</button>

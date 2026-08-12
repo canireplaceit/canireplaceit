@@ -93,6 +93,174 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Jellyfin",
+			"source": {
+				"host": "github",
+				"path": "jellyfin/jellyfin",
+				"url": "https://github.com/jellyfin/jellyfin"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Full-featured media server with library and collection management closest to Roon’s core; desktop, mobile, and TV clients included. But no curated artist metadata and no perfectly synced multi-room zones.",
+				"fr": "Serveur multimédia complet, plus proche du cœur de Roon pour la bibliothèque et les collections, avec clients desktop, mobile et TV. Mais pas de métadonnées curatées, ni de zones multiroom synchronisées."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MPD",
+			"source": {
+				"host": "github",
+				"path": "MusicPlayerDaemon/MPD",
+				"url": "https://github.com/MusicPlayerDaemon/MPD"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Headless music daemon, endlessly scriptable, with clients everywhere — ncmpcpp, MPDroid, web UIs. No built-in metadata curation, no artwork, and no official GUI, so client quality varies.",
+				"fr": "Daemon musical sans interface, scriptable à l’infini, avec des clients partout : ncmpcpp, MPDroid, interfaces web. Pas de curation de métadonnées ni de pochettes, pas de GUI officiel, qualité des clients variable."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "cmus",
+			"source": {
+				"host": "github",
+				"path": "cmus/cmus",
+				"url": "https://github.com/cmus/cmus"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Fast keyboard-driven TUI for quick local-library listening, with artist/album/playlist views and a tiny footprint that works over ssh. Single machine only — no multi-room server, no web or mobile remote.",
+				"fr": "TUI pilotée au clavier pour l’écoute rapide de sa bibliothèque locale : vues artiste/album/playlist, empreinte minuscule, fonctionne en ssh. Mais une seule machine, pas de serveur multiroom ni de télécommande web ou mobile."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "beets",
+			"source": {
+				"host": "github",
+				"path": "beetbox/beets",
+				"url": "https://github.com/beetbox/beets"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "CLI library manager that fixes tags and pulls metadata and art from MusicBrainz — Roon’s curation brain. Not a player: pair it with MPD, and metadata quality depends on community data.",
+				"fr": "Gestionnaire de bibliothèque en CLI : corrige les tags, récupère métadonnées et pochettes depuis MusicBrainz, la curation de Roon. Pas un lecteur : à associer avec MPD, qualité selon les données communautaires."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Koel",
+			"source": {
+				"host": "github",
+				"path": "koel/koel",
+				"url": "https://github.com/koel/koel"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Elegant self-hosted streaming web app with official Android and iOS apps and multi-user accounts. One library per install, no multi-room sync, and metadata comes only from file tags.",
+				"fr": "Application web de streaming self-hosted, élégante, avec apps officielles Android et iOS et comptes multi-utilisateurs. Une seule bibliothèque par installation, pas de sync multiroom, métadonnées uniquement depuis les tags des fichiers."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mopidy",
+			"source": {
+				"host": "github",
+				"path": "mopidy/mopidy",
+				"url": "https://github.com/mopidy/mopidy"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Extensible music server whose backend architecture adds Spotify and SoundCloud via plugins, speaking MPD protocol so existing clients work. Lightweight daemon, but UI comes from extensions and metadata management is minimal.",
+				"fr": "Serveur musical extensible : des backends ajoutent Spotify et SoundCloud via plugins, en protocole MPD pour garder les clients existants. Daemon léger, mais interface fournie par extensions et gestion des métadonnées minimale."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Funkwhale",
+			"source": {
+				"host": "gitlab",
+				"path": "funkwhale/funkwhale",
+				"url": "https://dev.funkwhale.audio/funkwhale/funkwhale"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted federated music server (ActivityPub) for streaming and sharing, with official Android app, web player, and per-user libraries and playlists. Auto-tagging is shallower than Roon’s curation and there’s no multi-room playback.",
+				"fr": "Self-hosted, fédéré (ActivityPub), pour streamer et partager, avec app Android officielle et lecteur web ; bibliothèques et playlists par utilisateur. Auto-tagging moins fin que la curation de Roon, pas de lecture multiroom."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Snapcast",
+			"source": {
+				"host": "github",
+				"path": "snapcast/snapcast",
+				"url": "https://github.com/snapcast/snapcast"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Synchronized multi-room streaming to many speakers, controlled from desktop, mobile, or web. Not a library manager — pair it with MPD or Jellyfin, and setup needs separate server and client hosts.",
+				"fr": "Streaming multiroom synchronisé vers de nombreux haut-parleurs, contrôlé depuis desktop, mobile ou web. Pas un gestionnaire de bibliothèque : à associer avec MPD ou Jellyfin, installation technique avec hôtes serveur et client."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

@@ -107,6 +107,111 @@
 				"en": "Free POS with paid add-ons for employee management and advanced stock. Weak at multi-store purchasing.",
 				"fr": "Caisse gratuite avec modules payants pour la gestion du personnel et le stock avancé. Faible sur les achats multi-boutique."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dolibarr ERP CRM",
+			"source": {
+				"host": "github",
+				"path": "Dolibarr/dolibarr",
+				"url": "https://github.com/Dolibarr/dolibarr"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "GPL-3.0 suite pairing a Point of Sale/till with inventory, invoicing and CRM, backed by a very active community. The till is simpler than a dedicated POS; some modules need paid extensions.",
+				"fr": "Suite libre GPL-3.0 qui regroupe caisse, inventaire et facturation, avec CRM et communauté très active. La caisse reste plus simple qu’un POS dédié ; certains modules exigent des extensions payantes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache OFBiz",
+			"source": {
+				"host": "github",
+				"path": "apache/ofbiz-framework",
+				"url": "https://github.com/apache/ofbiz-framework"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Apache-governed ERP with retail/POS and ecommerce modules, plus accounting and order management — just complex to operate, with a steep learning curve and a dated UI.",
+				"fr": "ERP Apache de longue date, sous Apache-2.0, avec modules retail/POS et e-commerce, comptabilité et gestion de commandes. Reste lourd à exploiter : courbe d’apprentissage raide, interface datée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "WooCommerce POS (wcpos)",
+			"source": {
+				"host": "github",
+				"path": "wcpos/woocommerce-pos",
+				"url": "https://github.com/wcpos/woocommerce-pos"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Actively maintained till that layers barcode scanning, receipt printing and multi-register onto a self-hosted WooCommerce. You need the store already, and features stay bound to its data model.",
+				"fr": "POS libre et actif qui pose codes-barres, impression de reçus et multi-postes sur un WooCommerce auto-hébergé. À condition d’avoir déjà cette boutique : tout reste lié à son modèle de données."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Unicenta Opos",
+			"source": {
+				"host": "other",
+				"path": "projects/unicentaopos",
+				"url": "https://sourceforge.net/projects/unicentaopos/"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The classic open-source till: free GPL-3.0 Java desktop app for Windows, macOS and Linux with receipt printer, barcode and cash-drawer support. Desktop-only though — no cloud sync, no first-party web store.",
+				"fr": "La caisse open source classique : application Java de bureau, gratuite sous GPL-3.0, avec imprimante de reçus, codes-barres et tiroir-caisse. Desktop uniquement : pas de synchro cloud, pas de boutique en ligne."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "InvenTree",
+			"source": {
+				"host": "github",
+				"path": "inventree/InvenTree",
+				"url": "https://github.com/inventree/InvenTree"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "It only replaces the inventory half of Lightspeed — MIT-licensed stock control with barcodes, API-first and extensible. No payments or loyalty, though; not a till.",
+				"fr": "Il remplace uniquement la partie inventaire de Lightspeed : stock et codes-barres, licence MIT, orienté API et extensible. Pas de paiements ni de fidélité : ce n’est pas une caisse."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

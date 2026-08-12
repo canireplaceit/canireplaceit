@@ -114,6 +114,694 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenHands",
+			"source": {
+				"host": "github",
+				"path": "OpenHands/OpenHands",
+				"url": "https://github.com/OpenHands/OpenHands"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Runs the agent inside a sandboxed container with a browser and a real dev environment, behind a web UI or a CLI. The most autonomous of the set, and the heaviest to stand up.",
+				"fr": "Exécute l’agent dans un conteneur sandbox avec un navigateur et un vrai environnement de dev, derrière une web UI ou un CLI. Le plus autonome du lot, et le plus lourd à mettre en place."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Codex CLI",
+			"source": {
+				"host": "github",
+				"path": "openai/codex",
+				"url": "https://github.com/openai/codex"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "OpenAI’s terminal agent, in Rust. Sandboxed execution, approval modes, and it will drive local models over an OpenAI-compatible endpoint — though it is tuned for OpenAI’s own.",
+				"fr": "L’agent terminal d’OpenAI, en Rust. Exécution sandbox, modes d’approbation, et possibilité de piloter des modèles locaux via un endpoint compatible OpenAI — mais calibré pour ceux d’OpenAI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Gemini CLI",
+			"source": {
+				"host": "github",
+				"path": "google-gemini/gemini-cli",
+				"url": "https://github.com/google-gemini/gemini-cli"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Google’s terminal agent, MCP-capable, with a very large free tier on a personal Google account. Tied to Gemini models unless you route it elsewhere.",
+				"fr": "L’agent terminal de Google, compatible MCP, avec une très grosse offre gratuite sur un compte Google personnel. Limitée aux modèles Gemini sauf à le router ailleurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Qwen Code",
+			"source": {
+				"host": "github",
+				"path": "QwenLM/qwen-code",
+				"url": "https://github.com/QwenLM/qwen-code"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A Gemini CLI fork retuned for Qwen3-Coder, with a free quota via qwen.ai OAuth. The easiest path to a capable agent with no card on file.",
+				"fr": "Un fork de Gemini CLI réglé pour Qwen3-Coder, avec un quota gratuit via OAuth qwen.ai. Le plus simple pour obtenir un agent capable sans carte bancaire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Cline",
+			"source": {
+				"host": "github",
+				"path": "cline/cline",
+				"url": "https://github.com/cline/cline"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A VS Code extension rather than a TUI, with plan/act modes, MCP, and any provider including local Ollama. Bring your own key, so you pay per token instead of per month.",
+				"fr": "Une extension VS Code plutôt qu’un TUI : modes plan/act, MCP, et n’importe quel provider jusqu’à Ollama en local. Vous apportez votre clé, donc vous payez au token et non au mois."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kilo Code",
+			"source": {
+				"host": "github",
+				"path": "Kilo-Org/kilocode",
+				"url": "https://github.com/Kilo-Org/kilocode"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A merge of the best of Cline and Roo Code under MIT, with its own model gateway. Moves fast, which cuts both ways.",
+				"fr": "Une fusion du meilleur de Cline et de Roo Code sous MIT, avec sa propre passerelle de modèles. Va vite, ce qui a ses revers."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Continue",
+			"source": {
+				"host": "github",
+				"path": "continuedev/continue",
+				"url": "https://github.com/continuedev/continue"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "An IDE assistant plus a CLI, configured by a file you commit so a team shares one setup. More an assistant than an autonomous agent.",
+				"fr": "Un assistant IDE plus un CLI, configuré par un fichier commité pour qu’une équipe partage le même setup. Plus un assistant qu’un agent autonome."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Plandex",
+			"source": {
+				"host": "github",
+				"path": "plandex-ai/plandex",
+				"url": "https://github.com/plandex-ai/plandex"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Built for long multi-file tasks: changes accumulate in a sandbox you review and apply as one unit. Self-host the server to keep the whole plan on your machine.",
+				"fr": "Conçu pour les longues tâches multi-fichiers : les changements s’accumulent dans un sandbox, à revoir et à appliquer d’un bloc. Hébergez le serveur vous-même pour garder le plan chez vous."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pi",
+			"source": {
+				"host": "github",
+				"path": "earendil-works/pi",
+				"url": "https://github.com/earendil-works/pi"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Minimal harness by Armin Ronacher: four built-in tools, a sub-1,000-token system prompt, TypeScript extensions. Provider-agnostic, runs on local models. Radical simplicity means you assemble what rivals bundle.",
+				"fr": "Harness terminal minimaliste d’Armin Ronacher : quatre outils, prompt système sous 1 000 tokens, extensions TypeScript. Agnostique au fournisseur, tourne sur modèles locaux. Simplicité radicale, mais on assemble ce que les rivaux livrent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Zed",
+			"source": {
+				"host": "github",
+				"path": "zed-industries/zed",
+				"url": "https://github.com/zed-industries/zed"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "First agentic IDE (April 2026): parallel agents work the same editor at once, multi-model, MCP-ready. That parallel mode is experimental, and it demands an IDE mental model rather than a terminal loop.",
+				"fr": "Premier IDE agentique (avril 2026) : plusieurs agents travaillent le même éditeur en parallèle, multi-modèles, compatible MCP. Le mode parallèle reste expérimental et impose une logique d’IDE, pas de terminal."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Agent mode and parallel agents",
+					"fr": "Mode agent et agents parallèles"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tabby",
+			"source": {
+				"host": "github",
+				"path": "TabbyML/tabby",
+				"url": "https://github.com/TabbyML/tabby"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted Copilot alternative: agent mode, on-prem, works with any LLM. Deployment means Docker, integration favours IDEs, and it stays younger than terminal-native agents.",
+				"fr": "Alternative auto-hébergée à Copilot : mode agent, sur site, compatible avec n’importe quel LLM. Déploiement via Docker, intégration orientée IDE, et plus jeune que les agents natifs au terminal."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Team and enterprise features",
+					"fr": "Fonctionnalités équipe et entreprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Refact",
+			"source": {
+				"host": "github",
+				"path": "smallcloudai/refact",
+				"url": "https://github.com/smallcloudai/refact"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Archived upstream. An end-to-end engineering agent that planned, executed and iterated while integrating with developer tools — lineage of autonomous coding, not a live option.",
+				"fr": "Archivé côté amont. Agent d’ingénierie de bout en bout qui planifiait, exécutait et itérait, branché sur les outils du dev — une lignée de l’automatisation, plus une option vivante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Warp",
+			"source": {
+				"host": "github",
+				"path": "warpdotdev/warp",
+				"url": "https://github.com/warpdotdev/warp"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Rust terminal with a built-in agent mode — IDE-like flow inside the shell. Freemium: you replace your terminal to get it, and agent mode rides on top.",
+				"fr": "Terminal Rust avec mode agent intégré — un flux façon IDE dans le shell. Modèle freemium : il faut changer de terminal pour l’avoir, et le mode agent vient par-dessus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "unknown",
+				"paywalled": {
+					"en": "Agent mode",
+					"fr": "Mode agent"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "AIChat",
+			"source": {
+				"host": "github",
+				"path": "sigoden/aichat",
+				"url": "https://github.com/sigoden/aichat"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Chat-REPL CLI with a shell assistant, RAG and 20+ providers, some agent tooling. A shell-level helper for one-shot questions, not the autonomous loop a coding agent runs.",
+				"fr": "CLI chat-REPL avec assistant shell, RAG et plus de 20 fournisseurs, avec quelques outils d’agent. Un helper de shell pour les questions en un coup, pas une boucle d’agent autonome."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Shell GPT",
+			"source": {
+				"host": "github",
+				"path": "TheR1D/shell_gpt",
+				"url": "https://github.com/TheR1D/shell_gpt"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Turns prompts into shell commands, REPL and chat modes, hotkey completion, multiple LLMs. It generates commands but never touches code — a narrower scope than coding agents.",
+				"fr": "Transforme des prompts en commandes shell, modes REPL et chat, complétion par raccourci, plusieurs LLM. Il génère des commandes, ne touche jamais au code — plus étroit qu’un agent de codage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "llm",
+			"source": {
+				"host": "github",
+				"path": "simonw/llm",
+				"url": "https://github.com/simonw/llm"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Simon Willison’s CLI for talking to any LLM, with a plugin ecosystem (llm-cmd, templates). Pipe content straight into prompts; complex jobs mean chaining plugins, one shot at a time.",
+				"fr": "Le CLI de Simon Willison pour parler à n’importe quel LLM, avec un écosystème de plugins. On pipe du contenu dans les prompts ; les tâches complexes, elles, exigent d’enchaîner les plugins."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Fabric",
+			"source": {
+				"host": "github",
+				"path": "danielmiessler/Fabric",
+				"url": "https://github.com/danielmiessler/Fabric"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Go CLI with 200+ curated prompts, piping terminal data into LLMs. Augmentation, not automation: each run is one-shot generation, with no agentic loop behind it.",
+				"fr": "CLI Go avec 200+ prompts triés sur le volet, pipant les données du terminal vers les LLM. Augmentation, pas automatisation : chaque passage reste une génération unique, sans boucle d’agent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Devika",
+			"source": {
+				"host": "github",
+				"path": "stitionai/devika",
+				"url": "https://github.com/stitionai/devika"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Docker-based Agentic Software Engineer in the Devin mould: plans, researches and writes code through a web UI. Heavier setup, web-first rather than terminal-first, and younger than terminal-native agents.",
+				"fr": "Agentic Software Engineer façon Devin, sous Docker : planifie, recherche et écrit du code via une interface web. Installation lourde, web d’abord, plus jeune que les agents natifs du terminal."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "smol-developer",
+			"source": {
+				"host": "github",
+				"path": "smol-ai/developer",
+				"url": "https://github.com/smol-ai/developer"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "No commit since April 2024. One of the first open-source agents (May 2023): prompts in, scaffolding out. One-shot generation — it never executed the code it produced.",
+				"fr": "Aucun commit depuis avril 2024. Un des premiers agents open source (mai 2023) : un prompt entre, un échafaudage sort. Génération en un coup — il n’exécutait jamais le code produit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GPT4All",
+			"source": {
+				"host": "github",
+				"path": "nomic-ai/gpt4all",
+				"url": "https://github.com/nomic-ai/gpt4all"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Runs LLMs locally without API calls or a GPU, private by construction, usable from any agent or tool. Quality trails frontier models, and you trade hardware for speed.",
+				"fr": "Fait tourner des LLM en local sans appel API ni GPU, privé par construction. Utilisable depuis n’importe quel agent ; la qualité en dessous des modèles frontier, la vitesse se paie en matériel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Rawdog",
+			"source": {
+				"host": "github",
+				"path": "granawkins/rawdog",
+				"url": "https://github.com/granawkins/rawdog"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Generates and auto-executes Python scripts, feeding script output back to itself for context. Fast for automation, but Python-only and one-shot — not a general-purpose agent loop.",
+				"fr": "Génère et exécute lui-même des scripts Python, en renvoyant la sortie au modèle pour le contexte. Efficace en automatisation, mais Python uniquement et en un coup — pas une boucle d’agent généraliste."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Sweep",
+			"source": {
+				"host": "github",
+				"path": "sweepai/sweep",
+				"url": "https://github.com/sweepai/sweep"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Turns GitHub issues into PRs, with JetBrains support and multi-language. A GitHub-bound workflow doing PR automation — batch and asynchronous, not real-time terminal coding.",
+				"fr": "Transforme les issues GitHub en PR, avec support JetBrains et multi-langages. Un workflow cantonné à GitHub, automatise les PR — par lots et asynchrone, pas du codage en temps réel au terminal."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "unknown",
+				"paywalled": {
+					"en": "Pro and team features",
+					"fr": "Fonctionnalités Pro et équipe"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ZooCode",
+			"source": {
+				"host": "github",
+				"path": "Zoo-Code-Org/Zoo-Code",
+				"url": "https://github.com/Zoo-Code-Org/Zoo-Code"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Community fork keeping Roo Code alive after its May 2026 archive, same features, MCP included. It inherits the fork burden: not officially maintained, and a VS Code extension, not a terminal.",
+				"fr": "Fork communautaire qui maintient Roo Code après son archivage de mai 2026, mêmes fonctions, MCP inclus. Mais maintenance non officielle, et extension VS Code, pas un terminal."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Anterion",
+			"source": {
+				"host": "github",
+				"path": "MiscellaneousStuff/anterion",
+				"url": "https://github.com/MiscellaneousStuff/anterion"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "No commit since May 2024. A hybrid that married SWE-agent’s planning to the OpenDevin interface, in Docker. Experimental composition with a smaller community than either parent.",
+				"fr": "Aucun commit depuis mai 2024. Un hybride qui mariait la planification de SWE-agent à l’interface OpenDevin, sous Docker. Composition expérimentale, communauté plus réduite que les deux parents."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SWE-agent",
+			"source": {
+				"host": "github",
+				"path": "SWE-agent/SWE-agent",
+				"url": "https://github.com/SWE-agent/SWE-agent"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Princeton NLP’s autonomous issue fixer: 12.29% on swe-bench, about 93 seconds average. Specialised for GitHub patches, not general coding — a research project, narrower than a coding agent.",
+				"fr": "Résolveur d’issues autonome de Princeton NLP : 12,29 % sur swe-bench, environ 93 secondes en moyenne. Spécialisé dans les patchs GitHub, pas le codage général — un projet de recherche, plus étroit qu’un agent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PearAI",
+			"source": {
+				"host": "github",
+				"path": "trypear/pearai-app",
+				"url": "https://github.com/trypear/pearai-app"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "VS Code fork wrapping Claude Code, Codex and OpenAI behind one UI. Backend choice without leaving the editor; the price is an unclear license status and fork upkeep.",
+				"fr": "Fork de VS Code qui enveloppe Claude Code, Codex et OpenAI derrière une seule UI. Choix du backend sans quitter l’éditeur ; au prix d’un statut de licence flou et de la maintenance d’un fork."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "AutoDev",
+			"source": {
+				"host": "github",
+				"path": "phodal/auto-dev",
+				"url": "https://github.com/phodal/auto-dev"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "JetBrains plugin for LLM-assisted coding: auto generation, testing, multi-language. Confined to JetBrains IDEs, so the terminal UX is a different one from agents.",
+				"fr": "Plugin JetBrains pour le codage assisté par LLM : génération automatique, tests, multi-langages. Cantonné aux IDE JetBrains, l’expérience reste éloignée de celle des agents de terminal."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mentat",
+			"source": {
+				"host": "github",
+				"path": "AbanteAI/archive-old-cli-mentat",
+				"url": "https://github.com/AbanteAI/archive-old-cli-mentat"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Archived upstream. AbanteAI’s CLI editing loop for multi-file changes, any LLM provider. A smaller community and earlier stage than the majors — now frozen.",
+				"fr": "Archivé côté amont. La boucle d’édition CLI d’AbanteAI pour les modifications multi-fichiers, n’importe quel LLM. Communauté plus petite et stade plus précoce que les gros — désormais figé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mods",
+			"source": {
+				"host": "github",
+				"path": "charmbracelet/mods",
+				"url": "https://github.com/charmbracelet/mods"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Archived. Charmbracelet’s Go CLI piping command output to LLMs, with roles and markdown output. A one-shot shell helper that’s no longer maintained — not an agent loop.",
+				"fr": "Archivé. Le CLI Go de Charmbracelet pipe la sortie des commandes vers les LLM, avec des rôles et une sortie markdown. Helper shell à un coup, plus maintenu — pas une boucle d’agent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Cody",
+			"source": {
+				"host": "github",
+				"path": "sourcegraph/cody-public-snapshot",
+				"url": "https://github.com/sourcegraph/cody-public-snapshot"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Archived upstream: Sourcegraph’s public snapshot froze in August 2024 when the core went private. Codebase-aware chat with tool access and IDE/terminal support, now overtaken by the proprietary model.",
+				"fr": "Archivé : l’instantané public de Sourcegraph figé en août 2024, le cœur passé en privé. Chat conscient du codebase avec accès aux outils, mais désormais supplanté par le modèle propriétaire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "unknown"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GPT-Engineer",
+			"source": {
+				"host": "github",
+				"path": "AntonOsika/gpt-engineer",
+				"url": "https://github.com/AntonOsika/gpt-engineer"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Archived. An early prompt-to-code pioneer — scaffolding from prompts, no agentic loop. Important lineage in LLM-driven development, now a historical entry.",
+				"fr": "Archivé. Un pionnier du prompt-à-code — échafaudage à partir de prompts, sans boucle d’agent. Une lignée importante du dev piloté par LLM, désormais une entrée historique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Roo Code",
+			"source": {
+				"host": "github",
+				"path": "RooCodeInc/Roo-Code",
+				"url": "https://github.com/RooCodeInc/Roo-Code"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Archived May 2026: the Cline-fork VS Code agent with MCP and Architect/Code/Ask/Debug modes, 3M installs at peak. Team moved to Roomote; users pointed toward Cline or ZooCode.",
+				"fr": "Archivé en mai 2026 : l’agent VS Code issu du fork de Cline, avec MCP et les modes Architect/Code/Ask/Debug, 3 millions d’installations au pic. L’équipe est passée à Roomote ; les utilisateurs vers Cline ou ZooCode."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 5

@@ -115,6 +115,132 @@
 				"en": "Cheaper entry tier with the same rate-aggregation model. Weaker in continental Europe than Sendcloud.",
 				"fr": "Palier d’entrée moins cher avec le même modèle d’agrégation de tarifs. Plus faible en Europe continentale que Sendcloud."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Fleetbase",
+			"source": {
+				"host": "github",
+				"path": "fleetbase/fleetbase",
+				"url": "https://github.com/fleetbase/fleetbase"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Logistics platform built around fleets: shipment tracking, dispatch, and driver apps over an API. Pick it for the fleet side; label printing is thinner and carrier rate feeds cost extra.",
+				"fr": "Plateforme logistique centrée flotte : suivi d’expéditions, dispatch et apps chauffeur via API. À choisir pour le volet flotte ; l’impression d’étiquettes passe au second plan et les tarifs transporteurs sont des extensions."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenBoxes",
+			"source": {
+				"host": "github",
+				"path": "openboxes/openboxes",
+				"url": "https://github.com/openboxes/openboxes"
+			},
+			"license": "EPL-1.0",
+			"effort": "docker",
+			"note": {
+				"en": "A supply-chain and shipping inventory system the NGO world actually runs on — lot and expiry tracking built in. Leads with the warehouse, not the printer, and it rides an older Grails stack.",
+				"fr": "Suivi de lot et de péremption en natif, pensé pour la supply-chain des ONG. C’est de l’ERP d’entrepôt plus que de l’étiquetage, et la pile Grails est ancienne."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ERPNext",
+			"source": {
+				"host": "github",
+				"path": "frappe/erpnext",
+				"url": "https://github.com/frappe/erpnext"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "A full ERP, so sales-order delivery notes, stock, and shipment tracking come in the box. Bring the whole accounting stack with you — carrier integrations ride on third-party apps.",
+				"fr": "Un ERP complet : bons de livraison, stock et suivi d’expéditions sont inclus. Autant embrasser toute la compta avec — les connecteurs transporteurs arrivent par apps tierces."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dolibarr",
+			"source": {
+				"host": "github",
+				"path": "Dolibarr/dolibarr",
+				"url": "https://github.com/Dolibarr/dolibarr"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "A low-resource PHP ERP that runs a basic expedition module — carrier connectors come from third parties and the shipping workflow stays rough.",
+				"fr": "Un ERP PHP léger avec un module expédition sommaire ; les connecteurs transporteurs viennent de tiers et le workflow d’envoi reste brut."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tryton",
+			"source": {
+				"host": "github",
+				"path": "tryton/tryton",
+				"url": "https://github.com/tryton/tryton"
+			},
+			"license": "LGPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "A modular ERP core: stock_shipment and carrier modules bolt together, with a native desktop client. Expect assembly work — there is no turnkey label flow.",
+				"fr": "Un noyau ERP modulaire : les modules stock_shipment et transporteur s’assemblent, avec un client desktop natif. Prévoyez du montage — aucun workflow d’étiquetage clé en main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "InvenTree",
+			"source": {
+				"host": "github",
+				"path": "inventree/InvenTree",
+				"url": "https://github.com/inventree/InvenTree"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Inventory system where sales-order shipping methods and tracking numbers slot into stock and build management, with barcode and label output. Inventory-first: no native multi-carrier rates.",
+				"fr": "Un système d’inventaire où méthodes d’expédition et numéros de suivi s’intègrent au stock et au build, avec sortie codes-barres et étiquettes. L’inventaire d’abord : pas de tarifs multi-transporteurs natifs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

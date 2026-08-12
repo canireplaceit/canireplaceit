@@ -107,6 +107,174 @@
 				"en": "Flat $5 covers what would be a painful Lambda bill, with no cold starts. You give up the Node runtime, long-running jobs and the whole AWS-service adjacency.",
 				"fr": "5 $ forfaitaires couvrent ce qui serait une facture Lambda douloureuse, sans démarrage à froid. Vous perdez le runtime Node, les tâches longues et toute la proximité des services AWS."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache OpenWhisk",
+			"source": {
+				"host": "github",
+				"path": "apache/openwhisk",
+				"url": "https://github.com/apache/openwhisk"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Apache’s battle-tested FaaS, with a clean action/trigger/rule model and Slack-scale production history. Paying for it: a heavy Kubernetes deployment, CouchDB and Kafka to babysit, cold-start tuning by hand.",
+				"fr": "FaaS éprouvé d’Apache, modèle action/déclencheur/règle propre et historique de production à l’échelle de Slack. À payer : déploiement Kubernetes lourd, CouchDB et Kafka à maintenir, réglage du cold start à la main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nuclio",
+			"source": {
+				"host": "github",
+				"path": "nuclio/nuclio",
+				"url": "https://github.com/nuclio/nuclio"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Serverless built for data and ML, near-zero overhead and GPU support under CNCF. Smaller community than OpenFaaS, and it really wants Kubernetes despite a Docker mode; docs assume data pipelines.",
+				"fr": "Serverless taillé pour la data et le ML : surcharge quasi nulle, support GPU, parrainé CNCF. Communauté plus petite qu’OpenFaaS, il veut du Kubernetes malgré son mode Docker, doc orientée data."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Fn Project",
+			"source": {
+				"host": "github",
+				"path": "fnproject/fn",
+				"url": "https://github.com/fnproject/fn"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Any Docker image becomes a function, run on any Docker host, with a hot-container CLI and a flow API for workflows. Oracle-born; momentum has slowed and the docs assume Oracle Cloud.",
+				"fr": "Toute image Docker devient une fonction, sur n’importe quel hôte Docker, CLI à conteneurs chauds et flow API pour workflows. Né chez Oracle ; l’élan a ralenti et la doc présuppose Oracle Cloud."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenFunction",
+			"source": {
+				"host": "github",
+				"path": "OpenFunction/OpenFunction",
+				"url": "https://github.com/OpenFunction/OpenFunction"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "CNCF sandbox FaaS pairing Knative sync and Dapr async execution, built cloud-natively via Buildpacks. Dormant since June 2024 — no commit for two years, so treat it as shelved.",
+				"fr": "FaaS bac à sable CNCF couplant exécution synchrone Knative et asynchrone Dapr, construit nativement via Buildpacks. Dormant depuis juin 2024 — aucun commit depuis deux ans, à considérer comme rangé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Fermyon Spin",
+			"source": {
+				"host": "github",
+				"path": "spinframework/spin",
+				"url": "https://github.com/spinframework/spin"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Functions compile to WebAssembly components, managed by a single spin CLI for build, run and deploy. The Wasm component ecosystem is young and the built-in triggers fewer than K8s FaaS.",
+				"fr": "Les fonctions compilent en composants WebAssembly, pilotées par un seul CLI spin (build, run, deploy). L’écosystème composants Wasm est jeune, et les déclencheurs natifs plus rares que chez les FaaS Kubernetes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "wasmCloud",
+			"source": {
+				"host": "github",
+				"path": "wasmCloud/wasmCloud",
+				"url": "https://github.com/wasmCloud/wasmCloud"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Portable Wasm components across edge and cloud via the wash CLI and a self-healing lattice, contracts in WIT. The concurrency model has a learning curve; distributed runs need NATS and the lattice.",
+				"fr": "Composants Wasm portables, du edge au cloud : CLI wash, lattice auto-réparant, contrats WIT. Le modèle de concurrence a sa courbe d’apprentissage ; en distribué, NATS et le lattice sont requis."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Cloudflare workerd",
+			"source": {
+				"host": "github",
+				"path": "cloudflare/workerd",
+				"url": "https://github.com/cloudflare/workerd"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The exact engine Cloudflare Workers runs on, self-hosted as a single binary with V8 isolates. Low-level: no orchestration, no triggers, KV or queues — you assemble the platform yourself.",
+				"fr": "Le moteur exact de Cloudflare Workers, auto-hébergeable en un seul binaire, isolates V8. Bas niveau : pas d’orchestration, pas de déclencheurs, ni KV ni files — à vous de monter la plateforme."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kubeless",
+			"source": {
+				"host": "github",
+				"path": "vmware-archive/kubeless",
+				"url": "https://github.com/vmware-archive/kubeless"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Pure Kubernetes objects as functions, with a kubectl-feeling CLI and HTTP, cron, Kafka and NATS triggers. Archived since 2021 — no new features, no cold-start tuning, community gone elsewhere.",
+				"fr": "Des objets Kubernetes natifs comme fonctions, un CLI à la kubectl et des déclencheurs HTTP, cron, Kafka, NATS. Archivé depuis 2021 — plus de nouveautés, pas d’optimisation du cold start, communauté partie ailleurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

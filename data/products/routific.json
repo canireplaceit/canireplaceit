@@ -101,6 +101,132 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "OR-Tools",
+			"source": {
+				"host": "github",
+				"path": "google/or-tools",
+				"url": "https://github.com/google/or-tools"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The VRP half of the product is here — Google’s battle-tested engine with a scriptable CLI. Building the scheduling glue around it is on you; there is no UI.",
+				"fr": "Le cœur VRP est là, moteur Google éprouvé avec CLI scriptable. L’autre moitié du produit — l’UI et la colle de planification — reste à construire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OSRM",
+			"source": {
+				"host": "github",
+				"path": "Project-OSRM/osrm-backend",
+				"url": "https://github.com/Project-OSRM/osrm-backend"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "A Docker container exposing turn-by-turn routing and distance/time matrices over HTTP. Routing only — no VRP, and the OSM data needs processing first.",
+				"fr": "Un conteneur Docker qui expose routage pas à pas et matrices distance/temps en HTTP. Du routage pur, sans VRP — et les données OSM demandent un traitement préalable."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GraphHopper",
+			"source": {
+				"host": "github",
+				"path": "graphhopper/graphhopper",
+				"url": "https://github.com/graphhopper/graphhopper"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Routing, matrices and a VRP endpoint in one JVM Docker image. If your stack is not Java, or you want a fleet UI, look elsewhere.",
+				"fr": "Routage, matrices et endpoint VRP réunis dans une image Docker JVM. Pas d’UI de flotte, et il faut vivre avec la JVM."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "openrouteservice",
+			"source": {
+				"host": "github",
+				"path": "GIScience/openrouteservice",
+				"url": "https://github.com/GIScience/openrouteservice"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hostable routing service that adds isochrones and geocoding to the usual matrix APIs. No VRP solver here, and the GPL-3.0 licence will matter to you.",
+				"fr": "Service de routage autonome qui ajoute isochrones et géocodage aux APIs matrices habituelles. Pas de solveur VRP — et la licence GPL-3.0 demande réflexion."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "jsprit",
+			"source": {
+				"host": "github",
+				"path": "graphhopper/jsprit",
+				"url": "https://github.com/graphhopper/jsprit"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A Java library that models time windows, skills and pickup-delivery, then solves them. You supply the UI, and accept a project that moves slower than its peers.",
+				"fr": "Une bibliothèque Java qui modélise fenêtres de temps, compétences et pickup-delivery, puis les résout. L’UI est à prévoir, et le projet avance moins vite que ses pairs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "BRouter",
+			"source": {
+				"host": "github",
+				"path": "abrensch/brouter",
+				"url": "https://github.com/abrensch/brouter"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Offline routing available as desktop, CLI, web and Android client — useful for field dispatch. One route at a time though, and a small community.",
+				"fr": "Routage hors ligne en bureau, CLI, web et client Android, utile pour le terrain. Une route à la fois, et une petite communauté."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

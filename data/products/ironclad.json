@@ -90,6 +90,182 @@
 				"en": "Great for outbound contracts and proposals. Not built for negotiating inbound paper.",
 				"fr": "Excellent pour les contrats et propositions que vous envoyez. Pas conçu pour négocier les contrats qu’on vous envoie."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "DocuSeal",
+			"source": {
+				"host": "github",
+				"path": "docusealco/docuseal",
+				"url": "https://github.com/docusealco/docuseal"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Mature AGPL signing platform with Docker and Helm deploys and a clean signer UI. Fields, templates, email or link signing — but SAML SSO sits behind the paid license.",
+				"fr": "Plateforme de signature AGPL mûre, déployable en Docker ou Helm, à l’UI de signataire soignée. Champs, modèles, signature par e-mail ou lien : seul le SSO SAML reste derrière la licence payante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "SAML SSO",
+					"fr": "SSO SAML"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LibreSign",
+			"source": {
+				"host": "github",
+				"path": "LibreSign/libresign",
+				"url": "https://github.com/LibreSign/libresign"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "E-signing bolted onto an existing Nextcloud: signatures live inside files, reusing the instance’s auth and SSO. No standalone portal — you need Nextcloud first.",
+				"fr": "La signature électronique greffée à un Nextcloud existant, dans les fichiers, en réutilisant son auth et son SSO. Pas de portail autonome : il faut d’abord un Nextcloud."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SignServer CE",
+			"source": {
+				"host": "github",
+				"path": "Keyfactor/signserver-ce",
+				"url": "https://github.com/Keyfactor/signserver-ce"
+			},
+			"license": "LGPL-2.1",
+			"effort": "docker",
+			"note": {
+				"en": "Keyfactor’s PKI-grade signing over SOAP/REST — documents, code and timestamps, with HSM support. Developer-only: no signer room, no email workflow, and a steep Java/PKI setup.",
+				"fr": "Service PKI-grade de Keyfactor : signatures de documents, code et horodatage via SOAP/REST, avec HSM. Conçu pour les API — pas de salle de signature ni de workflow e-mail, mise en place Java/PKI ardue."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "enterprise extras only",
+					"fr": "extras entreprise uniquement"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "DSS (Digital Signature Service)",
+			"source": {
+				"host": "github",
+				"path": "esig/dss",
+				"url": "https://github.com/esig/dss"
+			},
+			"license": "LGPL-2.1",
+			"effort": "docker",
+			"note": {
+				"en": "The EU reference library for PAdES/XAdES/CAdES — eIDAS-aligned creation and validation, powering eID deployments. A framework, not a service: no envelopes or roles, demo-grade webapps, heavy Java.",
+				"fr": "La bibliothèque de référence de l’UE pour PAdES/XAdES/CAdES, alignée eIDAS, qui équipe les déploiements eID. Un framework, pas un service : pas d’enveloppes ni de rôles, webapps d’exemple, Java lourd."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "paperless-ngx",
+			"source": {
+				"host": "github",
+				"path": "paperless-ngx/paperless-ngx",
+				"url": "https://github.com/paperless-ngx/paperless-ngx"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Mature GPL document system with OCR search, tags and workflows — great for legal contracts. Pairs with a signing tool: no signature workflow, no CLM features like renewals.",
+				"fr": "Gestion documentaire GPL mûre : recherche OCR, étiquettes et workflows — parfaite pour les contrats. À associer à un outil de signature : ni workflow de signature ni fonctions CLM type renouvellements."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "node-signpdf",
+			"source": {
+				"host": "github",
+				"path": "vbuch/node-signpdf",
+				"url": "https://github.com/vbuch/node-signpdf"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "MIT Node signing core with an npm CLI — PAdES-style PDFs, pure JS, no native deps. No UI, no workflow: envelopes, roles and audit logging are yours to build.",
+				"fr": "Cœur de signature Node MIT, avec un CLI npm — PDF PAdES, en JS pur, sans dépendances natives. Pas d’UI ni de workflow : enveloppes, rôles et audit log, à vous de bâtir."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pdfsign (digitorus)",
+			"source": {
+				"host": "github",
+				"path": "digitorus/pdfsign",
+				"url": "https://github.com/digitorus/pdfsign"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "BSD-2 pure-Go CLI that creates and verifies AES/QES PDF signatures, with an HTTP mode for remote signing. Single static binary — but no workflow UI, and certificates are your problem.",
+				"fr": "CLI en Go pur sous BSD-2 : signatures PDF AES/QES créées et vérifiées, mode HTTP pour signer à distance. Un seul binaire statique, mais pas d’UI : la gestion des certificats vous revient."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "autogram",
+			"source": {
+				"host": "github",
+				"path": "slovensko-digital/autogram",
+				"url": "https://github.com/slovensko-digital/autogram"
+			},
+			"license": "EUPL-1.2",
+			"effort": "managed",
+			"note": {
+				"en": "The Slovak government’s Rust tool signs documents on-device with an eID smart card, via TUI or GUI, ETSI-compliant and offline. Single-user and local: no envelopes, no multi-party flow, eID card required.",
+				"fr": "L’outil Rust du gouvernement slovaque signe localement, hors ligne, avec une carte eID, via TUI ou GUI, conforme ETSI. Mono-utilisateur : pas d’enveloppes ni de flux multi-parties, et carte eID obligatoire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

@@ -101,6 +101,174 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "JupyterLab",
+			"source": {
+				"host": "github",
+				"path": "jupyterlab/jupyterlab",
+				"url": "https://github.com/jupyterlab/jupyterlab"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "The reference notebook IDE: Python, R, Julia and SQL kernels, 1000+ extensions. But SQL and Python never share one document, and collaborating means running a server with per-user sessions.",
+				"fr": "L’IDE notebook de référence : noyaux Python, R, Julia et SQL, 1000+ extensions. SQL et Python ne cohabitent jamais dans un même document ; collaborer exige un serveur et des sessions par utilisateur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache Zeppelin",
+			"source": {
+				"host": "github",
+				"path": "apache/zeppelin",
+				"url": "https://github.com/apache/zeppelin"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The closest OSS analog to Hex's mixed SQL-plus-code cells: SQL, Python, R and Scala interpreters in one document. Costs a heavier JVM stack and a dated UI that diverges from .ipynb.",
+				"fr": "Le plus proche OSS des cellules mixtes SQL+code de Hex : interpréteurs SQL, Python, R et Scala dans un même document. En échange, une pile JVM lourde et un format divergent du .ipynb."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Observable Framework",
+			"source": {
+				"host": "github",
+				"path": "observablehq/framework",
+				"url": "https://github.com/observablehq/framework"
+			},
+			"license": "ISC",
+			"effort": "managed",
+			"note": {
+				"en": "CLI-first static data apps: Markdown pages with reactive JS, data loaders in any language, deploy anywhere. The price: JavaScript-centric, no Python notebook, no auth or server-side state.",
+				"fr": "Des data apps statiques en CLI : pages Markdown, JS réactif, data loaders dans n’importe quel langage, déploiement partout. Contrepartie : centré JavaScript, ni notebook Python, ni auth ni état serveur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "DuckDB",
+			"source": {
+				"host": "github",
+				"path": "duckdb/duckdb",
+				"url": "https://github.com/duckdb/duckdb"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Embedded analytical SQL engine in one binary: Hex-style SQL against Parquet, CSV, JSON in-process. But it stops there — no notebook, no dashboard, no sharing, and single-node unless you add extensions.",
+				"fr": "Moteur SQL analytique embarqué dans un seul binaire : du SQL façon Hex sur Parquet, CSV, JSON, en mémoire. Mais il s’arrête là : ni notebook, ni dashboard, ni partage, mono-nœud sans extensions."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Panel",
+			"source": {
+				"host": "github",
+				"path": "holoviz/panel",
+				"url": "https://github.com/holoviz/panel"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "Turns PyData objects into interactive dashboards with widgets and templating, exportable to static HTML. The API sits lower than Streamlit — steeper onboarding — and there's no hosted workspace or managed auth.",
+				"fr": "Transforme les objets PyData en dashboards interactifs, widgets et templating inclus, exportables en HTML statique. L’API est plus bas niveau que Streamlit, l’onboarding plus raide, sans workspace hébergé ni auth gérée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dash",
+			"source": {
+				"host": "github",
+				"path": "plotly/dash",
+				"url": "https://github.com/plotly/dash"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Plotly's battle-tested framework: pure-Python callbacks over a React component tree. The callback-graph model has a learning curve, and it's not a notebook — no in-browser editing by default.",
+				"fr": "Le framework éprouvé de Plotly : callbacks en Python pur sur des composants React. Le graphe de callbacks demande un temps d’apprentissage, et ce n’est pas un notebook : pas d’édition dans le navigateur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "NiceGUI",
+			"source": {
+				"host": "github",
+				"path": "zauberzeug/nicegui",
+				"url": "https://github.com/zauberzeug/nicegui"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Instant Python UIs with live reload, async events and a large widget library. It's the youngest here, so the component ecosystem is thin and there's no notebook paradigm or collaborative editing.",
+				"fr": "Des UI instantanées en Python : live reload, événements async et une large bibliothèque de widgets. Projet jeune, donc écosystème de composants plus maigre, sans paradigme notebook ni édition collaborative."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "VisiData",
+			"source": {
+				"host": "github",
+				"path": "saulpw/visidata",
+				"url": "https://github.com/saulpw/visidata"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "A keyboard-driven TUI spreadsheet with a steep keybinding curve — but the fastest way to probe CSVs, SQLite and Parquet in the terminal. No charts, no web sharing.",
+				"fr": "D’abord le prix : un tableur TUI piloté au clavier, raccourcis à apprivoiser — mais le plus rapide pour sonder CSV, SQLite et Parquet dans le terminal. Pas de graphiques, pas de partage web."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

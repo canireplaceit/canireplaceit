@@ -101,6 +101,136 @@
 				"en": "No platform fee at all — buy the same retargeting directly and keep AdRoll's margin. You run the campaigns yourself and lose cross-network reach.",
 				"fr": "Aucun frais de plateforme — achetez le même reciblage en direct et gardez la marge d’AdRoll. Vous pilotez les campagnes vous-même et perdez la portée multi-réseaux."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Prebid Server",
+			"source": {
+				"host": "github",
+				"path": "prebid/prebid-server",
+				"url": "https://github.com/prebid/prebid-server"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Go binary running your own OpenRTB auction endpoint — server-side header bidding and cookie-sync. API-only: configuring exchanges needs engineering, and Prebid.js stays required client-side. No campaign management.",
+				"fr": "Binaire Go pour votre endpoint OpenRTB d’enchères — header bidding et cookie-sync côté serveur. Pas d’interface, configurer les exchanges exige des ingénieurs, Prebid.js reste requis côté client."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Shlink",
+			"source": {
+				"host": "github",
+				"path": "shlinkio/shlink",
+				"url": "https://github.com/shlinkio/shlink"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Self-hosted URL shortener with per-visit tracking, QR codes, and an API/CLI — tags links by affiliate or campaign. Tracking only: no creative serving or RTB, no commission management.",
+				"fr": "Raccourcisseur d’URL auto-hébergé avec suivi par visite, QR codes et API/CLI, liens tagués par affilié ou campagne. Suivi uniquement : pas de diffusion de créatifs ni de RTB, pas de gestion des commissions."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Snowplow",
+			"source": {
+				"host": "github",
+				"path": "snowplow/snowplow",
+				"url": "https://github.com/snowplow/snowplow"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Ops-heavy: you run the collector, enricher, and loader to feed your warehouse, then stitch identities and write attribution in dbt yourself. No UI, no campaign management.",
+				"fr": "Lourd en ops : il faut faire tourner collector, enricher et loader pour alimenter votre entrepôt, puis coudre les identités et écrire l’attribution en dbt vous-même. Pas d’interface, pas de gestion de campagne."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GoAccess",
+			"source": {
+				"host": "github",
+				"path": "allinurl/goaccess",
+				"url": "https://github.com/allinurl/goaccess"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Fast zero-dependency binary drawing real-time referrer and visitor breakdowns from web logs in a terminal dashboard. Log-based only: no client-side events, no cross-device identity or attribution.",
+				"fr": "Binaire rapide sans dépendance : en temps réel, dans un terminal, la ventilation des référents et visiteurs depuis vos logs web. Uniquement du log : pas d’événements côté client, ni identité, ni attribution."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Umami",
+			"source": {
+				"host": "github",
+				"path": "umami-software/umami",
+				"url": "https://github.com/umami-software/umami"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight MIT analytics — Matomo without the weight — with custom events and a simple UTM campaign dashboard for conversion tracking. Analytics only: attribution is UTM-based, no audience or retargeting management.",
+				"fr": "Analytique MIT légère, Matomo sans le poids : événements personnalisés et tableau de bord de campagnes UTM pour suivre les conversions. Analytics uniquement, attribution UTM basique, pas d’audience ni de retargeting."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Plausible Analytics",
+			"source": {
+				"host": "github",
+				"path": "plausible/analytics",
+				"url": "https://github.com/plausible/analytics"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Privacy-first, cookie-less analytics in an Elixir app that deploys easily via Docker — UTM campaign and goal tracking. Analytics only: no ad inventory or retargeting, some features sit behind the paid cloud.",
+				"fr": "Analytics sans cookies, privacy-first, en Elixir, déployable facilement via Docker — suivi des campagnes UTM et des objectifs. Analytics uniquement : pas d’inventaire publicitaire ni de retargeting, certaines fonctions restent derrière le cloud payant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Advanced reports and goals, cloud-only",
+					"fr": "Rapports et objectifs avancés, réservés au cloud"
+				}
+			}
 		}
 	],
 	"priority": 2

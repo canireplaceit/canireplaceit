@@ -82,6 +82,136 @@
 				"en": "Overlays, alerts and a bot, free and cloud-hosted. Not open source, and your entire overlay stack lives on their servers.",
 				"fr": "Habillage, alertes et bot, gratuits et hébergés. Pas open source, et tout votre habillage vit sur leurs serveurs."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "streamlink",
+			"source": {
+				"host": "github",
+				"path": "streamlink/streamlink",
+				"url": "https://github.com/streamlink/streamlink"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "CLI that pulls any RTMP/HLS stream into VLC or ffmpeg, scriptable via site plugins; no GUI or scene editing, and it stays viewer-side, not a broadcast suite.",
+				"fr": "CLI qui achemine tout flux RTMP/HLS vers VLC ou ffmpeg, scriptable via des plugins de sites ; sans GUI ni édition de scènes, et il reste côté spectateur, pas une suite de diffusion."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "owncast",
+			"source": {
+				"host": "github",
+				"path": "owncast/owncast",
+				"url": "https://github.com/owncast/owncast"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted platform with built-in web chat and ActivityPub federation; your own audience site rather than Twitch integration, and no donation or alert widgets.",
+				"fr": "Plateforme auto-hébergée avec tchat web intégré et fédération ActivityPub ; c’est votre propre site d’audience, pas une intégration Twitch, et sans widgets de dons ni d’alertes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SRS",
+			"source": {
+				"host": "github",
+				"path": "ossrs/srs",
+				"url": "https://github.com/ossrs/srs"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Mature media server handling RTMP/WebRTC/HLS/SRT ingest and low-latency delivery across a big install base; it’s infrastructure, not a broadcast UI, and scaling needs a server cluster.",
+				"fr": "Serveur média mature, ingestion RTMP/WebRTC/HLS/SRT et diffusion faible latence sur une grosse base installée ; c’est de l’infra, pas une UI de diffusion, et passer à l’échelle exige un cluster."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MediaMTX",
+			"source": {
+				"host": "github",
+				"path": "bluenviron/mediamtx",
+				"url": "https://github.com/bluenviron/mediamtx"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Single small binary relaying streams across RTSP/RTMP/HLS/SRT/WebRTC to many targets with auth and API control; pure plumbing, so no chat, alerts, or overlays.",
+				"fr": "Un seul petit binaire qui relaie les flux entre RTSP/RTMP/HLS/SRT/WebRTC vers plusieurs cibles, avec auth et contrôle par API ; de la plomberie pure, donc pas de tchat, d’alertes ni d’overlays."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LiveKit",
+			"source": {
+				"host": "github",
+				"path": "livekit/livekit",
+				"url": "https://github.com/livekit/livekit"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hostable WebRTC SFU with web/mobile SDKs for browser-based guests and low-latency interactive broadcasts; developer infrastructure, not a ready app, and hosted cloud features are commercial.",
+				"fr": "SFU WebRTC auto-hébergeable avec SDK web/mobile pour inviter des spectateurs depuis le navigateur et diffuser en basse latence ; de l’infra pour développeurs, pas une app prête à l’emploi, et le cloud hébergé est payant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Managed cloud",
+					"fr": "Cloud managé"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "obs-websocket",
+			"source": {
+				"host": "github",
+				"path": "obsproject/obs-websocket",
+				"url": "https://github.com/obsproject/obs-websocket"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "GPL plugin scripting OBS over WebSocket/HTTP to swap scenes or sources programmatically and wire up automations and custom remotes; no standalone app, and the only UI is the API.",
+				"fr": "Plugin GPL qui pilote OBS par WebSocket/HTTP pour changer scènes et sources par code, brancher automatisations et télécommandes maison ; pas d’app autonome, et l’API tient lieu de seule UI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

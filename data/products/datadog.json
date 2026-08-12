@@ -105,6 +105,262 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Prometheus",
+			"source": {
+				"host": "github",
+				"path": "prometheus/prometheus",
+				"url": "https://github.com/prometheus/prometheus"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Scrape, PromQL and alerting rules in one Apache-2.0 server — the core most stacks build on. Metrics only, no logs or traces; HA and dashboards are someone else's job.",
+				"fr": "Le cœur open source de la métrique : scrape, PromQL et règles d’alerte, que le reste de la pile réutilise. Métriques seulement, pas de logs ni de traces ; la HA et les dashboards sont à monter soi-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "VictoriaMetrics",
+			"source": {
+				"host": "github",
+				"path": "VictoriaMetrics/VictoriaMetrics",
+				"url": "https://github.com/VictoriaMetrics/VictoriaMetrics"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Prometheus-compatible TSDB with tenfold compression and downsampling, so long retention fits on cheap hardware. Metrics backend only — bring Grafana for dashboards, and a separate build for clusters.",
+				"fr": "TSDB compatible Prometheus, dix fois plus compressé, avec downsampling : la rétention longue tient sur du matériel bon marché. Backend métriques uniquement, à jumeler avec Grafana ; le mode cluster est un binaire à part."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Jaeger",
+			"source": {
+				"host": "github",
+				"path": "jaegertracing/jaeger",
+				"url": "https://github.com/jaegertracing/jaeger"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "OTel-native distributed tracing: span search, sampling and dependency graphs. Traces only — no metrics, logs or alerting, and the storage backend carries its own ops weight.",
+				"fr": "Tracing distribué natif OTel : recherche de spans, échantillonnage et graphes de dépendances. Traces uniquement, pas de métriques ni de logs ni d’alerting ; le backend de stockage pèse dans l’ops."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenObserve",
+			"source": {
+				"host": "github",
+				"path": "openobserve/openobserve",
+				"url": "https://github.com/openobserve/openobserve"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Single binary serving logs, metrics and traces from S3 with a Loki-compatible ingest API. Young and AGPL, and high volume only works once you tune it.",
+				"fr": "Un binaire qui sert logs, métriques et traces depuis S3, avec une API d’ingest compatible Loki. Jeune, sous AGPL, et le gros volume ne tient qu’au prix d’un réglage soigné."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Highlight",
+			"source": {
+				"host": "github",
+				"path": "highlight/highlight",
+				"url": "https://github.com/highlight/highlight"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Session replay, RUM and error monitoring with sourcemaps and OTel tracing — the frontend half Datadog covers awkwardly. Infrastructure dashboards are thin, and self-hosting means Docker plus ClickHouse.",
+				"fr": "Session replay, RUM et monitoring d’erreurs avec sourcemaps et tracing OTel : la moitié frontend que Datadog couvre mal. Dashboards infra minces, et le self-hosting exige Docker plus ClickHouse."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise directory under a separate license",
+					"fr": "répertoire entreprise sous licence séparée"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "HyperDX",
+			"source": {
+				"host": "github",
+				"path": "hyperdxio/hyperdx",
+				"url": "https://github.com/hyperdxio/hyperdx"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "MIT full-stack observability on ClickHouse: OTel logs, traces, errors and session replay in one correlated search. Younger and heavier to self-host, with dashboards still maturing.",
+				"fr": "Observabilité full-stack MIT sur ClickHouse : logs, traces, erreurs et session replay OTel dans une recherche corrélée. Plus jeune, plus lourd à self-hoster, et des dashboards encore en maturation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Netdata",
+			"source": {
+				"host": "github",
+				"path": "netdata/netdata",
+				"url": "https://github.com/netdata/netdata"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Per-second dashboards, auto-discovery and ML anomaly detection, streamed from an agent on every host. Metrics only, and some UI features route through Netdata Cloud.",
+				"fr": "Dashboards à la seconde, auto-découverte et détection d’anomalies ML, streamés depuis un agent sur chaque hôte. Métriques uniquement, et une partie de l’UI passe par Netdata Cloud."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Parca",
+			"source": {
+				"host": "github",
+				"path": "parca-dev/parca",
+				"url": "https://github.com/parca-dev/parca"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Continuous CPU and memory profiling to pprof flame graphs, agent auto-push included — Datadog's profiler at a fraction of the cost. Profiling only, single-node at scale, and Grafana for anything fancy.",
+				"fr": "Profilage CPU et mémoire continu en flame graphs pprof, avec auto-push via l’agent : le profiler de Datadog pour une fraction du coût. Profilage uniquement, limité à un nœud à l’échelle, Grafana pour le reste."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenTelemetry Collector",
+			"source": {
+				"host": "github",
+				"path": "open-telemetry/opentelemetry-collector",
+				"url": "https://github.com/open-telemetry/opentelemetry-collector"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Vendor-neutral data plane: receive, route, filter and export any telemetry over OTLP — it replaces the Datadog agent. Not an end product, so no dashboards, alerting, and a YAML config to learn.",
+				"fr": "Plan de données neutre : recevoir, router, filtrer et exporter toute télémétrie en OTLP, là où l’agent Datadog passait. Pas un produit fini : ni dashboards ni alerting, et une config YAML à maîtriser."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Glances",
+			"source": {
+				"host": "github",
+				"path": "nicolargo/glances",
+				"url": "https://github.com/nicolargo/glances"
+			},
+			"license": "LGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "CLI/TUI system monitor with a REST API and pip install anywhere — a per-host replacement for Datadog agents. Single-host scope: no central retention, no distributed tracing.",
+				"fr": "Moniteur système en CLI/TUI, avec API REST et installation via pip partout : un remplaçant par hôte des agents Datadog. Périmètre mono-hôte, sans rétention centrale ni tracing distribué."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "lnav",
+			"source": {
+				"host": "github",
+				"path": "tstack/lnav",
+				"url": "https://github.com/tstack/lnav"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "TUI log navigator that runs SQL over your log files, auto-detecting common formats. Local files only — no agent, no central collection, no dashboards.",
+				"fr": "Navigateur de logs en TUI qui exécute du SQL sur vos fichiers, avec détection automatique des formats courants. Fichiers locaux seulement : pas d’agent, pas de collecte centrale, pas de dashboards."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GoAccess",
+			"source": {
+				"host": "github",
+				"path": "allinurl/goaccess",
+				"url": "https://github.com/allinurl/goaccess"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Real-time web access-log analytics in the terminal, with static HTML reports and SQLite persistence. Web logs only — no app metrics, no traces, and one analysis per file.",
+				"fr": "Analyse temps réel des access logs web dans le terminal, avec rapports HTML statiques et persistance SQLite. Logs web uniquement : pas de métriques applicatives, pas de traces, une analyse par fichier."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

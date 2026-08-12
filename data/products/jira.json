@@ -122,6 +122,182 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenProject",
+			"source": {
+				"host": "github",
+				"path": "opf/openproject",
+				"url": "https://github.com/opf/openproject"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Full enterprise project management — Gantt, sprints, budgeting, time tracking — with a strong REST API and a large community. Less snappy than Linear; SSO and some enterprise features are paid.",
+				"fr": "Gestion de projet d’entreprise complète — Gantt, sprints, budgétisation, suivi du temps — avec une API REST solide et une grande communauté. Moins nerveux que Linear ; SSO et certaines fonctions entreprise sont payantes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "SSO and enterprise features",
+					"fr": "SSO et fonctions entreprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Redmine",
+			"source": {
+				"host": "github",
+				"path": "redmine/redmine",
+				"url": "https://github.com/redmine/redmine"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Battle-tested issue tracker — projects, wiki, Gantt, time tracking — plus hundreds of plugins and themes. The UI is dated and not mobile-friendly, and there are no native mobile apps.",
+				"fr": "Tracker d’issues éprouvé — projets, wiki, Gantt, suivi du temps — et des centaines de plugins et thèmes. L’interface est datée, pas pensée mobile, sans application native."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Focalboard",
+			"source": {
+				"host": "github",
+				"path": "mattermost-community/focalboard",
+				"url": "https://github.com/mattermost-community/focalboard"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Trello/Linear-style boards with Notion-like views and native desktop apps for all three OSes. Mattermost dropped it, so it is community-maintained, and it has fewer workflow features than Jira.",
+				"fr": "Des boards façon Trello/Linear avec des vues type Notion et des apps desktop natives pour les trois OS. Mattermost l’a abandonné : maintenance communautaire, et moins de fonctions workflow que Jira."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kanboard",
+			"source": {
+				"host": "github",
+				"path": "kanboard/kanboard",
+				"url": "https://github.com/kanboard/kanboard"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Minimal, fast kanban that runs from a single PHP setup. Automation rules, subtasks, REST API and webhooks — but it is kanban only: no Gantt, no cycles, single-project focus.",
+				"fr": "Kanban minimaliste et rapide, servi par une installation PHP unique. Règles d’automatisation, sous-tâches, API REST et webhooks — mais kanban uniquement : pas de Gantt ni de cycles, pensée mono-projet."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Wekan",
+			"source": {
+				"host": "github",
+				"path": "wekan/wekan",
+				"url": "https://github.com/wekan/wekan"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Trello-style kanban with swimlanes, checklists, labels and due dates; imports from Trello and CSV. No cycle or issue tracking, and the Meteor stack can be resource-hungry.",
+				"fr": "Kanban façon Trello avec swimlanes, checklists, étiquettes et échéances ; import depuis Trello et CSV. Pas de cycles ni de suivi d’issues, et la pile Meteor peut peser sur les ressources."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Leantime",
+			"source": {
+				"host": "github",
+				"path": "Leantime/leantime",
+				"url": "https://github.com/Leantime/leantime"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Accessibility-first PM for small teams: idea board, kanban, Gantt, goals and a built-in wiki. SSO requires a paid tier and feature depth is thinner than enterprise tools.",
+				"fr": "PM pensé pour l’accessibilité et les petites équipes : idées, kanban, Gantt, objectifs et wiki intégré. SSO réservé à l’offre payante, et moins de profondeur que les outils d’entreprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "SSO",
+					"fr": "SSO"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Taskwarrior",
+			"source": {
+				"host": "github",
+				"path": "GothenburgBitFactory/taskwarrior",
+				"url": "https://github.com/GothenburgBitFactory/taskwarrior"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Terminal-first GTD task manager with tags, priorities, dependencies and UDAs; syncs across devices via Taskwarrior Server. Single-user focus, no web UI or mobile app out of the box.",
+				"fr": "Gestionnaire de tâches GTD en terminal, avec tags, priorités, dépendances et UDA ; synchronisation via Taskwarrior Server. Pensé mono-utilisateur, sans interface web ni appli mobile par défaut."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Taskell",
+			"source": {
+				"host": "github",
+				"path": "smallhadroncollider/taskell",
+				"url": "https://github.com/smallhadroncollider/taskell"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Archived upstream and no longer actively maintained. Keyboard-driven TUI kanban over markdown files you can edit by hand, with Trello import/export — but local-only, no sync or sharing.",
+				"fr": "Archivé en amont, plus maintenu activement. Kanban TUI piloté au clavier sur des fichiers markdown éditables à la main, avec import/export Trello — mais local uniquement, sans synchronisation ni partage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

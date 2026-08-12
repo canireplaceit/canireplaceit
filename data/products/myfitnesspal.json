@@ -82,6 +82,153 @@
 				"en": "Half the price and its micronutrient data is far more accurate. Smaller crowd-sourced food database.",
 				"fr": "Deux fois moins cher, avec des données en micronutriments bien plus précises. Base alimentaire collaborative plus petite."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mealie",
+			"source": {
+				"host": "github",
+				"path": "mealie-recipes/mealie",
+				"url": "https://github.com/mealie-recipes/mealie"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Polished self-hosted recipe manager with per-serving nutrition, meal-planning calendar and PWA. Imports recipes from URLs. Nutrition covers only what you import — no barcode scanning, packaged-food database or weight tracking.",
+				"fr": "Gestionnaire de recettes self-hébergé, UX proche d’une app : nutrition par portion, calendrier, PWA, import depuis URL. La nutrition ne couvre que vos recettes importées — pas de scan code-barres ni suivi du poids."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Grocy",
+			"source": {
+				"host": "github",
+				"path": "grocy/grocy",
+				"url": "https://github.com/grocy/grocy"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Stock manager tracking calories on consumption, per-product nutrition per 100g, meal plans, shopping lists. It’s a grocery tool, not fitness — no native mobile app, no meal-level diary.",
+				"fr": "Gestionnaire de stock qui compte les calories à la consommation, nutrition par produit au 100 g. Pensé pour l’épicerie, pas le fitness — pas d’app mobile, journal au niveau du produit, pas du repas."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Open Food Facts",
+			"source": {
+				"host": "github",
+				"path": "openfoodfacts/openfoodfacts-server",
+				"url": "https://github.com/openfoodfacts/openfoodfacts-server"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Open, self-hostable product database for barcode nutrition lookups — full per-product facts, crowdsourced, multi-language. Not a diary: no goals or trends, and daily logging needs a companion app.",
+				"fr": "Base ouverte d’aliments self-hostable pour le scan code-barres : fiches complètes par produit, contributions communautaires, multilingue. Pas un journal — ni objectifs ni tendances, et le suivi au quotidien demande une app compagnon."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenNutriTracker",
+			"source": {
+				"host": "github",
+				"path": "simonoppowa/OpenNutriTracker",
+				"url": "https://github.com/simonoppowa/OpenNutriTracker"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Most credible app-style replacement: cross-platform, privacy-first (data stays on device), barcode scanning. Smaller food database than MFP, and no web client, team sharing or step integration.",
+				"fr": "Le remplaçant de type app le plus crédible : multiplateforme, privé (données sur l’appareil), scan code-barres. Base d’aliments plus petite que MFP, et pas de client web, de partage ni d’intégration d’activité."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FoodYou",
+			"source": {
+				"host": "github",
+				"path": "maksimowiczm/FoodYou",
+				"url": "https://github.com/maksimowiczm/FoodYou"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Android-only GPL-3.0 food diary with weight tracking, no ads or telemetry. Fully open source, but database is community-fed and there is no cloud sync or iOS/web.",
+				"fr": "Journal alimentaire Android sous GPL-3.0 avec suivi du poids, sans pub ni télémétrie. Entièrement open source, mais base communautaire : pas de sync cloud, pas de version iOS ou web."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "hranoprovod-cli",
+			"source": {
+				"host": "github",
+				"path": "aquilax/hranoprovod-cli",
+				"url": "https://github.com/aquilax/hranoprovod-cli"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "MIT command-line diet tracker: CSV food database you edit freely, daily and aggregate reports, plain-text and script-friendly. Terminal-only though — manual entry, no scanning, no mobile or web access.",
+				"fr": "Journal alimentaire en ligne de commande, MIT : base CSV modifiable, rapports quotidiens et cumulés, texte brut scriptable. Terminal uniquement — saisie manuelle, pas de scan, ni mobile ni web."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "calories",
+			"source": {
+				"host": "github",
+				"path": "zupzup/calories",
+				"url": "https://github.com/zupzup/calories"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Apache-2.0 Rust CLI calorie tracker with simple date-based entry and single-file data. Dormant since late 2022 — expect bugs to go unfixed, no food database or macros, no web or mobile.",
+				"fr": "Traqueur de calories en CLI, binaire Rust, Apache-2.0, saisie par date, données dans un fichier. Dormant depuis fin 2022 : bugs non corrigés, pas de base d’aliments, pas d’interface web ou mobile."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

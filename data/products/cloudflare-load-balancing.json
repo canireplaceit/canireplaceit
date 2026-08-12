@@ -93,6 +93,178 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Traefik",
+			"source": {
+				"host": "github",
+				"path": "traefik/traefik",
+				"url": "https://github.com/traefik/traefik"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Default gateway for Docker and Kubernetes, auto-discovering services and issuing Let's Encrypt TLS as it balances. Aimed at ingress, not large L4/anycast farms; canary and advanced metrics are Traefik Enterprise.",
+				"fr": "Passerelle par défaut de Docker et Kubernetes : découverte automatique des services, TLS Let's Encrypt, health checks. Fait pour l’ingress, pas les grosses fermes L4/anycast ; canary et métriques avancées en Traefik Enterprise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Canary/A-B deployments and advanced metrics",
+					"fr": "Déploiements canary/A-B et métriques avancées"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Caddy",
+			"source": {
+				"host": "github",
+				"path": "caddyserver/caddy",
+				"url": "https://github.com/caddyserver/caddy"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "It renews its own Let's Encrypt certs while balancing upstreams from a dead-simple Caddyfile, in one static binary. Not a network LB: no BGP, no multi-region anycast, fewer algorithms than HAProxy.",
+				"fr": "Proxy inverse en binaire unique qui gère ses renouvellements Let's Encrypt et répartit les upstreams depuis un Caddyfile court. Pas un LB réseau : ni BGP, ni anycast multi-région, moins d’algorithmes qu’HAProxy."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "NGINX",
+			"source": {
+				"host": "github",
+				"path": "nginx/nginx",
+				"url": "https://github.com/nginx/nginx"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "The most-deployed open-source web server doubles as an L7 balancer, with weighted, least-conn, hash and random upstream algorithms. Active checks and live config need paid NGINX Plus; anything else is a reload.",
+				"fr": "Le serveur web open source le plus déployé fait aussi LB L7 : weighted, least-conn, hash, random. Checks actifs et config à chaud payants, dans NGINX Plus ; le reste passe par un reload."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "BFE",
+			"source": {
+				"host": "github",
+				"path": "bfenetworks/bfe",
+				"url": "https://github.com/bfenetworks/bfe"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Baidu's in-house L7 balancer, Apache-licensed, modular filters and rate limiting at very high throughput. Docs lean toward Chinese-speaking users, no L4 scope, and a smaller ecosystem than nginx or HAProxy.",
+				"fr": "Le LB L7 de production de Baidu, sous licence Apache : filtres modulaires, rate limiting, très haut débit. Doc surtout pour les utilisateurs chinois, pas de L4, écosystème plus petit qu’nginx/HAProxy."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MetalLB",
+			"source": {
+				"host": "github",
+				"path": "metallb/metallb",
+				"url": "https://github.com/metallb/metallb"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "The CNCF-standard way to give bare-metal and on-prem Kubernetes clusters external VIPs via L2/ARP or BGP. Kubernetes-only, L4 only, no HTTP routing; L2 mode pins a VIP to one node until failover.",
+				"fr": "Le standard CNCF pour exposer des VIP en L2/ARP ou BGP aux clusters Kubernetes bare-metal et on-prem. K8s uniquement, L4 sans routage HTTP ; une VIP L2 reste sur un nœud jusqu’au failover."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "loxilb",
+			"source": {
+				"host": "github",
+				"path": "loxilb-io/loxilb",
+				"url": "https://github.com/loxilb-io/loxilb"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Cloud-native eBPF/DPDK L4-L7 balancer for bare-metal and Kubernetes, managed through its own loxicmd CLI. Younger project: small community, kernel tuning required, and fewer ready integrations than HAProxy.",
+				"fr": "LB L4-L7 cloud-native en eBPF/DPDK pour bare-metal et Kubernetes, piloté par son CLI loxicmd. Projet jeune : petite communauté, réglages eBPF/noyau à prévoir, intégrations toutes faites plus rares qu’HAProxy."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Fabio",
+			"source": {
+				"host": "github",
+				"path": "fabiolb/fabio",
+				"url": "https://github.com/fabiolb/fabio"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Zero-config Go balancer, backends from Consul, Let's Encrypt certs on auto-renew, small footprint, canary weights, WebSocket. Consul is the source of truth — no Consul, no Fabio; no L4/TCP, fewer knobs than Envoy.",
+				"fr": "Balancer Go zéro config : les backends viennent de Consul, certs Let's Encrypt auto-renouvelées, footprint léger, canary, WebSocket. Sans Consul, pas de Fabio — pas de L4/TCP, moins de réglages qu’Envoy."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gost",
+			"source": {
+				"host": "github",
+				"path": "go-gost/gost",
+				"url": "https://github.com/go-gost/gost"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Single-binary CLI forwarder that L4-forwards or L7-reverse-proxies, tunnels, SNI, even traffic recording. A general-purpose tool: no UI, no service discovery, best for small and edge routing rather than large fleets.",
+				"fr": "Forwarder CLI en binaire unique : forwarding L4 ou reverse proxy L7, tunneling, SNI, enregistrement du trafic. Outil généraliste sans UI ni service discovery ; pour le routage de bord, pas les grosses flottes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

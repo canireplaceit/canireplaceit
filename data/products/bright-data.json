@@ -72,6 +72,174 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "mitmproxy",
+			"source": {
+				"host": "github",
+				"path": "mitmproxy/mitmproxy",
+				"url": "https://github.com/mitmproxy/mitmproxy"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Interactive proxy with a TUI for inspecting and replaying scraped traffic; Python addons extend it. It is a debugging tool, not a rotation service — no residential pool, scraping logic is yours.",
+				"fr": "Proxy interactif en TUI pour inspecter et rejouer le trafic scrappé, extensible en Python. Outil de debug, pas un service de rotation : sans pool résidentiel, la logique de scraping reste à écrire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Xray-core",
+			"source": {
+				"host": "gitlab",
+				"path": "XTLS/Xray-core",
+				"url": "https://gitlab.com/XTLS/Xray-core"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Obfuscation-first proxy stack — VMess, Trojan, VLESS — for reaching geo-restricted targets. Configuration is steep, there is no managed pool, and unblocking requires your own exit nodes.",
+				"fr": "Empilement proxy orienté obfuscation — VMess, Trojan, VLESS — pour atteindre des cibles geo-restreintes. Config exigeante, pas de pool géré : le déblocage passe par vos propres nœuds de sortie."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "sing-box",
+			"source": {
+				"host": "github",
+				"path": "SagerNet/sing-box",
+				"url": "https://github.com/SagerNet/sing-box"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "One static binary routing many proxy protocols with fine-grained rules; Clash-compatible API. Protocol config is fiddly, and there is no pool or scraping tooling to lean on.",
+				"fr": "Un seul binaire statique qui route de nombreux protocoles proxy avec des règles fines ; API compatible Clash. La config des protocoles reste pointilleuse, sans pool ni outillage scraping."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "shadowsocks-rust",
+			"source": {
+				"host": "github",
+				"path": "shadowsocks/shadowsocks-rust",
+				"url": "https://github.com/shadowsocks/shadowsocks-rust"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Classic self-host exit: a single Rust binary serving encrypted SOCKS5 with multiple ciphers. One protocol, no routing, no rotation — you provision every exit node yourself.",
+				"fr": "L’exit auto-hébergé classique : un seul binaire Rust qui sert du SOCKS5 chiffré avec plusieurs ciphers. Un seul protocole, pas de routage ni rotation — chaque nœud de sortie se provisionne à la main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "hysteria",
+			"source": {
+				"host": "github",
+				"path": "apernet/hysteria",
+				"url": "https://github.com/apernet/hysteria"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "QUIC tunnel that stays quick on lossy links, with built-in bandwidth and user management. It is built for speed, not scraping: no IP pool, and users are provisioned by hand.",
+				"fr": "Tunnel QUIC rapide même sur liens instables, avec gestion intégrée de la bande passante et des utilisateurs. Pensé pour la vitesse, pas le scraping : sans pool d’IP, comptes créés à la main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "chisel",
+			"source": {
+				"host": "github",
+				"path": "jpillora/chisel",
+				"url": "https://github.com/jpillora/chisel"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Painless reverse proxy in one Go binary: TCP, UDP and HTTP over a single authenticated connection. Tunneling only — no obfuscation, no rotation, you run the relays.",
+				"fr": "Reverse proxy sans douleur en un binaire Go : TCP, UDP et HTTP sur une seule connexion authentifiée. Du simple tunneling — sans obfuscation ni rotation, les relais sont à vous."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "nebula",
+			"source": {
+				"host": "github",
+				"path": "slackhq/nebula",
+				"url": "https://github.com/slackhq/nebula"
+			},
+			"license": "MIT",
+			"effort": "ops",
+			"note": {
+				"en": "Mesh overlay where every node can act as your exit, discovered through lighthouse certificates with NAT traversal. Cluster and key management fall on you, and there is no residential IP to borrow.",
+				"fr": "Overlay maille où chaque nœud peut servir de sortie, découverte par certificats lighthouse et traversée NAT. Gestion de cluster et de clés à porter, sans IP résidentielle à disposition."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "netbird",
+			"source": {
+				"host": "github",
+				"path": "netbirdio/netbird",
+				"url": "https://github.com/netbirdio/netbird"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "docker",
+			"note": {
+				"en": "WireGuard mesh with OIDC/SSO and a self-hosted management server. The management and relay components are AGPL-3.0, you need an identity provider, and scraping is out of scope.",
+				"fr": "Maille WireGuard avec SSO OIDC et serveur de gestion auto-hébergé. Les composants de gestion et relais sont en AGPL-3.0, il faut un fournisseur d’identité, et le scraping n’est pas le propos."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

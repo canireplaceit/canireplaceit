@@ -13,6 +13,64 @@ const dict = {
 	en: {
 		"nav.list": "The list",
 		"nav.menu": "Menu",
+		"features.title": "What these projects actually do",
+		"features.blurb":
+			"A closed vocabulary of features, answered per project from its own docs and repo. A dash means nobody has checked — never that the answer is no.",
+		"features.genre": "Genre",
+		"features.all": "All",
+		"features.require": "Require a feature",
+		"features.searchPlaceholder":
+			"Search features — SSO, markdown, offline, webhooks…",
+		"features.acceptPaid": "Count features that are only in a paid tier",
+		"features.narrow": "more — narrow with the search box.",
+		"features.compare": "Compare",
+		"features.pickTwo":
+			"Pick two or more projects above to see only the features where they actually differ.",
+		"features.noMatch":
+			"Nothing matches every requirement. That is a real answer, not an empty page — loosen one, or allow paid tiers.",
+		"features.noDiff":
+			"These projects do not differ on anything we have checked. That is worth knowing — it usually means the choice turns on something outside the matrix.",
+		"features.loading": "Loading the feature matrix…",
+		"features.loadFailed": "The feature dataset could not be loaded.",
+		"features.facts": "facts",
+		"features.coverage": "projects with feature data",
+		"features.legend":
+			"Values: ● yes · € paid tier only · ◐ partial · ○ no · – not checked",
+		"features.onProject": "What it does",
+		"features.vsHeading": "Where they actually differ",
+		"features.vsBlurb":
+			"Only features both sides were checked on, and only where they disagree",
+		"features.checked": "features checked",
+		"features.compareLink": "compare with others →",
+		"features.paidOnly": "paid only",
+		"features.bothChecked": "Only rows both projects were checked on",
+		"features.realDiff": "real disagreements",
+		"features.quick": "Quick filters",
+		"features.quickMcpOfficial": "Official MCP server",
+		"features.quickMcp": "Ships an MCP server",
+		"features.quickAi": "Has AI features",
+		"features.quickSso": "SSO in the free build",
+		"features.quickSelfhost": "Runs on SQLite",
+		"features.results": "Matching projects",
+		"features.matchOne": "project matches",
+		"features.matchMany": "projects match",
+		"features.reqOne": "requirement",
+		"features.reqMany": "requirements",
+		"features.moreGenres": "All {n} genres",
+		"features.lessGenres": "Show fewer",
+		"features.required": "Your requirements",
+		"features.featureCol": "Feature",
+		"features.diffOne":
+			"1 differing feature — rows where every side agrees, or where nobody has checked, are dropped.",
+		"features.diffMany":
+			"{n} differing features — rows where every side agrees, or where nobody has checked, are dropped.",
+		"features.vocab": "features in the vocabulary",
+		"features.val.yes": "Yes",
+		"features.val.paid": "Paid tier only",
+		"features.val.partial": "Partial",
+		"features.val.no": "No",
+		"features.val.unknown": "Not checked",
+		"nav.features": "Features",
 		"nav.sponsor": "Sponsor",
 		"nav.submit": "Submit",
 
@@ -178,7 +236,7 @@ const dict = {
 		"nav.collections": "Collections",
 
 		"hero.sponsorsIntro": "canireplaceit is supported by these sponsors.",
-		"hero.sponsorsCta": "Take a spot →",
+		"hero.sponsorsCta": "Sponsor this project →",
 
 		"home.pagedTitle": "Every product we have reviewed — page {n}",
 
@@ -298,7 +356,7 @@ const dict = {
 		"ads.priceOnRequest": "price on request",
 		"ads.notPricedYet": "not priced yet",
 		"ads.unpricedNote":
-			"hero positions exist but are not priced yet — tell us what you would pay.",
+			"hero positions exist but are not priced yet — get in touch if one interests you.",
 
 		"empty.none": "No match in 493 products.",
 		"empty.submit": "Add it →",
@@ -379,13 +437,13 @@ const dict = {
 			"Got it. We'll come back with a scoped quote within two working days.",
 
 		"ads.eyebrow": "Sponsorship",
-		"ads.title": "Reach people mid-switch",
+		"ads.title": "Sponsor this project",
 		"ads.blurb":
-			"Everyone here is actively shopping for a replacement. Flat price, 30 days, no auction, no tracking pixels. One sponsor per slot.",
+			"Sponsors keep this site free and independent. Flat price, 30 days, no auction, no tracking pixels. One sponsor per slot.",
 		"ads.available": "available",
 		"ads.availableCount": "available",
 		"ads.taken": "taken",
-		"ads.yourProductHere": "your product here",
+		"ads.yourProductHere": "Sponsor this project",
 		"ads.billingEmail": "Billing email",
 		"ads.submit": "Reserve {n} slot",
 		"ads.submitPlural": "Reserve {n} slots",
@@ -398,7 +456,7 @@ const dict = {
 		"ads.sponsored": "sponsored",
 		// "Ad" on a phone, "Sponsored" from sm up — same disclosure, less room.
 		"ads.adShort": "Ad",
-		"ads.yourLogoHere": "Your logo here",
+		"ads.yourLogoHere": "Sponsor this project",
 		"ads.houseLabel": "From the maker",
 		"ads.houseBody": "I build things like this one. Available for work.",
 
@@ -434,6 +492,15 @@ const dict = {
 			"This landing page spot is limited to one per order — {label} was removed to make room.",
 		"ads.capSwappedCategory":
 			"One category per order — {label} was removed to make room.",
+
+		// The three wizard steps: pick slots, pick a term, write the ad and pay.
+		"ads.step1": "Where",
+		"ads.step2": "How long",
+		"ads.step3": "Your ad",
+		"ads.steps": "Sponsorship steps",
+		"ads.continue": "Continue",
+		"ads.back": "Back",
+		"ads.payNow": "Pay {amount}",
 
 		"ads.termHeading": "How long do you want it for?",
 		"ads.month": "month",
@@ -495,6 +562,7 @@ const dict = {
 		"footer.browse": "Browse",
 		"footer.contribute": "Contribute",
 		"footer.about": "About",
+		"footer.legal": "Legal",
 		"footer.repo": "The repository",
 		"footer.madeWith": "Made with",
 		"footer.by": "by",
@@ -756,6 +824,65 @@ const dict = {
 	fr: {
 		"nav.list": "La liste",
 		"nav.menu": "Menu",
+		"features.title": "Ce que ces projets font vraiment",
+		"features.blurb":
+			"Un vocabulaire fermé de fonctionnalités, renseigné projet par projet depuis sa documentation et son dépôt. Un tiret veut dire que personne n'a vérifié — jamais que la réponse est non.",
+		"features.genre": "Genre",
+		"features.all": "Tous",
+		"features.require": "Exiger une fonctionnalité",
+		"features.searchPlaceholder":
+			"Chercher — SSO, markdown, hors ligne, webhooks…",
+		"features.acceptPaid":
+			"Compter les fonctionnalités réservées à une offre payante",
+		"features.narrow": "de plus — affinez avec la recherche.",
+		"features.compare": "Comparer",
+		"features.pickTwo":
+			"Sélectionnez au moins deux projets ci-dessus pour ne voir que ce qui les distingue vraiment.",
+		"features.noMatch":
+			"Rien ne satisfait toutes les exigences. C'est une vraie réponse, pas une page vide — retirez-en une, ou acceptez les offres payantes.",
+		"features.noDiff":
+			"Ces projets ne diffèrent sur rien de ce que nous avons vérifié. C'est utile à savoir — le choix se joue en général ailleurs que dans le tableau.",
+		"features.loading": "Chargement du tableau des fonctionnalités…",
+		"features.loadFailed": "Le jeu de données n'a pas pu être chargé.",
+		"features.facts": "faits",
+		"features.coverage": "projets renseignés",
+		"features.legend":
+			"Valeurs : ● oui · € offre payante seulement · ◐ partiel · ○ non · – non vérifié",
+		"features.onProject": "Ce qu'il fait",
+		"features.vsHeading": "Là où ils diffèrent vraiment",
+		"features.vsBlurb":
+			"Uniquement les fonctionnalités vérifiées des deux côtés, et seulement en cas de désaccord",
+		"features.checked": "fonctionnalités vérifiées",
+		"features.compareLink": "comparer avec d'autres →",
+		"features.paidOnly": "payant",
+		"features.bothChecked": "Seulement les lignes vérifiées des deux côtés",
+		"features.realDiff": "désaccords réels",
+		"features.quick": "Filtres rapides",
+		"features.quickMcpOfficial": "Serveur MCP officiel",
+		"features.quickMcp": "Fournit un serveur MCP",
+		"features.quickAi": "Fonctions IA intégrées",
+		"features.quickSso": "SSO dans la version libre",
+		"features.quickSelfhost": "Fonctionne sur SQLite",
+		"features.results": "Projets correspondants",
+		"features.matchOne": "projet correspond",
+		"features.matchMany": "projets correspondent",
+		"features.reqOne": "exigence",
+		"features.reqMany": "exigences",
+		"features.moreGenres": "Les {n} genres",
+		"features.lessGenres": "En voir moins",
+		"features.required": "Vos exigences",
+		"features.featureCol": "Fonctionnalité",
+		"features.diffOne":
+			"1 fonctionnalité différente — les lignes où tout le monde est d'accord, ou que personne n'a vérifiées, sont retirées.",
+		"features.diffMany":
+			"{n} fonctionnalités différentes — les lignes où tout le monde est d'accord, ou que personne n'a vérifiées, sont retirées.",
+		"features.vocab": "fonctionnalités au vocabulaire",
+		"features.val.yes": "Oui",
+		"features.val.paid": "Offre payante seulement",
+		"features.val.partial": "Partiel",
+		"features.val.no": "Non",
+		"features.val.unknown": "Non vérifié",
+		"nav.features": "Fonctionnalités",
 		"nav.sponsor": "Sponsoriser",
 		"nav.submit": "Proposer",
 
@@ -917,7 +1044,7 @@ const dict = {
 		"nav.collections": "Collections",
 
 		"hero.sponsorsIntro": "canireplaceit est soutenu par ces sponsors.",
-		"hero.sponsorsCta": "Prendre un emplacement →",
+		"hero.sponsorsCta": "Soutenir ce projet →",
 
 		"home.pagedTitle": "Tous les produits évalués — page {n}",
 
@@ -1036,7 +1163,7 @@ const dict = {
 		"ads.priceOnRequest": "prix sur demande",
 		"ads.notPricedYet": "pas encore tarifé",
 		"ads.unpricedNote":
-			"emplacements de la vitrine existent mais ne sont pas encore tarifés — dites-nous ce que vous seriez prêt à y mettre.",
+			"emplacements de la vitrine existent mais ne sont pas encore tarifés — écrivez-nous si l'un d'eux vous intéresse.",
 
 		"empty.none": "Aucun résultat parmi 493 produits.",
 		"empty.submit": "Ajoutez-le →",
@@ -1118,13 +1245,13 @@ const dict = {
 		"quote.done": "Bien reçu. On revient vers vous sous deux jours ouvrés.",
 
 		"ads.eyebrow": "Sponsoring",
-		"ads.title": "Touchez des gens en pleine migration",
+		"ads.title": "Soutenir ce projet",
 		"ads.blurb":
-			"Ici, tout le monde cherche activement un remplaçant. Prix fixe, 30 jours, sans enchères ni pixels de tracking. Un seul sponsor par emplacement.",
+			"Les sponsors permettent à ce site de rester gratuit et indépendant. Prix fixe, 30 jours, sans enchères ni pixels de tracking. Un seul sponsor par emplacement.",
 		"ads.available": "disponible",
 		"ads.availableCount": "disponibles",
 		"ads.taken": "réservé",
-		"ads.yourProductHere": "votre produit ici",
+		"ads.yourProductHere": "Soutenir ce projet",
 		"ads.billingEmail": "E-mail de facturation",
 		"ads.submit": "Réserver {n} emplacement",
 		"ads.submitPlural": "Réserver {n} emplacements",
@@ -1137,7 +1264,7 @@ const dict = {
 		"ads.sponsored": "sponsorisé",
 		// « Pub » sur mobile, « Sponsorisé » à partir de sm — même mention, moins de place.
 		"ads.adShort": "Pub",
-		"ads.yourLogoHere": "Votre logo ici",
+		"ads.yourLogoHere": "Soutenir ce projet",
 		"ads.houseLabel": "Par le créateur",
 		"ads.houseBody": "Je construis des sites comme celui-ci. Disponible.",
 
@@ -1172,6 +1299,14 @@ const dict = {
 			"Cet emplacement de la page d'accueil est limité à un par commande — {label} a été retiré pour lui faire de la place.",
 		"ads.capSwappedCategory":
 			"Une seule catégorie par commande — {label} a été retiré pour lui faire de la place.",
+
+		"ads.step1": "Où",
+		"ads.step2": "Combien de temps",
+		"ads.step3": "Votre annonce",
+		"ads.steps": "Étapes du sponsoring",
+		"ads.continue": "Continuer",
+		"ads.back": "Retour",
+		"ads.payNow": "Payer {amount}",
 
 		"ads.termHeading": "Pour combien de temps ?",
 		"ads.month": "mois",
@@ -1233,6 +1368,7 @@ const dict = {
 		"footer.browse": "Parcourir",
 		"footer.contribute": "Contribuer",
 		"footer.about": "À propos",
+		"footer.legal": "Informations légales",
 		"footer.repo": "Le dépôt",
 		"footer.madeWith": "Fait avec",
 		"footer.by": "par",

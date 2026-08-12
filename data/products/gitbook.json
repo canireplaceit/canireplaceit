@@ -122,6 +122,186 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "TriliumNext/Trilium",
+			"source": {
+				"host": "github",
+				"path": "TriliumNext/Trilium",
+				"url": "https://github.com/TriliumNext/Trilium"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The closest GitBook-like knowledge base that runs on your own box: nested notes, client-side E2E encryption, REST ETAPI. A fork lineage, no mobile apps, and thin team permissions are the price.",
+				"fr": "La base de connaissances auto-hébergée la plus proche de GitBook : notes hiérarchiques, chiffrement E2E, ETAPI REST — contre un héritage de fork, une UI moins soignée et des permissions d’équipe minces."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "BookStack",
+			"source": {
+				"host": "github",
+				"path": "BookStackApp/BookStack",
+				"url": "https://github.com/BookStackApp/BookStack"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Closest drop-in team wiki to GitBook: WYSIWYG plus Markdown, books and shelves, granular roles, audit log, built-in SAML2/LDAP/OIDC. Runs on PHP/Laravel with a dated UI and no real-time editing.",
+				"fr": "Le wiki d’équipe le plus proche d’un remplaçant direct de GitBook : WYSIWYG et Markdown, rôles fins, journal d’audit, SSO SAML2/LDAP/OIDC intégré — mais pile PHP/Laravel, UI datée et pas de coédition temps réel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Premium plugins",
+					"fr": "Modules premium"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "docmost",
+			"source": {
+				"host": "github",
+				"path": "docmost/docmost",
+				"url": "https://github.com/docmost/docmost"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Younger and less battle-tested than GitBook, but a modern Confluence-style workspace: real-time coediting, spaces with granular permissions, OIDC/SAML/LDAP built in. Node plus Python, and no native or mobile clients.",
+				"fr": "Moins éprouvé que GitBook, mais un espace collaboratif moderne à la Confluence : coédition temps réel, OIDC/SAML/LDAP intégrés. Pile Node et Python plus lourde à opérer, aucun client natif ni mobile."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "mdBook",
+			"source": {
+				"host": "github",
+				"path": "rust-lang/mdBook",
+				"url": "https://github.com/rust-lang/mdBook"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The Rust-standard static docs generator: Markdown in, a fast site with built-in search out, via one binary. Static output only — no editor, no collaboration, and you bring hosting, search, and auth.",
+				"fr": "Générateur statique standard de l’écosystème Rust : Markdown en entrée, site rapide avec recherche intégrée en sortie, un seul binaire. Rendu statique uniquement — pas d’éditeur ni de collaboration, hébergement à votre charge."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "glow",
+			"source": {
+				"host": "github",
+				"path": "charmbracelet/glow",
+				"url": "https://github.com/charmbracelet/glow"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Render Markdown beautifully in the terminal — files, stdin, or remote URLs, with pagination, wrapping, and style config. Not a docs platform: no editing, no users, no sync, terminal-only.",
+				"fr": "Affiche joliment le Markdown dans le terminal — fichiers, stdin ou URLs distantes, pagination et style configurables. Pas une plateforme de docs : pas d’édition, pas d’utilisateurs, pas de sync, terminal uniquement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "nb",
+			"source": {
+				"host": "github",
+				"path": "xwmx/nb",
+				"url": "https://github.com/xwmx/nb"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "A GitBook-like docs system from the shell: encrypted notebooks synced over git or rsync, fuzzy search, and a local web view. Terminal-first and single-user by design — no SSO, no multi-user permissions.",
+				"fr": "Notes de type GitBook depuis le shell : coffres chiffrés synchronisés par git ou rsync, recherche floue, vue web locale. Pensé terminal d’abord et mono-utilisateur — pas de SSO ni de permissions multi-utilisateurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Logseq",
+			"source": {
+				"host": "github",
+				"path": "logseq/logseq",
+				"url": "https://github.com/logseq/logseq"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "GitBook's note-taking feel for PKM and docs: an outliner with bidirectional links on local-first Markdown, graph view, whiteboards, PDF annotation. Cross-device sync needs third-party or paid service; not built for teams.",
+				"fr": "Prise de notes à la GitBook pour le PKM : outliner à liens bidirectionnels sur Markdown local, graphe, whiteboards, annotation PDF. Sync multi-appareils via service tiers ou payant ; pas conçu pour les équipes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Paid sync",
+					"fr": "Sync payante"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SiYuan",
+			"source": {
+				"host": "github",
+				"path": "siyuan-note/siyuan",
+				"url": "https://github.com/siyuan-note/siyuan"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "A block-based, local-first editor with web, desktop, and mobile clients plus an HTTP API — a full notes/docs system you can host. Docs come out Chinese-first and team features stay thin.",
+				"fr": "Éditeur local d’abord, par blocs, avec clients web, desktop et mobile et une API HTTP — un système de notes/docs hébergeable. Communauté centrée sur la Chine, docs en chinois d’abord, fonctions d’équipe minces."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Cloud sync",
+					"fr": "Sync cloud"
+				}
+			}
 		}
 	],
 	"priority": 3

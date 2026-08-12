@@ -93,6 +93,182 @@
 				"ssoInFree": false,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "mediasoup",
+			"source": {
+				"host": "github",
+				"path": "versatica/mediasoup",
+				"url": "https://github.com/versatica/mediasoup"
+			},
+			"license": "ISC",
+			"effort": "docker",
+			"note": {
+				"en": "High-performance SFU at the core of many realtime products; sub-second latency. Engine, not platform: you build signaling, auth, and UI.",
+				"fr": "SFU haute performance, cœur de transport de nombreux produits temps réel, latence sous la seconde. Un moteur, pas une plateforme : vous faites signalisation, auth et UI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PeerJS",
+			"source": {
+				"host": "github",
+				"path": "peers/peerjs",
+				"url": "https://github.com/peers/peerjs"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "P2P only: no SFU scaling, muxing, or recording, so call quality suffers in large rooms. Otherwise dead-simple data and media API over a tiny self-hostable signaling server.",
+				"fr": "Pair à pair uniquement : ni SFU, ni muxage, ni enregistrement ; la qualité chute dans les grandes salles. Sinon, API data et média simple, petit serveur de signalisation auto-hébergeable."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Jitsi Meet",
+			"source": {
+				"host": "github",
+				"path": "jitsi/jitsi-meet",
+				"url": "https://github.com/jitsi/jitsi-meet"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Full videoconferencing from two people to thousands: chat, screen share, breakout rooms, SSO, mobile apps. Heavier ops though — prosody, videobridge, jibri, and coturn to run.",
+				"fr": "Visioconférence complète, de deux à des milliers de personnes : chat, partage d’écran, salles d’atelier, SSO, applis mobiles. Mais opérations lourdes : prosody, videobridge, jibri et coturn à faire tourner."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": true,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Hosted analytics and global edge",
+					"fr": "Analytics hébergés et edge global"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenVidu",
+			"source": {
+				"host": "github",
+				"path": "OpenVidu/openvidu",
+				"url": "https://github.com/OpenVidu/openvidu"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Agora-style platform: SFU and session management out of the box, SDKs plus ready UI, built-in screen share and recording via docker compose. Kurento base means a heavier container footprint.",
+				"fr": "Plateforme façon Agora : SFU et gestion de session inclus, SDKs et UI prête, partage d’écran et enregistrement intégrés, démarrage via docker compose. Base Kurento : empreinte conteneur plus lourde."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise SSO and Pro features",
+					"fr": "SSO entreprise et fonctions Pro"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Galène",
+			"source": {
+				"host": "github",
+				"path": "jech/galene",
+				"url": "https://github.com/jech/galene"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "One static Go binary runs the whole server, web client, and SFU in minutes; chat, screen share, recording, simulcast, TCP and UDP fallback. Small community, no native mobile apps.",
+				"fr": "Un seul binaire Go : serveur, client web et SFU prêts en quelques minutes, avec chat, partage d’écran, enregistrement, simulcast et repli TCP/UDP. Petite communauté, pas d’applis mobiles natives."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kurento",
+			"source": {
+				"host": "github",
+				"path": "Kurento/kurento-media-server",
+				"url": "https://github.com/Kurento/kurento-media-server"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Archived upstream since 2023: no more fixes. Battle-tested GStreamer-based media pipelines — recording, filtering, mixing, CV — but running them in production is hard ops.",
+				"fr": "Archivé côté amont depuis 2023 : plus aucun correctif. Pipelines média GStreamer éprouvés — enregistrement, filtres, mixage, vision — mais leur exploitation en production est un vrai chantier."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "simple-peer",
+			"source": {
+				"host": "github",
+				"path": "feross/simple-peer",
+				"url": "https://github.com/feross/simple-peer"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Dormant since June 2024, two years without a commit. ~10KB WebRTC peer library for browser, Node, and React Native, plugging into any signaling you run. P2P only: you supply signaling and STUN/TURN.",
+				"fr": "Dormant depuis juin 2024 : deux ans sans commit. Bibliothèque WebRTC d’environ 10Ko pour navigateur, Node et React Native, branchée sur n’importe quelle signalisation existante. P2P uniquement : signalisation et STUN/TURN à votre charge."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "aiortc",
+			"source": {
+				"host": "github",
+				"path": "aiortc/aiortc",
+				"url": "https://github.com/aiortc/aiortc"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Library only: no room server, no UI — you handle signaling and lifecycle. The standard pure-Python WebRTC stack, with pyav/GStreamer codecs, ideal for voice-bot media planes.",
+				"fr": "Bibliothèque uniquement : ni serveur de salle, ni UI — signalisation et cycle de vie à vous. WebRTC de référence en Python pur, codecs via pyav/GStreamer, idéale pour les plans média de bots vocaux."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

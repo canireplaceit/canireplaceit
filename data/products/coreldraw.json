@@ -103,6 +103,174 @@
 				"en": "One perpetual purchase against Corel's annual renewal, with better typography. No cutter drivers.",
 				"fr": "Un achat perpétuel unique face au renouvellement annuel de Corel, avec une meilleure typographie. Pas de pilotes de découpe."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Inkscape",
+			"source": {
+				"host": "gitlab",
+				"path": "inkscape/inkscape",
+				"url": "https://gitlab.com/inkscape/inkscape"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The de-facto free vector editor, SVG-native with live path effects, bitmap tracing, and headless CLI conversion. Dated UI, and no collaboration or cloud features.",
+				"fr": "L’éditeur vectoriel libre de référence, 100 % SVG, avec effets de chemin, vectorisation de bitmap et conversion en ligne de commande. Interface vieillissante, pas de collaboration ni de cloud."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Krita",
+			"source": {
+				"host": "github",
+				"path": "KDE/krita",
+				"url": "https://github.com/KDE/krita"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Open illustration and concept-art studio with vector layers, color-managed HDR workflow, filling the PHOTO-PAINT-adjacent role. Weaker at vector and technical drawing; no typography or print focus.",
+				"fr": "Studio d’illustration et de concept art libre, calques vectoriels, workflow HDR géré en couleur : le rôle adjacent à PHOTO-PAINT. Vecteur et dessin technique plus faibles, pas de typographie ni d’accent print."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Penpot",
+			"source": {
+				"host": "github",
+				"path": "penpot/penpot",
+				"url": "https://github.com/penpot/penpot"
+			},
+			"license": "MPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hostable collaborative design platform: real-time multi-user canvas, components, auto-layout, tokens, Figma import. Vector tools run shallower than CorelDRAW, no print or DTP workflow.",
+				"fr": "Plateforme de design collaborative auto-hébergeable : canvas multi-utilisateur en temps réel, composants, auto-layout, design tokens, import Figma. Outils vectoriels moins profonds que CorelDRAW, pas de flux print ni PAO."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Karbon (Calligra)",
+			"source": {
+				"host": "github",
+				"path": "KDE/calligra",
+				"url": "https://github.com/KDE/calligra"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "KDE vector drawing app from the Calligra suite: full illustration tools, small footprint, KDE-native. Feature set and community far below Inkscape; Windows/macOS support spotty and Linux-first.",
+				"fr": "L’outil de dessin vectoriel de la suite Calligra, intégré à KDE : illustration complète, petite empreinte. Fonctionnalités et communauté très en dessous d’Inkscape ; support Windows/macOS irrégulier, Linux d’abord."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LibreCAD",
+			"source": {
+				"host": "github",
+				"path": "LibreCAD/LibreCAD",
+				"url": "https://github.com/LibreCAD/LibreCAD"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Free 2D CAD/drafting: dimensioned drafting with layers and blocks, DXF/DWG ecosystem, scriptable CLI. Drafting-focused — not an illustration or layout tool, no bitmap editing.",
+				"fr": "Dessin et CAO 2D libres : cotation avec calques et blocs, écosystème DXF/DWG, CLI scriptable. Orienté technique, pas un outil d’illustration ni de mise en page, pas d’édition bitmap."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Method Draw",
+			"source": {
+				"host": "github",
+				"path": "methodofaction/Method-Draw",
+				"url": "https://github.com/methodofaction/Method-Draw"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Lightweight browser SVG editor, self-hostable with no build step — quick icon and shape work. Dormant since May 2024; small feature surface, don’t expect much more.",
+				"fr": "Éditeur SVG minimal dans le navigateur, auto-hébergeable sans étape de build, pour icônes et formes rapides. Plus de commit depuis mai 2024 : surface réduite, ne comptez pas sur plus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "svgo",
+			"source": {
+				"host": "github",
+				"path": "svg/svgo",
+				"url": "https://github.com/svg/svgo"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Industry-standard SVG optimizer: dozens of plugins, CLI and Node API for build pipelines. Optimizer only, not an editor — and aggressive defaults can alter hand-authored SVGs.",
+				"fr": "L’optimiseur SVG de référence : dizaines de plugins, CLI et API Node pour les pipelines de build. Optimisation seulement, pas un éditeur — les réglages par défaut peuvent altérer des SVG faits main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "resvg",
+			"source": {
+				"host": "github",
+				"path": "linebender/resvg",
+				"url": "https://github.com/linebender/resvg"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Headless SVG-to-PNG rasterizer in Rust: tiny static binary, no runtime deps, usvg pipeline. Renderer only — no editing, no vector export, no formats beyond SVG.",
+				"fr": "Rasteriseur SVG vers PNG sans tête, en Rust : binaire statique minuscule, aucune dépendance runtime, pipeline usvg. Rendu seulement — pas d’édition, pas d’export vectoriel, pas d’autre format que SVG."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

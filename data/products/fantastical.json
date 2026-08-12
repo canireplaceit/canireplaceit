@@ -139,6 +139,161 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Cal.com",
+			"source": {
+				"host": "github",
+				"path": "calcom/cal.diy",
+				"url": "https://github.com/calcom/cal.diy"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Booking links instead of a personal calendar: CalDAV-synced availability, team routing, workflows. Self-hosting needs Next.js and Postgres, and there is no natural-language entry.",
+				"fr": "Des liens de réservation plutôt qu’un calendrier personnel : disponibilité synchronisée en CalDAV, routage d’équipe, workflows. L’auto-hébergement exige Next.js et Postgres, et pas de saisie en langage naturel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "enterprise features (workflows, routing)",
+					"fr": "fonctions entreprise (workflows, routage)"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "khal",
+			"source": {
+				"host": "github",
+				"path": "pimutils/khal",
+				"url": "https://github.com/pimutils/khal"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Fast CLI calendar: full event entry and views against CalDAV and local vdirs, runs anywhere Python runs. Text-only output and basic interactive mode, though.",
+				"fr": "Calendrier CLI rapide : saisie complète et vues CalDAV et vdir locaux, fonctionne partout où Python tourne. Mais sortie texte seul et mode interactif sommaire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "vdirsyncer",
+			"source": {
+				"host": "github",
+				"path": "pimutils/vdirsyncer",
+				"url": "https://github.com/pimutils/vdirsyncer"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "CalDAV/CardDAV sync engine pairing local vdirs with Radicale, Baïkal, Nextcloud. Cron-friendly and watchable, but it only syncs: no UI, no scheduling, YAML-only config.",
+				"fr": "Moteur de synchronisation CalDAV/CardDAV reliant vdirs locaux à Radicale, Baïkal, Nextcloud. Cron-friendly et watchable, mais il ne fait que synchroniser : pas d’interface, pas de planification, config YAML uniquement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Easy!Appointments",
+			"source": {
+				"host": "github",
+				"path": "alextselegidis/easyappointments",
+				"url": "https://github.com/alextselegidis/easyappointments"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The booking half, server-side: service-based appointments, provider schedules, Google/ICS sync, multilingual web UI. Not a personal calendar, limited CalDAV, no native clients.",
+				"fr": "La moitié réservation, côté serveur : rendez-vous par service, plannings de prestataires, synchronisation Google/ICS, interface web multilingue. Pas un calendrier personnel, CalDAV limité, pas de clients natifs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Vikunja",
+			"source": {
+				"host": "github",
+				"path": "go-vikunja/vikunja",
+				"url": "https://github.com/go-vikunja/vikunja"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted tasks and projects first, with calendar and iCal views on the side. CalDAV sync works, but the agenda is secondary and there are no booking links.",
+				"fr": "Tâches et projets auto-hébergés d’abord, avec vues calendrier et iCal en annexe. La synchro CalDAV fonctionne, mais l’agenda reste secondaire et pas de liens de réservation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "team/enterprise editions",
+					"fr": "éditions équipe / entreprise"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mobilizon",
+			"source": {
+				"host": "gitlab",
+				"path": "framasoft/mobilizon",
+				"url": "https://framagit.org/framasoft/mobilizon"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Federated events and groups from Framasoft: event pages, RSVPs, ActivityPub. Fine for meetups, not day planning, and it needs an instance to federate.",
+				"fr": "Événements et groupes fédérés signés Framasoft : pages d’événements, RSVP, ActivityPub. Bien pour les meetups, pas pour planifier ses journées, et une instance est nécessaire pour fédérer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "calcurse",
+			"source": {
+				"host": "github",
+				"path": "lfos/calcurse",
+				"url": "https://github.com/lfos/calcurse"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Mature curses TUI for appointments, todos, recurring events, scriptable and hook-friendly. Terminal-only, CalDAV still experimental, and no mobile or web client.",
+				"fr": "TUI curses mûre pour rendez-vous, todos et événements récurrents, scriptable et scriptable via hooks. Terminal uniquement, CalDAV encore expérimental, et pas de client mobile ni web."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 3

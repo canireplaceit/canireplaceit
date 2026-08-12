@@ -97,6 +97,195 @@
 				"ssoInFree": null,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "GNU PSPP",
+			"source": {
+				"host": "savannah",
+				"path": "gnu/pspp",
+				"url": "https://savannah.gnu.org/projects/pspp"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Closest FOSS match to SPSS: reads and writes native .sav and .por, and many legacy .sps scripts run unmodified. The procedure set is slimmer and the community smaller.",
+				"fr": "Le plus proche équivalent FOSS de SPSS : lit et écrit le .sav et le .por natifs, la plupart des scripts .sps hérités passent sans modification. Procédures moins nombreuses, communauté plus petite."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "R",
+			"source": {
+				"host": "github",
+				"path": "r-devel/r-svn",
+				"url": "https://github.com/r-devel/r-svn"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "De facto standard FOSS stats environment; haven reads and writes .sav and .por. Steep learning curve — R Commander or RStudio bolt on the point-and-click SPSS never gives you.",
+				"fr": "Environnement statistique FOSS de fait standard ; haven lit et écrit les fichiers .sav et .por. Courbe d’apprentissage raide — R Commander ou RStudio greffent le point-and-click absent de la boîte."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GNU Octave",
+			"source": {
+				"host": "codeberg",
+				"path": "gnu-octave/octave",
+				"url": "https://codeberg.org/gnu-octave/octave"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "MATLAB-like numeric platform; the Octave Forge stats package covers distributions, tests, and regression. No native .sav import — data must be converted, and procedures stay thinner than SPSS.",
+				"fr": "Plateforme numérique façon MATLAB ; le paquet stats d’Octave Forge couvre distributions, tests et régression. Pas d’import natif du .sav — convertissez les données, procédures plus minces que SPSS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SciPy",
+			"source": {
+				"host": "github",
+				"path": "scipy/scipy",
+				"url": "https://github.com/scipy/scipy"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "scipy.stats covers most classical procedures, complemented by pandas and statsmodels. Library only — no application, no UI, every analysis is Python code.",
+				"fr": "scipy.stats couvre l’essentiel des procédures classiques, complété par pandas et statsmodels. Simple bibliothèque, pas d’application ni d’interface : chaque analyse passe par du code Python."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pandas",
+			"source": {
+				"host": "github",
+				"path": "pandas-dev/pandas",
+				"url": "https://github.com/pandas-dev/pandas"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Data wrangling and descriptive stats: data frames, group-by, pivot tables, missing-data handling; pyreadstat pulls in .sav. No inference built in — scipy or statsmodels does that, and there’s no GUI.",
+				"fr": "Traitement de données et stats descriptives : data frames, group-by, tableaux croisés, gestion des données manquantes ; pyreadstat lit le .sav. Rien d’inférentiel en interne — scipy ou statsmodels s’en chargent, et pas d’interface."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Julia",
+			"source": {
+				"host": "github",
+				"path": "JuliaLang/julia",
+				"url": "https://github.com/JuliaLang/julia"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Fast enough for large datasets; Statistics, StatsBase, and HypothesisTests handle the analysis, Jupyter and Pluto the notebooks. Ecosystem younger and thinner than R’s, and nothing is point-and-click.",
+				"fr": "Assez rapide pour de grands jeux de données ; Statistics, StatsBase et HypothesisTests pour l’analyse, Jupyter ou Pluto pour les notebooks. Écosystème plus jeune et plus mince que R, rien de point-and-click."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "tiamo/spss",
+			"source": {
+				"host": "github",
+				"path": "tiamo/spss",
+				"url": "https://github.com/tiamo/spss"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Pure PHP library that reads and writes .sav, Composer-installable — handy for ingestion pipelines around SPSS exports. Not a statistics application, no procedures, small project.",
+				"fr": "Bibliothèque PHP pure qui lit et écrit le .sav, installable via Composer — pratique dans des pipelines d’ingestion autour des exports SPSS. Pas une application statistique, aucune procédure, projet de petite taille."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Weka",
+			"source": {
+				"host": "github",
+				"path": "Waikato/weka",
+				"url": "https://github.com/Waikato/weka"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Long-lived Java data-mining workbench: Explorer GUI, CLI, and API over a broad algorithm library. Dormant since August 2022, ML-focused, thin on classical stats, no .sav import.",
+				"fr": "Banque d’essais Java de data mining : Explorer en GUI, CLI et API sur une large bibliothèque d’algorithmes. Dormant depuis août 2022, orienté ML, procédures classiques minces, pas d’import .sav."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gretl",
+			"source": {
+				"host": "other",
+				"path": "p/gretl",
+				"url": "https://sourceforge.net/projects/gretl/"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Menu-driven econometrics — OLS, time series, panel data — still actively released, imports SPSS data and integrates R and Python. Econometrics-oriented, dated GTK, and hosted on SourceForge.",
+				"fr": "Économétrie pilotée par menus — OLS, séries temporelles, données de panel — toujours publié activement, importe les données SPSS et intègre R et Python. Orienté économétrie, GTK vieillot, hébergé sur SourceForge."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 4

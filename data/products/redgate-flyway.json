@@ -105,6 +105,178 @@
 				"en": "The obvious rival, but note it relicensed to the Functional Source License — source-available, not open source, until each release ages into Apache-2.0.",
 				"fr": "Le rival évident, mais attention : il est passé sous Functional Source License — source-available, pas open source, jusqu’à ce que chaque version bascule en Apache-2.0."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "golang-migrate",
+			"source": {
+				"host": "github",
+				"path": "golang-migrate/migrate",
+				"url": "https://github.com/golang-migrate/migrate"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "De facto Go migration library, CLI plus embeddable library, URL-scheme drivers for nearly every database. Migrations only: no schema diffing, no declarative state.",
+				"fr": "La bibliothèque de migration Go de référence : CLI ou librairie embarquable, drivers en URL pour presque toutes les bases. Migrations uniquement, pas de diff de schéma ni d’état déclaratif."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "goose",
+			"source": {
+				"host": "github",
+				"path": "pressly/goose",
+				"url": "https://github.com/pressly/goose"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "SQL or Go-function migrations, embedded via go:embed, applied out of order — handy for seeding. Being Go-centric, it does not do schema diffing and Go migrations require a Go build.",
+				"fr": "Migrations SQL ou fonctions Go embarquées via go:embed, applicables hors ordre — pratiques pour le seeding. Tout en Go : pas de diff de schéma, et les migrations Go exigent une build Go."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Alembic",
+			"source": {
+				"host": "gitlab",
+				"path": "sqlalchemy/alembic",
+				"url": "https://gitlab.com/sqlalchemy/alembic"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The Python standard from SQLAlchemy’s author: autogenerate diffs models against the schema, with branching and offline SQL. Python-only though, and Oracle support is weaker than Flyway’s.",
+				"fr": "La référence Python, signée par l’auteur de SQLAlchemy : autogenerate compare modèles et schéma, avec branchements et SQL hors ligne. Python uniquement, et l’Oracle y est moins complet que sur Flyway."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Sqitch",
+			"source": {
+				"host": "github",
+				"path": "sqitchers/sqitch",
+				"url": "https://github.com/sqitchers/sqitch"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Runs each database’s own client against native SQL, Oracle through Firebird, with a dependency plan and reverts — no version numbering. Perl runtime required; no diffing or autogenerate.",
+				"fr": "Exécute le client natif de chaque base sur du SQL pur, d’Oracle à Firebird, avec plan de dépendances et revert — sans numérotation de versions. Nécessite un runtime Perl, ni diff ni autogénération."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "sqldef",
+			"source": {
+				"host": "github",
+				"path": "sqldef/sqldef",
+				"url": "https://github.com/sqldef/sqldef"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Declarative: one SQL file is the desired state; only the needed ALTER DDL is generated and applied. Dry-run preview and offline file-to-file diff for CI. No Oracle; renames need annotations.",
+				"fr": "Déclaratif : un fichier SQL décrit l’état voulu, seuls les ALTER nécessaires sont générés puis appliqués. Aperçu dry-run, diff hors ligne pour la CI, mais pas d’Oracle et les renommages exigent des annotations."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Skeema",
+			"source": {
+				"host": "github",
+				"path": "skeema/skeema",
+				"url": "https://github.com/skeema/skeema"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Declarative pure-SQL schema management for MySQL/MariaDB with a decade of production use, GitHub included. Diff/push/pull over git, gh-ost and pt-osc support, 20+ lint rules. MySQL/MariaDB only, and views/triggers are commercial.",
+				"fr": "Schéma déclaratif en SQL pur pour MySQL/MariaDB, dix ans de production, GitHub compris. Diff/push/pull sur git, gh-ost et pt-osc, 20+ règles de lint. MySQL/MariaDB uniquement ; vues et triggers sont réservés au Premium."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Views, triggers, events",
+					"fr": "Vues, triggers, événements"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "tern",
+			"source": {
+				"host": "github",
+				"path": "jackc/tern",
+				"url": "https://github.com/jackc/tern"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Postgres-only migrator. Templated config with text/template and Sprig, built-in SSH tunnels, and code packages for functions and views, with baselining. No schema diffing.",
+				"fr": "Migrateur PostgreSQL uniquement. Config templatée en text/template et Sprig, tunnels SSH intégrés, code packages pour fonctions et vues, avec baselining. Pas de diff de schéma."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SchemaHero",
+			"source": {
+				"host": "github",
+				"path": "schemahero/schemahero",
+				"url": "https://github.com/schemahero/schemahero"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Kubernetes operator: schema is a declarative CRD, ALTER DDL auto-generated, applied in-cluster or to RDS/CloudSQL via kubectl or Helm. Needs a cluster, and Postgres/MySQL/Cockroach only.",
+				"fr": "Opérateur Kubernetes : le schéma est une CRD déclarative, les ALTER sont auto-générés et appliqués in-cluster ou sur RDS/CloudSQL via kubectl ou Helm. Exige un cluster, et uniquement Postgres/MySQL/Cockroach."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

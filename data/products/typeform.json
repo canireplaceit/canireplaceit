@@ -61,8 +61,8 @@
 			"name": "OpnForm",
 			"source": {
 				"host": "github",
-				"path": "JhumanJ/OpnForm",
-				"url": "https://github.com/JhumanJ/OpnForm"
+				"path": "OpnForm/OpnForm",
+				"url": "https://github.com/OpnForm/OpnForm"
 			},
 			"license": "AGPL-3.0",
 			"effort": "docker",
@@ -103,6 +103,186 @@
 					"fr": "Portail, équipes, PDF, composants premium, OAuth/SAML"
 				},
 				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "HeyForm",
+			"source": {
+				"host": "github",
+				"path": "heyform/heyform",
+				"url": "https://github.com/heyform/heyform"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hostable Typeform alternative via Docker Compose, with a drag-and-drop builder, logic jumps and multilingual forms. Younger project, so fewer native integrations and a thinner plugin ecosystem than Typeform.",
+				"fr": "Alternative à Typeform auto-hébergeable via Docker Compose : builder glisser-déposer, sauts logiques, formulaires multilingues. Projet plus jeune, moins d’intégrations natives et un écosystème de plugins plus maigre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Typebot.io",
+			"source": {
+				"host": "github",
+				"path": "baptisteArno/typebot.io",
+				"url": "https://github.com/baptisteArno/typebot.io"
+			},
+			"license": "FSL-1.1-Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Conversational form builder with visual branching, fully self-hostable. Source-available FSL-1.1 licence restricts commercial redistribution, and the chat style is overkill for a simple form.",
+				"fr": "Builder de formulaires conversationnels avec branchement visuel, entièrement auto-hébergeable. La licence FSL-1.1, source disponible, limite la redistribution commerciale, et le style chat est de trop pour un formulaire simple."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OhMyForm",
+			"source": {
+				"host": "github",
+				"path": "ohmyform/ohmyform",
+				"url": "https://github.com/ohmyform/ohmyform"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Archived and unmaintained, but this direct Typeform clone still works and self-hosts fully. Misses modern touches like AI and analytics polish.",
+				"fr": "Archivé et plus maintenu, mais ce clone direct de Typeform fonctionne toujours et s’auto-héberge entièrement. Il manque les touches modernes comme l’IA et le soin apporté aux analytics."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LimeSurvey",
+			"source": {
+				"host": "github",
+				"path": "LimeSurvey/LimeSurvey",
+				"url": "https://github.com/LimeSurvey/LimeSurvey"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Mature self-hosted suite: 28+ question types, quotas, anonymized surveys, participant tokens. Costs a PHP/MySQL server and a dated, non-conversational UI.",
+				"fr": "Suite auto-hébergeable et mature : 28 types de questions et plus, quotas, sondages anonymisés, jetons de participants. À payer : un serveur PHP/MySQL et une interface datée, pas conversationnelle."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SurveyJS",
+			"source": {
+				"host": "github",
+				"path": "surveyjs/survey-library",
+				"url": "https://github.com/surveyjs/survey-library"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "MIT survey/form library with a drag-drop Survey Creator, responses in your own database. It is a library, not a service: you build the hosting app yourself.",
+				"fr": "Bibliothèque de formulaires MIT avec un Survey Creator glisser-déposer, réponses dans votre propre base. C’est une bibliothèque, pas un service : l’app d’hébergement, vous la construisez."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Survey Creator for commercial redistribution",
+					"fr": "Redistribution commerciale du Survey Creator"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "QuillForms",
+			"source": {
+				"host": "github",
+				"path": "quillforms/quillforms",
+				"url": "https://github.com/quillforms/quillforms"
+			},
+			"license": "LGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Typeform-style conversational builder for WordPress, Gutenberg-native with theme colors. Needs WordPress, the core is thin, and most features sit in paid QuillForms Pro.",
+				"fr": "Builder conversationnel façon Typeform pour WordPress, natif Gutenberg avec couleurs de thème. Exige WordPress, un noyau maigre, et la plupart des fonctions vivent dans QuillForms Pro payant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "QuillForms Pro plugin",
+					"fr": "l’extension QuillForms Pro"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Formsmd",
+			"source": {
+				"host": "github",
+				"path": "formsmd/formsmd",
+				"url": "https://github.com/formsmd/formsmd"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Author forms in Markdown under git version control, API-friendly and self-hostable. But it is markdown-first, not drag-and-drop, and the repo has been dormant since 2025.",
+				"fr": "Formulaires rédigés en Markdown, versionnés par git, orientés API et auto-hébergeables. Mais c’est du Markdown, pas du glisser-déposer, et le dépôt dort depuis 2025."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Minor closed-source add-ons",
+					"fr": "Quelques modules propriétaires"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gum",
+			"source": {
+				"host": "github",
+				"path": "charmbracelet/gum",
+				"url": "https://github.com/charmbracelet/gum"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A single binary for scriptable TUI prompts — input, choose, confirm, spinner — assembled into terminal forms. Not a platform: no builder, no response storage, you script that part.",
+				"fr": "Un binaire unique pour des invites TUI scriptables — input, choose, confirm, spinner — à assembler en formulaires de terminal. Pas une plateforme : ni builder ni stockage des réponses, à coder vous-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
 				"dataResidency": "self"
 			}
 		}

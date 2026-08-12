@@ -97,6 +97,161 @@
 				"ssoInFree": true,
 				"dataResidency": "self"
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mattermost",
+			"source": {
+				"host": "github",
+				"path": "mattermost/mattermost",
+				"url": "https://github.com/mattermost/mattermost"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "The default self-hosted Slack alternative; mature team chat with Playbooks and a REST API for bots. SSO is paid Enterprise, and the split with the EE leaves core features closed.",
+				"fr": "L’alternative Slack auto-hébergée par défaut ; chat d’équipe mature, API REST pour les bots. Le SSO est payant en Enterprise, la scission avec l’EE ferme des fonctions de base."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise build: SAML/AD SSO and features split from the free core.",
+					"fr": "Édition Enterprise : SSO SAML/AD et fonctions retirées du cœur gratuit."
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Stoat (Revolt backend)",
+			"source": {
+				"host": "github",
+				"path": "stoatchat/stoatchat",
+				"url": "https://github.com/stoatchat/stoatchat"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hostable Discord-style chat server with a clean REST API for custom clients. Fully open with no EE split, but the community is small and the rebrand is still in flight.",
+				"fr": "Serveur de chat auto-hébergeable façon Discord, API REST propre pour des clients maison. Entièrement open, sans scission EE, mais la communauté est petite et le rebranding est en cours."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dendrite",
+			"source": {
+				"host": "github",
+				"path": "element-hq/dendrite",
+				"url": "https://github.com/element-hq/dendrite"
+			},
+			"license": "AGPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Go Matrix homeserver in a single binary, far cheaper to run than Synapse. Younger though: fewer extensions and some E2EE edge cases less battle-tested.",
+				"fr": "Homeserver Matrix en Go, binaire unique, bien moins cher à faire tourner que Synapse. Plus jeune : moins d’extensions, et quelques cas limites E2EE moins éprouvés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ntfy",
+			"source": {
+				"host": "github",
+				"path": "binwiederhier/ntfy",
+				"url": "https://github.com/binwiederhier/ntfy"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Drop-in self-hosted push notifications via curl, with apps for Android, iOS and desktop. Notification only — no chat — and OIDC SSO sits behind a paid plan.",
+				"fr": "Notifications push auto-hébergées, envoyées d’un simple curl, avec applis Android, iOS et desktop. Que des notifications, pas de chat ; le SSO OIDC est payant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": false,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "OIDC SSO behind a paid plan.",
+					"fr": "SSO OIDC derrière le plan payant."
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Gotify",
+			"source": {
+				"host": "github",
+				"path": "gotify/server",
+				"url": "https://github.com/gotify/server"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Tiny self-hosted push server: single binary, simple HTTP API, admin set from the web UI. Notifications only, and no iOS app ships with it.",
+				"fr": "Petit serveur de push auto-hébergé : un binaire, une API HTTP simple, l’admin se configure depuis le web. Que des notifications, pas de chat, et pas d’appli iOS intégrée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": false,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Jitsi Meet",
+			"source": {
+				"host": "github",
+				"path": "jitsi/jitsi-meet",
+				"url": "https://github.com/jitsi/jitsi-meet"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted WebRTC video/voice meetings that pair with any chat, encrypted in the browser, embeddable via iframe. Expect STUN/TURN setup and real ops work at scale.",
+				"fr": "Réunions vidéo/voix WebRTC auto-hébergées qui s’accrochent à n’importe quel chat, chiffrées dans le navigateur, intégrables en iframe. Prévoyez STUN/TURN et de la vraie opération à l’échelle."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": true,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gomuks",
+			"source": {
+				"host": "github",
+				"path": "gomuks/gomuks",
+				"url": "https://github.com/gomuks/gomuks"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Fast terminal Matrix client for E2EE messaging, scriptable and composable with your shell. Text-only, so attachments are rough; needs a Matrix homeserver behind it.",
+				"fr": "Client Matrix terminal rapide, chiffrement de bout en bout, scriptable et composable avec le shell. Texte seul : pièces jointes sommaires, et un homeserver Matrix requis derrière."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2

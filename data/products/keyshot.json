@@ -82,6 +82,153 @@
 				"en": "Real-time ray tracing with a large asset library and a usable free tier. Windows and NVIDIA only.",
 				"fr": "Ray tracing en temps réel avec une grande bibliothèque d’assets et une offre gratuite utilisable. Windows et NVIDIA uniquement."
 			}
+		},
+		{
+			"kind": "oss",
+			"name": "POV-Ray",
+			"source": {
+				"host": "github",
+				"path": "POV-Ray/povray",
+				"url": "https://github.com/POV-Ray/povray"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Mature AGPL ray tracer with a scene-description language and CLI batch rendering, still the go-to for scripted photoreal stills — though scenes are hand-authored, with no real-time viewport or CAD import.",
+				"fr": "Traceur AGPL mature à langage de description de scène et rendu batch CLI, la référence du rendu photo scripté — mais scènes écrites à la main, sans fenêtre temps réel ni import CAO."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "appleseed",
+			"source": {
+				"host": "github",
+				"path": "appleseedhq/appleseed",
+				"url": "https://github.com/appleseedhq/appleseed"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Close to a drop-in offline replacement for KeyShot stills, appleseed is an MIT-licensed physically-based renderer with studio GUI and CLI — though development lags Blender and CAD must be converted to mesh.",
+				"fr": "Proche d’un remplacement hors ligne des rendus KeyShot, appleseed est un moteur de rendu physique MIT avec studio GUI et CLI — mais développement plus lent que Blender, CAO à convertir en mesh."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OSPRay",
+			"source": {
+				"host": "github",
+				"path": "RenderKit/ospray",
+				"url": "https://github.com/RenderKit/ospray"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A developer library, not an artist-facing app — OSPRay is Intel’s Apache-2.0 ray tracer for headless interactive visualization of large CAD-like and volume data, scaling from laptop to cluster.",
+				"fr": "Une bibliothèque pour développeurs, pas une app d’artiste avec matériaux — OSPRay, traceur de rayons Intel sous Apache-2.0, visualise en headless les grandes données CAO et volumiques, du laptop au cluster."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Aqsis",
+			"source": {
+				"host": "github",
+				"path": "aqsis/aqsis",
+				"url": "https://github.com/aqsis/aqsis"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "For pipeline and render-farm work, Aqsis is a GPL RenderMan-compliant renderer driven by RIB scene files and a CLI — but the RenderMan-era paradigm brings no real-time viewport and a slow-moving project.",
+				"fr": "Pour les pipelines et fermes de rendu, Aqsis est un moteur GPL conforme RenderMan, piloté par fichiers RIB et CLI — mais l’ère RenderMan : pas de temps réel, communauté petite et développement lent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pbrt-v4",
+			"source": {
+				"host": "github",
+				"path": "mmp/pbrt-v4",
+				"url": "https://github.com/mmp/pbrt-v4"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "CPU-only and slow, pbrt-v4 is the reference renderer from the pbrt book — a scriptable scene-file CLI for spectral research-grade rendering, but with no GUI, CAD import, or material library.",
+				"fr": "CPU uniquement, sans GUI ni CAO et trop lent pour la production — pbrt-v4 reste le moteur de rendu de référence du livre pbrt, un CLI scriptable pour le rendu spectral niveau recherche."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pbrt-v3",
+			"source": {
+				"host": "github",
+				"path": "mmp/pbrt-v3",
+				"url": "https://github.com/mmp/pbrt-v3"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Dormant since September 2023 — no commit in two years — the widely-installed pbrt-v3 remains a stable BSD-2 reference CLI for learning and scripted rendering, superseded by v4.",
+				"fr": "En sommeil depuis septembre 2023, sans un commit en deux ans, pbrt-v3 reste la CLI BSD-2 de référence pour l’apprentissage et l’automatisation — supplanté par pbrt-v4."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Filament",
+			"source": {
+				"host": "github",
+				"path": "google/filament",
+				"url": "https://github.com/google/filament"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Not an offline ray tracer — Filament is Google’s Apache-2.0 real-time PBR engine, the closest open-source stand-in for KeyShot’s real-time look-dev mode, with IBL and glTF support.",
+				"fr": "Pas un traceur hors ligne — Filament est le moteur PBR temps réel de Google sous Apache-2.0, le plus proche équivalent libre du mode look-dev de KeyShot, avec IBL et glTF."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
 		}
 	],
 	"priority": 2
