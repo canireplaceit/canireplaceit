@@ -25,7 +25,9 @@ import {
 	type Route,
 } from "core/src/routes";
 import {
+	Archive,
 	BookOpen,
+	Container,
 	FileLock2,
 	Heart,
 	Languages,
@@ -214,6 +216,8 @@ const COLLECTION_ICONS: Record<
 	"open-core": PackageOpen,
 	"source-available": FileLock2,
 	cheaper: PiggyBank,
+	"one-compose": Container,
+	archived: Archive,
 };
 
 /**
