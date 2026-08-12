@@ -1069,3 +1069,73 @@ export function ProductEscapeStats({ product, t }: { product: Product; t: T }) {
 		</dl>
 	);
 }
+
+/**
+ * The alternatives compared on the axes that are actually populated.
+ *
+ * The feature matrix answers "does it do SAML", which is a good question for
+ * Notion and a category error for a terminal coding agent — and it is answered
+ * for about a third of cited projects, so for the rest it prints dashes.
+ *
+ * These five columns come from fields present on 100% of entries (licence,
+ * effort, open-core) plus two backfilled onto every entry that has a reading
+ * (language, compose). No cell is ever blank for lack of a survey, and unlike
+ * the badge row these genuinely differ between rows — which is the whole test
+ * of whether a comparison is worth printing.
+ */
+export function SpecStrip({
+	alternatives,
+	t,
+}: {
+	alternatives: Alternative[];
+	t: T;
+}) {
+	const oss = alternatives.filter(
+		(a): a is Extract<Alternative, { kind: "oss" }> => a.kind === "oss",
+	);
+	const live = oss.filter((a) => !isArchived(a, healthOf(a.source)));
+	// Below three rows there is nothing to compare; the cards already say it all.
+	if (live.length < 3) return null;
+	const rows = byExitQuality(live, (a) => healthOf(a.source)).slice(0, 8);
+
+	return (
+		<section>
+			<h4 className="mb-2 font-mono text-[10px] text-muted uppercase tracking-[0.16em]">
+				{t("spec.heading")}
+			</h4>
+			<div className="overflow-x-auto">
+				<table className="w-full min-w-[34rem] border-collapse text-sm">
+					<thead>
+						<tr className="border-b text-left text-muted">
+							<th className="py-2 pr-3 font-normal">{t("spec.project")}</th>
+							<th className="px-2 py-2 font-normal">{t("spec.licence")}</th>
+							<th className="px-2 py-2 font-normal">{t("spec.runIt")}</th>
+							<th className="px-2 py-2 font-normal">{t("spec.language")}</th>
+							<th className="px-2 py-2 font-normal">{t("spec.strings")}</th>
+						</tr>
+					</thead>
+					<tbody>
+						{rows.map((a) => (
+							<tr key={a.name} className="border-b last:border-0">
+								<td className="py-1.5 pr-3 font-medium">{a.name}</td>
+								<td className="px-2 py-1.5 text-muted">{a.license}</td>
+								<td className="px-2 py-1.5 text-muted">
+									{t(`effort.${a.effort}` as Key)}
+								</td>
+								{/* An em dash, never a blank: no reading is a different
+								    statement from "no language", and the features page's own
+								    rule is that absence is never rendered as a fact. */}
+								<td className="px-2 py-1.5 text-muted">{a.language ?? "—"}</td>
+								<td className="px-2 py-1.5 text-muted">
+									{a.facts.openCore === "none"
+										? t("spec.noStrings")
+										: t(`facts.openCore.${a.facts.openCore}` as Key)}
+								</td>
+							</tr>
+						))}
+					</tbody>
+				</table>
+			</div>
+		</section>
+	);
+}

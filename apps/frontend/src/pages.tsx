@@ -78,6 +78,7 @@ import {
 	ProductEscapeStats,
 	ProductLogo,
 	RepoFreshness,
+	SpecStrip,
 	Tag,
 	VerdictMark,
 	WhatYouLose,
@@ -169,6 +170,20 @@ function Pending({ ctx, empty }: { ctx: PageCtx; empty: boolean }) {
 		</PageShell>
 	);
 }
+
+/**
+ * Themes whose products are accounts-and-teams shaped, so the crosscutting
+ * feature vocabulary (auth, collab, data) actually applies to them.
+ */
+const MATRIX_GROUPS = new Set<string>([
+	"work",
+	"growth",
+	"commerce",
+	"operations",
+]);
+
+/** Themes holding both hosted services and local tools; each block self-suppresses. */
+const BOTH_GROUPS = new Set<string>(["infra", "ai-data", "security"]);
 
 export function ProductPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 	const { t, tc, lang, products, categories } = ctx;
@@ -279,9 +294,30 @@ export function ProductPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 						projectHref={projectHref}
 					/>
 
-					{/* Under the alternatives, because it only means something once the
-					    reader knows which projects the columns are. */}
-					<ReplaceMatrix product={product} lang={lang} t={t} tc={tc} />
+					{/*
+					 * Which comparison this category earns.
+					 *
+					 * The 137-key vocabulary asks about SSO, roles and teams. Those are
+					 * real questions for hosted, multi-user SaaS and category errors for
+					 * a terminal tool or a 3D package — asking a CLI whether it does
+					 * SAML is how the Claude Code page ended up publishing
+					 * "Has AI features: ● ● ● ●".
+					 *
+					 * So: themes whose products are accounts-and-teams shaped get the
+					 * feature matrix; the rest get the spec strip, which compares on
+					 * licence, effort, language and strings — all populated for
+					 * everyone. `infra` and `ai-data` get both: they contain hosted
+					 * services AND local tools, and each block suppresses itself when
+					 * it has nothing to say.
+					 */}
+					{(category === undefined ||
+						MATRIX_GROUPS.has(category.group) ||
+						BOTH_GROUPS.has(category.group)) && (
+						<ReplaceMatrix product={product} lang={lang} t={t} tc={tc} />
+					)}
+					{category !== undefined && !MATRIX_GROUPS.has(category.group) && (
+						<SpecStrip alternatives={product.alternatives} t={t} />
+					)}
 				</div>
 
 				<aside className="min-w-0 space-y-4 lg:sticky lg:top-24 lg:self-start">
