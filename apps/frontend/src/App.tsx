@@ -26,7 +26,10 @@ import {
 } from "core/src/routes";
 import {
 	Archive,
+	Banknote,
 	BookOpen,
+	Cog,
+	Coins,
 	Container,
 	FileLock2,
 	Heart,
@@ -218,6 +221,11 @@ const COLLECTION_ICONS: Record<
 	cheaper: PiggyBank,
 	"one-compose": Container,
 	archived: Archive,
+	"under-10": Coins,
+	expensive: Banknote,
+	"in-rust": Cog,
+	"in-go": Cog,
+	"in-python": Cog,
 };
 
 /**

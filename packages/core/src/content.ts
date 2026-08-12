@@ -364,6 +364,13 @@ export type OssAlternative = {
 	 * see `isArchived`.
 	 */
 	archived?: boolean;
+	/**
+	 * Top language by bytes, as the forge reports it. Backfilled from health for
+	 * the same reason `archived` and `hasCompose` are: health covers about a
+	 * third of cited repos, and a facet built on a field that is absent two times
+	 * in three is a page with nothing on it.
+	 */
+	language?: string;
 };
 
 export type CheaperAlternative = {
@@ -504,6 +511,7 @@ const OSS_ONLY_FIELDS = [
 	"facts",
 	"hasCompose",
 	"archived",
+	"language",
 ] as const;
 const CHEAPER_ONLY_FIELDS = ["url", "priceMonthly", "priceOnce"] as const;
 
@@ -1078,6 +1086,8 @@ export type Project = {
 	 * so is enough and disagreement just means one citation is out of date.
 	 */
 	archived?: boolean;
+	/** Top language by bytes. Same propagation rule as `hasCompose`. */
+	language?: string;
 	/** Products this project is offered as a replacement for, best-known first. */
 	replaces: { slug: string; name: string; note: Translations }[];
 };
@@ -1188,6 +1198,7 @@ export function collectProjects(products: Product[]): Project[] {
 				fossVary: false,
 				hasCompose: alt.hasCompose,
 				archived: alt.archived,
+				language: alt.language,
 				replaces: [cite],
 			});
 		}

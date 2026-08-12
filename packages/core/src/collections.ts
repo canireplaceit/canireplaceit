@@ -135,6 +135,14 @@ export const COLLECTIONS: readonly CollectionDef[] = [
 	// Two facts the catalogue holds about every project and never gave a page to.
 	{ slug: "one-compose", of: "project" },
 	{ slug: "archived", of: "project" },
+	{ slug: "under-10", of: "product" },
+	{ slug: "expensive", of: "product" },
+	// One per language that clears the floor on its own. Not a generated route
+	// per language: a facet has to be worth a URL, and "written in Zig" (4
+	// projects) is not.
+	{ slug: "in-rust", of: "project" },
+	{ slug: "in-go", of: "project" },
+	{ slug: "in-python", of: "project" },
 ];
 
 export const collectionBySlug = new Map(COLLECTIONS.map((c) => [c.slug, c]));
@@ -280,10 +288,61 @@ export function collectionMembers(
 				unresolved: [],
 			};
 
+		/**
+		 * Cheap subscriptions you can end today. Under $10 is small enough that
+		 * nobody audits it, which is exactly why they accumulate — and `drop-in`
+		 * means leaving costs an install rather than a migration.
+		 */
+		case "under-10":
+			return {
+				...none,
+				products: products.filter(
+					(p) =>
+						p.priceMonthly !== null &&
+						p.priceMonthly > 0 &&
+						p.priceMonthly < 10 &&
+						rungOf(p) === "drop-in",
+				),
+			};
+
+		/** Where the money actually is. Over $100/mo, whatever the exit looks like. */
+		case "expensive":
+			return {
+				...none,
+				products: products.filter(
+					(p) => p.priceMonthly !== null && p.priceMonthly > 100,
+				),
+			};
+
+		case "in-rust":
+			return byLanguage(projects, "Rust");
+		case "in-go":
+			return byLanguage(projects, "Go");
+		case "in-python":
+			return byLanguage(projects, "Python");
+
 		default:
 			return none;
 	}
 }
+
+/**
+ * Projects written in one language.
+ *
+ * The language is the forge's own "top language by bytes", so it is a fact
+ * about the repo rather than a judgement. Projects with no reading are simply
+ * absent — never counted as "not Rust", which is the same absence-is-not-
+ * evidence rule the rest of this file follows.
+ */
+const byLanguage = (
+	projects: Project[],
+	language: string,
+): CollectionMembers => ({
+	of: "project",
+	products: [],
+	projects: projects.filter((p) => p.language === language),
+	unresolved: [],
+});
 
 /** How many rows a collection has, whichever entity it is made of. */
 export const memberCount = (m: CollectionMembers): number =>
