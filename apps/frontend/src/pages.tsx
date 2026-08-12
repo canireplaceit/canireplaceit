@@ -862,6 +862,54 @@ export function CategoriesPage({ ctx }: { ctx: PageCtx }) {
 }
 
 /**
+ * The projects that kill the most invoices.
+ *
+ * `replaces` is already sorted longest-first by `collectProjects`, so this is a
+ * slice rather than a computation. It is here because the alternatives index is
+ * 3257 rows of equal visual weight and nothing on it says where to start —
+ * ERPNext replacing 30 products is the single most useful fact the page holds
+ * and it was invisible.
+ */
+function MostReplacing({ ctx }: { ctx: PageCtx }) {
+	const { t, lang, projects, projectSlugs } = ctx;
+	// Needs the whole catalogue to be a ranking rather than a ranking of page 1.
+	if (!ctx.wholeCatalogue) return null;
+	const top = projects.filter((p) => p.replaces.length > 1).slice(0, 6);
+	if (top.length < 3) return null;
+
+	return (
+		<section className="mb-6">
+			<h2 className="eyebrow">{t("projects.mostReplacing")}</h2>
+			<ul className="mt-2 flex flex-wrap gap-2">
+				{top.map((p) => {
+					const pretty = projectSlugs.get(p.slug);
+					const label = (
+						<>
+							{p.name}
+							<span className="nums ml-1.5 text-muted text-xs">
+								{p.replaces.length}
+							</span>
+						</>
+					);
+					return (
+						<li key={p.slug}>
+							{pretty ? (
+								<Link href={paths.project(lang, pretty)} className="pill">
+									{label}
+								</Link>
+							) : (
+								<span className="pill">{label}</span>
+							)}
+						</li>
+					);
+				})}
+			</ul>
+		</section>
+	);
+}
+
+/**
+ * One theme: the categories filed under it, and every product across them./**
  * One theme: the categories filed under it, and every product across them.
  *
  * The taxonomy has carried a `group` on every category since it was written and
@@ -1084,6 +1132,11 @@ export function ProjectsIndexPage({
 				</p>
 			}
 		>
+			{/* Page 1 only: it is a claim about the whole catalogue, and repeating
+			    it on all eighteen pages would make eighteen pages that each open
+			    with the same six links. */}
+			{current === 1 && <MostReplacing ctx={ctx} />}
+
 			{/* The filter bar is a panel, not a loose row of controls: it belongs to
 			    the list under it, and the same treatment is used on every index so a
 			    reader recognises "these narrow what is below" without reading them. */}
