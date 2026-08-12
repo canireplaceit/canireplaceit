@@ -196,8 +196,16 @@ export function ProductPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 		<PageShell
 			trail={[
 				homeCrumb(ctx),
+				// The theme sits between the index and the category, which is the
+				// shape the taxonomy always had — a reader on Claude Code is under
+				// AI, and AI is under AI & data. One more real rung for a reader and
+				// for a crawler, now that the hub exists to point at.
 				...(category
 					? [
+							{
+								label: t(`catGroup.${category.group}` as Key),
+								href: paths.group(lang, category.group),
+							},
 							{
 								label: tc(category.name),
 								href: paths.category(lang, category.slug),

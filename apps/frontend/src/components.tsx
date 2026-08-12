@@ -668,14 +668,54 @@ export function AlternativeList({
 	const dead = ranked.filter((a) => isArchived(a, healthOf(a.source)));
 	const oss = ranked.filter((a) => !isArchived(a, healthOf(a.source)));
 	const cheaper = product.alternatives.filter((a) => a.kind === "cheaper");
+
+	/**
+	 * Two narrowings, on the two axes a reader actually arrives with: "I am not
+	 * running a server" and "no strings attached". Deliberately not a filter bar
+	 * — three pills on a page section, not the six-control apparatus the index
+	 * needed. Applied to the live list only; the archived block is a record, not
+	 * a shortlist, and filtering a graveyard is not a thing anyone wants.
+	 */
+	const [narrow, setNarrow] = useState<"" | "no-server" | "no-strings">("");
+	const shown =
+		narrow === "no-server"
+			? oss.filter((a) => a.effort === "managed")
+			: narrow === "no-strings"
+				? oss.filter((a) => a.facts.openCore === "none")
+				: oss;
+
 	return (
 		<div className="space-y-4">
 			<section>
-				<h4 className="mb-2 font-mono text-[10px] uppercase tracking-[0.16em] text-muted">
-					{t("alt.ossHeading")}
-				</h4>
+				<div className="mb-2 flex flex-wrap items-center gap-2">
+					<h4 className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted">
+						{t("alt.ossHeading")}
+					</h4>
+					{/* Only worth offering when there is enough to narrow. */}
+					{oss.length > LEAD && (
+						<div className="flex flex-wrap gap-1.5">
+							{(
+								[
+									["", "alt.filterAll"],
+									["no-server", "alt.filterNoServer"],
+									["no-strings", "alt.filterNoStrings"],
+								] as const
+							).map(([value, key]) => (
+								<button
+									key={value || "all"}
+									type="button"
+									aria-pressed={narrow === value}
+									onClick={() => setNarrow(value)}
+									className="pill"
+								>
+									{t(key)}
+								</button>
+							))}
+						</div>
+					)}
+				</div>
 				<ul className={`${GRID_1COL} gap-2 sm:grid-cols-2`}>
-					{oss.slice(0, LEAD).map((a) => (
+					{shown.slice(0, LEAD).map((a) => (
 						<AlternativeCard
 							key={a.name}
 							alt={a}
@@ -699,16 +739,21 @@ export function AlternativeList({
 				 * title promising 36 over a document containing 3 is the kind of thing
 				 * that gets a catalogue demoted rather than ranked.
 				 */}
-				{oss.length > LEAD && (
+				{shown.length > LEAD && (
 					<details className="group mt-2">
 						<summary className="inline-flex cursor-pointer items-center gap-1.5 rounded-[calc(var(--radius))] border border-border px-3 py-1.5 text-sm transition marker:content-none hover:border-brand">
-							{t("alt.showAll").replace("{n}", String(oss.length))}
+							{t("alt.showAll").replace("{n}", String(shown.length))}
 							<span className="inline-block transition-transform group-open:rotate-90">
 								›
 							</span>
 						</summary>
-						<ul className={`${GRID_1COL} mt-2 gap-2 sm:grid-cols-2`}>
-							{oss.slice(LEAD).map((a) => (
+						{/* Three across once there is room. The lead cards stay at two so
+						    they read as recommendations; this list is 27 rows deep on the
+						    biggest products and benefits from the extra column. */}
+						<ul
+							className={`${GRID_1COL} mt-2 gap-2 sm:grid-cols-2 xl:grid-cols-3`}
+						>
+							{shown.slice(LEAD).map((a) => (
 								<AlternativeCard
 									key={a.name}
 									alt={a}
