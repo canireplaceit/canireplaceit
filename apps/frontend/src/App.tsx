@@ -54,18 +54,15 @@ import {
 	type Team,
 } from "./api";
 import {
+	ActiveFilters,
 	applyProductFilters,
-	Choice,
-	effortOptions,
 	FilterSheet,
 	Hidden,
 	isFiltered,
 	NO_FILTERS,
-	opennessOptions,
 	PageCount,
 	Pager,
 	type ProductFilters,
-	priceOptions,
 	VerdictPills,
 } from "./browse";
 import { byWeight as byCategoryWeight } from "./categories";
@@ -1246,11 +1243,14 @@ export function App() {
 						 * a transparent one lets rows scroll visibly underneath it.
 						 */}
 						<div className="-mx-4 sticky top-[3.4rem] z-30 mb-4 border-border border-b bg-bg/90 px-4 py-2.5 backdrop-blur-md">
-							{/* Below `lg` the six-control bar doesn't fit, so this is a
-							    trigger row instead: full-width search, verdict pills, and
-							    the rest behind one button that opens a sheet. See
-							    `FilterSheet` in browse.tsx. */}
-							<div className={`mx-auto ${MEASURE} lg:hidden`}>
+							{/* One trigger row at every width: full-width search, verdict
+							    pills, and the rest behind one button that opens a sheet,
+							    with the filters actually in force listed underneath. This
+							    replaced a six-`<select>` bar that appeared at `lg` — the
+							    width where six controls wrap onto two rows and you have to
+							    read all six to learn what you narrowed to. See
+							    `FilterSheet` and `ActiveFilters` in browse.tsx. */}
+							<div className={`mx-auto ${MEASURE}`}>
 								<input
 									value={filters.q}
 									onChange={(e) =>
@@ -1278,101 +1278,13 @@ export function App() {
 										resultCount={filtering ? shown.length : ordered.length}
 									/>
 								</div>
-							</div>
-
-							{/* Search owns the first row; the six controls share the next. */}
-							<div
-								className={`mx-auto ${MEASURE} hidden flex-wrap items-center gap-2 lg:flex`}
-							>
-								<input
-									value={filters.q}
-									onChange={(e) =>
-										setFilters({ ...filters, q: e.target.value })
-									}
-									placeholder={t("hero.searchPlaceholder")}
-									aria-label={t("hero.searchPlaceholder")}
-									className="w-full min-w-0 rounded-[calc(var(--radius))] border border-border bg-surface px-2.5 py-2 text-sm outline-none focus:border-brand sm:w-auto sm:min-w-52 sm:flex-1"
+								<ActiveFilters
+									t={t}
+									tc={tc}
+									cats={cats}
+									filters={filters}
+									setFilters={setFilters}
 								/>
-								<Choice
-									label={t("filter.category")}
-									value={filters.category}
-									onChange={(v) => setFilters({ ...filters, category: v })}
-								>
-									<option value="">{t("filter.allCategories")}</option>
-									{cats.map((c) => (
-										<option key={c.slug} value={c.slug}>
-											{tc(c.name)}
-										</option>
-									))}
-								</Choice>
-								<Choice
-									label={t("filter.verdict")}
-									value={filters.verdict}
-									onChange={(v) => setFilters({ ...filters, verdict: v })}
-								>
-									<option value="">{t("filter.anyVerdict")}</option>
-									{VERDICTS.map((v) => (
-										<option key={v} value={v}>
-											{t(`verdict.${v}` as Key)}
-										</option>
-									))}
-								</Choice>
-								<Choice
-									label={t("filter.openness")}
-									value={filters.openness}
-									onChange={(v) =>
-										setFilters({
-											...filters,
-											openness: v as ProductFilters["openness"],
-										})
-									}
-								>
-									<option value="">{t("filter.anyOpenness")}</option>
-									{opennessOptions(t)}
-								</Choice>
-								<Choice
-									label={t("filter.effort")}
-									value={filters.effort}
-									onChange={(v) =>
-										setFilters({
-											...filters,
-											effort: v as ProductFilters["effort"],
-										})
-									}
-								>
-									<option value="">{t("filter.anyEffort")}</option>
-									{effortOptions(t)}
-								</Choice>
-								<Choice
-									label={t("filter.price")}
-									value={filters.price}
-									onChange={(v) =>
-										setFilters({
-											...filters,
-											price: v as ProductFilters["price"],
-										})
-									}
-								>
-									<option value="">{t("filter.anyPrice")}</option>
-									{priceOptions(t)}
-								</Choice>
-								<Choice
-									label={t("filter.sort")}
-									value={filters.sort}
-									onChange={(v) =>
-										setFilters({
-											...filters,
-											sort: v as ProductFilters["sort"],
-										})
-									}
-								>
-									<option value="weight">{t("filter.sortWeight")}</option>
-									{/* "most switched", never "most popular" — most products sit
-								    at zero or one, and "popular" would overclaim. */}
-									<option value="switched">{t("filter.sortVotes")}</option>
-									<option value="price">{t("filter.sortPrice")}</option>
-									<option value="name">{t("filter.sortName")}</option>
-								</Choice>
 							</div>
 						</div>
 
