@@ -11,6 +11,8 @@ export const SEGMENTS: Record<
 		alternatives: string;
 		tools: string;
 		categories: string;
+		/** The ten themes categories are filed under; see the `group` route. */
+		groups: string;
 		collections: string;
 		sponsor: string;
 		estimate: string;
@@ -29,6 +31,7 @@ export const SEGMENTS: Record<
 		alternatives: "alternatives",
 		tools: "tools",
 		categories: "categories",
+		groups: "themes",
 		collections: "collections",
 		sponsor: "sponsor",
 		estimate: "estimate",
@@ -46,6 +49,8 @@ export const SEGMENTS: Record<
 		alternatives: "alternatives",
 		tools: "outils",
 		categories: "categories",
+		// Unaccented like every other FR segment, so the URL never percent-encodes.
+		groups: "themes",
 		collections: "collections",
 		sponsor: "sponsoriser",
 		estimate: "estimation",
@@ -127,6 +132,10 @@ export type Route =
 	| { name: "project"; lang: Lang; slug: string }
 	| ({ name: "projects"; lang: Lang } & Paged)
 	| { name: "category"; lang: Lang; slug: string }
+	// The ten themes categories are already filed under, given a URL. 50 of the
+	// 85 categories hold five products or fewer and six hold exactly one, so the
+	// group is the browsable level the taxonomy always had and never exposed.
+	| { name: "group"; lang: Lang; slug: string }
 	| { name: "categories"; lang: Lang }
 	| { name: "collections"; lang: Lang }
 	| ({ name: "collection"; lang: Lang; slug: string } & Paged)
@@ -167,6 +176,9 @@ export const paths = {
 	category: (lang: Lang, slug: string): string =>
 		`/${lang}/${SEGMENTS[lang].categories}/${slug}`,
 	categories: (lang: Lang): string => `/${lang}/${SEGMENTS[lang].categories}/`,
+	group: (lang: Lang, slug: string): string =>
+		`/${lang}/${SEGMENTS[lang].groups}/${slug}`,
+	groups: (lang: Lang): string => `/${lang}/${SEGMENTS[lang].groups}/`,
 	collections: (lang: Lang): string =>
 		`/${lang}/${SEGMENTS[lang].collections}/`,
 	collection: (lang: Lang, slug: string, page?: number): string =>
@@ -286,6 +298,14 @@ export function parseRoute(url: URL): Route {
 		return { name: "categories", lang };
 	}
 
+	if (kind === "groups") {
+		return slug === undefined
+			? { name: "categories", lang }
+			: parts.length === 3
+				? { name: "group", lang, slug }
+				: { name: "unknown", lang };
+	}
+
 	if (!slug || parts.length > 3) return { name: "unknown", lang };
 
 	if (kind === "alternatives") return { name: "product", lang, slug };
@@ -318,6 +338,9 @@ export function alternateUrls(route: Route): Record<Lang, string> {
 				break;
 			case "categories":
 				out[lang] = paths.categories(lang);
+				break;
+			case "group":
+				out[lang] = paths.group(lang, route.slug);
 				break;
 			case "legal":
 				out[lang] = paths.legal(lang, route.doc);

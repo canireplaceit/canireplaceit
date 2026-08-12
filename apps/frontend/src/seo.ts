@@ -533,6 +533,41 @@ const COLLECTION_COPY: Record<
 	},
 };
 
+/**
+ * A theme hub. Titles name the theme and the two counts that make the page
+ * worth opening, because "Building software" alone competes with every other
+ * page on the internet called that.
+ */
+export const groupMeta = (
+	group: string,
+	label: string,
+	products: number,
+	categories: number,
+	lang: Lang,
+): Meta => {
+	const title =
+		lang === "fr"
+			? `${label} : ${products} produits et leurs alternatives open source`
+			: `${label}: ${products} products and their open source alternatives`;
+	const description =
+		lang === "fr"
+			? `${products} produits payants répartis sur ${categories} catégories, chacun avec un verdict honnête : le remplaçant open source tient-il la route, et que coûte la migration ?`
+			: `${products} paid products across ${categories} categories, each with an honest verdict: is the open source replacement good enough yet, and what does switching cost?`;
+	const url = paths.group(lang, group);
+	return {
+		title: title.length <= TITLE_MAX ? title : clamp(title, TITLE_MAX),
+		description: clamp(description),
+		canonical: `${SITE}${url}`,
+		jsonLd: [
+			breadcrumbJsonLd([
+				{ name: HOME_LABEL[lang], url: paths.home(lang) },
+				{ name: CATEGORIES_LABEL[lang], url: paths.categories(lang) },
+				{ name: label, url },
+			]),
+		],
+	};
+};
+
 export const collectionMeta = (
 	slug: string,
 	lang: Lang,

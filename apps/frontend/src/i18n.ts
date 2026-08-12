@@ -9,7 +9,13 @@ import { useCallback, useEffect, useState } from "react";
 export type { Lang };
 
 // ponytail: a dict and a hook. i18next earns its weight at ~5 locales, not 2.
-const dict = {
+/**
+ * Exported so the prerenderer can read labels it needs OUTSIDE the React tree —
+ * `meta` is computed before render, so it has no `t`. Without this the build
+ * script kept its own copy of the theme names and they drifted on the first
+ * edit.
+ */
+export const dict = {
 	en: {
 		"nav.list": "The list",
 		"nav.menu": "Menu",
@@ -355,6 +361,26 @@ const dict = {
 			"Products with a commercial alternative that genuinely costs less. For when self-hosting is not the answer but the invoice still is.",
 		"collection.cheaper.derivation":
 			"Derived from the alternatives themselves: every product here lists at least one “cheaper” entry, which validation requires to undercut the product it replaces.",
+
+		"catGroupBlurb.work":
+			"Getting work done — docs, tasks, meetings and the tools a team lives in.",
+		"catGroupBlurb.dev":
+			"Building and shipping software: editors, CI, registries, the developer's own stack.",
+		"catGroupBlurb.infra":
+			"The machines underneath — servers, networks, storage, and what watches them.",
+		"catGroupBlurb.security":
+			"Passwords, secrets, identity and the things that keep other people out.",
+		"catGroupBlurb.ai-data": "Models, pipelines and the places data ends up.",
+		"catGroupBlurb.growth":
+			"Finding an audience and measuring whether any of it worked.",
+		"catGroupBlurb.commerce": "Selling things, and getting paid for them.",
+		"catGroupBlurb.operations":
+			"Running the business itself — people, money, scheduling, support.",
+		"catGroupBlurb.creative": "Making pictures, video, music and 3D.",
+		"catGroupBlurb.home":
+			"Personal and household software, on your own hardware where possible.",
+		"group.allProducts": "Everything in this theme",
+		"group.alternatives": "alternatives",
 
 		"collection.under-10.title": "Cheap enough that nobody audits it",
 		"collection.under-10.blurb":
@@ -1214,6 +1240,28 @@ const dict = {
 			"Les produits qui ont une alternative commerciale réellement moins chère. Pour quand l’auto-hébergement n’est pas la réponse, mais la facture l’est.",
 		"collection.cheaper.derivation":
 			"Dérivé des alternatives elles-mêmes : chaque produit ici liste au moins une entrée « moins cher », que la validation oblige à coûter moins que le produit remplacé.",
+
+		"catGroupBlurb.work":
+			"Le travail au quotidien — documents, tâches, réunions et les outils où vit une équipe.",
+		"catGroupBlurb.dev":
+			"Construire et livrer du logiciel : éditeurs, CI, registres, la pile du développeur.",
+		"catGroupBlurb.infra":
+			"Les machines en dessous — serveurs, réseaux, stockage, et ce qui les surveille.",
+		"catGroupBlurb.security":
+			"Mots de passe, secrets, identité et tout ce qui tient les autres à l’écart.",
+		"catGroupBlurb.ai-data":
+			"Modèles, pipelines et les endroits où les données finissent.",
+		"catGroupBlurb.growth":
+			"Trouver une audience et mesurer si tout cela a servi.",
+		"catGroupBlurb.commerce": "Vendre, et se faire payer.",
+		"catGroupBlurb.operations":
+			"Faire tourner l’entreprise — personnes, argent, planning, support.",
+		"catGroupBlurb.creative":
+			"Faire des images, de la vidéo, de la musique et de la 3D.",
+		"catGroupBlurb.home":
+			"Logiciels personnels et domestiques, sur votre propre matériel quand c’est possible.",
+		"group.allProducts": "Tout dans ce thème",
+		"group.alternatives": "alternatives",
 
 		"collection.under-10.title": "Trop peu cher pour qu’on y regarde",
 		"collection.under-10.blurb":
