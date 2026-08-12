@@ -783,10 +783,13 @@ for (const lang of SupportedLangs) {
 	// they had no URL to rank, share or link to from the other 3,050 documents.
 	// They ship the whole catalogue in their payload because the estimate and the
 	// quote both let a reader tick any product on the site.
-	// "estimate" is deliberately absent: the route still resolves so old links do
-	// not 404, but nothing on the site points at it, and shipping a document for a
-	// page with no inbound links is 2 URLs of index bloat per locale.
+	// "estimate" was left out on the reasoning that nothing pointed at it. That
+	// stopped being true: the hero's second button and the footer both link it
+	// from EVERY page, so the site shipped 8260 links to a document that was
+	// never written — one on every page, in both locales. It is the only broken
+	// internal link in the build.
 	for (const page of [
+		"estimate",
 		"sponsor",
 		"submit",
 		"contact",
