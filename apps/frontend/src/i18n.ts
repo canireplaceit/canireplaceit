@@ -137,6 +137,9 @@ const dict = {
 		"repo.at": "on",
 		"repo.forgeOther": "another forge",
 		"repo.archived": "Archived",
+		"alt.archivedHeading": "Archived — {n} kept for the record",
+		"alt.archivedBlurb":
+			"These are done. Listed because knowing a project died is worth as much as knowing it exists — not because we recommend them.",
 		"repo.archivedNote":
 			"The maintainers have stopped. The forge has it read-only — treat it as a dead end, not an option.",
 		// Prefixes the forge's own top-language string, a proper noun that is never translated (e.g. "written in Go").
@@ -948,6 +951,9 @@ const dict = {
 		"repo.at": "sur",
 		"repo.forgeOther": "une autre forge",
 		"repo.archived": "Archivé",
+		"alt.archivedHeading": "Archivés — {n} conservés pour mémoire",
+		"alt.archivedBlurb":
+			"Ces projets sont terminés. Ils figurent ici parce que savoir qu’un projet est mort vaut autant que savoir qu’il existe — pas parce que nous les recommandons.",
 		"repo.archivedNote":
 			"Les mainteneurs ont arrêté. La forge le passe en lecture seule — c’est une impasse, pas une option.",
 		"repo.language": "écrit en",

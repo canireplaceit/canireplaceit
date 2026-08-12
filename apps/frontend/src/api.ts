@@ -511,6 +511,9 @@ const AlternativeSchema = z.discriminatedUnion("kind", [
 			dataResidency: z.enum(RESIDENCY),
 		}),
 		hasCompose: z.boolean().optional(),
+		// Zod strips what it does not name, so a field missing here is a field the
+		// UI never sees however well-formed the API's answer was.
+		archived: z.boolean().optional(),
 	}),
 	z.object({
 		kind: z.literal("cheaper"),
