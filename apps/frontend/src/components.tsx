@@ -380,9 +380,12 @@ export function AlternativeCard({
 		<li
 			className="rounded-[calc(var(--radius))] border bg-bg p-3.5"
 			style={{
-				borderColor: health?.archived
-					? "color-mix(in srgb, var(--v-no) 55%, transparent)"
-					: "var(--color-border)",
+				// Same resolver as the badge and the demotion, or a project with no
+				// health reading gets the badge and keeps a neutral border.
+				borderColor:
+					alt.kind === "oss" && isArchived(alt, health)
+						? "color-mix(in srgb, var(--v-no) 55%, transparent)"
+						: "var(--color-border)",
 			}}
 		>
 			<div className="flex items-center gap-2.5">
