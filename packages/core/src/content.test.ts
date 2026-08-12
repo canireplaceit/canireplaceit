@@ -6,9 +6,12 @@
  */
 
 import { expect, test } from "bun:test";
-import { readFileSync } from "node:fs";
+import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import type { Category, Effort } from "./content";
+
+const DATA = join(import.meta.dir, "../../../data/products");
+
 import {
 	altIconKey,
 	byGroup,
@@ -19,6 +22,7 @@ import {
 	collectProjects,
 	type Facts,
 	type Issue,
+	isArchived,
 	type Product,
 	priceFreshness,
 	priceState,
@@ -748,4 +752,63 @@ test("byGroup keeps every category exactly once and drops empty themes", () => {
 	expect(groups.map((g) => g.group)).toEqual(
 		CATEGORY_GROUPS.filter((g) => realCategories.some((c) => c.group === g)),
 	);
+});
+
+/**
+ * Absence is never a fact.
+ *
+ * The features page states this rule in its own intro — "a dash means nobody has
+ * checked, never that the answer is no" — and the rest of the site has to obey
+ * it too, because the fields it applies to are absent far more often than they
+ * are present: language and compose readings cover about a third of cited repos.
+ *
+ * These are the fields where a missing value is a different claim from `false`.
+ * A change that gives one of them a default would pass every other test in here
+ * and start telling readers, for 2000 projects, something nobody established.
+ */
+test("optional repo readings stay optional — a default would be a claim", () => {
+	const products = readdirSync(DATA)
+		.filter((f) => f.endsWith(".json"))
+		.map((f) => JSON.parse(readFileSync(join(DATA, f), "utf8")) as Product);
+
+	for (const p of products) {
+		for (const a of p.alternatives) {
+			if (a.kind !== "oss") continue;
+			for (const field of ["archived", "hasCompose"] as const) {
+				const v = a[field];
+				// Present-and-true, or absent. Never `false`: writing the negative
+				// down is what turns "we did not look" into "we looked and it is no".
+				expect(v === undefined || v === true).toBe(true);
+			}
+			expect(a.language === undefined || typeof a.language === "string").toBe(
+				true,
+			);
+		}
+	}
+});
+
+/**
+ * `isArchived` reads the forge first and the entry second, and treats a missing
+ * reading as no answer rather than as "alive". The three-way distinction is the
+ * whole point, so it is asserted rather than left to the comment.
+ */
+test("isArchived: forge wins, entry fills the gap, absence is not a no", () => {
+	const src = {
+		host: "github",
+		path: "x/y",
+		url: "https://github.com/x/y",
+	} as const;
+
+	// Forge says so — believe it, whatever the entry says.
+	expect(isArchived({ archived: false, source: src }, { archived: true })).toBe(
+		true,
+	);
+	// Forge says alive — believe that too; it is checked nightly and we are not.
+	expect(isArchived({ archived: true, source: src }, { archived: false })).toBe(
+		false,
+	);
+	// No reading at all: the entry is the only source, which is the case for
+	// roughly two-thirds of cited repos.
+	expect(isArchived({ archived: true, source: src }, null)).toBe(true);
+	expect(isArchived({ archived: undefined, source: src }, null)).toBe(false);
 });
