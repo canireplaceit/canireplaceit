@@ -485,13 +485,32 @@ d.dataset.theme=t;d.style.colorScheme=t}catch(e){}`.replace(/\n/g, "");
 // function's output is spliced into — so it is present in `bun run dev` too,
 // which never reaches this file. `withHead` preserves it.
 
+/**
+ * The card this page should unfurl with.
+ *
+ * `scripts/build-og-pages.ts` writes a per-page card for products and
+ * categories; everything else keeps the one static card. Checked on disk rather
+ * than assumed, because that script is deliberately NOT part of the build — the
+ * production image has no fonts, so the cards are generated where fonts exist
+ * and committed. A missing file therefore means "not generated yet", which must
+ * degrade to the static card rather than to a 404 in every social preview.
+ */
+const OG_DIR = join(FE, "public/og");
+const ogFor = (kind: string, slug: string): string =>
+	existsSync(join(OG_DIR, `${kind}-${slug}.png`))
+		? `${SITE}/og/${kind}-${slug}.png`
+		: OG_IMAGE;
+
 function head(o: {
 	lang: Lang;
 	meta: Meta;
 	alternates: Record<Lang, string>;
 	noindex: boolean;
+	/** Per-page card, when one has been generated for this route. */
+	image?: string;
 }): string {
 	const { lang, meta, alternates } = o;
+	const image = o.image ?? OG_IMAGE;
 	return [
 		`<title>${esc(meta.title)}</title>`,
 		`<meta name="description" content="${esc(meta.description)}">`,
@@ -515,7 +534,7 @@ function head(o: {
 		`<meta property="og:title" content="${esc(meta.title)}">`,
 		`<meta property="og:description" content="${esc(meta.description)}">`,
 		`<meta property="og:url" content="${meta.canonical}">`,
-		`<meta property="og:image" content="${OG_IMAGE}">`,
+		`<meta property="og:image" content="${image}">`,
 		`<meta property="og:locale" content="${OG_LOCALE[lang]}">`,
 		...SupportedLangs.filter((l) => l !== lang).map(
 			(l) => `<meta property="og:locale:alternate" content="${OG_LOCALE[l]}">`,
@@ -523,7 +542,7 @@ function head(o: {
 		`<meta name="twitter:card" content="summary_large_image">`,
 		`<meta name="twitter:title" content="${esc(meta.title)}">`,
 		`<meta name="twitter:description" content="${esc(meta.description)}">`,
-		`<meta name="twitter:image" content="${OG_IMAGE}">`,
+		`<meta name="twitter:image" content="${image}">`,
 		...(meta.jsonLd ?? []).map(
 			(s) =>
 				`<script type="application/ld+json" data-ld>${s.replace(/</g, "\\u003c")}</script>`,
@@ -603,7 +622,18 @@ function emit(o: {
 	(globalThis as { __DATA__?: Boot }).__DATA__ = o.boot;
 	const body = renderToString(React.createElement(App));
 
-	const html = withHead(lang, head({ lang, meta: o.meta, alternates, noindex }))
+	// Products and categories have their own card when one has been generated;
+	// every other route keeps the static one.
+	const image =
+		o.route.name === "product"
+			? ogFor("product", o.route.slug)
+			: o.route.name === "category"
+				? ogFor("category", o.route.slug)
+				: undefined;
+	const html = withHead(
+		lang,
+		head({ lang, meta: o.meta, alternates, noindex, image }),
+	)
 		// Parser-blocking, so it is set before the deferred bundle runs.
 		.replace("<body>", `<body><script>window.__DATA__=${json(o.boot)}</script>`)
 		.replace('<div id="root"></div>', `<div id="root">${body}</div>`);
