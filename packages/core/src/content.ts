@@ -1092,6 +1092,44 @@ export type Project = {
 	replaces: { slug: string; name: string; note: Translations }[];
 };
 
+/**
+ * The fewest projects that replace the most products, greedily.
+ *
+ * Set cover is NP-hard; greedy is the standard approximation and is the honest
+ * choice here for a second reason — the exact optimum would be a different set
+ * every time a product is added, and a page whose answer churns weekly is not
+ * a page anyone trusts. Greedy is stable: it picks the biggest, then the
+ * biggest of what is left.
+ *
+ * Reads only `replaces`, which `collectProjects` already builds and sorts.
+ */
+export function stackCover(
+	projects: Project[],
+	limit = 8,
+): { project: Project; adds: number; total: number }[] {
+	const covered = new Set<string>();
+	const out: { project: Project; adds: number; total: number }[] = [];
+
+	for (let i = 0; i < limit; i++) {
+		let best: Project | null = null;
+		let bestGain = 0;
+		for (const p of projects) {
+			let gain = 0;
+			for (const r of p.replaces) if (!covered.has(r.slug)) gain++;
+			if (gain > bestGain) {
+				bestGain = gain;
+				best = p;
+			}
+		}
+		// Nothing left that adds anything: stop rather than pad the list with
+		// projects contributing zero, which would read as if they mattered.
+		if (!best || bestGain === 0) break;
+		for (const r of best.replaces) covered.add(r.slug);
+		out.push({ project: best, adds: bestGain, total: covered.size });
+	}
+	return out;
+}
+
 /** Every field of `Facts`, so a new one cannot quietly skip the vary check. */
 const FACT_KEYS = [
 	"selfHostable",

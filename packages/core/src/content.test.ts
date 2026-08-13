@@ -28,6 +28,7 @@ import {
 	priceState,
 	RUNGS,
 	rungOf,
+	stackCover,
 	validateCategory,
 	validateProduct,
 } from "./content";
@@ -811,4 +812,52 @@ test("isArchived: forge wins, entry fills the gap, absence is not a no", () => {
 	// roughly two-thirds of cited repos.
 	expect(isArchived({ archived: true, source: src }, null)).toBe(true);
 	expect(isArchived({ archived: undefined, source: src }, null)).toBe(false);
+});
+
+/**
+ * `stackCover` is a cover, not a ranking, and the difference is the whole point:
+ * row two is the project covering the most of what row one does NOT, which is a
+ * different answer from "the second-biggest project".
+ */
+test("stackCover picks by what is still uncovered, not by size", () => {
+	const p = (name: string, replaces: string[]): Project =>
+		({
+			slug: name,
+			name,
+			replaces: replaces.map((slug) => ({
+				slug,
+				name: slug,
+				note: { en: "" },
+			})),
+		}) as unknown as Project;
+
+	// `big` covers 3. `overlap` covers 2 but both are already taken by `big`.
+	// `small` covers 1 that nothing else does — so it must come second.
+	const cover = stackCover([
+		p("big", ["a", "b", "c"]),
+		p("overlap", ["a", "b"]),
+		p("small", ["d"]),
+	]);
+
+	expect(cover.map((c) => c.project.name)).toEqual(["big", "small"]);
+	expect(cover[0]?.adds).toBe(3);
+	// Second row adds one and brings the running total to four.
+	expect(cover[1]?.adds).toBe(1);
+	expect(cover[1]?.total).toBe(4);
+	// `overlap` contributes nothing new, so it is absent rather than listed
+	// with a zero — a zero row would read as if it mattered.
+	expect(cover.some((c) => c.project.name === "overlap")).toBe(false);
+});
+
+test("stackCover over the real catalogue covers far more than any one project", () => {
+	const products = readdirSync(DATA)
+		.filter((f) => f.endsWith(".json"))
+		.map((f) => JSON.parse(readFileSync(join(DATA, f), "utf8")) as Product);
+	const cover = stackCover(collectProjects(products));
+	expect(cover.length).toBeGreaterThan(2);
+	// Strictly increasing coverage, or the greedy step is not doing its job.
+	for (let i = 1; i < cover.length; i++) {
+		expect(cover[i]!.total).toBeGreaterThan(cover[i - 1]!.total);
+	}
+	expect(cover.at(-1)!.total).toBeGreaterThan(cover[0]!.adds);
 });
