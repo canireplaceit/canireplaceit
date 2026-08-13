@@ -430,6 +430,10 @@ export const dict = {
 		"defaults.tool": "Default",
 		"defaults.replacement": "Replacement",
 		"defaults.costs": "Costs you",
+		"cover.heading": "Replace the most with the fewest",
+		"cover.blurb":
+			"{n} projects between them replace {covered} of the {total} products in this catalogue. Each row is not the next-biggest project — it is the one that covers the most of what the rows above it do not.",
+		"cover.more": "more",
 		"archived.recent": "Most recently stopped",
 		"archived.recentNote":
 			"The date is the last commit on the repo, which is the closest thing a forge will tell us to when the work stopped.",
@@ -1395,6 +1399,10 @@ export const dict = {
 		"defaults.tool": "Par défaut",
 		"defaults.replacement": "Remplaçant",
 		"defaults.costs": "Ce que ça coûte",
+		"cover.heading": "Remplacer le plus avec le moins",
+		"cover.blurb":
+			"{n} projets remplacent à eux seuls {covered} des {total} produits de ce catalogue. Chaque ligne n’est pas le projet suivant par la taille : c’est celui qui couvre le plus de ce que les lignes du dessus ne couvrent pas.",
+		"cover.more": "de plus",
 		"archived.recent": "Arrêtés le plus récemment",
 		"archived.recentNote":
 			"La date est celle du dernier commit sur le dépôt, ce qui est ce qu’une forge donne de plus proche du moment où le travail s’est arrêté.",

@@ -31,6 +31,7 @@ import {
 	CATEGORY_GROUPS,
 	priceState,
 	projectSlug,
+	stackCover,
 } from "core/src/content";
 import type { Lang } from "core/src/index";
 import { paths } from "core/src/routes";
@@ -920,6 +921,63 @@ export function CategoriesPage({ ctx }: { ctx: PageCtx }) {
 }
 
 /**
+ * The fewest projects that replace the most products.
+ *
+ * Not a ranking — a cover. ERPNext replaces 30 things, but the second row is not
+ * "the project that replaces the second-most", it is "the project that replaces
+ * the most of what ERPNext does NOT". That is a different and much more useful
+ * question, and it is only answerable because this catalogue has the replaces
+ * graph, which is the one thing here nobody else has.
+ */
+function StackCover({ ctx }: { ctx: PageCtx }) {
+	const { t, lang, projects, projectSlugs, products } = ctx;
+	if (!ctx.wholeCatalogue) return null;
+	const cover = stackCover(projects);
+	if (cover.length < 3) return null;
+	const reached = cover[cover.length - 1]?.total ?? 0;
+
+	return (
+		<section className="mb-6">
+			<h2 className="eyebrow">{t("cover.heading")}</h2>
+			<p className="mt-1 max-w-2xl text-muted text-sm">
+				{t("cover.blurb")
+					.replace("{n}", String(cover.length))
+					.replace("{covered}", String(reached))
+					.replace("{total}", String(products.length))}
+			</p>
+			<ol className="mt-3 space-y-1">
+				{cover.map(({ project, adds, total }, i) => {
+					const pretty = projectSlugs.get(project.slug);
+					return (
+						<li
+							key={project.slug}
+							className="nums flex flex-wrap items-baseline gap-x-2 text-sm"
+						>
+							<span className="w-5 text-muted text-xs">{i + 1}.</span>
+							{pretty ? (
+								<Link
+									href={paths.project(lang, pretty)}
+									className="font-medium hover:underline"
+								>
+									{project.name}
+								</Link>
+							) : (
+								<span className="font-medium">{project.name}</span>
+							)}
+							<span className="text-muted text-xs">
+								+{adds} {t("cover.more")}
+							</span>
+							<span className="ml-auto text-muted text-xs">{total}</span>
+						</li>
+					);
+				})}
+			</ol>
+		</section>
+	);
+}
+
+/**
+ * The projects that kill the most invoices./**
  * The projects that kill the most invoices.
  *
  * `replaces` is already sorted longest-first by `collectProjects`, so this is a
@@ -1502,6 +1560,7 @@ export function ProjectsIndexPage({
 			    it on all eighteen pages would make eighteen pages that each open
 			    with the same six links. */}
 			{current === 1 && <MostReplacing ctx={ctx} />}
+			{current === 1 && <StackCover ctx={ctx} />}
 
 			{/* The filter bar is a panel, not a loose row of controls: it belongs to
 			    the list under it, and the same treatment is used on every index so a
