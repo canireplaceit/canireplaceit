@@ -26,7 +26,12 @@ import type {
 	CategoryStat,
 	Project,
 } from "core/src/content";
-import { byGroup, CATEGORY_GROUPS, projectSlug } from "core/src/content";
+import {
+	byGroup,
+	CATEGORY_GROUPS,
+	priceState,
+	projectSlug,
+} from "core/src/content";
 import type { Lang } from "core/src/index";
 import { paths } from "core/src/routes";
 import { ChevronRight, ExternalLink, Globe } from "lucide-react";
@@ -70,6 +75,7 @@ import {
 import { categoryIcon } from "./categoryIcons";
 import {
 	AlternativeList,
+	DefaultsTable,
 	FactMarks,
 	GRID_1COL,
 	hostOf,
@@ -703,6 +709,11 @@ export function CategoryPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 			 * page has to move.
 			 */}
 
+			{/* For a category of things that ship with the system, the mapping IS
+			    the page: "cd → zoxide" is one line and should take one line.
+			    Self-suppresses everywhere else. */}
+			<DefaultsTable products={inCat} t={t} tc={tc} lang={lang} />
+
 			<Section title={t("cats.inThis")} count={inCat.length}>
 				<ul className={`${GRID_1COL} gap-2 sm:grid-cols-2`}>
 					{inCat.map((p) => (
@@ -944,6 +955,144 @@ function MostReplacing({ ctx }: { ctx: PageCtx }) {
 				})}
 			</ul>
 		</section>
+	);
+}
+
+/**
+ * The products with no credible open source replacement, and what each one
+ * actually withholds.
+ *
+ * This is the honest counterweight to a catalogue of 6000-odd recommendations,
+ * and it is the page nobody else in this space will publish. It is also
+ * entirely derived: `verdict: "not-yet"` is the editorial judgement already
+ * made on every product, and `whatYouLose` is already written per entry.
+ *
+ * NOT an aggregate of recurring themes, which is what this page was first
+ * sketched as. Measured: 1661 `whatYouLose` entries across the catalogue reduce
+ * to 1625 distinct strings, and only six repeat three times or more. There are
+ * no themes to cluster — the phrases are specific because the losses are
+ * specific, and inventing categories over them would be the one thing this
+ * catalogue must not do.
+ */
+export function GapsPage({ ctx }: { ctx: PageCtx }) {
+	const { t, tc, lang, products, categories } = ctx;
+	const gaps = byWeight(products.filter((p) => p.verdict === "not-yet"));
+	if (gaps.length === 0)
+		return <Pending ctx={ctx} empty={products.length > 0} />;
+
+	const nameOf = (slug: string) =>
+		categories.find((c) => c.slug === slug)?.name;
+
+	// Prices we could not confirm on the vendor's own page. `low` first: those
+	// are the ones a reader should treat as a hint rather than a quote.
+	const unsure = products
+		.filter((p) => p.pricing && p.pricing.confidence !== "high")
+		.sort((a, b) =>
+			a.pricing?.confidence === b.pricing?.confidence
+				? a.name.localeCompare(b.name)
+				: a.pricing?.confidence === "low"
+					? -1
+					: 1,
+		);
+	// Never looked at, which is a different admission from "we looked and were
+	// unsure" and must not be folded into it.
+	const unchecked = products.filter(
+		(p) => priceState(p) === "unverified",
+	).length;
+
+	return (
+		<PageShell
+			measure={MEASURE}
+			trail={[homeCrumb(ctx), { label: t("gaps.title") }]}
+			eyebrow={t("gaps.eyebrow")}
+			title={t("gaps.title")}
+			lede={t("gaps.blurb")}
+			meta={
+				<p className="nums text-muted text-sm">
+					{gaps.length} {t("stats.products")}
+				</p>
+			}
+		>
+			<ul className="space-y-3">
+				{gaps.map((p) => {
+					const cat = nameOf(p.category);
+					return (
+						<li key={p.slug} className="card p-4">
+							<div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+								<Link
+									href={paths.product(lang, p.slug)}
+									className="font-display font-semibold hover:underline"
+								>
+									{p.name}
+								</Link>
+								{cat && (
+									<Link
+										href={paths.category(lang, p.category)}
+										className="text-muted text-xs hover:underline"
+									>
+										{tc(cat)}
+									</Link>
+								)}
+								<span className="nums ml-auto text-muted text-sm">
+									{priceLabel(p, lang, t)}
+								</span>
+							</div>
+							{/* The specific thing that cannot be replaced. This is the whole
+							    point of the page: "no alternative" is a claim, and these are
+							    the reasons behind it. */}
+							{p.whatYouLose.length > 0 && (
+								<ul className="mt-2 flex flex-wrap gap-1.5">
+									{p.whatYouLose.map((l) => (
+										<li key={tc(l)} className="pill text-xs">
+											{tc(l)}
+										</li>
+									))}
+								</ul>
+							)}
+						</li>
+					);
+				})}
+			</ul>
+
+			<p className="mt-8 max-w-2xl text-muted text-xs">{t("gaps.footnote")}</p>
+
+			{/*
+			 * The second half of being honest: not just what we cannot replace, but
+			 * what we are least sure of.
+			 *
+			 * This was first sketched as a "price freshness" page ranked by how
+			 * stale each check was. Measured: every priced product carries the same
+			 * `checkedOn` — the catalogue was priced in one sweep — so an age
+			 * ranking would be 389 rows of one date. Confidence is the axis that
+			 * actually varies, and it is the one a reader should discount for.
+			 */}
+			{unsure.length > 0 && (
+				<section className="mt-12">
+					<Heading>{t("gaps.unsureHeading")}</Heading>
+					<p className="mt-1 max-w-2xl text-muted text-sm">
+						{t("gaps.unsureBlurb")}
+					</p>
+					<ul className="mt-3 flex flex-wrap gap-1.5">
+						{unsure.map((p) => (
+							<li key={p.slug}>
+								<Link href={paths.product(lang, p.slug)} className="pill">
+									{p.name}
+									<span className="ml-1.5 text-muted text-xs">
+										{t(`price.confidence.${p.pricing?.confidence}` as Key)}
+									</span>
+								</Link>
+							</li>
+						))}
+					</ul>
+				</section>
+			)}
+
+			{unchecked > 0 && (
+				<p className="mt-6 max-w-2xl text-muted text-sm">
+					{t("gaps.uncheckedNote").replace("{n}", String(unchecked))}
+				</p>
+			)}
+		</PageShell>
 	);
 }
 

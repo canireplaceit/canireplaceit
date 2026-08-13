@@ -810,6 +810,8 @@ for (const lang of SupportedLangs) {
 		// the destination every jargon tooltip points at — including on a phone,
 		// where there is no hover.
 		"glossary",
+		// The not-yet list. Derived, so it empties itself as the catalogue improves.
+		"gaps",
 		"signin",
 		"dashboard",
 		// The operator's console, on the same terms: one document of labels, its
