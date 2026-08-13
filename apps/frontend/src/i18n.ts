@@ -430,6 +430,9 @@ export const dict = {
 		"defaults.tool": "Default",
 		"defaults.replacement": "Replacement",
 		"defaults.costs": "Costs you",
+		"archived.recent": "Most recently stopped",
+		"archived.recentNote":
+			"The date is the last commit on the repo, which is the closest thing a forge will tell us to when the work stopped.",
 		"siblings.sameJob": "Others that do this job",
 		"siblings.sameLanguage": "Also written in {lang}",
 		"gaps.title": "What open source still cannot do",
@@ -1392,6 +1395,9 @@ export const dict = {
 		"defaults.tool": "Par défaut",
 		"defaults.replacement": "Remplaçant",
 		"defaults.costs": "Ce que ça coûte",
+		"archived.recent": "Arrêtés le plus récemment",
+		"archived.recentNote":
+			"La date est celle du dernier commit sur le dépôt, ce qui est ce qu’une forge donne de plus proche du moment où le travail s’est arrêté.",
 		"siblings.sameJob": "D’autres qui font ce travail",
 		"siblings.sameLanguage": "Également écrits en {lang}",
 		"gaps.title": "Ce que l’open source ne sait pas encore faire",
