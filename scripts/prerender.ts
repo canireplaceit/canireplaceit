@@ -918,6 +918,32 @@ writeFileSync(
 	),
 );
 
+/**
+ * The 404 document.
+ *
+ * Without one, `front.conf` fell back to `/index.html` for every unmatched URL
+ * and answered HTTP 200 — a soft 404, and an unbounded supply of them, since
+ * any misspelling produced a real-looking page. The app already renders the
+ * right thing for an unknown route (the list, with a line saying the page does
+ * not exist, and `noindex`); this is the same shell served under the status
+ * that agrees with it.
+ *
+ * Empty #root on purpose, exactly as `/` is: a 404 has no locale either, so the
+ * client picks one and renders rather than hydrating onto the wrong language.
+ */
+writeFileSync(
+	join(DIST, "404.html"),
+	withHead(
+		DEFAULT_LANG,
+		head({
+			lang: DEFAULT_LANG,
+			meta: homeMeta(DEFAULT_LANG, products.length),
+			alternates: alternateUrls({ name: "home", lang: DEFAULT_LANG }),
+			noindex: true,
+		}),
+	),
+);
+
 const indexed = pages.filter((p) => !p.noindex);
 
 const urlset = (rows: Page[]) =>

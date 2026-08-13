@@ -430,6 +430,8 @@ export const dict = {
 		"defaults.tool": "Default",
 		"defaults.replacement": "Replacement",
 		"defaults.costs": "Costs you",
+		"siblings.sameJob": "Others that do this job",
+		"siblings.sameLanguage": "Also written in {lang}",
 		"gaps.title": "What open source still cannot do",
 		"gaps.eyebrow": "The gaps",
 		"gaps.blurb":
@@ -1390,6 +1392,8 @@ export const dict = {
 		"defaults.tool": "Par défaut",
 		"defaults.replacement": "Remplaçant",
 		"defaults.costs": "Ce que ça coûte",
+		"siblings.sameJob": "D’autres qui font ce travail",
+		"siblings.sameLanguage": "Également écrits en {lang}",
 		"gaps.title": "Ce que l’open source ne sait pas encore faire",
 		"gaps.eyebrow": "Les manques",
 		"gaps.blurb":

@@ -500,6 +500,14 @@ export function ProjectPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 					/>
 				</section>
 
+				{/* Sibling projects, which is the whole point of this addition.
+			    2069 of the 3257 project pages replace exactly one product, so they
+			    repeat what the product page already said and are `noindex` for it.
+			    These two blocks are the only things such a page can say that the
+			    product page cannot: what else is written in this language, and what
+			    else does this job. */}
+				<Siblings project={project} ctx={ctx} />
+
 				<Section title={t("page.replaces")} count={project.replaces.length}>
 					<ul className={`${GRID_1COL} gap-2 sm:grid-cols-2`}>
 						{project.replaces.map((r) => (
@@ -1097,6 +1105,85 @@ export function GapsPage({ ctx }: { ctx: PageCtx }) {
 }
 
 /**
+ * The other projects a reader of this one should know about.
+ *
+ * Two axes, both from data already held and neither available on the product
+ * page: projects written in the same language, and projects that replace one of
+ * the same products. A project page that only repeats its own product's copy is
+ * the reason two-thirds of them are `noindex`; this is what a page needs before
+ * that rule is worth revisiting.
+ */
+function Siblings({ project, ctx }: { project: Project; ctx: PageCtx }) {
+	const { t, lang, projects, projectSlugs } = ctx;
+	// Needs the whole catalogue: siblings drawn from one page's payload would be
+	// "the other projects that happen to be on this page", which is not a fact.
+	if (!ctx.wholeCatalogue) return null;
+
+	const href = (p: Project) => {
+		const pretty = projectSlugs.get(p.slug);
+		return pretty ? paths.project(lang, pretty) : undefined;
+	};
+
+	const sameLanguage = project.language
+		? projects
+				.filter(
+					(p) => p.slug !== project.slug && p.language === project.language,
+				)
+				.slice(0, 8)
+		: [];
+
+	const replacedSlugs = new Set(project.replaces.map((r) => r.slug));
+	const doesTheSameJob = projects
+		.filter(
+			(p) =>
+				p.slug !== project.slug &&
+				p.replaces.some((r) => replacedSlugs.has(r.slug)),
+		)
+		.slice(0, 8);
+
+	if (sameLanguage.length === 0 && doesTheSameJob.length === 0) return null;
+
+	const row = (items: Project[]) => (
+		<ul className="mt-2 flex flex-wrap gap-1.5">
+			{items.map((p) => {
+				const to = href(p);
+				return (
+					<li key={p.slug}>
+						{to ? (
+							<Link href={to} className="pill">
+								{p.name}
+							</Link>
+						) : (
+							<span className="pill">{p.name}</span>
+						)}
+					</li>
+				);
+			})}
+		</ul>
+	);
+
+	return (
+		<section className="mt-6 space-y-5">
+			{doesTheSameJob.length > 0 && (
+				<div>
+					<Heading>{t("siblings.sameJob")}</Heading>
+					{row(doesTheSameJob)}
+				</div>
+			)}
+			{sameLanguage.length > 0 && project.language && (
+				<div>
+					<Heading>
+						{t("siblings.sameLanguage").replace("{lang}", project.language)}
+					</Heading>
+					{row(sameLanguage)}
+				</div>
+			)}
+		</section>
+	);
+}
+
+/**
+ * The terms this catalogue runs on, defined once./**
  * The terms this catalogue runs on, defined once.
  *
  * Every one of these was a precise word whose meaning lived in a code comment
