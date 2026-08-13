@@ -806,6 +806,10 @@ for (const lang of SupportedLangs) {
 		// URL no matter how many of the 130 keys a reader ticks. That is why it is
 		// safe to index the bare path — see the comment in FeaturesPage.tsx.
 		"features",
+		// The terms the whole catalogue runs on. One document, static copy, and
+		// the destination every jargon tooltip points at — including on a phone,
+		// where there is no hover.
+		"glossary",
 		"signin",
 		"dashboard",
 		// The operator's console, on the same terms: one document of labels, its

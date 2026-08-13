@@ -38,3 +38,14 @@ jobs:
 
       - name: Content
         run: bun run validate
+
+      # The build is here for one reason: a whole class of fault exists only in
+      # the assembled output. The site once shipped 8260 links to a page nobody
+      # built — /en/estimate/ and /fr/estimation/, one on every page — while
+      # lint, types, tests and validate all passed, because the links were
+      # type-correct, the route parsed, and validation only reads data/.
+      - name: Build
+        run: bun run build
+
+      - name: Internal links resolve
+        run: bun run check:links

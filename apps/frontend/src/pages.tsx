@@ -948,7 +948,98 @@ function MostReplacing({ ctx }: { ctx: PageCtx }) {
 }
 
 /**
- * One theme: the categories filed under it, and every product across them./**
+ * The terms this catalogue runs on, defined once.
+ *
+ * Every one of these was a precise word whose meaning lived in a code comment
+ * and nowhere a reader could reach: "hosted option", "open core", "mostly
+ * open", "almost". The tooltips added alongside this page are the short form of
+ * these entries; this is the long form, and it is where a reader on a phone —
+ * which has no hover — can still find out what a word means.
+ *
+ * Rendered from the same `def.*` keys the tooltips read, so the page and the
+ * hover text cannot drift apart.
+ */
+export function GlossaryPage({ ctx }: { ctx: PageCtx }) {
+	const { t, lang } = ctx;
+
+	const groups: { heading: string; terms: { label: Key; def: Key }[] }[] = [
+		{
+			heading: t("glossary.verdicts"),
+			terms: [
+				{ label: "verdict.yes", def: "def.verdict.yes" },
+				{ label: "verdict.almost", def: "def.verdict.almost" },
+				{ label: "verdict.not-yet", def: "def.verdict.not-yet" },
+			],
+		},
+		{
+			heading: t("glossary.effort"),
+			terms: [
+				{ label: "effort.managed", def: "def.effort.managed" },
+				{ label: "effort.docker", def: "def.effort.docker" },
+				{ label: "effort.ops", def: "def.effort.ops" },
+			],
+		},
+		{
+			heading: t("glossary.openness"),
+			terms: [
+				{ label: "facts.openCore.none", def: "def.facts.openCore.none" },
+				{ label: "facts.openCore.minor", def: "def.facts.openCore.minor" },
+				{ label: "facts.openCore.major", def: "def.facts.openCore.major" },
+				{ label: "facts.selfHost", def: "def.facts.selfHost" },
+				{ label: "facts.noSelfHost", def: "def.facts.noSelfHost" },
+			],
+		},
+		{
+			heading: t("glossary.repo"),
+			terms: [
+				{ label: "repo.archived", def: "def.repo.archived" },
+				{ label: "repo.dormant", def: "def.repo.dormant" },
+				{ label: "repo.compose", def: "def.repo.compose" },
+				{ label: "facts.sso", def: "def.facts.sso" },
+				{ label: "facts.ssoPaid", def: "def.facts.ssoPaid" },
+			],
+		},
+	];
+
+	return (
+		<PageShell
+			measure={MEASURE}
+			trail={[homeCrumb(ctx), { label: t("glossary.title") }]}
+			eyebrow={t("glossary.eyebrow")}
+			title={t("glossary.title")}
+			lede={t("glossary.blurb")}
+		>
+			{groups.map((g) => (
+				<section key={g.heading} className="mt-8 first:mt-0">
+					<Heading>{g.heading}</Heading>
+					<dl className="mt-2 space-y-3">
+						{g.terms.map((term) => (
+							<div key={term.label} className="border-border border-l-2 pl-3">
+								<dt className="font-mono text-[11px] text-text uppercase tracking-[0.12em]">
+									{t(term.label)}
+								</dt>
+								<dd className="mt-0.5 text-muted text-sm">{t(term.def)}</dd>
+							</div>
+						))}
+					</dl>
+				</section>
+			))}
+
+			<p className="mt-10 text-muted text-sm">
+				{t("glossary.ladderNote")}{" "}
+				<Link
+					href={paths.collections(lang)}
+					className="text-brand hover:underline"
+				>
+					{t("nav.collections")}
+				</Link>
+				.
+			</p>
+		</PageShell>
+	);
+}
+
+/**
  * One theme: the categories filed under it, and every product across them.
  *
  * The taxonomy has carried a `group` on every category since it was written and

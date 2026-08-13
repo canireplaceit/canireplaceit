@@ -20,6 +20,8 @@ export const SEGMENTS: Record<
 		contact: string;
 		stats: string;
 		features: string;
+		/** The terms this catalogue runs on, defined in one place. */
+		glossary: string;
 		signin: string;
 		dashboard: string;
 		admin: string;
@@ -39,6 +41,7 @@ export const SEGMENTS: Record<
 		contact: "contact",
 		stats: "stats",
 		features: "features",
+		glossary: "glossary",
 		signin: "signin",
 		dashboard: "dashboard",
 		admin: "admin",
@@ -59,6 +62,7 @@ export const SEGMENTS: Record<
 		stats: "statistiques",
 		// One word, unaccented like every other FR segment, so the URL never percent-encodes.
 		features: "fonctionnalites",
+		glossary: "glossaire",
 		signin: "connexion",
 		dashboard: "tableau-de-bord",
 		// Not the bare "admin" — that would read as untranslated English in a French address bar.
@@ -150,6 +154,9 @@ export type Route =
 	// combinatorial space of near-duplicate URLs. Filter state is query params,
 	// the parameterised states are noindex, and the canonical is the bare path.
 	| { name: "features"; lang: Lang }
+	// The fifteen terms this catalogue runs on, defined once. Every tooltip in
+	// the UI is the short form of an entry here.
+	| { name: "glossary"; lang: Lang }
 	| { name: "signin"; lang: Lang }
 	| { name: "dashboard"; lang: Lang }
 	// Public route, gated data: everything on it is fetched after hydration and refused server-side unless the session email is in SITE_ADMIN.
@@ -192,6 +199,7 @@ export const paths = {
 	contact: (lang: Lang): string => `/${lang}/${SEGMENTS[lang].contact}`,
 	stats: (lang: Lang): string => `/${lang}/${SEGMENTS[lang].stats}`,
 	features: (lang: Lang): string => `/${lang}/${SEGMENTS[lang].features}`,
+	glossary: (lang: Lang): string => `/${lang}/${SEGMENTS[lang].glossary}`,
 	signin: (lang: Lang): string => `/${lang}/${SEGMENTS[lang].signin}`,
 	dashboard: (lang: Lang): string => `/${lang}/${SEGMENTS[lang].dashboard}`,
 	admin: (lang: Lang): string => `/${lang}/${SEGMENTS[lang].admin}`,
@@ -287,6 +295,7 @@ export function parseRoute(url: URL): Route {
 		kind === "contact" ||
 		kind === "stats" ||
 		kind === "features" ||
+		kind === "glossary" ||
 		kind === "signin" ||
 		kind === "dashboard" ||
 		kind === "admin"
@@ -338,6 +347,9 @@ export function alternateUrls(route: Route): Record<Lang, string> {
 				break;
 			case "categories":
 				out[lang] = paths.categories(lang);
+				break;
+			case "glossary":
+				out[lang] = paths.glossary(lang);
 				break;
 			case "group":
 				out[lang] = paths.group(lang, route.slug);

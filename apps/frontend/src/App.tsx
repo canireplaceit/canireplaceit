@@ -92,6 +92,7 @@ import {
 	CategoryPage,
 	CollectionPage,
 	CollectionsPage,
+	GlossaryPage,
 	GroupPage,
 	type PageCtx,
 	ProductPage,
@@ -254,6 +255,7 @@ const SECTION_OF: Record<Route["name"], string> = {
 	collection: "collections",
 	collections: "collections",
 	features: "features",
+	glossary: "features",
 	stats: "stats",
 	sponsor: "sponsor",
 	submit: "submit",
@@ -654,6 +656,8 @@ function Page({ ctx, route }: { ctx: PageCtx; route: Route }) {
 			return <CategoryPage ctx={ctx} slug={route.slug} />;
 		case "group":
 			return <GroupPage ctx={ctx} slug={route.slug} />;
+		case "glossary":
+			return <GlossaryPage ctx={ctx} />;
 		case "categories":
 			return <CategoriesPage ctx={ctx} />;
 		case "projects":
@@ -820,6 +824,12 @@ function SiteFooter({ route, t }: { route: Route; t: (k: Key) => string }) {
 						</li>
 						{/* The planner's only inbound link. */}
 						<li>
+							{/* The glossary sits under Browse: it is a reference for the
+						    catalogue's own vocabulary, and it is where a phone reader —
+						    who has no hover — goes to find out what a tag means. */}
+							<Link href={paths.glossary(lang)} className={fLink}>
+								{t("glossary.title")}
+							</Link>
 							<Link href={paths.estimate(lang)} className={fLink}>
 								{t("plan.eyebrow")}
 							</Link>
