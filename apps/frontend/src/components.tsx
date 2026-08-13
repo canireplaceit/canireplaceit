@@ -1252,3 +1252,95 @@ export function VerdictSentence({
 		</p>
 	);
 }
+
+/**
+ * Default tool → what replaces it, as a table.
+ *
+ * For a category of things that ship with the system — the Unix defaults, the
+ * toolchain commands — cards are the wrong shape. The reader is not choosing
+ * between twelve products; they are scanning a mapping they already half know,
+ * looking for the two rows they did not. "cd → zoxide" is one line, and one line
+ * is what it should take.
+ *
+ * Only rendered where the category is mostly defaults (priced at 0 with no
+ * vendor), so a category of paid SaaS never gets it.
+ */
+export function DefaultsTable({
+	products,
+	t,
+	tc,
+	lang,
+}: {
+	products: Product[];
+	t: T;
+	tc: (v: { en: string }) => string;
+	lang: Lang;
+}) {
+	const defaults = products.filter(
+		(p) => p.priceMonthly === 0 && p.domain === null,
+	);
+	// Below five rows a table is just a list with extra furniture.
+	if (defaults.length < 5) return null;
+
+	const rows = defaults
+		.map((p) => {
+			const live = p.alternatives
+				.filter(
+					(a): a is Extract<Alternative, { kind: "oss" }> => a.kind === "oss",
+				)
+				.filter((a) => !isArchived(a, healthOf(a.source)));
+			const best = byExitQuality(live, (a) => healthOf(a.source))[0];
+			return { p, best, lose: p.whatYouLose[0] };
+		})
+		// A default with nothing verified to replace it has no row to fill.
+		.filter((r) => r.best !== undefined);
+	if (rows.length < 5) return null;
+
+	return (
+		<section className="mt-10">
+			<h2 className="font-display font-semibold text-lg">
+				{t("defaults.heading")}
+			</h2>
+			<p className="mt-1 max-w-2xl text-muted text-sm">{t("defaults.blurb")}</p>
+			<div className="mt-3 overflow-x-auto">
+				<table className="w-full min-w-[36rem] border-collapse text-sm">
+					<thead>
+						<tr className="border-b text-left text-muted">
+							<th className="py-2 pr-3 font-normal">{t("defaults.tool")}</th>
+							<th className="px-2 py-2 font-normal">
+								{t("defaults.replacement")}
+							</th>
+							<th className="px-2 py-2 font-normal">{t("defaults.costs")}</th>
+						</tr>
+					</thead>
+					<tbody>
+						{rows.map(({ p, best, lose }) => (
+							<tr key={p.slug} className="border-b last:border-0">
+								<td className="py-1.5 pr-3">
+									<Link
+										href={paths.product(lang, p.slug)}
+										className="font-medium hover:underline"
+									>
+										{p.name}
+									</Link>
+								</td>
+								<td className="px-2 py-1.5">
+									{best?.name}
+									<span className="ml-1.5 text-muted text-xs">
+										{best?.license}
+									</span>
+								</td>
+								{/* What it costs you, not what it gains you — the gain is why
+								    the row exists, the cost is what the reader has not
+								    thought about. */}
+								<td className="px-2 py-1.5 text-muted">
+									{lose ? tc(lose) : "—"}
+								</td>
+							</tr>
+						))}
+					</tbody>
+				</table>
+			</div>
+		</section>
+	);
+}

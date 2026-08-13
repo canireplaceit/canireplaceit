@@ -13,7 +13,11 @@ import type {
 	Project,
 	Verdict,
 } from "core/src/content";
-import { categoryStats, collectProjects } from "core/src/content";
+import {
+	CATEGORY_GROUPS,
+	categoryStats,
+	collectProjects,
+} from "core/src/content";
 import type { FeatureFile } from "core/src/features";
 import { isLang, type Lang } from "core/src/index";
 import {
@@ -92,6 +96,7 @@ import {
 	CategoryPage,
 	CollectionPage,
 	CollectionsPage,
+	GapsPage,
 	GlossaryPage,
 	GroupPage,
 	type PageCtx,
@@ -256,6 +261,7 @@ const SECTION_OF: Record<Route["name"], string> = {
 	collections: "collections",
 	features: "features",
 	glossary: "features",
+	gaps: "list",
 	stats: "stats",
 	sponsor: "sponsor",
 	submit: "submit",
@@ -304,6 +310,29 @@ function Header({
 			icon: categoryIcon(c.icon),
 			count: catStats.get(c.slug)?.products ?? 0,
 		}));
+
+	/**
+	 * The ten themes, as a nav group of their own.
+	 *
+	 * The dropdown showed the ten biggest categories out of 85 — a shortcut that
+	 * leaves 75 of them reachable only from the index. The themes cover all 85
+	 * between them, so this is the level that actually browses: ten entries,
+	 * every category underneath one of them, and the theme hubs finally have an
+	 * inbound link from every page rather than from the categories index alone.
+	 */
+	const themeItems: NavItem[] = CATEGORY_GROUPS.map((g) => {
+		const inGroup = cats.filter((c) => c.group === g);
+		return {
+			key: g,
+			href: paths.group(lang, g),
+			label: t(`catGroup.${g}` as Key),
+			icon: categoryIcon(inGroup[0]?.icon ?? "sparkles"),
+			count: inGroup.reduce(
+				(n, c) => n + (catStats.get(c.slug)?.products ?? 0),
+				0,
+			),
+		};
+	}).filter((i) => i.count > 0);
 
 	const collectionItems: NavItem[] = COLLECTIONS.map((c) => ({
 		key: c.slug,
@@ -409,6 +438,16 @@ function Header({
 					>
 						{t("nav.features")}
 					</Link>
+					{/* Themes first: ten entries that cover all 85 categories between
+					    them, where the categories dropdown beside it can only ever show
+					    the ten biggest. */}
+					<NavMenu
+						label={t("cats.themes")}
+						items={themeItems}
+						allHref={paths.categories(lang)}
+						allLabel={t("cats.all")}
+						current={section === "categories"}
+					/>
 					<NavMenu
 						label={t("nav.categories")}
 						items={topCats}
@@ -498,6 +537,12 @@ function Header({
 						label={t("nav.menu")}
 						links={plainLinks}
 						groups={[
+							{
+								title: t("cats.themes"),
+								items: themeItems,
+								allHref: paths.categories(lang),
+								allLabel: t("cats.all"),
+							},
 							{
 								title: t("nav.categories"),
 								items: topCats,
@@ -658,6 +703,8 @@ function Page({ ctx, route }: { ctx: PageCtx; route: Route }) {
 			return <GroupPage ctx={ctx} slug={route.slug} />;
 		case "glossary":
 			return <GlossaryPage ctx={ctx} />;
+		case "gaps":
+			return <GapsPage ctx={ctx} />;
 		case "categories":
 			return <CategoriesPage ctx={ctx} />;
 		case "projects":

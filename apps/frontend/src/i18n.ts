@@ -419,6 +419,23 @@ export const dict = {
 		"def.repo.dormant":
 			"No commits for over a year. Not dead, but nobody is working on it.",
 		"def.repo.compose": "Ships a compose file in the repo root.",
+		"gaps.unsureHeading": "Claims we are least sure about",
+		"gaps.unsureBlurb":
+			"Prices we could not confirm on the vendor’s own page. Listed rather than hidden, because a figure you cannot check is worth less than one you are told to doubt.",
+		"gaps.uncheckedNote":
+			"A further {n} products have no price on file at all. Nobody has looked yet — which is not the same as “free”, and the catalogue never renders it that way.",
+		"defaults.heading": "The defaults, and what replaces them",
+		"defaults.blurb":
+			"These ship with the system, so nothing here is about money. The question is whether a newer tool is worth installing — and what you give up the next time you are on a machine that only has the original.",
+		"defaults.tool": "Default",
+		"defaults.replacement": "Replacement",
+		"defaults.costs": "Costs you",
+		"gaps.title": "What open source still cannot do",
+		"gaps.eyebrow": "The gaps",
+		"gaps.blurb":
+			"The products in this catalogue with no credible open source replacement, and the specific thing each one withholds. Published because a directory that only lists wins is an advertisement.",
+		"gaps.footnote":
+			"Every row here is a verdict of “not yet”, which is a judgement about today and not a prediction. When a replacement appears the product moves off this page — that is the point of keeping it derived rather than hand-written.",
 		"glossary.title": "What the words mean",
 		"glossary.eyebrow": "Glossary",
 		"glossary.blurb":
@@ -1362,6 +1379,23 @@ export const dict = {
 		"def.repo.dormant":
 			"Aucun commit depuis plus d’un an. Pas mort, mais personne n’y travaille.",
 		"def.repo.compose": "Fournit un fichier compose à la racine du dépôt.",
+		"gaps.unsureHeading": "Les affirmations dont nous sommes le moins sûrs",
+		"gaps.unsureBlurb":
+			"Des prix que nous n’avons pas pu confirmer sur la page de l’éditeur. Listés plutôt que cachés : un chiffre invérifiable vaut moins qu’un chiffre qu’on vous dit de mettre en doute.",
+		"gaps.uncheckedNote":
+			"{n} produits supplémentaires n’ont aucun prix au dossier. Personne n’a encore vérifié — ce qui n’est pas « gratuit », et le catalogue ne l’affiche jamais ainsi.",
+		"defaults.heading": "Les outils par défaut, et ce qui les remplace",
+		"defaults.blurb":
+			"Ceux-ci sont livrés avec le système : il n’est donc pas question d’argent. La question est de savoir si un outil plus récent vaut l’installation — et ce que vous perdez la prochaine fois que vous serez sur une machine qui n’a que l’original.",
+		"defaults.tool": "Par défaut",
+		"defaults.replacement": "Remplaçant",
+		"defaults.costs": "Ce que ça coûte",
+		"gaps.title": "Ce que l’open source ne sait pas encore faire",
+		"gaps.eyebrow": "Les manques",
+		"gaps.blurb":
+			"Les produits de ce catalogue sans remplaçant open source crédible, et ce que chacun retient précisément. Publié parce qu’un annuaire qui ne liste que ses succès est une publicité.",
+		"gaps.footnote":
+			"Chaque ligne est un verdict « pas encore », c’est-à-dire un jugement sur aujourd’hui, pas une prédiction. Dès qu’un remplaçant apparaît, le produit quitte cette page — d’où l’intérêt de la dériver plutôt que de l’écrire à la main.",
 		"glossary.title": "Ce que les mots veulent dire",
 		"glossary.eyebrow": "Glossaire",
 		"glossary.blurb":

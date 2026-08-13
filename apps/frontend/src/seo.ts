@@ -646,6 +646,7 @@ export const standingMeta = (
 		| "stats"
 		| "features"
 		| "glossary"
+		| "gaps"
 		| "signin"
 		| "dashboard"
 		| "admin",
@@ -671,6 +672,16 @@ export const standingMeta = (
 			fr: [
 				"Soutenir canireplaceit",
 				"Les sponsors permettent au site de rester gratuit et indépendant. Tarifs fixes, campagnes de 30 jours, un seul tarif pour tous, et les chiffres d'audience ne sont publiés qu'une fois réels.",
+			],
+		},
+		gaps: {
+			en: [
+				"What open source still cannot do",
+				"The paid products with no credible open source replacement, and the specific thing each one withholds. The honest counterweight to a catalogue of alternatives.",
+			],
+			fr: [
+				"Ce que l’open source ne sait pas encore faire",
+				"Les produits payants sans remplaçant open source crédible, et ce que chacun retient précisément. Le contrepoids honnête à un catalogue d’alternatives.",
 			],
 		},
 		glossary: {
