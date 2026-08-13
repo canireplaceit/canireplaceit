@@ -391,6 +391,44 @@ export const dict = {
 		"lede.notYet":
 			"You cannot replace {product} yet — nothing open source covers the job.",
 		"lede.butLose": "What you give up is {lose}.",
+		"def.verdict.yes":
+			"Feature-complete for the realistic use case. Switching costs you an install, not a migration.",
+		"def.verdict.almost":
+			"Covers part of the job. You give up something real — the page says what.",
+		"def.verdict.not-yet":
+			"Nothing credible replaces this yet. Listed so you know the answer is no, not so you keep looking.",
+		"def.effort.managed":
+			"Someone will run it for you if you would rather not — or it is a binary you just install.",
+		"def.effort.docker":
+			"The repo ships a compose file: one command and it runs.",
+		"def.effort.ops":
+			"You are operating a server. Backups, updates and uptime become yours.",
+		"def.facts.openCore.none":
+			"The build you can run yourself is the whole product. Nothing is held back.",
+		"def.facts.openCore.minor":
+			"An open source licence, with a few enterprise conveniences sold beside it.",
+		"def.facts.openCore.major":
+			"An open source licence, but the free build is a demo of the product.",
+		"def.facts.selfHost": "You can run this on your own machine or server.",
+		"def.facts.noSelfHost":
+			"You cannot run this yourself, whatever the licence says.",
+		"def.facts.ssoPaid": "Single sign-on is not in the free build.",
+		"def.facts.sso": "Single sign-on works in the free build.",
+		"def.repo.archived":
+			"The repo is archived — read-only, finished. Kept here because knowing something died is worth as much as knowing it exists.",
+		"def.repo.dormant":
+			"No commits for over a year. Not dead, but nobody is working on it.",
+		"def.repo.compose": "Ships a compose file in the repo root.",
+		"glossary.title": "What the words mean",
+		"glossary.eyebrow": "Glossary",
+		"glossary.blurb":
+			"Fifteen terms this catalogue runs on. Each one is a rule applied the same way to every entry, not a description someone wrote — which is why they are worth reading once.",
+		"glossary.verdicts": "The verdict",
+		"glossary.effort": "How much work leaving is",
+		"glossary.openness": "How open it really is",
+		"glossary.repo": "The state of the repo",
+		"glossary.ladderNote":
+			"Every one of these is derived from the data rather than authored per entry, so the same question gets the same answer across all 527 products. The collections are the same rules turned into pages:",
 		"spec.heading": "Side by side",
 		"spec.project": "Project",
 		"spec.licence": "Licence",
@@ -1293,6 +1331,47 @@ export const dict = {
 		"lede.notYet":
 			"Vous ne pouvez pas encore remplacer {product} — rien d’open source ne couvre le travail.",
 		"lede.butLose": "Ce que vous perdez : {lose}.",
+		"def.verdict.yes":
+			"Couvre le cas d’usage réaliste. Partir coûte une installation, pas une migration.",
+		"def.verdict.almost":
+			"Couvre une partie du travail. Vous perdez quelque chose de réel — la fiche dit quoi.",
+		"def.verdict.not-yet":
+			"Rien de crédible ne remplace encore ceci. Listé pour que vous sachiez que la réponse est non.",
+		"def.effort.managed":
+			"Quelqu’un peut l’héberger pour vous — ou c’est un binaire qu’il suffit d’installer.",
+		"def.effort.docker":
+			"Le dépôt fournit un fichier compose : une commande et ça tourne.",
+		"def.effort.ops":
+			"Vous exploitez un serveur. Sauvegardes, mises à jour et disponibilité deviennent les vôtres.",
+		"def.facts.openCore.none":
+			"La version que vous pouvez exécuter est le produit entier. Rien n’est réservé.",
+		"def.facts.openCore.minor":
+			"Licence open source, avec quelques commodités entreprise vendues à côté.",
+		"def.facts.openCore.major":
+			"Licence open source, mais la version gratuite est une démo du produit.",
+		"def.facts.selfHost":
+			"Vous pouvez l’exécuter sur votre machine ou votre serveur.",
+		"def.facts.noSelfHost":
+			"Vous ne pouvez pas l’exécuter vous-même, quoi que dise la licence.",
+		"def.facts.ssoPaid":
+			"L’authentification unique n’est pas dans la version gratuite.",
+		"def.facts.sso":
+			"L’authentification unique fonctionne dans la version gratuite.",
+		"def.repo.archived":
+			"Dépôt archivé — en lecture seule, terminé. Conservé ici parce que savoir qu’une chose est morte vaut autant que savoir qu’elle existe.",
+		"def.repo.dormant":
+			"Aucun commit depuis plus d’un an. Pas mort, mais personne n’y travaille.",
+		"def.repo.compose": "Fournit un fichier compose à la racine du dépôt.",
+		"glossary.title": "Ce que les mots veulent dire",
+		"glossary.eyebrow": "Glossaire",
+		"glossary.blurb":
+			"Quinze termes sur lesquels repose ce catalogue. Chacun est une règle appliquée de la même façon à chaque entrée, pas une description écrite au cas par cas — d’où l’intérêt de les lire une fois.",
+		"glossary.verdicts": "Le verdict",
+		"glossary.effort": "Ce que partir demande",
+		"glossary.openness": "À quel point c’est vraiment ouvert",
+		"glossary.repo": "L’état du dépôt",
+		"glossary.ladderNote":
+			"Chacun de ces termes est dérivé des données plutôt que saisi entrée par entrée : la même question reçoit donc la même réponse sur les 527 produits. Les collections sont ces mêmes règles transformées en pages :",
 		"spec.heading": "Côte à côte",
 		"spec.project": "Projet",
 		"spec.licence": "Licence",

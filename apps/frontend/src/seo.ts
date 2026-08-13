@@ -645,6 +645,7 @@ export const standingMeta = (
 		| "contact"
 		| "stats"
 		| "features"
+		| "glossary"
 		| "signin"
 		| "dashboard"
 		| "admin",
@@ -670,6 +671,16 @@ export const standingMeta = (
 			fr: [
 				"Soutenir canireplaceit",
 				"Les sponsors permettent au site de rester gratuit et indépendant. Tarifs fixes, campagnes de 30 jours, un seul tarif pour tous, et les chiffres d'audience ne sont publiés qu'une fois réels.",
+			],
+		},
+		glossary: {
+			en: [
+				"What the words mean — the terms this catalogue runs on",
+				"Fifteen terms defined once and applied the same way to all products: what “almost” means, what “open core” costs you, and when a repo counts as archived.",
+			],
+			fr: [
+				"Ce que les mots veulent dire — le vocabulaire du catalogue",
+				"Quinze termes définis une fois et appliqués de la même façon à tous les produits : ce que veut dire « presque », ce que coûte l’open core, et quand un dépôt est considéré comme archivé.",
 			],
 		},
 		features: {

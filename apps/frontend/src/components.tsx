@@ -134,8 +134,12 @@ export function VerdictMark({ verdict, t }: { verdict: Verdict; t: T }) {
 				style={{ background: color }}
 			/>
 			<span
-				className="font-mono text-[10px] uppercase tracking-[0.12em]"
+				className="cursor-help font-mono text-[10px] uppercase tracking-[0.12em] decoration-dotted underline-offset-2 hover:underline"
 				style={{ color }}
+				// "Replaceable / Almost / Not yet" are editorial judgements with
+				// defined meanings, printed on all 527 rows of the index and
+				// explained nowhere.
+				title={definitionOf(`verdict.${verdict}`, t)}
 			>
 				{t(`verdict.${verdict}` as Key)}
 			</span>
@@ -456,7 +460,14 @@ export function AlternativeCard({
 						{alt.facts.openCore !== "none" && (
 							<FactTag mark={openCoreMark(alt.facts.openCore)} t={t} />
 						)}
-						<Tag>{t(`effort.${alt.effort}` as Key)}</Tag>
+						<Tag>
+							<span
+								className="cursor-help decoration-dotted underline-offset-2 hover:underline"
+								title={definitionOf(`effort.${alt.effort}`, t)}
+							>
+								{t(`effort.${alt.effort}` as Key)}
+							</span>
+						</Tag>
 						<FactMarks facts={alt.facts} license={alt.license} t={t} />
 						<RepoFreshness
 							source={alt.source}
@@ -542,11 +553,29 @@ const TONE_COLOR: Record<FactTone, string | undefined> = {
 };
 
 // Word is never optional here (no icon-only variant): these are compliance-adjacent claims (EU region, SSO) that must not depend on guessing an icon.
+/**
+ * The definition of a term, if we wrote one.
+ *
+ * Every label here — "hosted option", "open core", "mostly open" — is a precise
+ * term whose meaning lived in a code comment and nowhere a reader could reach.
+ * `def.<label>` is that comment, moved to where the term is used. Missing is
+ * fine and silent: a term with no definition renders exactly as before.
+ */
+export const definitionOf = (label: string, t: T): string | undefined => {
+	const d = t(`def.${label}` as Key);
+	// The translator returns the key itself when there is no entry.
+	return d === `def.${label}` ? undefined : d;
+};
+
 export function FactTag({ mark, t }: { mark: FactMark; t: T }) {
 	const { Icon, tone } = mark;
+	const definition = definitionOf(mark.label, t);
 	return (
 		<Tag warn={tone === "warn"} bad={tone === "bad"}>
-			<span className="inline-flex items-center gap-1">
+			<span
+				className={`inline-flex items-center gap-1${definition ? " cursor-help decoration-dotted underline-offset-2 hover:underline" : ""}`}
+				title={definition}
+			>
 				<Icon className="size-3 shrink-0" aria-hidden />
 				{t(mark.label as Key)}
 			</span>
