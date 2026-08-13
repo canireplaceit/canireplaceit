@@ -1684,6 +1684,66 @@ export function CollectionsPage({ ctx }: { ctx: PageCtx }) {
 }
 
 /** One collection, paginated. Products or projects, depending on the slug. */
+/**
+ * Projects whose repo went read-only most recently.
+ *
+ * `bun run health` runs weekly and commits `health.json`; when it flips a
+ * project to archived, that is the most newsworthy thing the catalogue learns
+ * all week and it currently lands silently in a JSON file. `lastPush` on an
+ * archived repo is the date the work stopped, which is the closest thing to
+ * "when did this die" the forges will give us.
+ *
+ * Only rendered on the graveyard, where the framing is already right.
+ */
+function RecentlyArchived({
+	projects,
+	ctx,
+}: {
+	projects: Project[];
+	ctx: PageCtx;
+}) {
+	const { t, lang, projectSlugs } = ctx;
+	const dated = projects
+		.map((p) => ({ p, last: healthOf(p.source)?.lastPush }))
+		.filter((x): x is { p: Project; last: string } => Boolean(x.last))
+		.sort((a, b) => b.last.localeCompare(a.last))
+		.slice(0, 8);
+	// Health covers about a third of cited repos, so this can legitimately be
+	// empty — and an empty "recently" block is worse than none.
+	if (dated.length < 3) return null;
+
+	return (
+		<section className="mb-8">
+			<Heading>{t("archived.recent")}</Heading>
+			<ul className="mt-2 flex flex-wrap gap-1.5">
+				{dated.map(({ p, last }) => {
+					const pretty = projectSlugs.get(p.slug);
+					const label = (
+						<>
+							{p.name}
+							<span className="nums ml-1.5 text-muted text-xs">
+								{last.slice(0, 7)}
+							</span>
+						</>
+					);
+					return (
+						<li key={p.slug}>
+							{pretty ? (
+								<Link href={paths.project(lang, pretty)} className="pill">
+									{label}
+								</Link>
+							) : (
+								<span className="pill">{label}</span>
+							)}
+						</li>
+					);
+				})}
+			</ul>
+			<p className="mt-2 text-muted text-xs">{t("archived.recentNote")}</p>
+		</section>
+	);
+}
+
 export function CollectionPage({
 	ctx,
 	slug,
@@ -1772,6 +1832,11 @@ export function CollectionPage({
 				</p>
 			}
 		>
+			{/* The graveyard's own headline: what died most recently. */}
+			{slug === "archived" && (
+				<RecentlyArchived projects={projectRows} ctx={ctx} />
+			)}
+
 			<div className="panel flex flex-wrap items-center gap-2 p-2.5">
 				{ofProducts ? (
 					<>
