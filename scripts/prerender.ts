@@ -811,15 +811,7 @@ for (const lang of SupportedLangs) {
 
 	// The standing pages. Three of them were in-page anchors on the home page, so
 	// they had no URL to rank, share or link to from the other 3,050 documents.
-	// They ship the whole catalogue in their payload because the estimate and the
-	// quote both let a reader tick any product on the site.
-	// "estimate" was left out on the reasoning that nothing pointed at it. That
-	// stopped being true: the hero's second button and the footer both link it
-	// from EVERY page, so the site shipped 8260 links to a document that was
-	// never written — one on every page, in both locales. It is the only broken
-	// internal link in the build.
 	for (const page of [
-		"estimate",
 		"sponsor",
 		"submit",
 		"contact",
@@ -851,11 +843,8 @@ for (const lang of SupportedLangs) {
 	] as const) {
 		emit({
 			route: { name: page, lang },
-			meta: standingMeta(page, lang, products.length),
-			// Only the estimate needs the catalogue — its step 1 lets a reader tick
-			// any product on the site. The rate card and the contribution page
-			// render from inventory and static copy.
-			boot: bootFor(page === "estimate" ? listed : []),
+			meta: standingMeta(page, lang),
+			boot: bootFor([]),
 			kind: "standing",
 			lastmod: iso(new Date()),
 		});
@@ -1047,15 +1036,10 @@ writeFileSync(
 	})}\n`,
 );
 
-// `?plan=` on the estimate page is unbounded crawl space with nothing
-// indexable at the end of it — every shared plan is a distinct URL for one
-// document. The page's canonical already points at the bare `/en/estimate`,
-// so this only saves the crawl budget it would otherwise spend proving that.
 writeFileSync(
 	join(DIST, "robots.txt"),
 	`User-agent: *
 Allow: /
-Disallow: /*?plan=
 
 Sitemap: ${SITE}/sitemap.xml
 `,

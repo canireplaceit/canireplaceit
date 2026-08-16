@@ -632,14 +632,9 @@ export const collectionMeta = (
  * The standing pages. Each one is a page because it needs to be linkable,
  * shareable and indexable — which means each one needs its own title and
  * description, not the home page's.
- *
- * `estimate` is one page in two steps — the calculator, then the offer to do the
- * migration — so its description has to promise the number first. The lead is
- * what happens after somebody already got value, not what they searched for.
  */
 export const standingMeta = (
 	page:
-		| "estimate"
 		| "sponsor"
 		| "submit"
 		| "contact"
@@ -651,19 +646,8 @@ export const standingMeta = (
 		| "dashboard"
 		| "admin",
 	lang: Lang,
-	products: number,
 ): Meta => {
 	const copy = {
-		estimate: {
-			en: [
-				`Build a self-hosting plan — what to run instead of your SaaS`,
-				`Pick from ${products} paid products, choose the open source replacement for each, and see the effort, the licences and what you give up. No signup — the plan lives in the link.`,
-			],
-			fr: [
-				`Construisez votre plan d’auto-hébergement — quoi héberger à la place`,
-				`Choisissez parmi ${products} produits payants, décidez du remplaçant open source de chacun, et voyez l’effort, les licences et ce que vous perdez. Sans inscription — le plan tient dans le lien.`,
-			],
-		},
 		sponsor: {
 			en: [
 				"Sponsor canireplaceit",

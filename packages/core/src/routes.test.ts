@@ -46,7 +46,7 @@ test("every builder round-trips through parseRoute in every language", () => {
 
 test("the standing pages round-trip, and take nothing after the segment", () => {
 	for (const lang of SupportedLangs) {
-		for (const name of ["estimate", "submit", "contact", "features"] as const) {
+		for (const name of ["submit", "contact", "features"] as const) {
 			expect(at(paths[name](lang))).toEqual({ name, lang });
 			expect(at(`${paths[name](lang)}/extra`)).toEqual({
 				name: "unknown",
@@ -235,7 +235,6 @@ test("alternateUrls is an exact inverse of paths for every route", () => {
 		paths.collections("en"),
 		paths.collection("fr", "open-core"),
 		paths.collection("en", "cheaper", 3),
-		paths.estimate("en"),
 		paths.submit("fr"),
 		paths.contact("en"),
 		paths.contact("fr"),

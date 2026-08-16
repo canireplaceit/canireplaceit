@@ -82,7 +82,6 @@ import { GRID_1COL, SponsorSlot, VerdictMark } from "./components";
 import { REPO } from "./contribute";
 import { Dashboard } from "./Dashboard";
 import { ProductList } from "./designs";
-import { EstimatePage } from "./Estimate";
 import { FeaturesPage } from "./FeaturesPage";
 import { AdsSection, ContactSection, SubmitSection } from "./Forms";
 import { detectLang, type Key, useI18n, useTheme } from "./i18n";
@@ -265,7 +264,6 @@ const SECTION_OF: Record<Route["name"], string> = {
 	stats: "stats",
 	sponsor: "sponsor",
 	submit: "submit",
-	estimate: "",
 	contact: "",
 	signin: "",
 	dashboard: "",
@@ -508,9 +506,9 @@ function Header({
 						onClick={(e) => {
 							if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
 							e.preventDefault();
-							// The query carries page state the path does not (e.g. the
-							// estimate page's `?plan=`); `href` stays bare so prerender and
-							// first client render agree, and only the click preserves it.
+							// The query carries page state the path does not; `href` stays
+							// bare so prerender and first client render agree, and only the
+							// click preserves it.
 							navigate(alternateUrls(route)[other] + location.search);
 						}}
 						aria-label={t("ui.language")}
@@ -633,17 +631,10 @@ function Hero({
 					{t("hero.blurb")}
 				</p>
 
-				{/* Two ways in, and they are genuinely different questions: "show me the
-			    catalogue" and "tell me what my stack costs". The planner had exactly
-			    one inbound link on the whole site — a footer row — which is not a
-			    front door for the page that turns a reader into a lead. */}
 				<div className="mt-7 flex flex-wrap items-center justify-center gap-3">
 					<a href="#list" className="btn-primary">
 						{t("nav.list")}
 					</a>
-					<Link href={paths.estimate(lang)} className="btn-ghost">
-						{t("plan.eyebrow")}
-					</Link>
 				</div>
 
 				{/* A published 0 would read as "broken", not "new", so the switches
@@ -713,16 +704,6 @@ function Page({ ctx, route }: { ctx: PageCtx; route: Route }) {
 			return <CollectionsPage ctx={ctx} />;
 		case "collection":
 			return <CollectionPage ctx={ctx} slug={route.slug} page={route.page} />;
-		case "estimate":
-			return (
-				<EstimatePage
-					products={ctx.products}
-					categories={ctx.categories}
-					t={ctx.t}
-					tc={ctx.tc}
-					lang={ctx.lang}
-				/>
-			);
 		case "sponsor":
 			return (
 				<main>
@@ -869,16 +850,12 @@ function SiteFooter({ route, t }: { route: Route; t: (k: Key) => string }) {
 								{t("nav.collections")}
 							</Link>
 						</li>
-						{/* The planner's only inbound link. */}
 						<li>
 							{/* The glossary sits under Browse: it is a reference for the
 						    catalogue's own vocabulary, and it is where a phone reader —
 						    who has no hover — goes to find out what a tag means. */}
 							<Link href={paths.glossary(lang)} className={fLink}>
 								{t("glossary.title")}
-							</Link>
-							<Link href={paths.estimate(lang)} className={fLink}>
-								{t("plan.eyebrow")}
 							</Link>
 						</li>
 						{COLLECTIONS.map((c) => (
@@ -1285,7 +1262,6 @@ export function App() {
 						memberCount(collectionMembers(route.slug, products, projects)),
 						route.page ?? 1,
 					);
-				case "estimate":
 				case "sponsor":
 				case "submit":
 				case "stats":
@@ -1294,9 +1270,9 @@ export function App() {
 				// the home page's meta and lose the noindex tag on hydration.
 				case "dashboard":
 				case "admin":
-					return standingMeta(route.name, route.lang, products.length);
+					return standingMeta(route.name, route.lang);
 				case "contact":
-					return standingMeta(route.name, lang, products.length);
+					return standingMeta(route.name, lang);
 				case "legal":
 					return legalMeta(route.doc, lang);
 				default:
@@ -1323,6 +1299,7 @@ export function App() {
 		if (meta) applyMeta(meta, alternateUrls(route));
 	}, [
 		route,
+		t,
 		products,
 		projects,
 		cats,
