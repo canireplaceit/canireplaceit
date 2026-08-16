@@ -386,36 +386,6 @@ export const votes = sqliteTable(
 	],
 );
 
-/** The migration lead form. This is the revenue that does not depend on traffic. */
-export const quoteRequests = sqliteTable("quote_requests", {
-	id: uuidPk(),
-	email: emailText("email").notNull(),
-	company: text("company"),
-	seats: integer("seats"),
-	productSlugs: text("product_slugs", { mode: "json" })
-		.$type<string[]>()
-		.notNull()
-		.$defaultFn(() => []),
-	/**
-	 * The plan as the reader built it: `notion~appflowy,slack~keep`, the same
-	 * string the estimate page keeps in its URL. Null for a lead that arrived
-	 * before this existed, or from a reader who picked products without choosing
-	 * replacements. Stored as the encoded string rather than as parsed rows
-	 * because it IS the shareable artefact — a link that can be reopened.
-	 */
-	plan: text("plan"),
-	/**
-	 * Recomputed server-side from the content files — never trusted from the
-	 * client — and through the same basis-aware `spendOf` the page renders, so the
-	 * lead and the reader do not hold two different numbers.
-	 */
-	currentSpendCents: integer("current_spend_cents").notNull().default(0),
-	message: text("message"),
-	createdAt: integer("created_at", { mode: "timestamp" })
-		.notNull()
-		.$defaultFn(now),
-});
-
 /** "Tell me when a slot opens." */
 export const waitlist = sqliteTable("waitlist", {
 	email: emailText("email").primaryKey(),

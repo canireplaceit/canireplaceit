@@ -15,7 +15,6 @@ export const SEGMENTS: Record<
 		groups: string;
 		collections: string;
 		sponsor: string;
-		estimate: string;
 		submit: string;
 		contact: string;
 		stats: string;
@@ -38,7 +37,6 @@ export const SEGMENTS: Record<
 		groups: "themes",
 		collections: "collections",
 		sponsor: "sponsor",
-		estimate: "estimate",
 		submit: "submit",
 		contact: "contact",
 		stats: "stats",
@@ -59,7 +57,6 @@ export const SEGMENTS: Record<
 		groups: "themes",
 		collections: "collections",
 		sponsor: "sponsoriser",
-		estimate: "estimation",
 		submit: "proposer",
 		contact: "contact",
 		stats: "statistiques",
@@ -149,8 +146,6 @@ export type Route =
 	| ({ name: "collection"; lang: Lang; slug: string } & Paged)
 	// `slot` is a query param, not a path segment, so the 199 slots don't each mint a near-duplicate indexable URL.
 	| { name: "sponsor"; lang: Lang; slot?: string }
-	// `estimate` is one page in two steps: step 1 sizes the reader's spend, step 2 carries it into a lead form.
-	| { name: "estimate"; lang: Lang }
 	| { name: "submit"; lang: Lang }
 	| { name: "contact"; lang: Lang }
 	| { name: "stats"; lang: Lang }
@@ -199,7 +194,6 @@ export const paths = {
 		const base = `/${lang}/${SEGMENTS[lang].sponsor}`;
 		return slot ? `${base}?slot=${encodeURIComponent(slot)}` : base;
 	},
-	estimate: (lang: Lang): string => `/${lang}/${SEGMENTS[lang].estimate}`,
 	submit: (lang: Lang): string => `/${lang}/${SEGMENTS[lang].submit}`,
 	contact: (lang: Lang): string => `/${lang}/${SEGMENTS[lang].contact}`,
 	stats: (lang: Lang): string => `/${lang}/${SEGMENTS[lang].stats}`,
@@ -296,7 +290,6 @@ export function parseRoute(url: URL): Route {
 	}
 
 	if (
-		kind === "estimate" ||
 		kind === "submit" ||
 		kind === "contact" ||
 		kind === "stats" ||
@@ -372,9 +365,6 @@ export function alternateUrls(route: Route): Record<Lang, string> {
 				break;
 			case "sponsor":
 				out[lang] = paths.sponsor(lang);
-				break;
-			case "estimate":
-				out[lang] = paths.estimate(lang);
 				break;
 			case "submit":
 				out[lang] = paths.submit(lang);

@@ -656,12 +656,6 @@ export const api = {
 			z.object({ switchedCount: z.number(), counted: z.boolean() }),
 			{ projectSlug },
 		),
-	quote: (body: Record<string, unknown>) =>
-		post(
-			"/api/quotes",
-			z.object({ id: z.string(), currentSpendCents: z.number() }),
-			body,
-		),
 	waitlist: (body: Record<string, unknown>) =>
 		post("/api/waitlist", OkSchema, body),
 	reserve: (slotId: string, body: Record<string, unknown>) =>

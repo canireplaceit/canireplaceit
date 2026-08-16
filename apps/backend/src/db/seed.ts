@@ -355,29 +355,6 @@ export async function seedDev(): Promise<void> {
 			.onConflictDoNothing();
 	}
 
-	// ── Leads ────────────────────────────────────────────────────────────────
-	await db
-		.insert(schema.quoteRequests)
-		.values([
-			{
-				email: "buyer@seed.dev",
-				company: "Example GmbH",
-				seats: 25,
-				productSlugs: candidates.slice(0, 3).map((p) => p.slug),
-				currentSpendCents: 42_000,
-				message: "Seeded lead — see apps/backend/src/db/seed.ts",
-			},
-			{
-				email: "cto@bigco.seed.dev",
-				company: "BigCo",
-				seats: 400,
-				productSlugs: candidates.slice(3, 7).map((p) => p.slug),
-				currentSpendCents: 1_180_000,
-				message: "Seeded lead — larger estate, wants a migration plan",
-			},
-		])
-		.onConflictDoNothing();
-
 	await db
 		.insert(schema.waitlist)
 		.values([

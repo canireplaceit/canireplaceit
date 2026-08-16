@@ -121,15 +121,6 @@ describe("column mappings", () => {
 		expect(row.reasons).toEqual([]);
 	});
 
-	test("productSlugs on a quote round-trips as an array", async () => {
-		const slugs = ["notion", "slack"];
-		const [row] = await db
-			.insert(schema.quoteRequests)
-			.values({ email: "a@b.dev", productSlugs: slugs })
-			.returning();
-		expect(row.productSlugs).toEqual(slugs);
-	});
-
 	test("timestamps come back as Date objects", async () => {
 		const [row] = await db
 			.insert(schema.votes)

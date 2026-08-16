@@ -2,7 +2,6 @@ import { timingSafeEqual } from "node:crypto";
 import { cors } from "@elysiajs/cors";
 import { collectProjects, projectSlug } from "core/src/content";
 import { DEFAULT_LANG, isLang, type Lang } from "core/src/index";
-import { spendOf } from "core/src/plan";
 import { paths } from "core/src/routes";
 import {
 	allocate,
@@ -129,7 +128,7 @@ const secretEquals = (a: string, b: string): boolean => {
 };
 
 /**
- * Per-IP hourly cap on public endpoints that write rows (waitlist, quotes, reserve) — these can't move money, so the risk is queue/table spam, not theft.
+ * Per-IP hourly cap on public endpoints that write rows (waitlist, reserve) — these can't move money, so the risk is queue/table spam, not theft.
  * Vote and ad endpoints deliberately skip this: they're scored instead of capped, see vote-identity.ts.
  * Shares the `rate_limits` table with the ad scorer under a `req:` prefix, keyed by hour so a bucket ages out rather than being deleted.
  */
@@ -1040,38 +1039,6 @@ const app = new Elysia()
 		},
 	)
 
-	.post(
-		"/api/quotes",
-		async ({ body, headers, server, request, status }) => {
-			const ip = clientIp(headers, server?.requestIP(request)?.address);
-			if (await overWriteLimit("quotes", ip))
-				return status(429, { error: "too many requests, try again later" });
-			const slugs = body.productSlugs ?? [];
-			// Priced server-side via the same `spendOf` the page used, so a tampered client can't inflate the lead — see pricing.basis in packages/core/src/plan.ts.
-			const currentSpendCents = spendOf(
-				content.products.filter((p) => slugs.includes(p.slug)),
-				body.seats ?? 1,
-			).monthlyCents;
-
-			const [row] = await db
-				.insert(schema.quoteRequests)
-				.values({ ...body, productSlugs: slugs, currentSpendCents })
-				.returning({ id: schema.quoteRequests.id });
-			return { id: row.id, currentSpendCents };
-		},
-		{
-			body: t.Object({
-				email: t.String({ format: "email" }),
-				company: t.Optional(t.String({ maxLength: 200 })),
-				seats: t.Optional(t.Integer({ minimum: 1, maximum: 100_000 })),
-				productSlugs: t.Optional(t.Array(t.String(), { maxItems: 200 })),
-				/** The plan as built, e.g. `notion~appflowy,slack~keep` — same string the page keeps in its URL, says what they're switching to. */
-				plan: t.Optional(t.String({ maxLength: 8000 })),
-				message: t.Optional(t.String({ maxLength: 4000 })),
-			}),
-		},
-	)
-
 	// ---- sponsorship ----
 
 	.get("/api/slots", () => board())
@@ -1681,12 +1648,6 @@ const app = new Elysia()
 	.group("/api/admin", (a) =>
 		a
 			.onBeforeHandle(requireAdmin)
-			.get("/quotes", () =>
-				db
-					.select()
-					.from(schema.quoteRequests)
-					.orderBy(desc(schema.quoteRequests.createdAt)),
-			)
 			.get("/waitlist", () => db.select().from(schema.waitlist))
 
 			/** Is the published site current, and what did the queue absorb? */
