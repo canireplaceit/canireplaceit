@@ -1,0 +1,177 @@
+{
+	"slug": "prettier",
+	"name": "Prettier",
+	"domain": null,
+	"category": "developer-tooling",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "yes",
+	"why": {
+		"en": "Prettier formats code from a fixed set of opinions and no config. Faster Rust-based formatters match its output for daily files, but Prettier stays the default editors and CI reach for, and covers more languages.",
+		"fr": "Prettier formate le code à partir d’un jeu d’opinions figé et sans configuration. Des formateurs Rust plus rapides produisent le même rendu sur les fichiers courants, mais Prettier reste la référence des éditeurs et de la CI, et couvre plus de langages."
+	},
+	"whatYouLose": [
+		{
+			"en": "editor plugins and integrations",
+			"fr": "les plugins et intégrations d’éditeurs"
+		},
+		{
+			"en": "the shared default every tool targets",
+			"fr": "le format de référence que tout l’écosystème vise"
+		},
+		{
+			"en": "broader language coverage",
+			"fr": "une couverture de langages plus large"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Biome",
+			"source": {
+				"host": "github",
+				"path": "biomejs/biome",
+				"url": "https://github.com/biomejs/biome"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Rust formatter plus linter, ~100x faster than Prettier with largely compatible output, though younger edge-case differences remain and existing configs don’t migrate over automatically.",
+				"fr": "Formateur et linter en Rust, ~100x plus rapide que Prettier avec une sortie largement compatible, mais plus jeune : quelques différences sur les cas limites et pas de migration automatique de la config existante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dprint",
+			"source": {
+				"host": "github",
+				"path": "dprint/dprint",
+				"url": "https://github.com/dprint/dprint"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Extensible Rust formatter with a plugin system, far faster than Prettier; the catch is a small plugin ecosystem and no official JS/TS plugin — you run Prettier’s own under an adapter.",
+				"fr": "Formateur Rust extensible par plugins, 60 à 100x plus rapide, mais l’écosystème est petit et pas de plugin JS/TS officiel : on passe par l’adaptateur du plugin Prettier."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Standard",
+			"source": {
+				"host": "github",
+				"path": "standard/standard",
+				"url": "https://github.com/standard/standard"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Zero-config linter and formatter that replaces eslint and prettier together — no config files, no decisions. It costs you customisable style, a slower Node runtime, and anything outside JS/JSX.",
+				"fr": "Formateur et linter zéro-config qui remplace eslint et prettier d’un coup : pas de fichier de configuration, pas de choix à faire. On abandonne le style paramétrable, la vitesse et tout ce qui n’est pas du JS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Black",
+			"source": {
+				"host": "github",
+				"path": "psf/black",
+				"url": "https://github.com/psf/black"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Deterministic, unconfigurable by design, Python-only — and still the de-facto formatter. One CLI binary, pip-installed, no decisions left to make.",
+				"fr": "Déterministe, non configurable par conception, Python uniquement — et pourtant le formateur de fait. Un seul binaire pip-installable, plus aucun réglage à faire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ruff",
+			"source": {
+				"host": "github",
+				"path": "astral-sh/ruff",
+				"url": "https://github.com/astral-sh/ruff"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Fastest Python linter, with a Black-compatible formatter built in — one binary for lint and format. The formatter is younger than Black’s and it’s Python-only, like everything else here.",
+				"fr": "Linter Python le plus rapide, avec un formateur compatible Black intégré : un seul binaire pour lint et format. Le formateur est plus récent que Black, et comme lui, Python uniquement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "StyLua",
+			"source": {
+				"host": "github",
+				"path": "JohnnyMorganz/StyLua",
+				"url": "https://github.com/JohnnyMorganz/StyLua"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Deterministic Lua formatter with a Prettier-style .stylua.toml config, fast and single-binary. Lua only, MPL-2.0, and a community far smaller than Prettier’s.",
+				"fr": "Formateur Lua déterministe avec une config .stylua.toml façon Prettier, rapide et en un seul binaire. Lua uniquement, licence MPL-2.0, communauté bien plus petite que celle de Prettier."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SQL Formatter",
+			"source": {
+				"host": "github",
+				"path": "sql-formatter-org/sql-formatter",
+				"url": "https://github.com/sql-formatter-org/sql-formatter"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Formats SQL across 20+ dialects from a self-hostable CLI, zero config, handles large queries. That’s the whole story — no JS, no Markdown, thin editor integration.",
+				"fr": "Formate le SQL de 20+ dialectes depuis un CLI auto-hébergeable, zéro config, même sur les grosses requêtes. Et c’est tout : pas de JS, pas de Markdown, intégration éditeur limitée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

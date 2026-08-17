@@ -1,0 +1,198 @@
+{
+	"slug": "git-blame",
+	"name": "git blame",
+	"domain": null,
+	"category": "developer-tooling",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "almost",
+	"why": {
+		"en": "git blame annotates each line with the last commit that touched it. Editors and GUIs now render the same data inline with a better read, but only for interactive work: the CLI remains the only form scripts parse reliably.",
+		"fr": "`git blame` associe chaque ligne au dernier commit qui l’a modifiée. Les éditeurs affichent la même donnée en ligne, plus lisible à l’écran, mais seulement pour la consultation interactive : la sortie du CLI reste la seule que les scripts peuvent analyser."
+	},
+	"whatYouLose": [
+		{
+			"en": "blame on every machine",
+			"fr": "le blame présent sur toutes les machines"
+		},
+		{
+			"en": "machine-readable scriptable output",
+			"fr": "la sortie porcelain analysable par script"
+		},
+		{
+			"en": "blame from a bare terminal",
+			"fr": "le blame depuis un simple terminal"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "tig",
+			"source": {
+				"host": "github",
+				"path": "jonas/tig",
+				"url": "https://github.com/jonas/tig"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The classic terminal git browser; its blame view lets you drill commit-by-commit without leaving the log. Visual output only — scripts still need the raw porcelain format.",
+				"fr": "Le navigateur git historique en mode texte, avec une vue blame dédiée et son parcours commit par commit. Résultat purement visuel : les scripts doivent toujours passer par le format porcelaine brut."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "lazygit",
+			"source": {
+				"host": "github",
+				"path": "jesseduffield/lazygit",
+				"url": "https://github.com/jesseduffield/lazygit"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A single static binary, huge community, and blame one keystroke away. It stays a secondary view in a pane-heavy UI with no custom formatting or porcelain output.",
+				"fr": "Un seul binaire statique, une grosse communauté, et le blame à une touche. Vue secondaire dans une interface chargée de panneaux, sans formatage personnalisé ni sortie porcelain."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gitui",
+			"source": {
+				"host": "github",
+				"path": "gitui-org/gitui",
+				"url": "https://github.com/gitui-org/gitui"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A fast Rust TUI; the log view annotates each commit with blame while staying light on memory. Blame is limited to those annotations and there is no interactive rebase UI.",
+				"fr": "Un TUI Rust rapide dont la vue log annoté chaque commit de son blame, le tout très léger en mémoire. L’info reste cantonnée à ces annotations et le rebase interactif n’existe pas."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "vim-fugitive",
+			"source": {
+				"host": "github",
+				"path": "tpope/vim-fugitive",
+				"url": "https://github.com/tpope/vim-fugitive"
+			},
+			"license": "Vim",
+			"effort": "managed",
+			"note": {
+				"en": "Vim’s de-facto git plugin: :Git blame opens the file annotated, each line linking to its commit. Nothing outside the editor — but you must be fluent in Vim to get value.",
+				"fr": "Le plugin git de référence dans Vim : :Git blame ouvre le fichier annoté, chaque ligne pointant vers son commit. Tout se passe dans l’éditeur — à condition d’être à l’aise avec Vim."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "magit",
+			"source": {
+				"host": "github",
+				"path": "magit/magit",
+				"url": "https://github.com/magit/magit"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Emacs’ legendary git porcelain; blame runs inline with commit context in the middle of the whole workflow. It is Emacs-only, and the transient UI has a steep learning curve.",
+				"fr": "La porcelain git légendaire d’Emacs : le blame s’affiche en ligne avec le contexte du commit, au cœur du workflow. Réservé à Emacs, avec une courbe d’apprentissage abrupte pour l’interface transient."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "git-messenger.vim",
+			"source": {
+				"host": "github",
+				"path": "rhysd/git-messenger.vim",
+				"url": "https://github.com/rhysd/git-messenger.vim"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The closest thing to hover blame in a terminal editor: a popup with the commit behind the line under your cursor. Per-line only — no full-file annotation — and Vim-family only.",
+				"fr": "Le plus proche d’un blame au survol en éditeur terminal : une fenêtre flottante affiche le commit de la ligne sous le curseur. Au coup par coup, sans annotation du fichier entier, et réservé à la famille Vim."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "blamer.nvim",
+			"source": {
+				"host": "github",
+				"path": "z4p5a9/blamer.nvim",
+				"url": "https://github.com/z4p5a9/blamer.nvim"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Always-on statusline blame in Neovim — author, hash, date for the current line as you move. Metadata, not an annotated file. Dormant since mid-2024.",
+				"fr": "Blame permanent dans la statusline de Neovim : auteur, hash et date de la ligne courante au fil du curseur. Ce sont des métadonnées, pas un fichier annoté. Inactif depuis mi-2024."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "git-blame.nvim",
+			"source": {
+				"host": "github",
+				"path": "f-person/git-blame.nvim",
+				"url": "https://github.com/f-person/git-blame.nvim"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Virtual-text blame on every buffer line, mirroring git-blame inside the editor. Requires a recent Neovim, and annotations add noise on large files. Neovim only.",
+				"fr": "Blame en virtual-text sur chaque ligne du buffer, qui reflète la sortie de git-blame dans l’éditeur. Nécessite un Neovim récent, et le bruit visuel devient gênant sur les gros fichiers."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

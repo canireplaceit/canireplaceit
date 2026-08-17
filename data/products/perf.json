@@ -1,0 +1,198 @@
+{
+	"slug": "perf",
+	"name": "perf",
+	"domain": null,
+	"category": "developer-tooling",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "almost",
+	"why": {
+		"en": "perf is the Linux profiler: sampling, hardware counters, and dynamic tracing in one binary. Newer tracing front-ends own the scripted half, but whole-system sampling still lands back on perf, and every alternative needs root and a specific kernel.",
+		"fr": "perf est le profileur du noyau Linux : échantillonnage, compteurs matériels et tracing dynamique dans un seul binaire. Les front-ends de tracing récents couvrent la moitié scriptée, mais l’échantillonnage de tout le système retombe sur perf, et chaque alternative exige root et un noyau précis."
+	},
+	"whatYouLose": [
+		{
+			"en": "whole-kernel CPU sampling",
+			"fr": "l’échantillonnage CPU sur tout le système"
+		},
+		{
+			"en": "the output format downstream tools parse",
+			"fr": "le format de sortie lu par les outils en aval"
+		},
+		{
+			"en": "hardware counter access without recompiling",
+			"fr": "l’accès aux compteurs matériels sans recompilation"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "bpftrace",
+			"source": {
+				"host": "github",
+				"path": "bpftrace/bpftrace",
+				"url": "https://github.com/bpftrace/bpftrace"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "High-level one-liner eBPF tracing from BCC's team. Stack samples and latency histograms run on unmodified production kernels. It costs eBPF-capable kernel, root, and no PMU counters.",
+				"fr": "Tracing eBPF en une ligne, héritage de BCC : échantillonnage de pile et histogrammes de latence sur noyaux non modifiés. Nécessite root et noyau eBPF ; pas de compteurs PMU façon perf stat."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "BCC (BPF Compiler Collection)",
+			"source": {
+				"host": "github",
+				"path": "iovisor/bcc",
+				"url": "https://github.com/iovisor/bcc"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Hundred-plus BPF tracing and profiling tools — profile, offcputime, funclatency — scriptable in Python and Lua. Needs kernel headers and root per invocation; Linux-only.",
+				"fr": "Plus de cent outils BPF de tracing et profilage — profile, offcputime, funclatency — scriptables en Python et Lua. Root et headers noyau requis à chaque appel ; Linux seulement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Perfetto",
+			"source": {
+				"host": "github",
+				"path": "google/perfetto",
+				"url": "https://github.com/google/perfetto"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Google's system-wide tracing and profiling suite: recorder CLI, SQL analysis over traces, self-hostable web UI. Tracing-focused, so no perf-event counter snapshot, and there's a learning curve.",
+				"fr": "Suite de tracing et profilage système de Google : CLI d’enregistrement, analyse SQL des traces, UI web auto-hébergeable. Orienté tracing — pas d’instantané de compteurs perf — et l’analyse SQL s’apprend."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "sysdig",
+			"source": {
+				"host": "github",
+				"path": "draios/sysdig",
+				"url": "https://github.com/draios/sysdig"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Single binary capturing syscalls at line rate with container context; chisels for live troubleshooting, traces for replay. Syscall/container-centric, not PMU counters, and older kernels need a module.",
+				"fr": "Binaire unique qui capture les syscalls à pleine vitesse avec le contexte conteneur ; chisels pour dépanner en direct, traces rejouables. Vision syscall/conteneur, pas compteurs PMU ; module noyau sur vieux kernels."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gperftools (Google Performance Tools)",
+			"source": {
+				"host": "github",
+				"path": "gperftools/gperftools",
+				"url": "https://github.com/gperftools/gperftools"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "The classic userspace alternative: link-time sampling CPU profiler, heap profiler and leak checker, plus tcmalloc. Low overhead, but C/C++ only, sampling-based, no kernel view or PMU counters.",
+				"fr": "L’alternative userspace classique : profileur CPU par échantillonnage au link-time, heap profiler, détecteur de fuites et tcmalloc. Faible surcoût, mais C/C++ seulement, sans vue noyau ni compteurs PMU."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Hotspot",
+			"source": {
+				"host": "github",
+				"path": "KDAB/hotspot",
+				"url": "https://github.com/KDAB/hotspot"
+			},
+			"license": "GPL-2.0-or-later",
+			"effort": "managed",
+			"note": {
+				"en": "Qt desktop app turning perf.data into interactive flame graphs, call trees, timelines and profile diffs. A viewer, not a sampler: it needs perf record output and exposes no scripting.",
+				"fr": "Appli Qt qui transforme perf.data en flame graphs, arbres d’appels, timelines et diffs. Simple visualiseur : pas d’échantillonnage — il lui faut perf record, aucune interface de script."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "FlameGraph",
+			"source": {
+				"host": "github",
+				"path": "brendangregg/FlameGraph",
+				"url": "https://github.com/brendangregg/FlameGraph"
+			},
+			"license": "CDDL-1.0",
+			"effort": "managed",
+			"note": {
+				"en": "The standard SVG flame-graph generator with stackcollapse converters for perf, DTrace and bpftrace, plus diff tools; runs anywhere with perl. Visualization only — it needs stack samples collected elsewhere.",
+				"fr": "Générateur standard de flame graphs SVG, convertisseurs stackcollapse pour perf, DTrace, bpftrace, utilitaires de diff ; tourne partout où il y a perl. Visualisation pure — les échantillons viennent d’ailleurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LTTng",
+			"source": {
+				"host": "github",
+				"path": "lttng/lttng-tools",
+				"url": "https://github.com/lttng/lttng-tools"
+			},
+			"license": "GPL-2.0-only",
+			"effort": "managed",
+			"note": {
+				"en": "Kernel and userspace tracing via tracepoints and uprobes, with session daemon, flight recorder, babeltrace and lttng top. Low overhead and production-safe, but heavier to configure than perf one-liners, no hardware counters.",
+				"fr": "Plus lourd que les one-liners de perf : démon de session, tracepoints et uprobes noyau/userspace, flight recorder, babeltrace. Faible surcoût et viable en prod, mais pas de compteurs matériel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

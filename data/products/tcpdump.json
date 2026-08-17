@@ -1,0 +1,198 @@
+{
+	"slug": "tcpdump",
+	"name": "tcpdump",
+	"domain": null,
+	"category": "networking-vpn",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "almost",
+	"why": {
+		"en": "Captures and filters packets from the command line with a minimal footprint. Modern analyzers match its filtering and add decoding, but they need a heavier install and don’t ship everywhere tcpdump does.",
+		"fr": "Capture et filtre les paquets en ligne de commande, avec une empreinte minimale. Les analyseurs modernes font le même filtrage et ajoutent le décodage, mais ils exigent une installation plus lourde et ne sont pas présents partout où tcpdump l’est."
+	},
+	"whatYouLose": [
+		{
+			"en": "presence on every Unix",
+			"fr": "présence sur chaque Unix"
+		},
+		{
+			"en": "tiny binary, no dependencies",
+			"fr": "binaire minuscule, aucune dépendance"
+		},
+		{
+			"en": "capture on embedded boxes",
+			"fr": "capture sur les systèmes embarqués"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "tshark",
+			"source": {
+				"host": "github",
+				"path": "wireshark/wireshark",
+				"url": "https://github.com/wireshark/wireshark"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Wireshark's CLI captures like tcpdump and decodes 2000+ protocols from any pcap. It pulls in heavy libwireshark and a CLI that is no plain tcpdump drop-in.",
+				"fr": "Le CLI de Wireshark capture comme tcpdump et décode plus de 2000 protocoles depuis tout pcap. Il traîne la lourde dépendance libwireshark et une syntaxe moins simple qu’un tcpdump classique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "tcpflow",
+			"source": {
+				"host": "github",
+				"path": "simsong/tcpflow",
+				"url": "https://github.com/simsong/tcpflow"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Reassembles TCP streams and reconstructs application payloads from pcap, where tcpdump hands you raw packets. No byte-level pcap display though; concurrent flows get hairy on busy links.",
+				"fr": "Reconstruit les flux TCP et les payloads applicatifs depuis un pcap, là où tcpdump livre des paquets bruts. Pas d’affichage au niveau octet, et les flux concurrents se compliquent sur liens chargés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "netsniff-ng",
+			"source": {
+				"host": "github",
+				"path": "netsniff-ng/netsniff-ng",
+				"url": "https://github.com/netsniff-ng/netsniff-ng"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Linux-only zero-copy capture toolkit that also crafts traffic via trafgen, netflow and astraceroute included. Needs root and kernel features, and ships in fewer distros than tcpdump.",
+				"fr": "Toolkit de capture zéro copie, uniquement Linux, qui génère aussi du trafic via trafgen, avec netflow et astraceroute inclus. Exige root et des fonctionnalités noyau, reste moins packagé que tcpdump."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "termshark",
+			"source": {
+				"host": "github",
+				"path": "gcla/termshark",
+				"url": "https://github.com/gcla/termshark"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "TUI front-end for tshark that inspects pcaps and follows streams in the terminal. Needs tshark underneath and offers no GUI — and nothing has shipped since April 2024.",
+				"fr": "Front-end TUI pour tshark, inspection de pcap et suivi de flux dans le terminal. Exige tshark installé dessous, sans GUI — et plus rien ne sort depuis avril 2024."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "nethogs",
+			"source": {
+				"host": "github",
+				"path": "raboof/nethogs",
+				"url": "https://github.com/raboof/nethogs"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Per-process bandwidth accounting that tcpdump simply can't do, grouped by PID and user. Stats only, though: no capture, no packet decode, and Linux-only behind root.",
+				"fr": "Comptabilise la bande passante par processus — PID et utilisateur —, ce que tcpdump ne sait pas faire. Uniquement des stats, ni capture ni décodage, et Linux only sous root."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ngrep",
+			"source": {
+				"host": "github",
+				"path": "jpr5/ngrep",
+				"url": "https://github.com/jpr5/ngrep"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Grep for the network: regex-match live payloads, BPF filters in, hex/ASCII out. It never writes pcaps — match-and-display only — and maintenance is sporadic.",
+				"fr": "Le grep du réseau : regex sur payloads en direct, filtres BPF en entrée, sortie hex/ASCII. Jamais de capture ni d’écriture pcap, juste du match-and-display, et une maintenance sporadique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "netcap",
+			"source": {
+				"host": "github",
+				"path": "dreadl0ck/netcap",
+				"url": "https://github.com/dreadl0ck/netcap"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Go framework that turns captures into typed, queryable records, deployed as a single cross-platform binary. It's young, its model isn't pcap, and you need its own toolchain to read the output.",
+				"fr": "Framework Go qui transforme les captures en données typées et interrogeables, déployé en un seul binaire multiplateforme. Jeune, son modèle diffère du pcap, et lire sa sortie exige sa propre toolchain."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "iftop",
+			"source": {
+				"host": "github",
+				"path": "soarpenguin/iftop",
+				"url": "https://github.com/soarpenguin/iftop"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The standard top-style per-interface bandwidth meter, peak and average bars per host. Throughput only — no packet inspection — Linux-focused behind root, and untouched since May 2023.",
+				"fr": "Compteur de bande passante par interface façon top, pics et moyennes par hôte. Rien que du débit, pas d’inspection, orienté Linux sous root — pas touché depuis mai 2023."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

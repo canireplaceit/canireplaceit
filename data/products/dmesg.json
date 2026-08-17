@@ -1,0 +1,177 @@
+{
+	"slug": "dmesg",
+	"name": "dmesg",
+	"domain": null,
+	"category": "observability-telemetry",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "almost",
+	"why": {
+		"en": "dmesg prints the kernel ring buffer. On systemd systems the journal covers the day-to-day reading of the same messages, but it only sees what journald collected and only where systemd runs. The raw buffer, the earliest boot lines, and the version present in every initramfs stay dmesg’s.",
+		"fr": "dmesg affiche le buffer du noyau. Sur un système systemd, le journal suffit au quotidien, mais il ne voit que ce que journald a collecté et n’existe pas là où systemd n’est pas. Le buffer brut, les premières lignes du boot et la version présente dans chaque initramfs restent à dmesg."
+	},
+	"whatYouLose": [
+		{
+			"en": "the raw kernel ring buffer",
+			"fr": "le buffer noyau brut"
+		},
+		{
+			"en": "boot lines before any journal",
+			"fr": "les lignes de boot avant tout journal"
+		},
+		{
+			"en": "a dmesg in every initramfs",
+			"fr": "un dmesg même en initramfs"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "journalctl",
+			"source": {
+				"host": "github",
+				"path": "systemd/systemd",
+				"url": "https://github.com/systemd/systemd"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Reads kernel messages from the persistent journal, filtered by boot, unit, time, or priority, with JSON output. Needs journald running and the whole systemd stack, unlike raw dmesg which always works.",
+				"fr": "Lit les messages du noyau dans le journal persistant, filtrés par boot, unité ou priorité, avec sortie JSON. Exige un journald actif et tout l’empilement systemd, là où dmesg fonctionne toujours."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "trace-cmd",
+			"source": {
+				"host": "github",
+				"path": "rostedt/trace-cmd",
+				"url": "https://github.com/rostedt/trace-cmd"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Records and replays ftrace kernel events — function tracing, filters, latency analysis — going deeper than the ring buffer. Overkill when you only want the log, and it needs CONFIG_FTRACE and root.",
+				"fr": "Enregistre et rejoue les événements noyau via ftrace, avec traçage de fonctions, filtres et analyse de latence. Surdimensionné quand on ne veut que le log du noyau, exige CONFIG_FTRACE et root."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "lnav",
+			"source": {
+				"host": "github",
+				"path": "tstack/lnav",
+				"url": "https://github.com/tstack/lnav"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Opens journald binaries and exported kernel logs with search, filtering, and SQL over live or historical data. No web interface, and the SQL query language has a learning curve.",
+				"fr": "Ouvre les binaires journald et les logs noyau exportés, avec recherche, filtrage et SQL sur données live ou historiques. Pas d’interface web, et le SQL a sa courbe d’apprentissage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "syslog-ng",
+			"source": {
+				"host": "github",
+				"path": "syslog-ng/syslog-ng",
+				"url": "https://github.com/syslog-ng/syslog-ng"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "A daemon you must configure, not a one-shot viewer: it ingests /proc/kmsg and /dev/kmsg, then filters, rewrites, and routes to files, network, MQTT, Kafka, or cloud. Only captures messages while running.",
+				"fr": "Démon à configurer, pas un visualiseur : il ingère /proc/kmsg et /dev/kmsg, filtre, réécrit et route vers fichiers, réseau, MQTT, Kafka ou cloud. Ne voit que ce qu’il capte pendant qu’il tourne."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "rsyslog",
+			"source": {
+				"host": "github",
+				"path": "rsyslog/rsyslog",
+				"url": "https://github.com/rsyslog/rsyslog"
+			},
+			"license": "LGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The default syslog daemon on most distros: kernel module input reads /dev/kmsg, pipelining messages to files, databases, or remote hosts. Configuration-driven, not a quick viewer; blind to messages from before it starts.",
+				"fr": "Démon syslog par défaut sur la plupart des distros : son module lit /dev/kmsg et achemine vers fichiers, bases ou hôtes distants. Piloté par config, ne revoit que ce qu’il a loggé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "sysklogd",
+			"source": {
+				"host": "github",
+				"path": "troglobit/sysklogd",
+				"url": "https://github.com/troglobit/sysklogd"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Continuation of the classic syslogd plus klogd, which reads the kernel ring buffer from /proc/kmsg; minimal and dependency-free. Good for small systems, but no filtering or structured queries, and a small community.",
+				"fr": "Suite du syslogd classique avec klogd, qui lit le ring buffer via /proc/kmsg ; minimal, sans dépendances. Idéal pour petits systèmes, mais pas de filtres ni de requêtes structurées, communauté modeste."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "busybox klogd",
+			"source": {
+				"host": "codeberg",
+				"path": "busybox/busybox",
+				"url": "https://codeberg.org/busybox/busybox"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A klogd applet bundled in every BusyBox build: reads /proc/kmsg and forwards to syslog, statically compiled for bare embedded and rescue systems. A logger, not a viewer — you need a syslog peer.",
+				"fr": "Applet klogd incluse dans chaque build BusyBox : lit /proc/kmsg et transmet à syslog, compilée en statique pour l’embarqué nu et le sauvetage. Logger, pas une visionneuse : requiert un syslog destinataire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

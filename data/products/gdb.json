@@ -1,0 +1,177 @@
+{
+	"slug": "gdb",
+	"name": "GDB",
+	"domain": null,
+	"category": "developer-tooling",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "almost",
+	"why": {
+		"en": "GDB is the symbol-level debugger for native binaries, driven from a terminal and included in every mainstream Unix toolchain. A newer alternative matches it for most command-line work, but not on every target or every machine. It stays the default you can always reach.",
+		"fr": "GDB est le débogueur au niveau du symbole pour les binaires natifs, piloté depuis un terminal et fourni dans toutes les chaînes d’outils Unix courantes. Une alternative plus récente le rejoint pour l’essentiel du débogage en ligne de commande, mais pas sur toutes les cibles, ni sur toutes les machines. Il reste le débogueur par défaut, toujours disponible."
+	},
+	"whatYouLose": [
+		{
+			"en": "a debugger on every machine",
+			"fr": "un débogueur présent sur chaque machine"
+		},
+		{
+			"en": "native debugging on exotic targets",
+			"fr": "le débogage natif sur cibles exotiques"
+		},
+		{
+			"en": "existing scripts, pretty-printers, init files",
+			"fr": "vos scripts, pretty-printers et fichiers d’init"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "delve",
+			"source": {
+				"host": "github",
+				"path": "go-delve/delve",
+				"url": "https://github.com/go-delve/delve"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The standard Go debugger, goroutine inspection built in, DAP protocol for editors. Full replacement for gdb in Go work, but Go-only: no native code, no time travel.",
+				"fr": "Le débogueur Go de référence, avec inspection des goroutines et protocole DAP pour les éditeurs. Remplace gdb en développement Go, mais exclusivement Go : ni code natif, ni record/replay."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gdbgui",
+			"source": {
+				"host": "github",
+				"path": "cs01/gdbgui",
+				"url": "https://github.com/cs01/gdbgui"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "gdb in the browser, self-hosted and installed with a single pip, with graphical source, memory, and register views. Still a frontend — the gdb binary must stay underneath.",
+				"fr": "gdb dans le navigateur, auto-hébergé et installé d’un seul pip, avec vues graphiques du source, de la mémoire et des registres. Toujours un frontend : le binaire gdb reste obligatoire dessous."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "rizin",
+			"source": {
+				"host": "github",
+				"path": "rizinorg/rizin",
+				"url": "https://github.com/rizinorg/rizin"
+			},
+			"license": "LGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Modern LGPL reverse-engineering framework whose debugger backend rivals gdb at the CLI, with Python scripting and r2-style commands. Expect a steeper learning curve and a taste for RE over source-level debugging.",
+				"fr": "Framework de rétro-ingénierie LGPL dont le débogueur rivalise avec gdb en CLI, scriptable en Python et en r2-style. Courbe d’apprentissage raide, plus orienté analyse binaire que débogage à la source."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "edb-debugger",
+			"source": {
+				"host": "github",
+				"path": "eteran/edb-debugger",
+				"url": "https://github.com/eteran/edb-debugger"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Standalone GUI debugger for x86 and x86-64, gdb-free with a plugin architecture. Linux-centric and less polished than gdb, and source-level work on compiled code is thin.",
+				"fr": "Débogueur GUI autonome pour x86 et x86-64, sans aucune dépendance à gdb, extensible par plugins. Centré Linux et moins peaufiné que gdb ; le débogage à la source du code compilé reste faible."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "HyperDbg",
+			"source": {
+				"host": "github",
+				"path": "HyperDbg/HyperDbg",
+				"url": "https://github.com/HyperDbg/HyperDbg"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Hypervisor-based kernel and user-mode debugger, hardware breakpoints for stealth. Windows-only, and gdb has no kernel answer to compare it against — Hyper-V and admin rights required.",
+				"fr": "Débogueur noyau et mode utilisateur basé sur l’hyperviseur, avec breakpoints matériels furtifs. Windows uniquement, là où gdb n’a pas de réponse noyau ; Hyper-V et privilèges admin requis."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "cutter",
+			"source": {
+				"host": "github",
+				"path": "rizinorg/cutter",
+				"url": "https://github.com/rizinorg/cutter"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Polished Qt desktop GUI wrapped around rizin’s debugger, with graph view and Python plugins. Native and gdb-free, but it drags the rizin engine along and weighs more than a CLI.",
+				"fr": "GUI Qt soignée qui enveloppe le débogueur de rizin, vue en graphe et plugins Python. Natif et sans gdb, mais embarque le moteur rizin et pèse plus lourd qu’un simple CLI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "vivisect",
+			"source": {
+				"host": "github",
+				"path": "vivisect/vivisect",
+				"url": "https://github.com/vivisect/vivisect"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Built for malware triage and fuzzing, this Python framework pairs static and dynamic analysis with its vdb debugger and emulation. Interactive source debugging isn’t the point; docs and community are thin.",
+				"fr": "Framework Python d’analyse statique et dynamique, avec son débogueur vdb, pensé pour le tri de malwares et le fuzzing. Pas fait pour le débogage interactif à la source : doc et communauté minces."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

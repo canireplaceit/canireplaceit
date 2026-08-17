@@ -1,0 +1,156 @@
+{
+	"slug": "screen",
+	"name": "GNU Screen",
+	"domain": null,
+	"category": "shell-terminal",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "yes",
+	"why": {
+		"en": "Screen keeps a detached session alive over a flaky link and splits one terminal into windows. Modern multiplexers match it pane for pane and script better; what is really lost is Screen’s ubiquity and its tolerance for dumb terminals.",
+		"fr": "Screen maintient une session détachée vivante sur une liaison instable et découpe un terminal en fenêtres. Les multiplexeurs modernes le rattrapent panneau pour panneau et se scriptent mieux ; le vrai coût est son ubiquité et sa tolérance aux terminaux les plus rudimentaires."
+	},
+	"whatYouLose": [
+		{
+			"en": "ships with nearly every Unix",
+			"fr": "présent sur presque tous les Unix"
+		},
+		{
+			"en": "serial console and raw device attach",
+			"fr": "attache aux consoles série et devices bruts"
+		},
+		{
+			"en": "Ctrl+A escape and screenrc files",
+			"fr": "échappement Ctrl+A et fichiers screenrc"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "tmux",
+			"source": {
+				"host": "github",
+				"path": "tmux/tmux",
+				"url": "https://github.com/tmux/tmux"
+			},
+			"license": "ISC",
+			"effort": "managed",
+			"note": {
+				"en": "The de-facto standard: actively developed, packaged everywhere, sessions detach and reattach with panes, windows and a scriptable server/client model. Screen config and Ctrl-a bindings do not port over.",
+				"fr": "Le standard de fait : toujours actif, empaqueté partout, sessions détachables et rattachables, panneaux, fenêtres et un modèle client/serveur scriptable. Les screenrc et les raccourcis Ctrl-a ne passent pas."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Zellij",
+			"source": {
+				"host": "github",
+				"path": "zellij-org/zellij",
+				"url": "https://github.com/zellij-org/zellij"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Modern Rust multiplexer with YAML layouts, a WebAssembly plugin system and built-in mouse support. Heavier dependency footprint, younger and fast-moving, and default keybindings differ.",
+				"fr": "Multiplexeur Rust moderne, mises en page en YAML, plugins WebAssembly et support souris intégré. Empreinte de dépendances plus lourde, projet jeune et rapide, raccourcis par défaut différents."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "abduco",
+			"source": {
+				"host": "github",
+				"path": "martanne/abduco",
+				"url": "https://github.com/martanne/abduco"
+			},
+			"license": "ISC",
+			"effort": "managed",
+			"note": {
+				"en": "Unmaintained for three years, but still the tiny detach/reattach tool that pairs with dvtm for screen-style multiplexing. No windows or panes by itself.",
+				"fr": "Trois ans sans maintenance, mais toujours la petite binaire de détachement/rattachement qui s’accouple à dvtm pour du multiplexage à la screen. Aucune fenêtre ni panneau en soi."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dtach",
+			"source": {
+				"host": "github",
+				"path": "crigler/dtach",
+				"url": "https://github.com/crigler/dtach"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A minimal C tool that fakes screen’s detach for a single long-running command. No multiplexing, windows or session listing, and the escape sequence has its quirks.",
+				"fr": "Un petit outil en C qui simule le détachement de screen pour une seule commande longue. Pas de multiplexage, ni fenêtres, ni liste de sessions, et la séquence d’échappement a ses caprices."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dvtm",
+			"source": {
+				"host": "github",
+				"path": "martanne/dvtm",
+				"url": "https://github.com/martanne/dvtm"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Two years without a commit: a terminal tiling manager with vim-like keys that needs abduco for detach. Keyboard-only, and no session list by itself.",
+				"fr": "Deux ans sans commit : un gestionnaire de tuilage pour le terminal, touches à la vim, qui exige abduco pour se détacher. Clavier uniquement, et pas de liste de sessions en soi."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "twin",
+			"source": {
+				"host": "github",
+				"path": "cosmos72/twin",
+				"url": "https://github.com/cosmos72/twin"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A text-mode window manager with overlapping windows and full mouse support, closer to a workstation than a multiplexer. Heavier than screen, and the overlap model is unusual.",
+				"fr": "Gestionnaire de fenêtres en mode texte : fenêtres superposables, souris complète, plus proche d’une station que d’un multiplexeur. Plus lourd que screen, et le modèle par superposition déroute."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

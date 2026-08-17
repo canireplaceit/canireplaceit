@@ -1,0 +1,156 @@
+{
+	"slug": "lsof",
+	"name": "lsof",
+	"domain": null,
+	"category": "developer-tooling",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "almost",
+	"why": {
+		"en": "lsof lists every open file and the process holding it, across file descriptors, sockets and memory mappings. Partial replacements exist: one covers sockets, another a given path, another locks. No single tool reproduces the full reverse lookup, on every Unix, for every file class.",
+		"fr": "lsof liste chaque fichier ouvert et le processus qui le tient, à travers descripteurs, sockets et mappings mémoire. Des remplaçants partiels existent : l’un couvre les sockets, un autre un chemin donné, un autre les verrous. Aucun outil unique ne reproduit la recherche inverse complète, sur chaque Unix, pour chaque classe de fichier."
+	},
+	"whatYouLose": [
+		{
+			"en": "portability across every Unix",
+			"fr": "portabilité sur tous les Unix"
+		},
+		{
+			"en": "one command for every file class",
+			"fr": "une commande pour chaque classe de fichier"
+		},
+		{
+			"en": "preinstalled on most systems",
+			"fr": "présent par défaut sur la plupart des systèmes"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "lslocks",
+			"source": {
+				"host": "github",
+				"path": "util-linux/util-linux",
+				"url": "https://github.com/util-linux/util-linux"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Ships in util-linux: lists every held file lock with PID, mandate, and range. Nearly ubiquitous, but locks only — no sockets, network ports, or other open fds.",
+				"fr": "De la suite util-linux : liste chaque verrou de fichier avec son PID, son mandat et sa plage. Quasi omniprésent, mais limité aux verrous — ni sockets ni ports réseau."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ss",
+			"source": {
+				"host": "github",
+				"path": "iproute2/iproute2",
+				"url": "https://github.com/iproute2/iproute2"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The modern drop-in for `lsof -i`, from iproute2: socket, port, and TCP state mapped to PIDs. Fast and complete for connections, but silent on regular fds and non-TCP/UDP/unix inodes.",
+				"fr": "Le successeur direct de `lsof -i`, signé iproute2 : sockets, ports et états TCP reliés aux PIDs. Muet en revanche sur les descripteurs de fichiers et les inodes hors TCP/UDP/unix."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "opensnoop / filetop (BCC)",
+			"source": {
+				"host": "github",
+				"path": "iovisor/bcc",
+				"url": "https://github.com/iovisor/bcc"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Live eBPF trace (iovisor/bcc) of file opens and per-process I/O. Finds \"who is touching this file\", but needs root, kernel headers or BTF — events, not a static fd dump.",
+				"fr": "Trace eBPF (iovisor/bcc) des opens et de l’I/O par processus. Répond à « qui touche ce fichier », mais exige root, headers noyau ou BTF : événements, pas d’état des fds."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "bpftrace",
+			"source": {
+				"host": "github",
+				"path": "bpftrace/bpftrace",
+				"url": "https://github.com/bpftrace/bpftrace"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "One-liner eBPF scripting for file syscalls: trace opens, closes, reads per process via ad-hoc `-e` queries. Deeper visibility than lsof, at the price of the scripting curve, root, and kernel eBPF support.",
+				"fr": "Scripting eBPF en une ligne pour suivre opens, closes et reads de fichiers par processus. Creuse plus profond que lsof, mais exige root, support eBPF noyau et sa courbe d’apprentissage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "lsofgraph",
+			"source": {
+				"host": "github",
+				"path": "zevv/lsofgraph",
+				"url": "https://github.com/zevv/lsofgraph"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "A visual graph of which process opened which file, from lsof output — but it wraps lsof rather than replacing it, and has seen no commit since April 2019: seven years dormant.",
+				"fr": "Graphe visuel des fichiers ouverts par chaque processus, depuis la sortie de lsof — mais il enveloppe lsof sans le remplacer ; sans commit depuis avril 2019, dormant depuis sept ans."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "nethogs",
+			"source": {
+				"host": "github",
+				"path": "raboof/nethogs",
+				"url": "https://github.com/raboof/nethogs"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Curses TUI showing bandwidth per process and per connection — `lsof -i` as a live monitor. Interactive attribution, but network traffic only: no file-descriptor data, and root required to capture.",
+				"fr": "TUI curses du débit par processus et par connexion — un `lsof -i` en moniteur live. Attribution interactive, mais réseau uniquement : rien sur les descripteurs, et root requis pour capturer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

@@ -1,0 +1,198 @@
+{
+	"slug": "webpack",
+	"name": "webpack",
+	"domain": null,
+	"category": "build-delivery",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "yes",
+	"why": {
+		"en": "Bundles JavaScript modules and assets into deployable output with fine-grained code-splitting. The cost is the dev loop: full rebuilds and configuration-heavy setup. Modern bundlers give a faster dev server and far less config, though webpack’s ecosystem still covers edge cases they skip.",
+		"fr": "Regroupe les modules JavaScript et les assets en un résultat déployable, avec un découpage de code précis. Le coût se paye au quotidien : recompilations complètes et configuration lourde. Les bundlers modernes offrent un serveur de dev plus rapide et bien moins de config, même si l’écosystème de webpack couvre encore des cas limites qu’ils négligent."
+	},
+	"whatYouLose": [
+		{
+			"en": "mature loader and plugin ecosystem",
+			"fr": "l’écosystème de loaders et de plugins"
+		},
+		{
+			"en": "fine-grained manual chunk-splitting control",
+			"fr": "le contrôle fin du découpage des chunks"
+		},
+		{
+			"en": "incremental adoption on legacy builds",
+			"fr": "l’adoption incrémentale sur les gros builds existants"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "esbuild",
+			"source": {
+				"host": "github",
+				"path": "evanw/esbuild",
+				"url": "https://github.com/evanw/esbuild"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The standard modern webpack alternative, and so fast rebuilds are near-instant. Loaders, plugins and Babel-level transforms are webpack territory.",
+				"fr": "L’alternative moderne standard à webpack est si rapide que les rebuilds sont quasi instantanés. Chargeurs, plugins et transforms niveau Babel restent du ressort de webpack."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Rollup",
+			"source": {
+				"host": "github",
+				"path": "rollup/rollup",
+				"url": "https://github.com/rollup/rollup"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The de-facto standard for shipping libraries: ESM-first output with excellent tree shaking. Complex apps get less built-in config than webpack, and dev-server/HMR are not built in.",
+				"fr": "Le standard de fait pour publier des bibliothèques : sortie ESM-first, tree shaking excellent. Les apps complexes disposent de moins de config intégrée que webpack, et le dev-server/HMR n’est pas inclus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Vite",
+			"source": {
+				"host": "github",
+				"path": "vitejs/vite",
+				"url": "https://github.com/vitejs/vite"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Today's most popular build tool: instant-HMR dev server, production builds via Rollup and esbuild. Deep webpack loaders don't port over; legacy browsers need an extra plugin.",
+				"fr": "L’outil de build le plus populaire aujourd’hui : dev server à HMR instantané, builds de production via Rollup et esbuild. Les loaders webpack profonds ne se portent pas ; les vieux navigateurs exigent un plugin de plus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Parcel",
+			"source": {
+				"host": "github",
+				"path": "parcel-bundler/parcel",
+				"url": "https://github.com/parcel-bundler/parcel"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Zero-config bundler: assets, CSS and HTML just work, HMR out of the box, multi-core builds. You trade webpack's granular control, and the plugin ecosystem is smaller.",
+				"fr": "Bundler zéro config : les assets, le CSS et le HTML marchent d’emblée, HMR inclus, builds multi-cœurs. On perd le contrôle fin de webpack, et l’écosystème de plugins est plus restreint."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Rspack",
+			"source": {
+				"host": "github",
+				"path": "web-infra-dev/rspack",
+				"url": "https://github.com/web-infra-dev/rspack"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Rust-core and webpack-compatible: your webpack config mostly works, performance jumps. Edge plugins go missing and webpack behaviour isn't 100% identical.",
+				"fr": "Cœur en Rust et compatible webpack : votre config passe presque telle quelle, la performance grimpe. Quelques plugins de niche manquent et le comportement webpack n’est pas 100 % identique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SWC",
+			"source": {
+				"host": "github",
+				"path": "swc-project/swc",
+				"url": "https://github.com/swc-project/swc"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A Rust-based transpiler and minifier that pairs with webpack via swc-loader; not a standalone bundler. Faster than Babel, but the plugin ecosystem is younger.",
+				"fr": "Transpileur et minifieur Rust, associé à webpack via swc-loader, mais pas un bundler autonome. Plus rapide que Babel, avec un écosystème de plugins plus jeune."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "tsup",
+			"source": {
+				"host": "github",
+				"path": "egoist/tsup",
+				"url": "https://github.com/egoist/tsup"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Zero-config esbuild wrapper for bundling TS/JS libraries: d.ts generated, watch mode, esm/cjs/iife outputs. No type checking, and it's aimed at libraries, not full apps.",
+				"fr": "Wrapper esbuild zéro config pour bundler des bibliothèques TS/JS : d.ts généré, watch mode, sorties esm/cjs/iife. Pas de vérification de types, et pensé pour les bibliothèques, pas pour les apps."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Turbopack",
+			"source": {
+				"host": "github",
+				"path": "vercel/turborepo",
+				"url": "https://github.com/vercel/turborepo"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Vercel's Rust-based webpack successor, built for incremental bundling with deep Next.js integration. Outside Next.js, standalone use is limited and the ecosystem is still growing.",
+				"fr": "Successeur de webpack en Rust, signé Vercel : bundling incrémental, intégration poussée avec Next.js. Hors Next.js, l’usage en standalone est limité et l’écosystème reste jeune."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

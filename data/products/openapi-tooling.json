@@ -1,0 +1,198 @@
+{
+	"slug": "openapi-tooling",
+	"name": "OpenAPI tooling",
+	"domain": null,
+	"category": "api-development",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "not-yet",
+	"why": {
+		"en": "OpenAPI is the interchange format an entire toolchain is built around — editors, code generators, mocks, validators. Moving off it breaks interop with every client and generator that already speaks it. Nothing credible matches that network effect.",
+		"fr": "OpenAPI est le format d’échange autour duquel s’est bâti tout un outillage — éditeurs, génération de code, mocks, validation. En sortir, c’est casser l’interopérabilité avec les clients et les générateurs qui le parlent déjà. Aucune alternative crédible n’offre cet effet de réseau."
+	},
+	"whatYouLose": [
+		{
+			"en": "the spec every toolchain speaks",
+			"fr": "la spec que parle tout l’outillage"
+		},
+		{
+			"en": "generated clients and server stubs",
+			"fr": "clients et squelettes serveur générés"
+		},
+		{
+			"en": "the contract readable for review",
+			"fr": "le contrat relu avant implémentation"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "vacuum",
+			"source": {
+				"host": "github",
+				"path": "daveshanley/vacuum",
+				"url": "https://github.com/daveshanley/vacuum"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Single-binary OpenAPI linter with 300+ rules and no runtime dependencies; HTML, JSON and SARIF reports fit CI. Linting only: no editor, no docs rendering, and a younger ecosystem.",
+				"fr": "Linter OpenAPI en binaire unique, 300+ règles et aucune dépendance à l’exécution ; rapports HTML, JSON et SARIF pour la CI. Du lint uniquement : pas d’éditeur, pas de rendu de docs, écosystème jeune."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Schemathesis",
+			"source": {
+				"host": "github",
+				"path": "schemathesis/schemathesis",
+				"url": "https://github.com/schemathesis/schemathesis"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Fuzzes OpenAPI and GraphQL APIs with property-based testing, throwing thousands of requests to surface crashes and contract violations. Testing only, and it needs a live service — nothing here designs, lints or documents.",
+				"fr": "Approche property-based : des milliers de requêtes lancées contre un service vivant pour débusquer crashes et violations de contrat, en OpenAPI comme en GraphQL. Du test uniquement, ni design, ni lint, ni docs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Orval",
+			"source": {
+				"host": "github",
+				"path": "orval-labs/orval",
+				"url": "https://github.com/orval-labs/orval"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Generates fully typed TypeScript clients, hooks and MSW mocks straight from the spec. TypeScript-only, needs regeneration after every spec change, and it ships code rather than docs or design.",
+				"fr": "Génère clients TypeScript typés, hooks et mocks MSW directement depuis le spec. TypeScript uniquement, régénération à chaque changement de spec, et du code à la place de la doc ou du design."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "openapi-typescript",
+			"source": {
+				"host": "github",
+				"path": "openapi-ts/openapi-typescript",
+				"url": "https://github.com/openapi-ts/openapi-typescript"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The de-facto converter of OpenAPI 3.x into precise TypeScript interfaces, fast, with CLI and Node/browser APIs. Types only: no runtime client, no hooks — bring your own fetching layer.",
+				"fr": "Le convertisseur de référence d’OpenAPI 3.x en interfaces TypeScript précises, rapide, avec CLI et API Node/navigateur. Types uniquement : ni client runtime, ni hooks, à vous d’apporter la couche réseau."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "openapi-changes",
+			"source": {
+				"host": "github",
+				"path": "pb33f/openapi-changes",
+				"url": "https://github.com/pb33f/openapi-changes"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Spec-to-spec diffing with an interactive terminal UI and breaking-change detection for review-heavy teams. A complement to your linter, not a replacement: no editing, no docs, smaller community.",
+				"fr": "Diff spé-à-spé en terminal interactif avec détection des changements cassants, pour les équipes qui reviewent beaucoup. Complément de votre linter, pas un remplaçant : ni édition, ni docs, communauté plus petite."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mockoon",
+			"source": {
+				"host": "github",
+				"path": "mockoon/mockoon",
+				"url": "https://github.com/mockoon/mockoon"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Desktop and CLI mock-API builder that imports OpenAPI specs and mocks them with templates, rules and fake data, no code. Desktop-first, mocking only — dynamic behavior beyond the basics is hand-written rules.",
+				"fr": "Mock-API desktop et CLI : importe vos specs OpenAPI et sert des fausses réponses avec templates, règles et données factices. Desktop-first, du mock uniquement — le comportement dynamique se règle à la main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenAPI GUI",
+			"source": {
+				"host": "github",
+				"path": "Mermade/openapi-gui",
+				"url": "https://github.com/Mermade/openapi-gui"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Self-hosted visual editor for OpenAPI 3.x and 2.0, with live validation and code generation. Dormant since June 2024 — two years without a commit — single-user, no collaboration, and simpler than SwaggerHub.",
+				"fr": "Éditeur visuel auto-hébergé pour OpenAPI 3.x et 2.0, avec validation en direct et génération de code. En sommeil depuis juin 2024 — deux ans sans commit — mono-utilisateur, sans collaboration, plus simple que SwaggerHub."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "openapi-spec-validator",
+			"source": {
+				"host": "github",
+				"path": "python-openapi/openapi-spec-validator",
+				"url": "https://github.com/python-openapi/openapi-spec-validator"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Reference-grade Python validator for OpenAPI 3.0 and 3.1 — the backing library for many downstream tools — checking JSON Schema and semantics from the CLI. No visual output, no rules beyond spec conformance.",
+				"fr": "Validateur Python de référence pour OpenAPI 3.0 et 3.1, socle de nombreux outils : contrôles JSON Schema et sémantiques en CLI. Ni sortie visuelle ni règles au-delà de la conformité au spec."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

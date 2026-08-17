@@ -1,0 +1,198 @@
+{
+	"slug": "gcloud-cli",
+	"name": "gcloud CLI",
+	"domain": null,
+	"category": "cloud-platforms-hosting",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "almost",
+	"why": {
+		"en": "gcloud is the command-line face of GCP: auth, provisioning, inspection. Declarative infrastructure tools do the provisioning half better — repeatable, reviewed in code review. They do not cover the other half: credentials, ad-hoc queries, cluster access, which still end up calling gcloud under the hood.",
+		"fr": "gcloud est l’interface en ligne de commande de GCP : authentification, provisionnement, inspection. Les outils d’infrastructure déclaratifs font mieux la moitié provisionnement — reproductible et relue en review. Ils ne couvrent pas l’autre moitié : identifiants, requêtes ponctuelles, accès cluster, qui rappellent finalement gcloud sous le capot."
+	},
+	"whatYouLose": [
+		{
+			"en": "auth that kubectl and terraform inherit",
+			"fr": "authentification héritée par kubectl et terraform"
+		},
+		{
+			"en": "instant interactive inspection of resources",
+			"fr": "inspection interactive et instantanée des ressources"
+		},
+		{
+			"en": "official support for every GCP API",
+			"fr": "couverture officielle de toutes les API GCP"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "kubectl",
+			"source": {
+				"host": "github",
+				"path": "kubernetes/kubectl",
+				"url": "https://github.com/kubernetes/kubectl"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The exact engine gcloud kubectl shells out to — full control-plane CLI for GKE. Manages clusters, not the GCP project; credentials still need a Google auth source.",
+				"fr": "Le moteur exact derrière gcloud kubectl : un CLI complet pour le plan de contrôle GKE. Il gère les clusters, pas le projet GCP ; les identifiants exigent toujours une source d’auth Google."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "k9s",
+			"source": {
+				"host": "github",
+				"path": "derailed/k9s",
+				"url": "https://github.com/derailed/k9s"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Interactive TUI that inspects, tails logs and edits GKE resources with vim-style binds. Kubernetes only, terminal-first and view-heavy — not a scriptable shell.",
+				"fr": "TUI interactive qui inspecte, suit les logs et édite les ressources GKE en vim. Kubernetes uniquement, terminal d’abord, orienté lecture — pas un shell scriptable."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "rclone",
+			"source": {
+				"host": "github",
+				"path": "rclone/rclone",
+				"url": "https://github.com/rclone/rclone"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Manages Google Cloud Storage like gsutil — native API read/write/sync, FUSE mounts, 40+ backends. Object storage only; no compute, IAM or GKE.",
+				"fr": "Gère Google Cloud Storage comme gsutil : lecture, écriture, sync sur l’API native, montage FUSE, plus de 40 backends. Stockage d’objets seulement — pas de compute, d’IAM ni de GKE."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "steampipe",
+			"source": {
+				"host": "github",
+				"path": "turbot/steampipe",
+				"url": "https://github.com/turbot/steampipe"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "SQL over the live GCP API — join compute, storage, IAM and billing across projects, 100+ other clouds too. Read-only, AGPL-3.0, and SQL is the learning curve.",
+				"fr": "Du SQL sur l’API GCP en direct : joints entre compute, stockage, IAM et facturation, agrégation multi-projets, 100+ autres clouds. Lecture seule, AGPL-3.0, et la courbe d’apprentissage, c’est le SQL."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "opentofu",
+			"source": {
+				"host": "github",
+				"path": "opentofu/opentofu",
+				"url": "https://github.com/opentofu/opentofu"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Open-source Terraform fork that declares GCP compute, IAM and VPC as code with plan/apply and drift detection. Stateful IaC workflow, not an ad-hoc shell.",
+				"fr": "Fork open source de Terraform qui déclare compute, IAM et VPC GCP en code, avec plan/apply et détection de dérive. IaC avec état, pas un shell ponctuel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pulumi",
+			"source": {
+				"host": "github",
+				"path": "pulumi/pulumi",
+				"url": "https://github.com/pulumi/pulumi"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Provisions GCP in TypeScript, Python or Go, composed with other clouds in one project, preview/diff before apply. IaC only — managed state is the paid part, code is the learning curve.",
+				"fr": "Provisionne GCP en TypeScript, Python ou Go, composé avec d’autres clouds dans un seul projet, preview/diff avant apply. IaC seulement — l’état géré se paie, et l’apprentissage passe par le code."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ansible",
+			"source": {
+				"host": "github",
+				"path": "ansible/ansible",
+				"url": "https://github.com/ansible/ansible"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Mature GCP modules for compute, VPC, GKE, DNS and Cloud SQL, agentless push over an inventory. A playbook paradigm, not a resource shell — and Python must be installed.",
+				"fr": "Modules GCP éprouvés pour compute, VPC, GKE, DNS et Cloud SQL, en push sans agent sur un inventaire. Paradigme de playbooks, pas un shell de ressources — et Python requis à l’installation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "berglas",
+			"source": {
+				"host": "github",
+				"path": "GoogleCloudPlatform/berglas",
+				"url": "https://github.com/GoogleCloudPlatform/berglas"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Stores ciphertext in GCS and decrypts at deploy time — secrets via envelope encryption, no KMS key lock-in. Secrets only, and it still needs a bucket plus KMS set up.",
+				"fr": "Garde le chiffré dans GCS et déchiffre au déploiement : des secrets via chiffrement enveloppe, sans verrou sur la clé KMS. Secrets seulement, et il faut monter un bucket et du KMS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

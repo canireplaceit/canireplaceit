@@ -25,5 +25,153 @@
 			"fr": "le contrat $PAGER attendu par man et git"
 		}
 	],
-	"alternatives": []
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "bat",
+			"source": {
+				"host": "github",
+				"path": "sharkdp/bat",
+				"url": "https://github.com/sharkdp/bat"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Rust binary with syntax highlighting for 200+ languages and git-aware line numbers. Its pager mode can replace less directly, though defaults stay cat-like and startup lags on huge files.",
+				"fr": "Binaire Rust : coloration syntaxique pour 200+ langages, numéros de ligne git-aware. Le mode pager peut remplacer less, mais ça reste du cat par défaut et le démarrage traîne sur les gros fichiers."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "delta",
+			"source": {
+				"host": "github",
+				"path": "dandavison/delta",
+				"url": "https://github.com/dandavison/delta"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The git diff pager of choice: side-by-side, word-level colored output. Still delegates interactive paging to less unless bat is installed, and stays diff-centric rather than a general pager.",
+				"fr": "Pager de diff git par excellence : sortie colorée côte à côte, au mot près. Il délègue le paging interactif à less, sauf si bat est là, et reste centré sur le diff."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "moor",
+			"source": {
+				"host": "github",
+				"path": "walles/moor",
+				"url": "https://github.com/walles/moor"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Drop-in, zero-config less replacement: compatible keybindings, incremental rendering of big output, one Go binary. Renamed from moar at v2.0.0, and its command set stays thinner than less's.",
+				"fr": "Remplaçant direct de less, zéro config : raccourcis compatibles, rendu incrémental des gros affichages, un seul binaire Go. Renommé moar en moor à v2.0.0, son jeu de commandes reste plus maigre que less."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "vimpager",
+			"source": {
+				"host": "github",
+				"path": "rkitover/vimpager",
+				"url": "https://github.com/rkitover/vimpager"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Vim as your pager: full regex search, syntax highlighting, marks — a real vi-mode where less offers only a limited one. Costs a Vim install and a heavier startup than a dedicated pager.",
+				"fr": "Vim comme pager : recherche regex complète, coloration syntaxique, marques — un vrai mode vi là où less ne propose qu'une version limitée. Nécessite Vim installé, démarrage plus lourd qu'un pager dédié."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "most",
+			"source": {
+				"host": "github",
+				"path": "FauxFaux/most-pager",
+				"url": "https://github.com/FauxFaux/most-pager"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "GitHub mirror archived since 2019, though Debian and Homebrew still ship it: split-screen, multi-window paging with mark, highlight and filtering, in a small C binary. Its feature set is frozen.",
+				"fr": "Miroir GitHub archivé depuis 2019, encore empaqueté par Debian et Homebrew : fenêtres multiples, split-screen, marquage, surlignage et filtrage, dans un petit binaire C. Ses fonctionnalités sont figées."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "bat-extras",
+			"source": {
+				"host": "github",
+				"path": "eth-p/bat-extras",
+				"url": "https://github.com/eth-p/bat-extras"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Shell scripts that extend bat into the whole less+man+diff+watch pipeline: batman, batdiff, batgrep, batwatch, wired as PAGER via batpipe. Requires bat, ripgrep and diff installed; on Windows, git-bash only.",
+				"fr": "Des scripts bash qui étendent bat à toute la chaîne less+man+diff+watch : batman, batdiff, batgrep, batwatch, branchés en PAGER via batpipe. Exigent bat, ripgrep et diff installés ; sous Windows, git-bash seulement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "fzf",
+			"source": {
+				"host": "github",
+				"path": "junegunn/fzf",
+				"url": "https://github.com/junegunn/fzf"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Interactive fuzzy-finder TUI with a live preview pane, wired into shell and Vim/Neovim, one Go binary. It selects rather than pages — less's keybindings and regex navigation are gone.",
+				"fr": "TUI de recherche floue interactive avec aperçu en direct, branchée sur le shell et Vim/Neovim, un seul binaire Go. Elle sélectionne plus qu'elle ne pagine, sans raccourcis de less ni navigation regex."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
 }

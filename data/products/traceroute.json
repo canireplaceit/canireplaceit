@@ -1,0 +1,198 @@
+{
+	"slug": "traceroute",
+	"name": "traceroute",
+	"domain": null,
+	"category": "networking-vpn",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "yes",
+	"why": {
+		"en": "traceroute walks the route packets take to a host, listing each hop and its latency. A continuous successor that also reports packet loss does the same job better for daily diagnosis, but it is not installed by default, so traceroute remains the one tool guaranteed on every box.",
+		"fr": "traceroute parcourt la route empruntée par les paquets vers un hôte, listant chaque saut et sa latence. Un successeur en continu, qui mesure aussi la perte, fait mieux pour le diagnostic quotidien, mais il n’est pas installé par défaut : traceroute reste l’outil présent sur toutes les machines."
+	},
+	"whatYouLose": [
+		{
+			"en": "the traceroute shipped on every machine",
+			"fr": "le traceroute livré sur toutes les machines"
+		},
+		{
+			"en": "the fixed output parsers expect",
+			"fr": "la sortie fixe attendue par les scripts"
+		},
+		{
+			"en": "UDP, ICMP and TCP probes by default",
+			"fr": "les sondes UDP, ICMP et TCP par défaut"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "mtr",
+			"source": {
+				"host": "github",
+				"path": "traviscross/mtr",
+				"url": "https://github.com/traviscross/mtr"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The canonical terminal traceroute-plus-ping: live per-hop loss and latency on one screen. Raw or text output, runs anywhere. No map or ASN enrichment, and probe source selection stays manual.",
+				"fr": "Le traceroute-plus-ping de référence : perte et latence en direct, hôte par hôte, un seul écran. Sortie brute ou texte. Ni carte ni ASN ; choix manuel de la source des sondes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "NextTrace",
+			"source": {
+				"host": "github",
+				"path": "nxtrace/NTrace-core",
+				"url": "https://github.com/nxtrace/NTrace-core"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Drop-in traceroute CLI with ASN, IP geolocation and reverse-DNS per hop in a static binary. Geo data is bundled or downloaded, not offline by default, and packet-option control is lighter.",
+				"fr": "Alternative à traceroute, un binaire statique multiplateforme avec ASN, géolocalisation IP et reverse-DNS par saut. Les données géo sont fournies ou téléchargées, pas hors ligne par défaut ; contrôle des options de paquets réduit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenTrace",
+			"source": {
+				"host": "github",
+				"path": "Archeb/opentrace",
+				"url": "https://github.com/Archeb/opentrace"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "NextTrace's predecessor: a compiled traceroute CLI that draws the route and geo/ASN per hop. Superseded by NextTrace, and some probe types need root.",
+				"fr": "Le prédécesseur de NextTrace : un binaire compilé qui dessine la route et affiche géo/ASN par saut. Dépassé par NextTrace, et certains types de sondes exigent root."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Scapy",
+			"source": {
+				"host": "github",
+				"path": "secdev/scapy",
+				"url": "https://github.com/secdev/scapy"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Python toolkit whose traceroute() scripts custom TCP/SYN, UDP or ICMP probes and returns parseable results. Needs a Python runtime and glue code — not a drop-in binary.",
+				"fr": "Boîte à outils Python : traceroute() scripte des sondes TCP/SYN, UDP ou ICMP et rend des résultats analysables. Réclame un runtime Python et du code de collage, pas un binaire clé en main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "tracebox",
+			"source": {
+				"host": "github",
+				"path": "tracebox/tracebox",
+				"url": "https://github.com/tracebox/tracebox"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Detects middleboxes hop-by-hop — NATs, firewalls, load balancers — instead of just listing IPs. Dormant since 2018, Linux-centric, and built from source.",
+				"fr": "Détecte les middleboxes saut par saut — NAT, pare-feux, répartiteurs de charge — au lieu de lister des IP. Dormant depuis 2018, orienté Linux, à compiler soi-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "libparistraceroute",
+			"source": {
+				"host": "github",
+				"path": "libparistraceroute/libparistraceroute",
+				"url": "https://github.com/libparistraceroute/libparistraceroute"
+			},
+			"license": "LGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Paris-style traceroute that corrects load-balancer path-splitting for accurate topologies, library and CLI. Niche academic tooling, Unix-only, built from source.",
+				"fr": "Variante « Paris » de traceroute qui corrige l’éclatement des chemins dû aux répartiteurs de charge pour des topologies exactes ; bibliothèque et CLI. Outillage académique de niche, Unix, à compiler."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "scamper",
+			"source": {
+				"host": "github",
+				"path": "cmand/scamper",
+				"url": "https://github.com/cmand/scamper"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "CAIDA's probing engine: TCP, UDP, ICMP and Paris traceroute plus ping and tbit, batch-ready daemon with wiredash output. Dormant since 2021; config-driven and steeper to learn, no map or geo UI.",
+				"fr": "Moteur de sondage de CAIDA : traceroute TCP, UDP, ICMP et Paris, plus ping et tbit, sortie wiredash. Dormant depuis 2021 ; piloté par config, apprentissage raide, pas d’interface carte."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenVisualTraceroute",
+			"source": {
+				"host": "github",
+				"path": "leolewis/openvisualtraceroute",
+				"url": "https://github.com/leolewis/openvisualtraceroute"
+			},
+			"license": "LGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Desktop Java app that draws each hop on a 3D world map with WHOIS and geolocation, plus packet capture. Needs a JVM; GUI-only, not scriptable, dated next to web dashboards.",
+				"fr": "Application desktop Java qui dessine chaque saut sur une carte 3D avec WHOIS et géolocalisation, et capture le paquet. Nécessite une JVM ; interface seule, non scriptable, datée face aux tableaux de bord."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

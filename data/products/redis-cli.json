@@ -1,0 +1,177 @@
+{
+	"slug": "redis-cli",
+	"name": "redis-cli",
+	"domain": null,
+	"category": "databases-caches",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "almost",
+	"why": {
+		"en": "redis-cli is the default Redis client for interactive commands, scripting, and monitoring. Modern interactive shells and GUIs are nicer for browsing data, but nothing matches it for scripting, Lua evaluation, and mass insertion.",
+		"fr": "redis-cli est le client Redis par défaut pour les commandes interactives, le scripting et la supervision. Les shells interactifs modernes et les GUI sont plus agréables pour parcourir les données, mais rien ne remplace redis-cli pour le scripting, l’évaluation Lua et l’insertion de masse."
+	},
+	"whatYouLose": [
+		{
+			"en": "scripting via --eval and --no-raw",
+			"fr": "le scripting via --eval et --no-raw"
+		},
+		{
+			"en": "mass insertion with --pipe",
+			"fr": "l’insertion de masse avec --pipe"
+		},
+		{
+			"en": "the cli on every Redis install",
+			"fr": "le cli présent sur chaque installation de Redis"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Valkey CLI",
+			"source": {
+				"host": "github",
+				"path": "valkey-io/valkey",
+				"url": "https://github.com/valkey-io/valkey"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Drop-in replacement for redis-cli: same flags and syntax, ships with the maintained Valkey server. Still a bare terminal client, no autocomplete or syntax highlighting.",
+				"fr": "Remplaçant direct : valkey-cli accepte les mêmes drapeaux et la même syntaxe que redis-cli, et accompagne le serveur Valkey maintenu. Toujours un client terminal nu, sans autocomplete ni coloration syntaxique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "iredis",
+			"source": {
+				"host": "github",
+				"path": "laixintao/iredis",
+				"url": "https://github.com/laixintao/iredis"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "The most popular interactive Redis REPL: smart tab-completion, syntax highlighting and pretty-printed output. Interactive-first, so weaker for one-shot scripting than redis-cli; Python/Prompt-toolkit stack to install.",
+				"fr": "Le REPL Redis interactif le plus populaire : complétion intelligente, coloration syntaxique et sortie formatée. D’abord interactif, donc moins adapté au scripting ponctuel que redis-cli ; pile Python/Prompt-toolkit à installer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Redli",
+			"source": {
+				"host": "github",
+				"path": "IBM-Cloud/redli",
+				"url": "https://github.com/IBM-Cloud/redli"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A safety-oriented Go client from IBM’s cloud team: static binary, built-in TLS and auth, confirmation guard before destructive commands. Hides raw command access, so less for power users; smaller community than iredis.",
+				"fr": "Un client Go orienté sécurité, venu d’IBM : binaire statique, TLS et auth intégrés, confirmation avant toute commande destructrice. Mais il masque les commandes brutes ; communauté plus petite qu’iredis."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "redis-tui",
+			"source": {
+				"host": "github",
+				"path": "mylxsw/redis-tui",
+				"url": "https://github.com/mylxsw/redis-tui"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The most-starred terminal UI for Redis (940+ stars): browse keys and scan namespaces visually. Dormant since 2019, unmaintained, and read/browse-oriented rather than a full command shell.",
+				"fr": "L’UI terminal la plus étoilée pour Redis (940+ étoiles) : parcourir les clés, scanner les namespaces visuellement. Dormant depuis 2019, plus maintenu, plus un navigateur en lecture qu’un vrai shell."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "redis_tui",
+			"source": {
+				"host": "github",
+				"path": "mat2cc/redis_tui",
+				"url": "https://github.com/mat2cc/redis_tui"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "An actively maintained Rust/Ratatui TUI for Redis, running in any terminal: key browsing and data inspection without the GUI. Younger project, smaller feature set, and GPL-3.0 copyleft.",
+				"fr": "Un TUI Redis en Rust/Ratatui, activement maintenu, qui tourne dans n’importe quel terminal : navigation dans les clés, inspection des données sans GUI. Projet plus jeune, fonctionnalités plus limitées, licence GPL-3.0."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "picordm",
+			"source": {
+				"host": "github",
+				"path": "osdodo/picordm",
+				"url": "https://github.com/osdodo/picordm"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A lightweight Rust TUI Redis client: small binary, small memory footprint, interactive key/value inspection. Young project with a small community, and browsing-focused — not a full scripting CLI.",
+				"fr": "Un client TUI Redis léger en Rust : petit binaire, faible empreinte mémoire, inspection interactive des clés et valeurs. Projet jeune, petite communauté, et orienté navigation plutôt que scripting complet."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "redis-terminal",
+			"source": {
+				"host": "github",
+				"path": "nitishm/redis-terminal",
+				"url": "https://github.com/nitishm/redis-terminal"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A read-only Go TUI for inspecting keys, types and values without a desktop app. Dormant since 2018, no recent maintenance, and it browses only — no write access, no command shell.",
+				"fr": "Un TUI Go en lecture seule pour inspecter clés, types et valeurs sans application de bureau. Dormant depuis 2018, plus maintenu, et strictement un navigateur : pas d’écriture, pas de shell de commandes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

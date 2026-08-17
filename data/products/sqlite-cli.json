@@ -1,0 +1,156 @@
+{
+	"slug": "sqlite-cli",
+	"name": "sqlite3 CLI",
+	"domain": null,
+	"category": "databases-caches",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "almost",
+	"why": {
+		"en": "A REPL that reads SQL, runs it and prints rows, shipped inside every SQLite install. Interactive work gets autocomplete and cleaner output elsewhere, but nothing replaces the scriptable surface: dot-commands, dump and import, CSV and JSON modes. It is also the only SQLite client guaranteed present.",
+		"fr": "Un REPL qui lit du SQL, l’exécute et affiche les lignes — livré avec chaque installation de SQLite. En interactif, autocomplétion et sortie plus lisible se trouvent ailleurs, mais rien ne remplace la surface scriptable : commandes point, dump/import, modes CSV et JSON. C’est aussi le seul client SQLite garanti présent."
+	},
+	"whatYouLose": [
+		{
+			"en": "a SQLite client on every machine",
+			"fr": "le client SQLite présent sur toutes les machines"
+		},
+		{
+			"en": "scriptable dump, import and backup commands",
+			"fr": "les commandes scriptables dump, import et backup"
+		},
+		{
+			"en": "a zero-dependency, zero-install tool",
+			"fr": "un outil sans dépendance ni installation"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "DB Browser for SQLite",
+			"source": {
+				"host": "github",
+				"path": "sqlitebrowser/sqlitebrowser",
+				"url": "https://github.com/sqlitebrowser/sqlitebrowser"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Desktop GUI for browsing and editing SQLite without SQL. Handles import/export and charting, but it is a GUI: nothing to script from the terminal.",
+				"fr": "Interface graphique pour consulter et éditer SQLite sans SQL. Import/export et graphiques inclus, mais rien de scriptable depuis le terminal."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "sqlite-utils",
+			"source": {
+				"host": "github",
+				"path": "simonw/sqlite-utils",
+				"url": "https://github.com/simonw/sqlite-utils"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Python CLI that turns CSV or JSON into tables in one command, and can publish them to Datasette. Costs a Python ecosystem and offers no interactive REPL.",
+				"fr": "CLI Python qui transforme un CSV ou du JSON en tables en une commande, et sait les publier sur Datasette. Dépend de l’écosystème Python et n’offre pas de REPL interactif."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "litecli",
+			"source": {
+				"host": "github",
+				"path": "dbcli/litecli",
+				"url": "https://github.com/dbcli/litecli"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "DB CLI in the dbcli family with smart completion and multi-line editing. Needs Python 3 and skips some of sqlite3’s pragma conveniences.",
+				"fr": "Client CLI de la famille dbcli avec complétion intelligente et édition multi-ligne. Exige Python 3 et délaisse quelques commodités des pragmas sqlite3."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "usql",
+			"source": {
+				"host": "github",
+				"path": "xo/usql",
+				"url": "https://github.com/xo/usql"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "One static binary that speaks SQLite, Postgres, MySQL and dozens more through a psql-style shell. Generic across engines, so it never goes deep on SQLite.",
+				"fr": "Binaire statique unique qui parle SQLite, Postgres, MySQL et des dizaines d’autres dans un shell façon psql. Générique, il ne creuse jamais très loin côté SQLite."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "sq",
+			"source": {
+				"host": "github",
+				"path": "neilotoole/sq",
+				"url": "https://github.com/neilotoole/sq"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Single dependency-free binary that joins SQLite, JSON, CSV and friends, and converts between them. Less a SQLite admin shell, and per-row overhead shows on huge sets.",
+				"fr": "Binaire unique sans dépendance qui joint SQLite, JSON, CSV et compagnie, et convertit entre eux. Pas un shell d’admin : la perte par ligne se sent sur les gros volumes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "sqlite-web",
+			"source": {
+				"host": "github",
+				"path": "coleifer/sqlite-web",
+				"url": "https://github.com/coleifer/sqlite-web"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted web UI to browse and query SQLite from any browser, with password auth for remote access. It runs as a server process, and basic auth is the whole permission model.",
+				"fr": "Interface web auto-hébergée pour parcourir et interroger SQLite depuis n’importe quel navigateur, avec mot de passe pour l’accès distant. Tourne comme un serveur ; pas de permissions au-delà de l’auth de base."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

@@ -1,0 +1,198 @@
+{
+	"slug": "helm",
+	"name": "Helm",
+	"domain": null,
+	"category": "containers-kubernetes",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "almost",
+	"why": {
+		"en": "Helm templatizes Kubernetes manifests and manages installs, upgrades and rollbacks as versioned releases. Overlay-based tooling replaces the templating half but drops the release lifecycle, dependency resolution and chart distribution; the full job still has no drop-in.",
+		"fr": "Helm templatise les manifests Kubernetes et gère installations, mises à niveau et rollbacks en tant que releases versionnées. Les outils d’overlay couvrent la moitié templating mais perdent le cycle de vie des releases, la résolution de dépendances et la distribution de charts : rien ne fait encore tout le travail."
+	},
+	"whatYouLose": [
+		{
+			"en": "Rollback to any prior release",
+			"fr": "Rollback vers n’importe quelle release antérieure"
+		},
+		{
+			"en": "Chart repositories and their dependencies",
+			"fr": "Référentiels de charts et leurs dépendances"
+		},
+		{
+			"en": "The shared packaged-chart catalogue",
+			"fr": "Le catalogue partagé de charts packagés"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Kustomize",
+			"source": {
+				"host": "github",
+				"path": "kubernetes-sigs/kustomize",
+				"url": "https://github.com/kubernetes-sigs/kustomize"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Pure-YAML overlays, built into kubectl and CI tooling, render to plain manifests with no server. The cost of no templates: no logic, no chart ecosystem, no release semantics.",
+				"fr": "Overlays en YAML pur, intégrés à kubectl et aux CI, rendus sans serveur. Pas de templates — donc pas de logique, d’écosystème de charts ni de sémantique de release."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tanka",
+			"source": {
+				"host": "github",
+				"path": "grafana/tanka",
+				"url": "https://github.com/grafana/tanka"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Jsonnet config with real environments and diff/apply, backed by Grafana Labs. Inheritance and mixins make it programmable — the price is a steep Jsonnet curve and a community far smaller than Helm’s.",
+				"fr": "Config Jsonnet avec vrais environnements et diff/apply, épaulé par Grafana Labs. Héritage et mixins programmables, à payer d’une courbe Jsonnet raide et d’une petite communauté."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Timoni",
+			"source": {
+				"host": "github",
+				"path": "stefanprodan/timoni",
+				"url": "https://github.com/stefanprodan/timoni"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Type-safe CUE modules in place of values.yaml, immutable reconciliation with rollback. Purpose-built as a Helm successor by the Flux maintainer — but the ecosystem is young and CUE fluency is required.",
+				"fr": "Modules CUE type-safe à la place de values.yaml, réconciliation immuable avec rollback. Conçu comme successeur de Helm par le mainteneur de Flux — mais écosystème jeune et CUE obligatoire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "kpt",
+			"source": {
+				"host": "github",
+				"path": "kptdev/kpt",
+				"url": "https://github.com/kptdev/kpt"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Git or OCI packages with KRM function pipelines, maintained by Google. Upgrades mean updating a package, not helm upgrade — but the function model has a curve and positional patching is fragile.",
+				"fr": "Paquets git ou OCI avec pipelines de fonctions KRM, maintenu par Google. Mise à jour au niveau paquet plutôt qu’helm upgrade — mais courbe d’apprentissage des fonctions et patchage positionnel fragile."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ytt",
+			"source": {
+				"host": "github",
+				"path": "carvel-dev/ytt",
+				"url": "https://github.com/carvel-dev/ytt"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "YAML templating with a Starlark-like language and overlays that patch any YAML, core of Carvel. Schema-validated values keep data structured — though it pairs best with kapp and speaks Carvel’s own vocabulary.",
+				"fr": "Templating YAML avec langage type Starlark et overlays patchant tout YAML, cœur de Carvel. Schéma sur les valeurs, données structurées — mais kapp reste nécessaire pour le cycle de vie."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "kapp",
+			"source": {
+				"host": "github",
+				"path": "carvel-dev/kapp",
+				"url": "https://github.com/carvel-dev/kapp"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Apply-level lifecycle: every resource an app owns is tracked, change-sets recorded, rollback possible. Works on plain manifests, kustomize, or ytt output — but has no packaging format and a smaller ecosystem.",
+				"fr": "Cycle de vie au niveau apply : chaque ressource possédée est suivie, change-sets enregistrés, rollback possible. Mange manifests, kustomize ou sortie ytt — mais sans format d’empaquetage et avec un écosystème restreint."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Kapitan",
+			"source": {
+				"host": "github",
+				"path": "kapicorp/kapitan",
+				"url": "https://github.com/kapicorp/kapitan"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Jsonnet and Python templating for big infrastructure, born at Zalando. One language drives k8s, Terraform, and CloudFormation — heavy for small clusters though, and momentum is thinner than kustomize’s.",
+				"fr": "Templating Jsonnet et Python pour de grosse infra, né chez Zalando. Un seul langage pilote k8s, Terraform et CloudFormation — lourd pour un petit cluster, avec moins d’élan que kustomize."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Qbec",
+			"source": {
+				"host": "github",
+				"path": "splunk/qbec",
+				"url": "https://github.com/splunk/qbec"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Jsonnet external tooling with named environments, isolated value sets, and a predicted diff before apply. Full manifest control — paid for with a niche community and no package-sharing format.",
+				"fr": "Outil externe en Jsonnet, environnements nommés, jeux de valeurs isolés, diff prévu avant l’apply. Contrôle total des manifests — mais communauté de niche et aucun format de partage de paquets."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

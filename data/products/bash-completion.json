@@ -1,0 +1,198 @@
+{
+	"slug": "bash-completion",
+	"name": "bash completion",
+	"domain": null,
+	"category": "shell-terminal",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "almost",
+	"why": {
+		"en": "Bash completion only works inside bash, where its value is the thousands of command-specific completions registered via complete. Newer shells complete more out of the box, but they run neither bash nor those scripts. Replacing it means replacing the shell, not just the feature.",
+		"fr": "La complétion bash ne vit que dans bash, et sa valeur tient aux milliers de complétions spécifiques déclarées via complete. Les shells plus récents complètent mieux hors de la boîte, mais ils ne font tourner ni bash ni ces scripts. La remplacer, c’est remplacer le shell, pas seulement la fonction."
+	},
+	"whatYouLose": [
+		{
+			"en": "Thousands of command-specific completions",
+			"fr": "Des milliers de complétions spécifiques"
+		},
+		{
+			"en": "Bash scripts and ecosystem",
+			"fr": "Les scripts et l’écosystème bash"
+		},
+		{
+			"en": "Completion on any remote box",
+			"fr": "La complétion sur tout serveur distant"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "carapace-bin",
+			"source": {
+				"host": "github",
+				"path": "carapace-sh/carapace-bin",
+				"url": "https://github.com/carapace-sh/carapace-bin"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Generates completions for 1000+ commands across bash, zsh, fish, nushell and more. No interactive fuzzy UI, and coverage relies on bundled specs.",
+				"fr": "Moteur de complétion multi-shell avec des specs pour plus de 1000 commandes, de bash à nushell. Pas d’interface fuzzy interactive, et la couverture dépend des specs embarquées."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "inshellisense",
+			"source": {
+				"host": "github",
+				"path": "microsoft/inshellisense",
+				"url": "https://github.com/microsoft/inshellisense"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Microsoft’s IDE-style autocomplete overlaid on the terminal, for bash, zsh, fish, pwsh and cmd. Heavier than bash-completion, and the TUI replaces native completion.",
+				"fr": "Autocomplétion façon IDE de Microsoft, en overlay dans le terminal, pour bash, zsh, fish, pwsh et cmd. Plus lourd que bash-completion, le TUI remplace la complétion native."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "fig",
+			"source": {
+				"host": "github",
+				"path": "withfig/fig",
+				"url": "https://github.com/withfig/fig"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The archetypal IDE-style autocomplete, archived upstream. macOS-only, its MIT spec ecosystem lives on in carapace.",
+				"fr": "Archétype de l’autocomplétion façon IDE, archivé en amont. Réservé à macOS, son écosystème de specs MIT survit dans carapace."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "withfig/autocomplete",
+			"source": {
+				"host": "github",
+				"path": "withfig/autocomplete",
+				"url": "https://github.com/withfig/autocomplete"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "MIT completion specs for 2000+ CLI tools, shared by fig and carapace. Data only — you still need an engine to consume it.",
+				"fr": "Specs de complétion MIT pour plus de 2000 outils CLI, partagées entre fig et carapace. Données seulement, il faut un moteur pour les consommer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "zsh-autocomplete",
+			"source": {
+				"host": "github",
+				"path": "marlonrichert/zsh-autocomplete",
+				"url": "https://github.com/marlonrichert/zsh-autocomplete"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Turns zsh’s completion into a fish-style live menu with fuzzy matching, without blocking input. Zsh only, and it replaces the shell’s built-in completion.",
+				"fr": "Transforme la complétion de zsh en menu live façon fish, avec filtrage flou, sans bloquer la saisie. Zsh uniquement, et il remplace la complétion native du shell."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "complete-alias",
+			"source": {
+				"host": "github",
+				"path": "cykerway/complete-alias",
+				"url": "https://github.com/cykerway/complete-alias"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Completes shell aliases by reusing the underlying command’s completion, in bash, zsh and fish. Only addresses aliases; no commit since June 2022.",
+				"fr": "Complète les alias en réutilisant la complétion de la commande cible, sur bash, zsh et fish. Ne couvre que les alias, aucun commit depuis juin 2022."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "fish-shell",
+			"source": {
+				"host": "github",
+				"path": "fish-shell/fish-shell",
+				"url": "https://github.com/fish-shell/fish-shell"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Full programmable completion with autosuggestions built in, plus manifests for common commands. Replaces bash outright; bash scripts mostly won’t run.",
+				"fr": "Complétion programmable complète avec autosuggestion intégrée et manifests pour les commandes courantes. Remplace bash entièrement, la plupart des scripts bash ne tournent pas."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "nushell",
+			"source": {
+				"host": "github",
+				"path": "nushell/nushell",
+				"url": "https://github.com/nushell/nushell"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A data-oriented shell with self-hosted completions, definable per command via nu scripts. Not drop-in: POSIX syntax and existing scripts don’t apply.",
+				"fr": "Shell orienté données avec complétions auto-hébergées, définissables par commande via des scripts nu. Pas un drop-in : la syntaxe POSIX et les scripts existants ne s’appliquent pas."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

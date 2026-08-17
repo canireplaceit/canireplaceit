@@ -1,0 +1,198 @@
+{
+	"slug": "vagrant",
+	"name": "Vagrant",
+	"domain": null,
+	"category": "infrastructure-as-code",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "almost",
+	"why": {
+		"en": "Vagrant turns a config file into a reproducible virtual machine for local development. The container workflow now covers most of that job faster and is the default in most teams; the full-VM half — bare kernels, installers, non-container stacks — has no widely adopted modern replacement.",
+		"fr": "Vagrant transforme un fichier de configuration en machine virtuelle reproductible pour le développement local. Le workflow conteneurs couvre aujourd’hui l’essentiel de ce travail et s’est imposé par défaut dans la plupart des équipes ; l’autre moitié — vraies machines virtuelles, noyaux nus, installateurs, stacks sans conteneurs — n’a pas de remplaçant moderne largement adopté."
+	},
+	"whatYouLose": [
+		{
+			"en": "full virtual-machine environments",
+			"fr": "les environnements en vraie machine virtuelle"
+		},
+		{
+			"en": "the prebuilt box catalogue",
+			"fr": "le catalogue de boxes préconstruites"
+		},
+		{
+			"en": "managed SSH and port forwarding",
+			"fr": "le SSH et la redirection de ports intégrés"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Lima",
+			"source": {
+				"host": "github",
+				"path": "lima-vm/lima",
+				"url": "https://github.com/lima-vm/lima"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Closest drop-in for a Vagrant dev-machine workflow: macOS/Linux VMs from cloud-init and templates, with port forwarding. No Windows host, no VirtualBox backend, and no built-in multi-machine provisioning.",
+				"fr": "Le plus proche d’un workflow Vagrant : machines macOS/Linux depuis cloud-init et templates, avec redirection de ports. Pas d’hôte Windows, pas de backend VirtualBox, ni d’orchestration multi-machine intégrée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Colima",
+			"source": {
+				"host": "github",
+				"path": "abiosoft/colima",
+				"url": "https://github.com/abiosoft/colima"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "One command gets you a Docker or Podman runtime in a Lima VM, plus a Kubernetes addon and docker-compose. Not general VM provisioning; image control is less flexible than Lima.",
+				"fr": "Une commande suffit pour lancer Docker ou Podman dans une VM Lima, avec l’addon Kubernetes et docker-compose. Pas de provisioning VM général, et le contrôle des images reste moins souple que Lima."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Multipass",
+			"source": {
+				"host": "github",
+				"path": "canonical/multipass",
+				"url": "https://github.com/canonical/multipass"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Canonical’s CLI spins up Ubuntu VMs instantly, with cloud-init and bridged or forwarded networking on Windows, macOS and Linux. Images stay Ubuntu-bound, and provisioning stops at cloud-init scripts.",
+				"fr": "CLI Canonical pour des VMs Ubuntu immédiates, avec cloud-init et réseau bridgé ou redirigé sur Windows, macOS et Linux. Les images restent Ubuntu, et le provisionnement s’arrête aux scripts cloud-init."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Incus",
+			"source": {
+				"host": "github",
+				"path": "lxc/incus",
+				"url": "https://github.com/lxc/incus"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "System containers and VMs from one CLI, with snapshots, live migration and profiles for reproducible configs. The price is a full daemon, a Linux host, and a more ops-flavoured workflow than Vagrant.",
+				"fr": "Conteneurs système et VMs depuis un seul CLI, avec snapshots, migration à chaud et profils reproductibles. Mais ça exige un daemon, un hôte Linux, et un workflow plus orienté ops que Vagrant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Podman",
+			"source": {
+				"host": "github",
+				"path": "podman-container-tools/podman",
+				"url": "https://github.com/podman-container-tools/podman"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A rootless, daemonless container engine; `podman machine` provisions the local VMs behind it. If you live in containers it works, but VM management stays secondary and multi-machine provisioning is absent.",
+				"fr": "Moteur de conteneurs sans daemon et sans root ; `podman machine` provisionne les VMs locales. Bien pour les workflows conteneurs, mais la gestion des VMs reste secondaire et le multi-machine n’existe pas."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Finch",
+			"source": {
+				"host": "github",
+				"path": "runfinch/finch",
+				"url": "https://github.com/runfinch/finch"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "AWS’s take on a container runtime: Lima plus nerdctl behind a docker-compatible CLI. Defaults are tested, but the surface is narrower than Lima or Vagrant and the community is still young.",
+				"fr": "La vision AWS d’un runtime conteneurs : Lima plus nerdctl derrière un CLI compatible Docker. Des réglages par défaut éprouvés, mais une surface plus étroite que Lima ou Vagrant, et une communauté jeune."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "minikube",
+			"source": {
+				"host": "github",
+				"path": "kubernetes/minikube",
+				"url": "https://github.com/kubernetes/minikube"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "One node of Kubernetes locally, across several drivers, with an addon marketplace. If the goal is mirroring prod as k8s it replaces Vagrant; it is not a general-purpose VM manager.",
+				"fr": "Un nœud Kubernetes en local, sur plusieurs drivers, avec un marché d’addons. Idéal quand la prod se mime en k8s mais ce n’est pas un gestionnaire de VMs généraliste."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tilt",
+			"source": {
+				"host": "github",
+				"path": "tilt-dev/tilt",
+				"url": "https://github.com/tilt-dev/tilt"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Declaratively bring up a microservices stack and live-reload it on code changes, targeting Kubernetes or docker-compose. No raw VMs, and you still need a cluster or runtime underneath.",
+				"fr": "Déclarez votre stack microservices et rechargez-la à chaud à chaque changement de code, vers Kubernetes ou docker-compose. Pas de VMs brutes, et il faut déjà un cluster ou un runtime dessous."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

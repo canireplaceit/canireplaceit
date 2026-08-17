@@ -1,0 +1,177 @@
+{
+	"slug": "cron",
+	"name": "cron",
+	"domain": null,
+	"category": "shell-terminal",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "almost",
+	"why": {
+		"en": "Runs scheduled jobs on any Unix box with a minute-level crontab. Replaceable on Linux, where init-system timers match its coverage and add logging and dependency control. Not replaceable on BSD, macOS, or non-systemd hosts, and the one-line crontab syntax moves nowhere with you.",
+		"fr": "Le cron planifie des tâches récurrentes sur n’importe quel Unix, avec une syntaxe crontab au niveau de la minute. Remplaçable sous Linux, où les minuteurs du système d’init couvrent le même besoin et y ajoutent journalisation et gestion des dépendances. Pas remplaçable sur BSD, macOS ou les hôtes sans systemd : la ligne de crontab qu’on connaît ne se retrouve nulle part ailleurs."
+	},
+	"whatYouLose": [
+		{
+			"en": "the cron on every machine",
+			"fr": "le cron présent partout"
+		},
+		{
+			"en": "the one-line crontab syntax",
+			"fr": "la syntaxe crontab en une ligne"
+		},
+		{
+			"en": "default mail of job output",
+			"fr": "l’envoi par mail du résultat"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Dagu",
+			"source": {
+				"host": "github",
+				"path": "dagucloud/dagu",
+				"url": "https://github.com/dagucloud/dagu"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Single static binary with a web UI, DAG dependencies, retries and per-run logs — the closest modern drop-in, though GPL-3.0 may matter if you embed it, and there is no distributed execution.",
+				"fr": "Binaire statique unique avec interface web, dépendances DAG, relances et logs par exécution — le drop-in moderne le plus proche, mais la licence GPL-3.0 peut gêner l’intégration et l’exécution distribuée manque."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gocron",
+			"source": {
+				"host": "github",
+				"path": "ouqiang/gocron",
+				"url": "https://github.com/ouqiang/gocron"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Two years dormant, yet still useful for crontab management across many machines: one dashboard, multi-node execution, logs. The UI is Chinese-first, semantics single-node, and the scheduler a separate service.",
+				"fr": "Deux ans sans commit, mais toujours utile pour gérer des crontabs sur plusieurs machines : un tableau de bord, exécution multi-nœuds, logs. UI en chinois d’abord, sémantique mono-nœud et scheduler en service séparé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Supercronic",
+			"source": {
+				"host": "github",
+				"path": "aptible/supercronic",
+				"url": "https://github.com/aptible/supercronic"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Foreground-friendly crontab syntax with structured JSON logs and timezone support — a drop-in for containers needing no daemon wrangling, at the price of single-host use and no web UI.",
+				"fr": "Drop-in crontab pour conteneurs : tourne au premier plan, logs JSON structurés, fuseaux horaires pris en charge, sans daemon à gérer — mais un seul hôte et aucune interface web."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Jobber",
+			"source": {
+				"host": "github",
+				"path": "dshearer/jobber",
+				"url": "https://github.com/dshearer/jobber"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Crontab-compatible scheduler with a real job-status CLI, failure reruns, notifications and overlap locks — but Linux-only, with development slow since 2024.",
+				"fr": "Remplaçant de cron avec un vrai CLI d’état des jobs, relance en cas d’échec, notifications et verrous anti-chevauchement — mais Linux uniquement, et développement au ralenti depuis 2024."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "cronsun",
+			"source": {
+				"host": "github",
+				"path": "shunfei/cronsun",
+				"url": "https://github.com/shunfei/cronsun"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Two years dormant, cronsun is still a model of distributed cron: etcd-backed cluster, cross-node failover, web/CLI management and execution audit — you operate an etcd cluster and accept a Chinese-first UI.",
+				"fr": "Deux ans sans commit, cronsun reste un modèle de cron distribué : cluster etcd, bascule inter-nœuds, gestion web/CLI, audit d’exécution — à condition d’exploiter un cluster etcd et d’accepter une UI en chinois d’abord."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "minicron",
+			"source": {
+				"host": "github",
+				"path": "jamesrwhite/minicron",
+				"url": "https://github.com/jamesrwhite/minicron"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "Archived since 2021, yet it was the monitoring layer cron lacks: every run’s output stored in a web timeline, email/Slack alerts, a CLI wrapper — at the price of a Ruby stack.",
+				"fr": "Archivé depuis 2021, c’était la couche de supervision qui manque à cron : sortie de chaque exécution stockée dans une timeline web, alertes email/Slack et CLI — au prix d’une pile Ruby."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CronKeep",
+			"source": {
+				"host": "github",
+				"path": "cronkeep/cronkeep",
+				"url": "https://github.com/cronkeep/cronkeep"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Six years dormant and still the simplest way to give a machine’s crontab a dashboard: web editor, live output, status per job — single-machine only, and no real auth beyond app config.",
+				"fr": "Six ans sans commit, toujours le plus simple moyen de piloter le crontab d’une machine depuis le web : éditeur, sorties en direct — mais une seule machine, pas d’auth au-delà de la config."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

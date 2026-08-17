@@ -25,5 +25,174 @@
 			"fr": "le scripting sans dépendance directement dans le shell"
 		}
 	],
-	"alternatives": []
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "frawk",
+			"source": {
+				"host": "github",
+				"path": "ezrosent/frawk",
+				"url": "https://github.com/ezrosent/frawk"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The closest true awk drop-in: a Rust awk-dialect with a JIT that rivals C awk on large CSVs, plus CSV/JSON-aware fields. Expect gaps against gawk flags and builtins, and a younger ecosystem.",
+				"fr": "Le plus proche d’un vrai awk : dialecte Rust avec JIT rivalisant avec le C awk sur les gros CSV, champs gérant CSV et JSON. Écarts mineurs face à gawk, écosystème plus jeune."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GoAWK",
+			"source": {
+				"host": "github",
+				"path": "benhoyt/goawk",
+				"url": "https://github.com/benhoyt/goawk"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "An awk interpreter with CSV field parsing and static binaries for every platform. Slower than mawk or gawk on huge streams; gawk extensions like FPAT are missing out of the box.",
+				"fr": "Un interpréteur awk avec champs CSV et binaires statiques pour chaque plateforme. Plus lent que mawk ou gawk sur les gros flux ; les extensions de gawk comme FPAT manquent à l’appel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Miller",
+			"source": {
+				"host": "github",
+				"path": "johnkerl/miller",
+				"url": "https://github.com/johnkerl/miller"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "awk’s pipeline mindset applied to name-indexed data: CSV, TSV and JSON in and out, with typed fields, group-by, join and stats. Name-indexed model means free-form whitespace logs need explicit handling.",
+				"fr": "L’état d’esprit pipeline d’awk sur données indexées par nom : CSV, TSV et JSON typés, group-by, jointures, statistiques. Le modèle indexé par nom exige un traitement explicite des logs en texte libre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "qsv",
+			"source": {
+				"host": "github",
+				"path": "dathere/qsv",
+				"url": "https://github.com/dathere/qsv"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The actively maintained CSV toolkit, xsv’s successor, with 200+ subcommands for slicing, filtering, aggregating and profiling GB-scale files. CSV-centric and flag-driven — no scripting language, and 200 subcommands to learn.",
+				"fr": "Le successeur maintenu de xsv : plus de 200 sous-commandes pour découper, filtrer, agréger et profiler des CSV au gigaoctet. Centré CSV, sans langage de script — 200 sous-commandes à apprendre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "xsv",
+			"source": {
+				"host": "github",
+				"path": "BurntSushi/xsv",
+				"url": "https://github.com/BurntSushi/xsv"
+			},
+			"license": "Unlicense",
+			"effort": "managed",
+			"note": {
+				"en": "The original fast CSV toolkit that established the columnar CLI workflow — but it is archived upstream. Still stable and everywhere in scripts, though bug fixes stop at the qsv fork.",
+				"fr": "L’outil CSV rapide d’origine qui a posé le workflow CLI en colonnes — mais il est archivé en amont. Stable et omniprésent dans les scripts, mais les corrections s’arrêtent au fork qsv."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "csvkit",
+			"source": {
+				"host": "github",
+				"path": "wireservice/csvkit",
+				"url": "https://github.com/wireservice/csvkit"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A Python suite turning awk’s table chores into named tools — csvcut, csvgrep, csvjoin — with real SQL via csvsql. Needs a Python install; slower than Rust tooling on big files.",
+				"fr": "Une suite Python qui transforme les tâches de table d’awk en outils nommés — csvcut, csvgrep, csvjoin — et en vrai SQL via csvsql. Nécessite Python ; plus lente que Rust sur les gros fichiers."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dasel",
+			"source": {
+				"host": "github",
+				"path": "TomWright/dasel",
+				"url": "https://github.com/TomWright/dasel"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "One selector syntax to query and update JSON, YAML, TOML, XML and CSV. Not a scripting language — no loops, patterns or functions — and CSV support stays thinner than qsv’s.",
+				"fr": "Une syntaxe de sélecteur pour lire et modifier JSON, YAML, TOML, XML et CSV. Pas un langage de script — ni boucles, ni motifs, ni fonctions — et un support CSV plus limité."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "jq",
+			"source": {
+				"host": "github",
+				"path": "jqlang/jq",
+				"url": "https://github.com/jqlang/jq"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The de-facto filter language for JSON, bringing awk’s pattern/filter mindset to structured data. JSON-centric — raw line text needs other tools, and it is not a general scripting language.",
+				"fr": "Le langage de filtre de facto pour JSON, qui transpose le réflexe motif/filtre d’awk à la donnée structurée. Centré JSON — texte brut : d’autres outils, et pas un langage de script général."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
 }

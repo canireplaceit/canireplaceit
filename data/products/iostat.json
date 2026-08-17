@@ -1,0 +1,177 @@
+{
+	"slug": "iostat",
+	"name": "iostat",
+	"domain": null,
+	"category": "observability-telemetry",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "almost",
+	"why": {
+		"en": "iostat prints CPU and per-device disk I/O on a sample loop, plain text that scripts and pipelines consume directly. TUI monitors render the same numbers prettier but output nothing a script can parse, and none ship on every server by default. Replaceable for a glance, not for the scripted job.",
+		"fr": "iostat affiche l’utilisation CPU et les E/S disque par périphérique sur une boucle d’échantillonnage, en texte brut que les scripts et les pipes consomment directement. Les moniteurs TUI affichent les mêmes chiffres plus joliment, mais sans sortie exploitable par un script, et aucun n’est présent par défaut sur tous les serveurs. Remplaçable pour un coup d’œil, pas pour le travail scripté."
+	},
+	"whatYouLose": [
+		{
+			"en": "plain-text output that scripts parse",
+			"fr": "la sortie en texte brut que les scripts parsent"
+		},
+		{
+			"en": "zero-install presence on any sysstat box",
+			"fr": "zéro installation sur toute machine sysstat"
+		},
+		{
+			"en": "per-device and per-partition breakdown",
+			"fr": "le détail par périphérique et par partition"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "sysstat",
+			"source": {
+				"host": "github",
+				"path": "sysstat/sysstat",
+				"url": "https://github.com/sysstat/sysstat"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "iostat itself lives in this suite, with sar, pidstat and mpstat. Drop-in plus cron-collected history, once the sadc daemon is set up.",
+				"fr": "iostat est l’outil de cette suite, aux côtés de sar, pidstat et mpstat. Remplaçant direct, avec historique collecté par cron, une fois le daemon sadc configuré."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dstat",
+			"source": {
+				"host": "github",
+				"path": "dstat-real/dstat",
+				"url": "https://github.com/dstat-real/dstat"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Original project archived; this is the maintained fork. One screen for CPU, disk IO and network, CSV output for later analysis — at the cost of a Python runtime.",
+				"fr": "Le projet d’origine est archivé, ceci est le fork maintenu. Un écran pour le CPU, l’IO disque et le réseau, sortie CSV pour l’analyse — au prix d’un runtime Python."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "atop",
+			"source": {
+				"host": "github",
+				"path": "Atoptool/atop",
+				"url": "https://github.com/Atoptool/atop"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "TUI, so no one-shot plain-text output, but live per-disk and per-process IO rates, replayable history and sar-compatible daily reports via atopsar. Process-level accounting needs the kernel module.",
+				"fr": "TUI, donc pas de sortie ponctuelle, mais taux d’IO disque et par processus en direct, historique rejouable et rapports sar via atopsar. La comptabilité par processus exige le module noyau."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "fio",
+			"source": {
+				"host": "github",
+				"path": "axboe/fio",
+				"url": "https://github.com/axboe/fio"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Writes real data — point it at a scratch device. Reference IO benchmark engine: tunable depth, block size, pattern, latency percentiles, IOPS/bw, repeatable job files.",
+				"fr": "Écrit de vraies données — visez un disque jetable. Moteur de benchmark IO de référence : profondeur, taille de bloc et pattern réglables, percentiles de latence, rapports IOPS/bw, job files reproductibles."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "btop",
+			"source": {
+				"host": "github",
+				"path": "aristocratos/btop",
+				"url": "https://github.com/aristocratos/btop"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Interactive-only — no scriptable one-shot output. Clean TUI with per-disk IO graphs, process filtering, themes; heavier on low-memory hosts.",
+				"fr": "Uniquement interactif — pas de sortie ponctuelle scriptable. TUI épurée avec graphes d’IO par disque, filtrage des processus, thèmes ; plus lourd sur les machines à faible mémoire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "bpftrace",
+			"source": {
+				"host": "github",
+				"path": "bpftrace/bpftrace",
+				"url": "https://github.com/bpftrace/bpftrace"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Kernel-level latency histograms and per-process disk IO via eBPF one-liners, minimal overhead. Needs a BPF-capable kernel, root, and a scripting language instead of iostat flags.",
+				"fr": "Histogrammes de latence au niveau noyau et IO disque par processus via des one-liners eBPF, surcoût minimal. Exige un noyau BPF, root, et un langage de script plutôt que les flags d’iostat."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ioping",
+			"source": {
+				"host": "github",
+				"path": "koct9i/ioping",
+				"url": "https://github.com/koct9i/ioping"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Tiny single C binary measuring live latency, IOPS and seeking, with percentile stats and seq/seek/cache modes. Active measurement — not continuous monitoring — and no process attribution.",
+				"fr": "Binaire C minimal mesurant latence, IOPS et seeking en modes seq/seek/cache. Mesure active, pas de surveillance continue — et aucune attribution par processus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

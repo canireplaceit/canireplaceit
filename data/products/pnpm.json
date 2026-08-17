@@ -1,0 +1,198 @@
+{
+	"slug": "pnpm",
+	"name": "pnpm",
+	"domain": null,
+	"category": "developer-tooling",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "almost",
+	"why": {
+		"en": "pnpm is a package manager: fast installs from a content-addressed store, strict workspace isolation. Bun installs faster, but only inside Bun’s runtime, trading Node compatibility and ecosystem maturity for speed. A faster pnpm replacement that stays on Node does not exist.",
+		"fr": "pnpm est un gestionnaire de paquets : des installations rapides grâce à un store content-addressable et une isolation stricte des workspaces. Bun installe plus vite, mais seulement dans le runtime Bun, au prix de la compatibilité Node et de la maturité de l’écosystème. Un remplaçant de pnpm plus rapide qui reste sur Node n’existe pas."
+	},
+	"whatYouLose": [
+		{
+			"en": "disk deduplication via shared store",
+			"fr": "déduplication disque via le store partagé"
+		},
+		{
+			"en": "strict isolation between workspace projects",
+			"fr": "isolation stricte entre les projets du workspace"
+		},
+		{
+			"en": "drop-in npm and Node compatibility",
+			"fr": "compatibilité drop-in avec npm et Node"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "npm",
+			"source": {
+				"host": "github",
+				"path": "npm/cli",
+				"url": "https://github.com/npm/cli"
+			},
+			"license": "Artistic-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Ships inside Node.js with workspaces, lifecycle scripts, and the largest registry ecosystem. Install is slower than pnpm and hoisted node_modules eats more disk, with occasional dedupe quirks.",
+				"fr": "Livré avec Node.js, workspaces, scripts de cycle de vie et le plus gros écosystème de registre. Installations plus lentes que pnpm, node_modules hoistés plus gourmands en disque, dédoublonnage capricieux."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "yarn classic",
+			"source": {
+				"host": "github",
+				"path": "yarnpkg/yarn",
+				"url": "https://github.com/yarnpkg/yarn"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Deterministic yarn.lock, offline installs from local cache, workspaces. Frozen in maintenance-only mode, and still pays npm-style hoisted node_modules disk overhead.",
+				"fr": "yarn.lock déterministe, installs hors ligne depuis le cache local, workspaces. Figé en maintenance, sans développement actif, et paie le même surcoût disque de node_modules hoistés que npm."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "yarn berry",
+			"source": {
+				"host": "github",
+				"path": "yarnpkg/berry",
+				"url": "https://github.com/yarnpkg/berry"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Plug'n'Play removes node_modules entirely; zero-install and strict workspace isolation. The payoff: PnP needs runtime compatibility patching and breaks against classic Yarn workflows.",
+				"fr": "Plug'n'Play supprime carrément node_modules : installation zéro et isolation stricte des workspaces. En échange, PnP exige des patchs de compatibilité runtime et casse les habitudes du Yarn classique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "bun",
+			"source": {
+				"host": "github",
+				"path": "oven-sh/bun",
+				"url": "https://github.com/oven-sh/bun"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Installs dramatically faster than pnpm while reading its lockfile, bundling, testing, and running in one binary. Pays for it with a JavaScriptCore runtime whose edge cases are still settling.",
+				"fr": "Installe bien plus vite que pnpm en lisant son lockfile, bundler, tester et lancer dans un seul binaire. En contrepartie : runtime JavaScriptCore plutôt que V8, cas limites encore en évolution."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "deno",
+			"source": {
+				"host": "github",
+				"path": "denoland/deno",
+				"url": "https://github.com/denoland/deno"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A runtime, not a package manager: URL and JSR imports skip node_modules, with npm: specifier support. Legacy npm tooling needs compat layers since the ecosystem is not a drop-in.",
+				"fr": "Un runtime, pas un gestionnaire de paquets : imports par URL ou JSR sans node_modules, support des specifiers npm:. Le legacy npm exige des couches de compatibilité, l’écosystème n’étant pas un drop-in."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ni",
+			"source": {
+				"host": "github",
+				"path": "antfu-collective/ni",
+				"url": "https://github.com/antfu-collective/ni"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Not a package manager — a dispatcher that reads the lockfile and hands off to the right tool, with aliases that work across all of them. Still needs one actually installed underneath.",
+				"fr": "Pas un gestionnaire de paquets, un aiguilleur : il lit le lockfile et délègue au bon outil, avec des alias valables partout. Encore faut-il un vrai gestionnaire installé en dessous."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "corepack",
+			"source": {
+				"host": "github",
+				"path": "nodejs/corepack",
+				"url": "https://github.com/nodejs/corepack"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Official Node launcher that pins pnpm, Yarn, or npm per project via the packageManager field, then shims them in. Convenient, but it delegates — a backend manager is still required.",
+				"fr": "Lanceur officiel de Node qui épingle pnpm, Yarn ou npm par projet via le champ packageManager, avec shims inclus. Pratique, mais ce n’est qu’un proxy : un gestionnaire reste nécessaire derrière."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "jspm",
+			"source": {
+				"host": "github",
+				"path": "jspm/jspm",
+				"url": "https://github.com/jspm/jspm"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Manages browser dependencies through import maps over CDN, skipping node_modules entirely. Browser-first and niche, and it leans on CDN availability to keep working.",
+				"fr": "Gère les dépendances navigateur via des import maps servies par un CDN, sans node_modules du tout. Spécialisé et browser-first, il dépend de la disponibilité du CDN pour fonctionner."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

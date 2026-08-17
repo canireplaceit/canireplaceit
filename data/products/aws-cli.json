@@ -1,0 +1,177 @@
+{
+	"slug": "aws-cli",
+	"name": "AWS CLI",
+	"domain": null,
+	"category": "cloud-platforms-hosting",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "not-yet",
+	"why": {
+		"en": "AWS CLI is the official client for the entire AWS API. Every alternative covers one slice of the job, and none replaces the full surface your scripts talk to daily. Like psql for a database, it is the reference interface, not a default with a modern stand-in.",
+		"fr": "AWS CLI est le client officiel de toute l’API AWS. Chaque alternative ne couvre qu’une partie du périmètre, et aucune ne remplace la surface complète qu’un script interroge au quotidien. Comme psql pour une base, c’est l’interface de référence, pas un outil par défaut qui a son remplaçant moderne."
+	},
+	"whatYouLose": [
+		{
+			"en": "a single client for every service",
+			"fr": "un seul client pour tous les services"
+		},
+		{
+			"en": "live state of your AWS account",
+			"fr": "l’état réel de votre compte AWS"
+		},
+		{
+			"en": "a CLI preinstalled on every runner",
+			"fr": "un CLI déjà installé sur chaque runner"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "rclone",
+			"source": {
+				"host": "github",
+				"path": "rclone/rclone",
+				"url": "https://github.com/rclone/rclone"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Sync/copy for S3 and 40+ backends, covering most aws-cli S3 workflows, with encrypted remotes and FUSE mounts — but no resource commands: no IAM, EC2 or Lambda; config means remotes, not profiles.",
+				"fr": "Copie et synchronisation pour S3 et 40+ backends, couvrant l’essentiel des flux S3 d’aws-cli, avec remotes chiffrés et montage FUSE. Ni IAM, ni EC2, ni Lambda ; config en remotes, pas en profils."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "s5cmd",
+			"source": {
+				"host": "github",
+				"path": "peak/s5cmd",
+				"url": "https://github.com/peak/s5cmd"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Fastest parallel S3 transfer CLI, orders of magnitude quicker than aws s3 sync on big buckets. SQL/glob selection, batch files. But S3-only: no EC2, IAM, other services; minimal flag set by design.",
+				"fr": "CLI de transfert S3 parallèle, plusieurs ordres de grandeur plus rapide qu’aws s3 sync sur les gros buckets. Sélection SQL/glob, batch. Mais S3 uniquement : pas d’EC2, d’IAM ni d’autres services, drapeaux minimalistes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "s3cmd",
+			"source": {
+				"host": "github",
+				"path": "s3tools/s3cmd",
+				"url": "https://github.com/s3tools/s3cmd"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Classic GPL S3 client: sync, lifecycle policies, multipart uploads with progress, bucket and policy management. Slower than parallel tools like s5cmd, and S3-only — no profile chain, no other services.",
+				"fr": "Client S3 GPL classique : sync, cycle de vie, multipart avec progression, gestion des buckets. Plus lent que les outils parallèles comme s5cmd, cantonné à S3, sans chaîne de profils ni autres services."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "minio mc",
+			"source": {
+				"host": "github",
+				"path": "minio/mc",
+				"url": "https://github.com/minio/mc"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "MinIO’s client, AWS-compatible command set plus admin, mirror and replication across S3 endpoints. Archived upstream — the client is now folded into MinIO proper — and AGPL-3.0, bucket/object focused, no EC2 or IAM APIs.",
+				"fr": "Client de MinIO, commandes compatibles AWS plus administration, mirror et réplication sur endpoints S3. Archivé en amont — le code a rejoint MinIO lui-même —, AGPL-3.0, orienté bucket/objet : pas d’EC2 ni d’IAM."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "awless",
+			"source": {
+				"host": "github",
+				"path": "wallix/awless",
+				"url": "https://github.com/wallix/awless"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Human-friendly AWS CLI with a visual resource graph and English-like commands. Dormant since August 2022: no new AWS services, occasional API drift, and a smaller command surface than aws-cli.",
+				"fr": "CLI AWS pensée pour les humains : graphe visuel des ressources et commandes proches de l’anglais courant. Dormant depuis août 2022, sans nouveau service AWS, dérive d’API occasionnelle, moins de commandes qu’aws-cli."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "aws-shell",
+			"source": {
+				"host": "github",
+				"path": "awslabs/aws-shell",
+				"url": "https://github.com/awslabs/aws-shell"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Official interactive shell over aws-cli: fish-style autocomplete, inline parameter prompts, fuzzy search, pipe support. Needs aws-cli underneath and adds session overhead for scripts — a maintenance-mode AWS Labs tool.",
+				"fr": "Shell interactif officiel au-dessus d’aws-cli : autocomplétion façon fish, prompts de paramètres, recherche floue, commandes en pipe. Requiert aws-cli sous-jacent, ajoute l’overhead de session pour les scripts ; outil AWS Labs en mode maintenance."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "steampipe",
+			"source": {
+				"host": "github",
+				"path": "turbot/steampipe",
+				"url": "https://github.com/turbot/steampipe"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "SQL over AWS resources through a Postgres interface, joining EC2, IAM, S3 and accounts across regions. Read-only, so no mutations; AGPL-3.0, and you learn the SQL/plugin model.",
+				"fr": "SQL sur les ressources AWS via une interface Postgres, joints entre EC2, IAM, S3 et comptes, toutes régions. Lecture seule, donc pas de mutations ; AGPL-3.0, et il faut apprivoiser le modèle SQL/plugins."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

@@ -1,0 +1,198 @@
+{
+	"slug": "gnu-coreutils",
+	"name": "GNU coreutils",
+	"domain": null,
+	"category": "shell-terminal",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "almost",
+	"why": {
+		"en": "Replaceable in daily use: individual commands have modern, faster substitutes with better defaults. Not replaceable as a suite: the hundred-odd commands stay the lowest common denominator on every machine, and scripts depend on the GNU behaviour they implement.",
+		"fr": "Remplaçable au quotidien : chaque commande a un substitut moderne, plus rapide, avec de meilleurs défauts par défaut. Pas remplaçable en tant que suite : les quelque cent commandes restent le dénominateur commun de toutes les machines, et les scripts comptent sur le comportement GNU qu’elles implémentent."
+	},
+	"whatYouLose": [
+		{
+			"en": "The ls on every machine",
+			"fr": "le ls présent sur chaque machine"
+		},
+		{
+			"en": "GNU long options in scripts",
+			"fr": "les options longues GNU des scripts"
+		},
+		{
+			"en": "One suite, not many installs",
+			"fr": "une suite, pas des paquets séparés"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "busybox",
+			"source": {
+				"host": "github",
+				"path": "mirror/busybox",
+				"url": "https://github.com/mirror/busybox"
+			},
+			"license": "GPL-2.0-only",
+			"effort": "managed",
+			"note": {
+				"en": "Single ~1MB binary reimplementing entire coreutils suite for minimal systems, dropping into any script via busybox <cmd>. One binary means one audit surface for many privileged applets, and GNU long-option behavior differs.",
+				"fr": "Un seul binaire d’environ 1 Mo qui réimplémente tout coreutils pour les systèmes minimaux. Un seul binaire, donc une seule surface d’audit pour beaucoup d’applets privilégiées, et les options longues GNU diffèrent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "toybox",
+			"source": {
+				"host": "github",
+				"path": "landley/toybox",
+				"url": "https://github.com/landley/toybox"
+			},
+			"license": "0BSD",
+			"effort": "managed",
+			"note": {
+				"en": "0BSD coreutils workalike, small and auditable, powering Android's userland. Its permissive license lifts copyleft constraints on embedding; expect GNU-specific extensions and colorful output to be missing.",
+				"fr": "Équivalent coreutils sous licence 0BSD, petit et auditable, qui équipe l’userland d’Android. Sa licence permissive ne contraint pas l’embarquement, mais les extensions GNU et la sortie colorée manquent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "uutils/coreutils",
+			"source": {
+				"host": "github",
+				"path": "uutils/coreutils",
+				"url": "https://github.com/uutils/coreutils"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Memory-safe Rust rewrite with GNU-compatible flags, near feature-complete. Runs on Windows where GNU tools don't; edge semantics still differ from the C versions and development stays heavy.",
+				"fr": "Réécriture Rust à sécurité mémoire, compatible avec les flags GNU, quasi complète. Elle tourne sous Windows, mais certaines sémantiques diffèrent encore des versions C."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ripgrep",
+			"source": {
+				"host": "github",
+				"path": "BurntSushi/ripgrep",
+				"url": "https://github.com/BurntSushi/ripgrep"
+			},
+			"license": "Unlicense",
+			"effort": "managed",
+			"note": {
+				"en": "Line-based search that outruns grep, respecting .gitignore and skipping binaries by default. Recursion needs no -r flag, yet advanced grep flags and basic regex behavior differ.",
+				"fr": "Recherche ligne à ligne nettement plus rapide que grep, qui respecte .gitignore et ignore les binaires par défaut. Récursion sans -r ; les flags grep avancés et quelques sémantiques regex diffèrent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "fd",
+			"source": {
+				"host": "github",
+				"path": "sharkdp/fd",
+				"url": "https://github.com/sharkdp/fd"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Modern find replacement with sensible defaults, parallel traversal, and gitignore-aware results that compose with xargs. The catch: no -exec predicates and a different option surface from GNU find.",
+				"fr": "Remplaçant moderne de find, aux défauts raisonnables : traversée parallèle, résultats respectant .gitignore, composition avec xargs. Mais pas de prédicats type -exec, et une surface d’options différente de celle de GNU find."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "bat",
+			"source": {
+				"host": "github",
+				"path": "sharkdp/bat",
+				"url": "https://github.com/sharkdp/bat"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Cat with syntax highlighting, inline git diff markers, and paged tty output; piping to a tool falls back to plain cat. Heavier than cat, and scripts need alias discipline.",
+				"fr": "Cat avec coloration syntaxique, marqueurs de diff git intégrés et pagination sur tty ; branché sur un autre outil, il redevient cat. Plus lourd que cat, il demande une discipline d’alias en script."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "eza",
+			"source": {
+				"host": "github",
+				"path": "eza-community/eza",
+				"url": "https://github.com/eza-community/eza"
+			},
+			"license": "EUPL-1.2",
+			"effort": "managed",
+			"note": {
+				"en": "Maintained ls successor showing git status, icons, and --tree in place of ls -R, with flags largely compatible with ls -la. Heavier dependency tree and the EUPL copyleft may give orgs pause.",
+				"fr": "Successeur maintenu de ls : statut git, icônes, vue --tree qui remplace ls -R, flags largement compatibles avec ls -la. Arbre de dépendances plus lourd, et la copyleft EUPL peut freiner certaines organisations."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dust",
+			"source": {
+				"host": "github",
+				"path": "bootandy/dust",
+				"url": "https://github.com/bootandy/dust"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "du for humans: tree bar chart of directory sizes, readable units, no hardlink double-counting. Read-only and unsuited to scriptable byte counts, with no -x filesystem boundary.",
+				"fr": "Un du pour humains : barres de tailles de répertoires, unités lisibles, pas de double comptage des liens durs. Lecture seule, pas pour des octets scriptés, ni de frontière de fichiers comme -x."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

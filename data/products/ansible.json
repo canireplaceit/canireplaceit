@@ -1,0 +1,202 @@
+{
+	"slug": "ansible",
+	"name": "Ansible",
+	"domain": null,
+	"category": "infrastructure-as-code",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "almost",
+	"why": {
+		"en": "Ansible configures machines over SSH with no agent and a module library spanning most of ops. A generation approach replaces the provisioning half, but the half that forces a running system into a desired state has no newer tool doing it as broadly.",
+		"fr": "Ansible configure des machines en SSH, sans agent à installer, et sa bibliothèque de modules couvre l’essentiel de l’ops. Une approche déclarative remplace la moitié provisionnement, mais la moitié qui applique l’état voulu sur un système déjà en marche n’a pas d’équivalent plus récent aussi large."
+	},
+	"whatYouLose": [
+		{
+			"en": "Agentless operation over SSH",
+			"fr": "Fonctionnement sans agent via SSH"
+		},
+		{
+			"en": "One module library for all vendors",
+			"fr": "Une bibliothèque de modules pour chaque équipement"
+		},
+		{
+			"en": "Thousands of ready-made published roles",
+			"fr": "Des milliers de rôles publiés prêts à l’emploi"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Salt",
+			"source": {
+				"host": "github",
+				"path": "saltstack/salt",
+				"url": "https://github.com/saltstack/salt"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Closest feature-for-feature match to Ansible: master/minion or agentless salt-ssh, declarative states plus imperative execution. You operate the master and its Python stack, a single point of failure without multi-master.",
+				"fr": "La correspondance la plus directe avec Ansible : modes master/minion ou salt-ssh sans agent, états déclaratifs et exécution impérative. Le master reste un serveur central à opérer, point de défaillance unique sans multi-master."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Puppet",
+			"source": {
+				"host": "github",
+				"path": "puppetlabs/puppet",
+				"url": "https://github.com/puppetlabs/puppet"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Model-driven declarative resources, idempotent by design, with Hiera for data separation and a large module ecosystem. The Ruby DSL has a learning curve and the full workflow wants a central puppetserver.",
+				"fr": "Ressources déclaratives pilotées par un modèle, idempotentes, Hiera sépare les données et l’écosystème de modules est vaste. Le DSL Ruby a sa courbe d’apprentissage, et le workflow complet exige un puppetserver central."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Chef",
+			"source": {
+				"host": "github",
+				"path": "chef/chef",
+				"url": "https://github.com/chef/chef"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Idempotent convergence via cookbook/recipe DSL, with chef-solo for agentless runs and shareable cookbooks. Heavier than YAML playbooks to wield, and org-scale needs the chef server.",
+				"fr": "Convergence idempotente via le DSL cookbook/recipe, chef-solo sans agent et cookbooks partageables. Le Ruby pèse plus lourd que des playbooks YAML, et l’échelle organisationnelle impose le chef server."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenTofu",
+			"source": {
+				"host": "github",
+				"path": "opentofu/opentofu",
+				"url": "https://github.com/opentofu/opentofu"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Drop-in for Terraform 1.x workflows, HCL code and the provider ecosystem, minus the BSL. It provisions infrastructure, not running hosts, and you bring your own state backend and locking.",
+				"fr": "Remplaçant direct des workflows Terraform 1.x, HCL et écosystème de providers, sans la licence BSL. Il provisionne l’infra, pas les machines existantes, et le backend d’état, c’est vous qui l’hébergez."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pulumi",
+			"source": {
+				"host": "github",
+				"path": "pulumi/pulumi",
+				"url": "https://github.com/pulumi/pulumi"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Infrastructure-as-code in TypeScript, Python or Go, with loops and real logic and a self-hostable state backend. That means writing code, and the cloud dashboard features are commercial.",
+				"fr": "Infrastructure-as-code en TypeScript, Python ou Go, boucles et vraie logique, backend d’état auto-hébergeable. Cela veut dire écrire du code, et les fonctions du dashboard cloud sont payantes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Cloud dashboard features",
+					"fr": "Dashboard cloud"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pyinfra",
+			"source": {
+				"host": "github",
+				"path": "pyinfra-dev/pyinfra",
+				"url": "https://github.com/pyinfra-dev/pyinfra"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Agentless over plain SSH, declarative Python operations with idempotency and parallelism by default, no server to run. Smaller community, no shared-collection marketplace, Python needed on both ends.",
+				"fr": "Sans agent, sur SSH simple, opérations Python déclaratives, idempotence et parallélisme par défaut, aucun serveur. Communauté et modules bien plus petits, pas de marché de collections, Python requis des deux côtés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Fabric",
+			"source": {
+				"host": "github",
+				"path": "fabric/fabric",
+				"url": "https://github.com/fabric/fabric"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Thin SSH task-runner, CLI or Python library, for ad-hoc remote command execution. You write the idempotency yourself — no declarative state, no inventory, just shell work.",
+				"fr": "Exécuteur de tâches SSH minimal, en CLI ou en bibliothèque Python, pour l’ad-hoc à distance. L’idempotence, c’est vous qui l’écrivez : ni état déclaratif, ni inventaire, que du shell."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Rudder",
+			"source": {
+				"host": "github",
+				"path": "Normation/rudder",
+				"url": "https://github.com/Normation/rudder"
+			},
+			"license": "GPL-3.0",
+			"effort": "ops",
+			"note": {
+				"en": "Self-hostable policy platform with a compliance web UI and an agent that enforces automatically. You take on a whole server-plus-agent stack far heavier than Ansible, with a smaller community.",
+				"fr": "Plateforme de politique autonome avec UI web de conformité et agent qui applique tout seul. Vous hébergez toute une pile serveur + agent, bien plus lourde qu’Ansible, et la communauté est restreinte."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

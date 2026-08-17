@@ -25,5 +25,174 @@
 			"fr": "fusion de flux déjà triés"
 		}
 	],
-	"alternatives": []
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "uutils/coreutils",
+			"source": {
+				"host": "github",
+				"path": "uutils/coreutils",
+				"url": "https://github.com/uutils/coreutils"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "GNU-compatible sort in Rust, shippable as one static binary anywhere. Same field-key, locale and merge semantics, audited against GNU's test suites, though a few edge-case flags still lag.",
+				"fr": "Le tri GNU réécrit en Rust, livrable en un seul binaire statique. Mêmes clés de champ, locale et fusion que l’original, vérifié contre ses suites de tests — quelques flags de niche manquent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "busybox",
+			"source": {
+				"host": "github",
+				"path": "mirror/busybox",
+				"url": "https://github.com/mirror/busybox"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Sort shrunk to a few hundred KB for initramfs and embedded. It powers countless container base images, though the flag set is thinner than GNU's and collation depends on build's locale support.",
+				"fr": "Un sort réduit à quelques centaines de Ko pour initramfs et systèmes embarqués. Le sort des images de conteneurs, mais moins de flags que GNU, collation dépendante de la compilation."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "toybox",
+			"source": {
+				"host": "github",
+				"path": "landley/toybox",
+				"url": "https://github.com/landley/toybox"
+			},
+			"license": "0BSD",
+			"effort": "managed",
+			"note": {
+				"en": "0BSD sort for embedded and Android that plays by POSIX rules, bundled with 200+ other tools. Not a GNU drop-in — advanced flags differ, and a small bus-factor makes release pace uneven.",
+				"fr": "Un sort 0BSD pour l’embarqué et Android, POSIX avant tout, dans un seul binaire avec 200+ autres outils. Pas un drop-in GNU : flags avancés différents et faible bus-factor, sorties irrégulières."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GNU coreutils",
+			"source": {
+				"host": "github",
+				"path": "coreutils/coreutils",
+				"url": "https://github.com/coreutils/coreutils"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "GPL-3.0 copyleft rules it out for some licensing regimes, but this is the reference sort every Unix box ships: stable -s, field keys, -R random, -z NUL, mature locale collation.",
+				"fr": "La copyleft GPL-3.0 le disqualifie pour certains régimes, mais c’est le sort de référence de chaque système GNU/Linux : stable (-s), clés de champ, -R aléatoire, -z."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "nushell",
+			"source": {
+				"host": "github",
+				"path": "nushell/nushell",
+				"url": "https://github.com/nushell/nushell"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Sort structured data, not text lines, with sort-by's multiple keys, reverse and null handling — all inside a modern shell whose pipeline syntax you'd have to adopt wholesale.",
+				"fr": "Trie des données structurées, pas de lignes : clés multiples, reverse, valeurs nulles via sort-by. Mais c’est un shell complet, pas un utilitaire de tri, et sa syntaxe de pipeline diffère de POSIX."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "jq",
+			"source": {
+				"host": "github",
+				"path": "jqlang/jq",
+				"url": "https://github.com/jqlang/jq"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "sort_by sorts JSON arrays on arbitrary keys, composable with filters, in a static binary preinstalled almost everywhere. JSON only — no line or field sorting, just one filter among many.",
+				"fr": "sort_by trie les tableaux JSON sur des clés arbitraires, binaire statique préinstallé presque partout. Mais JSON uniquement : pas de lignes ni de champs, un simple filtre parmi d’autres."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Miller",
+			"source": {
+				"host": "github",
+				"path": "johnkerl/miller",
+				"url": "https://github.com/johnkerl/miller"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "mlr sort brings type-aware, streaming sorting to CSV, TSV, JSON and NDJSON records, handling files too big for memory. Tabular formats first, though — and its key syntax isn't sort -k.",
+				"fr": "mlr sort trie par type, en streaming, les enregistrements CSV, TSV, JSON, NDJSON, même trop gros pour la mémoire. Mais tabulaire d’abord, et sa syntaxe de clé diffère du -k de sort."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "qsv",
+			"source": {
+				"host": "github",
+				"path": "dathere/qsv",
+				"url": "https://github.com/dathere/qsv"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Streaming CSV sort that handles files too big for memory by sorting across multiple cores, with stable, deterministic output. CSV-centric: not a general line sorter, and its flags follow qsv CLI family.",
+				"fr": "Un tri CSV streaming, parallèle sur plusieurs cœurs, qui gère les fichiers trop gros pour la mémoire. Centré CSV : pas un trieur généraliste, et des flags propres à la famille qsv."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
 }

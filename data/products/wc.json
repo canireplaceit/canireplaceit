@@ -25,5 +25,153 @@
 			"fr": "un démarrage quasi instantané sur chaque flux"
 		}
 	],
-	"alternatives": []
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "uutils/coreutils",
+			"source": {
+				"host": "github",
+				"path": "uutils/coreutils",
+				"url": "https://github.com/uutils/coreutils"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Rust rewrite of GNU coreutils shipping a drop-in wc binary. Cross-platform, counts lines, words, bytes and chars like GNU wc, though installing it pulls the whole suite and edge-case behaviour occasionally diverges.",
+				"fr": "Réécriture en Rust de coreutils GNU, livrant un binaire wc drop-in. Compte lignes, mots, octets et caractères comme GNU wc, mais embarque toute la suite et cas limites divergent parfois."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "tokei",
+			"source": {
+				"host": "github",
+				"path": "XAMPPRocky/tokei",
+				"url": "https://github.com/XAMPPRocky/tokei"
+			},
+			"license": "MIT OR Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The fast line-of-code counter, effectively wc for source: 100+ languages, blank, comment and code splits per language. No words or bytes, and unlisted formats can be misclassified.",
+				"fr": "Compteur de lignes de code de référence, un wc pour le source : plus de 100 langages, répartition vide, commentaires, code. Ni mots ni octets ; certains formats non listés sont mal identifiés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "scc",
+			"source": {
+				"host": "github",
+				"path": "boyter/scc",
+				"url": "https://github.com/boyter/scc"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A very fast Go counter with CLOC/SLOC output plus complexity analysis and COCOMO effort estimates. Code only, though — not a text wc — and its cloc compatibility is close but not byte-identical.",
+				"fr": "Compteur Go très rapide, sorties CLOC/SLOC, analyse de complexité et estimations d’effort COCOMO. Code seulement, pas un wc de texte, et la compatibilité cloc reste proche sans être identique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "cloc",
+			"source": {
+				"host": "github",
+				"path": "AlDanial/cloc",
+				"url": "https://github.com/AlDanial/cloc"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The de-facto universal line-of-code counter: one portable Perl script that runs anywhere Perl does, writing blank, comment and code lines into plain, XML, JSON or SQL. Slower than compiled counters, GPL-2.0.",
+				"fr": "Un seul script Perl portable qui tourne partout où Perl tourne : lignes vides, commentaires, code, sorties texte, XML, JSON ou SQL. Plus lent que les compteurs compilés, licence GPL-2.0."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gocloc",
+			"source": {
+				"host": "github",
+				"path": "hhatto/gocloc",
+				"url": "https://github.com/hhatto/gocloc"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A lightweight Go-native cloc shipped as a single static binary, with parallel line counting across many languages. Smaller community and fewer output formats than cloc, code only.",
+				"fr": "Cloc natif Go et léger, un seul binaire statique, comptage de lignes en parallèle sur de nombreux langages. Communauté plus réduite et moins de formats de sortie que cloc, code uniquement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pygount",
+			"source": {
+				"host": "github",
+				"path": "roskakori/pygount",
+				"url": "https://github.com/roskakori/pygount"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Counts hundreds of languages from one Pygments tokenizer engine, with XML, JSON and SonarQube output and per-project summaries. Needs Python and Pygments, and lags Rust and Go counters on large repos.",
+				"fr": "Centaines de langages via un seul moteur Pygments, sorties XML, JSON et SonarQube, résumés par projet. Requiert Python et Pygments, et se traîne derrière Rust et Go sur les gros dépôts."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "wordfreq",
+			"source": {
+				"host": "github",
+				"path": "rspeer/wordfreq",
+				"url": "https://github.com/rspeer/wordfreq"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Not lines or bytes: wordfreq computes word-frequency statistics, normalized and sorted across many languages via a bundled database and tokenizer. Needs Python, and the bundled data is large.",
+				"fr": "Ni lignes ni octets : wordfreq calcule des fréquences de mots, normalisées et triées, sur de nombreuses langues via une base et un tokenizer embarqués. Nécessite Python et une base volumineuse."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
 }

@@ -1,0 +1,198 @@
+{
+	"slug": "homebrew",
+	"name": "Homebrew",
+	"domain": null,
+	"category": "developer-tooling",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "almost",
+	"why": {
+		"en": "Homebrew is the standard way to install CLI tools and open-source software on macOS. A declarative replacement wins on reproducibility and clean uninstalls, but trades Homebrew’s one-command installs and its cask catalogue of GUI apps. For occasional installs it is overkill; for rebuildable environments it earns its keep.",
+		"fr": "Homebrew est le moyen standard d’installer les outils en ligne de commande et les logiciels open source sur macOS. Une alternative déclarative gagne en reproductibilité et en désinstallation propre, mais perd la commande unique sans configuration et les Casks d’applications graphiques. Pour quelques usages c’est trop ; pour un environnement reconstruit souvent, ça se justifie."
+	},
+	"whatYouLose": [
+		{
+			"en": "one-line, no-config installs",
+			"fr": "les installations en une commande, sans configuration"
+		},
+		{
+			"en": "the widest open-source software catalogue",
+			"fr": "le catalogue open source le plus large"
+		},
+		{
+			"en": "casks for macOS GUI apps",
+			"fr": "les Casks pour les applications graphiques macOS"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Nix",
+			"source": {
+				"host": "github",
+				"path": "NixOS/nix",
+				"url": "https://github.com/NixOS/nix"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "Declarative, reproducible package manager. Pinning hashes buys reproducible environments, but the Nix expression language is a steep learning curve and GUI apps take more work than a cask.",
+				"fr": "Gestionnaire de paquets déclaratif et reproductible. Des hashs épinglés garantissent des environnements reproductibles, mais le langage Nix reste une vraie courbe d’apprentissage et installer des apps graphiques demande plus qu’un cask."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MacPorts",
+			"source": {
+				"host": "github",
+				"path": "macports/macports-base",
+				"url": "https://github.com/macports/macports-base"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Twenty-plus years old, builds from source with dependency tracking. Slower than brew’s prebuilt bottles, and the port tree lags on the newest software.",
+				"fr": "Vingt ans et plus, compile depuis les sources avec suivi des dépendances. Plus lent que les bouteilles précompilées de brew, et l’arbre des ports est en retard sur les nouveautés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GNU Guix",
+			"source": {
+				"host": "github",
+				"path": "guix-mirror/guix",
+				"url": "https://github.com/guix-mirror/guix"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Official GNU project, transactional and reproducible, built on Scheme. macOS support is incomplete and the package set is smaller than nixpkgs or brew.",
+				"fr": "Projet officiel GNU, transactionnel et reproductible, bâti sur Scheme. Le support macOS est incomplet et le jeu de paquets est plus petit que nixpkgs ou brew."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pacman",
+			"source": {
+				"host": "gitlab",
+				"path": "archlinux/pacman",
+				"url": "https://gitlab.archlinux.org/archlinux/pacman"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Fast binary manager with a clean CLI, plus the AUR on top. Rolling releases can break things, and it needs an Arch distro or container — nothing native for macOS.",
+				"fr": "Gestionnaire binaire rapide, CLI simple, avec l’AUR par-dessus. Les versions roulantes peuvent casser des choses, et il faut une distro Arch ou un conteneur — rien de natif pour macOS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Portage",
+			"source": {
+				"host": "github",
+				"path": "gentoo/portage",
+				"url": "https://github.com/gentoo/portage"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "USE flags give per-package compile control, ebuilds full control. But it compiles everything from source — slow — and tuning it is a time sink tied to Gentoo.",
+				"fr": "Les USE flags règlent la compilation par paquet, les ebuilds donnent le contrôle total. Mais tout compile depuis les sources — lent — et les réglages prennent un temps fou."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "xbps",
+			"source": {
+				"host": "github",
+				"path": "void-linux/xbps",
+				"url": "https://github.com/void-linux/xbps"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Small dependency-resolving binary manager, the backbone of Void Linux. Fast and clean, but the ecosystem lives and dies with Void — fewer packages, smaller community.",
+				"fr": "Petit gestionnaire binaire qui résout les dépendances, l’épine dorsale de Void Linux. Rapide et propre, mais l’écosystème vit et meurt avec Void — moins de paquets, communauté plus réduite."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pkgsrc",
+			"source": {
+				"host": "github",
+				"path": "NetBSD/pkgsrc",
+				"url": "https://github.com/NetBSD/pkgsrc"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "NetBSD’s package framework, bootstrappable on macOS, Linux and the BSDs. Builds are slower than brew’s binaries, macOS is secondary to NetBSD, and the docs are terse.",
+				"fr": "Le framework de paquets de NetBSD, bootstrappable sur macOS, Linux et les BSD. Builds plus lents que les binaires de brew, macOS passe après NetBSD, et la doc est laconique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "DNF5",
+			"source": {
+				"host": "github",
+				"path": "rpm-software-management/dnf5",
+				"url": "https://github.com/rpm-software-management/dnf5"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The Fedora default, rewritten in C++ for faster transactions with modules, groups and copr. RPM-centric — no macOS — and still young, its API not yet stable.",
+				"fr": "Le défaut de Fedora, réécrit en C++ pour des transactions plus rapides, avec modules, groupes et copr. Dans l’univers RPM, pas de macOS, et encore jeune : son API n’est pas stable."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

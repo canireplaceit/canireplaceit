@@ -1,0 +1,198 @@
+{
+	"slug": "go-toolchain",
+	"name": "Go toolchain",
+	"domain": null,
+	"category": "developer-tooling",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "not-yet",
+	"why": {
+		"en": "Go’s compiler, build, tests, and package management live in one binary that is the reference implementation of the language. Every Go project, editor integration, and CI pipeline is written against its behaviour. No newer tool does this job better; the only alternative is another language entirely.",
+		"fr": "Le compilateur, le build, les tests et la gestion de paquets de Go tiennent dans un seul binaire, l’implémentation de référence du langage. Chaque projet Go, chaque éditeur et chaque pipeline CI dépendent de son comportement. Aucun outil plus récent ne fait mieux ce travail ; la seule alternative est de changer de langage."
+	},
+	"whatYouLose": [
+		{
+			"en": "compatibility with the entire Go ecosystem",
+			"fr": "la compatibilité avec tout l’écosystème Go"
+		},
+		{
+			"en": "gofmt, the universal zero-config formatter",
+			"fr": "gofmt, le formateur universel zéro config"
+		},
+		{
+			"en": "cross-compilation with a single environment variable",
+			"fr": "la cross-compilation avec une seule variable d’environnement"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "TinyGo",
+			"source": {
+				"host": "github",
+				"path": "tinygo-org/tinygo",
+				"url": "https://github.com/tinygo-org/tinygo"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "The credible independent Go compiler: builds real Go for microcontrollers and WASM with a tiny runtime and a go-style CLI. Not a full drop-in — no cgo, trimmed standard library, goroutine limits.",
+				"fr": "Le compilateur Go indépendant qui se prend au sérieux : du vrai Go pour microcontrôleurs et WASM, runtime minimal, CLI façon go. Pas un drop-in : pas de cgo, bibliothèque standard réduite, goroutines limitées."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "staticcheck",
+			"source": {
+				"host": "github",
+				"path": "dominikh/go-tools",
+				"url": "https://github.com/dominikh/go-tools"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Goes well beyond go vet: 100+ checks across whole modules, and it’s the engine inside golangci-lint. Analysis only — build, test, and compiler stay with the standard toolchain.",
+				"fr": "Va bien au-delà de go vet : 100+ vérifications sur des modules entiers, et c’est le moteur de golangci-lint. Analyse uniquement — build, test et compilateur restent dans la toolchain standard."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gofumpt",
+			"source": {
+				"host": "github",
+				"path": "mvdan/gofumpt",
+				"url": "https://github.com/mvdan/gofumpt"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "The stricter, opinionated gofmt drop-in, one small binary, zero configuration. Layout only — compiler, test, and vet untouched — but its tighter rules churn files plain gofmt leaves alone.",
+				"fr": "Le gofmt drop-in plus strict et plus tranché, en un seul petit binaire. Mise en forme uniquement — mais ses règles retouchent des fichiers que gofmt laisse tranquilles."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Athens",
+			"source": {
+				"host": "github",
+				"path": "gomods/athens",
+				"url": "https://github.com/gomods/athens"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Self-host the Go module proxy protocol with pluggable storage and access control for private modules. A proxy, not a compiler — and running it securely is real ops work.",
+				"fr": "Auto-hébergez le protocole du proxy Go avec stockage enfichable et contrôle d’accès pour modules privés. Un proxy, pas un compilateur — et le faire tourner proprement, c’est de l’ops sérieuse."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "goproxy",
+			"source": {
+				"host": "github",
+				"path": "goproxy/goproxy",
+				"url": "https://github.com/goproxy/goproxy"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Serving the GOPROXY protocol from a plain directory tree, one binary, up in minutes. No auth or ACLs out of the box, and a small community.",
+				"fr": "Sert le protocole GOPROXY depuis un simple arbre de fichiers, un seul binaire, prêt en quelques minutes. Ni auth ni ACL à la livraison, communauté réduite."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "yaegi",
+			"source": {
+				"host": "github",
+				"path": "traefik/yaegi",
+				"url": "https://github.com/traefik/yaegi"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Run Go scripts with no build step — via CLI or as an embedded library. Interpreted, so notably slower than compiled Go, and semantics drift from gc on edge cases.",
+				"fr": "Des scripts Go sans étape de compilation, en CLI ou en bibliothèque embarquée. Interprété — plus lent que le Go compilé, et une sémantique qui dévie légèrement de gc."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gopherjs",
+			"source": {
+				"host": "github",
+				"path": "gopherjs/gopherjs",
+				"url": "https://github.com/gopherjs/gopherjs"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "The mature Go-to-JavaScript compiler: go-style build and test workflow for browsers and Node. JavaScript only — trimmed stdlib and syscall, and a slower cadence than the main toolchain.",
+				"fr": "Le compilateur Go vers JavaScript qui a fait ses preuves : build/test façon go pour le navigateur et Node. JavaScript uniquement — bibliothèque standard et syscall réduites, rythme plus lent que la toolchain."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Delve",
+			"source": {
+				"host": "github",
+				"path": "go-delve/delve",
+				"url": "https://github.com/go-delve/delve"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Debugging Go without gdb: goroutine-aware breakpoints, a rich CLI, and a headless server for remote and CI debugging. Debugging only, though — build and test stay with the standard toolchain.",
+				"fr": "Du debug Go sans gdb : points d’arrêt conscients des goroutines, CLI riche et serveur headless pour le debug distant et la CI. Debug uniquement — build et test restent dans la toolchain."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

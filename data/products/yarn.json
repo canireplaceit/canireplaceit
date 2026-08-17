@@ -1,0 +1,177 @@
+{
+	"slug": "yarn",
+	"name": "Yarn",
+	"domain": null,
+	"category": "developer-tooling",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "yes",
+	"why": {
+		"en": "Yarn installs and resolves JavaScript dependencies. The 1.x line is in maintenance mode with unpatched advisories, and faster, more disk-efficient package managers cover the daily job. The real cost is giving up Berry’s PnP resolution and its zero-install workflow.",
+		"fr": "Yarn installe et résout les dépendances JavaScript. La 1.x est en mode maintenance avec des advisories non corrigés, et les gestionnaires plus rapides et plus économes en espace disque couvrent l’usage courant. Le vrai coût du départ : perdre la résolution PnP de Berry et son zero-install."
+	},
+	"whatYouLose": [
+		{
+			"en": "PnP with no node_modules",
+			"fr": "PnP sans node_modules"
+		},
+		{
+			"en": "zero-install from committed cache",
+			"fr": "zero-install via cache commité"
+		},
+		{
+			"en": "workspace constraints and hooks",
+			"fr": "contraintes et hooks de workspaces"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "npm",
+			"source": {
+				"host": "github",
+				"path": "npm/cli",
+				"url": "https://github.com/npm/cli"
+			},
+			"license": "Artistic-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The zero-install route: it already ships with every Node install. You pay in slower installs and heavier node_modules, plus a package-lock.json migration — yarn.lock is never read.",
+				"fr": "Le chemin zéro-installation : npm est livré avec chaque Node. En échange, des installs plus lentes, des node_modules plus lourds, et la migration vers package-lock.json — il ne lit jamais yarn.lock."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pnpm",
+			"source": {
+				"host": "github",
+				"path": "pnpm/pnpm",
+				"url": "https://github.com/pnpm/pnpm"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A strict upgrade over yarn v1: a content-addressed hard-link store saves disk and catches undeclared dependencies yarn tolerated. But symlinked node_modules breaks tools that assume hoisting, and you migrate to pnpm-lock.yaml.",
+				"fr": "Mise à niveau stricte de yarn v1 : store adressé par contenu et échec sur les dépendances non déclarées. En échange, node_modules symlinkés qui cassent les outils supposant le hoisting. Migration vers pnpm-lock.yaml."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Bun",
+			"source": {
+				"host": "github",
+				"path": "oven-sh/bun",
+				"url": "https://github.com/oven-sh/bun"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "One binary that is runtime, bundler, test runner and package manager; reads yarn.lock for migration, installs orders of magnitude faster. You adopt a new runtime, and leave yarn.lock for bun.lock.",
+				"fr": "Un seul binaire : runtime, bundler, test runner et gestionnaire de paquets ; il lit yarn.lock pour migrer, installe des ordres de grandeur plus vite. Vous adoptez un nouveau runtime, quittez yarn.lock pour bun.lock."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Deno",
+			"source": {
+				"host": "github",
+				"path": "denoland/deno",
+				"url": "https://github.com/denoland/deno"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "npm-compatible runtime: npm: specifiers import npm packages, deno add manages them. Not a yarn drop-in — node: API or CommonJS code needs rewriting, and monorepo tooling is less mature.",
+				"fr": "Runtime compatible npm : les specifiers npm: importent les paquets, deno add les gère. Pas un remplaçant direct de yarn — le code node: ou CommonJS doit être réécrit, l’outillage monorepo moins mûr."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "vlt",
+			"source": {
+				"host": "github",
+				"path": "vltpkg/vltpkg",
+				"url": "https://github.com/vltpkg/vltpkg"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A fresh npm-compatible client from the original npm maintainers — content-addressable store, P2P-ish lockfile. Still young and stabilizing: less tooling and docs than npm or pnpm, adoption a conscious choice.",
+				"fr": "Client npm-compatible signé par le créateur de npm : store adressé par contenu, lockfile façon P2P. Jeune, encore en stabilisation : moins d’outillage et de doc que npm ou pnpm, l’adoption reste un choix."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nix",
+			"source": {
+				"host": "github",
+				"path": "NixOS/nix",
+				"url": "https://github.com/NixOS/nix"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "Hermetic, reproducible dependencies via a hash-addressed store and dev shells, replacing per-project package managers with a global declarative model. Steep shift: registry auth and npm-ci semantics are awkward, and Windows means WSL.",
+				"fr": "Reproductible via un store adressé par hachage ; un modèle global et déclaratif remplace les gestionnaires par projet. Changement radical : l’outillage JS y est maladroit, Windows seulement via WSL."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "corepack",
+			"source": {
+				"host": "github",
+				"path": "nodejs/corepack",
+				"url": "https://github.com/nodejs/corepack"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Node’s built-in shim pins yarn or pnpm via the packageManager field in package.json — no separate install step. Not a replacement: it still runs the real tool, fetched from the npm registry.",
+				"fr": "Shim intégré à Node qui épingle yarn ou pnpm via le champ packageManager de package.json — aucune installation séparée. Pas un remplaçant : il lance le vrai outil, récupéré du registre npm."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

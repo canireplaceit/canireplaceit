@@ -1,0 +1,202 @@
+{
+	"slug": "selenium",
+	"name": "Selenium",
+	"domain": null,
+	"category": "testing-qa",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "yes",
+	"why": {
+		"en": "Selenium drives any browser through the W3C WebDriver standard. Modern automation tooling is faster, ships a saner API and reliable built-in waiting, and needs no separate grid for day-to-day work. WebDriver stays worth knowing only where remote providers and grids are the target.",
+		"fr": "Selenium pilote n’importe quel navigateur via la norme W3C WebDriver. L’outillage moderne est plus rapide, offre une API plus saine et des attentes fiables intégrées, sans grille séparée pour le travail quotidien. WebDriver garde de l’intérêt seulement quand on cible des grilles ou des fournisseurs distants."
+	},
+	"whatYouLose": [
+		{
+			"en": "the W3C-standard WebDriver protocol",
+			"fr": "le protocole WebDriver standard W3C"
+		},
+		{
+			"en": "grid and remote-provider compatibility",
+			"fr": "la compatibilité avec grille et fournisseurs distants"
+		},
+		{
+			"en": "bindings for many languages",
+			"fr": "les bindings pour de nombreuses langues"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Playwright",
+			"source": {
+				"host": "github",
+				"path": "microsoft/playwright",
+				"url": "https://github.com/microsoft/playwright"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "De-facto Selenium successor: cross-browser automation with auto-waiting, codegen, traces, first-class Docker support. No Selenium-Grid-style distributed hub out of the box; JS/TS-first, other languages lag.",
+				"fr": "Le successeur de fait de Selenium : automation cross-browser avec attente automatique, codegen, traces, Docker inclus. Pas de hub distribué type Selenium Grid ; JS/TS d’abord, les autres langages en reste."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Puppeteer",
+			"source": {
+				"host": "github",
+				"path": "puppeteer/puppeteer",
+				"url": "https://github.com/puppeteer/puppeteer"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Google’s headless Chrome library, the classic lightweight scraping alternative to Selenium. Chrome-only and lower-level than WebDriver; parallel execution needs extra tooling.",
+				"fr": "La bibliothèque de Google pour Chrome headless, l’alternative légère classique à Selenium pour le scraping. Chrome uniquement et plus bas niveau que WebDriver ; l’exécution parallèle demande des outils en plus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Cypress",
+			"source": {
+				"host": "github",
+				"path": "cypress-io/cypress",
+				"url": "https://github.com/cypress-io/cypress"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Self-hostable E2E framework, the interactive runner with time-travel debugging. Runs in-process inside the app rather than via WebDriver; Chrome-first, cross-browser support narrower, parallel runs paywalled.",
+				"fr": "Framework E2E auto-hébergeable au runner interactif avec debug temporel. Tourne dans le process de l’app testée, pas via WebDriver ; Chrome d’abord, cross-browser plus restreint, exécution parallèle payante."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Parallel runs on paid Cypress Cloud",
+					"fr": "Exécution parallèle sur Cypress Cloud payant"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "WebdriverIO",
+			"source": {
+				"host": "github",
+				"path": "webdriverio/webdriverio",
+				"url": "https://github.com/webdriverio/webdriverio"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Node.js framework over the W3C WebDriver protocol, drops onto Selenium Grid itself. Same WebDriver overhead as Selenium; Node-only ecosystem, community smaller than Playwright or Cypress.",
+				"fr": "Framework Node.js sur le protocole W3C WebDriver, se branche sur Selenium Grid lui-même. Même surcoût WebDriver que Selenium ; écosystème Node uniquement, communauté plus petite que Playwright ou Cypress."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Appium",
+			"source": {
+				"host": "github",
+				"path": "appium/appium",
+				"url": "https://github.com/appium/appium"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Open WebDriver server covering iOS, Android and desktop web; the mobile answer to Selenium. iOS setup needs a macOS toolchain; heavier runtime, mostly test automation rather than scraping.",
+				"fr": "Serveur WebDriver open couvrant iOS, Android et le web ; la réponse mobile à Selenium. iOS exige une toolchain macOS ; runtime plus lourd, surtout de l’automation de test, moins du scraping."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "chromedp",
+			"source": {
+				"host": "github",
+				"path": "chromedp/chromedp",
+				"url": "https://github.com/chromedp/chromedp"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Go automation over Chrome DevTools Protocol: single static binary, no runtime deps, headless driving for scraping. Chrome-only with no browser-agnostic spec, low-level so glue code is on you.",
+				"fr": "Automation Go sur DevTools de Chrome : binaire statique unique, sans dépendance, pilotage headless pour le scraping. Chrome uniquement, pas de spec multi-navigateur ; protocol bas niveau, de la colle à écrire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Robot Framework",
+			"source": {
+				"host": "github",
+				"path": "robotframework/robotframework",
+				"url": "https://github.com/robotframework/robotframework"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Keyword-driven Python test framework driving Selenium or Playwright libraries, readable suites, built-in reporting. A new layer above a driver library; not a drop-in Selenium Grid replacement.",
+				"fr": "Framework de test Python piloté par mots-clés qui s’appuie sur Selenium ou Playwright, suites lisibles, rapports intégrés. Une couche de plus au-dessus des drivers ; pas un équivalent de Selenium Grid."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "TestCafe",
+			"source": {
+				"host": "github",
+				"path": "DevExpress/testcafe",
+				"url": "https://github.com/DevExpress/testcafe"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "E2E framework driving browsers natively with no WebDriver, parallel tests and live mode built in. JS/TS only; smaller ecosystem and slower cadence since the 2022 community handoff.",
+				"fr": "Framework E2E qui pilote les navigateurs nativement sans WebDriver, tests parallèles et live mode inclus. JS/TS uniquement ; écosystème plus petit et cadence plus lente depuis le passage communautaire de 2022."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}
