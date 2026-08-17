@@ -24,6 +24,7 @@ import {
 	type Issue,
 	isArchived,
 	type Product,
+	type Project,
 	priceFreshness,
 	priceState,
 	RUNGS,
@@ -794,24 +795,14 @@ test("optional repo readings stay optional — a default would be a claim", () =
  * whole point, so it is asserted rather than left to the comment.
  */
 test("isArchived: forge wins, entry fills the gap, absence is not a no", () => {
-	const src = {
-		host: "github",
-		path: "x/y",
-		url: "https://github.com/x/y",
-	} as const;
-
 	// Forge says so — believe it, whatever the entry says.
-	expect(isArchived({ archived: false, source: src }, { archived: true })).toBe(
-		true,
-	);
+	expect(isArchived({ archived: false }, { archived: true })).toBe(true);
 	// Forge says alive — believe that too; it is checked nightly and we are not.
-	expect(isArchived({ archived: true, source: src }, { archived: false })).toBe(
-		false,
-	);
+	expect(isArchived({ archived: true }, { archived: false })).toBe(false);
 	// No reading at all: the entry is the only source, which is the case for
 	// roughly two-thirds of cited repos.
-	expect(isArchived({ archived: true, source: src }, null)).toBe(true);
-	expect(isArchived({ archived: undefined, source: src }, null)).toBe(false);
+	expect(isArchived({ archived: true }, null)).toBe(true);
+	expect(isArchived({ archived: undefined }, null)).toBe(false);
 });
 
 /**
