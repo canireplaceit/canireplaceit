@@ -77,6 +77,7 @@ import { categoryIcon } from "./categoryIcons";
 import {
 	AlternativeList,
 	DefaultsTable,
+	ExitLadder,
 	FactMarks,
 	GRID_1COL,
 	hostOf,
@@ -89,6 +90,7 @@ import {
 	Tag,
 	VerdictMark,
 	VerdictSentence,
+	VerdictStamp,
 	WhatYouLose,
 } from "./components";
 import { CATEGORY_FILE, EditThisPage, productFile } from "./contribute";
@@ -244,6 +246,9 @@ export function ProductPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 					{lang === "fr" ? " ?" : "?"}
 				</>
 			}
+			// The verdict lands beside the question it answers. `aside` is the
+			// page-head's action slot; clicking the stamp replays the slam.
+			aside={<VerdictStamp verdict={product.verdict} t={t} />}
 			meta={
 				<p className="nums flex flex-wrap items-center gap-x-4 gap-y-2 text-muted text-sm">
 					<VerdictMark verdict={product.verdict} t={t} />
@@ -289,6 +294,18 @@ export function ProductPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 					</div>
 
 					<WhatYouLose product={product} t={t} tc={tc} />
+
+					{/* The descent, drawn: what you pay today, the cheaper paid rung,
+					    and the best live open source rung with what each step saves.
+					    The cards below argue each alternative; this is the decision
+					    path they add up to. */}
+					<ExitLadder
+						product={product}
+						t={t}
+						tc={tc}
+						lang={lang}
+						projectHref={projectHref}
+					/>
 
 					{/* The shape of the escape, before the cards. The category page has
 					    had a strip like this for a while and it is the clearest thing on

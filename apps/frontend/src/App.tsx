@@ -580,6 +580,31 @@ const HERO_NAMES = [
 	"Jira",
 ];
 
+/**
+ * A stat that counts up to its value on first paint. The numbers are the
+ * site's proof of work, so they behave like telemetry, not like copy. Renders
+ * the final value immediately under reduced motion — and in the prerendered
+ * HTML, since the effect only runs after hydration.
+ */
+function CountUp({ value }: { value: number }) {
+	const [shown, setShown] = useState(value);
+	useEffect(() => {
+		if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+		const t0 = performance.now();
+		const dur = 900;
+		let raf = 0;
+		const tick = (now: number) => {
+			const p = Math.min(1, (now - t0) / dur);
+			// ease-out cubic: fast start, settles on the real figure.
+			setShown(Math.round(value * (1 - (1 - p) ** 3)));
+			if (p < 1) raf = requestAnimationFrame(tick);
+		};
+		raf = requestAnimationFrame(tick);
+		return () => cancelAnimationFrame(raf);
+	}, [value]);
+	return <>{shown}</>;
+}
+
 function Hero({
 	names,
 	stats,
@@ -618,7 +643,9 @@ function Hero({
 							<span
 								key={n}
 								aria-hidden={k !== i}
-								className={`col-start-1 row-start-1 ${k === i ? "" : "invisible"}`}
+								// `name-swap` re-applies each time a name becomes the visible
+								// one, so the incoming word settles instead of teleporting.
+								className={`col-start-1 row-start-1 ${k === i ? "name-swap" : "invisible"}`}
 							>
 								{n}
 							</span>
@@ -660,7 +687,13 @@ function Hero({
 						] as const
 					).map(([key, value]) => (
 						<div key={key} className="bg-surface px-3 py-4">
-							<dd className="nums font-bold text-2xl">{value ?? "—"}</dd>
+							<dd className="nums font-bold text-2xl">
+								{value !== undefined && value !== null ? (
+									<CountUp value={value} />
+								) : (
+									"—"
+								)}
+							</dd>
 							<dt className="mt-1 text-[10px] text-muted uppercase tracking-widest">
 								{t(key)}
 							</dt>
