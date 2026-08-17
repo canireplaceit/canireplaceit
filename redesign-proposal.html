@@ -1,0 +1,1549 @@
+<!doctype html>
+<html lang="en" data-skin="verdict">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>canireplaceit — redesign proposal v2</title>
+<style>
+/* ============================================================
+   canireplaceit — redesign proposal v2 (full app, 22 pages)
+   Three skins that differ STRUCTURALLY, not just in color:
+
+   VERDICT  — editorial print. Sticky top nav, centered measure,
+              verdict stamps, card grid, receipt aside.
+   TERMINAL — TUI. Fixed LEFT SIDEBAR nav, dense row lists
+              instead of cards, terminal-window hero, mono.
+   LEDGER   — accounting journal. Static centered MASTHEAD nav,
+              ruled rows with dotted leaders, serif, red ink,
+              classified-ads sponsor column.
+
+   Self-contained: system font stacks (intended webfonts named
+   inline), zero external requests. Hash router, so back works.
+   ============================================================ */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--sp1:8px;--sp2:16px;--sp3:24px;--sp4:32px;--sp5:48px;--sp6:64px;
+--max:1120px;--ease:cubic-bezier(.2,0,0,1);--easeo:cubic-bezier(.05,.7,.1,1)}
+
+/* ---------------- SKIN TOKENS ---------------- */
+[data-skin="verdict"]{
+ /* intended: Space Grotesk display · Inter body · IBM Plex Mono */
+ --display:"Avenir Next","Segoe UI",system-ui,sans-serif;
+ --body:system-ui,"Segoe UI",sans-serif;
+ --mono:ui-monospace,"Cascadia Code",Menlo,monospace;
+ --bg:#f7f5f0;--surface:#fffefb;--surface2:#efece4;
+ --ink:#191714;--muted:#6c675e;--line:#dcd7cb;--line2:#b8b2a3;
+ --accent:#2f6fed;--accent-text:#1d5cd6;
+ --yes:#187a4b;--yes-bg:#e2f2e8;--almost:#a05f00;--almost-bg:#f7ecd8;
+ --no:#bb2c2c;--no-bg:#f9e3e0;
+ --radius:4px;--radius-lg:8px;--cardb:1.5px solid var(--line);
+ --shadow:0 1px 0 rgba(25,23,20,.06);
+ --hero-grad:radial-gradient(60% 120% at 50% 0%,#efe9db 0%,transparent 70%);
+}
+/* Verdict variant: BRAND — same layout, the site's own colours (#2f6fed on cool neutrals) */
+[data-skin="brand"]{
+ --display:"Avenir Next","Segoe UI",system-ui,sans-serif;
+ --body:system-ui,"Segoe UI",sans-serif;
+ --mono:ui-monospace,"Cascadia Code",Menlo,monospace;
+ --bg:#fbfbfd;--surface:#ffffff;--surface2:#f3f5f8;
+ --ink:#0f1319;--muted:#5d6675;--line:#e3e6ec;--line2:#cdd3dd;
+ --accent:#2f6fed;--accent-text:#0e64e0;
+ --yes:#167a52;--yes-bg:#e3f2ea;--almost:#a15a05;--almost-bg:#f8edda;
+ --no:#c62f2f;--no-bg:#fae4e2;
+ --radius:8px;--radius-lg:14px;--cardb:1px solid var(--line);
+ --shadow:0 1px 2px rgba(15,19,25,.05),0 4px 14px rgba(15,19,25,.04);
+ --hero-grad:radial-gradient(60% 120% at 50% 0%,#e6eefc 0%,transparent 70%);
+}
+/* Verdict variant: BRAND DARK — the site's dark theme (#4c8dff on #0a0d13) */
+[data-skin="brand-dark"]{
+ --display:"Avenir Next","Segoe UI",system-ui,sans-serif;
+ --body:system-ui,"Segoe UI",sans-serif;
+ --mono:ui-monospace,"Cascadia Code",Menlo,monospace;
+ --bg:#0a0d13;--surface:#121722;--surface2:#19202d;
+ --ink:#e7ecf3;--muted:#8b94a5;--line:#222b3a;--line2:#34415a;
+ --accent:#4c8dff;--accent-text:#7ca9ff;
+ --yes:#34d399;--yes-bg:#0e2b20;--almost:#f5a623;--almost-bg:#2b2110;
+ --no:#ff5c5c;--no-bg:#2f1515;
+ --radius:8px;--radius-lg:14px;--cardb:1px solid var(--line);
+ --shadow:0 1px 2px rgba(0,0,0,.3);
+ --hero-grad:radial-gradient(60% 120% at 50% 0%,#14203a 0%,transparent 70%);
+}
+[data-skin="terminal"]{
+ /* intended: Berkeley Mono / JetBrains Mono everywhere */
+ --display:ui-monospace,"Cascadia Code",Menlo,monospace;
+ --body:ui-monospace,"Cascadia Code",Menlo,monospace;
+ --mono:ui-monospace,"Cascadia Code",Menlo,monospace;
+ --bg:#0b0f0d;--surface:#111713;--surface2:#16201a;
+ --ink:#d7e4da;--muted:#7d9184;--line:#223027;--line2:#3a4f42;
+ --accent:#4ade80;--accent-text:#4ade80;
+ --yes:#4ade80;--yes-bg:#12271a;--almost:#fbbf24;--almost-bg:#2a2210;
+ --no:#f87171;--no-bg:#2b1414;
+ --radius:0px;--radius-lg:0px;--cardb:1px solid var(--line);--shadow:none;
+ --hero-grad:none;
+}
+[data-skin="ledger"]{
+ /* intended: Fraunces display · Source Serif body · IBM Plex Mono numerals */
+ --display:Georgia,"Times New Roman",serif;
+ --body:Charter,Georgia,serif;
+ --mono:ui-monospace,Menlo,monospace;
+ --bg:#f3ead9;--surface:#faf4e7;--surface2:#ece1cb;
+ --ink:#2e2418;--muted:#7c6f5b;--line:#d8cab0;--line2:#b5a486;
+ --accent:#1d5e46;--accent-text:#1d5e46;
+ --yes:#1d5e46;--yes-bg:#dfeadf;--almost:#8a5a00;--almost-bg:#f0e3c6;
+ --no:#a52222;--no-bg:#f2ddd5;
+ --radius:2px;--radius-lg:3px;--cardb:1px solid var(--line2);
+ --shadow:2px 2px 0 rgba(46,36,24,.07);
+ --hero-grad:repeating-linear-gradient(transparent 0 27px,#d8cab055 27px 28px);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--bg);color:var(--ink);font-size:15.5px;line-height:1.55;transition:background .3s var(--ease),color .3s var(--ease)}
+a{color:inherit;text-decoration:none}
+a.tx{color:var(--accent-text);text-decoration:underline;text-underline-offset:2px}
+button{font:inherit;cursor:pointer;color:inherit}
+input,select,textarea{font:inherit;color:var(--ink)}
+.mono,.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.eyebrow{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.18em;color:var(--muted)}
+h1,h2,h3,h4{font-family:var(--display);letter-spacing:-.015em;line-height:1.15}
+.muted{color:var(--muted)}
+.only-terminal,.only-ledger{display:none}
+[data-skin="terminal"] .only-terminal{display:block}
+[data-skin="terminal"] .not-terminal{display:none}
+[data-skin="ledger"] .only-ledger{display:block}
+[data-skin="ledger"] .not-ledger{display:none}
+[data-skin="verdict"] .not-verdict{display:none}
+
+/* ================= PROTO BAR (prototype chrome, all skins) ================= */
+#proto{position:fixed;bottom:14px;right:14px;z-index:99;display:flex;gap:8px;align-items:center}
+#proto .pbtn{font-family:var(--mono);font-size:11px;letter-spacing:.06em;padding:8px 12px;border:1px solid var(--line2);border-radius:999px;background:var(--surface);color:var(--muted);box-shadow:0 4px 18px rgba(0,0,0,.15)}
+#proto .pbtn:hover{color:var(--ink)}
+#skin-picker{position:relative}
+#skin-picker .cur{display:flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid var(--line2);border-radius:999px;background:var(--ink);color:var(--bg);font-family:var(--mono);font-size:11.5px;box-shadow:0 4px 18px rgba(0,0,0,.2)}
+#skin-picker .dot{width:10px;height:10px;border-radius:50%;background:var(--accent)}
+#skin-picker .menu{position:absolute;right:0;bottom:calc(100% + 8px);min-width:250px;background:var(--surface);border:var(--cardb);border-radius:var(--radius-lg);box-shadow:0 12px 32px rgba(0,0,0,.22);padding:6px;opacity:0;transform:translateY(6px);pointer-events:none;transition:opacity .18s var(--ease),transform .18s var(--ease)}
+#skin-picker:hover .menu,#skin-picker:focus-within .menu{opacity:1;transform:none;pointer-events:auto}
+#skin-picker .menu button{display:block;width:100%;text-align:left;padding:10px 12px;border:none;background:none;border-radius:var(--radius)}
+#skin-picker .menu button:hover{background:var(--surface2)}
+#skin-picker .menu b{display:block;font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+#skin-picker .menu span{font-size:12px;color:var(--muted)}
+#skin-picker .menu button[data-active="true"] b{color:var(--accent-text)}
+
+/* ================= SITE HEADER — restructured per skin ================= */
+header.site{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:18px;padding:12px 22px;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:var(--cardb);flex-wrap:wrap}
+.brand{font-family:var(--display);font-weight:700;font-size:18px;letter-spacing:-.01em;white-space:nowrap}
+.brand em{font-style:normal;color:var(--accent-text)}
+.navlinks{display:flex;align-items:center;gap:2px;flex-wrap:wrap}
+.navlinks>a,.dd>summary{font-family:var(--mono);font-size:12px;letter-spacing:.04em;padding:7px 10px;border-radius:var(--radius);color:var(--muted);list-style:none;cursor:pointer;white-space:nowrap}
+.dd>summary::-webkit-details-marker{display:none}
+.navlinks>a:hover,.dd>summary:hover{color:var(--ink);background:var(--surface2)}
+.navlinks>a[aria-current="true"]{color:var(--ink);box-shadow:inset 0 -2px 0 var(--accent)}
+.dd{position:relative}
+.dd .ddm{position:absolute;left:0;top:calc(100% + 4px);min-width:230px;background:var(--surface);border:var(--cardb);border-radius:var(--radius-lg);box-shadow:0 10px 28px rgba(0,0,0,.16);padding:6px;z-index:41}
+.dd .ddm a{display:block;padding:8px 12px;border-radius:var(--radius);font-size:13.5px}
+.dd .ddm a:hover{background:var(--surface2)}
+.dd .ddm .sep{border-top:1px solid var(--line);margin:6px 0}
+.hspace{flex:1}
+.btn-sponsor{font-family:var(--mono);font-size:12px;padding:8px 18px;border-radius:999px;border:2px solid var(--accent);background:var(--accent);color:#fff;font-weight:700;letter-spacing:.04em}
+.btn-sponsor:hover{filter:brightness(1.08);transform:translateY(-1px)}
+[data-skin="brand-dark"] .btn-sponsor{color:#0a0d13}
+a.signin{font-family:var(--mono);font-size:12px;color:var(--muted);padding:8px 10px}
+a.signin:hover{color:var(--ink)}
+
+/* — TERMINAL: header becomes a fixed left sidebar — */
+@media(min-width:1020px){
+ [data-skin="terminal"] header.site{position:fixed;top:0;left:0;bottom:0;width:236px;flex-direction:column;align-items:stretch;gap:6px;padding:18px 14px;border-bottom:none;border-right:1px solid var(--line);background:var(--surface);backdrop-filter:none;overflow-y:auto}
+ [data-skin="terminal"] .navlinks{flex-direction:column;align-items:stretch;gap:1px}
+ [data-skin="terminal"] .navlinks>a,[data-skin="terminal"] .dd>summary{padding:6px 8px}
+ [data-skin="terminal"] .navlinks>a::before{content:"  ";white-space:pre}
+ [data-skin="terminal"] .navlinks>a[aria-current="true"]{box-shadow:none;background:var(--surface2);color:var(--accent)}
+ [data-skin="terminal"] .navlinks>a[aria-current="true"]::before{content:"> "}
+ [data-skin="terminal"] .dd .ddm{position:static;border:none;box-shadow:none;background:none;padding:0 0 0 16px;min-width:0}
+ [data-skin="terminal"] .hspace{display:none}
+ [data-skin="terminal"] .btn-sponsor{border-radius:0;margin-top:10px}
+ [data-skin="terminal"] main,[data-skin="terminal"] footer.sitefoot{margin-left:236px}
+ [data-skin="terminal"] .brand{margin-bottom:12px}
+ [data-skin="terminal"] .brand::before{content:"~/ ";color:var(--accent)}
+}
+/* — LEDGER: header becomes a static centered masthead — */
+[data-skin="ledger"] header.site{position:static;flex-direction:column;gap:10px;padding:26px 22px 0;background:var(--bg);backdrop-filter:none;border-bottom:none}
+[data-skin="ledger"] .brand{font-size:34px;font-weight:700}
+[data-skin="ledger"] .navlinks{justify-content:center;border-top:1px solid var(--line2);border-bottom:3px double var(--line2);padding:6px 0;width:100%;max-width:980px;margin:0 auto}
+[data-skin="ledger"] .navlinks>a,[data-skin="ledger"] .dd>summary{border-radius:0;letter-spacing:.12em;text-transform:uppercase;font-size:11px}
+[data-skin="ledger"] .navlinks>a[aria-current="true"]{box-shadow:none;color:var(--no);font-weight:700}
+[data-skin="ledger"] .hspace{display:none}
+[data-skin="ledger"] .btn-sponsor{position:absolute;top:20px;right:22px;border-radius:0}
+[data-skin="ledger"] a.signin{position:absolute;top:20px;left:22px}
+[data-skin="ledger"] header.site{position:relative}
+
+/* ================= SPONSOR RAILS — on every page ================= */
+.rail{display:none;position:fixed;top:96px;width:150px;z-index:5;flex-direction:column;gap:10px}
+#rail-l{left:14px}#rail-r{right:14px}
+@media(min-width:1460px){.rail{display:flex}}
+@media(min-width:1020px){[data-skin="terminal"] #rail-l{display:none}}
+.slot{border:var(--cardb);border-radius:var(--radius-lg);background:var(--surface);padding:10px;font-size:11.5px;line-height:1.4;box-shadow:var(--shadow)}
+.slot .s-eyebrow{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px}
+.slot.sold{border-left:3px solid var(--tint,var(--accent))}
+.slot.sold b{display:block;font-size:12.5px}
+.slot.open{border-style:dashed;color:var(--muted);text-align:center;padding:16px 10px}
+.slot.open a{color:var(--accent-text);font-weight:600;display:block;margin-top:4px}
+.slot.open:hover{border-color:var(--accent);color:var(--ink)}
+[data-skin="ledger"] .slot{border:1px solid var(--line2);outline:1px solid var(--line2);outline-offset:2px;border-radius:0}
+[data-skin="ledger"] .rail::before{content:"ADVERTISEMENTS";font-family:var(--mono);font-size:9px;letter-spacing:.3em;text-align:center;color:var(--muted)}
+[data-skin="terminal"] .slot{border-radius:0}
+[data-skin="terminal"] .slot .s-eyebrow::before{content:"[ "}
+[data-skin="terminal"] .slot .s-eyebrow::after{content:" ]"}
+
+/* ================= LAYOUT ================= */
+main{min-height:70vh}
+.page{display:none}
+.page.active{display:block;animation:pin .35s var(--easeo)}
+@keyframes pin{from{opacity:0;transform:translateY(8px)}}
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--sp3)}
+.wrap.tight{max-width:880px}
+.section{margin-block:var(--sp5)}
+.section>.eyebrow{display:block;margin-bottom:var(--sp2)}
+[data-skin="terminal"] .section>.eyebrow::before{content:"── "}
+[data-skin="terminal"] .section>.eyebrow::after{content:" ──────────"}
+.pagehead{padding:var(--sp4) 0 0}
+.pagehead h1{font-size:clamp(26px,3.6vw,40px)}
+.pagehead .lede{color:var(--muted);margin-top:8px;max-width:62ch}
+.crumbs{font-family:var(--mono);font-size:11px;color:var(--muted);padding-top:var(--sp3)}
+.crumbs b{color:var(--ink)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp2)}
+@media(max-width:760px){.grid2{grid-template-columns:1fr}}
+.grid3{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:var(--sp2)}
+
+/* ================= HEROES (one per skin) ================= */
+.hero{position:relative;padding:var(--sp6) 0 var(--sp5);text-align:center;background:var(--hero-grad)}
+.hero h1{font-size:clamp(32px,5.6vw,60px);font-weight:700}
+.cycle{display:inline-block;min-width:5.2ch;text-align:left;color:var(--accent-text);border-bottom:4px solid var(--accent)}
+.cycle.swap{animation:nsw .5s var(--easeo)}
+@keyframes nsw{0%{opacity:0;transform:translateY(.35em);filter:blur(2px)}100%{opacity:1;transform:none}}
+.hero .lede{margin:var(--sp2) auto 0;max-width:52ch;color:var(--muted);font-size:16.5px}
+/* terminal hero = a terminal window */
+.termwin{max-width:720px;margin:0 auto;text-align:left;border:1px solid var(--line2);background:var(--surface)}
+.termwin .tbar{display:flex;gap:6px;padding:8px 12px;border-bottom:1px solid var(--line);color:var(--muted);font-size:11px}
+.termwin .tbar i{width:9px;height:9px;border-radius:50%;background:var(--line2);display:inline-block}
+.termwin pre{padding:18px;font-family:var(--mono);font-size:14.5px;line-height:1.8;white-space:pre-wrap}
+.termwin .c-p{color:var(--accent)} .termwin .c-m{color:var(--muted)}
+.termwin .c-a{color:var(--almost);font-weight:700}
+.cursor::after{content:"▊";color:var(--accent);animation:blink 1.1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+/* ledger hero = an account book opening */
+.ledgerhero{max-width:640px;margin:0 auto;text-align:left;border:1px solid var(--line2);background:var(--surface);padding:22px 26px;box-shadow:var(--shadow)}
+.ledgerhero .lh-title{font-family:var(--mono);font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);text-align:center;border-bottom:1px solid var(--line2);padding-bottom:8px}
+.lrow{display:flex;align-items:baseline;gap:8px;padding:9px 0;border-bottom:1px dotted var(--line2);font-size:15px}
+.lrow .dots{flex:1;border-bottom:1px dotted var(--line2);transform:translateY(-4px)}
+.lrow .amt{font-family:var(--mono)} .lrow.total .amt{color:var(--no);font-weight:700;font-size:18px}
+.lrow.total{border-bottom:3px double var(--line2)}
+.lrow .strike{text-decoration:line-through;color:var(--muted)}
+
+/* search + stats */
+.searchbar{display:flex;align-items:center;gap:12px;max-width:620px;margin:var(--sp4) auto 0;background:var(--surface);border:2px solid var(--line2);border-radius:var(--radius-lg);padding:13px 18px;text-align:left;transition:border-color .2s,box-shadow .2s,transform .2s}
+.searchbar:focus-within{border-color:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 16%,transparent);transform:translateY(-1px)}
+.searchbar input{flex:1;border:none;background:none;outline:none;min-width:0}
+.searchbar kbd{font-family:var(--mono);font-size:10px;color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:2px 6px;background:var(--surface2)}
+.stats{display:flex;justify-content:center;gap:var(--sp5);margin-top:var(--sp4);flex-wrap:wrap}
+.stat{text-align:center}
+.stat b{display:block;font-family:var(--mono);font-size:28px;font-weight:600;font-variant-numeric:tabular-nums}
+.stat span{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+[data-skin="ledger"] .stats{border-block:3px double var(--line2);padding-block:14px;gap:var(--sp4)}
+
+/* ================= SPONSOR WALL (home + page bottoms) ================= */
+.wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:var(--cardb);margin-top:var(--sp4)}
+.wall .cell{background:var(--surface);padding:14px 10px;text-align:center;font-size:12px;min-height:74px;display:flex;flex-direction:column;justify-content:center;gap:3px}
+.wall .cell b{font-size:13px}
+.wall .cell .s-tag{font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;color:var(--muted);text-transform:uppercase}
+.wall .cell.open{color:var(--muted)}
+.wall .cell.open:hover{background:var(--surface2);color:var(--ink)}
+.wall .cell.open a{color:var(--accent-text);font-weight:600}
+.wallnote{font-family:var(--mono);font-size:10.5px;color:var(--muted);text-align:center;margin-top:8px}
+
+/* ================= VERDICT LANGUAGE ================= */
+.vmark{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.1em;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.vmark::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.vmark.yes{color:var(--yes);background:var(--yes-bg)}
+.vmark.almost{color:var(--almost);background:var(--almost-bg)}
+.vmark.no{color:var(--no);background:var(--no-bg)}
+[data-skin="terminal"] .vmark{border-radius:0}
+.stamp{display:inline-block;font-family:var(--display);font-weight:800;font-size:clamp(18px,2.6vw,28px);text-transform:uppercase;letter-spacing:.06em;padding:5px 16px;border:3.5px solid currentColor;border-radius:6px;transform:rotate(-4deg);background:none;
+-webkit-mask-image:radial-gradient(circle at 30% 40%,black 92%,transparent 96%),radial-gradient(circle at 70% 60%,black 90%,transparent 95%)}
+.stamp.yes{color:var(--yes)}.stamp.almost{color:var(--almost)}.stamp.no{color:var(--no)}
+.stamp.slam{animation:slam .45s var(--easeo) both}
+@keyframes slam{0%{opacity:0;transform:rotate(-14deg) scale(2.4)}60%{opacity:1;transform:rotate(-3deg) scale(.96)}80%{transform:rotate(-4.5deg) scale(1.03)}100%{transform:rotate(-4deg) scale(1)}}
+
+/* ================= PRODUCT LIST — restructured per skin ================= */
+.filterrow{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:var(--sp3)}
+.pill{font-family:var(--mono);font-size:11.5px;padding:7px 13px;border-radius:999px;border:1.5px solid var(--line2);background:var(--surface);color:var(--muted);transition:all .15s var(--ease)}
+.pill:hover{border-color:var(--ink);color:var(--ink)}
+.pill[data-on="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+[data-skin="terminal"] .pill,[data-skin="ledger"] .pill{border-radius:0}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:var(--sp2)}
+.pcard{background:var(--surface);border:var(--cardb);border-radius:var(--radius-lg);padding:var(--sp2);box-shadow:var(--shadow);position:relative;overflow:hidden;display:block;transition:transform .18s var(--ease),border-color .18s,box-shadow .18s;animation:cin .45s var(--easeo) both}
+@keyframes cin{from{opacity:0;transform:translateY(12px)}}
+.pcard:hover{transform:translateY(-3px);border-color:var(--line2);box-shadow:0 10px 24px rgba(0,0,0,.1)}
+.pcard::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px}
+.pcard.v-yes::before{background:var(--yes)}.pcard.v-almost::before{background:var(--almost)}.pcard.v-no::before{background:var(--no)}
+.pcard .r1{display:flex;align-items:center;gap:10px}
+.pcard .logo{width:32px;height:32px;border-radius:8px;display:grid;place-items:center;font-weight:700;background:var(--surface2);font-family:var(--display);flex:none}
+.pcard h3{font-size:16.5px;flex:1}
+.pcard .price{font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+.pcard .r2{display:flex;align-items:center;gap:10px;margin-top:9px}
+.pcard .sw{font-family:var(--mono);font-size:11px;color:var(--muted);margin-left:auto}
+.pcard .esc{margin-top:9px;font-size:12.5px;color:var(--muted)}
+.pcard .esc b{color:var(--ink);font-weight:600}
+.pcard.adslot{border-style:dashed;box-shadow:none;color:var(--muted);display:flex;flex-direction:column;justify-content:center;text-align:center;gap:4px;animation:none}
+.pcard.adslot::before{display:none}
+.pcard.adslot:hover{border-color:var(--accent)}
+.pcard.adslot .s-tag{font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase}
+.pcard.adslot b{color:var(--accent-text)}
+/* — TERMINAL: cards collapse into dense rows — */
+[data-skin="terminal"] .pgrid{display:flex;flex-direction:column;gap:0;border:1px solid var(--line)}
+[data-skin="terminal"] .pcard{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;border:none;border-bottom:1px solid var(--line);border-radius:0;padding:10px 14px;animation:none;box-shadow:none}
+[data-skin="terminal"] .pcard:hover{transform:none;background:var(--surface2)}
+[data-skin="terminal"] .pcard .r1,[data-skin="terminal"] .pcard .r2{display:contents}
+[data-skin="terminal"] .pcard .logo{display:none}
+[data-skin="terminal"] .pcard h3{flex:0 0 150px;font-size:14.5px}
+[data-skin="terminal"] .pcard .price{flex:0 0 92px;text-align:right}
+[data-skin="terminal"] .pcard .sw{margin-left:0;flex:0 0 110px}
+[data-skin="terminal"] .pcard .esc{margin:0 0 0 auto;text-align:right}
+[data-skin="terminal"] .pcard.adslot{flex-direction:row;justify-content:flex-start;gap:12px}
+/* — LEDGER: cards become journal lines with dotted leaders — */
+[data-skin="ledger"] .pgrid{display:flex;flex-direction:column;gap:0}
+[data-skin="ledger"] .pcard{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;background:none;border:none;border-bottom:1px dotted var(--line2);border-radius:0;box-shadow:none;padding:11px 2px;animation:none}
+[data-skin="ledger"] .pcard:hover{transform:none;background:var(--surface)}
+[data-skin="ledger"] .pcard::before{position:static;width:8px;height:8px;border-radius:50%;flex:none;align-self:center}
+[data-skin="ledger"] .pcard .r1{display:contents}
+[data-skin="ledger"] .pcard .logo{display:none}
+[data-skin="ledger"] .pcard h3{font-size:17px;flex:none}
+[data-skin="ledger"] .pcard .r2{display:contents}
+[data-skin="ledger"] .pcard .vmark{background:none;padding:0}
+[data-skin="ledger"] .pcard .vmark::before{display:none}
+[data-skin="ledger"] .pcard .esc{flex:1;text-align:right;margin:0;order:5}
+[data-skin="ledger"] .pcard .sw{margin-left:0}
+[data-skin="ledger"] .pcard .price{order:6;flex:0 0 76px;text-align:right;font-size:14px}
+[data-skin="ledger"] .pcard.adslot{border:1px dashed var(--line2);margin-block:8px;padding:14px;justify-content:center}
+
+/* ================= PRODUCT PAGE ================= */
+.phead{display:flex;align-items:center;gap:var(--sp2);padding-top:var(--sp3);flex-wrap:wrap}
+.phead .biglogo{width:54px;height:54px;border-radius:12px;background:var(--surface);border:var(--cardb);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:22px}
+.phead h1{font-size:clamp(26px,3.8vw,42px);flex:1;min-width:200px}
+.pcols{display:grid;grid-template-columns:1fr 320px;gap:var(--sp4);margin-top:var(--sp3);align-items:start}
+@media(max-width:900px){.pcols{grid-template-columns:1fr}}
+.vsent{font-family:var(--display);font-size:clamp(18px,2.2vw,23px);line-height:1.35;font-weight:600;max-width:58ch}
+.vsent .hl{border-bottom:3px solid var(--almost)}
+.lose{display:flex;gap:8px;flex-wrap:wrap;margin-top:var(--sp2)}
+.lose span{font-family:var(--mono);font-size:11.5px;padding:6px 12px;background:var(--no-bg);color:var(--no);border-radius:var(--radius)}
+.ladder{margin-top:var(--sp3);border-left:2.5px solid var(--line2)}
+.ladder li{list-style:none;position:relative;padding:11px 0 11px 26px;opacity:0;transform:translateX(-8px)}
+.page.active .ladder li{animation:rin .45s var(--easeo) forwards}
+.ladder li:nth-child(1){animation-delay:.1s}.ladder li:nth-child(2){animation-delay:.25s}
+.ladder li:nth-child(3){animation-delay:.4s}.ladder li:nth-child(4){animation-delay:.55s}
+@keyframes rin{to{opacity:1;transform:none}}
+.ladder li::before{content:"";position:absolute;left:-8px;top:19px;width:13px;height:13px;border-radius:50%;background:var(--bg);border:2.5px solid var(--line2)}
+.ladder li.now::before{background:var(--accent);border-color:var(--accent)}
+.ladder .rl{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
+.ladder .rw{font-weight:600}
+.ladder .rc{font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+.ladder .save{color:var(--yes);font-weight:600}
+.alt{display:flex;gap:var(--sp2);padding:var(--sp2);border:var(--cardb);border-radius:var(--radius-lg);background:var(--surface);margin-top:10px;transition:transform .15s,border-color .15s}
+.alt:hover{transform:translateX(4px);border-color:var(--line2)}
+.alt .logo{width:38px;height:38px;flex:none;border-radius:8px;background:var(--surface2);display:grid;place-items:center;font-weight:700;font-family:var(--display)}
+.alt h4{font-size:15.5px}
+.alt .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.alt .tags span{font-family:var(--mono);font-size:10px;padding:3px 8px;border:1px solid var(--line);border-radius:4px;color:var(--muted)}
+.alt p{font-size:13px;color:var(--muted);margin-top:6px;max-width:50ch}
+.alt .fit{margin-left:auto;text-align:right;flex:none}
+.alt .fit b{font-family:var(--mono);font-size:19px;color:var(--yes)}
+.alt .fit span{display:block;font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+[data-skin="ledger"] .alt{border:none;border-bottom:1px dotted var(--line2);border-radius:0;background:none}
+[data-skin="terminal"] .alt{border-radius:0}
+.receipt{background:var(--surface);border:var(--cardb);border-radius:var(--radius-lg);padding:var(--sp2);box-shadow:var(--shadow)}
+/* the whole aside sticks as one unit — the ad slot under the receipt must never scroll out of view */
+.pcols aside{position:sticky;top:80px}
+[data-skin="terminal"] .pcols aside{top:20px}
+.receipt::after{content:"";display:block;margin:var(--sp2) -16px -16px;height:10px;background:radial-gradient(circle at 8px -2px,transparent 6px,var(--bg) 6.5px);background-size:16px 10px}
+.rrow{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px dashed var(--line);font-size:13px}
+.rrow span:first-child{color:var(--muted)}
+.rrow .val{font-family:var(--mono);text-align:right}
+.rtotal{font-family:var(--mono);font-size:25px;font-weight:600}
+.btn{display:inline-flex;align-items:center;gap:8px;justify-content:center;width:100%;margin-top:var(--sp2);padding:11px;border-radius:var(--radius);border:2px solid var(--ink);background:var(--ink);color:var(--bg);font-weight:600;transition:transform .12s,opacity .2s}
+.btn:hover{transform:translateY(-1px)}.btn:active{transform:translateY(1px)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.done{background:var(--yes);border-color:var(--yes);color:#fff}
+.btn.sm{width:auto;padding:8px 14px;font-size:13px;margin-top:0}
+.bleed{margin-top:var(--sp2);text-align:center;font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+.bleed b{color:var(--no);font-size:14px}
+
+/* ================= TABLES / MATRIX ================= */
+.tscroll{overflow-x:auto;border:var(--cardb);border-radius:var(--radius-lg);background:var(--surface)}
+table.t{border-collapse:collapse;width:100%;min-width:560px}
+.t th,.t td{padding:10px 14px;text-align:left;font-size:13px;border-bottom:1px solid var(--line)}
+.t th{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.t td.num,.t th.num{text-align:right;font-family:var(--mono)}
+.t tr:hover td{background:color-mix(in srgb,var(--accent) 5%,transparent)}
+table.matrix td,table.matrix th{text-align:center}
+table.matrix td:first-child,table.matrix th:first-child{text-align:left;position:sticky;left:0;background:var(--surface)}
+.matrix .you{background:color-mix(in srgb,var(--accent) 7%,var(--surface))}
+.matrix td.hit{background:color-mix(in srgb,var(--accent) 14%,var(--surface))}
+.g-yes{color:var(--yes)}.g-paid{color:var(--almost)}.g-part{color:var(--almost)}.g-no,.g-unk{color:var(--muted)}
+[data-skin="ledger"] .tscroll{border:none;border-block:3px double var(--line2);border-radius:0;background:none}
+
+/* rung bar */
+.rungbar{display:flex;height:9px;border-radius:999px;overflow:hidden;background:var(--surface2);min-width:130px}
+.rungbar i{height:100%}
+.rb-lock{background:var(--no)}.rb-part{background:var(--almost)}.rb-self{background:color-mix(in srgb,var(--yes) 55%,var(--surface2))}.rb-drop{background:var(--yes)}
+.catrow{display:flex;align-items:center;gap:14px;padding:13px 4px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.catrow .ic{width:34px;height:34px;border-radius:8px;background:var(--surface2);display:grid;place-items:center;flex:none}
+.catrow h4{font-size:15.5px}
+.catrow .meta{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.catrow .cheap{margin-left:auto;font-size:12.5px;color:var(--muted);text-align:right}
+.catrow .cheap b{color:var(--yes)}
+.catrow:hover{background:var(--surface)}
+
+/* graveyard */
+.ggrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:var(--sp2)}
+.tomb{background:var(--surface);border:var(--cardb);border-bottom-width:5px;border-radius:60px 60px var(--radius) var(--radius);padding:34px 18px 18px;text-align:center;box-shadow:var(--shadow);transition:transform .2s}
+.tomb:hover{transform:translateY(-4px) rotate(-.5deg)}
+.tomb .rip{font-family:var(--mono);font-size:9px;letter-spacing:.3em;color:var(--muted)}
+.tomb h4{font-size:17px;margin:8px 0 2px}
+.tomb .dates{font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+.tomb .epi{font-size:12px;color:var(--muted);font-style:italic;margin-top:9px}
+[data-skin="terminal"] .tomb{border-radius:0}
+
+/* ================= FORMS / WIZARD ================= */
+.panel{background:var(--surface);border:var(--cardb);border-radius:var(--radius-lg);padding:var(--sp3);box-shadow:var(--shadow)}
+.panel.dashed{border-style:dashed;box-shadow:none}
+label.f{display:block;margin-bottom:var(--sp2)}
+label.f span{display:block;font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:5px}
+.in{width:100%;padding:10px 12px;border:1.5px solid var(--line2);border-radius:var(--radius);background:var(--bg)}
+.in:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 15%,transparent)}
+.steps{display:flex;gap:6px;margin:var(--sp3) 0;flex-wrap:wrap}
+.step{font-family:var(--mono);font-size:11px;letter-spacing:.06em;padding:8px 14px;border:1.5px solid var(--line2);border-radius:999px;color:var(--muted);background:none}
+.step[data-on="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.step[data-done="true"]{color:var(--yes);border-color:var(--yes)}
+[data-skin="terminal"] .step,[data-skin="ledger"] .step{border-radius:0}
+.slotrow{display:flex;align-items:center;gap:12px;padding:11px 4px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.slotrow .nm{flex:1;min-width:150px}
+.slotrow .nm b{font-size:14px}
+.slotrow .nm span{display:block;font-size:11.5px;color:var(--muted)}
+.slotrow .pr{font-family:var(--mono);font-size:13px}
+.slotrow .st{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.1em}
+.slotrow .st.free{color:var(--yes)} .slotrow .st.taken{color:var(--muted)}
+.slotrow button{padding:7px 14px;border:1.5px solid var(--line2);border-radius:var(--radius);background:none;font-size:12.5px}
+.slotrow button[data-picked="true"]{background:var(--yes);border-color:var(--yes);color:#fff}
+.slotrow button:disabled{opacity:.4;cursor:not-allowed}
+.termcard{border:2px solid var(--line2);border-radius:var(--radius-lg);padding:var(--sp2);text-align:center;cursor:pointer;transition:border-color .15s,transform .15s;background:var(--surface)}
+.termcard:hover{transform:translateY(-2px)}
+.termcard[data-on="true"]{border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 15%,transparent)}
+.termcard b{font-family:var(--mono);font-size:22px;display:block}
+.termcard .disc{color:var(--yes);font-family:var(--mono);font-size:11px}
+.quote{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px 0;border-bottom:1px dashed var(--line);font-size:14px}
+.quote.big{font-size:19px;border-bottom:3px double var(--line2)}
+.quote .num{font-family:var(--mono)}
+.preview-note{font-family:var(--mono);font-size:10.5px;color:var(--accent-text);letter-spacing:.08em;text-transform:uppercase}
+
+/* dashboard / admin */
+.figrow{display:flex;gap:var(--sp4);flex-wrap:wrap;margin-block:var(--sp3)}
+.fig b{display:block;font-family:var(--mono);font-size:26px}
+.fig span{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.prog{height:7px;background:var(--surface2);border-radius:999px;overflow:hidden;min-width:120px}
+.prog i{display:block;height:100%;background:var(--accent);border-radius:999px}
+.tagpill{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.1em;padding:3px 9px;border-radius:999px}
+.tagpill.live{background:var(--yes-bg);color:var(--yes)}
+.tagpill.pend{background:var(--almost-bg);color:var(--almost)}
+.tagpill.rej{background:var(--no-bg);color:var(--no)}
+.banner{border:1.5px solid var(--almost);background:var(--almost-bg);color:var(--almost);border-radius:var(--radius-lg);padding:12px 16px;font-size:13.5px;margin-block:var(--sp2)}
+.banner.red{border-color:var(--no);background:var(--no-bg);color:var(--no)}
+
+/* features explorer */
+.chip{font-family:var(--mono);font-size:11px;padding:6px 11px;border:1.5px solid var(--line2);border-radius:var(--radius);background:var(--surface);color:var(--muted)}
+.chip[data-on="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.chiprow{display:flex;gap:7px;flex-wrap:wrap;margin-block:10px}
+.legend5{font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+
+/* glossary / docs */
+.doc{max-width:70ch}
+.doc h2{font-size:22px;margin:var(--sp4) 0 var(--sp2)}
+.doc p{color:var(--muted);margin-bottom:var(--sp2)}
+dl.gl dt{font-weight:700;font-family:var(--display);margin-top:14px}
+dl.gl dd{color:var(--muted);font-size:14px;margin-top:2px}
+.flist{display:grid;gap:10px;margin:var(--sp2) 0}
+.frow{display:flex;gap:14px;padding:13px 15px;background:var(--surface);border:var(--cardb);border-radius:var(--radius-lg)}
+.frow .k{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--accent-text);flex:none;width:110px;padding-top:2px}
+.frow p{margin:2px 0 0;font-size:13px;color:var(--muted)}
+.frow b{font-size:14px}
+.prop{border-left:3px solid var(--accent);padding:4px 0 4px var(--sp2);margin:var(--sp3) 0}
+.prop h3{font-size:16.5px}
+.prop p{font-size:13.5px;color:var(--muted);margin-top:4px;max-width:64ch}
+.ptag{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.12em;padding:2px 8px;border-radius:999px;margin-left:8px;vertical-align:2px}
+.ptag.new{background:var(--yes-bg);color:var(--yes)}.ptag.motion{background:var(--almost-bg);color:var(--almost)}.ptag.fix{background:var(--no-bg);color:var(--no)}
+
+/* footer */
+footer.sitefoot{margin-top:var(--sp6);border-top:var(--cardb);background:var(--surface)}
+.footgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:var(--sp3);padding:var(--sp4) 0}
+.footgrid h5{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.16em;color:var(--muted);margin-bottom:10px}
+.footgrid a{display:block;font-size:13px;color:var(--muted);padding:3px 0}
+.footgrid a:hover{color:var(--ink)}
+.footnote{border-top:1px solid var(--line);padding:14px 0;font-family:var(--mono);font-size:11px;color:var(--muted);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+[data-skin="ledger"] footer.sitefoot{background:none;border-top:3px double var(--line2);text-align:center}
+[data-skin="ledger"] .footgrid{grid-template-columns:1fr;gap:6px;padding:var(--sp3) 0}
+[data-skin="ledger"] .footgrid>div{display:contents}
+[data-skin="ledger"] .footgrid h5{margin:10px 0 2px}
+[data-skin="ledger"] .footgrid a{display:inline-block;padding:2px 10px}
+
+dialog{border:var(--cardb);border-radius:var(--radius-lg);background:var(--surface);color:var(--ink);padding:var(--sp3);max-width:420px;margin:auto}
+dialog::backdrop{background:rgba(0,0,0,.4)}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}}
+</style>
+</head>
+<body>
+
+<!-- ============ prototype chrome (floating, bottom-right) ============ -->
+<div id="proto">
+  <a class="pbtn" href="#/inventory">📋 inventory</a>
+  <a class="pbtn" href="#/proposals">💡 proposals</a>
+  <div id="skin-picker">
+    <div class="cur" tabindex="0"><span class="dot"></span><span id="skin-name">Verdict · Paper</span> ▴</div>
+    <div class="menu">
+      <button data-skin-pick="verdict" data-active="true"><b>Verdict · Paper</b><span>The direction — warm paper, stamps, card grid.</span></button>
+      <button data-skin-pick="brand"><b>Verdict · Brand</b><span>Same design on your colours — #2f6fed, cool neutrals.</span></button>
+      <button data-skin-pick="brand-dark"><b>Verdict · Brand dark</b><span>Same design on your dark theme — #4c8dff on #0a0d13.</span></button>
+      <button data-skin-pick="terminal"><b>Terminal</b><span>For reference — sidebar TUI direction.</span></button>
+      <button data-skin-pick="ledger"><b>Ledger</b><span>For reference — account-book direction.</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ sponsor rails — every page, both sides ============ -->
+<aside class="rail" id="rail-l" aria-label="Sponsors, left rail"></aside>
+<aside class="rail" id="rail-r" aria-label="Sponsors, right rail"></aside>
+
+<!-- ============ site header (top bar / sidebar / masthead) ============ -->
+<header class="site">
+  <a class="brand" href="#/home">can<em>i</em>replace<em>it</em></a>
+  <nav class="navlinks" id="mainnav">
+    <a href="#/home" data-r="home">The list</a>
+    <a href="#/alternatives" data-r="alternatives">Alternatives</a>
+    <details class="dd"><summary>Categories ▾</summary><div class="ddm">
+      <a href="#/categories">All categories →</a><div class="sep"></div>
+      <a href="#/category">Notes &amp; docs</a><a href="#/categories">Monitoring</a><a href="#/categories">Chat &amp; messaging</a><a href="#/categories">Project management</a>
+    </div></details>
+    <details class="dd"><summary>Collections ▾</summary><div class="ddm">
+      <a href="#/collections">All 13 collections →</a><div class="sep"></div>
+      <a href="#/graveyard">The graveyard</a><a href="#/collections">Self-hostable</a><a href="#/collections">Cheaper, still paid</a><a href="#/collections">One compose away</a>
+    </div></details>
+    <a href="#/features" data-r="features">Features</a>
+    <a href="#/estimate" data-r="estimate">Your bill</a>
+    <a href="#/stats" data-r="stats">Stats</a>
+    <details class="dd"><summary>More ▾</summary><div class="ddm">
+      <a href="#/gaps">Gaps — where we say “not yet”</a><a href="#/glossary">Glossary</a>
+      <a href="#/submit">Submit a product</a><a href="#/contact">Contact</a><a href="#/legal">Legal</a><a href="#/admin">Admin console</a>
+    </div></details>
+  </nav>
+  <span class="hspace"></span>
+  <a class="signin" href="#/signin" id="signin-link">Sign in</a>
+  <a class="btn-sponsor" href="#/sponsor">Sponsor</a>
+</header>
+
+<main>
+
+<!-- ================= HOME ================= -->
+<section class="page" id="p-home">
+  <div class="hero">
+    <div class="wrap">
+      <!-- VERDICT hero: editorial headline -->
+      <div class="not-terminal not-ledger">
+        <span class="eyebrow">592 products · one honest verdict each</span>
+        <h1 style="margin-top:10px">Can I replace <span class="cycle">Notion</span>?</h1>
+        <p class="lede">Not “here are 40 alternatives” — whether the open source one is good enough yet, and what switching really costs.</p>
+      </div>
+      <!-- TERMINAL hero: a terminal window -->
+      <div class="only-terminal">
+        <div class="termwin">
+          <div class="tbar"><i></i><i></i><i></i>&nbsp; canireplaceit — bash</div>
+          <pre><span class="c-p">$</span> canireplace <span class="cycle">notion</span>
+<span class="c-m">reading data/products/notion.json … ok</span>
+verdict:      <span class="c-a">ALMOST</span>
+least work:   joplin (docker, AGPL-3.0)
+you lose:     databases-and-relations, templates, mobile-polish
+saves:        $540/yr vs Plus, team of five
+<span class="c-p">$</span> <span class="cursor"></span></pre>
+        </div>
+      </div>
+      <!-- LEDGER hero: the account book -->
+      <div class="only-ledger">
+        <h1 style="text-align:center;margin-bottom:18px">Can I replace <span class="cycle">Notion</span>?</h1>
+        <div class="ledgerhero">
+          <div class="lh-title">Account of monies paid monthly</div>
+          <div class="lrow"><span>Notion, Plus plan, five seats</span><span class="dots"></span><span class="amt">$50.00</span></div>
+          <div class="lrow"><span class="strike">Datadog — replaced by Grafana</span><span class="dots"></span><span class="amt strike">$180.00</span></div>
+          <div class="lrow"><span class="strike">Google Photos — replaced by Immich</span><span class="dots"></span><span class="amt strike">$2.00</span></div>
+          <div class="lrow total"><span>Still leaking, per month</span><span class="dots"></span><span class="amt">$50.00</span></div>
+        </div>
+      </div>
+
+      <div class="searchbar"><span class="muted">⌕</span>
+        <input id="q" placeholder="Type the thing you pay for… Jira, Figma, Datadog" aria-label="Search products">
+        <kbd>⌘K</kbd>
+      </div>
+      <div class="stats">
+        <div class="stat"><b class="count" data-to="592">0</b><span>products judged</span></div>
+        <div class="stat"><b class="count" data-to="6485">0</b><span>open source escapes</span></div>
+        <div class="stat"><b class="count" data-to="277">0</b><span>switches reported</span></div>
+        <div class="stat"><b class="count" data-to="43">0</b><span>we say don’t bother</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <!-- sponsor hero wall: sold + open + house -->
+    <div class="wall" id="wall"></div>
+    <p class="wallnote">canireplaceit is supported by these sponsors — <a class="tx" href="#/sponsor">7 of 10 hero slots open · sponsor this project →</a></p>
+  </div>
+
+  <div class="wrap section">
+    <div class="filterrow">
+      <button class="pill vf" data-v="all" data-on="true">All</button>
+      <button class="pill vf" data-v="yes" style="color:var(--yes)">● Replaceable</button>
+      <button class="pill vf" data-v="almost" style="color:var(--almost)">● Almost</button>
+      <button class="pill vf" data-v="no" style="color:var(--no)">● Not yet</button>
+      <span style="flex:1"></span>
+      <button class="pill">Effort ▾</button><button class="pill">Price ▾</button><button class="pill">Sort: most switched ▾</button>
+    </div>
+    <div class="pgrid" id="plist"></div>
+    <p class="mono muted" style="font-size:11.5px;margin-top:14px;text-align:center">page 1 of 12 · <span id="plist-n">12</span> shown here of 592 — search and verdict pills above actually filter this demo · <span style="color:var(--yes)">● replaceable</span> <span style="color:var(--almost)">● almost</span> <span style="color:var(--no)">● not yet</span></p>
+  </div>
+</section>
+
+<!-- ================= PRODUCT ================= -->
+<section class="page" id="p-product">
+  <div class="wrap">
+    <div class="crumbs"><a href="#/home">Home</a> / <a href="#/categories">Work &amp; collaboration</a> / <a href="#/category">Notes &amp; docs</a> / <b>Notion</b></div>
+    <div class="phead">
+      <div class="biglogo">N</div>
+      <h1>Can I replace Notion?</h1>
+      <button class="stamp almost" id="stamp" title="Click to re-stamp">Almost</button>
+    </div>
+    <div class="pcols">
+      <div>
+        <p class="vsent">You can almost replace Notion: Joplin covers most of it under AGPL-3.0. What you give up is <span class="hl">databases and relations</span>.</p>
+        <p class="muted" style="margin-top:12px;max-width:60ch">Databases and relations are the moat. Editing and wikis port fine; the “Notion as an app platform” part does not.</p>
+        <div class="lose"><span>− Databases and relations</span><span>− Templates and community</span><span>− Polished mobile apps</span></div>
+
+        <div class="section" style="margin-block:var(--sp4)">
+          <span class="eyebrow">Your exit ladder</span>
+          <ul class="ladder">
+            <li class="now"><div class="rl">You are here</div><div class="rw">Notion Plus</div><div class="rc">$10 / seat / month — $600/yr for a team of five</div></li>
+            <li><div class="rl">Rung 1 · cheaper, still paid</div><div class="rw">Obsidian + Sync</div><div class="rc">$4 / month · <span class="save">save $360/yr</span> · no server to run</div></li>
+            <li><div class="rl">Rung 2 · open source, hosted</div><div class="rw">Logseq + Logseq Sync</div><div class="rc">local markdown, your files stay yours</div></li>
+            <li><div class="rl">Rung 3 · one docker compose away</div><div class="rw">Joplin Server</div><div class="rc">$0 + a $5 VPS · <span class="save">save $540/yr</span> · AGPL-3.0</div></li>
+          </ul>
+        </div>
+
+        <div class="section" style="margin-block:var(--sp4)">
+          <span class="eyebrow">12 live alternatives · least work: Joplin</span>
+          <div class="alt"><div class="logo">J</div><div>
+            <h4><a class="tx" href="#/project">Joplin</a> <span class="mono muted" style="font-size:10.5px">AGPL-3.0</span></h4>
+            <div class="tags"><span>docker</span><span>self-host ✓</span><span>E2E sync</span><span>no strings</span></div>
+            <p>Markdown notes, notebooks, tags and a CLI — battle-tested. No block databases or rich embeds.</p>
+          </div><div class="fit"><b>82%</b><span>feature fit</span></div></div>
+          <div class="alt"><div class="logo">L</div><div>
+            <h4>Logseq <span class="mono muted" style="font-size:10.5px">AGPL-3.0</span></h4>
+            <div class="tags"><span>local-first</span><span>graph queries</span><span>block refs</span></div>
+            <p>Outliner-first knowledge base, everything as local markdown. Multiplayer sits behind paid Sync.</p>
+          </div><div class="fit"><b>74%</b><span>feature fit</span></div></div>
+          <div class="alt"><div class="logo">S</div><div>
+            <h4>SiYuan <span class="mono muted" style="font-size:10.5px">AGPL-3.0</span></h4>
+            <div class="tags"><span>docker</span><span>database views</span><span>SQL queries</span></div>
+            <p>Dense UI is the entry cost, but block refs and database views actually match Notion’s power.</p>
+          </div><div class="fit"><b>78%</b><span>feature fit</span></div></div>
+          <button class="btn ghost sm" style="margin-top:12px">Show all 12 →</button>
+        </div>
+
+        <div class="section" style="margin-block:var(--sp4)">
+          <span class="eyebrow">Where they actually differ</span>
+          <p class="muted" style="font-size:13px;margin-bottom:12px">Only rows where they disagree — <a class="tx" href="#/compare">open the full matrix →</a></p>
+          <div class="tscroll"><table class="t matrix">
+            <thead><tr><th>Feature</th><th class="you">Notion</th><th>Joplin</th><th>Logseq</th><th>SiYuan</th></tr></thead>
+            <tbody>
+              <tr><td>SAML 2.0</td><td class="you g-paid">€</td><td class="g-yes">●</td><td class="g-unk">–</td><td class="g-unk">–</td></tr>
+              <tr><td>Real-time co-editing</td><td class="you g-yes">●</td><td class="g-unk">–</td><td class="g-part">◐</td><td class="g-unk">–</td></tr>
+              <tr><td>Built-in backup</td><td class="you g-yes">●</td><td class="g-unk">–</td><td class="g-yes">●</td><td class="g-paid">€</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+      </div>
+
+      <aside>
+        <div class="receipt">
+          <span class="eyebrow">Price receipt</span>
+          <div style="margin:10px 0 4px"><span class="rtotal">$10</span> <span class="muted" style="font-size:12.5px">/ seat / month</span></div>
+          <div class="rrow"><span>Plan</span><span class="val">Plus, annual</span></div>
+          <div class="rrow"><span>Basis</span><span class="val">per-seat</span></div>
+          <div class="rrow"><span>Checked</span><span class="val">Aug 2, 2026</span></div>
+          <div class="rrow"><span>Confidence</span><span class="val" style="color:var(--almost)">medium</span></div>
+          <div class="rrow"><span>Source</span><span class="val" style="color:var(--accent-text)">notion.com/pricing ↗</span></div>
+          <button class="btn" id="voted">↺ I switched</button>
+          <button class="btn ghost">✎ Edit this page — it’s one JSON file</button>
+          <p class="bleed">Since you opened this page, Notion cost its average team <b id="bleed">$0.000</b></p>
+        </div>
+        <!-- category sponsor slot: an OPEN slot shown in place -->
+        <div class="slot open" style="margin-top:14px">
+          <span class="s-eyebrow">Category slot · Notes &amp; docs</span>
+          Your product, on all 15 pages of this category
+          <a href="#/sponsor">Sponsor this project →</a>
+        </div>
+      </aside>
+    </div>
+
+    <div class="section">
+      <span class="eyebrow">In this category</span>
+      <div class="pgrid" id="siblings"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROJECT (tool) ================= -->
+<section class="page" id="p-project">
+  <div class="wrap">
+    <div class="crumbs"><a href="#/home">Home</a> / <a href="#/alternatives">Tools</a> / <b>Joplin</b></div>
+    <div class="phead">
+      <div class="biglogo">J</div>
+      <div style="flex:1">
+        <span class="eyebrow">effort: docker · one compose file away</span>
+        <h1>Joplin</h1>
+      </div>
+    </div>
+    <div class="filterrow" style="margin-top:10px">
+      <span class="pill">⌂ joplinapp.org</span><span class="pill"> laurent22/joplin</span>
+      <span class="pill" style="color:var(--yes)">self-hostable ✓</span><span class="pill">open core: none</span>
+      <span class="pill">SSO in free: not checked</span><span class="pill">data stays: yours</span>
+      <span class="pill">last push: 3 days ago</span>
+    </div>
+    <div class="pcols">
+      <div>
+        <div class="panel" style="margin-top:var(--sp3)">
+          <span class="eyebrow">Open-core panel</span>
+          <div class="rrow"><span>Self-hostable</span><span class="val" style="color:var(--yes)">yes — the whole product</span></div>
+          <div class="rrow"><span>Paywalled</span><span class="val">nothing</span></div>
+          <div class="rrow"><span>SSO tax</span><span class="val">not checked — help us: it’s one field</span></div>
+          <div class="rrow"><span>Licence</span><span class="val">AGPL-3.0 · FOSS</span></div>
+        </div>
+        <div class="section">
+          <span class="eyebrow">Replaces 3 products</span>
+          <div class="catrow"><h4><a class="tx" href="#/product">Notion</a></h4><span class="meta">“battle-tested, no block databases”</span><span class="cheap"><span class="vmark almost">almost</span></span></div>
+          <div class="catrow"><h4>Evernote</h4><span class="meta">“the default escape for a decade”</span><span class="cheap"><span class="vmark yes">replaceable</span></span></div>
+          <div class="catrow"><h4>OneNote</h4><span class="meta">“covers notes, not the drawing canvas”</span><span class="cheap"><span class="vmark almost">almost</span></span></div>
+        </div>
+        <div class="section">
+          <span class="eyebrow">Siblings — same job</span>
+          <div class="filterrow"><span class="pill">Logseq</span><span class="pill">SiYuan</span><span class="pill">Trilium Next</span><span class="pill">nb</span><span class="pill">Dendron</span></div>
+          <span class="eyebrow" style="margin-top:14px;display:block">Siblings — also TypeScript</span>
+          <div class="filterrow"><span class="pill">Outline</span><span class="pill">Docmost</span><span class="pill">Affine</span></div>
+        </div>
+      </div>
+      <aside>
+        <div class="panel" style="margin-top:var(--sp3)">
+          <span class="eyebrow">Repo health · read weekly</span>
+          <div class="rrow"><span>Last push</span><span class="val">3 days ago</span></div>
+          <div class="rrow"><span>Archived</span><span class="val" style="color:var(--yes)">no</span></div>
+          <div class="rrow"><span>docker compose</span><span class="val" style="color:var(--yes)">in the repo ✓</span></div>
+          <div class="rrow"><span>Language</span><span class="val">TypeScript</span></div>
+        </div>
+        <div class="panel dashed" style="margin-top:14px;font-size:13px">
+          <span class="eyebrow">Feature record</span>
+          <p class="muted" style="margin-top:6px">41 decided values on this project — <a class="tx" href="#/features">open in the explorer →</a></p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ALTERNATIVES INDEX ================= -->
+<section class="page" id="p-alternatives">
+  <div class="wrap">
+    <div class="pagehead"><span class="eyebrow">1,701 projects, derived from the products that cite them</span>
+      <h1>The alternatives</h1></div>
+    <div class="grid2 section" style="margin-block:var(--sp3)">
+      <div class="panel">
+        <span class="eyebrow">Most replacing</span>
+        <div class="catrow"><h4>Nextcloud</h4><span class="cheap">replaces <b>14</b> products</span></div>
+        <div class="catrow"><h4>Grafana</h4><span class="cheap">replaces <b>9</b> products</span></div>
+        <div class="catrow"><h4>Immich</h4><span class="cheap">replaces <b>4</b> products</span></div>
+      </div>
+      <div class="panel">
+        <span class="eyebrow">Stack cover — fewest projects, most products</span>
+        <div class="catrow"><h4>Nextcloud</h4><span class="meta">+14</span><span class="cheap">running total <b>14</b></span></div>
+        <div class="catrow"><h4>Grafana</h4><span class="meta">+9</span><span class="cheap">running total <b>23</b></span></div>
+        <div class="catrow"><h4>Gitea</h4><span class="meta">+6</span><span class="cheap">running total <b>29</b></span></div>
+        <p class="muted" style="font-size:12px;margin-top:8px">The one thing here nobody else has: 29 SaaS bills, 3 docker composes.</p>
+      </div>
+    </div>
+    <div class="filterrow"><input class="in" style="max-width:260px" placeholder="Search 1,701 projects…"><button class="pill">Openness ▾</button><button class="pill">Effort ▾</button></div>
+    <div class="catrow"><h4><a class="tx" href="#/project">Joplin</a></h4><span class="tagpill live">fully open</span><span class="meta">AGPL-3.0 · docker · replaces Notion, Evernote, OneNote</span><span class="cheap">pushed 3d ago</span></div>
+    <div class="catrow"><h4>Immich</h4><span class="tagpill live">fully open</span><span class="meta">AGPL-3.0 · docker · replaces Google Photos +1</span><span class="cheap">pushed today</span></div>
+    <div class="catrow"><h4>Outline</h4><span class="tagpill pend">source-available</span><span class="meta">BSL · docker · replaces Notion, Confluence</span><span class="cheap">pushed 6d ago</span></div>
+    <div class="catrow"><h4>Penpot</h4><span class="tagpill live">fully open</span><span class="meta">MPL-2.0 · docker · replaces Figma</span><span class="cheap">pushed 1d ago</span></div>
+    <div class="catrow"><h4>Cal.com</h4><span class="tagpill pend">open core</span><span class="meta">AGPL + EE · docker · replaces Calendly</span><span class="cheap">pushed today</span></div>
+    <div class="catrow"><h4>Mattermost</h4><span class="tagpill pend">open core</span><span class="meta">MIT + EE · docker · replaces Slack</span><span class="cheap">pushed 2d ago</span></div>
+  </div>
+</section>
+
+<!-- ================= CATEGORIES INDEX ================= -->
+<section class="page" id="p-categories">
+  <div class="wrap">
+    <div class="pagehead"><span class="eyebrow">85 categories under 10 themes</span><h1>Categories</h1>
+      <p class="lede">Each bar is the exit ladder for a whole category: <span style="color:var(--no)">locked-in</span> → <span style="color:var(--almost)">partial</span> → <span style="color:var(--yes)">self-hostable → drop-in</span>.</p></div>
+    <div class="filterrow" style="margin-top:var(--sp3)">
+      <button class="pill" data-on="true">Work</button><button class="pill">Dev</button><button class="pill">Infra</button><button class="pill">Security</button><button class="pill">AI &amp; data</button><button class="pill">Growth</button><button class="pill">Commerce</button><button class="pill">Operations</button><button class="pill">Creative</button><button class="pill">Home</button>
+    </div>
+    <div class="section" style="margin-block:var(--sp3)">
+      <span class="eyebrow">Work &amp; collaboration</span>
+      <div class="catrow"><div class="ic">📝</div><div><h4><a class="tx" href="#/category">Notes &amp; docs</a></h4><span class="meta">15 products · 38 projects · median $8/mo</span></div>
+        <div class="rungbar"><i class="rb-lock" style="width:10%"></i><i class="rb-part" style="width:30%"></i><i class="rb-self" style="width:35%"></i><i class="rb-drop" style="width:25%"></i></div>
+        <span class="cheap">Cheapest escape: <b>Joplin</b> — free, docker</span></div>
+      <div class="catrow"><div class="ic">📋</div><div><h4>Project management</h4><span class="meta">18 products · 41 projects · median $9/mo</span></div>
+        <div class="rungbar"><i class="rb-lock" style="width:6%"></i><i class="rb-part" style="width:22%"></i><i class="rb-self" style="width:44%"></i><i class="rb-drop" style="width:28%"></i></div>
+        <span class="cheap">Cheapest escape: <b>Plane</b> — free, docker</span></div>
+      <div class="catrow"><div class="ic">💬</div><div><h4>Chat &amp; messaging</h4><span class="meta">9 products · 22 projects · median $8/mo</span></div>
+        <div class="rungbar"><i class="rb-lock" style="width:12%"></i><i class="rb-part" style="width:33%"></i><i class="rb-self" style="width:40%"></i><i class="rb-drop" style="width:15%"></i></div>
+        <span class="cheap">Cheapest escape: <b>Zulip</b> — free, docker</span></div>
+    </div>
+    <div class="section" style="margin-block:var(--sp3)">
+      <span class="eyebrow">Dev</span>
+      <div class="catrow"><div class="ic">📈</div><div><h4>Monitoring</h4><span class="meta">14 products · 35 projects · median $31/mo</span></div>
+        <div class="rungbar"><i class="rb-lock" style="width:18%"></i><i class="rb-part" style="width:40%"></i><i class="rb-self" style="width:30%"></i><i class="rb-drop" style="width:12%"></i></div>
+        <span class="cheap">Cheapest escape: <b>Netdata</b> — free, one binary</span></div>
+      <div class="catrow"><div class="ic">🔌</div><div><h4>API tools</h4><span class="meta">11 products · 24 projects · median $14/mo</span></div>
+        <div class="rungbar"><i class="rb-lock" style="width:4%"></i><i class="rb-part" style="width:16%"></i><i class="rb-self" style="width:36%"></i><i class="rb-drop" style="width:44%"></i></div>
+        <span class="cheap">Cheapest escape: <b>Bruno</b> — free, local app</span></div>
+    </div>
+    <p class="mono muted" style="font-size:11.5px">…8 more themes, 80 more categories. <a class="tx" href="#/sponsor">Every category page carries one sponsor slot — pricing in the wizard.</a></p>
+  </div>
+</section>
+
+<!-- ================= CATEGORY PAGE ================= -->
+<section class="page" id="p-category">
+  <div class="wrap">
+    <div class="crumbs"><a href="#/home">Home</a> / <a href="#/categories">Work &amp; collaboration</a> / <b>Notes &amp; docs</b></div>
+    <div class="phead"><div class="biglogo">📝</div><h1>Notes &amp; docs</h1></div>
+    <div class="figrow">
+      <div class="fig"><b>15</b><span>products</span></div>
+      <div class="fig"><b>38</b><span>projects</span></div>
+      <div class="fig"><b>$8</b><span>median /mo · 13 priced</span></div>
+      <div class="fig"><b style="font-size:16px;padding-top:8px">Joplin</b><span>cheapest escape</span></div>
+    </div>
+    <div style="max-width:560px"><div class="rungbar" style="height:12px"><i class="rb-lock" style="width:10%"></i><i class="rb-part" style="width:30%"></i><i class="rb-self" style="width:35%"></i><i class="rb-drop" style="width:25%"></i></div>
+    <p class="mono muted" style="font-size:11px;margin-top:6px">10% locked-in · 30% partial · 35% self-hostable · 25% drop-in</p></div>
+    <!-- the category's own sponsor slot, open -->
+    <div class="slot open" style="max-width:560px;margin-top:var(--sp3);text-align:left">
+      <span class="s-eyebrow">Sponsor slot · this category</span>
+      Your product on this page and all 15 product pages under it — <a href="#/sponsor" style="display:inline">currently open, sponsor this project →</a>
+    </div>
+    <div class="section"><span class="eyebrow">The products</span><div class="pgrid" id="catlist"></div></div>
+    <div class="section"><span class="eyebrow">Nearby categories</span>
+      <div class="filterrow"><span class="pill">Wikis</span><span class="pill">Whiteboards</span><span class="pill">PDF tools</span><span class="pill">Office suites</span></div></div>
+  </div>
+</section>
+
+<!-- ================= COLLECTIONS ================= -->
+<section class="page" id="p-collections">
+  <div class="wrap">
+    <div class="pagehead"><span class="eyebrow">A collection is a query, never a hand-made list</span><h1>Collections</h1>
+      <p class="lede">Every one is derived from the data, so it cannot lie. Each page shows its own derivation sentence.</p></div>
+    <div class="grid3 section" id="collgrid" style="margin-block:var(--sp3)"></div>
+    <div class="panel dashed doc">
+      <span class="eyebrow">Rejected collections</span>
+      <p style="margin-top:8px">“FOSS + self-hostable” doesn’t exist: only 19 members would qualify and the gate is 25. “Open source” and “FOSS” stay siblings because 121 projects are one and not the other. A collection nobody can check is a list somebody made up.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GRAVEYARD (collection page) ================= -->
+<section class="page" id="p-graveyard">
+  <div class="wrap">
+    <div class="crumbs"><a href="#/home">Home</a> / <a href="#/collections">Collections</a> / <b>The graveyard</b></div>
+    <div class="pagehead"><span class="eyebrow">Derived: every project whose repo is archived · 41 members</span>
+      <h1>A catalogue that hides what died only describes the present tense.</h1>
+      <p class="lede">Archived projects stay listed, demoted and badged — so you know an escape route that closed, closed.</p></div>
+    <div class="ggrid section" style="margin-block:var(--sp3)">
+      <div class="tomb"><div class="rip">R · I · P</div><h4>Standard Notes (server)</h4><div class="dates">2016 — 2025</div><p class="epi">“The sync server went read-only.”</p></div>
+      <div class="tomb"><div class="rip">R · I · P</div><h4>Wekan fork</h4><div class="dates">2018 — 2026</div><p class="epi">“Dormant 14 months, then archived.”</p></div>
+      <div class="tomb"><div class="rip">R · I · P</div><h4>Cachet</h4><div class="dates">2015 — 2024</div><p class="epi">“Revived once. Not twice.”</p></div>
+      <div class="tomb"><div class="rip">R · I · P</div><h4>Framadate fork</h4><div class="dates">2019 — 2026</div><p class="epi">“Repo archived last month.”</p></div>
+    </div>
+    <div class="section"><span class="eyebrow">Most recently archived</span>
+      <div class="catrow"><h4>Framadate fork</h4><span class="cheap">went read-only <b>July 2026</b></span></div>
+      <div class="catrow"><h4>Padloc</h4><span class="cheap">went read-only <b>May 2026</b></span></div>
+      <div class="catrow"><h4>Monica (v4 branch)</h4><span class="cheap">went read-only <b>March 2026</b></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEATURES EXPLORER ================= -->
+<section class="page" id="p-features">
+  <div class="wrap">
+    <div class="pagehead"><span class="eyebrow">871 projects covered · 137 features in the vocabulary · taxonomy v3</span>
+      <h1>Features explorer</h1></div>
+    <div class="section" style="margin-block:var(--sp3)">
+      <span class="eyebrow">Genre</span>
+      <div class="chiprow"><button class="chip" data-on="true">Notes &amp; docs</button><button class="chip">Monitoring</button><button class="chip">Chat</button><button class="chip">Auth</button><button class="chip">Analytics</button><button class="chip">CI/CD</button><button class="chip">more ▾</button></div>
+      <span class="eyebrow" style="margin-top:14px;display:block">Quick filters</span>
+      <div class="chiprow">
+        <button class="chip qf">MCP server · 61</button><button class="chip qf">official MCP · 24</button>
+        <button class="chip qf">AI features · 118</button><button class="chip qf">SSO (OIDC) · 203</button><button class="chip qf">runs on SQLite · 87</button>
+      </div>
+      <span class="eyebrow" style="margin-top:14px;display:block">Require — click to toggle a requirement</span>
+      <div class="chiprow" id="reqrow">
+        <button class="chip rq">encryption at rest</button><button class="chip rq">real-time co-editing</button>
+        <button class="chip rq">works offline</button><button class="chip rq">API</button><button class="chip rq">import from Notion</button>
+      </div>
+      <label style="font-size:12.5px;color:var(--muted)"><input type="checkbox" checked> accept a paid tier as a yes</label>
+    </div>
+    <div class="section" style="margin-block:var(--sp3)">
+      <span class="eyebrow">Results · <span id="reqn">0</span> requirements active</span>
+      <div class="grid3">
+        <div class="panel"><b>Joplin</b><p class="mono muted" style="font-size:11px;margin-top:4px">41 decided facts</p><p class="reqglyphs mono" style="margin-top:8px;font-size:13px"></p><button class="pill cmp" style="margin-top:10px">+ compare</button></div>
+        <div class="panel"><b>SiYuan</b><p class="mono muted" style="font-size:11px;margin-top:4px">37 decided facts</p><p class="reqglyphs mono" style="margin-top:8px;font-size:13px"></p><button class="pill cmp" style="margin-top:10px">+ compare</button></div>
+        <div class="panel"><b>Logseq</b><p class="mono muted" style="font-size:11px;margin-top:4px">29 decided facts</p><p class="reqglyphs mono" style="margin-top:8px;font-size:13px"></p><button class="pill cmp" style="margin-top:10px">+ compare</button></div>
+      </div>
+    </div>
+    <div class="section" id="p-compare" style="margin-block:var(--sp3)">
+      <span class="eyebrow">Compare — only the rows where they differ · shareable as ?cmp=joplin,siyuan,logseq</span>
+      <div class="tscroll"><table class="t matrix" id="matrix">
+        <thead><tr><th>Feature</th><th>Joplin</th><th>SiYuan</th><th>Logseq</th></tr></thead>
+        <tbody>
+          <tr><td>Encryption at rest</td><td class="g-yes">●</td><td class="g-yes">●</td><td class="g-unk">–</td></tr>
+          <tr><td>Real-time co-editing</td><td class="g-unk">–</td><td class="g-unk">–</td><td class="g-part">◐</td></tr>
+          <tr><td>Built-in backup</td><td class="g-unk">–</td><td class="g-paid">€</td><td class="g-yes">●</td></tr>
+          <tr><td>More than one user</td><td class="g-yes">●</td><td class="g-yes">●</td><td class="g-part">◐</td></tr>
+          <tr><td>Import from Notion</td><td class="g-yes">●</td><td class="g-yes">●</td><td class="g-no">○</td></tr>
+        </tbody>
+      </table></div>
+      <p class="legend5" style="margin-top:10px">● yes · € paid tier only · ◐ partial · ○ no · – not checked (a dash, never a cross — we don’t punish the unverified)</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= YOUR BILL (estimate — proposed new page) ================= -->
+<section class="page" id="p-estimate">
+  <div class="wrap tight">
+    <div class="pagehead"><span class="eyebrow">Proposed new page — revived from the old mockup, never shipped</span>
+      <h1>Your bill</h1><p class="lede">Tick what you pay for. Watch the year total. Then see what the ladder takes off it.</p></div>
+    <div class="pcols" style="grid-template-columns:1fr 300px">
+      <div class="panel" id="billpick" style="margin-top:var(--sp3)"></div>
+      <aside><div class="receipt" style="margin-top:var(--sp3)">
+        <span class="eyebrow">Damage, per year</span>
+        <div style="margin:8px 0"><span class="rtotal" id="bill-y">$0</span><span class="muted" style="font-size:12px"> /yr</span></div>
+        <div class="rrow"><span>Monthly</span><span class="val" id="bill-m">$0</span></div>
+        <div class="rrow"><span>Products picked</span><span class="val" id="bill-n">0</span></div>
+        <div class="rrow"><span>After the ladder</span><span class="val" style="color:var(--yes)" id="bill-after">$0/yr</span></div>
+        <button class="btn" id="bill-go">Show my exits →</button>
+      </div></aside>
+    </div>
+    <div class="section" id="bill-exits" hidden>
+      <span class="eyebrow">Your exits</span>
+      <div id="bill-exit-rows"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STATS ================= -->
+<section class="page" id="p-stats">
+  <div class="wrap tight">
+    <div class="pagehead"><span class="eyebrow">Self-hosted Umami · no cookies · shown even when embarrassing</span><h1>Traffic, in the open</h1></div>
+    <div class="figrow">
+      <div class="fig"><b class="count" data-to="48212">0</b><span>pageviews / 30d</span></div>
+      <div class="fig"><b class="count" data-to="19307">0</b><span>sessions</span></div>
+      <div class="fig"><b>Aug 12</b><span>best day</span></div>
+      <div class="fig"><b>1:42</b><span>avg time</span></div>
+    </div>
+    <div class="panel"><span class="eyebrow">Last 14 days</span>
+      <div style="display:flex;align-items:flex-end;gap:5px;height:90px;margin-top:12px" id="spark"></div></div>
+    <div class="grid2 section" style="margin-block:var(--sp3)">
+      <div class="panel"><span class="eyebrow">Top pages</span>
+        <div class="rrow"><span>/en/alternatives/notion</span><span class="val">4,812</span></div>
+        <div class="rrow"><span>/en/alternatives/google-photos</span><span class="val">3,977</span></div>
+        <div class="rrow"><span>/en/collections/self-hostable</span><span class="val">2,204</span></div>
+        <div class="rrow"><span>/en/ (the list)</span><span class="val">1,981</span></div></div>
+      <div class="panel"><span class="eyebrow">Sources</span>
+        <div class="rrow"><span>google</span><span class="val">21,048</span></div>
+        <div class="rrow"><span>news.ycombinator.com</span><span class="val">6,310</span></div>
+        <div class="rrow"><span>direct</span><span class="val">5,522</span></div>
+        <div class="rrow"><span>reddit</span><span class="val">3,894</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GAPS ================= -->
+<section class="page" id="p-gaps">
+  <div class="wrap tight">
+    <div class="pagehead"><span class="eyebrow">The honest counterweight</span><h1>Where we say “not yet”</h1>
+      <p class="lede">43 products with no credible open source replacement — and what we’re least sure of ourselves.</p></div>
+    <div class="section" style="margin-block:var(--sp3)">
+      <div class="catrow"><h4>ZoomInfo</h4><span class="meta">Sales intelligence · no public price</span><span class="cheap">the data moat is the product</span></div>
+      <div class="catrow"><h4>Unity Pro</h4><span class="meta">Game engine · $185/mo</span><span class="cheap">Godot is real, console pipelines aren’t</span></div>
+      <div class="catrow"><h4>QuickBooks Online</h4><span class="meta">Accounting · $38/mo</span><span class="cheap">your accountant is the lock-in</span></div>
+      <div class="catrow"><h4>Adobe After Effects</h4><span class="meta">Motion graphics · $23/mo</span><span class="cheap">nothing covers the plugin universe</span></div>
+    </div>
+    <div class="section"><span class="eyebrow">What we’re least sure of</span>
+      <div class="filterrow"><span class="pill" style="color:var(--no)">Brandwatch — price never verified</span><span class="pill" style="color:var(--no)">curl (enterprise) — low confidence</span><span class="pill" style="color:var(--almost)">Notion — medium</span><span class="pill" style="color:var(--almost)">Braze — medium</span></div>
+      <p class="mono muted" style="font-size:12px">31 products have never been price-checked at all. PRs welcome — it’s one field.</p></div>
+  </div>
+</section>
+
+<!-- ================= GLOSSARY ================= -->
+<section class="page" id="p-glossary">
+  <div class="wrap tight doc">
+    <div class="pagehead"><span class="eyebrow">The vocabulary behind every tooltip</span><h1>Glossary</h1></div>
+    <h2>Verdicts</h2>
+    <dl class="gl">
+      <dt>Replaceable</dt><dd>The open source option covers the realistic use case. You will not miss the vendor.</dd>
+      <dt>Almost</dt><dd>It covers part. You lose something real, and the page names it.</dd>
+      <dt>Not yet</dt><dd>Nothing credible exists. We say keep paying — for now.</dd>
+    </dl>
+    <h2>Effort</h2>
+    <dl class="gl"><dt>managed</dt><dd>Someone else hosts it. You sign up.</dd><dt>docker</dt><dd>One compose file and a VPS.</dd><dt>ops</dt><dd>Real operations work. Know what a backup is.</dd></dl>
+    <h2>Openness</h2>
+    <dl class="gl"><dt>open core</dt><dd>The good parts are open; some parts are paid. “minor” or “major” says how much.</dd><dt>SSO tax</dt><dd>Single sign-on held ransom in a paid tier. We record it per project.</dd></dl>
+    <h2>Repo</h2>
+    <dl class="gl"><dt>archived</dt><dd>The forge says read-only. The project goes to the graveyard — it stays listed.</dd><dt>dormant</dt><dd>No push in 12 months. Not dead, but check the pulse.</dd></dl>
+  </div>
+</section>
+
+<!-- ================= SPONSOR WIZARD ================= -->
+<section class="page" id="p-sponsor">
+  <div class="wrap">
+    <div class="pagehead"><span class="eyebrow">No affiliate links · sponsored slots are labelled and never change a verdict</span>
+      <h1>Sponsor the site</h1>
+      <p class="lede">Three placements, priced in a JSON file anyone can read. Slots are 30 days, terms of 1, 3 or 12 months.</p></div>
+    <div class="figrow">
+      <div class="fig"><b>48k</b><span>pageviews / 30d</span></div>
+      <div class="fig"><b>0.9%</b><span>ctr, rails</span></div>
+      <div class="fig"><b>19/105</b><span>slots taken</span></div>
+    </div>
+    <div class="steps">
+      <button class="step" id="st1" data-on="true">1 · Pick positions</button>
+      <button class="step" id="st2">2 · Term</button>
+      <button class="step" id="st3">3 · Creative &amp; pay</button>
+    </div>
+
+    <div id="wiz1">
+      <div class="filterrow">
+        <button class="pill wtab" data-t="hero" data-on="true">Hero wall · 7 open</button>
+        <button class="pill wtab" data-t="rail">Rails · 6 open</button>
+        <button class="pill wtab" data-t="cat">Category · 79 of 85 open</button>
+      </div>
+      <div id="slotlist"></div>
+      <p class="mono muted" style="font-size:11.5px;margin-top:10px">Cap: 2 hero + 2 rail + 5 category per sponsor. Exceed it and your oldest pick is swapped out — we tell you which. Nothing fits? <a class="tx" href="#/contact">Join the waitlist.</a></p>
+      <button class="btn sm" id="to2" style="margin-top:14px" disabled>Continue — <span id="pickn">0</span> picked →</button>
+    </div>
+
+    <div id="wiz2" hidden>
+      <div class="grid3" style="max-width:640px">
+        <button class="termcard tsel" data-m="1" data-d="0"><b>1 mo</b><span class="muted" style="font-size:12px">list price</span><span class="disc">&nbsp;</span></button>
+        <button class="termcard tsel" data-m="3" data-d="12" data-on="true"><b>3 mo</b><span class="muted" style="font-size:12px">most picked</span><span class="disc">−12%</span></button>
+        <button class="termcard tsel" data-m="12" data-d="25"><b>12 mo</b><span class="muted" style="font-size:12px">the believer</span><span class="disc">−25%</span></button>
+      </div>
+      <div style="max-width:420px;margin-top:var(--sp3)">
+        <div class="quote"><span>Slots × term, undiscounted</span><span class="num" id="q-raw">$0</span></div>
+        <div class="quote"><span>Discount</span><span class="num" style="color:var(--yes)" id="q-disc">−$0</span></div>
+        <div class="quote big"><span>Server-quoted total</span><span class="num" id="q-total">$0</span></div>
+      </div>
+      <div style="display:flex;gap:10px;margin-top:14px"><button class="btn ghost sm" id="back1">← Positions</button><button class="btn sm" id="to3">Continue →</button></div>
+    </div>
+
+    <div id="wiz3" hidden>
+      <div class="pcols" style="grid-template-columns:1fr 320px">
+        <div>
+          <label class="f"><span>Product name</span><input class="in cf" id="cf-name" placeholder="Nextcloud" maxlength="24"></label>
+          <label class="f"><span>Tagline — EN (FR variant on the next field)</span><input class="in cf" id="cf-tag" placeholder="Your own cloud, on your own server" maxlength="60"></label>
+          <label class="f"><span>Tagline — FR</span><input class="in" placeholder="Votre cloud, sur votre serveur"></label>
+          <div class="grid2">
+            <label class="f"><span>URL</span><input class="in" placeholder="https://…"></label>
+            <label class="f"><span>Tint</span><input class="in cf" id="cf-tint" type="color" value="#2f6fed" style="height:44px;padding:4px"></label>
+          </div>
+          <label class="f"><span>Billing email — magic link, no password, ever</span><input class="in" type="email" placeholder="you@company.com"></label>
+          <button class="btn sm" id="pay">Pay <span id="paytotal">$0</span> with Stripe →</button>
+          <button class="btn ghost sm" id="back2" style="margin-left:8px">← Term</button>
+        </div>
+        <aside>
+          <p class="preview-note">Live preview — this is the real rail unit</p>
+          <div class="slot sold" id="pv-rail" style="margin-top:8px;--tint:#2f6fed"><span class="s-eyebrow">sponsored</span><b id="pv-name">Your product</b><span id="pv-tag" class="muted">Your tagline here</span></div>
+          <p class="preview-note" style="margin-top:16px">…and the hero wall cell</p>
+          <div class="wall" style="grid-template-columns:1fr;margin-top:8px"><div class="cell"><b id="pv-name2">Your product</b><span class="s-tag">sponsored</span></div></div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SIGN IN ================= -->
+<section class="page" id="p-signin">
+  <div class="wrap" style="max-width:430px">
+    <div class="pagehead" style="text-align:center"><span class="eyebrow">No password. No signup. No tracking.</span><h1>Sign in</h1>
+      <p class="lede" style="margin-inline:auto">A magic link, if that address holds a sponsorship.</p></div>
+    <div class="panel" id="si-form" style="margin-top:var(--sp3)">
+      <label class="f"><span>Email</span><input class="in" id="si-mail" type="email" placeholder="you@company.com"></label>
+      <button class="btn" id="si-go">Send me the link</button>
+      <p class="mono muted" style="font-size:11px;margin-top:12px">The response is identical whether or not the address is a customer — on purpose.</p>
+    </div>
+    <div class="panel" id="si-sent" hidden style="margin-top:var(--sp3);text-align:center">
+      <p style="font-size:15px">✉️ If that address has a placement, a link is on its way.</p>
+      <p class="mono muted" style="font-size:11.5px;margin-top:8px">Expired, used, or forged links all get the same one-line answer.</p>
+      <button class="btn ghost sm" id="si-demo" style="margin-top:14px">(demo: pretend I clicked the link →)</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DASHBOARD ================= -->
+<section class="page" id="p-dashboard">
+  <div class="wrap tight">
+    <div id="dash-out">
+      <div class="pagehead" style="text-align:center"><h1>Your placements live here</h1>
+        <p class="lede" style="margin-inline:auto">Sign in with the billing address to see impressions, clicks and terms.</p></div>
+      <p style="text-align:center;margin-top:var(--sp3)"><a class="btn sm" style="width:auto;display:inline-flex" href="#/signin">Sign in →</a></p>
+    </div>
+    <div id="dash-in" hidden>
+      <div class="pagehead"><span class="eyebrow">org: nextcloud gmbh · you@company.com · <a class="tx" href="#/signin">sign out</a></span><h1>Dashboard</h1></div>
+      <div class="banner">We still need your FR creative for slot R-2 — <a class="tx" href="#/sponsor">finish it →</a></div>
+      <div class="figrow">
+        <div class="fig"><b class="count" data-to="88210">0</b><span>impressions</span></div>
+        <div class="fig"><b class="count" data-to="812">0</b><span>clicks</span></div>
+        <div class="fig"><b>0.92%</b><span>ctr</span></div>
+      </div>
+      <div class="section"><span class="eyebrow">By placement</span>
+        <div class="tscroll"><table class="t">
+          <thead><tr><th>Slot</th><th>Status</th><th>Term</th><th class="num">Impr.</th><th class="num">Clicks</th></tr></thead>
+          <tbody>
+            <tr><td>Rail R-1</td><td><span class="tagpill live">live</span></td><td><div class="prog"><i style="width:62%"></i></div><span class="mono muted" style="font-size:10.5px">day 56 / 90 · ends Nov 3</span></td><td class="num">61,004</td><td class="num">590</td></tr>
+            <tr><td>Hero #4</td><td><span class="tagpill live">live</span></td><td><div class="prog"><i style="width:31%"></i></div><span class="mono muted" style="font-size:10.5px">day 28 / 90 · ends Dec 1</span></td><td class="num">27,206</td><td class="num">222</td></tr>
+            <tr><td>Rail R-2</td><td><span class="tagpill pend">paid — needs creative</span></td><td><span class="mono muted" style="font-size:10.5px">starts when approved</span></td><td class="num">—</td><td class="num">—</td></tr>
+          </tbody>
+        </table></div></div>
+      <div class="section"><span class="eyebrow">Team</span>
+        <div class="catrow"><h4>you@company.com</h4><span class="tagpill live">owner</span></div>
+        <div class="catrow"><h4>colleague@company.com</h4><span class="tagpill pend">member</span><span class="cheap"><button class="pill">remove</button></span></div>
+        <div class="filterrow" style="margin-top:10px"><input class="in" style="max-width:240px" placeholder="teammate@company.com"><button class="btn sm" style="width:auto">Add member</button></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ADMIN ================= -->
+<section class="page" id="p-admin">
+  <div class="wrap tight">
+    <div class="pagehead"><span class="eyebrow">gated: session email must be in SITE_ADMIN — 401 and 403 get different sentences</span><h1>Admin console</h1></div>
+    <div class="section"><span class="eyebrow">Review queue · 1</span>
+      <div class="panel" id="queue-item">
+        <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start">
+          <div style="flex:1;min-width:220px">
+            <b>Vaultwarden</b> <span class="mono muted" style="font-size:11px">rail L-3 · 3 months · paid ✓</span>
+            <p class="muted" style="font-size:13px;margin-top:6px">EN: “Bitwarden-compatible, one container” · FR: “Compatible Bitwarden, un seul conteneur”</p>
+          </div>
+          <div class="slot sold" style="width:150px;--tint:#175ddc"><span class="s-eyebrow">sponsored</span><b>Vaultwarden</b><span class="muted">Bitwarden-compatible, one container</span></div>
+        </div>
+        <div style="display:flex;gap:10px;margin-top:14px">
+          <button class="btn sm" style="width:auto" id="q-ok">Approve — goes live now</button>
+          <button class="btn ghost sm" style="width:auto" id="q-no">Reject with reason…</button>
+        </div>
+      </div>
+      <p class="mono muted" id="queue-empty" hidden style="font-size:12px">Queue empty. Nothing pretends otherwise.</p>
+    </div>
+    <div class="section"><span class="eyebrow">Campaigns</span>
+      <div class="tscroll"><table class="t">
+        <thead><tr><th>Sponsor</th><th>Slot</th><th>Days</th><th class="num">Impr.</th><th></th></tr></thead>
+        <tbody>
+          <tr><td>Nextcloud</td><td>Rail R-1</td><td>56 run · 34 left</td><td class="num">61,004</td><td></td></tr>
+          <tr><td>Grafana</td><td>Rail L-2</td><td>84 run · <b style="color:var(--almost)">6 left ⚠</b></td><td class="num">74,821</td><td><span class="tagpill pend">expiring</span></td></tr>
+          <tr><td>Immich</td><td>Hero #1</td><td>12 run · 78 left</td><td class="num">11,913</td><td></td></tr>
+        </tbody>
+      </table></div></div>
+    <div class="section"><span class="eyebrow">Board — every slot, who holds it, until when</span>
+      <div class="filterrow">
+        <span class="pill" style="color:var(--yes)">hero: 3/10 sold</span><span class="pill" style="color:var(--yes)">rails: 4/10 sold</span><span class="pill">category: 6/85 sold</span>
+      </div></div>
+  </div>
+</section>
+
+<!-- ================= SUBMIT ================= -->
+<section class="page" id="p-submit">
+  <div class="wrap" style="max-width:520px">
+    <div class="pagehead" style="text-align:center"><span class="eyebrow">No form. No queue. The repo is the admin panel.</span><h1>Add a product</h1>
+      <p class="lede" style="margin-inline:auto">An entry is one JSON file. A pull request is how it lands — reviewable, attributable, revertible.</p></div>
+    <div style="display:grid;gap:10px;margin-top:var(--sp3)">
+      <button class="btn">＋ Add a product — opens the GitHub editor on data/products/</button>
+      <button class="btn ghost">⚑ Open an issue instead</button>
+      <button class="btn ghost">📖 Read CONTRIBUTING.md — schema and what CI checks</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="page" id="p-contact">
+  <div class="wrap tight doc">
+    <div class="pagehead"><h1>Contact</h1><p class="lede">Ordered by how fast you’ll get what you want.</p></div>
+    <div class="flist" style="margin-top:var(--sp3)">
+      <div class="frow"><span class="k">wrong?</span><div><b>Something’s wrong on a page</b><p>Edit the JSON file it names, or open a correction issue. This channel is first on purpose.</p></div></div>
+      <div class="frow"><span class="k">add</span><div><b>Submit a product</b><p>See <a class="tx" href="#/submit">Submit</a> — one file, one PR.</p></div></div>
+      <div class="frow"><span class="k">sponsor</span><div><b>Sponsorship</b><p>The <a class="tx" href="#/sponsor">rate card</a> is public; the wizard does the rest.</p></div></div>
+      <div class="frow"><span class="k">email</span><div><b>canireplaceit@gmail.com</b><p>For everything that isn’t a PR.</p></div></div>
+      <div class="frow"><span class="k">privacy</span><div><b>Privacy questions</b><p>Read the <a class="tx" href="#/legal">privacy note</a> first — it’s short because we keep almost nothing.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LEGAL ================= -->
+<section class="page" id="p-legal">
+  <div class="wrap tight doc">
+    <div class="pagehead"><span class="eyebrow">Updated by hand — a build date would lie</span><h1>Legal</h1></div>
+    <div class="flist" style="margin-top:var(--sp3)">
+      <div class="frow"><span class="k">terms</span><div><b>Terms of use</b><p>Verdicts are opinions, argued in the open.</p></div></div>
+      <div class="frow"><span class="k">privacy</span><div><b>Privacy</b><p>No fingerprinting. Votes hash the network block, salted. Umami is self-hosted.</p></div></div>
+      <div class="frow"><span class="k">cookies</span><div><b>Cookies</b><p>One session cookie, only after you act.</p></div></div>
+      <div class="frow"><span class="k">notice</span><div><b>Legal notice</b><p>Publisher facts — each missing field rendered as an explicit gap, not hidden.</p></div></div>
+      <div class="frow"><span class="k">cgv</span><div><b>Sponsorship terms</b><p>What a slot buys, what it never buys (a verdict).</p></div></div>
+      <div class="frow"><span class="k">disclosure</span><div><b>Disclosure</b><p>Every sponsored pixel is labelled. No affiliate links anywhere.</p></div></div>
+      <div class="frow"><span class="k">licences</span><div><b>Licences &amp; trademarks</b><p>MIT code. Logos belong to their owners.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= INVENTORY (proposal doc) ================= -->
+<section class="page" id="p-inventory">
+  <div class="wrap tight doc">
+    <div class="pagehead"><span class="eyebrow">proposal document</span><h1>Feature inventory — and where each is demoed here</h1>
+      <p class="lede">Compiled from the live code. Every route in the real app, mapped to its mock in this file.</p></div>
+    <div class="flist">
+      <div class="frow"><span class="k">home</span><div><b>The list</b> — <a class="tx" href="#/home">demoed</a><p>Cycling hero, working search + verdict filters, stat count-ups, sponsor wall with open slots, verdict-edged cards, pager line.</p></div></div>
+      <div class="frow"><span class="k">product</span><div><b>Can I replace X?</b> — <a class="tx" href="#/product">demoed</a><p>Stamp, verdict sentence, what-you-lose, exit ladder, alternatives with feature-fit, diff matrix, price receipt, vote, edit-this-page, open category slot, siblings.</p></div></div>
+      <div class="frow"><span class="k">project</span><div><b>Tool page</b> — <a class="tx" href="#/project">demoed</a><p>Facts row, open-core panel, repo health, replaces-list with verdicts, siblings by job and language.</p></div></div>
+      <div class="frow"><span class="k">tools</span><div><b>Alternatives index</b> — <a class="tx" href="#/alternatives">demoed</a><p>Most-replacing, stack cover with running total, openness chips, freshness.</p></div></div>
+      <div class="frow"><span class="k">categories</span><div><b>Index + category page</b> — <a class="tx" href="#/categories">demoed</a> · <a class="tx" href="#/category">demoed</a><p>Theme tabs, rung bars, median price, cheapest escape; category page with figures, rung legend, its own open sponsor slot, nearby categories.</p></div></div>
+      <div class="frow"><span class="k">collections</span><div><b>13 collections + graveyard</b> — <a class="tx" href="#/collections">demoed</a> · <a class="tx" href="#/graveyard">demoed</a><p>Derivation sentences, rejected-collections note, tombstones, recently-archived.</p></div></div>
+      <div class="frow"><span class="k">features</span><div><b>Explorer</b> — <a class="tx" href="#/features">demoed</a><p>Genre chips, quick filters with counts, clickable requirements showing glyphs per project, differ-only compare table, five-value legend.</p></div></div>
+      <div class="frow"><span class="k">stats</span><div><b>Traffic page</b> — <a class="tx" href="#/stats">demoed</a><p>Figure strip, 14-day bar sparkline, top pages, sources.</p></div></div>
+      <div class="frow"><span class="k">gaps</span><div><b>Gaps</b> — <a class="tx" href="#/gaps">demoed</a><p>Every not-yet with its reason, lowest-confidence prices, never-checked count.</p></div></div>
+      <div class="frow"><span class="k">glossary</span><div><b>Glossary</b> — <a class="tx" href="#/glossary">demoed</a></div></div>
+      <div class="frow"><span class="k">sponsor</span><div><b>3-step wizard</b> — <a class="tx" href="#/sponsor">demoed, working</a><p>Slot picking with caps and availability, term discounts with quoted total, creative form with LIVE preview into the real rail + wall units, Stripe pay step.</p></div></div>
+      <div class="frow"><span class="k">signin</span><div><b>Magic link</b> — <a class="tx" href="#/signin">demoed, working</a><p>Identical-response rule, sent state, demo shortcut into the dashboard.</p></div></div>
+      <div class="frow"><span class="k">dashboard</span><div><b>Advertiser dashboard</b> — <a class="tx" href="#/dashboard">demoed</a><p>Signed-out gate, totals, per-placement term progress, needs-creative banner, team panel.</p></div></div>
+      <div class="frow"><span class="k">admin</span><div><b>Admin console</b> — <a class="tx" href="#/admin">demoed, working queue</a><p>Review queue with true-to-slot preview and approve/reject, campaigns with expiring flag, slot board.</p></div></div>
+      <div class="frow"><span class="k">submit</span><div><b>Submit / Contact / Legal ×7</b> — <a class="tx" href="#/submit">demoed</a> · <a class="tx" href="#/contact">demoed</a> · <a class="tx" href="#/legal">demoed</a></div></div>
+      <div class="frow"><span class="k">ads chrome</span><div><b>Rails + wall + in-list + category slots</b> — on every page of this mock<p>Left/right rails (≥1460px wide window) mixing sold and open slots; hero wall on home; dashed in-list card in the product grid; open category slot on product + category pages.</p></div></div>
+      <div class="frow"><span class="k">i18n</span><div><b>EN/FR</b> — noted, not duplicated<p>Real app translates URL segments too (/en/alternatives ↔ /fr/alternatives, /en/tools ↔ /fr/outils). The wizard's FR creative field is here as the reminder.</p></div></div>
+      <div class="frow"><span class="k">estimate</span><div><b>Your bill</b> — <a class="tx" href="#/estimate">proposed NEW page, working demo</a></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROPOSALS ================= -->
+<section class="page" id="p-proposals">
+  <div class="wrap tight doc">
+    <div class="pagehead"><span class="eyebrow">proposal document</span><h1>Proposals</h1>
+      <p class="lede">Three structurally different directions in one file — switch skins bottom-right and re-walk any page. What changes per skin: the nav (top bar / left sidebar / masthead), the hero (headline / terminal window / account book), the list rendering (cards / dense rows / journal lines), the ad chrome (rails / bracket boxes / classifieds).</p></div>
+    <div class="prop"><h3>1 · The verdict becomes physical <span class="ptag motion">motion</span></h3><p>A stamp that slams in on product pages (click it to replay). Verdict color drives card edges, chips, rung bars — brand blue is never a verdict.</p></div>
+    <div class="prop"><h3>2 · Exit ladder drawn as a descent <span class="ptag new">component</span></h3><p>You-are-here at top, each rung animates in with its yearly saving. Turns “12 alternatives” into a decision path.</p></div>
+    <div class="prop"><h3>3 · “Your bill” page <span class="ptag new">new page</span></h3><p>Tick your SaaS, watch the year total in red, then the ladder crosses lines out. Working demo in this file. The ledger hero is the same idea as brand imagery.</p></div>
+    <div class="prop"><h3>4 · Command palette front door <span class="ptag new">new</span></h3><p>⌘K everywhere; the answer (verdict + price + top escape) appears in the dropdown itself, before any page loads.</p></div>
+    <div class="prop"><h3>5 · Graveyard as a destination <span class="ptag new">new</span></h3><p>Tombstones with epitaphs generated from health data. Screenshot bait, and the most honest page on the internet about OSS churn.</p></div>
+    <div class="prop"><h3>6 · Sponsor chrome consolidated <span class="ptag fix">fix</span></h3><p>Today the real site runs rails + marquee tape + a 10-cell wall on every page. Keep the wall on home, rails elsewhere, kill the tape. Fewer, calmer slots sell better. Open slots stay visible — they are the rate card in situ (see the dashed units all over this mock).</p></div>
+    <div class="prop"><h3>7 · Feature-fit % on every alternative <span class="ptag new">new</span></h3><p>The matrix already knows it. One number for skimmers; the matrix stays for the careful.</p></div>
+    <div class="prop"><h3>8 · Numbers behave like telemetry <span class="ptag motion">motion</span></h3><p>Count-ups on stats, +1 tick on “I switched”, the bleed counter on receipts, tabular numerals everywhere.</p></div>
+    <div class="prop"><h3>9 · Receipts look like receipts <span class="ptag motion">tweak</span></h3><p>Perforated edge, dashed rules, mono totals, confidence in color.</p></div>
+    <div class="prop"><h3>10 · Matrix crosshair <span class="ptag motion">motion</span></h3><p>Column highlight follows the cursor; sticky first column; “you” column tinted.</p></div>
+    <div class="prop"><h3>11 · Fix the AA contrast bug <span class="ptag fix">fix</span></h3><p>#2f6fed is 4.34:1 on light backgrounds — body links must use the darker sibling (#0e64e0 per DESIGN-GUIDELINES.md). Applied in this file as --accent-text.</p></div>
+    <div class="prop"><h3>12 · Motion rules <span class="ptag motion">rules</span></h3><p>≤500ms, ease-out entries, one orchestrated moment per page, hovers move ≤4px, prefers-reduced-motion kills everything (wired here).</p></div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER (full, like the real site) ================= -->
+<footer class="sitefoot">
+  <div class="wrap">
+    <div class="footgrid">
+      <div><h5>Browse</h5><a href="#/home">The list</a><a href="#/alternatives">Alternatives</a><a href="#/categories">Categories</a><a href="#/collections">Collections</a><a href="#/graveyard">The graveyard</a><a href="#/glossary">Glossary</a><a href="#/gaps">Gaps</a></div>
+      <div><h5>Contribute</h5><a href="#/submit">Submit a product</a><a href="#/product">Suggest a change</a><a href="#/contact">Challenge a verdict</a><a href="#/submit">How to contribute</a></div>
+      <div><h5>About</h5><a href="#/contact">Contact</a><a href="#/sponsor">Sponsor</a><a href="#/stats">Stats</a><a>The repository ↗</a><a>Français</a></div>
+      <div><h5>Legal</h5><a href="#/legal">Terms of use</a><a href="#/legal">Privacy</a><a href="#/legal">Cookies</a><a href="#/legal">Sponsorship terms</a><a href="#/legal">Disclosure</a><a href="#/legal">Licences</a></div>
+    </div>
+    <div class="footnote"><span>No affiliate links. Sponsored slots are labelled and never change a verdict.</span><span>made with ♥ by @hadesdevs — this file: redesign proposal, self-contained</span></div>
+  </div>
+</footer>
+
+<dialog id="paid-dlg">
+  <span class="eyebrow">Order confirmed</span>
+  <h3 style="margin:10px 0 6px">You’re in the review queue.</h3>
+  <p class="muted" style="font-size:13.5px">Your creative goes live the moment an admin approves it. Track it from the <a class="tx" href="#/dashboard">dashboard</a> — the magic link is in your inbox.</p>
+  <form method="dialog"><button class="btn sm" style="margin-top:14px">Close</button></form>
+</dialog>
+
+<script>
+/* ============ data ============ */
+const P = [
+ {n:"Notion",i:"N",v:"almost",p:10,sw:9,e:"Joplin, Logseq, SiYuan +9",cat:1,link:1},
+ {n:"Evernote",i:"E",v:"yes",p:8,sw:16,e:"Dendron, Foam, Joplin +13",cat:1},
+ {n:"Google Photos",i:"G",v:"yes",p:2,sw:31,e:"Immich, Ente, Nextcloud +8"},
+ {n:"Datadog",i:"D",v:"almost",p:180,sw:12,e:"Grafana, SigNoz, Netdata +7"},
+ {n:"ZoomInfo",i:"Z",v:"no",p:null,sw:0,e:"Nothing credible. We say keep paying — for now."},
+ {n:"Slack",i:"S",v:"almost",p:8,sw:21,e:"Mattermost, Rocket.Chat, Zulip +6"},
+ {n:"Figma",i:"F",v:"almost",p:15,sw:7,e:"Penpot +3"},
+ {n:"Jira",i:"J",v:"yes",p:8,sw:14,e:"OpenProject, Plane, Redmine +9"},
+ {n:"Postman",i:"P",v:"yes",p:14,sw:19,e:"Bruno, Hoppscotch +5"},
+ {n:"Calendly",i:"C",v:"yes",p:12,sw:13,e:"Cal.com, Easy!Appointments +4"},
+ {n:"Zendesk",i:"Z",v:"almost",p:55,sw:6,e:"Zammad, FreeScout, Chatwoot +5"},
+ {n:"Bitly",i:"B",v:"yes",p:35,sw:11,e:"Url-Shorten-Worker, zws +11"},
+];
+const VWORD = {yes:"Replaceable",almost:"Almost",no:"Not yet"};
+const EXITS = {"Notion":["Joplin","$0 + a $5 VPS","docker"],"Evernote":["Joplin","$0","docker"],"Google Photos":["Immich","$0 + a $5 VPS","docker"],"Datadog":["Grafana + Mimir","$0 + real ops","ops"],"Slack":["Zulip","$0 + a $5 VPS","docker"],"Figma":["Penpot","$0","docker"],"Jira":["Plane","$0","docker"],"Postman":["Bruno","$0, local app","managed"],"Calendly":["Cal.com","$0 self-host","docker"],"Zendesk":["Chatwoot","$0 + a $5 VPS","docker"],"Bitly":["zws","$0 worker","managed"],"ZoomInfo":[null]};
+const COLL = [
+ ["Self-hostable",412,"the whole product runs on your box"],["Open source",371,"an OSI licence somewhere real"],
+ ["FOSS",298,"free software, strictly"],["Open core",117,"good parts open, some parts paid"],
+ ["Source-available",44,"you may look, not always touch"],["Cheaper, still paid",203,"off the expensive thing without a server"],
+ ["One compose away",188,"docker compose up, done"],["The graveyard ⚰",41,"archived — kept, demoted, badged",1],
+ ["Under $10",164,"the small bills that add up"],["The expensive ones",58,"$100+/mo — worth an afternoon of docker"],
+ ["Written in Rust",47,"for the readers who ask"],["Written in Go",89,"same"],["Written in Python",71,"same"]];
+const SLOTS = {
+ hero:[["Hero #1","taken — Immich",120,0],["Hero #2","taken — Plausible",120,0],["Hero #3","open",120,1],["Hero #4","taken — Nextcloud",120,0],["Hero #5","open",120,1],["Hero #6","open",120,1],["Hero #7","open",100,1],["Hero #8","open",100,1],["Hero #9","open",100,1],["Hero #10","house ad until sold",100,1]],
+ rail:[["Rail L-1","open",90,1],["Rail L-2","taken — Grafana",90,0],["Rail L-3","open",90,1],["Rail R-1","taken — Nextcloud",90,0],["Rail R-2","taken — Matomo",90,0],["Rail R-3","open",90,1],["Rail R-4","open",70,1],["Rail R-5","open",70,1]],
+ cat:[["Notes & docs","open — 15 pages",30,1],["Monitoring","taken — Grafana",40,0],["Photos","open — 8 pages",30,1],["Password managers","taken — Vaultwarden",35,0],["Analytics","open — 12 pages",30,1],["…80 more","searchable in the real app",25,1]]};
+
+/* ============ router ============ */
+const ROUTES = ["home","product","project","alternatives","categories","category","collections","graveyard","features","estimate","stats","gaps","glossary","sponsor","signin","dashboard","admin","submit","contact","legal","inventory","proposals","compare"];
+function route(){
+  let r = (location.hash.replace(/^#\//,"")||"home").split("?")[0];
+  if(r==="compare") r="features";
+  if(!ROUTES.includes(r)) r="home";
+  document.querySelectorAll(".page").forEach(p=>p.classList.toggle("active",p.id==="p-"+r));
+  document.querySelectorAll("#mainnav > a").forEach(a=>a.setAttribute("aria-current",a.dataset.r===r));
+  document.querySelectorAll(".dd[open]").forEach(d=>d.removeAttribute("open"));
+  window.scrollTo({top:0});
+  if(r==="home"||r==="stats"){runCounts()}
+  if(r==="product"){slam()}
+}
+addEventListener("hashchange",route);
+
+/* ============ skins ============ */
+document.querySelectorAll("[data-skin-pick]").forEach(b=>b.addEventListener("click",()=>{
+  document.documentElement.dataset.skin=b.dataset.skinPick;
+  document.getElementById("skin-name").textContent=b.querySelector("b").textContent;
+  document.querySelectorAll("[data-skin-pick]").forEach(x=>x.dataset.active=x===b);
+}));
+
+/* ============ home: cards, filters, search ============ */
+const plist=document.getElementById("plist");
+let vf="all";
+function card(x){
+  const price=x.p==null?"no public price":"$"+x.p+"/mo";
+  const esc=x.v==="no"?`<p class="esc">${x.e}</p>`:`<p class="esc">Escape via <b>${x.e.replace(/,([^+]*)$/, ",$1")}</b></p>`;
+  const href=x.link?'href="#/product"':"";
+  return `<a class="pcard v-${x.v}" ${href}>
+   <div class="r1"><span class="logo">${x.i}</span><h3>${x.n}</h3><span class="price num">${price}</span></div>
+   <div class="r2"><span class="vmark ${x.v}">${VWORD[x.v]}</span><span class="sw">${x.sw} ↺ switched</span></div>${esc}</a>`;
+}
+function renderList(){
+  const q=(document.getElementById("q").value||"").toLowerCase();
+  const rows=P.filter(x=>(vf==="all"||x.v===vf)&&x.n.toLowerCase().includes(q));
+  let html="";
+  rows.forEach((x,i)=>{
+    html+=card(x);
+    if(i===3) html+=`<a class="pcard adslot" href="#/sponsor"><span class="s-tag">open slot · in-list #2</span><b>Sponsor this project →</b><span class="mono" style="font-size:10.5px">your product, right here in the list</span></a>`;
+  });
+  plist.innerHTML=html||`<p class="muted">Nothing matches — in the real app this searches all 592.</p>`;
+  document.getElementById("plist-n").textContent=rows.length;
+}
+document.getElementById("q").addEventListener("input",renderList);
+document.querySelectorAll(".vf").forEach(b=>b.addEventListener("click",()=>{
+  vf=b.dataset.v;document.querySelectorAll(".vf").forEach(x=>x.dataset.on=x===b);renderList();
+}));
+renderList();
+document.getElementById("siblings").innerHTML=P.slice(1,4).map(card).join("");
+document.getElementById("catlist").innerHTML=[P[0],P[1]].map(card).join("");
+
+/* sponsor wall */
+document.getElementById("wall").innerHTML=
+ `<div class="cell"><b>Immich</b><span class="s-tag">sponsored</span></div>
+  <div class="cell"><b>Plausible</b><span class="s-tag">sponsored</span></div>`+
+ [3,4,5,6,7,8,9].map(i=>`<div class="cell open"><span class="s-tag">hero-${i} · open</span><a href="#/sponsor">Sponsor this project →</a></div>`).join("")+
+ `<div class="cell"><b>hadesdev</b><span class="s-tag">from the maker · house ad</span></div>`;
+
+/* rails: sold + open, both sides, every page */
+function railSlot([label,who,tint]){
+  return who?`<div class="slot sold" style="--tint:${tint}"><span class="s-eyebrow">sponsored</span><b>${who[0]}</b><span class="muted">${who[1]}</span></div>`
+  :`<div class="slot open"><span class="s-eyebrow">${label} · open</span>Your product here<a href="#/sponsor">Sponsor this project →</a></div>`;
+}
+document.getElementById("rail-l").innerHTML=[["L1",["Nextcloud","Your own cloud, your server"],"#0082c9"],["L2",["Grafana","Dashboards for everything"],"#F46800"],["L3",null],["L4",null]].map(railSlot).join("");
+document.getElementById("rail-r").innerHTML=[["R1",["Matomo","Analytics that never leave"],"#3450A3"],["R2",["Vaultwarden","Bitwarden-compatible"],"#175ddc"],["R3",null],["R4",null]].map(railSlot).join("");
+
+/* ============ hero cycler ============ */
+const NAMES=["Notion","Figma","Slack","Datadog","Airtable","Zendesk","Postman","Calendly","Tailscale","Jira"];let ni=0;
+setInterval(()=>{ni=(ni+1)%NAMES.length;document.querySelectorAll(".cycle").forEach(c=>{c.textContent=document.documentElement.dataset.skin==="terminal"?NAMES[ni].toLowerCase():NAMES[ni];c.classList.remove("swap");void c.offsetWidth;c.classList.add("swap");});},2600);
+
+/* ============ count-ups ============ */
+const reduced=matchMedia("(prefers-reduced-motion: reduce)").matches;
+function runCounts(){
+  document.querySelectorAll(".page.active .count").forEach(el=>{
+    const to=+el.dataset.to;
+    if(reduced){el.textContent=to.toLocaleString();return}
+    const t0=performance.now(),dur=900;
+    (function tick(t){const p=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-p,3);
+      el.textContent=Math.round(to*e).toLocaleString();if(p<1)requestAnimationFrame(tick)})(t0);
+  });
+}
+
+/* ============ product page bits ============ */
+const stamp=document.getElementById("stamp");
+function slam(){stamp.classList.remove("slam");void stamp.offsetWidth;stamp.classList.add("slam")}
+stamp.addEventListener("click",slam);
+const vt=document.getElementById("voted");
+vt.addEventListener("click",()=>{vt.classList.add("done");vt.textContent="✓ Thanks — that’s 10 switches now";vt.disabled=true});
+const bleedEl=document.getElementById("bleed"),opened=performance.now();
+setInterval(()=>{bleedEl.textContent="$"+(((performance.now()-opened)/1000)*(600/365/24)).toFixed(3)},120);
+
+/* matrix crosshair (both matrices) */
+document.querySelectorAll("table.matrix").forEach(m=>{
+  m.addEventListener("mouseover",e=>{const td=e.target.closest("td,th");if(!td)return;const i=td.cellIndex;
+    m.querySelectorAll(".hit").forEach(c=>c.classList.remove("hit"));
+    if(i>0)m.querySelectorAll("tr").forEach(r=>{const c=r.cells[i];if(c)c.classList.add("hit")});});
+  m.addEventListener("mouseleave",()=>m.querySelectorAll(".hit").forEach(c=>c.classList.remove("hit")));
+});
+
+/* ============ collections grid ============ */
+document.getElementById("collgrid").innerHTML=COLL.map(([n,c,d,grave])=>
+ `<a class="panel" style="display:block" href="#/${grave?"graveyard":"collections"}"><b>${n}</b>
+  <span class="mono muted" style="float:right;font-size:12px">${c}</span>
+  <p class="muted" style="font-size:12.5px;margin-top:6px">${d}</p></a>`).join("");
+
+/* ============ features: requirements + glyphs + compare ============ */
+const GL={ok:'<span class="g-yes">●</span>',paid:'<span class="g-paid">€</span>',part:'<span class="g-part">◐</span>',no:'<span class="g-no">○</span>',unk:'<span class="g-unk">–</span>'};
+const FMAP={"encryption at rest":["ok","ok","unk"],"real-time co-editing":["unk","unk","part"],"works offline":["ok","ok","ok"],"API":["ok","ok","part"],"import from Notion":["ok","ok","no"]};
+function drawReqs(){
+  const on=[...document.querySelectorAll(".rq[data-on='true']")].map(b=>b.textContent);
+  document.getElementById("reqn").textContent=on.length;
+  document.querySelectorAll(".reqglyphs").forEach((p,pi)=>{
+    p.innerHTML=on.map(r=>`${GL[FMAP[r][pi]]} <span class="muted" style="font-size:10.5px">${r}</span>`).join("<br>")||"";
+  });
+}
+document.querySelectorAll(".rq,.qf,.cmp").forEach(b=>b.addEventListener("click",()=>{b.dataset.on=b.dataset.on!=="true";if(b.classList.contains("rq"))drawReqs()}));
+
+/* ============ estimate / your bill ============ */
+const bp=document.getElementById("billpick");
+bp.innerHTML='<span class="eyebrow">What do you pay for?</span>'+P.filter(x=>x.p!=null).map((x,i)=>
+ `<label style="display:flex;gap:10px;align-items:baseline;padding:8px 0;border-bottom:1px dashed var(--line);cursor:pointer">
+  <input type="checkbox" class="bx" data-p="${x.p}" data-n="${x.n}" ${i<3?"checked":""}>
+  <b style="flex:1">${x.n}</b><span class="num muted">$${x.p}/mo</span></label>`).join("");
+function bill(){
+  const on=[...document.querySelectorAll(".bx:checked")];
+  const m=on.reduce((s,b)=>s+ +b.dataset.p,0);
+  document.getElementById("bill-m").textContent="$"+m;
+  document.getElementById("bill-n").textContent=on.length;
+  document.getElementById("bill-y").textContent="$"+(m*12).toLocaleString();
+  const kept=on.filter(b=>!EXITS[b.dataset.n]||!EXITS[b.dataset.n][0]).reduce((s,b)=>s+ +b.dataset.p,0);
+  document.getElementById("bill-after").textContent="$"+(kept*12).toLocaleString()+"/yr";
+  return on;
+}
+bp.addEventListener("change",bill);bill();
+document.getElementById("bill-go").addEventListener("click",()=>{
+  const on=bill();const box=document.getElementById("bill-exits");box.hidden=false;
+  document.getElementById("bill-exit-rows").innerHTML=on.map(b=>{
+    const n=b.dataset.n,x=EXITS[n];
+    return x&&x[0]?`<div class="catrow"><h4 style="text-decoration:line-through;color:var(--muted)">${n}</h4><span class="meta">→</span><h4>${x[0]}</h4><span class="meta">${x[2]}</span><span class="cheap"><b>save $${(+b.dataset.p*12).toLocaleString()}/yr</b> · ${x[1]}</span></div>`
+    :`<div class="catrow"><h4>${n}</h4><span class="cheap" style="color:var(--no)">not yet — keep paying, we’ll tell you when</span></div>`;
+  }).join("");box.scrollIntoView({behavior:"smooth"});
+});
+
+/* ============ stats sparkline ============ */
+const H=[38,42,35,51,47,60,44,58,72,66,54,79,88,61];
+document.getElementById("spark").innerHTML=H.map(h=>`<i style="flex:1;background:var(--accent);opacity:.75;height:${h}%;border-radius:2px 2px 0 0"></i>`).join("");
+
+/* ============ sponsor wizard ============ */
+let picked=new Map(),months=3,disc=12,wtab="hero";
+const CAP={hero:2,rail:2,cat:5};
+function drawSlots(){
+  document.getElementById("slotlist").innerHTML=SLOTS[wtab].map(([nm,st,pr,free],i)=>{
+    const id=wtab+i,on=picked.has(id);
+    return `<div class="slotrow"><div class="nm"><b>${nm}</b><span>${st}</span></div>
+     <span class="pr num">$${pr}/30d</span>
+     <span class="st ${free?"free":"taken"}">${free?"available":"taken"}</span>
+     <button data-id="${id}" data-pr="${pr}" data-picked="${on}" ${free?"":"disabled"}>${on?"✓ picked":"pick"}</button></div>`;
+  }).join("");
+  document.querySelectorAll("#slotlist button").forEach(b=>b.addEventListener("click",()=>{
+    const id=b.dataset.id;
+    if(picked.has(id))picked.delete(id);
+    else{
+      const kind=id.replace(/\d+$/,"");
+      const same=[...picked.keys()].filter(k=>k.replace(/\d+$/,"")===kind);
+      if(same.length>=CAP[kind]){const old=same[0];picked.delete(old);
+        b.closest("#wiz1").querySelector("#pickn").insertAdjacentHTML("afterend","");/* swap note below */
+        alert(`Cap for ${kind} is ${CAP[kind]} — swapped out your oldest pick (${old}).`);}
+      picked.set(id,+b.dataset.pr);
+    }
+    drawSlots();sync();
+  }));
+}
+function sync(){
+  document.getElementById("pickn").textContent=picked.size;
+  document.getElementById("to2").disabled=!picked.size;
+  const raw=[...picked.values()].reduce((a,b)=>a+b,0)*months;
+  const d=Math.round(raw*disc/100);
+  document.getElementById("q-raw").textContent="$"+raw.toLocaleString();
+  document.getElementById("q-disc").textContent="−$"+d.toLocaleString();
+  document.getElementById("q-total").textContent="$"+(raw-d).toLocaleString();
+  document.getElementById("paytotal").textContent="$"+(raw-d).toLocaleString();
+}
+document.querySelectorAll(".wtab").forEach(b=>b.addEventListener("click",()=>{wtab=b.dataset.t;document.querySelectorAll(".wtab").forEach(x=>x.dataset.on=x===b);drawSlots()}));
+drawSlots();sync();
+function wstep(n){
+  document.getElementById("wiz1").hidden=n!==1;document.getElementById("wiz2").hidden=n!==2;document.getElementById("wiz3").hidden=n!==3;
+  [1,2,3].forEach(i=>{const s=document.getElementById("st"+i);s.dataset.on=i===n;s.dataset.done=i<n});
+}
+document.getElementById("to2").addEventListener("click",()=>wstep(2));
+document.getElementById("to3").addEventListener("click",()=>wstep(3));
+document.getElementById("back1").addEventListener("click",()=>wstep(1));
+document.getElementById("back2").addEventListener("click",()=>wstep(2));
+document.getElementById("st1").addEventListener("click",()=>wstep(1));
+document.getElementById("st2").addEventListener("click",()=>picked.size&&wstep(2));
+document.getElementById("st3").addEventListener("click",()=>picked.size&&wstep(3));
+document.querySelectorAll(".tsel").forEach(b=>b.addEventListener("click",()=>{
+  months=+b.dataset.m;disc=+b.dataset.d;document.querySelectorAll(".tsel").forEach(x=>x.dataset.on=x===b);sync();
+}));
+/* live creative preview */
+function pv(){
+  const n=document.getElementById("cf-name").value||"Your product";
+  const t=document.getElementById("cf-tag").value||"Your tagline here";
+  const c=document.getElementById("cf-tint").value;
+  document.getElementById("pv-name").textContent=n;document.getElementById("pv-name2").textContent=n;
+  document.getElementById("pv-tag").textContent=t;
+  document.getElementById("pv-rail").style.setProperty("--tint",c);
+}
+document.querySelectorAll(".cf").forEach(i=>i.addEventListener("input",pv));
+document.getElementById("pay").addEventListener("click",()=>document.getElementById("paid-dlg").showModal());
+
+/* ============ signin / dashboard ============ */
+document.getElementById("si-go").addEventListener("click",()=>{
+  document.getElementById("si-form").hidden=true;document.getElementById("si-sent").hidden=false;
+});
+document.getElementById("si-demo").addEventListener("click",()=>{
+  document.getElementById("dash-out").hidden=true;document.getElementById("dash-in").hidden=false;
+  document.getElementById("signin-link").textContent="you@company.com";
+  document.getElementById("signin-link").href="#/dashboard";
+  location.hash="#/dashboard";runCounts();
+});
+
+/* ============ admin queue ============ */
+document.getElementById("q-ok").addEventListener("click",()=>{
+  document.getElementById("queue-item").remove();document.getElementById("queue-empty").hidden=false;
+});
+document.getElementById("q-no").addEventListener("click",()=>{
+  const r=prompt("Reason sent to the sponsor:");if(r!=null){document.getElementById("queue-item").remove();document.getElementById("queue-empty").hidden=false;}
+});
+
+/* keyboard: ⌘K focuses search */
+addEventListener("keydown",e=>{
+  if((e.metaKey||e.ctrlKey)&&e.key==="k"){e.preventDefault();location.hash="#/home";setTimeout(()=>document.getElementById("q").focus(),50);}
+});
+
+route();
+</script>
+</body>
+</html>

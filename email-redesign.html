@@ -1,0 +1,999 @@
+<!doctype html>
+<html lang="en" data-skin="brand" data-client="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>canireplaceit — email redesign plan</title>
+<style>
+/* ============================================================
+   canireplaceit — email redesign plan
+   The 5 transactional emails (sign-in, payment received, ad
+   live, ad rejected, team invite) redrawn in the Verdict·Brand
+   language: wordmark header, receipt rows, verdict stamps,
+   honest footers. Two palette variants (picker bottom-right),
+   a light/dark client toggle, and the text/plain part of every
+   email — because half the promise of these emails is that
+   they read fine with no HTML at all.
+   Self-contained: no external requests, system fonts.
+   ============================================================ */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+ --ui-bg:#f4f5f7;--ui-surface:#fff;--ui-ink:#0f1319;--ui-muted:#5d6675;
+ --ui-line:#e3e6ec;--ui-accent:#2f6fed;
+ --mono:ui-monospace,"Cascadia Code",Menlo,monospace;
+ --ease:cubic-bezier(.2,0,0,1);--easeo:cubic-bezier(.05,.7,.1,1);
+}
+/* ---- EMAIL palette: Brand (recommended — the site's own tokens) ---- */
+[data-skin="brand"]{
+ --m-bg:#fbfbfd;         /* the client-independent canvas behind the card */
+ --m-card:#ffffff;--m-ink:#0f1319;--m-muted:#5d6675;--m-line:#e3e6ec;
+ --m-brand:#2f6fed;--m-brand-text:#0e64e0;
+ --m-yes:#167a52;--m-yes-bg:#e3f2ea;--m-no:#c62f2f;--m-no-bg:#fae4e2;
+ --m-almost:#a15a05;--m-almost-bg:#f8edda;
+ --m-radius:12px;
+}
+/* ---- EMAIL palette: Paper (the warm verdict alternative) ---- */
+[data-skin="paper"]{
+ --m-bg:#f7f5f0;
+ --m-card:#fffefb;--m-ink:#191714;--m-muted:#6c675e;--m-line:#dcd7cb;
+ --m-brand:#2f6fed;--m-brand-text:#1d5cd6;
+ --m-yes:#187a4b;--m-yes-bg:#e2f2e8;--m-no:#bb2c2c;--m-no-bg:#f9e3e0;
+ --m-almost:#a05f00;--m-almost-bg:#f7ecd8;
+ --m-radius:8px;
+}
+/* ---- dark client: what the email's own @media(prefers-color-scheme:dark)
+        block would produce. Same block in both variants — one dark. ---- */
+[data-client="dark"]{
+ --m-bg:#0a0d13;--m-card:#121722;--m-ink:#e7ecf3;--m-muted:#8d99ab;
+ --m-line:#232b39;--m-brand:#4c8dff;--m-brand-text:#7ca9ff;
+ --m-yes:#34d399;--m-yes-bg:#0e2b20;--m-no:#ff5c5c;--m-no-bg:#2f1515;
+ --m-almost:#f5a623;--m-almost-bg:#2b2110;
+ --ui-bg:#101318;--ui-surface:#181c23;--ui-ink:#e7ecf3;--ui-muted:#8d99ab;--ui-line:#252b36;
+}
+body{font-family:system-ui,"Segoe UI",sans-serif;background:var(--ui-bg);color:var(--ui-ink);
+ font-size:15px;line-height:1.55;transition:background .3s var(--ease)}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;color:inherit}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.eyebrow{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.18em;color:var(--ui-muted)}
+
+/* ============ chrome ============ */
+#bar{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:14px;padding:10px 20px;
+ background:var(--ui-surface);border-bottom:1px solid var(--ui-line);flex-wrap:wrap}
+#bar .brand{font-weight:700;font-size:16px}
+#bar .brand em{font-style:normal;color:var(--ui-accent)}
+.tabs{display:flex;gap:2px;flex-wrap:wrap}
+.tabs button{border:none;background:none;color:var(--ui-muted);padding:8px 11px;
+ font-family:var(--mono);font-size:11.5px;text-transform:uppercase;letter-spacing:.07em;
+ border-bottom:2px solid transparent}
+.tabs button[aria-selected="true"]{color:var(--ui-ink);border-bottom-color:var(--ui-accent)}
+.tabs button:hover{color:var(--ui-ink)}
+#bar .spacer{flex:1}
+.tog{display:flex;border:1px solid var(--ui-line);border-radius:999px;overflow:hidden}
+.tog button{border:none;background:none;padding:7px 13px;font-family:var(--mono);font-size:11px;color:var(--ui-muted)}
+.tog button[data-on="true"]{background:var(--ui-ink);color:var(--ui-bg)}
+
+#skin-picker{position:fixed;bottom:14px;right:14px;z-index:50}
+#skin-picker .cur{display:flex;align-items:center;gap:8px;padding:9px 15px;border-radius:999px;
+ background:var(--ui-ink);color:var(--ui-bg);font-family:var(--mono);font-size:11.5px;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+#skin-picker .dot{width:10px;height:10px;border-radius:50%;background:var(--ui-accent)}
+#skin-picker .menu{position:absolute;right:0;bottom:calc(100% + 8px);min-width:250px;background:var(--ui-surface);
+ border:1px solid var(--ui-line);border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.22);padding:6px;
+ opacity:0;transform:translateY(6px);pointer-events:none;transition:all .18s var(--ease)}
+#skin-picker:hover .menu,#skin-picker:focus-within .menu{opacity:1;transform:none;pointer-events:auto}
+#skin-picker .menu button{display:block;width:100%;text-align:left;padding:10px 12px;border:none;background:none;border-radius:8px}
+#skin-picker .menu button:hover{background:var(--ui-bg)}
+#skin-picker .menu b{display:block;font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+#skin-picker .menu span{font-size:12px;color:var(--ui-muted)}
+#skin-picker .menu button[data-active="true"] b{color:var(--ui-accent)}
+
+/* ============ pages ============ */
+.page{display:none}
+.page.active{display:block;animation:pin .35s var(--easeo)}
+@keyframes pin{from{opacity:0;transform:translateY(8px)}}
+.wrap{max-width:860px;margin:0 auto;padding:28px 20px 80px}
+.wrap.wide{max-width:1120px}
+
+/* ============ inbox frame ============ */
+.inbox{background:var(--ui-surface);border:1px solid var(--ui-line);border-radius:12px;overflow:hidden;margin-top:18px}
+.envelope{padding:14px 18px;border-bottom:1px solid var(--ui-line);font-size:13px}
+.envelope .row{display:flex;gap:10px;padding:2px 0}
+.envelope .k{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--ui-muted);width:74px;flex:none;padding-top:3px}
+.envelope b{font-weight:600}
+.envelope .pre{color:var(--ui-muted)}
+.viewport{background:var(--m-bg);padding:32px 16px;transition:background .3s var(--ease)}
+
+/* ============ THE EMAIL (what actually ships, 600px) ============ */
+.email{max-width:600px;margin:0 auto;font-family:system-ui,"Segoe UI",Arial,sans-serif;color:var(--m-ink)}
+.e-card{background:var(--m-card);border:1px solid var(--m-line);border-radius:var(--m-radius);overflow:hidden}
+.e-head{display:flex;align-items:center;gap:10px;padding:18px 28px;border-bottom:1px solid var(--m-line)}
+.e-mark{flex:none}
+.e-word{font-weight:700;font-size:17px;letter-spacing:-.01em}
+.e-word i{font-style:normal;color:var(--m-brand)}
+.e-headtag{margin-left:auto;font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.16em;color:var(--m-muted)}
+.e-body{padding:28px}
+.e-body h1{font-size:21px;letter-spacing:-.015em;line-height:1.25;margin-bottom:12px}
+.e-body p{margin:0 0 14px;line-height:1.6}
+.e-muted{color:var(--m-muted);font-size:13.5px}
+.e-btn{display:inline-block;background:var(--m-brand);color:#fff !important;font-weight:600;font-size:15px;
+ text-decoration:none;padding:13px 26px;border-radius:10px;margin:8px 0 18px}
+[data-client="dark"] .e-btn{color:#0a0d13 !important}
+.e-linkbox{font-family:var(--mono);font-size:11px;color:var(--m-muted);word-break:break-all;
+ background:var(--m-bg);border:1px dashed var(--m-line);border-radius:6px;padding:10px 12px;margin-top:6px}
+.e-note{border-left:3px solid var(--m-brand);padding:10px 14px;background:var(--m-bg);border-radius:0 8px 8px 0;font-size:14px;margin:16px 0}
+.e-foot{padding:18px 28px 22px;border-top:1px solid var(--m-line);font-size:12px;color:var(--m-muted);line-height:1.7}
+.e-foot a{color:var(--m-brand-text);text-decoration:underline}
+.e-under{max-width:600px;margin:14px auto 0;text-align:center;font-family:var(--mono);font-size:10.5px;color:var(--m-muted)}
+
+/* receipt */
+.e-total{font-family:var(--mono);font-size:26px;font-weight:600;margin:2px 0 10px}
+.e-rrow{display:flex;justify-content:space-between;gap:14px;padding:8px 0;border-bottom:1px dashed var(--m-line);font-size:13.5px}
+.e-rrow span:first-child{color:var(--m-muted)}
+.e-rrow .v{font-family:var(--mono);text-align:right}
+.e-perf{display:block;height:9px;margin:14px -28px -6px;
+ background:radial-gradient(circle at 8px -2px,transparent 6px,var(--m-bg) 6.5px);background-size:16px 9px}
+
+/* stamp */
+.e-stamp{display:inline-block;font-weight:800;font-size:22px;text-transform:uppercase;letter-spacing:.06em;
+ padding:5px 16px;border:3px solid currentColor;border-radius:6px;transform:rotate(-4deg);margin:4px 0 14px}
+.e-stamp.yes{color:var(--m-yes)} .e-stamp.no{color:var(--m-no)}
+.page.active .e-stamp{animation:slam .45s var(--easeo) both .15s}
+@keyframes slam{0%{opacity:0;transform:rotate(-14deg) scale(2)}60%{opacity:1;transform:rotate(-3deg) scale(.96)}
+ 80%{transform:rotate(-4.5deg) scale(1.03)}100%{transform:rotate(-4deg) scale(1)}}
+
+/* role card (invite) */
+.e-role{border:1px solid var(--m-line);border-radius:10px;padding:14px 16px;margin:14px 0;font-size:14px}
+.e-role .ok{color:var(--m-yes)} .e-role .nope{color:var(--m-muted)}
+.e-role p{margin:4px 0}
+
+/* reason box (rejected) */
+.e-reason{background:var(--m-no-bg);border-radius:8px;padding:12px 16px;margin:14px 0;font-size:14px}
+.e-reason b{color:var(--m-no)}
+
+/* pill */
+.e-pill{display:inline-block;font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.1em;
+ padding:3px 10px;border-radius:999px}
+.e-pill.review{background:var(--m-almost-bg);color:var(--m-almost)}
+.e-pill.live{background:var(--m-yes-bg);color:var(--m-yes)}
+
+/* ============ ad blocks — the formats a sponsor buys ============ */
+.adb{background:var(--m-card);border:1px solid var(--m-line);border-radius:8px;font-family:system-ui,"Segoe UI",Arial,sans-serif}
+.adb .s-eyebrow{display:block;font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--m-muted);margin-bottom:5px}
+.adb b{display:block;font-size:13px;color:var(--m-ink)}
+.adb span.tag{font-size:11.5px;color:var(--m-muted);line-height:1.35;display:block}
+.adb-rail{width:150px;padding:10px;border-left:3px solid var(--tint,#0082c9)}
+.adb-cell{width:150px;padding:14px 10px;text-align:center}
+.adb-cell b{font-size:13.5px}
+.adb-inlist{max-width:330px;padding:13px 14px;border-left:3px solid var(--tint,#0082c9)}
+.adb-inlist b{font-size:14px;display:inline}
+.adb-inlist .price{float:right;font-family:var(--mono);font-size:11px;color:var(--m-muted)}
+.adb-cat{max-width:330px;padding:11px 14px;border-style:solid;display:flex;align-items:center;gap:10px}
+.adb-cat .logo,.adb-inlist .logo,.adb-rail .logo{width:26px;height:26px;border-radius:6px;background:var(--tint,#0082c9);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex:none}
+.adb-rail .logo{margin-bottom:6px}
+
+/* mini page mocks — real content at map scale. --s scales a whole frame. */
+.mock,.dev{--s:1}
+.mock{width:280px;background:var(--m-bg);border:1px solid var(--m-line);border-radius:8px;padding:calc(11px*var(--s));flex:none}
+.mock .cap{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--m-muted);margin-bottom:8px;text-align:center}
+.t1{font-size:calc(11px*var(--s));font-weight:700;color:var(--m-ink);letter-spacing:-.01em;line-height:1.2}
+.t1 em{font-style:normal;color:var(--m-brand);border-bottom:calc(1.5px*var(--s)) solid var(--m-brand)}
+.t2{font-size:calc(7.5px*var(--s));color:var(--m-muted);margin-top:2px;line-height:1.35}
+.ctr{text-align:center}
+.skcard{background:var(--m-card);border:1px solid var(--m-line);border-radius:4px;padding:calc(5px*var(--s)) calc(6px*var(--s));overflow:hidden}
+.skcard .nm{display:block;font-size:calc(8px*var(--s));font-weight:600;color:var(--m-ink);white-space:nowrap}
+.skcard .vd{display:block;font-family:var(--mono);font-size:calc(5.5px*var(--s));letter-spacing:.1em;text-transform:uppercase;margin-top:1.5px;white-space:nowrap}
+.skcard .vd.y{color:var(--m-yes)} .skcard .vd.a{color:var(--m-almost)}
+.skcard .esc{display:block;font-size:calc(6.5px*var(--s));color:var(--m-muted);margin-top:1.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* the sponsor's block inside a mock — logo, name, tagline, at map scale */
+.hotad{background:var(--m-card);border:1px solid var(--tint,#0082c9);box-shadow:0 0 0 2px color-mix(in srgb,var(--tint,#0082c9) 30%,transparent);border-radius:4px;padding:calc(4px*var(--s)) calc(5px*var(--s));overflow:hidden}
+.hotad .sp{display:block;font-family:var(--mono);font-size:calc(4.5px*var(--s));letter-spacing:.14em;text-transform:uppercase;color:var(--m-muted)}
+.hotad .lg{display:inline-flex;width:calc(9px*var(--s));height:calc(9px*var(--s));border-radius:2px;background:var(--tint,#0082c9);color:#fff;font-size:calc(6px*var(--s));font-weight:700;align-items:center;justify-content:center;vertical-align:-1px;margin:1px 3px 1px 0}
+.hotad b{font-size:calc(7.5px*var(--s));color:var(--m-ink)}
+.hotad i{display:block;font-style:normal;color:var(--m-muted);font-size:calc(6px*var(--s));line-height:1.35}
+.hotad.ctr{text-align:center}
+.mockrow{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px}
+
+/* device frames — STACKED one above the other, roomy, scaled up */
+.devrow{display:flex;flex-direction:column;align-items:flex-start;gap:10px;margin:16px 0 12px}
+.devrow>div{width:100%}
+.dev{background:var(--m-bg);border:1.5px solid var(--m-line);border-radius:12px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.dev .bar{display:flex;gap:4px;align-items:center;height:18px;background:var(--m-card);border-bottom:1px solid var(--m-line);padding:0 9px}
+.dev .bar i{width:6px;height:6px;border-radius:50%;background:var(--m-line)}
+.dev .bar .url{flex:1;height:7px;background:var(--m-bg);border-radius:4px;margin-left:5px}
+.dev .scr{padding:calc(13px*var(--s))}
+.dev.pc{width:100%;max-width:920px;--s:2.05}
+.dev.tab{width:min(100%,580px);--s:1.7}
+.dev.ph{width:310px;--s:1.45;border-radius:16px}
+.dev.ph .bar{justify-content:center}
+.dev.ph .bar i{width:22px;height:4px;border-radius:3px}
+.devlabel{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ui-muted);margin:6px 0 30px 2px}
+.pagetitle{font-size:16px;font-weight:700;margin:34px 0 2px}
+.pagetitle .mono{font-size:10.5px;color:var(--ui-muted);font-weight:400}
+/* the tape banner: what the rails become below 1560px */
+.tapemini{display:flex;gap:calc(3px*var(--s));overflow:hidden;padding:calc(3.5px*var(--s)) calc(5px*var(--s));background:var(--m-card);border-bottom:1px solid var(--m-line);margin:calc(-13px*var(--s)) calc(-13px*var(--s)) calc(9px*var(--s))}
+.tapemini .chip{flex:none;font-size:calc(5.5px*var(--s));border:1px solid var(--m-line);border-radius:999px;padding:calc(1.5px*var(--s)) calc(5px*var(--s));color:var(--m-muted);white-space:nowrap}
+.tapemini .chip.hot{border-color:var(--tint,#0082c9);color:var(--m-ink);font-weight:600}
+.tapemini .chip.hot::before{content:"";display:inline-block;width:calc(4px*var(--s));height:calc(4px*var(--s));border-radius:1px;background:var(--tint,#0082c9);margin-right:calc(2px*var(--s))}
+.tapemini.solo{margin:0;border:1px solid var(--m-line);border-radius:999px;--s:2}
+.tapemini.bottom{margin:calc(9px*var(--s)) calc(-13px*var(--s)) calc(-13px*var(--s));border-top:1px solid var(--m-line);border-bottom:0}
+.fmt{margin:26px 0}
+.fmt h3{font-size:16px;margin-bottom:4px}
+.fmt .why{font-size:13px;color:var(--ui-muted);margin-bottom:12px;max-width:60ch}
+.fmt .pair{display:flex;gap:22px;flex-wrap:wrap;align-items:flex-start}
+
+/* in-email preview strip */
+.e-preview{border:1px dashed var(--m-line);border-radius:10px;padding:22px;margin:20px 0;background:var(--m-bg)}
+.e-preview .cap{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--m-muted);margin-bottom:16px}
+.e-preview .blocks{display:flex;flex-direction:column;gap:28px}
+.e-preview .sub{font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--m-muted);margin:0 0 10px}
+.e-preview .mock{width:100%;--s:1.7}
+.e-preview .mock .cap{display:none}
+
+/* plain text view */
+.plain{display:none;background:#101413;color:#cfe0d4;border-radius:0;padding:22px 26px;
+ font-family:var(--mono);font-size:13px;line-height:1.75;white-space:pre-wrap}
+[data-view="text"] .viewport{display:none}
+[data-view="text"] .plain{display:block}
+
+/* docs */
+.doc{max-width:70ch}
+.doc h2{font-size:21px;margin:26px 0 10px;letter-spacing:-.015em}
+.doc p{color:var(--ui-muted);margin-bottom:12px}
+.frow{display:flex;gap:14px;padding:13px 15px;background:var(--ui-surface);border:1px solid var(--ui-line);border-radius:10px;margin-bottom:10px}
+.frow .k{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--ui-accent);flex:none;width:104px;padding-top:2px}
+.frow p{margin:2px 0 0;font-size:13px;color:var(--ui-muted)}
+.frow b{font-size:14px}
+.prop{border-left:3px solid var(--ui-accent);padding:4px 0 4px 16px;margin:20px 0}
+.prop h3{font-size:16px}
+.prop p{font-size:13.5px;color:var(--ui-muted);margin-top:4px;max-width:64ch}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001s !important;transition-duration:.001s !important}}
+</style>
+</head>
+<body>
+
+<div id="bar">
+  <span class="brand">can<em>i</em>replace<em>it</em> <span class="mono" style="font-size:10.5px;color:var(--ui-muted)">/ email redesign</span></span>
+  <nav class="tabs" role="tablist">
+    <button role="tab" aria-selected="true" data-tab="signin">Sign-in link</button>
+    <button role="tab" aria-selected="false" data-tab="paid">Payment received</button>
+    <button role="tab" aria-selected="false" data-tab="live">Ad live</button>
+    <button role="tab" aria-selected="false" data-tab="rejected">Not approved</button>
+    <button role="tab" aria-selected="false" data-tab="invite">Team invite</button>
+    <button role="tab" aria-selected="false" data-tab="formats">Ad formats</button>
+    <button role="tab" aria-selected="false" data-tab="principles">Principles</button>
+    <button role="tab" aria-selected="false" data-tab="proposals">Proposals</button>
+  </nav>
+  <span class="spacer"></span>
+  <div class="tog" title="Simulates the email's own @media (prefers-color-scheme: dark) block">
+    <button data-cl="light" data-on="true">☀ light client</button>
+    <button data-cl="dark">☾ dark client</button>
+  </div>
+  <div class="tog" title="Every email ships a text/plain part — this is it">
+    <button data-vw="html" data-on="true">HTML</button>
+    <button data-vw="text">text/plain</button>
+  </div>
+</div>
+
+<div id="skin-picker">
+  <div class="cur" tabindex="0"><span class="dot"></span><span id="skin-name">Brand</span> ▴</div>
+  <div class="menu">
+    <button data-skin-pick="brand" data-active="true"><b>Brand</b><span>The site's own tokens on white. Recommended.</span></button>
+    <button data-skin-pick="paper"><b>Paper</b><span>The warm verdict paper, for comparison.</span></button>
+  </div>
+</div>
+
+<!-- ================================================================
+     1 · SIGN-IN LINK
+     ================================================================ -->
+<section class="page active" id="p-signin">
+  <div class="wrap">
+    <span class="eyebrow">auth.ts → signInMail() · sent on every dashboard sign-in</span>
+    <div class="inbox">
+      <div class="envelope">
+        <div class="row"><span class="k">From</span><span><b>canireplaceit</b> &lt;no-reply@canireplaceit.com&gt;</span></div>
+        <div class="row"><span class="k">Subject</span><span><b>Your sign-in link — works once, 15 minutes</b></span></div>
+        <div class="row"><span class="k">Preheader</span><span class="pre">One click, no password. If this wasn’t you, ignoring it is enough.</span></div>
+      </div>
+      <div class="viewport"><div class="email">
+        <div class="e-card">
+          <div class="e-head">
+            <svg class="e-mark" width="26" height="26" viewBox="0 0 32 32" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M24 10H8M13 5L7 10l6 5" stroke="var(--m-muted)"/>
+              <path d="M8 22h16M19 17l6 5-6 5" stroke="var(--m-brand)"/>
+            </svg>
+            <span class="e-word">can<i>i</i>replace<i>it</i></span>
+            <span class="e-headtag">sign-in</span>
+          </div>
+          <div class="e-body">
+            <h1>Here’s your way in.</h1>
+            <p>Somebody — hopefully you — asked to sign in with this address. One click does it; there is no password, here or anywhere on the site.</p>
+            <a class="e-btn" href="#">Sign in →</a>
+            <p class="e-muted mono" style="font-size:12px">⏱ works once · expires in 15 minutes</p>
+            <p class="e-muted">Wasn’t you? Ignore this email — nothing happens until the link is used.</p>
+            <div class="e-linkbox">https://canireplaceit.com/api/auth/callback?token=k7f2…9d41</div>
+          </div>
+          <div class="e-foot">
+            You’re getting this because this address was entered on the sign-in page just now — this is not a subscription and there is nothing to unsubscribe from.<br>
+            No tracking pixels in this email. We count nothing you don’t click.<br>
+            canireplaceit — open source alternatives, with verdicts · <a href="#">canireplaceit.com</a>
+          </div>
+        </div>
+        <p class="e-under">sent by a server, answered by a human — replies reach us</p>
+      </div></div>
+      <pre class="plain">Subject: Your sign-in link — works once, 15 minutes
+
+Somebody asked for a sign-in link for this address.
+
+https://canireplaceit.com/api/auth/callback?token=k7f2…9d41
+
+It works once and expires in 15 minutes.
+If this wasn't you, ignore this email — nothing happens until
+the link is used.
+
+--
+canireplaceit — no tracking pixels, nothing to unsubscribe from.</pre>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     2 · PAYMENT RECEIVED — the receipt email is literally a receipt
+     ================================================================ -->
+<section class="page" id="p-paid">
+  <div class="wrap">
+    <span class="eyebrow">payments.ts → paidMail() · after Stripe settles, before review</span>
+    <div class="inbox">
+      <div class="envelope">
+        <div class="row"><span class="k">From</span><span><b>canireplaceit</b> &lt;no-reply@canireplaceit.com&gt;</span></div>
+        <div class="row"><span class="k">Subject</span><span><b>Receipt: $486 — your ad is in review</b></span></div>
+        <div class="row"><span class="k">Preheader</span><span class="pre">Nothing else is needed from you. The clock starts when it goes live, not today.</span></div>
+      </div>
+      <div class="viewport"><div class="email">
+        <div class="e-card">
+          <div class="e-head">
+            <svg class="e-mark" width="26" height="26" viewBox="0 0 32 32" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M24 10H8M13 5L7 10l6 5" stroke="var(--m-muted)"/>
+              <path d="M8 22h16M19 17l6 5-6 5" stroke="var(--m-brand)"/>
+            </svg>
+            <span class="e-word">can<i>i</i>replace<i>it</i></span>
+            <span class="e-headtag">receipt</span>
+          </div>
+          <div class="e-body">
+            <h1>Paid. <span style="white-space:nowrap">Now we read it.</span></h1>
+            <p>Thank you — your payment settled. Your ad is with us for a quick human read before it goes up; we read every one.</p>
+            <div>
+              <p class="e-total">$486.00</p>
+              <div class="e-rrow"><span>Placements</span><span class="v">Rail R-1 · Hero #4</span></div>
+              <div class="e-rrow"><span>Term</span><span class="v">3 months (−12%)</span></div>
+              <div class="e-rrow"><span>Paid</span><span class="v">Aug 17, 2026 · Visa ····4242</span></div>
+              <div class="e-rrow" style="border-bottom:0"><span>Status</span><span class="v"><span class="e-pill review">in review</span></span></div>
+              <span class="e-perf" aria-hidden="true"></span>
+            </div>
+            <div class="e-note"><b>Nothing else is needed from you.</b> Your full 3 months start when the ad goes live, not today — the review costs you nothing.</div>
+            <div class="e-preview">
+              <p class="cap">While we read it — your ad, in every format you bought</p>
+              <div class="blocks">
+                <div>
+                  <p class="sub">① Rail R-1 · the block itself, at real size</p>
+                  <div class="adb adb-rail" style="--tint:#0082c9"><span class="s-eyebrow">sponsored</span><span class="logo">N</span><b>Nextcloud</b><span class="tag">Your own cloud, on your own server</span></div>
+                </div>
+                <div>
+                  <p class="sub">① Rail R-1 · in place, on every page — here beside “Can I replace Notion?”</p>
+                  <div class="mock">
+                    <div style="display:flex;gap:10px">
+                      <div style="flex:1;min-width:0">
+                        <p class="t1">Can I replace <em>Notion</em>?</p>
+                        <p class="t2">Almost — Joplin covers most of it under AGPL-3.0. You give up databases and relations.</p>
+                        <div class="skcard" style="margin-top:7px"><span class="nm">Joplin <span class="vd y" style="display:inline">82% fit</span></span><span class="esc">docker · AGPL-3.0 · self-host ✓</span></div>
+                        <div class="skcard" style="margin-top:5px"><span class="nm">Logseq <span class="vd a" style="display:inline">74% fit</span></span><span class="esc">local-first · graph queries</span></div>
+                      </div>
+                      <div style="width:31%;flex:none">
+                        <div class="hotad" style="--tint:#0082c9"><span class="sp">sponsored</span><span class="lg">N</span><b>Nextcloud</b><i>Your own cloud, on your own server</i></div>
+                        <div class="skcard" style="margin-top:5px"><span class="nm">Matomo</span><span class="esc">sponsored</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <p class="sub">① Rail R-1 · on tablet and phone, the same creative rides the tape banner</p>
+                  <div class="tapemini solo" style="--tint:#0082c9"><span class="chip hot">Nextcloud — your own cloud, on your own server</span><span class="chip">Grafana</span><span class="chip">Matomo</span><span class="chip">Vaultwarden</span><span class="chip">sponsor →</span></div>
+                </div>
+                <div>
+                  <p class="sub">② Hero #4 · the wall cell itself, at real size</p>
+                  <div class="adb adb-cell" style="--tint:#0082c9"><b>Nextcloud</b><span class="s-eyebrow" style="margin:4px 0 0">sponsored</span></div>
+                </div>
+                <div>
+                  <p class="sub">② Hero #4 · on the landing, in the supporters’ wall under the hero</p>
+                  <div class="mock">
+                    <p class="t1 ctr">Can I replace <em>Figma</em>?</p>
+                    <p class="t2 ctr">592 products judged · 6,485 open source escapes · 277 switches reported</p>
+                    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:4px;margin-top:9px">
+                      <div class="skcard ctr"><span class="nm">Immich</span><span class="esc">sponsored</span></div>
+                      <div class="skcard ctr"><span class="nm">Plausible</span><span class="esc">sponsored</span></div>
+                      <div class="hotad ctr" style="--tint:#0082c9"><span class="lg">N</span><b>Nextcloud</b><span class="sp">sponsored</span></div>
+                      <div class="skcard ctr"><span class="esc" style="margin-top:2px">open slot</span><span class="esc">sponsor →</span></div>
+                      <div class="skcard ctr"><span class="esc" style="margin-top:2px">open slot</span><span class="esc">sponsor →</span></div>
+                    </div>
+                    <p class="t2 ctr" style="margin-top:6px">canireplaceit is supported by these sponsors</p>
+                  </div>
+                </div>
+                <div>
+                  <p class="sub">② Hero #4 · on phone the wall drops to two columns — your cell gets wider</p>
+                  <div class="mock" style="width:220px;--s:1.35">
+                    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:4px">
+                      <div class="skcard ctr"><span class="nm">Immich</span><span class="esc">sponsored</span></div>
+                      <div class="hotad ctr" style="--tint:#0082c9"><span class="lg">N</span><b>Nextcloud</b><span class="sp">sponsored</span></div>
+                      <div class="skcard ctr"><span class="nm">Plausible</span><span class="esc">sponsored</span></div>
+                      <div class="skcard ctr"><span class="esc" style="margin-top:2px">open slot</span><span class="esc">sponsor →</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a class="e-btn" href="#">Open your dashboard →</a>
+            <p class="e-muted">It shows the ad going live, then impressions, clicks and CTR — counted on our own server, filtered for bots. Sign in with this address; we send a link, there is no password.</p>
+          </div>
+          <div class="e-foot">
+            Need to change the ad, or take it down? Just reply — this address is read by a person.<br>
+            No tracking pixels in this email. We count nothing you don’t click.<br>
+            canireplaceit · <a href="#">sponsorship terms</a> · <a href="#">canireplaceit.com</a>
+          </div>
+        </div>
+        <p class="e-under">this receipt is also your invoice — VAT details on the dashboard</p>
+      </div></div>
+      <pre class="plain">Subject: Receipt: $486 — your ad is in review
+
+Payment of $486.00 received — thank you.
+
+  Placements   Rail R-1, Hero #4
+  Term         3 months (−12%)
+  Paid         Aug 17, 2026 · Visa ····4242
+  Status       IN REVIEW
+
+Nothing else is needed from you. The full 3 months start when
+the ad goes live, not today, so the review costs you nothing.
+
+Your dashboard — it will show the ad going live, then its
+impressions, clicks and CTR, counted on our own server and
+filtered for automated traffic:
+
+https://canireplaceit.com/en/dashboard
+
+Sign in there with this email address; we send a link, there
+is no password.
+
+Need to change the ad, or take it down? Reply to this email.</pre>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     3 · AD LIVE — the good news gets the stamp
+     ================================================================ -->
+<section class="page" id="p-live">
+  <div class="wrap">
+    <span class="eyebrow">review.ts → approvedMail() · when an admin approves the creative</span>
+    <div class="inbox">
+      <div class="envelope">
+        <div class="row"><span class="k">From</span><span><b>canireplaceit</b> &lt;no-reply@canireplaceit.com&gt;</span></div>
+        <div class="row"><span class="k">Subject</span><span><b>Your ad is live on Rail R-1</b></span></div>
+        <div class="row"><span class="k">Preheader</span><span class="pre">Running until November 15. The numbers start counting now.</span></div>
+      </div>
+      <div class="viewport"><div class="email">
+        <div class="e-card">
+          <div class="e-head">
+            <svg class="e-mark" width="26" height="26" viewBox="0 0 32 32" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M24 10H8M13 5L7 10l6 5" stroke="var(--m-muted)"/>
+              <path d="M8 22h16M19 17l6 5-6 5" stroke="var(--m-brand)"/>
+            </svg>
+            <span class="e-word">can<i>i</i>replace<i>it</i></span>
+            <span class="e-headtag">campaign</span>
+          </div>
+          <div class="e-body">
+            <span class="e-stamp yes">Live</span>
+            <h1>Your ad passed review.</h1>
+            <p>It’s up on <b>Rail R-1</b> right now, and it runs until <b>November 15, 2026</b> — your full term, started today as promised.</p>
+            <div class="e-preview">
+              <p class="cap">On the site, right now — beside every “can I replace X?” page</p>
+              <div class="blocks">
+                <div>
+                  <p class="sub">Rail R-1 · the block itself</p>
+                  <div class="adb adb-rail" style="--tint:#0082c9"><span class="s-eyebrow">sponsored</span><span class="logo">N</span><b>Nextcloud</b><span class="tag">Your own cloud, on your own server</span></div>
+                </div>
+                <div>
+                  <p class="sub">In place — e.g. /alternatives/notion</p>
+                  <div class="mock">
+                  <p class="t1">Can I replace <em>Notion</em>?</p>
+                  <p class="t2">Almost — Joplin covers most of it. What you give up is databases and relations.</p>
+                  <div style="display:flex;gap:6px;margin-top:7px">
+                    <div style="flex:1;min-width:0">
+                      <div class="skcard"><span class="nm">Joplin <span class="vd y" style="display:inline">82% fit</span></span><span class="esc">docker · AGPL-3.0 · no strings</span></div>
+                      <div class="skcard" style="margin-top:4px"><span class="nm">Logseq <span class="vd a" style="display:inline">74% fit</span></span><span class="esc">local-first · graph queries</span></div>
+                    </div>
+                    <div style="width:30%;flex:none">
+                      <div class="hotad" style="--tint:#0082c9"><span class="sp">sponsored</span><span class="lg">N</span><b>Nextcloud</b><i>Your own cloud, on your own server</i></div>
+                      <div class="skcard" style="margin-top:5px"><span class="nm">$10/mo</span><span class="esc">price receipt</span></div>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+              </div>
+              <p style="margin:14px 0 0;font-size:12.5px"><a href="#" style="color:var(--m-brand-text);text-decoration:underline">See it live on the site →</a></p>
+            </div>
+            <a class="e-btn" href="#">Watch the numbers →</a>
+            <p class="e-muted">Impressions, clicks and CTR, counted on our own server and filtered for automated traffic. An impression means a human had your ad on screen — a marquee sliding past doesn’t count, and we’d rather show you a smaller true number than a bigger false one.</p>
+          </div>
+          <div class="e-foot">
+            Need to change the ad, or take it down? Just reply — this address is read by a person.<br>
+            No tracking pixels in this email. We count nothing you don’t click.<br>
+            canireplaceit · <a href="#">canireplaceit.com</a>
+          </div>
+        </div>
+      </div></div>
+      <pre class="plain">Subject: Your ad is live on Rail R-1
+
+Good news — your ad on Rail R-1 passed review and is live now.
+
+It runs until November 15, 2026 — the full term, started today.
+
+Your dashboard shows impressions, clicks and CTR, counted on
+our own server and filtered for automated traffic:
+
+https://canireplaceit.com/en/dashboard
+
+Sign in there with this email address; we send a link, there
+is no password.
+
+Need to change the ad, or take it down? Reply to this email.</pre>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     4 · NOT APPROVED — bad news, delivered straight, refund up front
+     ================================================================ -->
+<section class="page" id="p-rejected">
+  <div class="wrap">
+    <span class="eyebrow">review.ts → rejectedMail() · when an admin rejects, refund already issued</span>
+    <div class="inbox">
+      <div class="envelope">
+        <div class="row"><span class="k">From</span><span><b>canireplaceit</b> &lt;no-reply@canireplaceit.com&gt;</span></div>
+        <div class="row"><span class="k">Subject</span><span><b>Your ad wasn’t approved — $486 refunded</b></span></div>
+        <div class="row"><span class="k">Preheader</span><span class="pre">The reason is below, the money is already on its way back.</span></div>
+      </div>
+      <div class="viewport"><div class="email">
+        <div class="e-card">
+          <div class="e-head">
+            <svg class="e-mark" width="26" height="26" viewBox="0 0 32 32" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M24 10H8M13 5L7 10l6 5" stroke="var(--m-muted)"/>
+              <path d="M8 22h16M19 17l6 5-6 5" stroke="var(--m-brand)"/>
+            </svg>
+            <span class="e-word">can<i>i</i>replace<i>it</i></span>
+            <span class="e-headtag">campaign</span>
+          </div>
+          <div class="e-body">
+            <span class="e-stamp no">Not approved</span>
+            <h1>We didn’t run your ad.</h1>
+            <p>Your creative for <b>Rail R-1</b> didn’t pass review.</p>
+            <div class="e-reason"><b>Reason given:</b> The tagline claims “the #1 alternative”, and superlatives we can’t verify are the one thing the sponsorship terms rule out.</div>
+            <div>
+              <div class="e-rrow"><span>Refund</span><span class="v">$486.00 → Visa ····4242</span></div>
+              <div class="e-rrow" style="border-bottom:0"><span>When</span><span class="v">already issued · 3–5 business days</span></div>
+            </div>
+            <p style="margin-top:16px">Want to try again with a different creative? The slot is still yours to re-book, and a reply to this email reaches the person who reviewed it.</p>
+          </div>
+          <div class="e-foot">
+            No tracking pixels in this email. We count nothing you don’t click.<br>
+            canireplaceit · <a href="#">sponsorship terms</a> · <a href="#">canireplaceit.com</a>
+          </div>
+        </div>
+      </div></div>
+      <pre class="plain">Subject: Your ad wasn't approved — $486 refunded
+
+Your ad on Rail R-1 was not approved.
+
+Reason given: The tagline claims "the #1 alternative", and
+superlatives we can't verify are the one thing the sponsorship
+terms rule out.
+
+$486.00 has been refunded to your original payment method — no
+action needed from you; it should show up in 3–5 business days.
+
+Questions, or want to try again with a different creative?
+Reply to this email.</pre>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     5 · TEAM INVITE
+     ================================================================ -->
+<section class="page" id="p-invite">
+  <div class="wrap">
+    <span class="eyebrow">auth.ts → invitedMail() · body is fixed, no free text from the inviter (anti-spam)</span>
+    <div class="inbox">
+      <div class="envelope">
+        <div class="row"><span class="k">From</span><span><b>canireplaceit</b> &lt;no-reply@canireplaceit.com&gt;</span></div>
+        <div class="row"><span class="k">Subject</span><span><b>sofia@nextcloud.com added you on canireplaceit</b></span></div>
+        <div class="row"><span class="k">Preheader</span><span class="pre">You can see their campaign numbers. You can’t buy, change or remove anything.</span></div>
+      </div>
+      <div class="viewport"><div class="email">
+        <div class="e-card">
+          <div class="e-head">
+            <svg class="e-mark" width="26" height="26" viewBox="0 0 32 32" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M24 10H8M13 5L7 10l6 5" stroke="var(--m-muted)"/>
+              <path d="M8 22h16M19 17l6 5-6 5" stroke="var(--m-brand)"/>
+            </svg>
+            <span class="e-word">can<i>i</i>replace<i>it</i></span>
+            <span class="e-headtag">team</span>
+          </div>
+          <div class="e-body">
+            <h1>sofia@nextcloud.com added you to their team.</h1>
+            <p>You now have access to their advertising account on canireplaceit. Here’s exactly what that means:</p>
+            <div class="e-role">
+              <p class="ok">✓&nbsp; See their ads and how they’re performing</p>
+              <p class="nope">✗&nbsp; Buy, change or take down anything</p>
+              <p class="nope">✗&nbsp; Manage who else has access</p>
+            </div>
+            <a class="e-btn" href="#">See the numbers →</a>
+            <p class="e-muted mono" style="font-size:12px">⏱ the link signs you in · works once · expires shortly</p>
+            <p class="e-muted">Didn’t expect this? Ignore it — nothing is shared until the link is used.</p>
+            <div class="e-linkbox">https://canireplaceit.com/api/auth/callback?token=m3a8…c204</div>
+          </div>
+          <div class="e-foot">
+            You’re getting this because sofia@nextcloud.com entered this address on their team page — one email, not a subscription.<br>
+            No tracking pixels in this email. We count nothing you don’t click.<br>
+            canireplaceit · <a href="#">canireplaceit.com</a>
+          </div>
+        </div>
+      </div></div>
+      <pre class="plain">Subject: sofia@nextcloud.com added you on canireplaceit
+
+sofia@nextcloud.com gave you access to their advertising
+account on canireplaceit.
+
+  ✓ See their ads and how they are performing
+  ✗ Buy, change or take down anything
+  ✗ Manage who else has access
+
+https://canireplaceit.com/api/auth/callback?token=m3a8…c204
+
+The link signs you in. It works once and expires shortly.
+Didn't expect this? Ignore it — nothing is shared until the
+link is used.</pre>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     AD FORMATS — every block a sponsor can buy, in place
+     ================================================================ -->
+<section class="page" id="p-formats">
+  <div class="wrap wide">
+    <span class="eyebrow">every purchasable format · desktop, tablet and phone · the same components the emails embed</span>
+    <h2 style="font-size:22px;margin:10px 0 4px">The four blocks — on every page, at every width</h2>
+    <p style="color:var(--ui-muted);font-size:14px;max-width:66ch">All four render from one creative (name, tagline, logo, tint). First the block at real size, then each page it appears on, shown at the three widths a reader actually uses. This tab doubles as the sponsor-facing format sheet.</p>
+
+    <div class="mockrow" style="align-items:stretch">
+      <div><div class="adb adb-rail" style="--tint:#0082c9"><span class="s-eyebrow">sponsored</span><span class="logo">N</span><b>Nextcloud</b><span class="tag">Your own cloud, on your own server</span></div><p class="devlabel">rail unit · 150px</p></div>
+      <div><div class="adb adb-cell" style="--tint:#0082c9"><b>Nextcloud</b><span class="s-eyebrow" style="margin:4px 0 0">sponsored</span></div><p class="devlabel">hero wall cell</p></div>
+      <div><div class="adb adb-inlist" style="--tint:#0082c9"><span class="s-eyebrow">sponsored</span><span class="logo">N</span> <b>Nextcloud</b><span class="price">nextcloud.com</span><span class="tag" style="margin-top:4px">Your own cloud, on your own server — files, calendar, photos, talk.</span></div><p class="devlabel">in-list card</p></div>
+      <div><div class="adb adb-cat" style="--tint:#0082c9"><span class="logo">N</span><div><span class="s-eyebrow" style="margin-bottom:2px">sponsored · notes &amp; docs</span><b>Nextcloud</b><span class="tag">Your own cloud, on your own server</span></div></div><p class="devlabel">category slot</p></div>
+    </div>
+
+    <!-- ============ RAIL / TAPE ============ -->
+    <div class="fmt">
+      <h3>Rail unit → tape banner</h3>
+      <p class="why">On desktop (≥1560px) the creative sits in the fixed side rails, on <b>every page of the site</b>. Below that, the rails fold into the <b>tape banner</b> — a slow marquee across the top and bottom of the page carrying the same creatives as labelled chips. One purchase, both renderings.</p>
+
+      <p class="pagetitle">The compare page <span class="mono">· /en/alternatives/notion</span></p>
+      <div class="devrow">
+        <div><div class="dev pc"><div class="bar"><i></i><i></i><i></i><span class="url"></span></div><div class="scr">
+          <div style="display:flex;gap:8px">
+            <div style="width:17%;flex:none">
+              <div class="skcard"><span class="nm">Grafana</span><span class="esc">sponsored</span></div>
+              <div class="hotad" style="--tint:#0082c9;margin-top:4px"><span class="sp">sponsored</span><span class="lg">N</span><b>Nextcloud</b><i>Your own cloud, on your own server</i></div>
+            </div>
+            <div style="flex:1;min-width:0">
+              <p class="t1">Can I replace <em>Notion</em>?</p>
+              <p class="t2">Almost — Joplin covers most of it under AGPL-3.0. You give up databases and relations.</p>
+              <div style="display:flex;gap:5px;margin-top:5px">
+                <div class="skcard" style="flex:1"><span class="nm">Joplin <span class="vd y" style="display:inline">82% fit</span></span><span class="esc">docker · AGPL-3.0</span></div>
+                <div class="skcard" style="flex:1"><span class="nm">Logseq <span class="vd a" style="display:inline">74% fit</span></span><span class="esc">local-first</span></div>
+              </div>
+              <div class="skcard" style="margin-top:4px"><span class="nm">$10/mo <span class="esc" style="display:inline">· price receipt · checked Aug 2</span></span></div>
+            </div>
+            <div style="width:17%;flex:none">
+              <div class="hotad" style="--tint:#0082c9"><span class="sp">sponsored</span><span class="lg">N</span><b>Nextcloud</b><i>Your own cloud</i></div>
+              <div class="skcard" style="margin-top:4px"><span class="nm">Vaultwarden</span><span class="esc">sponsored</span></div>
+            </div>
+          </div>
+        </div></div><p class="devlabel">desktop ≥1560px · side rails</p></div>
+        <div><div class="dev tab"><div class="bar"><i></i><i></i><i></i><span class="url"></span></div><div class="scr">
+          <div class="tapemini" style="--tint:#0082c9"><span class="chip hot">Nextcloud — your own cloud</span><span class="chip">Grafana</span><span class="chip">Matomo</span><span class="chip">sponsor →</span></div>
+          <p class="t1">Can I replace <em>Notion</em>?</p>
+          <p class="t2">Almost — Joplin covers most of it under AGPL-3.0.</p>
+          <div style="display:flex;gap:4px;margin-top:5px">
+            <div class="skcard" style="flex:1"><span class="nm">Joplin</span><span class="vd y">82% fit</span></div>
+            <div class="skcard" style="flex:1"><span class="nm">Logseq</span><span class="vd a">74% fit</span></div>
+          </div>
+        </div></div><p class="devlabel">tablet · tape on top</p></div>
+        <div><div class="dev ph"><div class="bar"><i></i></div><div class="scr">
+          <div class="tapemini" style="--tint:#0082c9"><span class="chip hot">Nextcloud</span><span class="chip">Grafana</span><span class="chip">Mato…</span></div>
+          <p class="t1">Can I replace <em>Notion</em>?</p>
+          <p class="t2">Almost — Joplin covers most of it.</p>
+          <div class="skcard" style="margin-top:4px"><span class="nm">Joplin</span><span class="vd y">82% fit</span></div>
+          <div class="skcard" style="margin-top:3px"><span class="nm">Logseq</span><span class="vd a">74% fit</span></div>
+        </div></div><p class="devlabel">phone · tape on top</p></div>
+      </div>
+
+      <p class="pagetitle">The landing <span class="mono">· /en</span></p>
+      <div class="devrow">
+        <div><div class="dev pc"><div class="bar"><i></i><i></i><i></i><span class="url"></span></div><div class="scr">
+          <div style="display:flex;gap:8px">
+            <div style="width:17%;flex:none"><div class="hotad" style="--tint:#0082c9"><span class="sp">sponsored</span><span class="lg">N</span><b>Nextcloud</b><i>Your own cloud, on your own server</i></div><div class="skcard" style="margin-top:4px"><span class="nm">Grafana</span><span class="esc">sponsored</span></div></div>
+            <div style="flex:1;min-width:0">
+              <p class="t1 ctr">Can I replace <em>Datadog</em>?</p>
+              <p class="t2 ctr">592 products · one honest verdict each</p>
+              <div style="display:flex;gap:5px;margin-top:5px">
+                <div class="skcard" style="flex:1"><span class="nm">Notion</span><span class="vd a">● almost · $10/mo</span><span class="esc">Joplin, Logseq +9</span></div>
+                <div class="skcard" style="flex:1"><span class="nm">Evernote</span><span class="vd y">● replaceable · $8/mo</span><span class="esc">Dendron, Foam +13</span></div>
+              </div>
+            </div>
+            <div style="width:17%;flex:none"><div class="skcard"><span class="nm">Matomo</span><span class="esc">analytics that never leave</span></div><div class="hotad" style="--tint:#0082c9;margin-top:4px"><span class="sp">sponsored</span><span class="lg">N</span><b>Nextcloud</b><i>Your own cloud</i></div></div>
+          </div>
+        </div></div><p class="devlabel">desktop ≥1560px · side rails</p></div>
+        <div><div class="dev tab"><div class="bar"><i></i><i></i><i></i><span class="url"></span></div><div class="scr">
+          <div class="tapemini" style="--tint:#0082c9"><span class="chip hot">Nextcloud — your own cloud</span><span class="chip">Matomo</span><span class="chip">Vaultwarden</span></div>
+          <p class="t1 ctr">Can I replace <em>Datadog</em>?</p>
+          <p class="t2 ctr">592 products · one honest verdict each</p>
+          <div style="display:flex;gap:4px;margin-top:5px">
+            <div class="skcard" style="flex:1"><span class="nm">Notion</span><span class="vd a">● almost</span></div>
+            <div class="skcard" style="flex:1"><span class="nm">Evernote</span><span class="vd y">● replaceable</span></div>
+          </div>
+        </div></div><p class="devlabel">tablet · tape on top</p></div>
+        <div><div class="dev ph"><div class="bar"><i></i></div><div class="scr">
+          <div class="tapemini" style="--tint:#0082c9"><span class="chip hot">Nextcloud</span><span class="chip">Matomo</span></div>
+          <p class="t1 ctr">Can I replace <em>Datadog</em>?</p>
+          <div class="skcard" style="margin-top:4px"><span class="nm">Notion</span><span class="vd a">● almost · $10/mo</span></div>
+          <div class="skcard" style="margin-top:3px"><span class="nm">Evernote</span><span class="vd y">● replaceable</span></div>
+        </div></div><p class="devlabel">phone · tape on top</p></div>
+      </div>
+
+      <p class="pagetitle">The list <span class="mono">· /en#list — bottom tape shown</span></p>
+      <div class="devrow">
+        <div><div class="dev pc"><div class="bar"><i></i><i></i><i></i><span class="url"></span></div><div class="scr">
+          <div style="display:flex;gap:8px">
+            <div style="width:17%;flex:none"><div class="hotad" style="--tint:#0082c9"><span class="sp">sponsored</span><span class="lg">N</span><b>Nextcloud</b><i>Your own cloud</i></div></div>
+            <div style="flex:1;min-width:0">
+              <div style="display:flex;gap:5px">
+                <div class="skcard" style="flex:1"><span class="nm">Google Photos</span><span class="vd y">● replaceable · $2/mo</span></div>
+                <div class="skcard" style="flex:1"><span class="nm">Datadog</span><span class="vd a">● almost · $180/mo</span></div>
+              </div>
+              <div style="display:flex;gap:5px;margin-top:4px">
+                <div class="skcard" style="flex:1"><span class="nm">Slack</span><span class="vd a">● almost · $8/mo</span></div>
+                <div class="skcard" style="flex:1"><span class="nm">Bitly</span><span class="vd y">● replaceable · $35/mo</span></div>
+              </div>
+            </div>
+            <div style="width:17%;flex:none"><div class="skcard"><span class="nm">Vaultwarden</span><span class="esc">sponsored</span></div></div>
+          </div>
+        </div></div><p class="devlabel">desktop ≥1560px · side rails</p></div>
+        <div><div class="dev tab"><div class="bar"><i></i><i></i><i></i><span class="url"></span></div><div class="scr">
+          <div style="display:flex;gap:4px">
+            <div class="skcard" style="flex:1"><span class="nm">Google Photos</span><span class="vd y">● replaceable</span></div>
+            <div class="skcard" style="flex:1"><span class="nm">Datadog</span><span class="vd a">● almost</span></div>
+          </div>
+          <div class="tapemini bottom" style="--tint:#0082c9"><span class="chip hot">Nextcloud — your own cloud</span><span class="chip">Plausible</span><span class="chip">sponsor →</span></div>
+        </div></div><p class="devlabel">tablet · tape at bottom</p></div>
+        <div><div class="dev ph"><div class="bar"><i></i></div><div class="scr">
+          <div class="skcard"><span class="nm">Google Photos</span><span class="vd y">● replaceable</span></div>
+          <div class="skcard" style="margin-top:3px"><span class="nm">Datadog</span><span class="vd a">● almost</span></div>
+          <div class="tapemini bottom" style="--tint:#0082c9"><span class="chip hot">Nextcloud</span><span class="chip">Plausible</span></div>
+        </div></div><p class="devlabel">phone · tape at bottom</p></div>
+      </div>
+    </div>
+
+    <!-- ============ HERO WALL ============ -->
+    <div class="fmt">
+      <h3>Hero wall cell</h3>
+      <p class="why">The ten-cell supporters' wall under the hero on the landing page — and under the page head on every other page. Five columns on desktop and tablet, <b>two columns on phone</b>, so the cell gets wider, not smaller, on the device where it's hardest to read.</p>
+
+      <p class="pagetitle">The landing <span class="mono">· /en, under the hero</span></p>
+      <div class="devrow">
+        <div><div class="dev pc"><div class="bar"><i></i><i></i><i></i><span class="url"></span></div><div class="scr">
+          <p class="t1 ctr">Can I replace <em>Slack</em>?</p>
+          <p class="t2 ctr">592 products judged · 6,485 open source escapes · 277 switches reported</p>
+          <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:3px;margin-top:6px">
+            <div class="skcard ctr"><span class="nm">Immich</span><span class="esc">sponsored</span></div>
+            <div class="skcard ctr"><span class="nm">Plausible</span><span class="esc">sponsored</span></div>
+            <div class="hotad ctr" style="--tint:#0082c9"><span class="lg">N</span><b>Nextcloud</b><span class="sp">sponsored</span></div>
+            <div class="skcard ctr"><span class="esc" style="margin-top:1px">open slot</span><span class="esc">sponsor →</span></div>
+            <div class="skcard ctr"><span class="esc" style="margin-top:1px">open slot</span><span class="esc">sponsor →</span></div>
+          </div>
+          <p class="t2 ctr" style="margin-top:4px">canireplaceit is supported by these sponsors</p>
+        </div></div><p class="devlabel">desktop · 5 columns</p></div>
+        <div><div class="dev tab"><div class="bar"><i></i><i></i><i></i><span class="url"></span></div><div class="scr">
+          <p class="t1 ctr">Can I replace <em>Slack</em>?</p>
+          <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:2px;margin-top:5px">
+            <div class="skcard ctr"><span class="esc">Immich</span></div>
+            <div class="skcard ctr"><span class="esc">Plausible</span></div>
+            <div class="hotad ctr" style="--tint:#0082c9"><b>Nextcloud</b></div>
+            <div class="skcard ctr"><span class="esc">open</span></div>
+            <div class="skcard ctr"><span class="esc">open</span></div>
+          </div>
+        </div></div><p class="devlabel">tablet · 5 columns</p></div>
+        <div><div class="dev ph"><div class="bar"><i></i></div><div class="scr">
+          <p class="t1 ctr">Can I replace <em>Slack</em>?</p>
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:3px;margin-top:4px">
+            <div class="skcard ctr"><span class="nm">Immich</span><span class="esc">sponsored</span></div>
+            <div class="hotad ctr" style="--tint:#0082c9"><span class="lg">N</span><b>Nextcloud</b><span class="sp">sponsored</span></div>
+            <div class="skcard ctr"><span class="nm">Plausible</span><span class="esc">sponsored</span></div>
+            <div class="skcard ctr"><span class="esc" style="margin-top:1px">open slot</span><span class="esc">sponsor →</span></div>
+          </div>
+        </div></div><p class="devlabel">phone · 2 columns, cells grow</p></div>
+      </div>
+    </div>
+
+    <!-- ============ IN-LIST ============ -->
+    <div class="fmt">
+      <h3>In-list card</h3>
+      <p class="why">A fixed row position inside the product grid, drawn as a card among cards — labelled and tinted, never pretending to be a product. It reflows with the grid: three columns, two, then one, where it becomes a <b>full-width banner between two products</b>.</p>
+
+      <p class="pagetitle">The list <span class="mono">· /en, in the grid</span></p>
+      <div class="devrow">
+        <div><div class="dev pc"><div class="bar"><i></i><i></i><i></i><span class="url"></span></div><div class="scr">
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:4px">
+            <div class="skcard"><span class="nm">Notion</span><span class="vd a">● almost · $10/mo</span><span class="esc">Joplin, Logseq, SiYuan +9</span></div>
+            <div class="skcard"><span class="nm">Evernote</span><span class="vd y">● replaceable · $8/mo</span><span class="esc">Dendron, Foam +13</span></div>
+            <div class="skcard"><span class="nm">Google Photos</span><span class="vd y">● replaceable · $2/mo</span><span class="esc">Immich, Ente +8</span></div>
+            <div class="skcard"><span class="nm">Datadog</span><span class="vd a">● almost · $180/mo</span><span class="esc">Grafana, SigNoz +7</span></div>
+            <div class="hotad" style="--tint:#0082c9"><span class="sp">sponsored</span><span class="lg">N</span><b>Nextcloud</b><i>Your own cloud, on your own server</i></div>
+            <div class="skcard"><span class="nm">Slack</span><span class="vd a">● almost · $8/mo</span><span class="esc">Mattermost, Zulip +6</span></div>
+          </div>
+        </div></div><p class="devlabel">desktop · 3-column grid</p></div>
+        <div><div class="dev tab"><div class="bar"><i></i><i></i><i></i><span class="url"></span></div><div class="scr">
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:3px">
+            <div class="skcard"><span class="nm">Notion</span><span class="vd a">● almost</span></div>
+            <div class="skcard"><span class="nm">Evernote</span><span class="vd y">● replaceable</span></div>
+            <div class="skcard"><span class="nm">Google Photos</span><span class="vd y">● replaceable</span></div>
+            <div class="hotad" style="--tint:#0082c9"><span class="sp">sponsored</span><span class="lg">N</span><b>Nextcloud</b><i>Your own cloud</i></div>
+          </div>
+        </div></div><p class="devlabel">tablet · 2-column grid</p></div>
+        <div><div class="dev ph"><div class="bar"><i></i></div><div class="scr">
+          <div class="skcard"><span class="nm">Notion</span><span class="vd a">● almost · $10/mo</span></div>
+          <div class="skcard" style="margin-top:3px"><span class="nm">Evernote</span><span class="vd y">● replaceable</span></div>
+          <div class="hotad" style="--tint:#0082c9;margin-top:3px"><span class="sp">sponsored</span><span class="lg">N</span><b>Nextcloud</b><i>Your own cloud, on your own server</i></div>
+          <div class="skcard" style="margin-top:3px"><span class="nm">Google Photos</span><span class="vd y">● replaceable</span></div>
+        </div></div><p class="devlabel">phone · full-width banner in the flow</p></div>
+      </div>
+    </div>
+
+    <!-- ============ CATEGORY SLOT ============ -->
+    <div class="fmt">
+      <h3>Category slot</h3>
+      <p class="why">One per category, 85 categories. It renders on the category page <b>and</b> in the aside of every product page under that category — a sponsor buys “Notes &amp; docs”, not a URL. On phone the aside stacks into the reading flow, so the slot becomes a full-width banner between the price receipt and the alternatives.</p>
+
+      <p class="pagetitle">The category page <span class="mono">· /en/categories/notes-docs</span></p>
+      <div class="devrow">
+        <div><div class="dev pc"><div class="bar"><i></i><i></i><i></i><span class="url"></span></div><div class="scr">
+          <p class="t1">📝 Notes &amp; docs</p>
+          <p class="t2">15 products · 38 projects · median $8/mo · cheapest escape: Joplin</p>
+          <div class="hotad" style="--tint:#0082c9;margin:5px 0;max-width:200px"><span class="sp">sponsored · notes &amp; docs</span><span class="lg">N</span><b>Nextcloud</b><i>Your own cloud, on your own server</i></div>
+          <div style="display:flex;gap:5px">
+            <div class="skcard" style="flex:1"><span class="nm">Notion <span class="vd a" style="display:inline">● almost</span></span><span class="esc">$10/mo · 12 alternatives</span></div>
+            <div class="skcard" style="flex:1"><span class="nm">Evernote <span class="vd y" style="display:inline">● replaceable</span></span><span class="esc">$8/mo · 16 alternatives</span></div>
+          </div>
+        </div></div><p class="devlabel">desktop</p></div>
+        <div><div class="dev tab"><div class="bar"><i></i><i></i><i></i><span class="url"></span></div><div class="scr">
+          <p class="t1">📝 Notes &amp; docs</p>
+          <p class="t2">15 products · 38 projects · median $8/mo</p>
+          <div class="hotad" style="--tint:#0082c9;margin:4px 0"><span class="sp">sponsored · notes &amp; docs</span><span class="lg">N</span><b>Nextcloud</b><i>Your own cloud</i></div>
+          <div class="skcard"><span class="nm">Notion</span><span class="vd a">● almost · $10/mo</span></div>
+        </div></div><p class="devlabel">tablet</p></div>
+        <div><div class="dev ph"><div class="bar"><i></i></div><div class="scr">
+          <p class="t1">📝 Notes &amp; docs</p>
+          <div class="hotad" style="--tint:#0082c9;margin:4px 0"><span class="sp">sponsored</span><span class="lg">N</span><b>Nextcloud</b><i>Your own cloud</i></div>
+          <div class="skcard"><span class="nm">Notion</span><span class="vd a">● almost</span></div>
+          <div class="skcard" style="margin-top:3px"><span class="nm">Evernote</span><span class="vd y">● replaceable</span></div>
+        </div></div><p class="devlabel">phone</p></div>
+      </div>
+
+      <p class="pagetitle">The product page aside <span class="mono">· /en/alternatives/notion</span></p>
+      <div class="devrow">
+        <div><div class="dev pc"><div class="bar"><i></i><i></i><i></i><span class="url"></span></div><div class="scr">
+          <p class="t1">Can I replace <em>Notion</em>?</p>
+          <div style="display:flex;gap:6px;margin-top:5px">
+            <div style="flex:1;min-width:0">
+              <div class="skcard"><span class="nm">Joplin <span class="vd y" style="display:inline">82% fit</span></span><span class="esc">docker · AGPL-3.0 · no strings</span></div>
+              <div class="skcard" style="margin-top:4px"><span class="nm">SiYuan <span class="vd y" style="display:inline">78% fit</span></span><span class="esc">database views · SQL queries</span></div>
+            </div>
+            <div style="width:23%;flex:none">
+              <div class="skcard"><span class="nm">$10/mo</span><span class="esc">plan: Plus, annual</span><span class="esc">checked Aug 2</span></div>
+              <div class="hotad" style="--tint:#0082c9;margin-top:4px"><span class="sp">notes &amp; docs</span><span class="lg">N</span><b>Nextcloud</b><i>Your own cloud</i></div>
+            </div>
+          </div>
+        </div></div><p class="devlabel">desktop · sticky aside, ad never scrolls away</p></div>
+        <div><div class="dev tab"><div class="bar"><i></i><i></i><i></i><span class="url"></span></div><div class="scr">
+          <p class="t1">Can I replace <em>Notion</em>?</p>
+          <div style="display:flex;gap:5px;margin-top:4px">
+            <div style="flex:1"><div class="skcard"><span class="nm">Joplin</span><span class="vd y">82% fit</span></div></div>
+            <div style="width:26%;flex:none"><div class="hotad" style="--tint:#0082c9"><span class="sp">notes &amp; docs</span><span class="lg">N</span><b>Nextcloud</b></div></div>
+          </div>
+        </div></div><p class="devlabel">tablet · aside kept</p></div>
+        <div><div class="dev ph"><div class="bar"><i></i></div><div class="scr">
+          <p class="t1">Can I replace <em>Notion</em>?</p>
+          <div class="skcard" style="margin-top:4px"><span class="nm">$10/mo · price receipt</span></div>
+          <div class="hotad" style="--tint:#0082c9;margin-top:3px"><span class="sp">sponsored · notes &amp; docs</span><span class="lg">N</span><b>Nextcloud</b><i>Your own cloud</i></div>
+          <div class="skcard" style="margin-top:3px"><span class="nm">Joplin</span><span class="vd y">82% fit</span></div>
+        </div></div><p class="devlabel">phone · banner in the flow</p></div>
+      </div>
+    </div>
+
+    <p class="eyebrow" style="margin-top:30px">in the shipped emails</p>
+    <p style="color:var(--ui-muted);font-size:14px;max-width:66ch;margin-top:6px">The blocks themselves are plain text-and-border HTML, so they embed in email as-is (tables + inline styles). The device minimaps ship as small generated PNGs — the repo's OG-image pipeline already renders per-page cards, so the same script renders each placement's three-width minimap once per slot, not per email.</p>
+  </div>
+</section>
+
+<!-- ================================================================
+     PRINCIPLES — what email clients actually allow
+     ================================================================ -->
+<section class="page" id="p-principles">
+  <div class="wrap doc">
+    <span class="eyebrow">constraints the shipped version must respect</span>
+    <h2>Email is 2009 CSS. The design above is built for that.</h2>
+    <p>Everything shown survives translation to email-safe HTML. What that translation means, concretely:</p>
+    <div class="frow"><span class="k">layout</span><div><b>One 600px column, table-based</b><p>The card becomes a centered <code>&lt;table&gt;</code> with inline styles on every cell. No flexbox, no grid, no <code>&lt;style&gt;</code> reliance — Gmail clips &gt;102KB and Outlook desktop renders with Word.</p></div></div>
+    <div class="frow"><span class="k">fonts</span><div><b>System stacks only</b><p>No webfonts: <code>system-ui, Segoe UI, Arial</code> for text, <code>ui-monospace, Menlo, Consolas</code> for figures and links. The wordmark is TEXT, not an image — it renders everywhere, in every mode, before images load.</p></div></div>
+    <div class="frow"><span class="k">logo</span><div><b>The mark ships as a hosted PNG @2x with alt text</b><p>Gmail strips inline SVG. A 52×52 PNG of the two-arrow mark (light + dark variant via the dark-mode block), <code>alt="canireplaceit"</code>, and the text wordmark beside it carries the identity when images are blocked — which is the default in Outlook and most corporate mail.</p></div></div>
+    <div class="frow"><span class="k">button</span><div><b>Bulletproof: a padded <code>&lt;a&gt;</code> with background-color</b><p>Border-radius degrades to square in Outlook — fine. The raw URL always follows in the dashed box, because an HTML-only link is invisible in a text client and scores as spam (the current code already knows this).</p></div></div>
+    <div class="frow"><span class="k">stamp</span><div><b><code>transform: rotate(-4deg)</code>, degrading to straight</b><p>Gmail and Apple Mail render the tilt; Outlook desktop ignores <code>transform</code> and shows a straight bordered badge — still legible, still green or red. The slam animation is web-only and does not ship in email.</p></div></div>
+    <div class="frow"><span class="k">dark mode</span><div><b>One <code>@media (prefers-color-scheme: dark)</code> block</b><p>Honored by Apple Mail and iOS; Gmail instead auto-inverts. The palette is chosen to survive both: no pure-black text, no color-meaningful backgrounds, buttons that stay legible inverted. The ☾ toggle above previews the block.</p></div></div>
+    <div class="frow"><span class="k">text part</span><div><b>text/plain mirrors every fact</b><p>Already policy in mail.ts. The redesigned text parts (toggle above) keep the receipt as aligned columns and the role card as ✓/✗ lines — the plain part is designed, not generated.</p></div></div>
+    <div class="frow"><span class="k">honesty</span><div><b>No tracking pixels — and the footer says so</b><p>The site's whole brand is honest counting. The emails carry it: no open-tracking, a "why you got this" line instead of an unsubscribe link nobody needs on transactional mail, and "replies reach a person" where that is true.</p></div></div>
+  </div>
+</section>
+
+<!-- ================================================================
+     PROPOSALS
+     ================================================================ -->
+<section class="page" id="p-proposals">
+  <div class="wrap doc">
+    <span class="eyebrow">what changes, and why</span>
+    <h2>Proposals</h2>
+    <div class="prop"><h3>1 · An identity header on every email</h3><p>Mark + text wordmark + a quiet right-aligned tag naming the email's kind (sign-in / receipt / campaign / team). Today the emails are anonymous mono paragraphs with a green that appears nowhere on the site.</p></div>
+    <div class="prop"><h3>2 · The receipt email is drawn as a receipt</h3><p>Big mono total, dashed rows for placements / term / payment method / status, perforated edge — the same receipt language as the product page's price block. It doubles as the invoice.</p></div>
+    <div class="prop"><h3>3 · Verdict stamps carry the campaign verdicts</h3><p>LIVE in green, NOT APPROVED in red — the site's signature element, reused where an email is literally delivering a verdict. Degrades to a straight badge in Outlook.</p></div>
+    <div class="prop"><h3>4 · Subjects state the fact, preheaders state the consequence</h3><p>"Receipt: $486 — your ad is in review" beats "Your canireplaceit ad — payment received, in review". Every email gets a hand-written preheader — the second line of the inbox row is free advertising for tone.</p></div>
+    <div class="prop"><h3>5 · The invite spells out the permission boundary</h3><p>A ✓/✗ role card replaces the prose sentence. "You cannot buy, change or take down anything" is the sentence that makes an invite safe to click — it deserves typography.</p></div>
+    <div class="prop"><h3>6 · Refunds lead the rejection</h3><p>The subject already says "$486 refunded". Bad news emails are judged on the first five words; the money coming back is the first thing a rejected sponsor wants to know.</p></div>
+    <div class="prop"><h3>7 · Sponsor emails show the bought thing, in place</h3><p>The receipt and the live email embed the actual ad blocks rendered from the sponsor's creative, plus a minimap of each page with the position highlighted (see the Ad formats tab). A sponsor should never have to visit the site to know what they bought looks like. Blocks embed as plain HTML; minimaps ship as PNGs from the existing OG-image pipeline.</p></div>
+    <div class="prop"><h3>8 · The footer becomes a trust block</h3><p>Why you got this · no tracking pixels · replies reach a person. Three lines, same on every email, all true.</p></div>
+    <div class="prop"><h3>9 · Implementation shape</h3><p>One <code>emailShell(kind, bodyHtml)</code> helper in mail.ts wrapping the shared header/footer/palette, five body builders, text parts hand-written next to their HTML. No template engine, no MJML dependency — the emails are five functions today and should stay five functions.</p></div>
+  </div>
+</section>
+
+<script>
+const tabs=document.querySelectorAll("[data-tab]");
+const pages=document.querySelectorAll(".page");
+tabs.forEach(t=>t.addEventListener("click",()=>{
+  tabs.forEach(x=>x.setAttribute("aria-selected",x===t));
+  pages.forEach(p=>p.classList.toggle("active",p.id==="p-"+t.dataset.tab));
+  window.scrollTo({top:0});
+}));
+document.querySelectorAll("[data-skin-pick]").forEach(b=>b.addEventListener("click",()=>{
+  document.documentElement.dataset.skin=b.dataset.skinPick;
+  document.getElementById("skin-name").textContent=b.querySelector("b").textContent;
+  document.querySelectorAll("[data-skin-pick]").forEach(x=>x.dataset.active=x===b);
+}));
+document.querySelectorAll("[data-cl]").forEach(b=>b.addEventListener("click",()=>{
+  document.documentElement.dataset.client=b.dataset.cl;
+  document.querySelectorAll("[data-cl]").forEach(x=>x.dataset.on=x===b);
+}));
+document.querySelectorAll("[data-vw]").forEach(b=>b.addEventListener("click",()=>{
+  document.documentElement.dataset.view=b.dataset.vw;
+  document.querySelectorAll("[data-vw]").forEach(x=>x.dataset.on=x===b);
+}));
+</script>
+</body>
+</html>
