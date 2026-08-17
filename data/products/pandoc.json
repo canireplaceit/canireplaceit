@@ -1,0 +1,198 @@
+{
+	"slug": "pandoc",
+	"name": "Pandoc",
+	"domain": null,
+	"category": "documents",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "not-yet",
+	"why": {
+		"en": "Universal converter between dozens of markup formats, from Markdown to DOCX to PDF. No single tool spans that matrix: typesetters, site builders and office converters each cover a slice, and several build on Pandoc itself. The input/output format pair you need rarely exists anywhere else.",
+		"fr": "Convertisseur universel entre des dizaines de formats de balisage, du Markdown au DOCX en passant par le PDF. Aucun outil ne couvre la même matrice : les moteurs de composition, générateurs de sites et convertisseurs bureautiques n’en couvrent chacun qu’une tranche, et plusieurs s’appuient sur Pandoc lui-même. La paire entrée / sortie dont on a besoin n’existe presque nulle part ailleurs."
+	},
+	"whatYouLose": [
+		{
+			"en": "Every markup format pair, one binary",
+			"fr": "Toute paire de formats, un seul binaire"
+		},
+		{
+			"en": "DOCX and ODT output that opens",
+			"fr": "Un DOCX et un ODT qui s’ouvrent partout"
+		},
+		{
+			"en": "Single static binary, zero dependencies",
+			"fr": "Un binaire statique, zéro dépendance"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Quarto",
+			"source": {
+				"host": "github",
+				"path": "quarto-dev/quarto-cli",
+				"url": "https://github.com/quarto-dev/quarto-cli"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A publishing engine built directly on pandoc, adding knitr/Jupyter code chunks and YAML-driven reproducibility. Costs you pandoc’s install footprint, plus a LaTeX distribution for PDF.",
+				"fr": "Moteur de publication bâti directement sur pandoc, avec blocs de code knitr/Jupyter et reproductibilité pilotée par YAML. Son prix : l’empreinte d’installation de pandoc et une distribution LaTeX pour le PDF."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Asciidoctor",
+			"source": {
+				"host": "github",
+				"path": "asciidoctor/asciidoctor",
+				"url": "https://github.com/asciidoctor/asciidoctor"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Ruby converter from AsciiDoc to HTML5, PDF, docx, EPUB and man pages, PDF handled in-process. You give up Markdown and pandoc’s full format matrix; the PDF gem installs separately.",
+				"fr": "Convertisseur Ruby d’AsciiDoc vers HTML5, PDF, docx, EPUB et man pages, PDF géré en interne. Contrepartie : on quitte Markdown et la matrice complète de pandoc ; le gem PDF s’installe à part."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "docutils",
+			"source": {
+				"host": "github",
+				"path": "docutils/docutils",
+				"url": "https://github.com/docutils/docutils"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Reference reStructuredText implementation, its rst2html, rst2latex, rst2pdf and rst2odt CLI writers shared with Sphinx. reStructuredText only, no Markdown input; epub/docbook need extra tools.",
+				"fr": "Implémentation de référence de reStructuredText ; les écrivains CLI rst2html, rst2latex, rst2pdf et rst2odt sont partagés avec Sphinx. Format source unique : pas de Markdown, et epub/docbook exigent des outils en plus."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Typst",
+			"source": {
+				"host": "github",
+				"path": "typst/typst",
+				"url": "https://github.com/typst/typst"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Markup-to-PDF typesetting in a single static binary, no TeX install, with watch mode. Catch: PDF is the only real target, and the markup is its own language, not Markdown.",
+				"fr": "Composition de markup vers PDF dans un binaire statique unique, sans TeX, avec mode watch, mais le PDF reste la seule vraie cible et sa syntaxe n’est pas le Markdown."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tectonic",
+			"source": {
+				"host": "github",
+				"path": "tectonic-typesetting/tectonic",
+				"url": "https://github.com/tectonic-typesetting/tectonic"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A self-contained LaTeX engine that pulls packages from the network: no TeX distro, deterministic CI builds. You write LaTeX, you get PDF only, and the first run needs network.",
+				"fr": "Moteur LaTeX autonome qui va chercher ses paquets en ligne : pas de distribution TeX, builds CI déterministes. On écrit du LaTeX, on sort du PDF, et le premier lancement exige le réseau."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "mdBook",
+			"source": {
+				"host": "github",
+				"path": "rust-lang/mdBook",
+				"url": "https://github.com/rust-lang/mdBook"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Markdown chapters to a styled, searchable HTML book from a single static binary. HTML is all you get: no PDF, docx or epub, and layout follows the SUMMARY.md book structure.",
+				"fr": "Chapitres Markdown en un livre HTML stylé avec recherche, binaire statique unique. L’HTML est le seul format de sortie : pas de PDF, docx ou epub, et la structure est imposée par SUMMARY.md."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Calibre",
+			"source": {
+				"host": "github",
+				"path": "kovidgoyal/calibre",
+				"url": "https://github.com/kovidgoyal/calibre"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "An ebook manager whose ebook-convert CLI handles epub, mobi, azw3, docx, HTML and PDF. Strong on ebooks, weak on academic formats, and the PDF path is EPUB-to-PDF rather than real typesetting.",
+				"fr": "Gestionnaire de livres dont la CLI ebook-convert traite epub, mobi, azw3, docx, HTML et PDF. Solide sur l’ebook, faible sur les formats académiques ; le PDF n’est que de l’EPUB converti."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "WeasyPrint",
+			"source": {
+				"host": "github",
+				"path": "Kozea/WeasyPrint",
+				"url": "https://github.com/Kozea/WeasyPrint"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "HTML and CSS to pixel-perfect PDF, with full paged-media support — headers, footers, page numbers — from a single CLI. It only makes PDFs from HTML/CSS, and JavaScript never runs.",
+				"fr": "HTML et CSS en PDF au pixel près, média paginés gérés (en-têtes, pieds de page, numéros), une seule CLI. Il ne sort du PDF qu’à partir d’HTML/CSS, et n’exécute jamais JavaScript."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

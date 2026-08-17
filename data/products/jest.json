@@ -1,0 +1,198 @@
+{
+	"slug": "jest",
+	"name": "Jest",
+	"domain": null,
+	"category": "testing-qa",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "yes",
+	"why": {
+		"en": "Jest is a zero-config test runner for the JavaScript ecosystem. Replaceable for daily work: an ESM-native runner executes the same suite in a fraction of the time. Not replaceable for ubiquity: every tutorial, CI image, and tooling assumption starts from Jest, and its matcher API is the ecosystem standard.",
+		"fr": "Jest est un lanceur de tests JavaScript sans configuration. Remplaçable au quotidien : un runner natif ESM exécute la même suite en une fraction du temps. Irremplaçable côté ubiquité : chaque tutoriel, image CI et outillage présuppose Jest, et son API de matchers est le standard de l’écosystème."
+	},
+	"whatYouLose": [
+		{
+			"en": "the mock API tests already use",
+			"fr": "l’API de mocks que les tests utilisent déjà"
+		},
+		{
+			"en": "the snapshot corpus to migrate",
+			"fr": "le corpus de snapshots à migrer"
+		},
+		{
+			"en": "the runner every CI image ships",
+			"fr": "le runner présent dans chaque image CI"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Vitest",
+			"source": {
+				"host": "github",
+				"path": "vitest-dev/vitest",
+				"url": "https://github.com/vitest-dev/vitest"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Near drop-in Jest replacement running on Vite with native ESM and parallel workers. Cheap migration, but mocking still differs from jest.mock in edge cases.",
+				"fr": "Remplacement quasi direct de Jest sur Vite, ESM natif et workers parallèles. Migration indolore, mais le mocking reste subtilement différent de jest.mock."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mocha",
+			"source": {
+				"host": "github",
+				"path": "mochajs/mocha",
+				"url": "https://github.com/mochajs/mocha"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Battle-tested, zero-config runner that accepts any assertion library or interface. Nothing built in though — mocking, coverage and watch all come from separate tools.",
+				"fr": "Runner éprouvé et zéro config, qui accepte n’importe quelle bibliothèque d’assertions. Mais rien n’est inclus : mocking, couverture et watch viennent d’outils séparés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "AVA",
+			"source": {
+				"host": "github",
+				"path": "avajs/ava",
+				"url": "https://github.com/avajs/ava"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Every test file runs in its own process, concurrent by default, with built-in TypeScript. Lean and fast, but the API diverges from Jest — no nested describes, smaller ecosystem.",
+				"fr": "Chaque fichier de test tourne dans son propre process, concurrent par défaut, TypeScript inclus. Léger et rapide, mais l’API diverge de Jest : pas de describes imbriqués, écosystème plus réduit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Jasmine",
+			"source": {
+				"host": "github",
+				"path": "jasmine/jasmine",
+				"url": "https://github.com/jasmine/jasmine"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Classic zero-dependency BDD runner with built-in spies and matchers, no build step. Familiar and portable, but no watch mode and async type-safety trails modern runners.",
+				"fr": "Runner BDD classique, zéro dépendance, espions et matchers intégrés, sans étape de build. Familier, mais pas de watch et la sûreté de type asynchrone traîne face aux runners modernes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tape",
+			"source": {
+				"host": "github",
+				"path": "tape-testing/tape",
+				"url": "https://github.com/tape-testing/tape"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Plain Node with no globals and no runner magic — just TAP output for any consumer. Fits straight into npm scripts, though there’s no mocking, coverage, or rich assertions.",
+				"fr": "Node tout simple, sans globals ni magie de runner : juste du TAP pour n’importe quel consommateur. S’intègre direct dans les scripts npm, mais sans mocking, ni couverture, ni assertions riches."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "uvu",
+			"source": {
+				"host": "github",
+				"path": "lukeed/uvu",
+				"url": "https://github.com/lukeed/uvu"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Near-zero install and runtime overhead, zero dependencies, single fast pass. But the API is bare-bones and development stalled — last push was 2024.",
+				"fr": "Empreinte quasi nulle à l’install et à l’exécution, zéro dépendance, un seul passage rapide. Mais l’API est squelettique et le projet ne bouge plus — dernier push en 2024."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "QUnit",
+			"source": {
+				"host": "github",
+				"path": "qunitjs/qunit",
+				"url": "https://github.com/qunitjs/qunit"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Runs in browsers and Node with assertion counts and async support — the pragmatic pick for any JS codebase. Just weaker assertions and no built-in module mocking.",
+				"fr": "Tourne en navigateur comme en Node, compteurs d’assertions et support async : le choix pragmatique pour n’importe quel code JS. Mais assertions moins expressives et pas de mocking de modules."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "node:test (built-in)",
+			"source": {
+				"host": "github",
+				"path": "nodejs/node",
+				"url": "https://github.com/nodejs/node"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Shipped inside Node itself — no install, no third-party runtime. `node --test` gives watch and coverage, but mocking is immature and there’s no jsdom; add happy-dom.",
+				"fr": "Fourni dans Node lui-même : pas d’install, pas de runtime tiers. `node --test` offre watch et couverture, mais le mocking est moins mûr et pas de jsdom — ajoutez happy-dom."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

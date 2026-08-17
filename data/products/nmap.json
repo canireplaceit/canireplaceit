@@ -1,0 +1,198 @@
+{
+	"slug": "nmap",
+	"name": "Nmap",
+	"domain": null,
+	"category": "networking-vpn",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "almost",
+	"why": {
+		"en": "Port scanners have kept pace for the discovery step: modern tools sweep hosts far faster. They stop there. Version detection, OS fingerprinting, and Nmap’s scripting engine are still done best by Nmap, and every fast scanner ends its job where Nmap’s starts.",
+		"fr": "Les scanners de ports ont rattrapé l’étape de découverte : les outils modernes ratissent les hôtes bien plus vite. Mais ils s’arrêtent là. La détection de versions, l’empreinte OS et le moteur de scripts de Nmap n’ont toujours pas d’équivalent, et chaque scanner rapide s’arrête là où Nmap commence."
+	},
+	"whatYouLose": [
+		{
+			"en": "the NSE script library",
+			"fr": "la bibliothèque de scripts NSE"
+		},
+		{
+			"en": "OS and version fingerprinting",
+			"fr": "la détection d’OS et de version"
+		},
+		{
+			"en": "the scanner already on every machine",
+			"fr": "le scanner déjà sur chaque machine"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "masscan",
+			"source": {
+				"host": "github",
+				"path": "robertdavidgraham/masscan",
+				"url": "https://github.com/robertdavidgraham/masscan"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Scans the whole IPv4 space from one host with stateless SYN packets, writing nmap-compatible -oX/-oG. You trade NSE-style detection for raw speed; no OS or service fingerprinting, and UDP stays unfinished.",
+				"fr": "Scanne tout l’espace IPv4 depuis un seul hôte en SYN sans état, avec sorties compatibles nmap (-oX/-oG). Vitesse brute contre détection NSE : pas de fingerprint OS ou service, et l’UDP reste incomplet."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "RustScan",
+			"source": {
+				"host": "github",
+				"path": "bee-san/RustScan",
+				"url": "https://github.com/bee-san/RustScan"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "All 65k TCP ports in seconds, then it hands off to nmap for service and OS fingerprints. Fast, but not a standalone replacement — the detail work still belongs to nmap.",
+				"fr": "Balance tous les 65k ports TCP en quelques secondes, puis confie le fingerprint service/OS à nmap. Rapide, mais pas un remplaçant autonome : l’essentiel de la détection reste du travail nmap."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "naabu",
+			"source": {
+				"host": "github",
+				"path": "projectdiscovery/naabu",
+				"url": "https://github.com/projectdiscovery/naabu"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Fast TCP/UDP/ICMP scanning plus passive discovery from certificate logs and DNS. It finds hosts and open ports quickly; version detection stays basic and there is no NSE-style script library.",
+				"fr": "Scans TCP/UDP/ICMP rapides et découverte passive via logs de certificats et DNS. Il trouve hôtes et ports ouverts, mais la détection de version reste sommaire et aucune bibliothèque de scripts façon NSE."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ZMap",
+			"source": {
+				"host": "github",
+				"path": "zmap/zmap",
+				"url": "https://github.com/zmap/zmap"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Full IPv4 sweep in under an hour, one stateless single-packet probe per target. Each scan takes a single port — no multi-service mapping — and root plus careful bandwidth control are mandatory.",
+				"fr": "Balaye tout l’IPv4 en moins d’une heure, une sonde sans état par cible. Un seul port par scan, pas de mapping multi-services ; root et contrôle soigné du débit obligatoires."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "NetExec",
+			"source": {
+				"host": "github",
+				"path": "Pennyw0rth/NetExec",
+				"url": "https://github.com/Pennyw0rth/NetExec"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Fork of CrackMapExec, the standard toolkit for testing discovered services — SMB, WinRM, LDAP — with pass-the-hash and password spraying. It tests services rather than finding them, and it skews Windows/AD.",
+				"fr": "Fork de CrackMapExec, l’outil standard pour tester des services déjà découverts : SMB, WinRM, LDAP, pass-the-hash et password spraying. Il teste des services, il n’en découvre pas, et reste orienté Windows/AD."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tsunami Security Scanner",
+			"source": {
+				"host": "github",
+				"path": "google/tsunami-security-scanner",
+				"url": "https://github.com/google/tsunami-security-scanner"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Google’s vulnerability scanner with a detect-and-verify plugin pipeline that scales to large networks. It expects hosts already discovered — no port mapping — and JVM setup outweighs nmap.",
+				"fr": "Scanner de vulnérabilités de Google, pipeline plugins détection puis vérification pour les gros réseaux. Pas de mapping de ports : il attend des hôtes déjà découverts, et la JVM pèse plus que nmap."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "arp-scan",
+			"source": {
+				"host": "github",
+				"path": "royhills/arp-scan",
+				"url": "https://github.com/royhills/arp-scan"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Discovers hosts by ARP instead of ICMP or TCP probes, reporting vendor OUIs for MAC fingerprinting. Fast with few false positives — but confined to your broadcast domain, with no port scanning.",
+				"fr": "Découvre des hôtes par ARP (pas ICMP/TCP) et remonte les OUI constructeurs pour le fingerprint MAC. Rapide, peu de faux positifs, mais limité au domaine de broadcast local, sans scan de ports."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Angry IP Scanner",
+			"source": {
+				"host": "github",
+				"path": "angryip/ipscan",
+				"url": "https://github.com/angryip/ipscan"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The go-to cross-platform GUI for zenmap’s point-and-click workflow, with plugins and exporters. Automation and scripting stay weak, and there is no NSE ecosystem or deep OS fingerprinting.",
+				"fr": "Le GUI cross-platform le plus populaire pour le workflow point-and-click façon zenmap, extensible par plugins et exportateurs. Automatisation et scripting faibles, aucun écosystème NSE ni fingerprint OS poussé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

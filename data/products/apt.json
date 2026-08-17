@@ -1,0 +1,198 @@
+{
+	"slug": "apt",
+	"name": "apt",
+	"domain": null,
+	"category": "developer-tooling",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "yes",
+	"why": {
+		"en": "apt fetches and installs Debian packages. Replaceable on your own machine: a modern front-end downloads in parallel and shows progress. Not replaceable for portability: apt is preinstalled on every Debian and scripts, docs, and CI call it by name.",
+		"fr": "apt récupère et installe les paquets depuis les dépôts Debian. Remplaçable sur sa propre machine : une surcouche moderne télécharge en parallèle et affiche la progression. Pas remplaçable pour la portabilité : apt est préinstallé sur chaque Debian, et les scripts, les docs et la CI l’appellent par son nom."
+	},
+	"whatYouLose": [
+		{
+			"en": "the preinstalled default on every Debian",
+			"fr": "le défaut préinstallé sur chaque Debian"
+		},
+		{
+			"en": "drop-in inside scripts and CI",
+			"fr": "drop-in dans scripts et CI"
+		},
+		{
+			"en": "no extra install before first use",
+			"fr": "aucune installation préalable requise"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Nix",
+			"source": {
+				"host": "github",
+				"path": "NixOS/nix",
+				"url": "https://github.com/NixOS/nix"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "Declarative, reproducible installs with instant rollbacks between generations and per-user, rootless packages. The non-FHS /nix/store layout and steep curve cost more than its drop-in install/update flow saves.",
+				"fr": "Installe en déclaratif et reproductible, rollbacks instantanés entre générations, paquets par utilisateur sans root. Son layout non-FHS et sa courbe d’apprentissage coûtent plus cher que le flux apt qu’il reprend."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GNU Guix",
+			"source": {
+				"host": "codeberg",
+				"path": "guix/guix",
+				"url": "https://codeberg.org/guix/guix"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Fully reproducible and transactional, with rollback, an unprivileged daemon, and substitutes. Bootstrappable too. Guile/Scheme package definitions and a package set smaller than Debian’s narrow its reach.",
+				"fr": "Reproductible et transactionnel, avec rollback, daemon non privilégié et serveur de substitutes. Définitions de paquets en Guile/Scheme et catalogue plus maigre que Debian : il reste un choix d’initiés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pacman",
+			"source": {
+				"host": "gitlab",
+				"path": "pacman/pacman",
+				"url": "https://gitlab.archlinux.org/pacman/pacman"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A single `-Syu` updates the whole system; installs are fast and dependency-resolved. Rolling release with no out-of-the-box pinning means the Arch ecosystem comes as part of the deal.",
+				"fr": "Une commande `-Syu` met tout à jour, des paquets binaires rapides à résolution de dépendances. Rolling release sans épinglage de versions : on épouse l’écosystème Arch dans la foulée."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "dnf",
+			"source": {
+				"host": "github",
+				"path": "rpm-software-management/dnf",
+				"url": "https://github.com/rpm-software-management/dnf"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Libsolv-driven dependency solving, transactional undo history, modular streams. RPM distros only, and cold starts slower than apt despite no daemon.",
+				"fr": "Résolution de dépendances via libsolv, historique transactionnel annulable, modules. Réservé aux distros RPM, et démarrage à froid plus lent qu’apt, sans daemon pour compenser."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Homebrew",
+			"source": {
+				"host": "github",
+				"path": "Homebrew/brew",
+				"url": "https://github.com/Homebrew/brew"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Installs into its own prefix without sudo on macOS and Linux, with cached bottles and simple Ruby formulas. It sidesteps, rather than manages, the system package database.",
+				"fr": "Installe dans son propre préfixe sans sudo, sur macOS et Linux, avec bouteilles en cache et formules Ruby simples. Il contourne la base de paquets système plutôt qu’il ne la gère."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Flatpak",
+			"source": {
+				"host": "github",
+				"path": "flatpak/flatpak",
+				"url": "https://github.com/flatpak/flatpak"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "Sandboxed, cross-distro apps with permission control, shared runtimes, and self-hostable remotes. Apps only — system libraries stay apt’s job, and sandbox friction is real.",
+				"fr": "Applications sandboxées et multi-distros, permissions contrôlées, runtimes partagés, dépôts auto-hébergeables. Pas de bibliothèques système, et le bac à sable froisse les habitués."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "micromamba",
+			"source": {
+				"host": "github",
+				"path": "mamba-org/mamba",
+				"url": "https://github.com/mamba-org/mamba"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "A single static binary with a libsolv solver; self-contained per-user environments on three OSes. The ecosystem is conda’s, skewed to science tooling, and nothing is system-wide.",
+				"fr": "Un binaire statique unique, solveur libsolv, environnements auto-suffisants par utilisateur sur trois OS. L’écosystème conda, orienté science des données, ne touche pas au système."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nala",
+			"source": {
+				"host": "github",
+				"path": "volitank/nala",
+				"url": "https://github.com/volitank/nala"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Parallel downloads, readable output, and an undo/redo upgrade history on top of the apt ecosystem. It cannot stand alone: dpkg underneath and Debian-derived distros only.",
+				"fr": "Téléchargements en parallèle, sortie lisible, historique d’upgrades annulable — par-dessus l’écosystème apt. Il ne tient pas seul : dpkg dessous, distros dérivées de Debian uniquement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

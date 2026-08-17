@@ -1,0 +1,198 @@
+{
+	"slug": "gradle",
+	"name": "Gradle",
+	"domain": null,
+	"category": "build-delivery",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "almost",
+	"why": {
+		"en": "Gradle builds and tests JVM projects, resolving dependencies and caching work incrementally. Faster, smarter alternatives exist but trade its flexibility: hermetic build engines demand strict rules and a new DSL, while simpler tools give up incremental performance and per-build scripting. Nothing replaces Gradle without losing one of those three.",
+		"fr": "Gradle compile et teste les projets JVM, résout les dépendances et met en cache le travail incrémental. Des alternatives existent, plus rapides, mais elles échangent contre sa flexibilité : les moteurs de build hermétiques imposent des règles strictes et un nouveau DSL, quand les outils plus simples sacrifient l’incrémental et les scripts de build. Rien ne remplace Gradle sans céder sur l’un des trois."
+	},
+	"whatYouLose": [
+		{
+			"en": "the Groovy or Kotlin DSL",
+			"fr": "le DSL de build Groovy ou Kotlin"
+		},
+		{
+			"en": "the incremental build cache",
+			"fr": "le cache de build incrémental"
+		},
+		{
+			"en": "the Android plugin ecosystem",
+			"fr": "l’écosystème de plugins Android"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Apache Maven",
+			"source": {
+				"host": "github",
+				"path": "apache/maven",
+				"url": "https://github.com/apache/maven"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The default Gradle alternative: convention-over-configuration XML poms, billion-download Central repo, big plugin ecosystem. Verbose XML and slower incremental builds than Gradle, with no configuration cache equivalent.",
+				"fr": "L’alternative par défaut à Gradle : poms XML, dépôt Central au milliard d’installations, gros écosystème de plugins. Mais builds incrémentaux plus lents, XML verbeux, pas de configuration cache."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Bazel",
+			"source": {
+				"host": "github",
+				"path": "bazelbuild/bazel",
+				"url": "https://github.com/bazelbuild/bazel"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Google’s hermetic, reproducible build tool for monorepo scale. Strongest correctness guarantees of any build tool, but a steep learning curve and Starlark, a new language to learn.",
+				"fr": "L’outil hermétique et reproductible de Google pour les monorepos, garanties de correction les plus fortes de la catégorie. À ses risques : courbe d’apprentissage raide et langage Starlark à maîtriser."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CMake",
+			"source": {
+				"host": "github",
+				"path": "Kitware/CMake",
+				"url": "https://github.com/Kitware/CMake"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "De-facto cross-platform build generator for native code, the standard when Gradle’s JVM focus is wrong. Generates for Make, Ninja, Visual Studio, Xcode, but the CMake language has a poor reputation.",
+				"fr": "Générateur cross-platform de référence pour le code natif, l’option quand le focus JVM de Gradle ne va pas. Cible Make, Ninja, Visual Studio, Xcode, mais son langage a une réputation exécrable."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Meson",
+			"source": {
+				"host": "github",
+				"path": "mesonbuild/meson",
+				"url": "https://github.com/mesonbuild/meson"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Fast, readable, Python-like build system for native projects, backed by Ninja. A modern answer to CMake and Gradle’s complexity, though its ecosystem is younger and wrapped deps are niche.",
+				"fr": "Système de build rapide et lisible pour le natif, porté par Ninja, réponse moderne à la complexité de CMake et Gradle. Mais écosystème plus jeune et gestion des wraps très à part."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Ninja",
+			"source": {
+				"host": "github",
+				"path": "ninja-build/ninja",
+				"url": "https://github.com/ninja-build/ninja"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Tiny, fast low-level build executor behind Chromium. Incremental rebuilds done right, but no dependency resolution and build files meant to be machine-generated, not written by hand.",
+				"fr": "Exécuteur de build bas niveau, minuscule et rapide, derrière Chromium. Les rebuilds incrémentaux enfin bien faits, mais pas de résolution de dépendances et des fichiers de build réservés à la génération machine."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mill",
+			"source": {
+				"host": "github",
+				"path": "com-lihaoyi/mill",
+				"url": "https://github.com/com-lihaoyi/mill"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Fast JVM build tool that fixes Gradle’s complexity with explicit, composable, code-first builds. Build files are Scala with IDE support, which keeps the community and docs Scala-centric.",
+				"fr": "Outil de build JVM qui répond à la complexité de Gradle par des builds explicites, composables, écrits en Scala avec support IDE. En contrepartie, une communauté et des docs centrées Scala."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Task",
+			"source": {
+				"host": "github",
+				"path": "go-task/task",
+				"url": "https://github.com/go-task/task"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Modern YAML task runner, the simple make-like tool for orchestrating commands across a repo. Single cross-platform binary, but no real build graph and no fine-grained incremental tracking.",
+				"fr": "Runner de tâches moderne en YAML, l’outil make-like simple pour orchestrer les commandes d’un dépôt. Binaire unique cross-platform, mais pas de vrai graphe de build ni de suivi incrémental fin."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "just",
+			"source": {
+				"host": "github",
+				"path": "casey/just",
+				"url": "https://github.com/casey/just"
+			},
+			"license": "CC0-1.0",
+			"effort": "managed",
+			"note": {
+				"en": "Handy command runner that saves project-specific commands, a friendlier Make for ad-hoc workflows. Dead-simple recipes in shell, but no caching, no parallelism, not a build engine.",
+				"fr": "Runner de commandes qui mémorise les commandes d’un projet, un Make plus sympathique pour l’ad-hoc. Recettes simplissimes en shell, mais ni cache, ni parallélisme, ni moteur de build."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

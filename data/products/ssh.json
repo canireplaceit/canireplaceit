@@ -1,0 +1,177 @@
+{
+	"slug": "ssh",
+	"name": "OpenSSH",
+	"domain": null,
+	"category": "remote-access",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "not-yet",
+	"why": {
+		"en": "OpenSSH is the reference implementation of a wire protocol every remote machine and CI system already speaks. Other clients sit on top of that protocol rather than replacing it; moving off OpenSSH means leaving the standard everyone else expects.",
+		"fr": "OpenSSH est l’implémentation de référence d’un protocole que toutes les machines distantes et les CI parlent déjà. Les autres clients s’appuient sur ce protocole au lieu de le remplacer&nbsp;: quitter OpenSSH, c’est quitter le standard que tout le monde attend."
+	},
+	"whatYouLose": [
+		{
+			"en": "compatibility with every server and CI",
+			"fr": "la compatibilité avec tous les serveurs et CI"
+		},
+		{
+			"en": "your existing keys, agents, configs",
+			"fr": "vos clés, agents et configs existants"
+		},
+		{
+			"en": "interop with scp, rsync, git",
+			"fr": "l’interop avec scp, rsync et git"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "frp",
+			"source": {
+				"host": "github",
+				"path": "fatedier/frp",
+				"url": "https://github.com/fatedier/frp"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "De-facto self-hosted remote access: tunnels SSH/TCP/HTTP out through NAT. Still speaks the SSH protocol, and you run and secure the relay server yourself.",
+				"fr": "Le standard auto-hébergé d’accès distant : tunnelise SSH, TCP et HTTP à travers le NAT. Parle toujours le protocole SSH, et vous gérez et sécurisez le serveur relais vous-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "chisel",
+			"source": {
+				"host": "github",
+				"path": "jpillora/chisel",
+				"url": "https://github.com/jpillora/chisel"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "One Go binary serves as client and server; reverse-forward any TCP/UDP port over HTTP with SSH-style auth. No server config, but no native SSH server and no multiplexing.",
+				"fr": "Un seul binaire Go fait client et serveur : renvoie n’importe quel port TCP/UDP par-dessus HTTP avec une auth façon SSH. Pas de config serveur, mais pas de serveur SSH natif ni multiplexage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "sish",
+			"source": {
+				"host": "github",
+				"path": "antoniomika/sish",
+				"url": "https://github.com/antoniomika/sish"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted ngrok-style server: expose local services through a public domain, TLS handled by LetsEncrypt. Clients are plain ssh, which means you operate the public-facing endpoint.",
+				"fr": "Un serveur de tunnels façon ngrok à héberger soi-même : expose vos services locaux sous un domaine public, TLS géré par LetsEncrypt. Les clients restent de simples ssh, à vous d’opérer l’extrémité publique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "sshuttle",
+			"source": {
+				"host": "github",
+				"path": "sshuttle/sshuttle",
+				"url": "https://github.com/sshuttle/sshuttle"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "No server-side install: route whole subnets, DNS included, over a single SSH connection. But sshd must be there at the far end, and interactive shells are not the point.",
+				"fr": "Aucune installation côté serveur : achemine des sous-réseaux entiers, DNS compris, sur une seule connexion SSH. Mais sshd doit exister à l’autre bout, et les sessions interactives ne sont pas le but."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "mosh",
+			"source": {
+				"host": "github",
+				"path": "mobile-shell/mosh",
+				"url": "https://github.com/mobile-shell/mosh"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Survives IP changes with instant keystroke echo and state-sync resume of dropped sessions. Needs mosh-server on the host, still bootstraps over ssh, and skips file transfer and port forwarding.",
+				"fr": "Tient la connexion à travers les changements d’IP, écho instantané des frappes et reprise des sessions coupées. Réclame mosh-server sur l’hôte, s’authentifie via ssh, et n’a ni transfert de fichier ni forwarding."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "paramiko",
+			"source": {
+				"host": "github",
+				"path": "paramiko/paramiko",
+				"url": "https://github.com/paramiko/paramiko"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "Pure-Python SSHv2 in-process: build client or server, SFTP included, straight into your app. A library, not an interactive shell, and slower than C OpenSSH under load.",
+				"fr": "Un SSHv2 100 % Python : client ou serveur dans votre process, SFTP compris. C’est une bibliothèque, pas un shell interactif, et moins rapide que l’OpenSSH en C sous forte charge."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "EternalTerminal",
+			"source": {
+				"host": "github",
+				"path": "MisterTea/EternalTerminal",
+				"url": "https://github.com/MisterTea/EternalTerminal"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Sessions survive network drops, suspend and IP changes with no daemon on either end. You still install an ET client and server on both sides, and encryption is off by default.",
+				"fr": "Les sessions survivent aux coupures réseau, suspend et changements d’IP, sans démon d’aucun côté. Client et serveur ET à installer des deux côtés, et le chiffrement reste désactivé par défaut."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

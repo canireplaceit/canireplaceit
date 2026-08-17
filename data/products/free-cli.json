@@ -1,0 +1,177 @@
+{
+	"slug": "free-cli",
+	"name": "free",
+	"domain": null,
+	"category": "observability-telemetry",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "almost",
+	"why": {
+		"en": "free prints a kernel memory snapshot in one line and nothing else. Newer monitors draw live graphs and per-process totals, but they are interactive terminals, not a one-shot a script can feed on. For a pinned line in a script, free is still the fastest way to that number.",
+		"fr": "free affiche en une ligne un instantané de la mémoire du noyau, rien de plus. Les moniteurs récents dessinent des graphes en direct et des totaux par processus, mais ce sont des terminaux interactifs, pas une sortie qu’un script peut ingérer. Pour une ligne figée dans un script, free reste le plus rapide pour atteindre ce chiffre."
+	},
+	"whatYouLose": [
+		{
+			"en": "one-shot output that parses in scripts",
+			"fr": "une sortie one-shot exploitable en script"
+		},
+		{
+			"en": "the free present on every machine",
+			"fr": "le free présent sur toutes les machines"
+		},
+		{
+			"en": "plain numbers a cron job can capture",
+			"fr": "des chiffres bruts capturables en cron"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "btop",
+			"source": {
+				"host": "github",
+				"path": "aristocratos/btop",
+				"url": "https://github.com/aristocratos/btop"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The modern flagship TUI monitor: live CPU, memory, disk and network graphs with mouse and theming. Single-host only, and no alerting or history to fall back on.",
+				"fr": "Le TUI moderne de référence : graphes CPU, mémoire, disque et réseau en direct, souris et thèmes inclus. Mais vue mono-hôte, sans alertes ni historique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "htop",
+			"source": {
+				"host": "github",
+				"path": "htop-dev/htop",
+				"url": "https://github.com/htop-dev/htop"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The classic interactive process viewer every sysadmin knows, installed by default on most distros. Text-only, per-host: no graphs, no fleet view.",
+				"fr": "L’outil interactif de gestion des processus que tout admin connaît, installé par défaut sur la plupart des distros. Sortie texte seule, outil mono-hôte : ni graphes, ni vue de flotte."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "fastfetch",
+			"source": {
+				"host": "github",
+				"path": "fastfetch-cli/fastfetch",
+				"url": "https://github.com/fastfetch-cli/fastfetch"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Maintained continuation of neofetch, now archived: instant system-info CLI with logo art, JSON output for scripts. Snapshot only, no continuous monitoring.",
+				"fr": "Successeur maintenu de neofetch, désormais archivé : résumé instantané du système avec logo et sortie JSON pour les scripts. Simple instantané, pas de suivi continu."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "glances",
+			"source": {
+				"host": "github",
+				"path": "nicolargo/glances",
+				"url": "https://github.com/nicolargo/glances"
+			},
+			"license": "LGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Cross-platform top/htop alternative: CLI, TUI and self-hosted web dashboard plus client/server remote mode. The web view stays a local lightweight server, not a hosted service.",
+				"fr": "Alternative multi-plateforme à top/htop : CLI, TUI et tableau de bord web auto-hébergé, avec mode client/serveur à distance. Le web reste un serveur local léger, pas un SaaS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "duf",
+			"source": {
+				"host": "github",
+				"path": "muesli/duf",
+				"url": "https://github.com/muesli/duf"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A better df: colored, human-readable disk usage with device grouping, mount points and JSON output. Snapshot only, no trends or alerting, single-host.",
+				"fr": "Un df amélioré : usage disque lisible et coloré, regroupement par type d’appareil, points de montage et sortie JSON. Simple instantané, sans historique ni alerte, mono-hôte."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ncdu",
+			"source": {
+				"host": "github",
+				"path": "rofl0r/ncdu",
+				"url": "https://github.com/rofl0r/ncdu"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The canonical ncurses disk-usage analyzer, dormant since October 2020 — still the go-to for finding what eats your disk. Manual scans each run, JSON export for offline work.",
+				"fr": "L’analyseur ncurses de référence pour la place disque, en sommeil depuis octobre 2020 — toujours utile pour trouver ce qui mange l’espace. Scan manuel à chaque lancement, export JSON pour analyse hors-ligne."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gtop",
+			"source": {
+				"host": "github",
+				"path": "aksakalli/gtop",
+				"url": "https://github.com/aksakalli/gtop"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Node-based terminal dashboard with colorful live CPU, memory, disk and network graphs. One-line npm install, but needs Node.js and ships at a slower pace than btop or htop.",
+				"fr": "Tableau de bord terminal en Node : graphes CPU, mémoire, disque et réseau en direct. Installable en une ligne via npm, mais exige Node.js et avance plus lentement que btop ou htop."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

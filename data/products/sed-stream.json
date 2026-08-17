@@ -25,5 +25,174 @@
 			"fr": "l’édition en place en un seul flag"
 		}
 	],
-	"alternatives": []
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "sd",
+			"source": {
+				"host": "github",
+				"path": "chmln/sd",
+				"url": "https://github.com/chmln/sd"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "sed’s s/from/to/ substitution in a single static Rust binary, with diff-preview and color output — but no address ranges or y/q/h/H, and nothing of sed beyond the replace.",
+				"fr": "La substitution s/from/to/ de sed dans un seul binaire Rust statique, avec aperçu diff et sortie colorée — mais sans plages d’adresses ni y/q/h/H, et rien de sed au-delà du remplacement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "sad",
+			"source": {
+				"host": "github",
+				"path": "ms-jpq/sad",
+				"url": "https://github.com/ms-jpq/sad"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A full-screen TUI over ripgrep results: review side-by-side diffs before replacements land. Built for interactivity, so it is awkward in pipelines, and only the basic s/// form maps from sed.",
+				"fr": "TUI plein écran sur les résultats de ripgrep : relire les diff côte à côte avant d’appliquer. Pensé pour l’interactif, donc maladroit en pipeline, seul le s/// de base vient de sed."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ruplacer",
+			"source": {
+				"host": "github",
+				"path": "your-tools/ruplacer",
+				"url": "https://github.com/your-tools/ruplacer"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Recursive regex replacement across a whole source tree, with a colorized preview diff before applying; skips .git and binaries. Archived upstream — no maintenance, and it edits trees, not a stdin stream.",
+				"fr": "Remplacement regex récursif sur tout un arbre source, avec aperçu diff avant application ; ignore .git et les binaires. Archivé en amont — plus de maintenance, il traite les arbres, pas un flux stdin."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "rpl",
+			"source": {
+				"host": "github",
+				"path": "rrthomas/rpl",
+				"url": "https://github.com/rrthomas/rpl"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Literal find/replace across many files at once — no regex escaping, backups and permissions preserved. Packaged in Debian and Homebrew. File-oriented though: no stdin filtering, no capture groups, no sed scripting.",
+				"fr": "Remplacement littéral sur de nombreux fichiers d’un coup — sans échappement regex, avec sauvegarde et droits préservés. Empaqueté dans Debian et Homebrew. Orienté fichiers : ni flux stdin, ni groupes capturants, ni langage sed."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "perl",
+			"source": {
+				"host": "github",
+				"path": "Perl/perl5",
+				"url": "https://github.com/Perl/perl5"
+			},
+			"license": "Artistic-1.0-Perl",
+			"effort": "managed",
+			"note": {
+				"en": "The canonical successor: perl -pe and -pi mirror sed’s flags with full regex, lookaround, and in-place editing. For trivial substitutions it is overkill, and its idioms differ from sed syntax.",
+				"fr": "Le successeur canonique : perl -pe et -pi reprennent les drapeaux de sed avec regex complète, lookaround et édition sur place. Overkill pour une substitution triviale, et ses idiomes diffèrent de sed."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "awk",
+			"source": {
+				"host": "github",
+				"path": "onetrueawk/awk",
+				"url": "https://github.com/onetrueawk/awk"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "The classic pattern/action processor, preinstalled on every Unix: sub/gsub covers sed’s usual substitutions, UTF-8 and CSV aware. But its addressing and substitution syntax differ — not a drop-in for y/q/delete.",
+				"fr": "Le classique processeur motif/action, présent sur tous les Unix : sub/gsub couvre les substitutions usuelles de sed, UTF-8 et CSV pris en compte. Mais adressage et syntaxe diffèrent — pas un remplaçant pour y/q/delete."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "vim",
+			"source": {
+				"host": "github",
+				"path": "vim/vim",
+				"url": "https://github.com/vim/vim"
+			},
+			"license": "Vim",
+			"effort": "managed",
+			"note": {
+				"en": "Heavyweight startup for a one-liner, but vim -es gives sed-identical s/// editing, over the arglist for whole filesets. Preinstalled virtually everywhere — though the batch path is terminal-only.",
+				"fr": "Démarrage lourd pour une ligne, mais vim -es donne des s/// identiques à sed, sur plusieurs fichiers via l’arglist. Présent presque partout, mais le batch ne passe que par le terminal."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "sam",
+			"source": {
+				"host": "github",
+				"path": "9fans/plan9port",
+				"url": "https://github.com/9fans/plan9port"
+			},
+			"license": "Lucent-PL-1.02",
+			"effort": "managed",
+			"note": {
+				"en": "A Plan 9 editor from the ed/sed lineage, scriptable over whole file sets and at ease with very large files. Interactive, not a pipe filter, and its command grammar is unfamiliar.",
+				"fr": "Éditeur Plan 9 héritier d’ed/sed, scriptable sur des ensembles entiers de fichiers, à l’aise avec les très gros fichiers. Interactif, pas filtre de pipe, et sa grammaire est peu connue."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
 }

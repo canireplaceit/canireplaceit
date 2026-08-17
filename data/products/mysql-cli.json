@@ -1,0 +1,202 @@
+{
+	"slug": "mysql-cli",
+	"name": "mysql CLI",
+	"domain": null,
+	"category": "databases-caches",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "almost",
+	"why": {
+		"en": "mysql CLI is the reference client for MySQL, for interactive queries and for scripts. Interactive querying has a strictly better modern client; scripts, dump files and automation still run against mysql, which also ships with every server install. Switching means running two tools where one used to be.",
+		"fr": "mysql CLI est le client de référence de MySQL, pour les requêtes interactives comme pour les scripts. Le quotidien interactif dispose d’un client moderne nettement meilleur, mais les scripts, les dumps et l’automatisation tournent encore sur mysql, qui est de toute façon livré avec chaque serveur. Changer revient à maintenir deux outils au lieu d’un."
+	},
+	"whatYouLose": [
+		{
+			"en": "the mysql preinstalled on every server",
+			"fr": "le mysql préinstallé sur chaque serveur"
+		},
+		{
+			"en": "batch interface for scripts and dumps",
+			"fr": "l’interface batch des scripts et des dumps"
+		},
+		{
+			"en": "the reference client of every tutorial",
+			"fr": "le client de référence des tutoriels"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "mycli",
+			"source": {
+				"host": "github",
+				"path": "dbcli/mycli",
+				"url": "https://github.com/dbcli/mycli"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "The de-facto drop-in replacement for the stock client. Smart tab completion, highlighting and formatted output; the price is a Python dependency stack, and there is no GUI.",
+				"fr": "Le remplaçant drop-in de fait du client d’origine : complétion intelligente, coloration et sortie formatée. Le coût, une pile Python à installer, et rien de graphique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "usql",
+			"source": {
+				"host": "github",
+				"path": "xo/usql",
+				"url": "https://github.com/xo/usql"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "One CLI for MySQL plus 20+ engines. Teams touching several databases get tab completion and configurable output; generic dialect handling means fewer MySQL-specific tweaks and a hefty binary.",
+				"fr": "Un seul CLI pour MySQL et plus de 20 moteurs, avec complétion et formats configurables. Le dialecte générique freine les réglages spécifiques MySQL, et le binaire est gros."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ccql",
+			"source": {
+				"host": "github",
+				"path": "github/ccql",
+				"url": "https://github.com/github/ccql"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Archived upstream. GitHub’s parallel MySQL client runs one query across many hosts from config-driven lists; scriptable for fleet ops, not a daily interactive shell.",
+				"fr": "Archivé en amont. Le client MySQL parallèle de GitHub exécute une requête sur de nombreux hôtes, depuis des listes pilotées par config ; scriptable pour la flotte, pas un shell quotidien interactif."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "colour-mysql-console",
+			"source": {
+				"host": "github",
+				"path": "nitso/colour-mysql-console",
+				"url": "https://github.com/nitso/colour-mysql-console"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Dormant since August 2016. A curses wrapper over the mysql client with colorized results, history and editing; no mycli’s completion depth, and nothing new is coming.",
+				"fr": "En sommeil depuis août 2016. Une couche curses par-dessus le client mysql, résultats colorisés, historique et édition ; moins de complétion que mycli, et plus rien n’arrive."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "DBeaver",
+			"source": {
+				"host": "github",
+				"path": "dbeaver/dbeaver",
+				"url": "https://github.com/dbeaver/dbeaver"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The most popular open-source desktop database GUI. Cross-platform, with SQL editor, ER diagrams and export tooling where the CLI ends; heavy Java app, and some features are paid.",
+				"fr": "Le GUI de base de données open source le plus populaire. Multi-plateforme, éditeur SQL, diagrammes ER et export là où le CLI s’arrête ; app Java lourde, certaines fonctions payantes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Enterprise and Cloud editions",
+					"fr": "Éditions Enterprise et Cloud"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Sqlectron",
+			"source": {
+				"host": "github",
+				"path": "sqlectron/sqlectron",
+				"url": "https://github.com/sqlectron/sqlectron"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Electron desktop GUI for macOS, Linux and Windows. Autocomplete, saved connection profiles, table browser and result export; a memory-heavy footprint, and a slowed cadence.",
+				"fr": "GUI Electron pour macOS, Linux et Windows. Autocomplétion, profils de connexion enregistrés, navigateur de tables et export ; appétit mémoire d’Electron, et un rythme de dev ralenti."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "HeidiSQL",
+			"source": {
+				"host": "github",
+				"path": "HeidiSQL/HeidiSQL",
+				"url": "https://github.com/HeidiSQL/HeidiSQL"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Native Windows GUI, long-running and actively maintained. SSH tunneling, backup and batch table tools; Windows-only, and not scriptable from the terminal.",
+				"fr": "GUI Windows natif, ancien et activement maintenu. Tunneling SSH, sauvegarde et outils par lots ; Windows uniquement, et non scriptable depuis le terminal."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "phpMyAdmin",
+			"source": {
+				"host": "github",
+				"path": "phpmyadmin/phpmyadmin",
+				"url": "https://github.com/phpmyadmin/phpmyadmin"
+			},
+			"license": "GPL-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "The canonical web client. Browser-based administration with SQL import/export, privileges and multi-user access; needs a web server plus PHP, and is no terminal client.",
+				"fr": "Le client web canonique. Administration dans le navigateur, import/export SQL, privilèges et accès multi-utilisateurs ; il lui faut un serveur web et PHP, pas de terminal."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

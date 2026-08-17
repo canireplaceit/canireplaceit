@@ -1,0 +1,198 @@
+{
+	"slug": "strace",
+	"name": "strace",
+	"domain": null,
+	"category": "developer-tooling",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "almost",
+	"why": {
+		"en": "strace records a process’s system calls by pausing it at each one, which is slow but works on any process it can attach to. eBPF-based tracing is faster and sees the whole system, but requires Linux, root, and a modern kernel. The old tool keeps a niche: cheap, portable, no privileges.",
+		"fr": "strace enregistre les appels système d’un processus en le mettant en pause à chaque appel : lent, mais utilisable sur tout processus auquel il peut s’attacher. La trace eBPF est plus rapide et voit tout le système, mais exige Linux, root et un noyau récent. L’ancien outil garde une niche : simple, portable, sans privilège."
+	},
+	"whatYouLose": [
+		{
+			"en": "tracing without root privileges",
+			"fr": "la trace sans privilège root"
+		},
+		{
+			"en": "following forked child processes",
+			"fr": "le suivi des processus fils"
+		},
+		{
+			"en": "working on ancient kernels",
+			"fr": "le fonctionnement sur les vieux noyaux"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "bpftrace",
+			"source": {
+				"host": "github",
+				"path": "bpftrace/bpftrace",
+				"url": "https://github.com/bpftrace/bpftrace"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "One-liner syscall probes on eBPF at near-zero overhead — no ptrace involved. Needs root and a BPF-capable kernel (4.9+), and lacks a -p attach as simple as strace's.",
+				"fr": "Des sondes syscall en une ligne sur eBPF, quasi sans surcoût, sans ptrace. Exige root et un noyau BPF (4.9+), et n’a pas d’attache -p aussi simple que strace."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "bcc",
+			"source": {
+				"host": "github",
+				"path": "iovisor/bcc",
+				"url": "https://github.com/iovisor/bcc"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Dozens of ready tools — trace, opensnoop, syscount — plus custom eBPF programs in Python. Tied to the kernel version and build toolchain, with no single strace-equivalent invocation.",
+				"fr": "Des dizaines d’outils — trace, opensnoop, syscount — et des programmes eBPF en Python. Lié au noyau et à la toolchain de build, sans équivalent à l’invocation unique de strace."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "sysdig",
+			"source": {
+				"host": "github",
+				"path": "draios/sysdig",
+				"url": "https://github.com/draios/sysdig"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Captures syscalls plus process context, with chisels that mirror strace and capture files for offline replay. Needs a kernel module or eBPF probe, and installs heavier than strace.",
+				"fr": "Capture des syscalls avec contexte processus, des chisels façon strace et des captures rejouables hors ligne. Nécessite un module noyau ou une sonde eBPF, et une install plus lourde que strace."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "falco",
+			"source": {
+				"host": "github",
+				"path": "falcosecurity/falco",
+				"url": "https://github.com/falcosecurity/falco"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Rule-based syscall anomaly detection with Kubernetes context and Slack, syslog, gRPC alerts. Built for security alerting, not ad-hoc tracing, and rule authoring carries a learning curve.",
+				"fr": "Détection d’anomalies syscall par règles, contexte Kubernetes et alertes Slack, syslog, gRPC. Pensé pour l’alerte sécurité, pas le tracing ad hoc, et écrire des règles demande un apprentissage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ltrace",
+			"source": {
+				"host": "github",
+				"path": "dkogan/ltrace",
+				"url": "https://github.com/dkogan/ltrace"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Companion that traces library calls with strace-like -e and -p flags, plus count and timing summaries. No commit since November 2020 — dormant upstream, kept alive via a fork.",
+				"fr": "Compagnon qui trace les appels de bibliothèque, flags -e et -p façon strace, résumés de compte et timing. Aucun commit depuis novembre 2020 — en sommeil, entretenu via un fork."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "trace-cmd",
+			"source": {
+				"host": "github",
+				"path": "rostedt/trace-cmd",
+				"url": "https://github.com/rostedt/trace-cmd"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Frontend for the kernel's built-in ftrace: function tracing, trace.dat record and replay through kernelshark. Focuses on kernel functions, not per-process syscall attach, and needs tracefs mounted as root.",
+				"fr": "Interface pour ftrace intégré au noyau : tracing de fonctions, enregistrement et relecture trace.dat via kernelshark. Centré sur les fonctions noyau, pas l’attache syscall par processus, et exige tracefs monté (root)."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "lttng-tools",
+			"source": {
+				"host": "github",
+				"path": "lttng/lttng-tools",
+				"url": "https://github.com/lttng/lttng-tools"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Kernel and userspace tracepoints with session-based, low-overhead syscall capture and CTF output for Babeltrace. Session setup is heavier than a strace one-liner, and it needs lttng-modules.",
+				"fr": "Tracepoints noyau et userspace, capture syscall par sessions à faible surcoût, sortie CTF pour Babeltrace. Le setup de sessions est plus lourd qu’un one-liner strace et exige lttng-modules."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "DynamoRIO (drstrace)",
+			"source": {
+				"host": "github",
+				"path": "DynamoRIO/dynamorio",
+				"url": "https://github.com/DynamoRIO/dynamorio"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "drstrace is strace on Windows and Linux, no kernel hooks, with API filtering and call counts. Framework plus CLI though: steeper learning curve, heavier overhead than ptrace.",
+				"fr": "drstrace est un strace sous Windows et Linux, sans crochets noyau, avec filtrage d’API et comptage d’appels. Framework plus CLI quand même : apprentissage plus raide, surcoût supérieur à ptrace."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

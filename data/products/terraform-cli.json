@@ -1,0 +1,210 @@
+{
+	"slug": "terraform-cli",
+	"name": "Terraform CLI",
+	"domain": null,
+	"category": "infrastructure-as-code",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "almost",
+	"why": {
+		"en": "Declarative infrastructure-as-code across clouds, with plan/apply and remote state. The plan/apply loop and the HCL module ecosystem are the product: every alternative either forks the same codebase or abandons the declarative model.",
+		"fr": "Outil d’infrastructure as code déclaratif multi-cloud, piloté par un cycle plan/apply et un état distant. La valeur, c’est le plan/apply et l’écosystème de modules HCL : chaque alternative soit reprend le même code, soit abandonne le modèle déclaratif."
+	},
+	"whatYouLose": [
+		{
+			"en": "the plan/apply review loop",
+			"fr": "le cycle plan/apply"
+		},
+		{
+			"en": "the public module registry",
+			"fr": "le registre public de modules"
+		},
+		{
+			"en": "parity across cloud providers",
+			"fr": "la parité entre les providers"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "OpenTofu",
+			"source": {
+				"host": "github",
+				"path": "opentofu/opentofu",
+				"url": "https://github.com/opentofu/opentofu"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Drop-in MPL-2.0 fork of Terraform and de facto community successor. Compatible init/plan/apply, but some upstream features land later and the provider registry trails HashiCorp's.",
+				"fr": "Fork MPL-2.0 de Terraform, le successeur de facto de la communauté. Compatible init/plan/apply, mais certaines fonctions arrivent en retard et le registre de providers reste plus petit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pulumi",
+			"source": {
+				"host": "github",
+				"path": "pulumi/pulumi",
+				"url": "https://github.com/pulumi/pulumi"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Infrastructure in real languages (TypeScript, Python, Go) instead of HCL. Not drop-in — existing config must be rewritten, and the heaviest features sit behind paid Pulumi Cloud.",
+				"fr": "Infrastructure en vrais langages (TypeScript, Python, Go), pas en HCL. Rien n’est compatible : config à réécrire, et les fonctions les plus riches restent derrière Pulumi Cloud payant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Richest features in Pulumi Cloud",
+					"fr": "Les fonctions les plus riches dans Pulumi Cloud"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Terramate",
+			"source": {
+				"host": "github",
+				"path": "terramate-io/terramate",
+				"url": "https://github.com/terramate-io/terramate"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Adds stacks and code generation on top of Terraform or OpenTofu — not a standalone engine. Built for large monorepo teams, and its cloud features need Terramate Cloud.",
+				"fr": "Ajoute des stacks et de la génération de code par-dessus Terraform ou OpenTofu, pas un moteur autonome. Pensé pour les gros monorepos, et ses fonctions cloud exigent Terramate Cloud."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Terramate Cloud (orchestration, drift, insights)",
+					"fr": "Terramate Cloud (orchestration, drift, insights)"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Crossplane",
+			"source": {
+				"host": "github",
+				"path": "crossplane/crossplane",
+				"url": "https://github.com/crossplane/crossplane"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Cloud infrastructure as Kubernetes CRDs, composed via composite resources. You need a running cluster and a steep CRD learning curve.",
+				"fr": "L’infra cloud déclarée en CRDs Kubernetes, composée via des ressources composites. Il vous faut un cluster qui tourne et une courbe d’apprentissage CRD abrupte."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "CDK for Terraform",
+			"source": {
+				"host": "github",
+				"path": "hashicorp/terraform-cdk",
+				"url": "https://github.com/hashicorp/terraform-cdk"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Archived and unmaintained since late 2025, this official HashiCorp layer wrote Terraform config in real languages but still shells out to terraform CLI and generates code that drifts from hand-written HCL.",
+				"fr": "Archivé et non maintenu depuis fin 2025, ce layer officiel HashiCorp écrivait la config Terraform en vrais langages, mais appelle toujours la CLI terraform et son code diverge du HCL."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "AWS Cloud Development Kit",
+			"source": {
+				"host": "github",
+				"path": "aws/aws-cdk",
+				"url": "https://github.com/aws/aws-cdk"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "AWS’s official toolkit: infrastructure in real languages via high-level constructs, synthesised to CloudFormation. It only goes where CloudFormation goes, and needs a Node.js runtime.",
+				"fr": "Kit officiel AWS : l’infra en vrais langages via des constructs de haut niveau, synthétisés en CloudFormation. Borné par la couverture de CloudFormation et exige un runtime Node.js."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Terragrunt",
+			"source": {
+				"host": "github",
+				"path": "gruntwork-io/terragrunt",
+				"url": "https://github.com/gruntwork-io/terragrunt"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Thin MIT wrapper that keeps Terraform DRY across environments: remote state, dependency graph, code reuse. Not standalone — it wraps Terraform or OpenTofu and adds a layer to learn.",
+				"fr": "Wrapper MIT fin qui évite les répétitions Terraform entre environnements : état distant, graphe de dépendances, réutilisation de config. Pas autonome : il enveloppe Terraform ou OpenTofu, une couche de plus à apprendre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Digger",
+			"source": {
+				"host": "github",
+				"path": "diggerhq/digger",
+				"url": "https://github.com/diggerhq/digger"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Self-hosted orchestration that runs Terraform or OpenTofu in your CI, gating plan/apply behind pull requests and RBAC. It still needs the engine underneath, plus a server to run.",
+				"fr": "Orchestration self-hosted qui exécute Terraform ou OpenTofu dans votre CI, plan/apply verrouillés par pull requests et RBAC. Il faut toujours l’engin en dessous, plus un serveur à faire tourner."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "Extras in Digger Cloud",
+					"fr": "Extras de Digger Cloud"
+				}
+			}
+		}
+	]
+}

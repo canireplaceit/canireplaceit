@@ -5,6 +5,7 @@
 	"category": "shell-terminal",
 	"priceMonthly": 0,
 	"pricing": null,
+	"priority": 2,
 	"verdict": "almost",
 	"why": {
 		"en": "xargs runs a command once per batch of lines from stdin. Modern replacements batch and parallelise better, with progress and dry-run options, but pull in a heavy dependency and a learning curve. xargs is on every system, starts instantly, and the null-terminated pair with find covers most daily use.",
@@ -24,5 +25,174 @@
 			"fr": "règles de citation simples et prévisibles"
 		}
 	],
-	"alternatives": []
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "GNU Parallel",
+			"source": {
+				"host": "gitlab",
+				"path": "ole.tange/parallel",
+				"url": "https://gitlab.com/ole.tange/parallel"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "De-facto xargs replacement: parallelizes jobs across cores and SSH hosts, ships in every package manager. Costs a Perl dependency and a much larger options surface.",
+				"fr": "Le remplaçant de facto de xargs : tâches parallèles sur cœurs et hôtes SSH, présent dans tous les dépôts. En échange : dépendance Perl et surface d’options bien plus large que xargs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "rush",
+			"source": {
+				"host": "github",
+				"path": "shenwei356/rush",
+				"url": "https://github.com/shenwei356/rush"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Modern Go drop-in for xargs-style parallelism: one static binary, live per-job progress, retry, and CSV input. Falls short only on distributed execution — no remote fan-out yet.",
+				"fr": "Le remplaçant Go de xargs : un binaire statique, barres de progression par tâche, retry et entrée CSV. Local uniquement : pas d’exécution distribuée, écosystème plus jeune que GNU Parallel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "moreutils parallel",
+			"source": {
+				"host": "github",
+				"path": "madx/moreutils",
+				"url": "https://github.com/madx/moreutils"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Debian’s tiny Perl parallel ships preinstalled on every apt system. Fourteen years dormant; fine for simple -j stdin jobs, but no rate limiting and fewer options than xargs itself.",
+				"fr": "Le petit script Perl de Debian, préinstallé sur toute distribution apt. Quatorze ans sans commit ; suffit pour du stdin en -j, mais sans limite de charge ni les options de xargs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "entr",
+			"source": {
+				"host": "github",
+				"path": "eradman/entr",
+				"url": "https://github.com/eradman/entr"
+			},
+			"license": "ISC",
+			"effort": "managed",
+			"note": {
+				"en": "Reruns any command the instant files listed on stdin change — event-driven, no polling. A watch-loop trigger, not a parallel runner: single-job focus unless piped into xargs.",
+				"fr": "Relance une commande dès que les fichiers listés sur stdin changent, piloté par événements, sans polling. C’est un déclencheur de boucle watch, pas un runner parallèle : une seule tâche sauf via xargs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "nq",
+			"source": {
+				"host": "github",
+				"path": "leahneukirchen/nq",
+				"url": "https://github.com/leahneukirchen/nq"
+			},
+			"license": "CC0-1.0",
+			"effort": "managed",
+			"note": {
+				"en": "Replaces 'nohup xargs &' with a zero-daemon job queue and per-job stdout and exit-code logs. Tiny C tool, CC0. Serial by default; parallelism is manual.",
+				"fr": "Remplaçant du 'nohup xargs &' : file de jobs sans daemon, logs par tâche pour stdout et code de sortie. Petit outil C en CC0. Séquentiel par défaut, parallélisme manuel."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "task-spooler",
+			"source": {
+				"host": "github",
+				"path": "justanhduc/task-spooler",
+				"url": "https://github.com/justanhduc/task-spooler"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Last commit two years ago; its queue and resume-after-reboot model still fit CPU job batching. N concurrent slots, per-job exit codes and output — but queue, not stdin pipe, single-host only.",
+				"fr": "Deux ans sans commit ; file et reprise après reboot restent utiles pour les lots de tâches CPU. N créneaux concurrents, codes de sortie et sorties par tâche — pas un pipe stdin, mono-hôte."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pdsh",
+			"source": {
+				"host": "github",
+				"path": "chaos/pdsh",
+				"url": "https://github.com/chaos/pdsh"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Parallel remote shell: one command fanned across host groups over ssh/rsh, with per-host output labels. A cluster tool — targets come from config, not the pipeline; not a local stdin pipe.",
+				"fr": "Shell parallèle à distance : une commande diffusée vers des groupes d’hôtes via ssh/rsh, sorties étiquetées par hôte. Outil de cluster : cibles venant de la config, pas d’un pipe stdin local."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "toybox",
+			"source": {
+				"host": "github",
+				"path": "landley/toybox",
+				"url": "https://github.com/landley/toybox"
+			},
+			"license": "0BSD",
+			"effort": "managed",
+			"note": {
+				"en": "One 0BSD static binary bundling xargs plus 200+ POSIX tools, Android’s shell of record. Self-contained for locked-down boxes; the xargs subset skips GNU extensions.",
+				"fr": "Un seul binaire statique en 0BSD qui regroupe xargs et plus de 200 outils POSIX, shell officiel d’Android. Fait pour les environnements verrouillés ; le sous-ensemble xargs omet les extensions GNU."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
 }

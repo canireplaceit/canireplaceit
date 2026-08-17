@@ -1,0 +1,198 @@
+{
+	"slug": "gitk",
+	"name": "gitk",
+	"domain": null,
+	"category": "developer-tooling",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "yes",
+	"why": {
+		"en": "Bundled with git, gitk plots the commit graph and per-commit diffs in a Tcl/Tk window. Current GUI and terminal clients read the same repository with interactive graph, blame and staging built in. Replaceable without touching git: gitk is a viewer, not part of its plumbing.",
+		"fr": "Inclus avec git, gitk trace le graphe des commits et les diffs dans une fenêtre Tcl/Tk. Les clients graphiques et terminaux actuels lisent le même dépôt, avec graphe interactif, blame et staging intégrés. Remplaçable sans toucher à git : gitk est un visualiseur, pas une partie de son plumbing."
+	},
+	"whatYouLose": [
+		{
+			"en": "on every machine with git",
+			"fr": "présent sur toute machine avec git"
+		},
+		{
+			"en": "no install or setup step",
+			"fr": "aucune étape d’installation"
+		},
+		{
+			"en": "lightweight on old hardware",
+			"fr": "léger sur les vieilles machines"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "tig",
+			"source": {
+				"host": "github",
+				"path": "jonas/tig",
+				"url": "https://github.com/jonas/tig"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The classic text-mode gitk. Interactive commit graph, log, diff, blame, and stash views, all vi-keyboard driven. Terminal-only: no GUI, and history is mouse-free.",
+				"fr": "Le successeur spirituel de gitk en mode texte : graphe de commits interactif, vues log, diff, blame et stash, tout au clavier façon vi. Terminal uniquement, pas de GUI ni de souris."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "lazygit",
+			"source": {
+				"host": "github",
+				"path": "jesseduffield/lazygit",
+				"url": "https://github.com/jesseduffield/lazygit"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Best-in-class TUI: drag-and-drop interactive rebase and visual merge-conflict editing. Single static binary, huge community. Pane-heavy and configurable, more than a plain history browser.",
+				"fr": "Le TUI le plus abouti : rebase interactif par glisser-déposer et résolution visuelle des conflits. Binaire statique unique, communauté énorme. Multi-panneaux à configurer, plus qu’un simple navigateur d’historique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gitui",
+			"source": {
+				"host": "github",
+				"path": "gitui-org/gitui",
+				"url": "https://github.com/gitui-org/gitui"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Fast Rust TUI with a clean split view: staging, committing, stash, and a blame-capable log. No interactive rebase, so merge conflicts stay manual.",
+				"fr": "TUI Rust rapide, vue scindée propre : staging, commit, stash et log avec blame. Pas de rebase interactif, les conflits de fusion se règlent à la main."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gitu",
+			"source": {
+				"host": "github",
+				"path": "altsem/gitu",
+				"url": "https://github.com/altsem/gitu"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Minimal Rust TUI with vi bindings and a small dependency footprint: status, log, diff, pre-commit staging. Younger project, fewer features, no interactive rebase.",
+				"fr": "TUI Rust minimaliste, bindings vi et empreinte de dépendances réduite : status, log, diff, staging avant commit. Projet récent, moins de fonctionnalités, pas de rebase interactif."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GitUp",
+			"source": {
+				"host": "github",
+				"path": "git-up/GitUp",
+				"url": "https://github.com/git-up/GitUp"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The most visual gitk replacement: a real-time commit map and undo for any git operation. macOS only — no Linux or Windows builds.",
+				"fr": "Le remplacement de gitk le plus visuel : carte des commits temps réel et annulation de toute opération git. macOS uniquement, pas de builds Linux ni Windows."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "git-cola",
+			"source": {
+				"host": "github",
+				"path": "git-cola/git-cola",
+				"url": "https://github.com/git-cola/git-cola"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Mature Python/Qt GUI covering the stage, commit, and history workflow. Needs a Qt environment, and there is no built-in merge-conflict editor.",
+				"fr": "GUI Python/Qt mature qui couvre le staging, le commit et l’historique. Nécessite un environnement Qt et n’intègre pas d’éditeur de conflits de fusion."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GitAhead",
+			"source": {
+				"host": "github",
+				"path": "gitahead/gitahead",
+				"url": "https://github.com/gitahead/gitahead"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Qt GUI with a strong graphical history view and branch and remote management, installer-packed for all three OSes. Sporadic maintenance, Qt dependency.",
+				"fr": "GUI Qt à la vue historique soignée, gestion des branches et des dépôts distants, installateurs pour les trois OS. Maintenance irrégulière, dépendance à Qt."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GitQlient",
+			"source": {
+				"host": "github",
+				"path": "francescmaestre/GitQlient",
+				"url": "https://github.com/francescmaestre/GitQlient"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "Qt GUI covering history, blame, stash, diffs, and pull-request workflows. Smaller community and fewer prebuilt packages than the big GUIs.",
+				"fr": "GUI Qt complète : historique, blame, stash, diffs et workflows de pull request. Communauté plus petite et moins de paquets précompilés que les grandes GUI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

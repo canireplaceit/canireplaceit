@@ -1,0 +1,177 @@
+{
+	"slug": "ffmpeg",
+	"name": "FFmpeg",
+	"domain": null,
+	"category": "creative-studio",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "almost",
+	"why": {
+		"en": "FFmpeg encodes, decodes, and filters nearly every audio/video format from one CLI. A pipeline-based framework is a genuine alternative for streaming and embedded media, but its command line is no drop-in for one-line transcode jobs and its codec coverage is thinner. The popular player and GUI tools wrap FFmpeg rather than replace it.",
+		"fr": "FFmpeg encode, décode et filtre presque tout l’audio et la vidéo depuis une seule CLI. Un framework en pipelines est une vraie alternative pour le média en flux, mais sa ligne de commande ne vaut pas les transcodages à une ligne et son catalogue de codecs est plus mince. Les lecteurs et interfaces populaires enveloppent FFmpeg plutôt que de le remplacer."
+	},
+	"whatYouLose": [
+		{
+			"en": "one command for every format",
+			"fr": "une seule commande pour tous les formats"
+		},
+		{
+			"en": "the binary every system ships",
+			"fr": "le binaire que chaque système embarque"
+		},
+		{
+			"en": "the substrate beneath other media tools",
+			"fr": "le socle des autres outils média"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "GStreamer",
+			"source": {
+				"host": "github",
+				"path": "GStreamer/gstreamer",
+				"url": "https://github.com/GStreamer/gstreamer"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "The independent ffmpeg-grade framework: its own pipeline model, gst-launch CLI, no FFmpeg underneath. Backs Pitivi and GNOME players. Steeper than a one-liner, and codec coverage varies by distro plugins.",
+				"fr": "Concurrent indépendant de ffmpeg : modèle de pipelines propre, CLI gst-launch, sans lier FFmpeg. Derrière Pitivi et les lecteurs GNOME ; paradigme plus raide, couverture de codecs variable selon la distro."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Libav",
+			"source": {
+				"host": "github",
+				"path": "libav/libav",
+				"url": "https://github.com/libav/libav"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "Fork of FFmpeg from former core devs; avconv CLI still ships in some distros. Dormant since 2021 — no new codecs or containers, API diverged, so not a drop-in for ffmpeg scripts.",
+				"fr": "Fork de FFmpeg par les anciens développeurs du projet, la CLI avconv empaquetée dans certaines distros. Dormant depuis 2021 : aucun nouveau codec ni conteneur, API divergente, pas un drop-in des scripts ffmpeg."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "MLT",
+			"source": {
+				"host": "github",
+				"path": "mltframework/mlt",
+				"url": "https://github.com/mltframework/mlt"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "Active, LGPL multimedia framework — the engine inside Shotcut and Kdenlive — with the melt CLI for non-linear processing. Built for editing timelines, though, and codec decoding largely delegates to FFmpeg libs.",
+				"fr": "Framework multimédia LGPL actif, moteur de Shotcut et Kdenlive, CLI melt pour le traitement non linéaire. Fait pour les timelines, pas le transcodage en ligne de commande : décodage via libs FFmpeg."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "HandBrake",
+			"source": {
+				"host": "github",
+				"path": "HandBrake/HandBrake",
+				"url": "https://github.com/HandBrake/HandBrake"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The popular open-source transcoder, and HandBrakeCLI handles batch disc-to-MP4/MKV jobs with presets and hardware encoders. An app, not a library: MP4/MKV out, exotic containers out, FFmpeg underneath.",
+				"fr": "Le transcodeur open source le plus connu : HandBrakeCLI fait les conversions batch disque vers MP4/MKV, presets et encodeurs matériels inclus. Une appli, pas une bibliothèque : sortie MP4/MKV, conteneurs exotiques exclus, FFmpeg dessous."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "VLC",
+			"source": {
+				"host": "github",
+				"path": "videolan/vlc",
+				"url": "https://github.com/videolan/vlc"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The ubiquitous media framework, and vlc -I dummy transcode, stream, convert and remux from scripts. Player-first, though: conversions go through --sout, output options are coarse, and codec support leans on FFmpeg.",
+				"fr": "Le framework média omniprésent ; vlc -I dummy transcode, streame, convertit et remuxe en scripts. Pensé lecteur d’abord : conversions via --sout, options de sortie grossières, support des codecs reposant sur FFmpeg."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "mpv",
+			"source": {
+				"host": "github",
+				"path": "mpv-player/mpv",
+				"url": "https://github.com/mpv-player/mpv"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The MPlayer fork that doubles as a transcoder: --o, --lavfi and --vf give ffmpeg-style jobs a scripting-friendly pipeline. Encoding plays second fiddle to playback, though, and the codec work is FFmpeg's.",
+				"fr": "Le fork de MPlayer qui fait aussi transcodeur : --o, --lavfi et --vf, pipeline scriptable pour les travaux type ffmpeg. L’encodage passe après la lecture, les codecs venant des libs FFmpeg."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SoX",
+			"source": {
+				"host": "github",
+				"path": "chirlu/sox",
+				"url": "https://github.com/chirlu/sox"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "The command-line audio tool: sox/play/rec resample, filter and chain effects across dozens of formats. Audio only — no video, no muxing — and dormant, with sporadic maintenance since 2023.",
+				"fr": "Le couteau suisse de l’audio en ligne de commande : effets, filtres, conversion sur des dizaines de formats. Audio seulement, pas de vidéo ni de muxage, dormant : entretien sporadique depuis 2023."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

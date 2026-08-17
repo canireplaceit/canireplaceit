@@ -1,0 +1,177 @@
+{
+	"slug": "latex",
+	"name": "LaTeX",
+	"domain": null,
+	"category": "documents",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "almost",
+	"why": {
+		"en": "LaTeX typesets technical documents from plain text with a mature package ecosystem. Replaceable for new documents: a modern typesetting system produces comparable output in a fraction of the time. Not replaceable for the pipeline: journals and co-authors still expect .tex, and nothing matches LaTeX’s package ecosystem.",
+		"fr": "LaTeX compose des documents techniques à partir de texte brut, avec un écosystème de paquets mature. Remplaçable pour les documents neufs : un système de composition moderne produit un rendu comparable en une fraction du temps. Pas remplaçable pour le pipeline : les revues et les co-auteurs exigent encore du .tex, et rien n’égale l’écosystème de paquets de LaTeX."
+	},
+	"whatYouLose": [
+		{
+			"en": "journal-ready .tex source",
+			"fr": "le .tex exigé par les revues"
+		},
+		{
+			"en": "the mature package ecosystem",
+			"fr": "l’écosystème de paquets mature"
+		},
+		{
+			"en": "decades of accumulated documents",
+			"fr": "des décennies de documents accumulés"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Typst",
+			"source": {
+				"host": "github",
+				"path": "typst/typst",
+				"url": "https://github.com/typst/typst"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The strongest modern LaTeX replacement: scriptable .typ markup compiles to PDF in milliseconds, math included, one static binary with no TeX install. Costs its own markup language and a young package ecosystem.",
+				"fr": "Le plus sérieux remplaçant moderne de LaTeX : .typ compile en PDF en millisecondes, maths, scripting et binaire statique, sans distribution TeX — mais langage maison et écosystème de paquets plus jeune."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SILE",
+			"source": {
+				"host": "github",
+				"path": "sile-typesetter/sile",
+				"url": "https://github.com/sile-typesetter/sile"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "TeX-like typesetting rebuilt in Lua: pure-Lua engine, scriptable classes, modern fonts, right-to-left support, MIT licence. The catch: a small ecosystem, maturing math and bibliography, and SILE markup instead of LaTeX.",
+				"fr": "Composition à la TeX refondue en Lua : moteur pur Lua, classes scriptables, polices modernes, droite-à-gauche, licence MIT. Petit écosystème, maths et bibliographie encore jeunes, et markup SILE au lieu de LaTeX."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pandoc",
+			"source": {
+				"host": "github",
+				"path": "jgm/pandoc",
+				"url": "https://github.com/jgm/pandoc"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The universal converter: Markdown in, LaTeX-quality PDF, docx, epub and 200+ more formats out. Not a typesetter — it still drives a LaTeX engine underneath, and fine-grained formatting control stays out of reach.",
+				"fr": "Le convertisseur universel : Markdown en entrée, PDF qualité LaTeX, docx, epub et 200+ formats en sortie. Mais pas un compositeur : contrôle de mise en page limité et moteur LaTeX requis en dessous."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Tectonic",
+			"source": {
+				"host": "github",
+				"path": "tectonic-typesetting/tectonic",
+				"url": "https://github.com/tectonic-typesetting/tectonic"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "One static binary compiles .tex to PDF without TeX Live, fetching missing packages on demand; deterministic, CI-friendly, online preview. Still LaTeX, network on first fetch, and engine only — no editor or collaboration.",
+				"fr": "Un binaire statique compile .tex en PDF sans TeX Live, paquets téléchargés à la demande, builds déterministes, aperçu en ligne. Toujours du LaTeX et réseau au premier fetch ; moteur seul, sans éditeur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "GNU TeXmacs",
+			"source": {
+				"host": "github",
+				"path": "texmacs/texmacs",
+				"url": "https://github.com/texmacs/texmacs"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "A WYSIWYG scientific editor with its own typesetter: math you can edit directly, documents, presentations, spreadsheets, exporting LaTeX and PDF. Steep learning curve, its own file format, and a desktop-only, single-user app.",
+				"fr": "Éditeur scientifique WYSIWYG avec son propre compositeur : maths éditables directement, documents, présentations, feuilles de calcul, export LaTeX et PDF. Courbe d’apprentissage raide, son propre format, application de bureau mono-utilisateur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "groff",
+			"source": {
+				"host": "savannah",
+				"path": "groff/groff",
+				"url": "https://savannah.gnu.org/projects/groff/"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "The classic Unix typesetter, preinstalled on virtually every Linux: troff/mom/ms to PDF, PostScript, HTML — fast and light. Old paradigm, steeper macro syntax, weak math and citations, no web tooling.",
+				"fr": "Compositeur Unix classique, présent sur presque tous les Linux : macros troff/mom/ms vers PDF, PostScript et HTML, rapide et léger. Ancien paradigme, syntaxe de macros raide, maths et citations faibles, rien côté web."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "LyX",
+			"source": {
+				"host": "other",
+				"path": "git.lyx.org/lyx",
+				"url": "https://www.lyx.org/"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A WYSIWYM front-end that generates clean, compilable .tex behind the scenes, with an equation editor and BibTeX management. Needs a LaTeX distribution underneath, and its layout-centric workflow fights fine-grained control; desktop, single-user.",
+				"fr": "Éditeur WYSIWYM qui génère en coulisses un .tex propre et compilable, avec éditeur d’équations et gestion BibTeX. Exige une distribution LaTeX, workflow orienté mise en page contrarie le contrôle fin, mono-utilisateur."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

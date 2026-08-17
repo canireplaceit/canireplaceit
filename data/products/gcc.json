@@ -1,0 +1,177 @@
+{
+	"slug": "gcc",
+	"name": "GCC",
+	"domain": null,
+	"category": "developer-tooling",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "yes",
+	"why": {
+		"en": "Compiles C, C++ and a dozen other languages to native code for every major target. A modern standards-first compiler builds faster with sharper diagnostics, and even the kernel now compiles with it. It keeps most of what GCC offers; the gap is niche languages like Fortran and Ada, which only GCC compiles.",
+		"fr": "Compile du C, du C++ et une douzaine d’autres langages en code natif pour toutes les grandes cibles. Un remplaçant moderne compile plus vite, avec de meilleurs messages d’erreur, et même le noyau Linux se compile avec lui. GCC garde l’avantage sur les langages de niche et certaines cibles embarquées."
+	},
+	"whatYouLose": [
+		{
+			"en": "the compiler every system ships",
+			"fr": "le compilateur présent sur chaque système"
+		},
+		{
+			"en": "Fortran, Ada and Objective-C front-ends",
+			"fr": "les front-ends Fortran, Ada et Objective-C"
+		},
+		{
+			"en": "GCC flags every build assumes",
+			"fr": "les flags GCC qu’assume chaque build"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Clang (LLVM)",
+			"source": {
+				"host": "github",
+				"path": "llvm/llvm-project",
+				"url": "https://github.com/llvm/llvm-project"
+			},
+			"license": "Apache-2.0 WITH LLVM-exception",
+			"effort": "managed",
+			"note": {
+				"en": "The de-facto GCC replacement: a production C/C++ compiler with a GCC-compatible driver, faster builds and sharper diagnostics. The full LLVM install is heavy, and some GNU extensions still lag.",
+				"fr": "Le remplaçant de facto de GCC : un compilateur C/C++ de production, pilote compatible GCC, builds plus rapides, diagnostics plus précis. L’installation LLVM complète est lourde et certaines extensions GNU tardent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Zig",
+			"source": {
+				"host": "github",
+				"path": "ziglang/zig",
+				"url": "https://github.com/ziglang/zig"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Offers zig cc and zig c++ as drop-in drivers plus a bundled, cross-compiling toolchain — no external toolchains needed. The Zig language is still pre-1.0 and gcc-specific flags don’t all pass through.",
+				"fr": "Déploie zig cc et zig c++, pilotes drop-in dans une chaîne autonome de cross-compilation : rien d’externe à installer. Le langage Zig reste pré-1.0 et certaines options propres à gcc ne passent pas."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "TinyCC (TCC)",
+			"source": {
+				"host": "github",
+				"path": "TinyCC/tinycc",
+				"url": "https://github.com/TinyCC/tinycc"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "Recompiles C in fractions of a second, runs files like scripts, ships as one tiny binary with no runtime deps. In return: no optimizer, patchy C11 and GNU extension coverage, few targets.",
+				"fr": "Recompile en une fraction de seconde, exécute les fichiers comme des scripts, binaire unique sans dépendances. En échange : pas d’optimiseur, C11 et extensions GNU partiels, moins de cibles."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "rustc (Rust toolchain)",
+			"source": {
+				"host": "github",
+				"path": "rust-lang/rust",
+				"url": "https://github.com/rust-lang/rust"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A production systems toolchain built on LLVM, with cargo and strong optimization behind it. The catch: it compiles Rust, not C — every line must be rewritten, and the install is big.",
+				"fr": "Chaîne de compilation système de production adossée à LLVM, avec cargo et une optimisation sérieuse. Le hic : elle compile du Rust, pas du C — chaque ligne est à réécrire, installation lourde."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "chibicc",
+			"source": {
+				"host": "github",
+				"path": "rui314/chibicc",
+				"url": "https://github.com/rui314/chibicc"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A ~10k-line, self-hosting C11 compiler whose readable code demystifies compiler construction. Dormant since October 2023, with no optimizer, GNU extensions or exotic targets.",
+				"fr": "Compilateur C11 auto-hébergé d’environ 10k lignes, un code lisible qui démystifie la construction d’un compilateur. Dormant depuis octobre 2023, sans optimiseur, extensions GNU ni cibles exotiques."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "8cc",
+			"source": {
+				"host": "github",
+				"path": "rui314/8cc",
+				"url": "https://github.com/rui314/8cc"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A compact, hackable C compiler with a bundled preprocessor, a classic study reference. No optimizer, superseded by 9cc and chibicc, and inactive since May 2024.",
+				"fr": "Compilateur C compact et hackable, préprocesseur intégré, une référence classique pour étudier la compilation. Dépassé par 9cc et chibicc, sans optimiseur, inactif depuis mai 2024."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "C3 compiler (c3c)",
+			"source": {
+				"host": "github",
+				"path": "c3lang/c3c",
+				"url": "https://github.com/c3lang/c3c"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Actively developed, with C-like syntax, a gcc-style front end and a single c3c binary that also builds. C3 is not C though: existing code needs porting, the ecosystem is young.",
+				"fr": "Activement développé, syntaxe proche du C, front end façon gcc, binaire unique c3c qui compile et build. Sauf que C3 n’est pas le C : code à porter, écosystème jeune."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

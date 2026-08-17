@@ -1,0 +1,198 @@
+{
+	"slug": "valgrind",
+	"name": "Valgrind",
+	"domain": null,
+	"category": "developer-tooling",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "almost",
+	"why": {
+		"en": "Valgrind finds memory errors and leaks in unmodified binaries on any platform. Sanitizers catch the same bugs at build time, faster and with better stack traces, but only when code is recompiled — deployed binaries and shipped code Valgrind still owns.",
+		"fr": "Valgrind repère erreurs mémoire et fuites sur des binaires non modifiés, quelle que soit la plateforme. Les sanitizers attrapent les mêmes bugs au moment du build, plus vite et avec de meilleures traces, mais imposent de recompiler — les binaires déployés, eux, ne passent que par Valgrind."
+	},
+	"whatYouLose": [
+		{
+			"en": "debugging without rebuilding",
+			"fr": "débogage sans recompilation"
+		},
+		{
+			"en": "coverage of non-x86 architectures",
+			"fr": "portabilité vers d’autres architectures"
+		},
+		{
+			"en": "cache, call and heap profilers",
+			"fr": "profileurs cache, appels et tas"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "AddressSanitizer",
+			"source": {
+				"host": "github",
+				"path": "llvm/llvm-project",
+				"url": "https://github.com/llvm/llvm-project"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Compiler-instrumented memory checker built into LLVM and GCC. Catches use-after-free, heap overflows and leaks with no binary-instrumentation overhead, but only covers code you rebuild, never third-party binaries.",
+				"fr": "Détecteur mémoire intégré à LLVM/GCC : use-after-free, dépassements de tas et fuites, sans surcoût d’instrumentation binaire. Ne couvre que le code recompilé, jamais de binaires tiers."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "rr",
+			"source": {
+				"host": "github",
+				"path": "rr-debugger/rr",
+				"url": "https://github.com/rr-debugger/rr"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Record-and-replay debugger: nondeterministic crashes become reproducible and reverse-debuggable. Works on unmodified binaries via ptrace, at the price of slowdown and Linux/x86-only support; it replays bugs rather than finding leaks.",
+				"fr": "Record/replay : crashes non déterministes devenus reproductibles, débogables à rebours. Binaires non modifiés via ptrace, mais Linux/x86 et record ralenti ; il rejoue des bugs, pas de fuites."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "heaptrack",
+			"source": {
+				"host": "gitlab",
+				"path": "sdk/heaptrack",
+				"url": "https://invent.kde.org/sdk/heaptrack"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "Active heap profiler: every malloc recorded with its call stack, leaks ranked alongside allocation hotspots. Needs relinking via its wrapper and only does heap profiling — no general error detection.",
+				"fr": "Profileur de tas : chaque malloc enregistré avec sa pile d’appels, fuites et hotspots classés. Se cantonne au profiling et exige un relinkage via son wrapper ; sans détection d’erreurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gperftools",
+			"source": {
+				"host": "github",
+				"path": "gperftools/gperftools",
+				"url": "https://github.com/gperftools/gperftools"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Google's tcmalloc-based toolkit: heap leak checker, heap and CPU profilers, pprof output — no Valgrind-style slowdown. Leak checking is sampling-based and needs relinking or preloading, so it is less precise than Memcheck.",
+				"fr": "La suite tcmalloc de Google : vérificateur de fuites, profileurs, pprof, sans ralentissement de Valgrind. Relinkage ou préchargement requis, vérification par échantillonnage — moins précise que Memcheck."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "DynamoRIO",
+			"source": {
+				"host": "github",
+				"path": "DynamoRIO/dynamorio",
+				"url": "https://github.com/DynamoRIO/dynamorio"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Dynamic binary instrumentation framework, not a ready-made detector: it runs on unmodified binaries at far lower overhead than Valgrind, but only on x86/x64 and you must write a client.",
+				"fr": "Framework d’instrumentation binaire dynamique, pas un détecteur clé en main : surcoût bien plus faible que Valgrind sur binaires non modifiés, mais x86/x64 seulement et à vous d’écrire le client."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Dr. Memory",
+			"source": {
+				"host": "github",
+				"path": "DynamoRIO/drmemory",
+				"url": "https://github.com/DynamoRIO/drmemory"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "Memcheck-style error detector built on DynamoRIO: uninitialized reads, invalid frees, overflows and leaks without recompiling. Windows and Linux, x86/x64 only, and its development lags Valgrind's pace.",
+				"fr": "Détecteur mémoire façon Memcheck sur DynamoRIO : lectures non initialisées, libérations invalides, dépassements, fuites, sans recompilation. Limité à Windows/Linux x86/x64, au développement moins soutenu que Valgrind."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "memleax",
+			"source": {
+				"host": "github",
+				"path": "WuBingzheng/memleax",
+				"url": "https://github.com/WuBingzheng/memleax"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Dormant since 2018: it attaches to a running process and reports leaks in real time, no rebuild needed, but 10–100× slower than native execution and limited to dynamically-linked Linux binaries.",
+				"fr": "Dormant depuis 2018 : s’attache à un processus et rapporte les fuites en direct, sans reconstruction, mais 10–100× plus lent que l’exécution native et limité aux binaires Linux dynamiquement liés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "uftrace",
+			"source": {
+				"host": "github",
+				"path": "namhyung/uftrace",
+				"url": "https://github.com/namhyung/uftrace"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Function-level tracer with timing and memory metrics, ncurses TUI and graphs, on unmodified binaries via a -pg hook. Linux/x86 with partial ARM — tracing, not leak or error detection.",
+				"fr": "Traceur par fonction, temps et métriques mémoire, TUI ncurses, sur binaires non modifiés via un hook -pg. Linux/x86, ARM partiel — sans détection d’erreurs ni fuites."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

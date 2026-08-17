@@ -1,0 +1,198 @@
+{
+	"slug": "podman-cli",
+	"name": "Podman CLI",
+	"domain": null,
+	"category": "containers-kubernetes",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "almost",
+	"why": {
+		"en": "Runs OCI containers and pods without a daemon, rootless by default. The standard alternative ships a daemon and needs root on most systems, but inherits the widest ecosystem and mature service tooling. Moving off Podman means losing rootless-first defaults and native pods.",
+		"fr": "Moteur de conteneurs et de pods sans daemon, rootless par défaut. L’alternative la plus répandue fait tourner un daemon et réclame souvent root, mais dispose d’un écosystème plus large et d’un outillage de services arrivé à maturité. Partir de Podman, c’est abandonner le rootless par défaut et les pods natifs."
+	},
+	"whatYouLose": [
+		{
+			"en": "Rootless containers without a daemon",
+			"fr": "Le rootless sans daemon par défaut"
+		},
+		{
+			"en": "Native pods and pod workflows",
+			"fr": "Les pods natifs et leurs workflows"
+		},
+		{
+			"en": "The podman preinstalled on Fedora and RHEL",
+			"fr": "Le podman préinstallé sur Fedora et RHEL"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "docker/cli",
+			"source": {
+				"host": "github",
+				"path": "docker/cli",
+				"url": "https://github.com/docker/cli"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Docker’s own CLI, a drop-in with identical subcommands and compose support, plus a huge tooling ecosystem. Still needs the engine daemon, rootless only experimental, and has no pods or quadlet units.",
+				"fr": "Drop-in aux sous-commandes identiques et au support compose, avec un gros écosystème d’outillage. Mais il exige le démon engine, rootless expérimental, sans pods ni quadlets."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "nerdctl",
+			"source": {
+				"host": "github",
+				"path": "containerd/nerdctl",
+				"url": "https://github.com/containerd/nerdctl"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Docker-compatible CLI over containerd, daemonless like podman with compose, buildkit and lazy pulling. But it has no built-in build engine and a smaller tooling mindshare.",
+				"fr": "CLI compatible Docker sur containerd, sans démon comme podman, avec compose, buildkit et le lazy pulling. Pas de moteur de build intégré, et un écosystème d’outillage plus réduit."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "cri-tools",
+			"source": {
+				"host": "github",
+				"path": "kubernetes-sigs/cri-tools",
+				"url": "https://github.com/kubernetes-sigs/cri-tools"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "crictl talks to any CRI runtime through the CNCF-standard interface, with runtime validation tests. It inspects and debugs, but builds nothing, and targets Kubernetes node operators, not desktop devs.",
+				"fr": "crictl parle à tout runtime CRI via l’interface standard CNCF. Il inspecte et dépanne, mais ne fait ni build ni compose : cible les opérateurs Kubernetes, pas le développeur de bureau."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "buildah",
+			"source": {
+				"host": "github",
+				"path": "podman-container-tools/buildah",
+				"url": "https://github.com/podman-container-tools/buildah"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The daemonless OCI builder podman leans on, scriptable and rootless for builds from scratch or Dockerfile. It only builds though — no run, no exec, and it overlaps podman build.",
+				"fr": "Le builder OCI sans démon que podman utilise, scriptable et rootless, d’un Dockerfile ou from scratch. Il ne fait que builder : pas de run ni d’exec, et recoupe podman build."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "skopeo",
+			"source": {
+				"host": "github",
+				"path": "podman-container-tools/skopeo",
+				"url": "https://github.com/podman-container-tools/skopeo"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Daemon-free CLI that copies, inspects and signs images between registries. It lives on registry ops alone — no run or build, and the raw manifest concepts have a learning curve.",
+				"fr": "CLI sans démon qui copie, inspecte et signe des images entre registres. Registres uniquement, pas de run ni de build, et des concepts bas niveau qui demandent de l’apprentissage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "podman-tui",
+			"source": {
+				"host": "github",
+				"path": "containers/podman-tui",
+				"url": "https://github.com/containers/podman-tui"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The official podman TUI, pods-first, with image pull, build and search plus SSH sessions to remote hosts. It is podman-only and younger than lazydocker, so less battle-tested.",
+				"fr": "Le TUI officiel de podman, organisé par pods, avec pull, build et recherche d’images, et session SSH vers un hôte distant. Podman uniquement, plus jeune et moins éprouvé que lazydocker."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "lazydocker",
+			"source": {
+				"host": "github",
+				"path": "jesseduffield/lazydocker",
+				"url": "https://github.com/jesseduffield/lazydocker"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Docker’s most popular TUI, with one-key logs, restart, shell and rebuild, plus a compose visualizer. Still needs an engine, sees one host only, no pods or swarm view.",
+				"fr": "Le TUI docker le plus populaire : logs, restart, shell et rebuild en une touche, avec visualiseur compose et souris. Il exige un engine, un seul hôte, sans pods ni vue swarm."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "colima",
+			"source": {
+				"host": "github",
+				"path": "abiosoft/colima",
+				"url": "https://github.com/abiosoft/colima"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Spins a docker- or containerd-compatible Linux VM so the docker and podman CLIs work without Docker Desktop. Config is CLI-only, and Linux support stays limited, aimed at macOS and Windows.",
+				"fr": "Une VM Linux compatible docker ou containerd qui redonne les CLIs docker et podman sans Docker Desktop. Config en CLI, et le support Linux reste limité : il vise macOS et Windows."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

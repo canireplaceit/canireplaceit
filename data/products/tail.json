@@ -25,5 +25,132 @@
 			"fr": "filtre propre pour pipes et scripts"
 		}
 	],
-	"alternatives": []
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "lnav",
+			"source": {
+				"host": "github",
+				"path": "tstack/lnav",
+				"url": "https://github.com/tstack/lnav"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "The Logfile Navigator tails many files in one ncurses view and runs SQL across their lines, auto-detecting and decompressing formats. Not a pipe tool — it expects to own the screen.",
+				"fr": "Le Logfile Navigator suit plusieurs fichiers dans une vue ncurses et interroge leurs lignes en SQL, avec détection et décompression automatiques. Pas un outil de pipe — il veut posséder l’écran."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "tailspin",
+			"source": {
+				"host": "github",
+				"path": "bensadeh/tailspin",
+				"url": "https://github.com/bensadeh/tailspin"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Tails files with colorized levels, syntax highlighting and exclude/keep regex filters, reading gz, bz2, zst archives from one static binary. Read-only plain CLI — no in-view filter UI.",
+				"fr": "Suit les fichiers avec niveaux colorés, coloration syntaxique et filtres exclude/keep, lit gz, bz2, zst, en binaire statique unique. Lecture seule : le filtrage passe par vos regex."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "angle-grinder",
+			"source": {
+				"host": "github",
+				"path": "rcoh/angle-grinder",
+				"url": "https://github.com/rcoh/angle-grinder"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Runs tail, grep and awk in a single pass over huge or live streams, aggregating and joining JSON and logfmt fields. Its pipeline DSL is the cost; overkill for plain tailing.",
+				"fr": "Tail, grep et awk en un seul passage sur de gros flux ou du live, agrégeant et joignant champs JSON et logfmt. Son DSL se paie ; overkill pour un simple tail."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "fblog",
+			"source": {
+				"host": "github",
+				"path": "brocode/fblog",
+				"url": "https://github.com/brocode/fblog"
+			},
+			"license": "WTFPL",
+			"effort": "managed",
+			"note": {
+				"en": "Tiny static-binary CLI that follows JSON logs with per-field colors, regex filters and scroll-back. JSON only — plain text needs another tool.",
+				"fr": "Mini CLI en binaire statique qui suit les logs JSON avec couleurs par champ, filtres regex et défilement clavier. JSON uniquement — pour le texte brut, voyez ailleurs."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "multitail",
+			"source": {
+				"host": "github",
+				"path": "folkertvanheusden/multitail",
+				"url": "https://github.com/folkertvanheusden/multitail"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Tails several files in scrollable ncurses panes with color schemes, regex highlighting and snapshots, even merging views across hosts. The UI is dated and there is no query layer.",
+				"fr": "Suit plusieurs fichiers dans des panneaux ncurses défilables, avec schémas de couleurs, surlignage regex et instantanés, jusqu’à fusionner des vues de plusieurs machines. L’interface date, et pas de couche de requête."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "tailon",
+			"source": {
+				"host": "github",
+				"path": "gvalkov/tailon",
+				"url": "https://github.com/gvalkov/tailon"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "Browser-based tail, regex search and download of files and live streams, self-hosted as a small Python server or Docker image. It is a server to run and secure, not a command.",
+				"fr": "Tail, recherche regex et téléchargement de fichiers et flux live depuis le navigateur, auto-hébergé en petit serveur Python ou image Docker. Un serveur à déployer et sécuriser, pas une commande."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
 }

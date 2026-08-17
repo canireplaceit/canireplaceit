@@ -1,0 +1,177 @@
+{
+	"slug": "cargo",
+	"name": "Cargo",
+	"domain": null,
+	"category": "developer-tooling",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "not-yet",
+	"why": {
+		"en": "Cargo is the interface the Rust ecosystem is written against: every crate, tool, and CI reads Cargo.toml and calls cargo build, test, or publish. No credible tool does the whole job — resolve crates.io dependencies, build, test, publish — in one place. Faster runners and alternative build systems cover slices only.",
+		"fr": "Cargo est l’interface sur laquelle tout l’écosystème Rust s’appuie : chaque crate, chaque outil et chaque CI lit Cargo.toml et appelle cargo build, test ou publish. Aucun outil crédible ne fait le travail complet — résolution des dépendances crates.io, compilation, tests, publication — en un seul outil. Des runners plus rapides et d’autres systèmes de build ne couvrent que des bribes du travail."
+	},
+	"whatYouLose": [
+		{
+			"en": "Crates.io dependency resolution and publishing",
+			"fr": "La résolution et la publication des dépendances crates.io"
+		},
+		{
+			"en": "Feature flags and workspace model",
+			"fr": "Le modèle des feature flags et des workspaces"
+		},
+		{
+			"en": "Cargo.lock and reproducible builds",
+			"fr": "Cargo.lock et les builds reproductibles"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Bazel",
+			"source": {
+				"host": "github",
+				"path": "bazelbuild/bazel",
+				"url": "https://github.com/bazelbuild/bazel"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Hermetic, reproducible builds, remote cache, distributed execution — Google's build system compiles crates via rules_rust. Steep DSL to learn, needs rules_rust, not crates.io-native.",
+				"fr": "Builds hermétiques et reproductibles, cache distant, exécution distribuée — le système de build de Google compile les crates via rules_rust. DSL abrupt à apprendre, toolchain rules_rust requise, pas crates.io-native."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Buck2",
+			"source": {
+				"host": "github",
+				"path": "facebook/buck2",
+				"url": "https://github.com/facebook/buck2"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Meta's fast, dependency-typed build graph, Rust rules included, written in Rust itself. Younger and smaller ecosystem than Bazel, no registry — Steel/BXL scripting to learn.",
+				"fr": "Graphe de build de Meta, rapide et typé par dépendances, règles Rust incluses, écrit en Rust lui-même. Écosystème plus jeune que Bazel, pas de registre — scripting Steel/BXL à apprendre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nix",
+			"source": {
+				"host": "github",
+				"path": "NixOS/nix",
+				"url": "https://github.com/NixOS/nix"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "Declarative, content-addressed package manager — nixpkgs builds crates bit-reproducibly via rustPlatform, nix develop gives per-project shells. Steep learning curve; recipes live in nixpkgs; lockfile differs from Cargo.lock.",
+				"fr": "Gestionnaire de paquets déclaratif et adressé par contenu — nixpkgs construit les crates de façon bit-reproductible via rustPlatform, shells nix develop. Courbe d’apprentissage raide, recettes dans nixpkgs, lockfile différent de Cargo.lock."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Meson",
+			"source": {
+				"host": "github",
+				"path": "mesonbuild/meson",
+				"url": "https://github.com/mesonbuild/meson"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "No registry, no resolution, dependencies wired by hand — Meson is a fast, human-friendly build system with first-party Rust support for mixed C/Rust projects.",
+				"fr": "Pas de registre ni de résolution, dépendances câblées à la main — Meson est un système de build rapide et convivial avec support Rust natif via rust_library pour les projets mixtes C/Rust."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Xmake",
+			"source": {
+				"host": "github",
+				"path": "xmake-io/xmake",
+				"url": "https://github.com/xmake-io/xmake"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Single binary, zero config to start, Lua-based xmake.lua with Rust rule packages, runs on many platforms including mobile. Lua DSL instead of TOML, smaller community than cargo, registry access less mature.",
+				"fr": "Un seul binaire, zéro config, xmake.lua en Lua et package de règles Rust, multiplateforme dont mobile. DSL Lua au lieu de TOML, communauté plus petite, registre moins mûr."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pants",
+			"source": {
+				"host": "github",
+				"path": "pantsbuild/pants",
+				"url": "https://github.com/pantsbuild/pants"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Bazel-style but pure-Python, Rust backend via rules, smart caching and test sharding, Python/Go/JS/Rust in one repo. Build only, not a package manager, and slower release cadence lately — heavy Python startup.",
+				"fr": "Style Bazel mais en Python pur, backend Rust, cache intelligent et sharding des tests, Python/Go/JS/Rust dans un même dépôt. Build uniquement, pas un gestionnaire de paquets, démarrage Python lourd."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Spack",
+			"source": {
+				"host": "github",
+				"path": "spack/spack",
+				"url": "https://github.com/spack/spack"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "HPC-grade package manager building Rust and many-language stacks from source with variants, compilers, providers, exact external-dependency control. Everything compiles from source — slow, and no crates.io-native resolver.",
+				"fr": "Gestionnaire de paquets orienté HPC compilant Rust et bien d’autres depuis la source, variants, compilateurs, contrôle exact des dépendances externes. Tout part de la source, donc lent, sans résolveur crates.io natif."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

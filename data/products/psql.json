@@ -1,0 +1,202 @@
+{
+	"slug": "psql",
+	"name": "psql",
+	"domain": null,
+	"category": "databases-caches",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "not-yet",
+	"why": {
+		"en": "psql is the PostgreSQL client that ships with every server install, an interactive shell and a scriptable tool at once. Interactive replacements exist, but psql’s flags and output format are the contract that cron, CI, and existing scripts parse against. Swapping it is not a user choice.",
+		"fr": "psql est le client PostgreSQL livré avec chaque installation du serveur, à la fois shell interactif et outil scriptable. Des remplacements interactifs existent, mais ses options et son format de sortie sont le contrat que la CI, les scripts et les crons lisent. Le remplacer n’est pas un choix d’utilisateur."
+	},
+	"whatYouLose": [
+		{
+			"en": "scripting via -c and \\copy",
+			"fr": "scriptage via -c et \\copy"
+		},
+		{
+			"en": "\\d schema introspection commands",
+			"fr": "commandes d’introspection \\d"
+		},
+		{
+			"en": "psql on every PostgreSQL install",
+			"fr": "psql présent sur chaque installation PostgreSQL"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "pgcli",
+			"source": {
+				"host": "github",
+				"path": "dbcli/pgcli",
+				"url": "https://github.com/dbcli/pgcli"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Drop-in interactive psql replacement with SQL completion and multi-line editing, usable as a Python library too. psql -c/-f scripts won’t run unchanged, and it trades psql’s C binary for a Python runtime.",
+				"fr": "Remplacement interactif de psql : complétion SQL, édition multi-ligne, installable comme bibliothèque Python. Les scripts psql -c/-f ne passent pas tels quels, le binaire C cède la place à un runtime Python."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pspg",
+			"source": {
+				"host": "github",
+				"path": "okbob/pspg",
+				"url": "https://github.com/okbob/pspg"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Full-screen pager that sorts, filters and searches wide result sets with Vim keys, reading piped psql output or connecting straight to Postgres. It only displays — query editing and execution stay in psql.",
+				"fr": "Pager plein écran : trie, filtre et cherche les gros résultats avec les touches Vim, sur psql pipé ou en connexion directe. Il n’affiche que les résultats — l’édition et l’exécution restent à psql."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "usql",
+			"source": {
+				"host": "github",
+				"path": "xo/usql",
+				"url": "https://github.com/xo/usql"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "One statically-linked Go binary that speaks Postgres, MySQL, SQLite and more, with psql-style slash commands. Fine for scripts, but lighter on Postgres-specific introspection and its result formatting stays simpler than psql’s.",
+				"fr": "Un seul binaire Go lié statiquement qui parle Postgres, MySQL, SQLite et d’autres, avec les commandes slash de psql. Moins riche sur l’introspection Postgres, et le formatage des résultats reste simple."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pg_activity",
+			"source": {
+				"host": "github",
+				"path": "dalibo/pg_activity",
+				"url": "https://github.com/dalibo/pg_activity"
+			},
+			"license": "PostgreSQL",
+			"effort": "managed",
+			"note": {
+				"en": "htop for Postgres: live queries with CPU, memory and I/O per process, colour-coded session states. Monitoring only — nothing here edits or runs ad-hoc queries, so psql stays for the work.",
+				"fr": "htop pour Postgres : requêtes en direct avec CPU, mémoire et I/O par processus, états de session colorés. C’est de la surveillance — rien pour lancer ou éditer une requête, psql reste de mise."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pgweb",
+			"source": {
+				"host": "github",
+				"path": "sosedoff/pgweb",
+				"url": "https://github.com/sosedoff/pgweb"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "A single-binary browser SQL workspace with table browsing, querying and export, SSH tunnelling and profiles. Unlike psql’s just-launch CLI, it needs a running server, and introspection commands stay thinner.",
+				"fr": "Espace de travail SQL dans le navigateur, un seul binaire : navigation, requêtes, export, tunnel SSH, profils multiples. Là où psql se lance d’un coup, il faut un serveur, et l’introspection reste maigre."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Adminer",
+			"source": {
+				"host": "github",
+				"path": "vrana/adminer",
+				"url": "https://github.com/vrana/adminer"
+			},
+			"license": "Apache-2.0",
+			"effort": "docker",
+			"note": {
+				"en": "One PHP file dropped on any PHP host and you can administer Postgres, MySQL, SQLite and more. That minimalism costs you a PHP runtime and a UI thin next to desktop clients.",
+				"fr": "Un seul fichier PHP posé sur n’importe quel hébergement administre Postgres, MySQL, SQLite et d’autres. La contrepartie : un runtime PHP à héberger et une interface plus mince que les clients de bureau."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "pgAdmin",
+			"source": {
+				"host": "github",
+				"path": "pgadmin-org/pgadmin4",
+				"url": "https://github.com/pgadmin-org/pgadmin4"
+			},
+			"license": "PostgreSQL",
+			"effort": "docker",
+			"note": {
+				"en": "The official Postgres project’s GUI: schema design, query tool and dashboards, as a container, web server or desktop app. Heavier than a CLI and GUI-bound — nothing here is scriptable like psql.",
+				"fr": "Le GUI officiel du projet Postgres : modélisation, outil de requêtes et tableaux de bord, en conteneur, serveur web ou application de bureau. Plus lourd qu’un CLI, et rien d’automatisable à la psql."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "DBeaver",
+			"source": {
+				"host": "github",
+				"path": "dbeaver/dbeaver",
+				"url": "https://github.com/dbeaver/dbeaver"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Java desktop GUI covering Postgres fully — browse, query, edit, ER diagrams, data compare — with dozens of databases in one UI. The free Community build is lighter on features; Java outweighs a CLI.",
+				"fr": "GUI Java couvrant Postgres à fond — navigation, requêtes, édition, schémas ER, comparaison de données — et des dizaines de bases dans une interface. La Community gratuite est plus pauvre ; Java reste lourd."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "major",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "NoSQL features and data transfer",
+					"fr": "Fonctionnalités NoSQL et transfert de données"
+				}
+			}
+		}
+	]
+}

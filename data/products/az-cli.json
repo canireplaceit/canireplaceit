@@ -1,0 +1,198 @@
+{
+	"slug": "az-cli",
+	"name": "Azure CLI",
+	"domain": null,
+	"category": "cloud-platforms-hosting",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "almost",
+	"why": {
+		"en": "Azure CLI is the imperative front-end to the whole Azure control plane, covering hundreds of services and a scripting surface used in every CI pipeline. Newer tools exist for the app-lifecycle slice and are faster to start with, but none covers the full management surface, so the trade is breadth.",
+		"fr": "L’interface de commande Azure est l’accès impératif à tout le control plane Azure, des centaines de services et une surface de script omniprésente dans les pipelines CI. Des outils plus récents couvrent mieux la tranche « cycle de vie applicatif », mais aucun ne couvre toute la surface de gestion."
+	},
+	"whatYouLose": [
+		{
+			"en": "full Azure control-plane coverage",
+			"fr": "la couverture complète du control plane Azure"
+		},
+		{
+			"en": "drop-in script and pipeline compatibility",
+			"fr": "la compatibilité avec les scripts et pipelines existants"
+		},
+		{
+			"en": "first-day access to new Azure features",
+			"fr": "l’accès immédiat aux nouvelles fonctionnalités Azure"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Azure Developer CLI (azd)",
+			"source": {
+				"host": "github",
+				"path": "Azure/azure-dev",
+				"url": "https://github.com/Azure/azure-dev"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "App-centric replacement: scaffolds a template, then one `azd up` provisions and deploys. Not a general service manager — no parity with az-cli's hundreds of service commands.",
+				"fr": "Centré sur l’app, pas sur Azure : il scaffolde un template puis `azd up` provisionne et déploie d’un coup. Pas un gestionnaire de services — pas de parité avec les centaines de commandes d’az-cli."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "AzCopy",
+			"source": {
+				"host": "github",
+				"path": "Azure/azure-storage-azcopy",
+				"url": "https://github.com/Azure/azure-storage-azcopy"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "High-throughput mover for Blob and File storage: parallel, resumable transfers, sync mirroring, MD5 verification. Only moves storage data — JSON config for advanced options is clunky.",
+				"fr": "Transfère Blob et File à haute vitesse : transferts parallèles et reprisables, sync incrémentale, vérif MD5. Son seul métier — la config JSON des options avancées reste rugueuse."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Bicep",
+			"source": {
+				"host": "github",
+				"path": "Azure/bicep",
+				"url": "https://github.com/Azure/bicep"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A readable DSL that transpiles to ARM templates, with type checking in VS Code and module reuse. Azure-only and declarative: no live-resource queries, no state or drift detection.",
+				"fr": "DSL déclarative qui compile vers des templates ARM, type-check et intellisense dans VS Code, modules réutilisables. Azure seulement : pas de requête sur ressources vivantes, pas d’état ni détection de dérive."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenTofu",
+			"source": {
+				"host": "github",
+				"path": "opentofu/opentofu",
+				"url": "https://github.com/opentofu/opentofu"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Terraform-compatible IaC with full plan/apply/destroy and remote state across clouds, the azurerm provider covering Azure. Declarative, not imperative — learning HCL, and drift against ad-hoc az-cli changes.",
+				"fr": "IaC compatible Terraform : plan/apply/destroy, état distant, provider azurerm, multi-cloud. Déclaratif, pas impératif : à apprendre HCL, et dérive inévitable face aux commandes az-cli ad hoc."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Pulumi",
+			"source": {
+				"host": "github",
+				"path": "pulumi/pulumi",
+				"url": "https://github.com/pulumi/pulumi"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "IaC in real languages — TypeScript, Python, Go — with an Azure Native provider, loops and tests instead of a flat command set. State needs your own backend or the paid managed cloud.",
+				"fr": "IaC en vrais langages — TypeScript, Python, Go — provider Azure Native, boucles et tests au lieu d’une liste plate de commandes. L’état exige un backend maison ou le cloud managé, payant."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Crossplane",
+			"source": {
+				"host": "github",
+				"path": "crossplane/crossplane",
+				"url": "https://github.com/crossplane/crossplane"
+			},
+			"license": "Apache-2.0",
+			"effort": "ops",
+			"note": {
+				"en": "Kubernetes-native: Azure resources become custom resources, composed for self-service, driven by ArgoCD. Needs a running cluster, provider-azure sits archived, and it dwarfs a one-off az-cli command.",
+				"fr": "Natif Kubernetes : les ressources Azure deviennent des custom resources, composées pour le self-service, pilotées par ArgoCD. Nécessite un cluster qui tourne, le provider-azure est archivé, et c’est lourd pour une commande az-cli."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Azurite",
+			"source": {
+				"host": "github",
+				"path": "Azure/Azurite",
+				"url": "https://github.com/Azure/Azurite"
+			},
+			"license": "MIT",
+			"effort": "docker",
+			"note": {
+				"en": "Microsoft's local emulator for Blob, Queue and Table APIs: offline development, well-known key auth for CI, no cloud bill. Storage only — no compute, no AAD, and small behavior gaps vs real endpoints.",
+				"fr": "Émulateur local des API Blob, Queue et Table : dev hors ligne, auth par clé bien connue pour le CI. Stockage uniquement — pas de compute ni d’AAD, quelques écarts de comportement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "kubelogin",
+			"source": {
+				"host": "github",
+				"path": "Azure/kubelogin",
+				"url": "https://github.com/Azure/kubelogin"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The official kubectl auth path for AKS: OIDC, managed identity, device code, token refresh with no az-cli installed. Narrow — auth only, and still tied to Entra in the backend.",
+				"fr": "Le chemin d’auth kubectl officiel pour AKS : OIDC, identité managée, device code, refresh de token sans az-cli installé. Périmètre étroit — auth seulement, et toujours adossé à Entra."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

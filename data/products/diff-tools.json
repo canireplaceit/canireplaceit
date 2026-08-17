@@ -1,0 +1,177 @@
+{
+	"slug": "diff-tools",
+	"name": "diff & patch",
+	"domain": null,
+	"category": "developer-tooling",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "almost",
+	"why": {
+		"en": "diff compares two files, patch applies the resulting unified diff. Diffing is replaceable: dedicated diff viewers and version-control output are faster and clearer for daily work. Patching is not: build systems and other tools still call patch against plain files, and no drop-in handles every invocation.",
+		"fr": "diff compare deux fichiers, patch applique le diff unifié qui en résulte. Le diff est remplaçable : des visionneuses dédiées et la sortie d’un gestionnaire de versions sont plus rapides et plus claires au quotidien. patch ne l’est pas : les systèmes de build et d’autres outils l’appellent encore sur des fichiers bruts, et aucun substitut ne couvre tous les usages."
+	},
+	"whatYouLose": [
+		{
+			"en": "the diff on every machine",
+			"fr": "le diff présent sur chaque machine"
+		},
+		{
+			"en": "patching plain files with no repo",
+			"fr": "patcher des fichiers bruts, sans dépôt"
+		},
+		{
+			"en": "fuzzy context matching",
+			"fr": "la correspondance floue de contexte"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "meld",
+			"source": {
+				"host": "gitlab",
+				"path": "GNOME/meld",
+				"url": "https://gitlab.gnome.org/GNOME/meld"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "GNOME's side-by-side diff with three-way merge and directory compare. VC integration covers git, svn, bzr. But it is a GTK desktop app — nothing for pipelines or headless use.",
+				"fr": "Le comparateur de GNOME : fichiers et répertoires côte à côte, fusion à trois voies, intégration git, svn, bzr. Lié à une session graphique, sans CLI pour les pipelines."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "kdiff3",
+			"source": {
+				"host": "gitlab",
+				"path": "sdk/kdiff3",
+				"url": "https://invent.kde.org/sdk/kdiff3"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "KDE's classic three-way merge with per-hunk conflict resolution and directory compare. Cross-platform installers plus a byte-level hex view, but the Qt UI feels dated and merge is the focus, not review.",
+				"fr": "Fusion à trois voies de KDE, conflits choisis hunk par hunk, comparaison de répertoires. Installateurs Windows, macOS, Linux. L’interface Qt vieillit et l’outil vise la fusion, pas la revue."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "diff-pdf",
+			"source": {
+				"host": "github",
+				"path": "vslavik/diff-pdf",
+				"url": "https://github.com/vslavik/diff-pdf"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Renders PDF pages to images and flags per-page differences, with CLI exit codes for scripts. A wxWidgets GUI overlays them. Pixel-level comparison only — no semantic or text-stream insight.",
+				"fr": "Il rend chaque page en image et signale les différences, codes de sortie pour les scripts. Une GUI wxWidgets superpose les écarts. Comparaison au pixel près, sans comprendre le contenu."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "jd",
+			"source": {
+				"host": "github",
+				"path": "josephburnett/jd",
+				"url": "https://github.com/josephburnett/jd"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "JSON diff that emits path-based added/removed/changed entries, applicable as a patch including reverse. CloudFormation and other templated types included. Useless on plain text, and no side-by-side view.",
+				"fr": "Diff JSON en chemins ajoutés, retirés, modifiés, applicable comme un patch, même à l’envers. Gère CloudFormation et d’autres formats templatés. Inutile sur du texte brut, sans vue côte à côte."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gitahead",
+			"source": {
+				"host": "github",
+				"path": "gitahead/gitahead",
+				"url": "https://github.com/gitahead/gitahead"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "A Qt git GUI with side-by-side diff and a hunk-level merge-conflict editor, fast even on large repositories. Tied to git — not a generic differ — and community-maintained with a slow release cadence.",
+				"fr": "GUI git en Qt : diff côte à côte, résolution de conflits hunk par hunk. Prisonnier de git, pas un différenciateur générique, et maintenu par la communauté."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "vimdiff",
+			"source": {
+				"host": "github",
+				"path": "vim/vim",
+				"url": "https://github.com/vim/vim"
+			},
+			"license": "Vim",
+			"effort": "managed",
+			"note": {
+				"en": "Inside Vim: 2, 3 or 4 files side by side, sync-scrolled, with per-hunk copy. Custom diff commands and whitespace diffopts honored. Only for Vim-literate users, never a standalone tool.",
+				"fr": "Dans Vim : 2, 3 ou 4 fichiers côte à côte, copie par hunk. Commandes de diff et diffopts d’espacement respectés. Réservé aux habitués de Vim, jamais un outil autonome."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gitg",
+			"source": {
+				"host": "gitlab",
+				"path": "GNOME/gitg",
+				"url": "https://gitlab.gnome.org/GNOME/gitg"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "GNOME's git history browser with inline side-by-side diffs and interactive hunk staging. GTK-native. Linux only, bound to git, and no directory compare.",
+				"fr": "Le navigateur d’historique git de GNOME : diffs côte à côte et staging interactif des hunks. Nativement GTK, Linux seulement, lié à git et sans comparaison de répertoires."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

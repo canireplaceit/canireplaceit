@@ -1,0 +1,177 @@
+{
+	"slug": "netstat",
+	"name": "netstat",
+	"domain": null,
+	"category": "networking-vpn",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "yes",
+	"why": {
+		"en": "Shows open sockets, listening ports and routing tables. On Linux the official replacement, ss, is faster and exposes more detail, and ip covers the routes. Elsewhere netstat is the only portable answer: it ships on macOS and Windows too.",
+		"fr": "Affiche les sockets ouvertes, les ports en écoute et la table de routage. Sur Linux, le remplaçant officiel, ss, est plus rapide et remonte plus de détails par socket, et ip couvre les routes. Ailleurs, netstat reste la seule réponse portable : il est présent sur macOS et Windows aussi."
+	},
+	"whatYouLose": [
+		{
+			"en": "The netstat on every machine",
+			"fr": "Le netstat présent sur toutes les machines"
+		},
+		{
+			"en": "Routes and interfaces in one tool",
+			"fr": "Routes et interfaces dans un même outil"
+		},
+		{
+			"en": "Scripts written around its flags",
+			"fr": "Les scripts écrits pour ses options"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "ss",
+			"source": {
+				"host": "github",
+				"path": "iproute2/iproute2",
+				"url": "https://github.com/iproute2/iproute2"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Reads netlink directly and is faster than netstat; `ss -tunap` maps every socket to its process. Linux only, needs root for others’ sockets, and gives no interface or routing summary.",
+				"fr": "Lit netlink directement, plus rapide que netstat ; `ss -tunap` associe chaque socket à son processus. Linux uniquement, root pour voir les sockets d’autrui, pas de vue interface ni routage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "iftop",
+			"source": {
+				"host": "gitlab",
+				"path": "pdw/iftop",
+				"url": "https://code.blinkace.com/pdw/iftop"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Netstat -i as a live dashboard: per-interface traffic with bar-graph history and top host pairs. Needs root to sniff, and it’s live only — no static connection dump or routing table.",
+				"fr": "Netstat -i en tableau de bord : trafic par interface, historique en barres, paires d’hôtes dominantes. Root requis pour renifler ; vue live uniquement, pas de dump de connexions ni de table de routage."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "bandwhich",
+			"source": {
+				"host": "github",
+				"path": "imsnif/bandwhich",
+				"url": "https://github.com/imsnif/bandwhich"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Rust TUI resolving live bandwidth down to exact local/remote socket pairs and owning processes, with built-in DNS resolution. Needs root or packet capture; live only, no saved history.",
+				"fr": "TUI Rust qui descend le débit live jusqu’aux paires de sockets et aux processus propriétaires, avec résolution DNS intégrée. Root ou capture de paquets requis ; vue live seulement, pas d’historique sauvegardé."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "nethogs",
+			"source": {
+				"host": "github",
+				"path": "raboof/nethogs",
+				"url": "https://github.com/raboof/nethogs"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Attributes live network traffic to individual processes, TCP/UDP split, in a zero-config curses interface, single binary. Needs root to capture; no routing table or interface stats.",
+				"fr": "Répartit le trafic réseau live par processus, TCP/UDP séparés, interface curses sans config, binaire unique. Root requis pour capturer ; pas de table de routage ni de stats d’interface."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "btop",
+			"source": {
+				"host": "github",
+				"path": "aristocratos/btop",
+				"url": "https://github.com/aristocratos/btop"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "A polished TUI system monitor whose network pane totals per-interface and per-process traffic live. Connection-level detail is thinner than netstat’s, and there’s no parseable one-shot output.",
+				"fr": "Moniteur système TUI soigné dont le volet réseau totalise trafic par interface et par processus en direct. Niveau connexion moins détaillé que netstat, et aucune sortie exploitable d’une commande."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "vnstat",
+			"source": {
+				"host": "github",
+				"path": "vergoh/vnstat",
+				"url": "https://github.com/vergoh/vnstat"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Netstat’s interface counters as history: an hourly/daily/monthly database queried by CLI with JSON/XML output. Measures bandwidth, not connections or ports, and needs its daemon running to accumulate data.",
+				"fr": "Les compteurs d’interface de netstat, mais en historique : base horaire/journalière/mensuelle interrogée en CLI, sortie JSON/XML. Mesure du débit, pas des connexions, et son daemon doit tourner pour accumuler les données."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "netdata",
+			"source": {
+				"host": "github",
+				"path": "netdata/netdata",
+				"url": "https://github.com/netdata/netdata"
+			},
+			"license": "GPL-3.0",
+			"effort": "docker",
+			"note": {
+				"en": "A self-hosted monitoring platform showing live per-process sockets, connections and interface metrics on a web dashboard. Heavy for a quick netstat check: it’s an agent/server, not a one-shot CLI.",
+				"fr": "Plateforme de supervision auto-hébergée qui affiche sockets, connexions et métriques d’interface par processus, en direct sur un tableau de bord web. Lourd pour un simple netstat : agent/serveur, pas un CLI."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

@@ -1,0 +1,198 @@
+{
+	"slug": "gpg",
+	"name": "GnuPG",
+	"domain": null,
+	"category": "security",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "almost",
+	"why": {
+		"en": "GnuPG signs and encrypts files, emails, and commits, and doubles as an SSH agent and keyserver client. A modern encryption tool is simpler and faster for daily file work. The OpenPGP identity layer — email encryption, web of trust, the keyserver ecosystem — has no credible replacement.",
+		"fr": "GnuPG chiffre et signe des fichiers, des e-mails et des commits, et fait aussi office d’agent SSH et de client de keyservers. Un outil de chiffrement moderne est plus simple et plus rapide pour le travail quotidien sur les fichiers. La couche d’identité OpenPGP — chiffrement des e-mails, toile de confiance, écosystème des keyservers — n’a pas de remplaçant crédible."
+	},
+	"whatYouLose": [
+		{
+			"en": "OpenPGP email encryption",
+			"fr": "le chiffrement OpenPGP des e-mails"
+		},
+		{
+			"en": "Web-of-trust identity network",
+			"fr": "la toile de confiance et l’identité"
+		},
+		{
+			"en": "the gpg on every machine",
+			"fr": "gpg présent sur chaque machine"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "age",
+			"source": {
+				"host": "github",
+				"path": "FiloSottile/age",
+				"url": "https://github.com/FiloSottile/age"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Modern audited encryption without keyring or Web-of-Trust ceremony: X25519/ChaCha20-Poly1305 in a single static binary, SSH keys or passphrases as recipients. No signing, revocation, or subkeys — you track your own keys.",
+				"fr": "Chiffrement moderne audité, sans trousseau ni Web-of-Trust : X25519/ChaCha20-Poly1305 en un binaire statique, clés SSH ou passphrases comme destinataires. Pas de signature, ni révocation, ni sous-clés — vous suivez vos clés vous-même."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "rage",
+			"source": {
+				"host": "github",
+				"path": "str4d/rage",
+				"url": "https://github.com/str4d/rage"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Drop-in Rust reimplementation of age: identical file format and CLI semantics, cross-compiles cleanly, and the age-plugin ecosystem plus YubiKey identities. No signing or revocation; occasionally lags upstream age.",
+				"fr": "Réimplémentation Rust d’age, drop-in pour les mêmes workflows : format et CLI identiques, compilation croisée, écosystème age-plugin, identités YubiKey. Pas de signature ni de révocation ; parfois en retard sur age upstream."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Sequoia PGP (sq)",
+			"source": {
+				"host": "gitlab",
+				"path": "sequoia-pgp/sequoia",
+				"url": "https://gitlab.com/sequoia-pgp/sequoia"
+			},
+			"license": "LGPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The gpg-mirroring sq CLI fronting the most complete modern OpenPGP reimplementation: sign, encrypt, verify, subkeys, revocation, keyserver. Trade Web-of-Trust for Auditor policy files; budget flag differences and a keyring re-import.",
+				"fr": "Réimplémentation OpenPGP la plus complète, avec la CLI sq reprenant les verbes gpg : signer, chiffrer, vérifier, sous-clés. Confiance par fichiers de politique, plus de Web-of-Trust ; flags différents, trousseaux à ré-importer."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "rnp",
+			"source": {
+				"host": "github",
+				"path": "rnpgp/rnp",
+				"url": "https://github.com/rnpgp/rnp"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "C++ OpenPGP engine with a drop-in rnp CLI: sign/encrypt/verify, S/MIME, keyserver, EdDSA/ECDH/RSA keys, output interoperable with gpg. Smaller community and slower cadence than gpg, rougher keyring tooling, no Web-of-Trust trust paths.",
+				"fr": "Moteur OpenPGP en C++ avec une CLI rnp drop-in : signer, chiffrer, vérifier, S/MIME, clés EdDSA/ECDH/RSA, interopérable avec gpg. Communauté réduite, cadence lente, gestion de trousseau brute, pas de Web-of-Trust."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "OpenPGP.js",
+			"source": {
+				"host": "github",
+				"path": "openpgpjs/openpgpjs",
+				"url": "https://github.com/openpgpjs/openpgpjs"
+			},
+			"license": "LGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Web-native gpg substitute: OpenPGP in pure JS with CLI, npm library, browser build, streaming, WebCrypto. Not a keyring-managed UX — key storage is yours, JS crypto trails native gpg on huge files.",
+				"fr": "JS plus lent que gpg sur les gros fichiers, clés à stocker vous-même : OpenPGP pur JS, CLI, lib npm, build navigateur, streaming, WebCrypto. Le substitut web-native."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "gopass",
+			"source": {
+				"host": "github",
+				"path": "gopasspw/gopass",
+				"url": "https://github.com/gopasspw/gopass"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "TUI+CLI secret manager running on age or gpg backends: git-synced team vault, fine-grained recipients, age-native so no gpg keyring. Built for secrets, not ad-hoc file encryption, and git vault adds moving parts.",
+				"fr": "Gestionnaire de secrets TUI+CLI sur backends age ou gpg : coffre git-synchronisé, destinataires fins, natif age, sans trousseau gpg. Pour les secrets, pas le chiffrement au vol ; il suppose git."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "minisign",
+			"source": {
+				"host": "github",
+				"path": "jedisct1/minisign",
+				"url": "https://github.com/jedisct1/minisign"
+			},
+			"license": "ISC",
+			"effort": "managed",
+			"note": {
+				"en": "Signs only — no encryption, expiry, revocation, or subkeys, keys don’t interoperate with gpg. You get a tiny Ed25519 detached signer with TOFU pinning, prehashed mode for huge files, the release-signing standard.",
+				"fr": "Signature seule — ni chiffrement, ni expiration, ni révocation, ni sous-clés, clés incompatibles avec gpg. En échange : minuscule signataire Ed25519 détaché, épinglage TOFU, mode pré-haché pour gros fichiers, standard des releases."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "sops",
+			"source": {
+				"host": "github",
+				"path": "getsops/sops",
+				"url": "https://github.com/getsops/sops"
+			},
+			"license": "MPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Field-level encryption of YAML, JSON, ENV, INI via age, PGP, or KMS key groups. Decrypts in CI via age identities, no keyring daemon — structured files only, no arbitrary-file encryption or signing.",
+				"fr": "Chiffrement des YAML, JSON, ENV, INI avec clés age, PGP ou KMS. Déchiffre en CI via identités age, sans daemon de trousseau — fichiers structurés uniquement, ni chiffrement ni signature arbitraires."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

@@ -1,0 +1,202 @@
+{
+	"slug": "systemctl",
+	"name": "systemctl",
+	"domain": null,
+	"category": "shell-terminal",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "not-yet",
+	"why": {
+		"en": "systemctl drives systemd, the init system running as PID 1. Everything that manages a service — units, timers, journald, third-party roles — is written against that interface, so replacing the client is not a user choice. A different init means a different distribution, chosen at install time.",
+		"fr": "systemctl pilote systemd, le système d’init qui tourne en PID 1. Tout ce qui gère un service — units, timers, journald, rôles tiers — est écrit contre cette interface : remplacer le client n’est pas un choix d’utilisateur. Choisir un autre init, c’est choisir une autre distribution au moment de l’installation."
+	},
+	"whatYouLose": [
+		{
+			"en": "the init on every machine",
+			"fr": "l’init présent sur chaque machine"
+		},
+		{
+			"en": "socket activation and cgroup limits",
+			"fr": "activation par socket et limites cgroup"
+		},
+		{
+			"en": "unit files and journald logs",
+			"fr": "unit files et logs journald"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "OpenRC",
+			"source": {
+				"host": "github",
+				"path": "OpenRC/openrc",
+				"url": "https://github.com/OpenRC/openrc"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Init and service manager driven by /etc/init.d scripts, dependency-based, independent of systemd and its cgroups. Scripts replace unit files, so no socket activation, timers, or device model.",
+				"fr": "Init et gestionnaire de services en scripts /etc/init.d, basé sur les dépendances, sans couplage cgroup. Les scripts remplacent les unit files — ni sockets, ni timers, ni modèle de device."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "s6",
+			"source": {
+				"host": "github",
+				"path": "skarnet/s6",
+				"url": "https://github.com/skarnet/s6"
+			},
+			"license": "ISC",
+			"effort": "managed",
+			"note": {
+				"en": "Small, auditable supervision suite built for embedded and minimal systems — automatic restart, logging, PID1 or per-user. Expect a steep curve into execline and its CLI DSL; no unit files or cgroups.",
+				"fr": "Petite suite de supervision auditable pour l’embarqué — redémarrage auto, logs, PID1 ou par utilisateur. Courbe abrupte : execline et son DSL en CLI, pas d’unit files ni de cgroups."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "s6-rc",
+			"source": {
+				"host": "github",
+				"path": "skarnet/s6-rc",
+				"url": "https://github.com/skarnet/s6-rc"
+			},
+			"license": "ISC",
+			"effort": "managed",
+			"note": {
+				"en": "Declarative layer on s6, closest to systemctl enable/start: a compile-time service database with start, stop, restart, status. Fast and predictable, replaces systemd at boot — but you adopt the whole s6 ecosystem.",
+				"fr": "Couche déclarative sur s6, le plus proche de systemctl enable/start : base de services compilée, avec start, stop, restart, status. Rapide et prévisible au boot — mais il faut adopter l’écosystème s6."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Supervisor",
+			"source": {
+				"host": "github",
+				"path": "Supervisor/supervisor",
+				"url": "https://github.com/Supervisor/supervisor"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "User-level Python daemon that starts, stops, restarts and auto-restarts long-running programs via INI config and supervisorctl. No boot or system services, though — it is not an init system.",
+				"fr": "Démon Python user-level qui start, stop, restart et auto-restart les programmes via config INI et supervisorctl. Mais pas d’init ni de services système — ce n’est pas un init system."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "PM2",
+			"source": {
+				"host": "github",
+				"path": "Unitech/pm2",
+				"url": "https://github.com/Unitech/pm2"
+			},
+			"license": "AGPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Node.js process manager — cluster mode, zero-downtime reload, logging, one-command start/stop. Node-centric, so not a general OS service manager.",
+				"fr": "Gestionnaire de processus Node.js — mode cluster, reload sans coupure, logs, start/stop en une commande. Centré Node, donc pas un gestionnaire de services système générique."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "minor",
+				"ssoInFree": null,
+				"dataResidency": "self",
+				"paywalled": {
+					"en": "PM2 Plus observability",
+					"fr": "Observabilité PM2 Plus"
+				}
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "process-compose",
+			"source": {
+				"host": "github",
+				"path": "F1bonacc1/process-compose",
+				"url": "https://github.com/F1bonacc1/process-compose"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Docker-compose-style YAML plus a live TUI to start, stop, restart and tail logs across interdependent processes, single Go binary. Local orchestration only — no boot, no unit compatibility.",
+				"fr": "YAML façon docker-compose plus un TUI temps réel pour start, stop, restart et suivre les logs de processus interdépendants, un seul binaire Go. Orchestration locale uniquement — ni boot ni unit files."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "immortal",
+			"source": {
+				"host": "github",
+				"path": "immortal/immortal",
+				"url": "https://github.com/immortal/immortal"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Runit-style supervisor, single static Go binary, keeps daemons alive with logging, control via immortalctl or HTTP, can run as PID1. Lighter than systemd — no timers, sockets, or unit files.",
+				"fr": "Superviseur style runit en binaire Go statique, garde les démons en vie avec logs, contrôle via immortalctl ou HTTP, possible en PID1. Plus léger que systemd — ni timers ni sockets."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "hivemind",
+			"source": {
+				"host": "github",
+				"path": "DarthSim/hivemind",
+				"url": "https://github.com/DarthSim/hivemind"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Procfile process manager in a single Go binary, popular with BEAM/Elixir devs, zero-config dependencies and shared logging for local dev. Dormant since December 2023 — no daemonizing or boot integration.",
+				"fr": "Gestionnaire Procfile en binaire Go, favori des devs BEAM/Elixir, dépendances zéro-config et logs partagés pour le dev local. En sommeil depuis décembre 2023 — pas de daemonisation ni d’intégration au boot."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

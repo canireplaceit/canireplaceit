@@ -1,0 +1,198 @@
+{
+	"slug": "eslint",
+	"name": "ESLint",
+	"domain": null,
+	"category": "developer-tooling",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "yes",
+	"why": {
+		"en": "Enforces style and flags correctness problems in JavaScript and TypeScript. Newer Rust-based linters match this daily job and run far faster. They cannot run every ESLint plugin or rule, so projects bound to a specific plugin must weigh that.",
+		"fr": "Fait respecter un style et signale les erreurs de correction dans JavaScript et TypeScript. Les linters plus récents écrits en Rust font le même travail au quotidien, et beaucoup plus vite. Ils n’exécutent pas tous les plugins ni toutes les règles d’ESLint : un projet dépendant d’un plugin précis doit peser le coût."
+	},
+	"whatYouLose": [
+		{
+			"en": "plugin and rule ecosystem",
+			"fr": "l’écosystème de plugins et de règles"
+		},
+		{
+			"en": "custom rules written in JavaScript",
+			"fr": "les règles maison écrites en JavaScript"
+		},
+		{
+			"en": "existing and shared configs",
+			"fr": "les configs existantes et partagées"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Biome",
+			"source": {
+				"host": "github",
+				"path": "biomejs/biome",
+				"url": "https://github.com/biomejs/biome"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "One fast Rust binary for lint and format, ~10-100x faster than ESLint and reading your existing eslint.config.js. A smaller plugin ecosystem — not every legacy custom rule ports cleanly — is the trade.",
+				"fr": "Un seul binaire Rust : lint et format, ~10 à 100 fois plus rapide qu’ESLint, lit eslint.config.js. L’écosystème de plugins reste mince, toutes les règles maison ne se portent pas proprement."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Oxlint",
+			"source": {
+				"host": "github",
+				"path": "oxc-project/oxc",
+				"url": "https://github.com/oxc-project/oxc"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The fastest linter here: 50x+ quicker than ESLint, linting monorepos in milliseconds with matching rule names. Rule count still trails core plus plugins, and the config schema diverges for advanced settings.",
+				"fr": "Le linter le plus rapide du lot : 50x plus véloce qu’ESLint, monorepos épinglés en quelques millisecondes. Catalogue de règles plus mince que le cœur d’ESLint et ses plugins, config divergente sur les réglages avancés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "StandardJS",
+			"source": {
+				"host": "github",
+				"path": "standard/standard",
+				"url": "https://github.com/standard/standard"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "The ruleset is non-negotiable — no config files, no bikeshedding, one opinionated style with --fix settling the rest. Built on ESLint under the hood, so it inherits its speed profile.",
+				"fr": "La règle est non négociable : pas de config, pas de querelles de style, une seule norme tranchée et --fix règle le reste. Sous le capot, c’est ESLint, le même profil de vitesse."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "JSHint",
+			"source": {
+				"host": "github",
+				"path": "jshint/jshint",
+				"url": "https://github.com/jshint/jshint"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Still the pragmatic pick for teams wanting detection without ESLint's weight: simple .jshintrc, zero build-tool coupling, embeddable as a Node library. Fewer rules, thin TypeScript support, community largely moved on.",
+				"fr": "Le choix pragmatique pour détecter sans le poids d’ESLint : un .jshintrc simple, aucun couplage au build, embarquable en Node. Moins de règles, TypeScript mal couvert, la communauté est passée à autre chose."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "JSCS",
+			"source": {
+				"host": "github",
+				"path": "jscs-dev/node-jscs",
+				"url": "https://github.com/jscs-dev/node-jscs"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Archived upstream since 2016 — merged into ESLint — but still usable via node-jscs. 90+ granular style rules with auto-fix for the codebases that never migrated.",
+				"fr": "Archivé depuis 2016 — absorbé par ESLint — mais toujours utilisable via node-jscs. 90+ règles de style fines avec correction automatique, pour les codebases qui n’ont jamais migré."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "TSLint",
+			"source": {
+				"host": "github",
+				"path": "palantir/tslint",
+				"url": "https://github.com/palantir/tslint"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Archived, so no fixes for new TypeScript versions, yet still the documented lint tool pinned in many legacy TS codebases: ~200 rules, several of them type-aware via the full type checker.",
+				"fr": "Archivé, donc sans correctifs pour les nouvelles versions de TypeScript, mais encore le linter de référence de nombreux vieux projets TS : ~200 règles, dont plusieurs s’appuient sur le type checker."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Semgrep",
+			"source": {
+				"host": "github",
+				"path": "semgrep/semgrep",
+				"url": "https://github.com/semgrep/semgrep"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "Beyond linting: pattern rules that look like the code they detect — security and style checks ESLint plugins can't express. Self-hostable, runs alongside ESLint, but a YAML config, not an AST rule API.",
+				"fr": "Config YAML, pas une API de règles sur AST, mais des motifs qui ressemblent au code détecté : vérifications de sécurité hors de portée des plugins ESLint. Autohébergeable, à côté d’ESLint."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "deno_lint",
+			"source": {
+				"host": "github",
+				"path": "denoland/deno_lint",
+				"url": "https://github.com/denoland/deno_lint"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "No Node dependency: install via deno or the raw Rust crate and run 100+ rules on plain JS/TS. It comes with Deno-flavored rule philosophy and no plugin system comparable to ESLint's.",
+				"fr": "Aucune dépendance à Node : installez via deno ou la crate Rust et passez 100+ règles sur JS/TS. En échange, règles à la Deno et pas de plugins comparables à ceux d’ESLint."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

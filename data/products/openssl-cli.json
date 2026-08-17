@@ -1,0 +1,198 @@
+{
+	"slug": "openssl-cli",
+	"name": "OpenSSL CLI",
+	"domain": null,
+	"category": "security",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "almost",
+	"why": {
+		"en": "OpenSSL CLI is the default interface for X.509 certificates, hashing, symmetric encryption and TLS endpoint checks. Slices of the job have credible replacements — local cert generation, PKI tooling, TLS probing — but no single tool covers the whole surface, and s_client is still the fastest way to inspect a live endpoint.",
+		"fr": "OpenSSL CLI est l’interface par défaut pour les certificats X.509, le hachage, le chiffrement symétrique et le test d’endpoints TLS. Des outils spécialisés remplacent des pans du travail — génération de certificats locaux, outillage PKI, sondage TLS — mais aucun ne couvre toute la surface, et s_client reste le moyen le plus rapide d’inspecter un endpoint vivant."
+	},
+	"whatYouLose": [
+		{
+			"en": "present on almost every machine",
+			"fr": "présent sur presque toutes les machines"
+		},
+		{
+			"en": "one binary for certs, hashing, encryption",
+			"fr": "un binaire pour certs, hash et chiffrement"
+		},
+		{
+			"en": "s_client one-shot TLS inspection",
+			"fr": "l’inspection TLS ponctuelle de s_client"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "mkcert",
+			"source": {
+				"host": "github",
+				"path": "FiloSottile/mkcert",
+				"url": "https://github.com/FiloSottile/mkcert"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "One command spins up a local CA and installs multi-name dev certs into the OS and browser trust stores. Dev trust only — no CSR signing, no renewal flows, no s_client probing.",
+				"fr": "En une commande : CA locale et certificats de dev multi-domaines installés dans les magasins de confiance système et navigateur. Confiance de dev uniquement, pas de CSR ni renouvellement, ni sondage TLS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "acme.sh",
+			"source": {
+				"host": "github",
+				"path": "acmesh-official/acme.sh",
+				"url": "https://github.com/acmesh-official/acme.sh"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Pure-POSIX-shell ACME client with plugins for 50+ DNS providers; wildcard and SAN certs renew on cron. Only ACME/Let's-Encrypt flows — no classic CA ops, no TLS debugging verbs.",
+				"fr": "Client ACME en pur shell POSIX, plugins pour 50+ fournisseurs DNS, certs wildcard et SAN renouvelés par cron. Flux ACME/Let’s Encrypt uniquement : pas d’opérations CA classiques, ni de debug TLS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "certbot",
+			"source": {
+				"host": "github",
+				"path": "certbot/certbot",
+				"url": "https://github.com/certbot/certbot"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "EFF’s reference ACME client; plugins wire nginx, Apache and DNS-01 into Let’s Encrypt issuance and renewal. Tied to ACME CAs — not a general PKI toolbox, and no s_client-style probing.",
+				"fr": "Client ACME de référence de l’EFF : plugins nginx, Apache et DNS-01 pour délivrance et renouvellement Let’s Encrypt. Lié aux CA ACME, pas une boîte à outils PKI, et pas de sonde TLS."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "lego",
+			"source": {
+				"host": "github",
+				"path": "go-acme/lego",
+				"url": "https://github.com/go-acme/lego"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Go ACME client, binary or library, with DNS-01 solvers for 100+ providers — embed it and script issuance. ACME only: no classic CA/CSR workflows, and renewal needs an external scheduler.",
+				"fr": "Client ACME en Go, binaire ou bibliothèque, solveurs DNS-01 pour 100+ fournisseurs : à embarquer pour scriptiser la délivrance. ACME uniquement, pas de flux CA/CSR classiques, renouvellement via un planificateur externe."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "cfssl",
+			"source": {
+				"host": "github",
+				"path": "cloudflare/cfssl",
+				"url": "https://github.com/cloudflare/cfssl"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Cloudflare’s multi-role PKI toolkit — gencert, sign, CRL, OCSP — plus a configurable REST CA server. JSON profiles take learning; TLS debug verbs are absent, and full CA ops mean separate servers.",
+				"fr": "PKI multi-rôles de Cloudflare : gencert, sign, CRL, OCSP, serveur CA REST optionnel. Profils JSON à apprendre, pas de debug TLS ; une CA complète demande des serveurs séparés."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "step-cli",
+			"source": {
+				"host": "github",
+				"path": "smallstep/cli",
+				"url": "https://github.com/smallstep/cli"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "X509 and JWT swiss-army knife — create, sign, inspect, plus OTP tooling; pairs with step-ca for short-lived ACME certs. Strongest with that server; verbs differ from openssl, no raw s_client probing.",
+				"fr": "Couteau suisse X.509/JWT : créer, signer, inspecter, de l’OTP ; s’associe à step-ca pour des certs ACME courts. Plus fort avec ce serveur, verbes différents d’openssl, pas de sonde brute type s_client."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "easy-rsa",
+			"source": {
+				"host": "github",
+				"path": "OpenVPN/easy-rsa",
+				"url": "https://github.com/OpenVPN/easy-rsa"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Shell CA bootstrap that has run OpenVPN PKIs for two decades; root/intermediate setup plus VPN server and client profiles. Tailored to OpenVPN-style flows — no ACME, no renewal, little inspection.",
+				"fr": "Amorçage de CA en shell, PKI OpenVPN depuis vingt ans ; racine/intermédiaire et profils serveur/client VPN. Pensé pour les flux OpenVPN : pas d’ACME, pas de renouvellement, peu d’inspection."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "xca",
+			"source": {
+				"host": "github",
+				"path": "chris2511/xca",
+				"url": "https://github.com/chris2511/xca"
+			},
+			"license": "BSD-3-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Desktop GUI for CAs, keys, CSRs, CRLs and PKCS#12, with PEM/DER/S-MIME import-export and a visual cert view. GUI-only — no headless scripting, no ACME, and it drags in a Qt dependency.",
+				"fr": "GUI bureau pour CA, clés, CSR, CRL et PKCS#12, import/export PEM, DER et S/MIME, vue de certificat visuelle. GUI uniquement : pas de script headless, pas d’ACME, et une dépendance Qt à traîner."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

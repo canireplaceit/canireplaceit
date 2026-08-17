@@ -1,0 +1,198 @@
+{
+	"slug": "maven",
+	"name": "Apache Maven",
+	"domain": null,
+	"category": "build-delivery",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "yes",
+	"why": {
+		"en": "Maven drives the build lifecycle and dependency resolution of JVM projects from a strict XML configuration. A modern alternative builds faster and tolerates non-standard project shapes, but trades Maven’s predictability for flexibility. The established default remains a fine choice for conventional builds.",
+		"fr": "Maven pilote le cycle de vie de compilation et la résolution des dépendances des projets JVM à partir d’une configuration XML stricte. Une alternative moderne compile plus vite et accepte des structures de projet moins standard, mais échange la prévisibilité de Maven contre de la flexibilité. Le défaut historique reste un choix correct pour les builds conventionnels."
+	},
+	"whatYouLose": [
+		{
+			"en": "the standard project layout",
+			"fr": "la structure de projet standard"
+		},
+		{
+			"en": "Maven’s battle-tested plugin catalogue",
+			"fr": "le catalogue de plugins de Maven"
+		},
+		{
+			"en": "Maven on every CI image",
+			"fr": "Maven sur toutes les images CI"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "Gradle",
+			"source": {
+				"host": "github",
+				"path": "gradle/gradle",
+				"url": "https://github.com/gradle/gradle"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The de-facto Maven successor: fast incremental builds, cache and a Groovy/Kotlin DSL. The catch — build scripts are code, so over-engineering and a memory-hungry daemon come with it.",
+				"fr": "Le successeur de facto de Maven : builds incrémentaux rapides, cache et DSL Groovy/Kotlin. Le revers — les scripts de build sont du code, propices à la sur-ingénierie et à un daemon gourmand en mémoire."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Bazel",
+			"source": {
+				"host": "github",
+				"path": "bazelbuild/bazel",
+				"url": "https://github.com/bazelbuild/bazel"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Google's hermetic, reproducible, monorepo-scale build tool with the strongest correctness guarantees around. Setup is steep and Starlark is a language to learn before your first build works.",
+				"fr": "L’outil de build hermétique et reproductible de Google, taillé pour les monorepos, avec les garanties de correction les plus fortes. La mise en place est rude et Starlark s’apprend avant le moindre build."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Apache Ant",
+			"source": {
+				"host": "github",
+				"path": "apache/ant",
+				"url": "https://github.com/apache/ant"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Classic XML-based build scripting, no convention overhead, no daemon, battle-tested for decades. Add Ivy for dependencies — none of it is built in.",
+				"fr": "Scripts de build XML, impératifs, sans convention imposée ni daemon, éprouvés depuis des décennies. Ajoutez Ivy pour les dépendances — rien n’est intégré."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Mill",
+			"source": {
+				"host": "github",
+				"path": "com-lihaoyi/mill",
+				"url": "https://github.com/com-lihaoyi/mill"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Fixes Gradle's complexity with explicit, composable Scala-defined modules and fine-grained caching. You buy into the Scala ecosystem and a younger toolchain.",
+				"fr": "Corrige la complexité de Gradle avec des modules composables, définis en Scala, et un cache de tâches fin. En échange : l’écosystème Scala et un outil plus jeune."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "SBT",
+			"source": {
+				"host": "github",
+				"path": "sbt/sbt",
+				"url": "https://github.com/sbt/sbt"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "The standard Scala build tool, with an integrated incremental compiler and a rich plugin ecosystem. Build definitions are Scala-heavy, startup is historically slow.",
+				"fr": "L’outil de build standard de Scala, avec compilateur incrémental intégré et un écosystème de plugins fourni. Définitions de build très Scala, démarrage historiquement lent."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Buck2",
+			"source": {
+				"host": "github",
+				"path": "facebook/buck2",
+				"url": "https://github.com/facebook/buck2"
+			},
+			"license": "Apache-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Meta's high-performance, hermetic build system built for monorepo scale and heavy parallelism. On small projects the setup outweighs the payoff, and the community is young.",
+				"fr": "Le système de build hermétique et performant de Meta, pensé pour le monorepo et le parallélisme massif. Sur de petits projets, la mise en place pèse plus que le gain ; la communauté reste jeune."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "Nix",
+			"source": {
+				"host": "github",
+				"path": "NixOS/nix",
+				"url": "https://github.com/NixOS/nix"
+			},
+			"license": "LGPL-2.1",
+			"effort": "managed",
+			"note": {
+				"en": "Reproducible builds as a pure function of inputs, content-addressed and cached. It replaces far more than Maven, but the Nix mental model is a steep shift, not a drop-in path for Java.",
+				"fr": "Builds reproductibles, pure fonction des entrées, adressés par contenu et en cache. Il dépasse largement Maven, mais son modèle mental est un virage abrupt, pas un remplacement direct pour Java."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "JBang",
+			"source": {
+				"host": "github",
+				"path": "jbangdev/jbang",
+				"url": "https://github.com/jbangdev/jbang"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Runs Java scripts straight from Maven Central dependencies, no scaffolding, IDE-friendly. Single-file by design — not for multi-module projects or complex builds.",
+				"fr": "Exécute des scripts Java dont les dépendances sont résolues directement depuis Maven Central, sans scaffolding, compatible IDE. Mono-fichier par conception — pas pour les projets multi-modules ni les builds complexes."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}

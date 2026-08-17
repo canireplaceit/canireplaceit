@@ -1,0 +1,177 @@
+{
+	"slug": "journalctl",
+	"name": "journalctl",
+	"domain": null,
+	"category": "observability-telemetry",
+	"priceMonthly": 0,
+	"pricing": null,
+	"priority": 2,
+	"verdict": "not-yet",
+	"why": {
+		"en": "journalctl reads systemd’s binary journal, and every alternative view is a front-end over the same library and the same data. It can be outshone as a screen reader; it cannot be replaced as the query interface to a storage format the whole system is written against.",
+		"fr": "journalctl lit le journal binaire de systemd, et toute vue alternative n’est qu’une surcouche sur la même bibliothèque et les mêmes données. Il se laisse surpasser comme lecteur d’écran, mais pas comme interface de requête d’un format de stockage sur lequel tout le système est construit."
+	},
+	"whatYouLose": [
+		{
+			"en": "the CLI on every systemd machine",
+			"fr": "la CLI du journal présente sur chaque machine systemd"
+		},
+		{
+			"en": "the stable text output tooling parses",
+			"fr": "la sortie texte stable qu’exploite l’outillage"
+		},
+		{
+			"en": "journal size and vacuum management",
+			"fr": "la gestion du volume et du vacuum du journal"
+		}
+	],
+	"alternatives": [
+		{
+			"kind": "oss",
+			"name": "lnav",
+			"source": {
+				"host": "github",
+				"path": "tstack/lnav",
+				"url": "https://github.com/tstack/lnav"
+			},
+			"license": "BSD-2-Clause",
+			"effort": "managed",
+			"note": {
+				"en": "Reads systemd journal binaries directly and puts SQL on top of them. The learning curve on the query language is real, and there is no web interface.",
+				"fr": "Lit les binaires journald directement et greffe du SQL dessus. La courbe d’apprentissage du langage de requêtes est réelle, et pas d’interface web."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "tailspin",
+			"source": {
+				"host": "github",
+				"path": "bensadeh/tailspin",
+				"url": "https://github.com/bensadeh/tailspin"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Zero-config colored tail; drop-in for reading recent journal entries. Thin wrapper though — no search history or session persistence.",
+				"fr": "Tail coloré zéro configuration, remplacement direct pour lire les entrées récentes du journal. Simple surcouche : pas d’historique de recherche ni de persistance de session."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "klogg",
+			"source": {
+				"host": "github",
+				"path": "variar/klogg",
+				"url": "https://github.com/variar/klogg"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Native GUI log explorer for when a terminal is not enough: multi-GB files, indexed regex search. GUI only, and it queries exported logs, not the journal directly.",
+				"fr": "Explorateur de logs en GUI pour quand le terminal ne suffit plus : fichiers multi-GB, regex indexée. GUI uniquement, et il travaille sur des logs exportés, pas le journal en direct."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "goaccess",
+			"source": {
+				"host": "github",
+				"path": "allinurl/goaccess",
+				"url": "https://github.com/allinurl/goaccess"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Turns logs into an interactive TUI or static HTML dashboard in real time. Tuned for access logs though — no systemd unit or boot-id filtering.",
+				"fr": "Transforme les logs en tableau de bord TUI interactif ou HTML statique en temps réel. Pensé pour les logs d’accès : pas de filtre sur l’unité systemd ni le boot id."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "glogg",
+			"source": {
+				"host": "github",
+				"path": "nickbnf/glogg",
+				"url": "https://github.com/nickbnf/glogg"
+			},
+			"license": "GPL-3.0",
+			"effort": "managed",
+			"note": {
+				"en": "Lightweight Qt GUI log viewer, fast regex search over large files, tabs. Dormant since 2021 — no commit in five years, and it reads files, not the journal socket.",
+				"fr": "Viewer de logs léger en Qt, recherche regex rapide sur gros fichiers, onglets. En dormance depuis 2021 — aucun commit en cinq ans, et il lit des fichiers, pas la socket du journal."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "logdissect",
+			"source": {
+				"host": "github",
+				"path": "dogoncouch/logdissect",
+				"url": "https://github.com/dogoncouch/logdissect"
+			},
+			"license": "MIT",
+			"effort": "managed",
+			"note": {
+				"en": "Parses mixed syslog and log formats into structured events and summarizes error causes; Python plugins extend it. CLI only, no live tail, and dormant since 2024.",
+				"fr": "Parse les formats syslog et autres en événements structurés et résume les causes d’erreurs ; des plugins Python l’étendent. CLI uniquement, pas de suivi en direct, et en dormance depuis 2024."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		},
+		{
+			"kind": "oss",
+			"name": "ccze",
+			"source": {
+				"host": "github",
+				"path": "cornet/ccze",
+				"url": "https://github.com/cornet/ccze"
+			},
+			"license": "GPL-2.0",
+			"effort": "managed",
+			"note": {
+				"en": "Pipes journalctl output into color-coded categories; all you need when only contrast matters. Pure presentation though — no filtering or search, and maintenance has been irregular since 2023.",
+				"fr": "Colore la sortie de journalctl par catégories ; tout ce qu’il faut quand seul le contraste compte. Couche de présentation pure : pas de filtre ni de recherche, et entretien irrégulier depuis 2023."
+			},
+			"facts": {
+				"selfHostable": true,
+				"openCore": "none",
+				"ssoInFree": null,
+				"dataResidency": "self"
+			}
+		}
+	]
+}
