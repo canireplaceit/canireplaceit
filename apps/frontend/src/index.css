@@ -47,6 +47,10 @@
 
 	/* The logo blue. Its own token, deliberately never folded into --accent or a verdict colour. */
 	--brand: #2f6fed;
+	/* The brand hex measures 4.34:1 on --bg — fails AA at body size. Fills and
+	   large text keep --brand; body-size brand TEXT uses this tone-45 sibling.
+	   (DESIGN-GUIDELINES.md §5, deviation 2.) */
+	--brand-text: #0e64e0;
 }
 
 :root[data-theme="dark"] {
@@ -62,6 +66,8 @@
 	--v-no: #ff5c5c;
 	--accent: #7c9bff;
 	--brand: #4c8dff;
+	/* 5.79:1 on the dark surface — the brand hex passes on its own here. */
+	--brand-text: #4c8dff;
 
 	/* Shadow does almost nothing on a near-black page, so depth here comes from
 	   the surface ramp above; the shadows stay only to shape floating panels. */
@@ -334,6 +340,178 @@ h3 {
 	.btn-ghost:hover {
 		transform: none;
 	}
+}
+
+/* Body-size brand text drops to the AA-safe sibling. Fills (`bg-brand`), the
+   wordmark and large display text keep the true brand hex. Declared after the
+   Tailwind import so it wins the cascade at equal specificity. */
+.text-brand {
+	color: var(--brand-text);
+}
+
+/* ---------------------------------------------------------------------------
+   The verdict stamp. The one place the site is allowed to be theatrical:
+   the editorial judgement lands on the product page like a rubber stamp.
+   --------------------------------------------------------------------------- */
+.stamp {
+	display: inline-block;
+	font-family: var(--font-display);
+	font-weight: 800;
+	font-size: clamp(1.1rem, 0.8rem + 1.4vw, 1.6rem);
+	line-height: 1.1;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	padding: 0.3em 0.7em;
+	border: 3px solid currentColor;
+	border-radius: var(--radius-sm);
+	transform: rotate(-4deg);
+	/* Two soft voids make the border read as inked rather than drawn. */
+	-webkit-mask-image:
+		radial-gradient(circle at 30% 40%, #000 92%, transparent 96%),
+		radial-gradient(circle at 70% 60%, #000 90%, transparent 95%);
+	mask-image:
+		radial-gradient(circle at 30% 40%, #000 92%, transparent 96%),
+		radial-gradient(circle at 70% 60%, #000 90%, transparent 95%);
+}
+@keyframes cri-slam {
+	0% {
+		opacity: 0;
+		transform: rotate(-14deg) scale(2.2);
+	}
+	60% {
+		opacity: 1;
+		transform: rotate(-3deg) scale(0.96);
+	}
+	80% {
+		transform: rotate(-4.5deg) scale(1.03);
+	}
+	100% {
+		transform: rotate(-4deg) scale(1);
+	}
+}
+.stamp-slam {
+	animation: cri-slam 0.45s cubic-bezier(0.05, 0.7, 0.1, 1) both;
+}
+
+/* ---------------------------------------------------------------------------
+   The exit ladder: you-are-here at the top, each rung stepping down and in.
+   --------------------------------------------------------------------------- */
+.ladder {
+	border-left: 2px solid var(--line-strong);
+}
+.ladder > li {
+	position: relative;
+	padding: 0.65rem 0 0.65rem 1.5rem;
+}
+.ladder > li::before {
+	content: "";
+	position: absolute;
+	left: -8px;
+	top: 1.1rem;
+	width: 13px;
+	height: 13px;
+	border-radius: 999px;
+	background: var(--bg);
+	border: 2.5px solid var(--line-strong);
+}
+.ladder > li[data-here="true"]::before {
+	background: var(--brand);
+	border-color: var(--brand);
+}
+@keyframes cri-rung-in {
+	from {
+		opacity: 0;
+		transform: translateX(-8px);
+	}
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+.ladder > li {
+	animation: cri-rung-in 0.45s cubic-bezier(0.05, 0.7, 0.1, 1) both;
+}
+.ladder > li:nth-child(2) {
+	animation-delay: 0.15s;
+}
+.ladder > li:nth-child(3) {
+	animation-delay: 0.3s;
+}
+.ladder > li:nth-child(4) {
+	animation-delay: 0.45s;
+}
+
+/* ---------------------------------------------------------------------------
+   The price receipt: dashed rules between facts, a perforated bottom edge.
+   --------------------------------------------------------------------------- */
+.receipt-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	gap: 0.75rem;
+	padding-block: 0.4rem;
+	border-bottom: 1px dashed var(--line);
+	font-size: 0.8125rem;
+}
+.receipt-edge {
+	/* Semicircular tear-off holes, punched out of the card into the page. */
+	display: block;
+	height: 9px;
+	margin: 0.75rem -1rem -1rem;
+	background: radial-gradient(
+		circle at 8px -2px,
+		transparent 6px,
+		var(--bg) 6.5px
+	);
+	background-size: 16px 9px;
+}
+
+/* Cards entering a list arrive in a short cascade, not all at once. Only the
+   first rows stagger — below the fold the delay would just read as lag. */
+@keyframes cri-card-in {
+	from {
+		opacity: 0;
+		transform: translateY(12px);
+	}
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+.card-in {
+	animation: cri-card-in 0.45s cubic-bezier(0.05, 0.7, 0.1, 1) both;
+}
+.card-in:nth-child(2) {
+	animation-delay: 0.05s;
+}
+.card-in:nth-child(3) {
+	animation-delay: 0.1s;
+}
+.card-in:nth-child(4) {
+	animation-delay: 0.15s;
+}
+.card-in:nth-child(5) {
+	animation-delay: 0.2s;
+}
+.card-in:nth-child(6) {
+	animation-delay: 0.25s;
+}
+
+/* The cycling hero name: the incoming word settles instead of teleporting. */
+@keyframes cri-name-swap {
+	from {
+		opacity: 0;
+		transform: translateY(0.3em);
+		filter: blur(2px);
+	}
+	to {
+		opacity: 1;
+		transform: none;
+		filter: none;
+	}
+}
+.name-swap {
+	animation: cri-name-swap 0.5s cubic-bezier(0.05, 0.7, 0.1, 1) both;
 }
 
 /* Only the "replaceable" verdict pulses — motion as signal, not decoration. */

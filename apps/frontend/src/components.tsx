@@ -1,6 +1,8 @@
 import type {
 	Alternative,
+	CheaperAlternative,
 	Facts,
+	OssAlternative,
 	PriceSource,
 	Product,
 	Source,
@@ -147,6 +149,137 @@ export function VerdictMark({ verdict, t }: { verdict: Verdict; t: T }) {
 	);
 }
 
+/**
+ * The verdict as a rubber stamp: the judgement landing on the page is the one
+ * theatrical moment the product page gets. Clicking replays the slam — the
+ * remount (via `key`) restarts the CSS animation, and reduced-motion collapses
+ * it to a plain appear like every other animation on the site.
+ */
+export function VerdictStamp({ verdict, t }: { verdict: Verdict; t: T }) {
+	const [take, setTake] = useState(0);
+	return (
+		<button
+			key={take}
+			type="button"
+			onClick={() => setTake((n) => n + 1)}
+			className="stamp stamp-slam"
+			style={{ color: VERDICT_COLOR[verdict] }}
+			title={definitionOf(`verdict.${verdict}`, t)}
+		>
+			{t(`verdict.${verdict}` as Key)}
+		</button>
+	);
+}
+
+/**
+ * The exit ladder: the same alternatives the cards below argue for, redrawn as
+ * a descent. You-are-here (what it costs today), the cheaper-but-still-paid
+ * escape when the entry has one, and the best live open source rung. Yearly
+ * savings are the product's own bill — the rung a reader steps to decides how
+ * much of it survives.
+ */
+export function ExitLadder({
+	product,
+	t,
+	tc,
+	lang,
+	projectHref,
+}: {
+	product: Product;
+	t: T;
+	tc: (m: { en: string }) => string;
+	lang: Lang;
+	projectHref?: (alt: Alternative) => string | undefined;
+}) {
+	const oss = product.alternatives.filter(
+		(a): a is OssAlternative => a.kind === "oss",
+	);
+	const live = oss.filter((a) => !isArchived(a, healthOf(a.source)));
+	const best = byExitQuality(live, (a) => healthOf(a.source))[0];
+	const cheaper = product.alternatives.find(
+		(a): a is CheaperAlternative => a.kind === "cheaper",
+	);
+	// One rung is not a ladder; the alternative cards already cover it.
+	if (!best || (!cheaper && product.priceMonthly === null)) return null;
+
+	const monthly = product.priceMonthly;
+	const saveYearly = (m: number) =>
+		`${t("ladder.save")} ${money(m * 1200, lang)}${t("ladder.perYear")}`;
+	const bestHref = projectHref?.(best);
+
+	return (
+		<section>
+			<h2 className="eyebrow mb-2">{t("ladder.title")}</h2>
+			<ul className="ladder mt-3">
+				<li data-here="true">
+					<p className="eyebrow">{t("ladder.here")}</p>
+					<p className="font-display font-semibold">{product.name}</p>
+					{monthly !== null && monthly > 0 && (
+						<p className="nums text-muted text-xs">
+							{money(monthly * 100, lang)}
+							{t("row.perMonth")} — {money(monthly * 1200, lang)}
+							{t("ladder.perYear")}
+						</p>
+					)}
+				</li>
+				{cheaper && (
+					<li>
+						<p className="eyebrow">{t("ladder.cheaper")}</p>
+						<p className="font-display font-semibold">{cheaper.name}</p>
+						<p className="nums text-muted text-xs">
+							{cheaper.priceMonthly !== null && cheaper.priceMonthly > 0 && (
+								<>
+									{money(cheaper.priceMonthly * 100, lang)}
+									{t("row.perMonth")}
+								</>
+							)}
+							{cheaper.priceOnce !== undefined && (
+								<>
+									{money(cheaper.priceOnce * 100, lang)} {t("row.once")}
+								</>
+							)}
+							{monthly !== null &&
+								cheaper.priceMonthly !== null &&
+								monthly > cheaper.priceMonthly && (
+									<>
+										{" · "}
+										<span style={{ color: "var(--v-yes)" }}>
+											{saveYearly(monthly - cheaper.priceMonthly)}
+										</span>
+									</>
+								)}
+						</p>
+					</li>
+				)}
+				<li>
+					<p className="eyebrow">{t("ladder.oss")}</p>
+					<p className="font-display font-semibold">
+						{bestHref ? (
+							<Link href={bestHref} className="hover:underline">
+								{best.name}
+							</Link>
+						) : (
+							best.name
+						)}
+					</p>
+					<p className="nums text-muted text-xs">
+						{t(`effort.${best.effort}` as Key)} · {best.license}
+						{monthly !== null && monthly > 0 && (
+							<>
+								{" · "}
+								<span style={{ color: "var(--v-yes)" }}>
+									{saveYearly(monthly)}
+								</span>
+							</>
+						)}
+					</p>
+					<p className="mt-0.5 text-muted text-xs">{tc(best.note)}</p>
+				</li>
+			</ul>
+		</section>
+	);
+}
+
 export const hostOf = (url: string) => {
 	try {
 		return new URL(url).hostname.replace(/^www\./, "");
@@ -200,32 +333,6 @@ function ConfidenceChip({
 	);
 }
 
-export function PriceReceipt({
-	pricing,
-	t,
-	lang,
-}: {
-	pricing: PriceSource;
-	t: T;
-	lang: Lang;
-}) {
-	return (
-		<span className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-muted">
-			<a
-				href={outboundUrl(pricing.url, "price")}
-				target="_blank"
-				rel="noopener nofollow"
-				className="inline-flex items-center gap-1 hover:underline"
-			>
-				{t("price.takenFrom")} {hostOf(pricing.url)} {t("price.on")}{" "}
-				<FreshDate iso={pricing.checkedOn} lang={lang} />
-				<ExternalLink className="size-3 shrink-0" aria-hidden />
-			</a>
-			<ConfidenceChip confidence={pricing.confidence} t={t} />
-		</span>
-	);
-}
-
 export function PriceBlock({
 	product,
 	t,
@@ -261,10 +368,13 @@ export function PriceBlock({
 
 	const isUnconfirmed = pricing?.confidence === "low";
 
+	// The receipt: the figure on top, then each fact of its provenance as a
+	// dashed ledger row, and a perforated tear-off edge. The price is the claim
+	// this site is judged on, so it dresses like the document it actually is.
 	return (
-		<div className="space-y-1 text-sm">
+		<div className="text-sm">
 			<p
-				className="nums font-medium"
+				className="nums font-semibold text-xl"
 				style={
 					isUnconfirmed
 						? {
@@ -278,10 +388,47 @@ export function PriceBlock({
 				{value}
 			</p>
 			{state === "no-price" && (
-				<p className="text-xs text-muted">{t("price.noPublicNote")}</p>
+				<p className="mt-1 text-xs text-muted">{t("price.noPublicNote")}</p>
 			)}
-			{pricing?.plan && <p className="text-xs text-muted">{pricing.plan}</p>}
-			{pricing && <PriceReceipt pricing={pricing} t={t} lang={lang} />}
+			{pricing && (
+				<div className="mt-2">
+					{pricing.plan && (
+						<p className="receipt-row">
+							<span className="text-muted">{t("price.plan")}</span>
+							<span className="min-w-0 text-right">{pricing.plan}</span>
+						</p>
+					)}
+					<p className="receipt-row">
+						<span className="text-muted">{t("price.basisLabel")}</span>
+						<span className="nums">
+							{t(`price.basis.${pricing.basis}` as Key)}
+						</span>
+					</p>
+					<p className="receipt-row">
+						<span className="text-muted">{t("price.checked")}</span>
+						<span className="nums">
+							<FreshDate iso={pricing.checkedOn} lang={lang} />
+						</span>
+					</p>
+					<p className="receipt-row">
+						<span className="text-muted">{t("price.confidenceLabel")}</span>
+						<ConfidenceChip confidence={pricing.confidence} t={t} />
+					</p>
+					<p className="receipt-row border-b-0">
+						<span className="text-muted">{t("price.source")}</span>
+						<a
+							href={outboundUrl(pricing.url, "price")}
+							target="_blank"
+							rel="noopener nofollow"
+							className="inline-flex min-w-0 items-center gap-1 text-brand hover:underline"
+						>
+							<span className="truncate">{hostOf(pricing.url)}</span>
+							<ExternalLink className="size-3 shrink-0" aria-hidden />
+						</a>
+					</p>
+					<span className="receipt-edge" aria-hidden />
+				</div>
+			)}
 		</div>
 	);
 }
