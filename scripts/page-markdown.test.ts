@@ -204,9 +204,49 @@ describe("a project twin", () => {
 	});
 });
 
+describe("the gaps page", () => {
+	const gaps = products.filter((p) => p.verdict === "not-yet");
+
+	const doc = markdownFor({
+		route: { name: "gaps", lang: "en" },
+		url: "/en/gaps",
+		lang: "en",
+		title: "What open source still cannot do",
+		description: "test",
+		boot: bootFor(gaps),
+		site: SITE,
+		lastmod: "2026-08-22",
+	}) as string;
+
+	test("gets a twin, since it is the page most worth quoting", () => {
+		expect(doc).toBeTruthy();
+		expect(gaps.length).toBeGreaterThan(0);
+	});
+
+	test("names every product it says has no replacement", () => {
+		for (const p of gaps) expect(doc).toContain(p.name);
+	});
+
+	test("points at the route that serves the same list", () => {
+		expect(doc).toContain(`${SITE}/api/v1/gaps`);
+		expect(doc).toContain(`Source: ${SITE}/en/gaps`);
+	});
+});
+
 describe("pages with nothing to say", () => {
 	test("get no twin rather than a stub", () => {
-		for (const name of ["legal", "signin", "dashboard", "admin"] as const) {
+		// These must keep returning null. features fetches a code-split dataset,
+		// stats reads live figures from Umami, and the legal copy lives in the
+		// React tree. Gaps is the only standing page with a payload to serve.
+		for (const name of [
+			"legal",
+			"signin",
+			"dashboard",
+			"admin",
+			"features",
+			"stats",
+			"glossary",
+		] as const) {
 			const md = markdownFor({
 				route: { name, lang: "en" },
 				url: `/en/${name}`,

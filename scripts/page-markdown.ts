@@ -382,6 +382,7 @@ function projectMarkdown(
 function listMarkdown(
 	input: MdInput,
 	slugOf: (forgeId: string) => string,
+	apiPath = "search",
 ): string {
 	const { lang, site, boot } = input;
 	const out: string[] = [`# ${input.title}`, "", input.description, ""];
@@ -424,7 +425,7 @@ function listMarkdown(
 		);
 	}
 
-	out.push("", footer(input, `${site}/api/v1/search`));
+	out.push("", footer(input, `${site}/api/v1/${apiPath}`));
 	return out.join("\n");
 }
 
@@ -475,6 +476,18 @@ export function markdownFor(input: MdInput): string | null {
 		case "category":
 		case "collection":
 			return listMarkdown(input, slugOf);
+
+		/**
+		 * The one standing page with data to serve.
+		 *
+		 * The rest return null on purpose and must keep doing so: `features`
+		 * fetches a code-split dataset on demand, `stats` reads live figures from
+		 * Umami, and `glossary` is static copy that already renders. Gaps is
+		 * different only because scripts/prerender.ts now inlines its 43 products,
+		 * and it is the page most worth quoting: the catalogue saying no.
+		 */
+		case "gaps":
+			return listMarkdown(input, slugOf, "gaps");
 
 		default:
 			return null;
