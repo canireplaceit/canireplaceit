@@ -95,6 +95,125 @@ export const CATEGORIES_LABEL: Record<Lang, string> = {
 	fr: "Toutes les catégories",
 };
 
+/**
+ * The questions a person actually types, answered from the record itself.
+ *
+ * This is the one structured type on the site that both Google and the answer
+ * engines read, and it is the shape a retrieval system can lift wholesale: a
+ * question, then a self-contained answer with the date it was verified. Nothing
+ * here is written by hand. An answer that would have to be invented is skipped
+ * rather than padded.
+ */
+function faqJsonLd(product: Product, lang: Lang): string | null {
+	const oss = product.alternatives.filter((a) => a.kind === "oss");
+	const fr = lang === "fr";
+	const qa: { q: string; a: string }[] = [];
+
+	if (oss.length > 0) {
+		const named = oss
+			.slice(0, 3)
+			.map((a) => a.name)
+			.join(", ");
+		const verdict = fr
+			? {
+					yes: "Oui.",
+					almost: "Presque.",
+					"not-yet": "Pas encore.",
+				}[product.verdict]
+			: { yes: "Yes.", almost: "Almost.", "not-yet": "Not yet." }[
+					product.verdict
+				];
+		qa.push({
+			q: fr
+				? `Existe-t-il une alternative open source à ${product.name} ?`
+				: `Is there an open source alternative to ${product.name}?`,
+			a: fr
+				? `${verdict} ${oss.length} projet(s) open source remplacent ${product.name}, dont ${named}. ${resolveTranslation(product.why, lang)}`
+				: `${verdict} ${oss.length} open source project${oss.length > 1 ? "s" : ""} replace ${product.name}, including ${named}. ${resolveTranslation(product.why, lang)}`,
+		});
+	}
+
+	const selfHosted = oss.filter(
+		(a) => a.kind === "oss" && a.facts.selfHostable,
+	);
+	if (selfHosted.length > 0) {
+		const named = selfHosted
+			.slice(0, 3)
+			.map((a) => a.name)
+			.join(", ");
+		qa.push({
+			q: fr
+				? `Peut-on auto-héberger un remplaçant de ${product.name} ?`
+				: `Can you self-host a replacement for ${product.name}?`,
+			a: fr
+				? `Oui. ${selfHosted.length} des alternatives listées s'auto-hébergent, dont ${named}.`
+				: `Yes. ${selfHosted.length} of the listed alternatives can be self-hosted, including ${named}.`,
+		});
+	}
+
+	// Only when there is a price AND a receipt for it. A price with no source is
+	// the kind of claim this site exists to avoid making.
+	if (product.priceMonthly !== null && product.pricing) {
+		qa.push({
+			q: fr
+				? `Combien coûte ${product.name} ?`
+				: `How much does ${product.name} cost?`,
+			a: fr
+				? `${product.priceMonthly} USD par mois (${product.pricing.plan}), relevé le ${product.pricing.checkedOn} sur ${product.pricing.url}.`
+				: `${product.priceMonthly} USD per month (${product.pricing.plan}), checked on ${product.pricing.checkedOn} at ${product.pricing.url}.`,
+		});
+	}
+
+	if (product.whatYouLose.length > 0) {
+		qa.push({
+			q: fr
+				? `Que perd-on en quittant ${product.name} ?`
+				: `What do you lose by leaving ${product.name}?`,
+			a: product.whatYouLose.map((v) => resolveTranslation(v, lang)).join(". "),
+		});
+	}
+
+	if (qa.length === 0) return null;
+
+	return JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "FAQPage",
+		mainEntity: qa.map(({ q, a }) => ({
+			"@type": "Question",
+			name: q,
+			acceptedAnswer: { "@type": "Answer", text: a },
+		})),
+	});
+}
+
+/**
+ * The paid product itself, with its price.
+ *
+ * `offers` is stated here and deliberately NOT on a project (see `projectMeta`).
+ * The reason is not consistency, it is evidence: this price was read off a
+ * vendor page on a date we publish, so the offer is a fact with a receipt.
+ * A project has no price to state, and an offer without a rating buys nothing.
+ */
+function productAppJsonLd(product: Product, lang: Lang): string | null {
+	if (product.priceMonthly === null || !product.pricing) return null;
+	return JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "SoftwareApplication",
+		name: product.name,
+		applicationCategory: product.category,
+		url: product.domain ? `https://${product.domain}` : undefined,
+		offers: {
+			"@type": "Offer",
+			price: product.priceMonthly,
+			priceCurrency: "USD",
+			// The vendor page the figure was read from.
+			url: product.pricing.url,
+			availability: "https://schema.org/InStock",
+		},
+		description: clamp(resolveTranslation(product.why, lang)),
+	});
+}
+
 export function productMeta(
 	product: Product,
 	lang: Lang,
@@ -162,7 +281,9 @@ export function productMeta(
 				})),
 			}),
 			breadcrumbJsonLd(trail),
-		],
+		]
+			.concat(productAppJsonLd(product, lang) ?? [])
+			.concat(faqJsonLd(product, lang) ?? []),
 	};
 }
 
@@ -309,6 +430,30 @@ export const homeMeta = (lang: Lang, products: number, page = 1): Meta => {
 		title: title.length <= TITLE_MAX ? title : clamp(title, TITLE_MAX),
 		description: clamp(description),
 		canonical: `${SITE}${paths.home(lang, page)}`,
+		// Page 1 only. Ten paginated siblings each declaring themselves the site
+		// is ten claims where there is one thing.
+		jsonLd:
+			page > 1
+				? undefined
+				: [
+						JSON.stringify({
+							"@context": "https://schema.org",
+							"@type": "WebSite",
+							name: "canireplaceit",
+							url: `${SITE}${paths.home(lang)}`,
+							inLanguage: lang,
+							description: clamp(description),
+							license: "https://creativecommons.org/licenses/by/4.0/",
+							potentialAction: {
+								"@type": "SearchAction",
+								target: {
+									"@type": "EntryPoint",
+									urlTemplate: `${SITE}/api/v1/search?q={search_term_string}`,
+								},
+								"query-input": "required name=search_term_string",
+							},
+						}),
+					],
 	};
 };
 
