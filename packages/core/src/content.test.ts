@@ -170,6 +170,52 @@ test("the easiest way to run a project wins across citations", () => {
 	expect(projects[0].effort).toBe("managed");
 });
 
+test("a language known to any citation is not lost to the first one", () => {
+	// `language` is sparse, not contested: across the real catalogue 64 projects
+	// carry it on some citations and not on others, and none disagree. Reading
+	// only the first citation threw the fact away whenever the first product to
+	// mention a project happened to omit it, and since "first" is readdir order,
+	// the language collections changed size with the filesystem.
+	const withLang = {
+		...ossAlt("Thing", "o/thing", "docker"),
+		language: "Rust",
+	};
+	const without = ossAlt("Thing", "o/thing", "docker");
+
+	const late = collectProjects([
+		product({ slug: "a", alternatives: [without] }),
+		product({ slug: "b", alternatives: [withLang] }),
+	]);
+	const early = collectProjects([
+		product({ slug: "b", alternatives: [withLang] }),
+		product({ slug: "a", alternatives: [without] }),
+	]);
+
+	expect(late[0].language).toBe("Rust");
+	// The whole point: citation order must not change the answer.
+	expect(early[0].language).toBe(late[0].language);
+});
+
+test("a compose file known to any citation is not lost to the first one", () => {
+	const withCompose = {
+		...ossAlt("Thing", "o/thing", "docker"),
+		hasCompose: true,
+	};
+	const without = ossAlt("Thing", "o/thing", "docker");
+
+	const late = collectProjects([
+		product({ slug: "a", alternatives: [without] }),
+		product({ slug: "b", alternatives: [withCompose] }),
+	]);
+	const early = collectProjects([
+		product({ slug: "b", alternatives: [withCompose] }),
+		product({ slug: "a", alternatives: [without] }),
+	]);
+
+	expect(late[0].hasCompose).toBe(true);
+	expect(early[0].hasCompose).toBe(late[0].hasCompose);
+});
+
 test("projects are ranked by how much they get you out of", () => {
 	const projects = collectProjects([
 		product({

@@ -106,6 +106,11 @@ function load() {
 	const dir = join(DATA, "products");
 	const products = readdirSync(dir)
 		.filter((f) => f.endsWith(".json"))
+		// Sorted, because `collectProjects` resolves a few fields by citation order
+		// and readdir order is the filesystem's business, not ours. Without this
+		// the API can report different collection membership than the page it
+		// describes. scripts/prerender.ts sorts for the same reason.
+		.sort()
 		.map((f) => {
 			const value = read<Product>(join(dir, f));
 			const issues = validateProduct(value, basename(f, ".json"), catSlugs);
