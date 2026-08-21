@@ -464,22 +464,22 @@ export function VerdictPills({
 	value: string;
 	onChange: (v: string) => void;
 }) {
+	const seg =
+		"px-3 text-sm text-muted transition first:border-l-0 border-l border-border hover:text-text aria-pressed:bg-[color-mix(in_srgb,var(--brand)_10%,var(--surface))] aria-pressed:font-medium aria-pressed:text-brand";
 	return (
 		<fieldset className="m-0 min-w-0 border-0 p-0">
 			<legend className="sr-only">{t("filter.verdict")}</legend>
-			<div className="flex flex-wrap gap-1.5">
-				<Pill
-					label={t("filter.verdictAll")}
-					active={value === ""}
-					onClick={() => onChange("")}
-				/>
-				{VERDICTS.map((v) => (
-					<Pill
-						key={v}
-						label={t(`verdict.${v}` as Key)}
-						active={value === v}
+			<div className="flex h-10 items-stretch overflow-hidden rounded-[calc(var(--radius))] border border-border bg-surface">
+				{(["", ...VERDICTS] as const).map((v) => (
+					<button
+						key={v || "all"}
+						type="button"
+						aria-pressed={value === v}
 						onClick={() => onChange(v)}
-					/>
+						className={seg}
+					>
+						{v === "" ? t("filter.verdictAll") : t(`verdict.${v}` as Key)}
+					</button>
 				))}
 			</div>
 		</fieldset>
@@ -659,7 +659,7 @@ export function FilterSheet({
 				ref={triggerRef}
 				type="button"
 				onClick={() => dialogRef.current?.showModal()}
-				className="inline-flex items-center gap-1.5 rounded-[calc(var(--radius))] border border-border px-3 py-2 text-sm hover:border-brand"
+				className="inline-flex h-10 items-center gap-1.5 rounded-[calc(var(--radius))] border border-border bg-surface px-3 text-sm hover:border-brand"
 			>
 				<SlidersHorizontal className="size-4" aria-hidden />
 				{t("filter.open")}

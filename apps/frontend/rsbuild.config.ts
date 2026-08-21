@@ -9,7 +9,7 @@ export default defineConfig({
 		 * Same-origin `/api` in development, exactly as in production.
 		 *
 		 * The dev server used to be cross-origin: the frontend on :3000 called the
-		 * API on :3001 through `PUBLIC_API_URL`. That works, but it makes dev a
+		 * API on :3010 through `PUBLIC_API_URL`. That works, but it makes dev a
 		 * DIFFERENT shape from every deployed environment — `local.nginx.conf` and
 		 * `nginx.template.conf` both proxy `/api/` to the backend — and the
 		 * differences are exactly where bugs hide:
@@ -25,7 +25,7 @@ export default defineConfig({
 		 */
 		proxy: {
 			"/api": {
-				target: "http://localhost:3001",
+				target: "http://localhost:3010",
 				changeOrigin: false,
 			},
 		},

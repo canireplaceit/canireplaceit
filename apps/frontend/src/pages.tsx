@@ -246,8 +246,6 @@ export function ProductPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 					{lang === "fr" ? " ?" : "?"}
 				</>
 			}
-			// The verdict lands beside the question it answers. `aside` is the
-			// page-head's action slot; clicking the stamp replays the slam.
 			aside={<VerdictStamp verdict={product.verdict} t={t} />}
 			meta={
 				<p className="nums flex flex-wrap items-center gap-x-4 gap-y-2 text-muted text-sm">
@@ -295,10 +293,6 @@ export function ProductPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 
 					<WhatYouLose product={product} t={t} tc={tc} />
 
-					{/* The descent, drawn: what you pay today, the cheaper paid rung,
-					    and the best live open source rung with what each step saves.
-					    The cards below argue each alternative; this is the decision
-					    path they add up to. */}
 					<ExitLadder
 						product={product}
 						t={t}

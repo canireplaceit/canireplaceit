@@ -149,12 +149,7 @@ export function VerdictMark({ verdict, t }: { verdict: Verdict; t: T }) {
 	);
 }
 
-/**
- * The verdict as a rubber stamp: the judgement landing on the page is the one
- * theatrical moment the product page gets. Clicking replays the slam — the
- * remount (via `key`) restarts the CSS animation, and reduced-motion collapses
- * it to a plain appear like every other animation on the site.
- */
+/** The verdict as a stamp. Remounting via `key` restarts the slam on click. */
 export function VerdictStamp({ verdict, t }: { verdict: Verdict; t: T }) {
 	const [take, setTake] = useState(0);
 	return (
@@ -171,13 +166,7 @@ export function VerdictStamp({ verdict, t }: { verdict: Verdict; t: T }) {
 	);
 }
 
-/**
- * The exit ladder: the same alternatives the cards below argue for, redrawn as
- * a descent. You-are-here (what it costs today), the cheaper-but-still-paid
- * escape when the entry has one, and the best live open source rung. Yearly
- * savings are the product's own bill — the rung a reader steps to decides how
- * much of it survives.
- */
+/** Current price, the cheaper paid escape if one exists, and the best live OSS rung. */
 export function ExitLadder({
 	product,
 	t,
@@ -368,9 +357,6 @@ export function PriceBlock({
 
 	const isUnconfirmed = pricing?.confidence === "low";
 
-	// The receipt: the figure on top, then each fact of its provenance as a
-	// dashed ledger row, and a perforated tear-off edge. The price is the claim
-	// this site is judged on, so it dresses like the document it actually is.
 	return (
 		<div className="text-sm">
 			<p
@@ -1187,7 +1173,7 @@ export function SponsorSlot({
 				data-ad-purchase={s.purchaseId}
 				target="_blank"
 				rel="sponsored noopener"
-				className="flex items-center gap-3 rounded-[calc(var(--radius))] border border-dashed p-3.5 transition hover:border-solid"
+				className="flex items-center gap-3 rounded-[calc(var(--radius))] border border-dashed bg-surface p-3.5 transition hover:border-solid"
 				style={{ borderColor: "var(--accent)" }}
 			>
 				<Logo src={s.logoUrl} name={tc(s.name)} size={34} />
@@ -1210,7 +1196,7 @@ export function SponsorSlot({
 		<a
 			href={paths.sponsor(lang, slot.id)}
 			data-ad-slot={slot.id}
-			className="flex items-center justify-between gap-3 rounded-[calc(var(--radius))] border border-dashed border-border p-3.5 text-sm text-muted transition hover:text-text"
+			className="flex items-center justify-between gap-3 rounded-[calc(var(--radius))] border border-dashed border-border bg-surface p-3.5 text-sm text-muted transition hover:text-text"
 			style={{
 				borderColor: "color-mix(in srgb, var(--accent) 45%, transparent)",
 			}}
