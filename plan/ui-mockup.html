@@ -1,0 +1,2160 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>canireplaceit — UI/UX prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================================
+   canireplaceit — design system
+   Grounded in Material Design 3 (m3.material.io, rev 38.0.1, read 2026-08-10)
+   and adapted for a text-dense catalogue site. See DESIGN-GUIDELINES.md for
+   the sourcing and for every place we deliberately deviate.
+
+   The three things that changed from the previous pass, and why:
+     1. Depth now comes from the SURFACE-CONTAINER TONAL RAMP, not from shadow.
+        M3: "use shadows only when required to create additional protection
+        against a background or to encourage interaction."
+     2. Every spacing value is a token on the 8px scale. Nothing off-scale.
+     3. Reading columns are measured in `ch`, because M3's only readability
+        number is 40–60 characters per line.
+   ========================================================================== */
+
+:root {
+  /* ---- spacing: M3's published token set (8px base + nested units) ------ */
+  --sp-0:0px;    --sp-25:2px;   --sp-50:4px;   --sp-75:6px;
+  --sp-100:8px;  --sp-125:10px; --sp-150:12px; --sp-175:14px;
+  --sp-200:16px; --sp-250:20px; --sp-300:24px; --sp-400:32px;
+  --sp-450:36px; --sp-500:40px; --sp-600:48px; --sp-700:56px;
+  --sp-800:64px; --sp-900:72px;
+
+  /* ---- shape: M3 corner scale ------------------------------------------ */
+  --shape-none:0px;  --shape-xs:4px;  --shape-sm:8px;  --shape-md:12px;
+  --shape-lg:16px;   --shape-xl:28px; --shape-full:9999px;
+
+  /* ---- surfaces: neutral ramp at fixed L*, hue 289.8 (from the brand) ---
+     Light steps 2 tones at a time; see the dark block for why it differs. */
+  --surface:                   #f9f9ff;  /* N-98  page background          */
+  --surface-dim:               #d9d9df;  /* N-87                           */
+  --surface-bright:            #f9f9ff;  /* N-98                           */
+  --surface-container-lowest:  #ffffff;  /* N-100                          */
+  --surface-container-low:     #f3f3f9;  /* N-96  elevated card, banner    */
+  --surface-container:         #ededf3;  /* N-94  DEFAULT container        */
+  --surface-container-high:    #e8e8ed;  /* N-92  dialog, search           */
+  --surface-container-highest: #e2e2e8;  /* N-90  filled card/field        */
+  --on-surface:                #1b1b1f;  /* N-10                           */
+  --on-surface-variant:        #454651;  /* NV-30 secondary text           */
+  --outline:                   #767682;  /* NV-50 defines a target         */
+  --outline-variant:           #c5c5d3;  /* NV-80 dividers, card borders   */
+  --inverse-surface:           #303034;  /* N-20                           */
+  --inverse-on-surface:        #f0f0f6;  /* N-95                           */
+  --scrim:                     #000000;
+
+  /* ---- accents ---------------------------------------------------------
+     --brand is the identity hex and is NOT tone-40. --brand-text is its
+     tone-45 sibling, used only where brand-coloured text sits at body size:
+     #2f6fed measures 4.34:1 on --surface and fails AA for small text. */
+  --brand:                #2f6fed;
+  --brand-text:           #0e64e0;
+  --on-brand:             #ffffff;
+  --brand-container:      #dfe0ff;
+  --on-brand-container:   #011944;
+
+  --v-yes:                #026c46;  --v-yes-container:    #8ef7c2;
+  --v-almost:             #8e4e00;  --v-almost-container: #ffdcc1;
+  --v-no:                 #b02d2b;  --v-no-container:     #ffdad5;
+
+  /* ---- elevation: dp distance + the material-web shadow implementation --
+     Resting states use 0–3 only; 4 and 5 are interaction states. */
+  --elev-0:none;
+  --elev-1:0 1px 2px 0 rgb(0 0 0 / .30), 0 1px 3px 1px rgb(0 0 0 / .15);
+  --elev-2:0 1px 2px 0 rgb(0 0 0 / .30), 0 2px 6px 2px rgb(0 0 0 / .15);
+  --elev-3:0 1px 3px 0 rgb(0 0 0 / .30), 0 4px 8px 3px rgb(0 0 0 / .15);
+  --elev-4:0 2px 3px 0 rgb(0 0 0 / .30), 0 6px 10px 4px rgb(0 0 0 / .15);
+
+  /* ---- state layers ---------------------------------------------------- */
+  --state-hover:.08; --state-focus:.10; --state-pressed:.10;
+
+  /* ---- motion ---------------------------------------------------------- */
+  --ease-standard:cubic-bezier(0.2,0,0,1);
+  --ease-decelerate:cubic-bezier(0,0,0,1);
+  --ease-accelerate:cubic-bezier(0.3,0,1,1);
+  --dur-short:150ms; --dur-enter:250ms; --dur-exit:200ms; --dur-standard:300ms;
+
+  /* ---- type ------------------------------------------------------------ */
+  --display:"Space Grotesk",ui-sans-serif,system-ui,sans-serif;
+  --body:"IBM Plex Sans",ui-sans-serif,system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+
+  /* ---- layout ---------------------------------------------------------- */
+  --header-h:64px;          /* M3 small top app bar */
+  --measure:1152px;         /* the grid column, shared by every index */
+  --prose:62ch;             /* 40–60 characters, M3's readability rule */
+  --margin:var(--sp-200);   /* compact page margin */
+}
+
+@media (min-width:600px){ :root{ --margin:var(--sp-300); } }
+
+[data-theme="dark"]{
+  /* Dark steps are 4→10→12→17→22, NOT an even ramp: perceptual separation at
+     low luminance needs more tonal distance. Evening these out collapses them. */
+  --surface:                   #131317;  /* N-6  */
+  --surface-dim:               #131317;  /* N-6  */
+  --surface-bright:            #39393d;  /* N-24 */
+  --surface-container-lowest:  #0e0e13;  /* N-4  */
+  --surface-container-low:     #1b1b1f;  /* N-10 */
+  --surface-container:         #1f1f23;  /* N-12 */
+  --surface-container-high:    #292a2e;  /* N-17 */
+  --surface-container-highest: #343439;  /* N-22 */
+  --on-surface:                #e2e2e8;  /* N-90 */
+  --on-surface-variant:        #c5c5d3;  /* NV-80 */
+  --outline:                   #8f909c;  /* NV-60 */
+  --outline-variant:           #454651;  /* NV-30 */
+  --inverse-surface:           #e2e2e8;
+  --inverse-on-surface:        #303034;
+
+  --brand:              #4c8dff;   /* measures 5.79:1 on --surface */
+  --brand-text:         #4c8dff;   /* dark needs no darkened sibling */
+  --on-brand:           #002d6e;
+  --brand-container:    #02429a;
+  --on-brand-container: #dfe0ff;
+
+  --v-yes:    #72daa7;  --v-yes-container:    #015234;
+  --v-almost: #ffb779;  --v-almost-container: #6c3a01;
+  --v-no:     #ffb4a9;  --v-no-container:     #910516;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{
+  scroll-behavior:smooth;background:var(--surface);
+  scroll-padding-top:calc(var(--header-h) + var(--sp-300));
+}
+body{
+  margin:0;background:var(--surface);color:var(--on-surface);
+  font-family:var(--body);
+  font-size:16px;line-height:24px;letter-spacing:.03125rem;   /* body-large */
+  -webkit-font-smoothing:antialiased;
+  display:flex;flex-direction:column;min-height:100dvh;
+}
+h1,h2,h3,h4{font-family:var(--display);margin:0}
+p{margin:0}
+ul,ol{margin:0;padding:0;list-style:none}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+input,select,textarea{font:inherit;color:inherit}
+img{max-width:100%}
+
+/* ---- M3 type roles ----------------------------------------------------- */
+.t-display{font-family:var(--display);font-size:clamp(2.25rem,1.6rem+2.9vw,3.5625rem);line-height:1.12;letter-spacing:-.015625rem;font-weight:700}
+.t-headline{font-family:var(--display);font-size:clamp(1.75rem,1.45rem+1.3vw,2rem);line-height:1.25;font-weight:700}
+.t-title-lg{font-family:var(--display);font-size:1.375rem;line-height:1.75rem;font-weight:600}
+.t-title-md{font-family:var(--display);font-size:1rem;line-height:1.5rem;letter-spacing:.009375rem;font-weight:600}
+.t-body{font-size:1rem;line-height:1.5rem;letter-spacing:.03125rem}
+.t-body-md,.small{font-size:.875rem;line-height:1.25rem;letter-spacing:.015625rem}
+.t-body-sm,.xs{font-size:.75rem;line-height:1rem;letter-spacing:.025rem}
+.t-label{font-size:.875rem;line-height:1.25rem;letter-spacing:.00625rem;font-weight:500}
+.eyebrow{
+  font-family:var(--mono);font-size:.6875rem;line-height:1rem;
+  text-transform:uppercase;letter-spacing:.1em;color:var(--on-surface-variant);
+}
+.nums{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.muted{color:var(--on-surface-variant)}
+.center{text-align:center}
+
+/* ---- layout ------------------------------------------------------------ */
+.wrap{max-width:var(--measure);margin-inline:auto;padding-inline:var(--margin);width:100%}
+.wrap-prose{max-width:var(--prose);margin-inline:auto;padding-inline:var(--margin);width:100%}
+main{flex:1}
+.grid{display:grid;gap:var(--sp-100)}
+/* auto-fit rather than a column count: M3 no longer publishes a column grid,
+   and a min track size adapts across all five breakpoints on its own. */
+.grid-2{display:grid;gap:var(--sp-100);grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr))}
+.grid-3{display:grid;gap:var(--sp-100);grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr))}
+.row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--sp-100)}
+.row-4{display:flex;flex-wrap:wrap;align-items:center;gap:var(--sp-200)}
+.mt-1{margin-top:var(--sp-50)}   .mt-2{margin-top:var(--sp-100)}
+.mt-3{margin-top:var(--sp-150)}  .mt-4{margin-top:var(--sp-200)}
+.mt-6{margin-top:var(--sp-300)}  .mt-8{margin-top:var(--sp-400)}
+.mt-10{margin-top:var(--sp-500)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* ---- state layer -------------------------------------------------------
+   M3 models interaction as a translucent overlay BETWEEN container and
+   content, tinted with the CONTENT colour. One shared implementation. */
+.state{position:relative;isolation:isolate}
+.state::after{
+  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:currentColor;opacity:0;transition:opacity var(--dur-short) var(--ease-standard);
+}
+.state:hover::after{opacity:var(--state-hover)}
+.state:focus-visible::after{opacity:var(--state-focus)}
+.state:active::after{opacity:var(--state-pressed)}
+
+:where(a,button,summary,input,select,textarea,[tabindex]):focus-visible{
+  outline:3px solid var(--brand);outline-offset:2px;border-radius:var(--shape-xs);
+}
+
+/* ---- card: M3 OUTLINED variant, elevation level 0 ----------------------
+   Outlined carries the greatest emphasis of M3's three card variants, and
+   needs no shadow at rest — which is what stops 48 of them reading as noise. */
+.card{
+  background:var(--surface);
+  border:1px solid var(--outline-variant);
+  border-radius:var(--shape-md);
+  box-shadow:var(--elev-0);
+}
+.card-link{
+  display:block;
+  transition:border-color var(--dur-short) var(--ease-standard),
+             box-shadow  var(--dur-short) var(--ease-standard);
+}
+/* Hover raises by exactly one level — M3's rule, not a bigger jump. */
+.card-link:hover{border-color:var(--brand);box-shadow:var(--elev-1)}
+
+/* The recessed grouping panel. A different surface ROLE, no second border. */
+.panel{
+  background:var(--surface-container);
+  border-radius:var(--shape-md);
+  padding:var(--sp-200);
+}
+
+/* ---- chip: 32px tall, 8px radius. NOT a pill — that shape is a button's,
+   and the distinction is what stops a filter reading as an action. -------- */
+.pill{
+  display:inline-flex;align-items:center;gap:var(--sp-100);
+  min-height:32px;padding-inline:var(--sp-200);
+  border:1px solid var(--outline-variant);border-radius:var(--shape-sm);
+  background:transparent;color:var(--on-surface-variant);
+  font-size:.875rem;line-height:1.25rem;letter-spacing:.00625rem;font-weight:500;
+  white-space:nowrap;
+  transition:background-color var(--dur-short) var(--ease-standard),
+             border-color var(--dur-short) var(--ease-standard),
+             color var(--dur-short) var(--ease-standard);
+}
+.pill:hover{background:color-mix(in srgb,var(--on-surface) 8%,transparent)}
+/* Selected: container fill swap AND the outline goes to zero. */
+.pill[aria-pressed="true"],.pill[data-active="true"]{
+  background:var(--brand-container);color:var(--on-brand-container);
+  border-color:transparent;
+}
+/* A chip that is a link out gets the 48px target via padding, not height. */
+.pill.tap{min-height:40px}
+
+/* ---- buttons: M3 small, 40px, full radius ------------------------------ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:var(--sp-100);
+  min-height:40px;padding-inline:var(--sp-200);
+  border-radius:var(--shape-full);border:1px solid transparent;
+  font-size:.875rem;line-height:1.25rem;letter-spacing:.00625rem;font-weight:500;
+  transition:box-shadow var(--dur-short) var(--ease-standard),
+             border-color var(--dur-short) var(--ease-standard);
+}
+.btn-primary{background:var(--brand);color:var(--on-brand)}
+.btn-primary:hover{box-shadow:var(--elev-1)}
+.btn-ghost{border-color:var(--outline);color:var(--on-surface)}
+.btn-ghost:hover{border-color:var(--brand);color:var(--brand-text)}
+.btn-sm{min-height:32px;font-size:.8125rem;padding-inline:var(--sp-150)}
+
+/* ---- text field: outlined, 56px, 4px radius ---------------------------- */
+.field{
+  width:100%;min-height:56px;
+  border:1px solid var(--outline);border-radius:var(--shape-xs);
+  background:transparent;color:var(--on-surface);
+  padding-inline:var(--sp-200);
+  font-size:1rem;line-height:1.5rem;
+  transition:border-color var(--dur-short) var(--ease-standard);
+}
+.field::placeholder{color:var(--on-surface-variant)}
+.field:hover{border-color:var(--on-surface)}
+.field:focus{outline:none;border-color:var(--brand);border-width:2px;padding-inline:calc(var(--sp-200) - 1px)}
+select.field{width:auto;min-width:0;padding-right:var(--sp-400)}
+textarea.field{min-height:auto;padding-block:var(--sp-200)}
+/* Filter bars pack many controls in one row; M3's dense step is −4px each. */
+.dense .field{min-height:48px}
+
+/* ---- top app bar: 64px, surface at rest, container + level 2 on scroll -- */
+.site-header{
+  position:sticky;top:0;z-index:40;
+  background:var(--surface);
+  transition:background-color var(--dur-short) var(--ease-standard),
+             box-shadow var(--dur-short) var(--ease-standard);
+}
+.site-header[data-scrolled="true"]{background:var(--surface-container);box-shadow:var(--elev-2)}
+.header-row{display:flex;align-items:center;gap:var(--sp-150);height:var(--header-h)}
+@media(min-width:1280px){.header-row{gap:var(--sp-250)}}
+.wordmark{display:flex;align-items:center;gap:var(--sp-100);font-family:var(--display);font-weight:700;font-size:1rem;flex-shrink:0}
+.wordmark .i{color:var(--on-surface-variant)}
+.wordmark .replace{color:var(--brand)}
+
+.mainnav{margin-left:auto;display:none;align-items:center;gap:var(--sp-150);white-space:nowrap}
+@media(min-width:1024px){.mainnav{display:flex}}
+@media(min-width:1280px){.mainnav{gap:var(--sp-250)}}
+.nav-link{
+  position:relative;display:inline-flex;align-items:center;gap:var(--sp-50);
+  min-height:40px;color:var(--on-surface-variant);
+  font-size:.875rem;line-height:1.25rem;letter-spacing:.00625rem;font-weight:500;
+  transition:color var(--dur-short) var(--ease-standard);
+}
+.nav-link:hover{color:var(--on-surface)}
+/* Active indicator: M3 marks the active destination with a filled pill in
+   secondary-container. On a horizontal bar that reads as a rule, so we keep
+   the pill for the sheet and use a 2px underline here. */
+.nav-link[data-current="true"]{color:var(--on-surface);font-weight:600}
+.nav-link[data-current="true"]::after{
+  content:"";position:absolute;left:0;right:0;bottom:2px;height:2px;
+  border-radius:2px;background:var(--brand);
+}
+.nav-sep{width:1px;height:20px;background:var(--outline-variant)}
+
+.actions{margin-left:auto;display:flex;align-items:center;gap:var(--sp-100);flex-shrink:0}
+@media(min-width:1024px){.actions{margin-left:0}}
+/* 48px targets. M3: a 24px icon still gets a 48px target. */
+.icon-btn{
+  display:grid;place-items:center;min-height:48px;min-width:48px;
+  border-radius:var(--shape-full);color:var(--on-surface-variant);
+  transition:background-color var(--dur-short) var(--ease-standard);
+}
+.icon-btn:hover{background:color-mix(in srgb,var(--on-surface) 8%,transparent);color:var(--on-surface)}
+.icon-btn.wide{display:inline-flex;gap:var(--sp-75);padding-inline:var(--sp-150);
+  font-size:.75rem;font-weight:500;text-transform:uppercase;letter-spacing:.05em}
+.account{
+  display:none;align-items:center;gap:var(--sp-75);max-width:12rem;min-height:40px;
+  padding-inline:var(--sp-200);border:1px solid var(--outline);
+  border-radius:var(--shape-full);font-size:.875rem;font-weight:500;
+  transition:border-color var(--dur-short) var(--ease-standard);
+}
+.account:hover{border-color:var(--brand)}
+@media(min-width:1024px){.account{display:inline-flex}}
+.burger{display:grid}
+@media(min-width:1024px){.burger{display:none}}
+
+/* ---- menus: surface-container, level 2, 4px radius --------------------- */
+.menu{position:relative}
+.menu-panel{position:absolute;top:100%;left:0;padding-top:var(--sp-100);z-index:50;display:none}
+.menu[open] .menu-panel{display:block}
+.menu-panel>ul{
+  width:300px;max-width:calc(100vw - 2rem);
+  background:var(--surface-container);border-radius:var(--shape-xs);
+  padding:var(--sp-100);box-shadow:var(--elev-2);color:var(--on-surface);
+}
+/* List item: M3 one-line list items are 56px; these carry a count so 48 is
+   the dense step, and it is still a legal touch target. */
+.navrow{
+  display:flex;min-height:48px;align-items:center;gap:var(--sp-150);
+  border-radius:var(--shape-sm);padding-inline:var(--sp-150);
+  font-size:.875rem;line-height:1.25rem;
+  transition:background-color var(--dur-short) var(--ease-standard);
+}
+.navrow:hover{background:color-mix(in srgb,var(--on-surface) 8%,transparent)}
+.navrow[aria-current="page"]{background:var(--brand-container);color:var(--on-brand-container);font-weight:600}
+.navrow .count{margin-left:auto;font-family:var(--mono);font-size:.75rem;color:var(--on-surface-variant)}
+.navrow.all{margin-top:var(--sp-50);border-top:1px solid var(--outline-variant);color:var(--brand-text);font-weight:600}
+.chev{transition:transform var(--dur-short) var(--ease-standard)}
+.menu[open] .chev,.sheet-group[open] .chev{transform:rotate(180deg)}
+
+/* ---- mobile sheet ------------------------------------------------------ */
+.sheet{
+  position:fixed;inset:var(--header-h) 0 0;z-index:39;display:none;overflow-y:auto;
+  background:var(--surface-container-low);box-shadow:var(--elev-3);
+}
+.sheet.open{display:block;animation:sheet-in var(--dur-enter) var(--ease-decelerate)}
+@keyframes sheet-in{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.sheet-inner{max-width:var(--measure);margin-inline:auto;padding:var(--sp-200);display:grid;gap:var(--sp-300)}
+.sheet-group summary{list-style:none;cursor:pointer}
+.sheet-group summary::-webkit-details-marker{display:none}
+.sheet-group{border-top:1px solid var(--outline-variant);padding-top:var(--sp-100)}
+.sheet-group>ul{display:grid;gap:var(--sp-25);padding-left:var(--sp-50);margin-top:var(--sp-50)}
+@media(min-width:600px){.sheet-group>ul{grid-template-columns:1fr 1fr;column-gap:var(--sp-150)}}
+
+/* ---- page head --------------------------------------------------------
+   A different surface ROLE rather than a gradient wash: this is the tonal
+   separation M3 uses instead of a shadow or a rule. */
+.page-head{background:var(--surface-container-low);border-bottom:1px solid var(--outline-variant)}
+.page-head-inner{padding-block:var(--sp-300) var(--sp-400)}
+@media(min-width:600px){.page-head-inner{padding-block:var(--sp-300) var(--sp-500)}}
+.trail{font-size:.875rem;line-height:1.25rem;color:var(--on-surface-variant)}
+.trail ol{display:flex;flex-wrap:wrap;align-items:center;gap:var(--sp-50) var(--sp-75)}
+.trail li{display:flex;align-items:center;gap:var(--sp-75);min-width:0}
+.trail a{padding-block:var(--sp-100)}
+.trail a:hover{color:var(--on-surface);text-decoration:underline}
+.trail [aria-current]{color:var(--on-surface)}
+.trail .sep{opacity:.6;flex-shrink:0}
+@media(max-width:599px){.trail .home-label{display:none}}
+.head-main{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:var(--sp-200) var(--sp-300);margin-top:var(--sp-200)}
+.head-title{display:flex;align-items:flex-start;gap:var(--sp-200);min-width:0}
+h1.page-title{font-size:clamp(1.75rem,1.4rem+1.6vw,2rem);line-height:1.25;font-weight:700;text-wrap:balance}
+.lede{margin-top:var(--sp-150);max-width:var(--prose);color:var(--on-surface-variant);text-wrap:pretty}
+.head-meta{margin-top:var(--sp-200)}
+
+/* ---- verdict ----------------------------------------------------------- */
+.verdict{display:inline-flex;align-items:center;gap:var(--sp-100);flex-shrink:0}
+.verdict .dot{width:8px;height:8px;border-radius:var(--shape-full);background:var(--vc)}
+.verdict .word{font-family:var(--mono);font-size:.6875rem;text-transform:uppercase;letter-spacing:.1em;color:var(--vc)}
+.v-yes{--vc:var(--v-yes)} .v-almost{--vc:var(--v-almost)} .v-no{--vc:var(--v-no)}
+@keyframes pulse{0%,100%{opacity:.55}50%{opacity:1}}
+.v-yes .dot{animation:pulse 2.4s var(--ease-standard) infinite}
+
+.logo{
+  display:grid;place-items:center;flex-shrink:0;border-radius:var(--shape-sm);
+  border:1px solid var(--outline-variant);background:var(--surface-container-lowest);
+  font-weight:600;color:var(--on-surface-variant);font-family:var(--display);
+}
+
+/* Tags are metadata, not controls: no target size, no hover. */
+.tag{
+  display:inline-flex;align-items:center;gap:var(--sp-50);
+  border:1px solid var(--outline-variant);border-radius:var(--shape-xs);
+  padding:var(--sp-25) var(--sp-75);
+  font-family:var(--mono);font-size:.6875rem;line-height:1rem;
+  text-transform:uppercase;letter-spacing:.06em;color:var(--on-surface-variant);
+}
+.tag.warn{border-color:var(--v-almost);color:var(--v-almost)}
+.tag.bad{border-color:var(--v-no);color:var(--v-no)}
+.tag.good{border-color:var(--v-yes);color:var(--v-yes)}
+.tag.accent{border-color:var(--brand);color:var(--brand-text)}
+
+/* ---- hero -------------------------------------------------------------- */
+.hero{text-align:center;padding-block:var(--sp-700) var(--sp-600)}
+@media(min-width:600px){.hero{padding-block:var(--sp-900) var(--sp-800)}}
+.hero h1{
+  font-family:var(--display);font-weight:700;text-wrap:balance;
+  font-size:clamp(2.25rem,1.6rem+2.9vw,3.5625rem);line-height:1.12;letter-spacing:-.015625rem;
+}
+.cycler{display:inline-grid;color:var(--brand);vertical-align:baseline;justify-items:center}
+.cycler>span{grid-area:1/1;border-bottom:3px solid var(--brand)}
+.cycler>span[hidden]{visibility:hidden;display:block}
+.hero .lede{margin:var(--sp-300) auto 0;font-size:1.125rem;line-height:1.75rem;max-width:60ch}
+.hero-ctas{margin-top:var(--sp-500);display:flex;flex-wrap:wrap;gap:var(--sp-150);justify-content:center}
+.statstrip{
+  margin:var(--sp-600) auto 0;max-width:44rem;display:grid;
+  grid-template-columns:repeat(2,1fr);gap:1px;
+  background:var(--outline-variant);border:1px solid var(--outline-variant);
+  border-radius:var(--shape-md);overflow:hidden;
+}
+@media(min-width:600px){.statstrip{grid-template-columns:repeat(4,1fr)}}
+.statstrip>div{background:var(--surface);padding:var(--sp-200) var(--sp-150)}
+.statstrip dd{margin:0;font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:1.75rem;line-height:2.25rem;font-weight:700}
+.statstrip dt{margin-top:var(--sp-50);font-size:.6875rem;text-transform:uppercase;letter-spacing:.1em;color:var(--on-surface-variant)}
+
+/* ---- sponsor wall ------------------------------------------------------ */
+.wall{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:1px;
+  background:var(--outline-variant);border:1px solid var(--outline-variant);
+  border-radius:var(--shape-md);overflow:hidden;
+}
+@media(min-width:600px){.wall{grid-template-columns:repeat(5,1fr)}}
+.wall a{
+  position:relative;display:flex;min-height:72px;align-items:center;justify-content:center;
+  gap:var(--sp-100);background:var(--surface);padding:var(--sp-200) var(--sp-150);
+  text-align:center;font-size:.875rem;
+}
+.wall .open{color:var(--on-surface-variant)}
+.wall .badge{
+  position:absolute;right:var(--sp-100);bottom:var(--sp-75);
+  font-family:var(--mono);font-size:.5625rem;text-transform:uppercase;
+  letter-spacing:.16em;color:var(--on-surface-variant);
+}
+.wall .slotbox{
+  display:grid;place-items:center;width:26px;height:26px;border-radius:var(--shape-sm);
+  border:1px dashed var(--brand);color:var(--brand);flex-shrink:0;
+}
+
+/* ---- sticky filter bar ------------------------------------------------- */
+.filterbar{
+  position:sticky;top:var(--header-h);z-index:30;
+  margin-inline:calc(var(--margin) * -1);
+  padding:var(--sp-150) var(--margin);
+  background:var(--surface);border-bottom:1px solid var(--outline-variant);
+}
+.filterbar-desktop{display:none;grid-template-columns:repeat(6,minmax(0,1fr));gap:var(--sp-100)}
+@media(min-width:1024px){.filterbar-desktop{display:grid}.filterbar-mobile{display:none}}
+.filterbar-desktop>.field{grid-column:1/-1}
+.filterbar-desktop>label{min-width:0}
+.filterbar-desktop select.field{width:100%;grid-column:auto}
+
+/* ---- product row ------------------------------------------------------- */
+.prod{display:flex;align-items:flex-start;gap:var(--sp-150);padding:var(--sp-200)}
+.prod .name{font-family:var(--display);font-size:1rem;line-height:1.5rem;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.prod .price{font-family:var(--mono);font-size:.875rem;color:var(--on-surface-variant);flex-shrink:0}
+.prod-body{min-width:0;flex:1}
+.prod-line{display:flex;align-items:baseline;justify-content:space-between;gap:var(--sp-100)}
+
+/* ---- section ----------------------------------------------------------- */
+.section{margin-top:var(--sp-500)}
+.section-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:var(--sp-50) var(--sp-200);margin-bottom:var(--sp-150)}
+.section-head h2{font-family:var(--display);font-size:1.375rem;line-height:1.75rem;font-weight:600}
+.section-head .count{margin-left:var(--sp-100);font-family:var(--mono);font-size:.875rem;color:var(--on-surface-variant);font-weight:400}
+.link-more{color:var(--brand-text);font-size:.875rem;font-weight:500;padding-block:var(--sp-100)}
+.link-more:hover{text-decoration:underline}
+
+/* ---- pager ------------------------------------------------------------- */
+.pager{margin-top:var(--sp-500);display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:var(--sp-75)}
+.pager .step,.pager .num{
+  display:inline-flex;align-items:center;justify-content:center;gap:var(--sp-50);
+  min-height:40px;min-width:40px;padding-inline:var(--sp-150);
+  border:1px solid var(--outline-variant);border-radius:var(--shape-full);
+  font-size:.875rem;font-weight:500;
+  transition:border-color var(--dur-short) var(--ease-standard);
+}
+.pager .num{font-family:var(--mono)}
+.pager .step:hover,.pager .num:hover{border-color:var(--brand)}
+.pager [aria-current]{background:var(--brand-container);color:var(--on-brand-container);border-color:transparent}
+.pager .off{opacity:.38}
+.pagecount{margin-top:var(--sp-150);text-align:center;font-family:var(--mono);font-size:.75rem;color:var(--on-surface-variant)}
+
+/* ---- product detail ---------------------------------------------------- */
+.detail{display:grid;gap:var(--sp-500)}
+@media(min-width:1024px){.detail{grid-template-columns:minmax(0,1fr) 20rem;gap:var(--sp-600)}}
+.detail aside{display:grid;gap:var(--sp-200);align-content:start}
+@media(min-width:1024px){.detail aside{position:sticky;top:calc(var(--header-h) + var(--sp-300))}}
+/* The argument is the one place on the site that is pure reading. */
+.why{font-size:1.125rem;line-height:1.75rem;max-width:62ch;text-wrap:pretty}
+
+.alt{border:1px solid var(--outline-variant);border-radius:var(--shape-md);background:var(--surface);padding:var(--sp-200);height:100%}
+.alt.archived{border-color:var(--v-no)}
+.alt-head{display:flex;align-items:center;gap:var(--sp-150)}
+.alt-head .n{flex:1;min-width:0;font-family:var(--display);font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.alt-head .n:hover{text-decoration:underline}
+.alt .note{margin-top:var(--sp-100);font-size:.875rem;line-height:1.25rem;color:var(--on-surface-variant)}
+.alt .tags{margin-top:var(--sp-150);display:flex;flex-wrap:wrap;gap:var(--sp-75)}
+
+.callout{border-radius:var(--shape-md);padding:var(--sp-200);font-size:.875rem;line-height:1.25rem}
+.callout.bad{background:var(--v-no-container);color:var(--on-surface)}
+
+/* ---- category stats ---------------------------------------------------- */
+.figures{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--sp-200)}
+@media(min-width:600px){.figures{grid-template-columns:repeat(4,1fr)}}
+.figures dd{margin:0;font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:1.375rem;line-height:1.75rem;font-weight:700}
+.figures dt{margin-top:var(--sp-25);font-size:.6875rem;text-transform:uppercase;letter-spacing:.1em;color:var(--on-surface-variant)}
+.ladder{display:flex;height:10px;border-radius:var(--shape-full);overflow:hidden;background:var(--outline-variant)}
+.ladder span{display:block}
+.ladder-legend{margin-top:var(--sp-100);display:flex;flex-wrap:wrap;gap:var(--sp-75) var(--sp-200);font-size:.75rem;color:var(--on-surface-variant)}
+.ladder-legend i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:var(--sp-75)}
+.cat-row-grid{display:grid;gap:var(--sp-150);align-items:center}
+@media(min-width:600px){.cat-row-grid{grid-template-columns:1fr auto}}
+
+/* ---- features matrix --------------------------------------------------- */
+.matrix-scroll{overflow-x:auto;border:1px solid var(--outline-variant);border-radius:var(--shape-md);background:var(--surface)}
+table.matrix{border-collapse:collapse;width:100%;font-size:.875rem;min-width:640px}
+table.matrix th,table.matrix td{padding:var(--sp-150) var(--sp-200);text-align:left;border-bottom:1px solid var(--outline-variant);white-space:nowrap}
+table.matrix thead th{
+  position:sticky;top:0;background:var(--surface-container);z-index:1;font-weight:500;
+  font-family:var(--mono);font-size:.6875rem;text-transform:uppercase;letter-spacing:.1em;color:var(--on-surface-variant);
+}
+table.matrix tbody tr:last-child td{border-bottom:0}
+table.matrix tbody tr:hover{background:color-mix(in srgb,var(--on-surface) 8%,transparent)}
+table.matrix th[scope=row]{font-weight:500;position:sticky;left:0;background:var(--surface)}
+.mark-yes{color:var(--v-yes);font-weight:600}
+.mark-paid{color:var(--v-almost);font-weight:600}
+.mark-no{color:var(--v-no)}
+.mark-unknown{color:var(--on-surface-variant)}
+
+/* ---- footer ------------------------------------------------------------ */
+.site-footer{margin-top:auto;background:var(--surface-container)}
+.footer-inner{padding-block:var(--sp-800)}
+.policy{max-width:62ch;border-left:3px solid var(--brand);padding-left:var(--sp-250);font-size:1.125rem;line-height:1.75rem;font-weight:500;text-wrap:pretty}
+.footer-cols{margin-top:var(--sp-600);display:grid;grid-template-columns:repeat(2,1fr);gap:var(--sp-500) var(--sp-300)}
+@media(min-width:600px){.footer-cols{grid-template-columns:repeat(4,1fr)}}
+@media(min-width:1024px){.footer-cols{grid-template-columns:repeat(5,1fr)}}
+.footer-cols h2{font-family:var(--mono);font-size:.6875rem;text-transform:uppercase;letter-spacing:.1em;color:var(--on-surface);font-weight:400}
+.footer-cols ul{margin-top:var(--sp-150);display:grid;gap:var(--sp-25);font-size:.875rem}
+.footer-cols a{display:inline-flex;align-items:center;min-height:40px;color:var(--on-surface-variant);transition:color var(--dur-short) var(--ease-standard)}
+.footer-cols a:hover{color:var(--on-surface);text-decoration:underline}
+.footer-base{margin-top:var(--sp-600);padding-top:var(--sp-300);border-top:1px solid var(--outline-variant);display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--sp-100);font-size:.75rem;color:var(--on-surface-variant)}
+
+/* The prototype banner. Not part of the design — it says what this file is. */
+.proto-banner{background:var(--inverse-surface);color:var(--inverse-on-surface);font-size:.75rem;padding:var(--sp-75) var(--sp-200);text-align:center;font-family:var(--mono)}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+
+</style>
+</head>
+<body>
+
+<div class="proto-banner">
+  UI/UX prototype — mock data, every page and menu is live. Use the header to navigate, <b>◐</b> to switch theme, <b>FR</b> to switch language.
+</div>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="wordmark" href="#/en/" data-nav>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <rect x="2" y="2" width="20" height="20" rx="5" stroke="var(--brand)" stroke-width="2"/>
+        <path d="M8 15V9m0 0h4a3 3 0 010 6H8m8-6v6" stroke="var(--brand)" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span>can<span class="i">i</span><span class="replace">replace</span>it</span>
+    </a>
+
+    <nav class="mainnav" id="mainnav" aria-label="Main"></nav>
+
+    <div class="actions">
+      <a class="account" href="#/en/signin" data-nav>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0116 0"/></svg>
+        <span id="account-label">Sign in</span>
+      </a>
+      <button class="icon-btn wide" id="lang-toggle" aria-label="Language">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18a15 15 0 010-18"/></svg>
+        <span id="lang-label">FR</span>
+      </button>
+      <button class="icon-btn" id="theme-toggle" aria-label="Switch theme">
+        <span id="theme-icon">◐</span>
+      </button>
+      <button class="icon-btn burger" id="burger" aria-label="Menu" aria-expanded="false">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="sheet" id="sheet"><div class="sheet-inner" id="sheet-inner"></div></div>
+</header>
+
+<main id="app"></main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p class="policy" id="footer-policy"></p>
+    <div class="footer-cols" id="footer-cols"></div>
+    <div class="footer-base">
+      <p>canireplaceit — <span id="footer-tagline"></span></p>
+      <p>Made with ♥ by <a href="#/en/" data-nav style="color:var(--brand)">@hadesdevs</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* =========================================================================
+   1. MOCK DATA
+   Small, but shaped exactly like the real payloads so the layouts are
+   exercised honestly: null prices, unchecked facts, archived repos, a
+   category with two entries, a verdict of every kind.
+   ========================================================================= */
+
+const CATEGORIES = [
+  {slug:"notes",     name:{en:"Notes & wikis",       fr:"Notes & wikis"},        group:"work",  icon:"book",   products:9,  projects:22, median:"$10/mo", cheapest:"AppFlowy", ladder:[45,30,15,10]},
+  {slug:"design",    name:{en:"Design & prototyping",fr:"Design & prototypage"}, group:"creative",icon:"pen",  products:6,  projects:11, median:"$15/mo", cheapest:"Penpot",   ladder:[30,25,25,20]},
+  {slug:"chat",      name:{en:"Team chat",           fr:"Messagerie d’équipe"},  group:"work",  icon:"chat",   products:5,  projects:9,  median:"$8/mo",  cheapest:"Mattermost",ladder:[50,20,20,10]},
+  {slug:"monitoring",name:{en:"Monitoring",          fr:"Supervision"},          group:"infra", icon:"pulse",  products:8,  projects:19, median:"$70/mo", cheapest:"Grafana",  ladder:[20,20,35,25]},
+  {slug:"crm",       name:{en:"CRM & sales",         fr:"CRM & ventes"},         group:"biz",   icon:"users",  products:7,  projects:12, median:"$25/mo", cheapest:"Twenty",   ladder:[55,25,15,5]},
+  {slug:"support",   name:{en:"Customer support",    fr:"Support client"},       group:"biz",   icon:"life",   products:4,  projects:7,  median:"$49/mo", cheapest:"Chatwoot", ladder:[40,25,25,10]},
+  {slug:"apitools",  name:{en:"API tooling",         fr:"Outils API"},           group:"dev",   icon:"code",   products:5,  projects:10, median:"$12/mo", cheapest:"Bruno",    ladder:[25,20,25,30]},
+  {slug:"scheduling",name:{en:"Scheduling",          fr:"Prise de rendez-vous"}, group:"biz",   icon:"cal",    products:2,  projects:4,  median:"$12/mo", cheapest:"Cal.com",  ladder:[20,20,25,35]},
+  {slug:"storage",   name:{en:"Files & storage",     fr:"Fichiers & stockage"},  group:"infra", icon:"box",    products:6,  projects:14, median:"$6/mo",  cheapest:"Nextcloud",ladder:[35,30,20,15]},
+  {slug:"analytics", name:{en:"Product analytics",   fr:"Analytique produit"},   group:"dev",   icon:"chart",  products:5,  projects:13, median:"$40/mo", cheapest:"Plausible",ladder:[30,25,25,20]},
+];
+
+const GROUPS = [
+  {key:"work",     en:"Work & collaboration", fr:"Travail & collaboration"},
+  {key:"dev",      en:"Building software",    fr:"Développement"},
+  {key:"biz",      en:"Running a business",   fr:"Gérer une entreprise"},
+  {key:"infra",    en:"Infrastructure",       fr:"Infrastructure"},
+  {key:"creative", en:"Creative work",        fr:"Création"},
+];
+
+const PRODUCTS = [
+  {slug:"notion",   name:"Notion",   cat:"notes",     price:10,  verdict:"yes",     switched:34,
+   why:"Notion's paid tiers buy you a database-backed wiki, a permissions model and a block editor other people will actually use. Two open source projects clear that bar today, and one of them imports your export without a script.",
+   lose:["Real-time multiplayer cursors","The mobile app's offline cache","AI writing assistant"],
+   alts:[
+     {name:"AppFlowy",   kind:"oss", licence:"AGPL-3.0", effort:"Docker",    note:"Closest block editor to Notion's, and it reads a Notion export directly.", facts:["Self-hostable","SSO in free tier"], grade:"good"},
+     {name:"Outline",    kind:"oss", licence:"BSL-1.1",  effort:"Docker",    note:"Wiki-first rather than database-first. Excellent search, weaker as a table.", facts:["Self-hostable"], grade:"warn", paywalled:"SSO is enterprise-only"},
+     {name:"Anytype",    kind:"oss", licence:"MIT",      effort:"Desktop",   note:"Local-first and end-to-end encrypted. Sync is their hosted relay by default.", facts:["EU data residency"], grade:"good"},
+     {name:"Obsidian",   kind:"cheaper", price:0, note:"Free for personal use; sync is paid. Plain markdown files you keep."}
+   ]},
+  {slug:"figma",    name:"Figma",    cat:"design",    price:15,  verdict:"almost",  switched:12,
+   why:"Penpot has closed most of the gap on vector editing and now speaks the same design-token vocabulary. Where it is still behind is the plugin ecosystem and the handoff tooling a large front-end team leans on daily.",
+   lose:["The plugin marketplace","Dev Mode annotations","FigJam"],
+   alts:[
+     {name:"Penpot",     kind:"oss", licence:"MPL-2.0",  effort:"Docker",  note:"The only real one. SVG-native, so the files are readable without Penpot.", facts:["Self-hostable","SSO in free tier"], grade:"good"},
+     {name:"Excalidraw", kind:"oss", licence:"MIT",      effort:"Docker",  note:"Replaces FigJam, not Figma. Worth naming because half of Figma's use is whiteboarding.", facts:["Self-hostable"], grade:"good"}
+   ]},
+  {slug:"slack",    name:"Slack",    cat:"chat",      price:8,   verdict:"yes",     switched:41,
+   why:"Mattermost matches Slack feature for feature on everything a team notices in a week, and its free self-hosted tier includes the SSO Slack charges per seat for.",
+   lose:["Slack Connect with other companies","The app directory's long tail","Huddles"],
+   alts:[
+     {name:"Mattermost", kind:"oss", licence:"MIT + BSL", effort:"Docker",  note:"Open core: the free edition is genuinely usable, compliance features are paid.", facts:["Self-hostable","SSO in free tier","EU data residency"], grade:"warn", paywalled:"Compliance export and AD/LDAP groups"},
+     {name:"Zulip",      kind:"oss", licence:"Apache-2.0",effort:"Docker",  note:"Threading model is better than Slack's, and it is fully open — no paid edition.", facts:["Self-hostable","SSO in free tier"], grade:"good"},
+     {name:"Rocket.Chat",kind:"oss", licence:"MIT",       effort:"Docker",  note:"Broadest protocol support. Heavier to run than the other two.", facts:["Self-hostable"], grade:"good"}
+   ]},
+  {slug:"datadog",  name:"Datadog",  cat:"monitoring",price:70,  verdict:"not-yet", switched:3,
+   why:"The metrics half is solved — Grafana plus Prometheus is the industry default. What is not solved is the correlated traces, logs and profiles in one pane that Datadog charges for, unless you are prepared to operate four systems yourself.",
+   lose:["Correlated APM across traces, logs and profiles","Managed agents on 700 integrations","On-call routing"],
+   alts:[
+     {name:"Grafana",    kind:"oss", licence:"AGPL-3.0", effort:"Docker",   note:"Dashboards and alerting. The rest of the stack is separate projects you also run.", facts:["Self-hostable"], grade:"warn", paywalled:"Reporting, RBAC and OAuth are Enterprise"},
+     {name:"SigNoz",     kind:"oss", licence:"MIT",      effort:"Kubernetes",note:"Single binary aiming at exactly this gap. Young, and the storage tier is opinionated.", facts:["Self-hostable"], grade:"good"},
+     {name:"Netdata",    kind:"oss", licence:"GPL-3.0",  effort:"Package",  note:"Best per-host visibility of anything here, no long-term storage story.", facts:["Self-hostable"], grade:"good", archived:false}
+   ]},
+  {slug:"airtable", name:"Airtable", cat:"notes",     price:20,  verdict:"almost",  switched:18,
+   why:"NocoDB and Baserow both give you a spreadsheet over a real Postgres table, which is the part that matters. The automations and the app-builder layer on top are where Airtable still earns the bill.",
+   lose:["Interface Designer","The automation marketplace","Sync from external sources"],
+   alts:[
+     {name:"NocoDB",     kind:"oss", licence:"AGPL-3.0", effort:"Docker",  note:"Points at a database you already have, which no hosted product will do.", facts:["Self-hostable","SSO in free tier"], grade:"warn", paywalled:"SSO and audit logs are paid"},
+     {name:"Baserow",    kind:"oss", licence:"MIT",      effort:"Docker",  note:"Nicer editor, brings its own database. Premium tier holds the good views.", facts:["Self-hostable"], grade:"warn", paywalled:"Kanban and calendar views"}
+   ]},
+  {slug:"zendesk",  name:"Zendesk",  cat:"support",   price:55,  verdict:"yes",     switched:22,
+   why:"Chatwoot covers shared inbox, live chat and a help centre, which is what a team under fifty agents actually uses Zendesk for. The gap opens only at the reporting and workflow-automation end.",
+   lose:["Advanced SLA routing","The marketplace of CRM connectors"],
+   alts:[
+     {name:"Chatwoot",   kind:"oss", licence:"MIT",      effort:"Docker",  note:"Shared inbox, live chat, help centre. The obvious first move.", facts:["Self-hostable","EU data residency"], grade:"good"},
+     {name:"Zammad",     kind:"oss", licence:"AGPL-3.0", effort:"Docker",  note:"Ticket-first and much stricter about audit trails.", facts:["Self-hostable","SSO in free tier"], grade:"good"},
+     {name:"FreeScout",  kind:"oss", licence:"AGPL-3.0", effort:"Package", note:"PHP, runs on shared hosting. Modules are paid one-offs.", facts:["Self-hostable"], grade:"warn", paywalled:"Most modules"}
+   ]},
+  {slug:"postman",  name:"Postman",  cat:"apitools",  price:14,  verdict:"yes",     switched:29,
+   why:"Bruno keeps collections as files in your repo, which removes the reason most teams pay Postman in the first place: a shared collection that is not a hosted document.",
+   lose:["Cloud-hosted mock servers","The public API network"],
+   alts:[
+     {name:"Bruno",      kind:"oss", licence:"MIT",      effort:"Desktop", note:"Collections are plain files in git. No account, no sync service.", facts:["Self-hostable"], grade:"good"},
+     {name:"Hoppscotch", kind:"oss", licence:"MIT",      effort:"Docker",  note:"Browser-first. Self-host it and the whole team shares one instance.", facts:["Self-hostable","SSO in free tier"], grade:"good"}
+   ]},
+  {slug:"calendly", name:"Calendly", cat:"scheduling",price:12,  verdict:"yes",     switched:31,
+   why:"Cal.com is a straight replacement and has been for two years. Self-hosting it is a Docker command and a database URL.",
+   lose:["Some CRM integrations on the paid tiers"],
+   alts:[
+     {name:"Cal.com",    kind:"oss", licence:"AGPL-3.0", effort:"Docker",  note:"Feature-complete against Calendly's paid tier, including round-robin.", facts:["Self-hostable","SSO in free tier","EU data residency"], grade:"good"},
+     {name:"Easy!Appointments",kind:"oss",licence:"GPL-3.0",effort:"Package",note:"Much smaller scope. Fine for a single calendar.", facts:["Self-hostable"], grade:"good"}
+   ]},
+  {slug:"mixpanel", name:"Mixpanel", cat:"analytics", price:36,  verdict:"almost",  switched:9,
+   why:"PostHog does everything Mixpanel does and hosts itself, but the self-hosted edition is now explicitly not the supported path, which changes what you are signing up to operate.",
+   lose:["Managed scaling past a few million events","Their support"],
+   alts:[
+     {name:"PostHog",    kind:"oss", licence:"MIT",      effort:"Kubernetes",note:"Product analytics, replay and flags in one. Self-hosting is community-supported.", facts:["Self-hostable"], grade:"warn", paywalled:"Most of the platform features on cloud"},
+     {name:"Plausible",  kind:"oss", licence:"AGPL-3.0", effort:"Docker",   note:"Not a Mixpanel replacement — pageviews, not funnels. Named because most teams need less than they bought.", facts:["Self-hostable","EU data residency"], grade:"good"}
+   ]},
+  {slug:"dropbox",  name:"Dropbox",  cat:"storage",   price:12,  verdict:"yes",     switched:26,
+   why:"Nextcloud replaces the sync, the sharing and the file-comment workflow. It also brings a lot of software you did not ask for, which is the real cost.",
+   lose:["Their sync client's block-level transfer speed"],
+   alts:[
+     {name:"Nextcloud",  kind:"oss", licence:"AGPL-3.0", effort:"Docker",  note:"Everything Dropbox does, and forty apps you will turn off.", facts:["Self-hostable","SSO in free tier","EU data residency"], grade:"good"},
+     {name:"Seafile",    kind:"oss", licence:"GPL/Custom",effort:"Docker", note:"Faster and narrower. The pro edition holds the features enterprises ask for.", facts:["Self-hostable"], grade:"warn", paywalled:"Full-text search, audit log"}
+   ]},
+  {slug:"jira",     name:"Jira",     cat:"notes",     price:8,   verdict:"almost",  switched:14,
+   why:"Plane and OpenProject both handle the issue tracking. Neither has anything like Jira's automation and permission scheme, which is precisely what large organisations bought.",
+   lose:["Automation rules","Cross-project permission schemes","Marketplace apps"],
+   alts:[
+     {name:"Plane",      kind:"oss", licence:"AGPL-3.0", effort:"Docker",  note:"Modern and fast. Still filling in the permissions model.", facts:["Self-hostable"], grade:"warn", paywalled:"SSO in the paid tier"},
+     {name:"OpenProject",kind:"oss", licence:"GPL-3.0",  effort:"Docker",  note:"Heavier and much more complete on planning. Enterprise edition holds the reporting.", facts:["Self-hostable","SSO in free tier"], grade:"warn", paywalled:"Boards, reporting, 2FA policy"}
+   ]},
+  {slug:"segment",  name:"Segment",  cat:"analytics", price:120, verdict:"not-yet", switched:1,
+   why:"Jitsu and RudderStack both move events. What neither replaces is the identity resolution and the 300 maintained destinations, and rebuilding those is a team, not a weekend.",
+   lose:["Maintained destinations","Identity resolution","Their compliance paperwork"],
+   alts:[
+     {name:"RudderStack",kind:"oss", licence:"Elastic-2.0",effort:"Kubernetes",note:"Source-available, not open source. Read the licence before you plan around it.", facts:["Self-hostable"], grade:"bad", paywalled:"Transformations and most destinations"},
+     {name:"Jitsu",      kind:"oss", licence:"MIT",       effort:"Docker",  note:"Genuinely open, much smaller destination catalogue.", facts:["Self-hostable"], grade:"good"}
+   ]},
+  {slug:"pagerduty",name:"PagerDuty",cat:"monitoring",price:21,  verdict:"almost",  switched:6,
+   why:"Grafana OnCall covers schedules and escalation. What it does not cover is the incident-command tooling and the postmortem workflow the enterprise tier is really sold on.",
+   lose:["Incident command tooling","Status page","The mobile app's reliability record"],
+   alts:[
+     {name:"Grafana OnCall",kind:"oss",licence:"AGPL-3.0",effort:"Docker", note:"Schedules, escalation and paging. Now in maintenance mode upstream.", facts:["Self-hostable"], grade:"warn", archived:true},
+     {name:"Keep",       kind:"oss", licence:"MIT",       effort:"Docker",  note:"Newer, aims at alert correlation more than paging.", facts:["Self-hostable"], grade:"good"}
+   ]},
+  {slug:"looker",   name:"Looker",   cat:"analytics", price:200, verdict:"not-yet", switched:0,
+   why:"Metabase and Superset both make charts. Looker's product is the semantic layer and the governance around it, and no open project has shipped an equivalent that survives a hundred analysts.",
+   lose:["LookML's governed semantic layer","Embedded analytics licensing"],
+   alts:[
+     {name:"Metabase",   kind:"oss", licence:"AGPL-3.0", effort:"Docker",  note:"Easiest to put in front of non-analysts. Open core.", facts:["Self-hostable"], grade:"warn", paywalled:"SSO, sandboxing, serialization"},
+     {name:"Superset",   kind:"oss", licence:"Apache-2.0",effort:"Kubernetes",note:"Fully open and much harder to operate.", facts:["Self-hostable","SSO in free tier"], grade:"good"}
+   ]},
+];
+
+const PROJECTS = [
+  {slug:"appflowy",  name:"AppFlowy",   licence:"AGPL-3.0",  effort:"Docker", openness:"fully-open",   host:"github.com", path:"AppFlowy-IO/AppFlowy", lang:"Rust",       compose:true,  replaces:["notion"], facts:["Self-hostable","SSO in free tier"]},
+  {slug:"penpot",    name:"Penpot",     licence:"MPL-2.0",   effort:"Docker", openness:"fully-open",   host:"github.com", path:"penpot/penpot",        lang:"Clojure",    compose:true,  replaces:["figma"], facts:["Self-hostable","SSO in free tier"]},
+  {slug:"mattermost",name:"Mattermost", licence:"MIT + BSL", effort:"Docker", openness:"open-core",    host:"github.com", path:"mattermost/mattermost",lang:"Go",         compose:true,  replaces:["slack"], facts:["Self-hostable","SSO in free tier","EU data residency"]},
+  {slug:"grafana",   name:"Grafana",    licence:"AGPL-3.0",  effort:"Docker", openness:"open-core",    host:"github.com", path:"grafana/grafana",      lang:"TypeScript", compose:true,  replaces:["datadog","pagerduty"], facts:["Self-hostable"]},
+  {slug:"nocodb",    name:"NocoDB",     licence:"AGPL-3.0",  effort:"Docker", openness:"open-core",    host:"github.com", path:"nocodb/nocodb",        lang:"TypeScript", compose:true,  replaces:["airtable"], facts:["Self-hostable","SSO in free tier"]},
+  {slug:"chatwoot",  name:"Chatwoot",   licence:"MIT",       effort:"Docker", openness:"fully-open",   host:"github.com", path:"chatwoot/chatwoot",    lang:"Ruby",       compose:true,  replaces:["zendesk"], facts:["Self-hostable","EU data residency"]},
+  {slug:"bruno",     name:"Bruno",      licence:"MIT",       effort:"Desktop",openness:"fully-open",   host:"github.com", path:"usebruno/bruno",       lang:"JavaScript", compose:false, replaces:["postman"], facts:["Self-hostable"]},
+  {slug:"calcom",    name:"Cal.com",    licence:"AGPL-3.0",  effort:"Docker", openness:"mostly-open",  host:"github.com", path:"calcom/cal.com",       lang:"TypeScript", compose:true,  replaces:["calendly"], facts:["Self-hostable","SSO in free tier","EU data residency"]},
+  {slug:"posthog",   name:"PostHog",    licence:"MIT",       effort:"Kubernetes",openness:"open-core", host:"github.com", path:"PostHog/posthog",      lang:"Python",     compose:true,  replaces:["mixpanel"], facts:["Self-hostable"]},
+  {slug:"nextcloud", name:"Nextcloud",  licence:"AGPL-3.0",  effort:"Docker", openness:"fully-open",   host:"github.com", path:"nextcloud/server",     lang:"PHP",        compose:true,  replaces:["dropbox"], facts:["Self-hostable","SSO in free tier","EU data residency"]},
+  {slug:"rudderstack",name:"RudderStack",licence:"Elastic-2.0",effort:"Kubernetes",openness:"source-available",host:"github.com",path:"rudderlabs/rudder-server",lang:"Go",compose:true,replaces:["segment"], facts:["Self-hostable"]},
+  {slug:"oncall",    name:"Grafana OnCall",licence:"AGPL-3.0",effort:"Docker",openness:"fully-open",  host:"github.com", path:"grafana/oncall",       lang:"Python",     compose:true,  archived:true, replaces:["pagerduty"], facts:["Self-hostable"]},
+  {slug:"metabase",  name:"Metabase",   licence:"AGPL-3.0",  effort:"Docker", openness:"open-core",    host:"github.com", path:"metabase/metabase",    lang:"Clojure",    compose:true,  replaces:["looker"], facts:["Self-hostable"]},
+  {slug:"zulip",     name:"Zulip",      licence:"Apache-2.0",effort:"Docker", openness:"fully-open",   host:"github.com", path:"zulip/zulip",          lang:"Python",     compose:true,  replaces:["slack"], facts:["Self-hostable","SSO in free tier"]},
+  {slug:"plane",     name:"Plane",      licence:"AGPL-3.0",  effort:"Docker", openness:"open-core",    host:"github.com", path:"makeplane/plane",      lang:"TypeScript", compose:true,  replaces:["jira"], facts:["Self-hostable"]},
+  {slug:"outline",   name:"Outline",    licence:"BSL-1.1",   effort:"Docker", openness:"source-available",host:"github.com",path:"outline/outline",    lang:"TypeScript", compose:true,  replaces:["notion"], facts:["Self-hostable"]},
+];
+
+const COLLECTIONS = [
+  {slug:"self-hostable", of:"product", count:47, en:{t:"Runs on your own server",  b:"Products with at least one alternative you can host yourself, start to finish.",  d:"Membership: any product whose alternatives include one marked self-hostable."}, fr:{t:"Hébergeable chez vous", b:"Produits ayant au moins une alternative que vous pouvez héberger vous-même.", d:"Appartenance : tout produit dont une alternative est marquée auto-hébergeable."}},
+  {slug:"open-source",   of:"project", count:132,en:{t:"Genuinely open source",    b:"Projects under an OSI-approved licence, with nothing held back for a paid tier.", d:"Membership: licence is OSI-approved and the open-core grade is 'nothing withheld'."}, fr:{t:"Vraiment open source", b:"Projets sous licence approuvée OSI, sans rien réservé à une offre payante.", d:"Appartenance : licence approuvée OSI et rien de retenu."}},
+  {slug:"foss",          of:"project", count:74, en:{t:"Free software, strictly",  b:"Copyleft licences only — GPL, AGPL, MPL. No permissive relicensing downstream.", d:"Membership: licence is a copyleft one."}, fr:{t:"Logiciel libre, strictement", b:"Licences copyleft uniquement — GPL, AGPL, MPL.", d:"Appartenance : la licence est copyleft."}},
+  {slug:"open-core",     of:"project", count:38, en:{t:"Open core",               b:"Open source, with named features kept for a paid edition. Each one says which.", d:"Membership: the open-core grade is 'features withheld', and the withheld list is non-empty."}, fr:{t:"Open core", b:"Open source, avec des fonctions réservées à une édition payante.", d:"Appartenance : des fonctionnalités sont retenues, et la liste est non vide."}},
+  {slug:"source-available",of:"project",count:11,en:{t:"Source available",         b:"You can read it. You cannot necessarily run it in production or fork it.",       d:"Membership: licence is not OSI-approved but the source is published."}, fr:{t:"Source disponible", b:"Vous pouvez le lire. Pas forcément l’exécuter en production.", d:"Appartenance : licence non approuvée OSI mais source publiée."}},
+  {slug:"cheaper",       of:"product", count:19, en:{t:"Just cheaper",            b:"Not open source — simply a paid product that costs materially less for the same job.", d:"Membership: has an alternative of kind 'cheaper'."}, fr:{t:"Simplement moins cher", b:"Pas open source — un produit payant nettement moins cher.", d:"Appartenance : possède une alternative de type « moins cher »."}},
+];
+
+const SPONSORS = [
+  {id:"H1", name:"Cloudsmith",  sold:true}, {id:"H2", name:"Fly.io",   sold:true},
+  {id:"H3", name:"Hetzner",     sold:true}, {id:"H4", name:null},
+  {id:"H5", name:"Coolify",     sold:true}, {id:"H6", name:null},
+  {id:"H7", name:"Railway",     sold:true}, {id:"H8", name:null},
+  {id:"H9", name:null},                     {id:"H10",name:null},
+];
+
+const FEATURES = {
+  domains:[
+    {key:"core",  en:"Core",       fr:"Cœur",     features:[{k:"realtime",en:"Real-time editing",fr:"Édition temps réel"},{k:"offline",en:"Offline mode",fr:"Mode hors ligne"},{k:"search",en:"Full-text search",fr:"Recherche plein texte"}]},
+    {key:"admin", en:"Admin",      fr:"Admin",    features:[{k:"sso",en:"SSO / SAML",fr:"SSO / SAML"},{k:"audit",en:"Audit log",fr:"Journal d’audit"},{k:"rbac",en:"Roles & permissions",fr:"Rôles & permissions"}]},
+    {key:"ops",   en:"Operations", fr:"Exploitation",features:[{k:"compose",en:"docker-compose",fr:"docker-compose"},{k:"backup",en:"Built-in backup",fr:"Sauvegarde intégrée"},{k:"api",en:"Public API",fr:"API publique"}]},
+  ],
+  // yes | paid | no | unknown
+  values:{
+    appflowy:  {realtime:"yes",offline:"yes",search:"yes",sso:"yes",audit:"unknown",rbac:"yes",compose:"yes",backup:"no",api:"yes"},
+    outline:   {realtime:"yes",offline:"no", search:"yes",sso:"paid",audit:"paid",  rbac:"yes",compose:"yes",backup:"no",api:"yes"},
+    mattermost:{realtime:"yes",offline:"yes",search:"yes",sso:"yes",audit:"paid",   rbac:"yes",compose:"yes",backup:"paid",api:"yes"},
+    zulip:     {realtime:"yes",offline:"yes",search:"yes",sso:"yes",audit:"yes",    rbac:"yes",compose:"yes",backup:"yes",api:"yes"},
+    penpot:    {realtime:"yes",offline:"no", search:"yes",sso:"yes",audit:"unknown",rbac:"yes",compose:"yes",backup:"no",api:"unknown"},
+    nocodb:    {realtime:"yes",offline:"no", search:"yes",sso:"paid",audit:"paid",  rbac:"yes",compose:"yes",backup:"no",api:"yes"},
+    chatwoot:  {realtime:"yes",offline:"no", search:"yes",sso:"yes",audit:"unknown",rbac:"yes",compose:"yes",backup:"no",api:"yes"},
+    calcom:    {realtime:"no", offline:"no", search:"yes",sso:"yes",audit:"paid",   rbac:"yes",compose:"yes",backup:"no",api:"yes"},
+    metabase:  {realtime:"no", offline:"no", search:"yes",sso:"paid",audit:"paid",  rbac:"paid",compose:"yes",backup:"no",api:"yes"},
+    nextcloud: {realtime:"yes",offline:"yes",search:"yes",sso:"yes",audit:"yes",    rbac:"yes",compose:"yes",backup:"yes",api:"yes"},
+  }
+};
+
+/* =========================================================================
+   2. COPY — two locales, so the language switch is a real switch and not a
+   decoration. Only the chrome is translated here; the catalogue copy stays
+   English, exactly as a half-translated dataset would behave.
+   ========================================================================= */
+
+const T = {
+  en:{
+    list:"The list", alternatives:"Alternatives", features:"Features", categories:"Categories",
+    collections:"Collections", stats:"Traffic", submit:"Submit", sponsor:"Sponsor", signin:"Sign in",
+    home:"All products", allCategories:"All categories", allCollections:"All collections",
+    allProjects:"All open source projects", menu:"Menu",
+    heroTitle:"Can I replace", heroBlurb:"Every paid tool we have reviewed, the open source alternatives that actually replace it, and an honest verdict on whether you can switch this quarter.",
+    plan:"Plan your exit",
+    sProducts:"products", sAlternatives:"alternatives", sNoAnswer:"no answer yet", sSwitches:"switches reported",
+    search:"Search a product or an alternative…", searchProjects:"Search a project…",
+    anyCategory:"Any category", anyVerdict:"Any verdict", anyOpenness:"Any openness", anyEffort:"Any effort",
+    anyPrice:"Any price", order:"Order", orderWeight:"Editorial order", orderSwitched:"Most switched",
+    orderPrice:"Highest price", orderName:"Name",
+    verdictAll:"All", vYes:"replaceable", vAlmost:"almost", vNo:"not yet",
+    filters:"Filters", clear:"Clear", filtered:"filtered view — the pager is off",
+    price:"What it costs today", perMonth:"/mo", free:"Free", quote:"Quote only", noPublic:"No public price",
+    takenFrom:"Taken from", on:"on",
+    ossHeading:"Open source alternatives", cheaperHeading:"Cheaper, not open",
+    whatYouLose:"What you give up", replaces:"Replaces", inThis:"In this category", nearby:"Nearby categories",
+    reportSwitch:"I switched", reported:"Thanks — recorded",
+    editPage:"Edit this page", noSwitches:"No switch reported yet",
+    disclaimer:"Prices are checked by hand and go stale. Every figure links to where it was read. A verdict is our reading of the evidence on the page, not advice.",
+    ladder:"Exit ladder", lockedIn:"locked in", partial:"partial exit", selfHost:"self-hostable", dropIn:"drop-in",
+    medianPrice:"median price", projectsCount:"open source projects", cheapest:"lowest-effort escape",
+    themes:"Themes", inGroup:"categories",
+    prev:"Prev", next:"Next", pageOf:"Page {n} of {of}",
+    catsTitle:"Every category", catsBlurb:"Grouped by theme, and inside each theme ordered by how many paid products we have reviewed — not by an editor's idea of importance. The bar is the exit ladder: how far out of a category you can actually get.",
+    projTitle:"Every open source project", projBlurb:"Every project cited anywhere in the catalogue, with the products it replaces, its licence and how much work it is to stand up.",
+    collTitle:"Collections", collBlurb:"Slices of the catalogue, each cut by a rule you can check. No editor picks the members.",
+    featTitle:"What these projects actually do", featBlurb:"A closed vocabulary of features, answered per project from its own docs and repo. A dash means nobody has checked — never that the answer is no.",
+    statsTitle:"Who reads this", statsBlurb:"Our own traffic, published in full. If we ask sponsors to trust a number, they should be able to see it.",
+    sponsorTitle:"Sponsor canireplaceit", sponsorBlurb:"Ten positions under the headline and a rail on every page. Flat prices, no auction, no tracking beyond a click count.",
+    submitTitle:"Add something to the list", submitBlurb:"Every entry is a file in a public repository. A pull request is the fastest route in; an issue works too.",
+    legalTitle:"Legal", legalBlurb:"A handful of pages, as short as they can honestly be — each one describes what the site actually does.",
+    planTitle:"What is your stack costing you?", planBlurb:"Pick what you pay for. We total it, then show what the cheapest honest exit from each one would be.",
+    footBrowse:"Browse", footContribute:"Contribute", footAbout:"About", footLegal:"Legal",
+    policy:"Sponsors buy a position, never a verdict. No sponsored entry has ever been added to the list, and no verdict has ever been changed for money.",
+    policyMore:"How sponsorship works", tagline:"open source alternatives to the SaaS you pay for",
+    sponsorsIntro:"canireplaceit is supported by these sponsors.", sponsorsCta:"Sponsor this project →",
+    yourLogo:"Your logo here", sponsored:"Sponsored",
+    licence:"Licence", effort:"Effort", repo:"Repository", language:"Language", compose:"compose",
+    archived:"Archived", archivedNote:"The repository is archived upstream. It still works, but nobody is fixing it.",
+    facts:"How open is it, really?", openGood:"Nothing withheld", openWarn:"Features withheld", openBad:"Not open source",
+    openGoodNote:"Everything the hosted edition does, the open edition does. There is no paid tier holding a feature back.",
+    openWarnNote:"Open source, with named features kept for a paid edition. The list below is what you do not get.",
+    openBadNote:"The source is published under a licence that is not OSI-approved. Read it before you plan around it.",
+    withheld:"Withheld:", varies:"The products citing this project disagree about this.",
+    step:"Step", picked:"picked", total:"Your total", exits:"Cheapest exits",
+    unresolved:"Cannot be placed", unresolvedNote:"The products citing these projects disagree about the field this collection is built from, so no claim is made either way.",
+    matrixLegend:{yes:"in the free tier",paid:"paid tier only",no:"not supported",unknown:"nobody has checked"},
+    compare:"Compare", requireFeature:"Require a feature", genre:"Genre", all:"All",
+  },
+  fr:{
+    list:"La liste", alternatives:"Alternatives", features:"Fonctionnalités", categories:"Catégories",
+    collections:"Collections", stats:"Trafic", submit:"Proposer", sponsor:"Sponsoriser", signin:"Connexion",
+    home:"Tous les produits", allCategories:"Toutes les catégories", allCollections:"Toutes les collections",
+    allProjects:"Tous les projets open source", menu:"Menu",
+    heroTitle:"Puis-je remplacer", heroBlurb:"Chaque outil payant que nous avons étudié, les alternatives open source qui le remplacent vraiment, et un verdict honnête sur la possibilité de basculer ce trimestre.",
+    plan:"Estimer votre sortie",
+    sProducts:"produits", sAlternatives:"alternatives", sNoAnswer:"sans réponse", sSwitches:"bascules signalées",
+    search:"Chercher un produit ou une alternative…", searchProjects:"Chercher un projet…",
+    anyCategory:"Toutes catégories", anyVerdict:"Tous verdicts", anyOpenness:"Toute ouverture", anyEffort:"Tout effort",
+    anyPrice:"Tout prix", order:"Ordre", orderWeight:"Ordre éditorial", orderSwitched:"Plus de bascules",
+    orderPrice:"Prix décroissant", orderName:"Nom",
+    verdictAll:"Tous", vYes:"remplaçable", vAlmost:"presque", vNo:"pas encore",
+    filters:"Filtres", clear:"Effacer", filtered:"vue filtrée — pagination désactivée",
+    price:"Ce que ça coûte aujourd’hui", perMonth:"/mois", free:"Gratuit", quote:"Sur devis", noPublic:"Aucun prix public",
+    takenFrom:"Relevé sur", on:"le",
+    ossHeading:"Alternatives open source", cheaperHeading:"Moins cher, pas ouvert",
+    whatYouLose:"Ce que vous perdez", replaces:"Remplace", inThis:"Dans cette catégorie", nearby:"Catégories voisines",
+    reportSwitch:"J’ai basculé", reported:"Merci — enregistré",
+    editPage:"Modifier cette page", noSwitches:"Aucune bascule signalée",
+    disclaimer:"Les prix sont relevés à la main et vieillissent. Chaque chiffre renvoie à sa source. Un verdict est notre lecture des éléments de la page, pas un conseil.",
+    ladder:"Échelle de sortie", lockedIn:"verrouillé", partial:"sortie partielle", selfHost:"auto-hébergeable", dropIn:"remplacement direct",
+    medianPrice:"prix médian", projectsCount:"projets open source", cheapest:"sortie la plus simple",
+    themes:"Thèmes", inGroup:"catégories",
+    prev:"Préc.", next:"Suiv.", pageOf:"Page {n} sur {of}",
+    catsTitle:"Toutes les catégories", catsBlurb:"Groupées par thème, et à l’intérieur d’un thème classées par nombre de produits payants étudiés — pas par l’idée qu’un éditeur se fait de leur importance.",
+    projTitle:"Tous les projets open source", projBlurb:"Chaque projet cité dans le catalogue, avec les produits qu’il remplace, sa licence et l’effort nécessaire pour le déployer.",
+    collTitle:"Collections", collBlurb:"Des tranches du catalogue, chacune découpée par une règle vérifiable. Aucun éditeur ne choisit les membres.",
+    featTitle:"Ce que ces projets font vraiment", featBlurb:"Un vocabulaire fermé de fonctionnalités, renseigné par projet depuis sa doc et son dépôt. Un tiret signifie que personne n’a vérifié — jamais que la réponse est non.",
+    statsTitle:"Qui nous lit", statsBlurb:"Notre propre trafic, publié intégralement. Si nous demandons à un sponsor de croire un chiffre, il doit pouvoir le voir.",
+    sponsorTitle:"Sponsoriser canireplaceit", sponsorBlurb:"Dix positions sous le titre et un rail sur chaque page. Prix fixes, pas d’enchère, aucun suivi au-delà du comptage de clics.",
+    submitTitle:"Ajouter une entrée", submitBlurb:"Chaque entrée est un fichier dans un dépôt public. Une pull request est la voie la plus rapide ; une issue fonctionne aussi.",
+    legalTitle:"Informations légales", legalBlurb:"Quelques pages, aussi courtes que possible, et exactes : elles décrivent ce que le site fait réellement.",
+    planTitle:"Combien vous coûte votre stack ?", planBlurb:"Choisissez ce que vous payez. Nous faisons le total, puis montrons la sortie honnête la moins chère pour chaque ligne.",
+    footBrowse:"Parcourir", footContribute:"Contribuer", footAbout:"À propos", footLegal:"Légal",
+    policy:"Les sponsors achètent une position, jamais un verdict. Aucune entrée sponsorisée n’a jamais été ajoutée à la liste.",
+    policyMore:"Comment fonctionne le sponsoring", tagline:"les alternatives open source aux SaaS que vous payez",
+    sponsorsIntro:"canireplaceit est soutenu par ces sponsors.", sponsorsCta:"Sponsoriser ce projet →",
+    yourLogo:"Votre logo ici", sponsored:"Sponsorisé",
+    licence:"Licence", effort:"Effort", repo:"Dépôt", language:"Langage", compose:"compose",
+    archived:"Archivé", archivedNote:"Le dépôt est archivé en amont. Il fonctionne encore, mais plus personne ne le corrige.",
+    facts:"À quel point est-ce ouvert ?", openGood:"Rien de retenu", openWarn:"Fonctionnalités retenues", openBad:"Pas open source",
+    openGoodNote:"Tout ce que fait l’édition hébergée, l’édition ouverte le fait. Aucune offre payante ne retient de fonctionnalité.",
+    openWarnNote:"Open source, avec des fonctionnalités réservées à une édition payante. La liste ci-dessous est ce que vous n’avez pas.",
+    openBadNote:"La source est publiée sous une licence non approuvée par l’OSI. Lisez-la avant de bâtir dessus.",
+    withheld:"Retenu :", varies:"Les produits citant ce projet ne sont pas d’accord sur ce point.",
+    step:"Étape", picked:"sélectionnés", total:"Votre total", exits:"Sorties les moins chères",
+    unresolved:"Non classables", unresolvedNote:"Les produits citant ces projets ne s’accordent pas sur le champ dont cette collection est tirée ; aucune affirmation n’est faite.",
+    matrixLegend:{yes:"dans l’offre gratuite",paid:"offre payante uniquement",no:"non pris en charge",unknown:"personne n’a vérifié"},
+    compare:"Comparer", requireFeature:"Exiger une fonctionnalité", genre:"Genre", all:"Toutes",
+  }
+};
+
+/* URL segments are translated too, exactly as in the real router. */
+const SEG = {
+  en:{alternatives:"alternatives",tools:"tools",categories:"categories",collections:"collections",
+      sponsor:"sponsor",estimate:"estimate",submit:"submit",stats:"stats",features:"features",
+      signin:"signin",legal:"legal",page:"page"},
+  fr:{alternatives:"alternatives",tools:"outils",categories:"categories",collections:"collections",
+      sponsor:"sponsoriser",estimate:"estimation",submit:"proposer",stats:"statistiques",features:"fonctionnalites",
+      signin:"connexion",legal:"legal",page:"page"},
+};
+
+/* =========================================================================
+   3. TINY HELPERS
+   ========================================================================= */
+
+let LANG = "en";
+const t  = k => T[LANG][k];
+const tc = o => o[LANG] || o.en;
+const S  = k => SEG[LANG][k];
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+const P = {
+  home:      (n)   => n && n>1 ? `#/${LANG}/${S("page")}/${n}` : `#/${LANG}/`,
+  product:   (s)   => `#/${LANG}/${S("alternatives")}/${s}`,
+  project:   (s)   => `#/${LANG}/${S("tools")}/${s}`,
+  projects:  (n)   => n && n>1 ? `#/${LANG}/${S("tools")}/${S("page")}/${n}` : `#/${LANG}/${S("tools")}/`,
+  category:  (s)   => `#/${LANG}/${S("categories")}/${s}`,
+  categories:()    => `#/${LANG}/${S("categories")}/`,
+  collections:()   => `#/${LANG}/${S("collections")}/`,
+  collection:(s)   => `#/${LANG}/${S("collections")}/${s}`,
+  sponsor:   ()    => `#/${LANG}/${S("sponsor")}`,
+  estimate:  ()    => `#/${LANG}/${S("estimate")}`,
+  submit:    ()    => `#/${LANG}/${S("submit")}`,
+  stats:     ()    => `#/${LANG}/${S("stats")}`,
+  features:  ()    => `#/${LANG}/${S("features")}`,
+  signin:    ()    => `#/${LANG}/${S("signin")}`,
+  legal:     ()    => `#/${LANG}/${S("legal")}/`,
+};
+
+const ICONS = {
+  book:'<path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/>',
+  pen:'<path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/>',
+  chat:'<path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>',
+  pulse:'<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>',
+  users:'<path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/>',
+  life:'<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><path d="M4.93 4.93l4.24 4.24m5.66 5.66l4.24 4.24m0-14.14l-4.24 4.24m-5.66 5.66l-4.24 4.24"/>',
+  code:'<path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/>',
+  cal:'<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>',
+  box:'<path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>',
+  chart:'<path d="M18 20V10M12 20V4M6 20v-6"/>',
+  server:'<rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><path d="M6 6h.01M6 18h.01"/>',
+  shield:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
+  pkg:'<path d="M16.5 9.4L7.5 4.21M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>',
+  lock:'<rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/>',
+  piggy:'<path d="M19 10c0-3.87-3.13-7-7-7s-7 3.13-7 7c0 1.5.5 2.9 1.3 4L5 20h3l1-2h6l1 2h3l-1.3-6c.8-1.1 1.3-2.5 1.3-4z"/>',
+};
+const icon = (k,size=16,cls="") =>
+  `<svg class="${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[k]||ICONS.box}</svg>`;
+
+const COLLECTION_ICON = {"self-hostable":"server","open-source":"book","foss":"shield","open-core":"pkg","source-available":"lock","cheaper":"piggy"};
+
+const catBy   = s => CATEGORIES.find(c => c.slug === s);
+const prodBy  = s => PRODUCTS.find(p => p.slug === s);
+const projBy  = s => PROJECTS.find(p => p.slug === s);
+const collBy  = s => COLLECTIONS.find(c => c.slug === s);
+
+const money = n => LANG === "fr" ? `${n} €` : `$${n}`;
+const priceLabel = p => p.price === null ? t("quote") : p.price === 0 ? t("free") : money(p.price) + t("perMonth");
+
+const VERDICT_CLASS = {yes:"v-yes", almost:"v-almost", "not-yet":"v-no"};
+const VERDICT_WORD  = {yes:"vYes", almost:"vAlmost", "not-yet":"vNo"};
+const verdict = v => `<span class="verdict ${VERDICT_CLASS[v]}"><span class="dot"></span><span class="word">${t(VERDICT_WORD[v])}</span></span>`;
+
+const logo = (name,size=32) =>
+  `<span class="logo" style="width:${size}px;height:${size}px;font-size:${Math.round(size*.42)}px" aria-hidden="true">${esc(name.slice(0,1).toUpperCase())}</span>`;
+
+const LADDER_COLORS = ["var(--v-no)","var(--v-almost)","color-mix(in srgb,var(--v-yes) 55%,var(--on-surface-variant))","var(--v-yes)"];
+const LADDER_KEYS   = ["lockedIn","partial","selfHost","dropIn"];
+
+const gradeTag = g => g === "good" ? "good" : g === "bad" ? "bad" : "warn";
+
+/* =========================================================================
+   4. SHARED CHROME — the page frame every route uses.
+   ========================================================================= */
+
+function trail(items){
+  return `<nav class="trail" aria-label="Breadcrumb"><ol>${items.map((it,i)=>`
+    <li>${i>0?`<svg class="sep" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>`:""}
+      ${it.href
+        ? `<a href="${it.href}" data-nav>${i===0?`<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="vertical-align:-2px"><path d="M3 10l9-7 9 7v10a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg> <span class="home-label">${esc(it.label)}</span>`:esc(it.label)}</a>`
+        : `<span aria-current="page">${esc(it.label)}</span>`}
+    </li>`).join("")}</ol></nav>`;
+}
+
+/**
+ * The page head band. Full-bleed wash, contents on the body's measure.
+ * Every field is optional and the block collapses cleanly to just an <h1>.
+ */
+function pageHead({crumbs, eyebrow, title, lede, meta, aside, icon:ic, wide}){
+  const cls = wide ? "wrap" : "wrap-prose";
+  return `<div class="page-head"><div class="${cls} page-head-inner">
+    ${crumbs ? trail(crumbs) : ""}
+    ${(title||eyebrow||aside||ic) ? `<div class="head-main">
+      <div class="head-title">
+        ${ic||""}
+        <div style="min-width:0">
+          ${eyebrow ? `<p class="eyebrow" style="margin-bottom:6px">${eyebrow}</p>`:""}
+          ${title ? `<h1 class="page-title">${title}</h1>`:""}
+        </div>
+      </div>
+      ${aside ? `<div style="flex-shrink:0">${aside}</div>`:""}
+    </div>`:""}
+    ${lede ? `<p class="lede">${lede}</p>`:""}
+    ${meta ? `<div class="head-meta">${meta}</div>`:""}
+  </div></div>`;
+}
+
+const body = (html, wide) => `<div class="${wide?"wrap":"wrap-prose"}" style="padding-top:var(--sp-400);padding-bottom:var(--sp-900)">${html}</div>`;
+
+const section = (title, inner, {count, more} = {}) => `
+  <section class="section">
+    <div class="section-head">
+      <h2>${esc(title)}${count!==undefined?`<span class="count">${count}</span>`:""}</h2>
+      ${more||""}
+    </div>
+    ${inner}
+  </section>`;
+
+function pager(page, pages, hrefFor, total, unit){
+  if (pages <= 1) return "";
+  const nums = [];
+  for (let n=1;n<=pages;n++){
+    if (n===1||n===pages||Math.abs(n-page)<=1) nums.push(n);
+    else if (nums[nums.length-1]!=="gap") nums.push("gap");
+  }
+  return `<nav class="pager" aria-label="Pagination">
+    ${page>1?`<a class="step" href="${hrefFor(page-1)}" data-nav>← ${t("prev")}</a>`:`<span class="step off">← ${t("prev")}</span>`}
+    <ol style="display:flex;gap:4px;flex-wrap:wrap;align-items:center">
+      ${nums.map(n => n==="gap"
+        ? `<li class="muted" style="padding-inline:4px">…</li>`
+        : `<li>${n===page?`<span class="num" aria-current="page">${n}</span>`:`<a class="num" href="${hrefFor(n)}" data-nav>${n}</a>`}</li>`).join("")}
+    </ol>
+    ${page<pages?`<a class="step" href="${hrefFor(page+1)}" data-nav>${t("next")} →</a>`:`<span class="step off">${t("next")} →</span>`}
+  </nav>
+  <p class="pagecount">${t("pageOf").replace("{n}",page).replace("{of}",pages)} · ${total} ${unit}</p>`;
+}
+
+/* --- cards -------------------------------------------------------------- */
+
+function productCard(p, big){
+  const oss = p.alts.filter(a=>a.kind==="oss").length;
+  return `<li class="card card-link state"><a class="prod" href="${P.product(p.slug)}" data-nav>
+    ${logo(p.name, big?34:32)}
+    <span class="prod-body">
+      <span class="prod-line">
+        <span class="name">${esc(p.name)}</span>
+        <span class="price">${priceLabel(p)}</span>
+      </span>
+      <span class="prod-line" style="margin-top:var(--sp-100)">
+        ${verdict(p.verdict)}
+        ${big
+          ? (p.switched>0?`<span class="nums xs muted">${p.switched} ↺</span>`:"")
+          : `<span class="nums xs muted">${oss} ${t("sAlternatives")}</span>`}
+      </span>
+    </span>
+  </a></li>`;
+}
+
+function projectRow(pr){
+  const OPEN_TONE = {"fully-open":"var(--v-yes)","mostly-open":"color-mix(in srgb,var(--v-yes) 60%,var(--on-surface-variant))",
+    "open-core":"var(--v-almost)","source-available":"var(--v-no)"};
+  const shown = pr.replaces.slice(0,3).map(s=>prodBy(s)).filter(Boolean);
+  const rest  = pr.replaces.length - shown.length;
+  return `<li class="card" style="padding:var(--sp-200)">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:8px">
+      <a href="${P.project(pr.slug)}" data-nav style="font-family:var(--display);font-weight:600;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(pr.name)}</a>
+      <span class="tag" style="border-color:${OPEN_TONE[pr.openness]};color:${OPEN_TONE[pr.openness]};flex-shrink:0">${pr.openness.replace("-"," ")}</span>
+    </div>
+    <p class="small muted" style="margin-top:var(--sp-100)">${t("replaces")}:
+      ${shown.map(p=>`<a href="${P.product(p.slug)}" data-nav style="text-decoration:underline;text-underline-offset:2px">${esc(p.name)}</a>`).join(", ")}
+      ${rest>0?`<span class="nums"> +${rest}</span>`:""}</p>
+    <p class="alt-tags" style="margin-top:10px;display:flex;flex-wrap:wrap;gap:6px">
+      <span class="tag">${esc(pr.licence)}</span>
+      <span class="tag">${esc(pr.effort)}</span>
+      ${pr.compose?`<span class="tag">${t("compose")}</span>`:""}
+      <span class="tag">${esc(pr.lang)}</span>
+      ${pr.archived?`<span class="tag bad">${t("archived")}</span>`:""}
+    </p>
+  </li>`;
+}
+
+function altCard(a){
+  return `<li class="alt${a.archived?" archived":""}">
+    <div class="alt-head">
+      ${logo(a.name,26)}
+      <a class="n" href="${a.kind==="oss"&&projBy(slugify(a.name))?P.project(slugify(a.name)):"#"}" ${a.kind==="oss"&&projBy(slugify(a.name))?'data-nav':''}>${esc(a.name)}</a>
+      <span class="muted" aria-hidden="true">↗</span>
+    </div>
+    <p class="note">${esc(a.note)}</p>
+    ${a.paywalled?`<p class="note" style="margin-top:var(--sp-50)">— ${esc(a.paywalled)}</p>`:""}
+    <div class="tags">
+      ${a.kind==="oss" ? `
+        <span class="tag ${gradeTag(a.grade)}">${a.grade==="good"?t("openGood"):a.grade==="bad"?t("openBad"):t("openWarn")}</span>
+        <span class="tag">${esc(a.effort)}</span>
+        <span class="tag">${esc(a.licence)}</span>
+        ${(a.facts||[]).map(f=>`<span class="tag">${esc(f)}</span>`).join("")}
+        ${a.archived?`<span class="tag bad">${t("archived")}</span>`:""}
+      ` : `
+        <span class="tag accent">${t("cheaperHeading")}</span>
+        <span class="tag">${a.price===0?t("free"):money(a.price)+t("perMonth")}</span>
+      `}
+    </div>
+  </li>`;
+}
+const slugify = n => n.toLowerCase().replace(/[^a-z0-9]+/g,"");
+
+/* =========================================================================
+   5. PAGES
+   ========================================================================= */
+
+/* ---- home -------------------------------------------------------------- */
+const HERO_NAMES = ["Notion","Figma","Slack","Datadog","Airtable","Zendesk","Postman","Calendly"];
+const PER_PAGE = 9;
+let filters = {q:"",cat:"",verdict:"",openness:"",effort:"",price:"",sort:"weight"};
+const filtersActive = () => filters.q||filters.cat||filters.verdict||filters.openness||filters.effort||filters.price||filters.sort!=="weight";
+
+function applyFilters(list){
+  let out = list.filter(p=>{
+    if (filters.cat && p.cat!==filters.cat) return false;
+    if (filters.verdict && p.verdict!==filters.verdict) return false;
+    if (filters.effort && !p.alts.some(a=>a.effort===filters.effort)) return false;
+    if (filters.price){
+      const n=p.price;
+      if (filters.price==="free" && n!==0) return false;
+      if (filters.price==="lt25" && !(n>0&&n<25)) return false;
+      if (filters.price==="25-100" && !(n>=25&&n<=100)) return false;
+      if (filters.price==="gt100" && !(n>100)) return false;
+    }
+    if (filters.q){
+      const q=filters.q.toLowerCase();
+      if (!p.name.toLowerCase().includes(q) && !p.alts.some(a=>a.name.toLowerCase().includes(q))) return false;
+    }
+    return true;
+  });
+  if (filters.sort==="switched") out=[...out].sort((a,b)=>b.switched-a.switched);
+  if (filters.sort==="price")    out=[...out].sort((a,b)=>b.price-a.price);
+  if (filters.sort==="name")     out=[...out].sort((a,b)=>a.name.localeCompare(b.name));
+  return out;
+}
+
+function sponsorWall(){
+  return `<section class="wrap" style="padding-top:var(--sp-300);padding-bottom:var(--sp-500)">
+    <div class="wall">
+      ${SPONSORS.map(s => s.sold
+        ? `<a href="${P.sponsor()}" data-nav>${logo(s.name,26)}<span style="font-weight:600;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(s.name)}</span><span class="badge">${t("sponsored")}</span></a>`
+        : `<a href="${P.sponsor()}" data-nav class="open"><span class="slotbox">+</span><span style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"><span class="nums" style="font-size:10px;text-transform:uppercase">${s.id}</span> ${t("yourLogo")}</span></a>`
+      ).join("")}
+    </div>
+    <p class="center xs muted" style="margin-top:12px">${t("sponsorsIntro")}
+      <a href="${P.sponsor()}" data-nav style="color:var(--brand)">${t("sponsorsCta")}</a></p>
+  </section>`;
+}
+
+function selectFor(name, label, opts, value){
+  return `<label style="min-width:0"><span class="sr-only">${esc(label)}</span>
+    <select class="field" data-filter="${name}">
+      ${opts.map(([v,l])=>`<option value="${v}"${v===value?" selected":""}>${esc(l)}</option>`).join("")}
+    </select></label>`;
+}
+
+function filterBar(){
+  const catOpts   = [["",t("anyCategory")], ...CATEGORIES.map(c=>[c.slug,tc(c.name)])];
+  const verOpts   = [["",t("anyVerdict")],["yes",t("vYes")],["almost",t("vAlmost")],["not-yet",t("vNo")]];
+  const openOpts  = [["",t("anyOpenness")],["fully-open","fully open"],["open-core","open core"],["source-available","source available"]];
+  const effOpts   = [["",t("anyEffort")],["Desktop","Desktop"],["Package","Package"],["Docker","Docker"],["Kubernetes","Kubernetes"]];
+  const priceOpts = [["",t("anyPrice")],["free",t("free")],["lt25","< "+money(25)],["25-100",money(25)+"–"+money(100)],["gt100","> "+money(100)]];
+  const sortOpts  = [["weight",t("orderWeight")],["switched",t("orderSwitched")],["price",t("orderPrice")],["name",t("orderName")]];
+
+  const pills = [["",t("verdictAll")],["yes",t("vYes")],["almost",t("vAlmost")],["not-yet",t("vNo")]]
+    .map(([v,l])=>`<button class="pill" data-verdict="${v}" aria-pressed="${filters.verdict===v}">${esc(l)}</button>`).join("");
+
+  return `<div class="filterbar">
+    <div class="filterbar-mobile dense">
+      <input class="field" data-filter="q" value="${esc(filters.q)}" placeholder="${t("search")}" aria-label="${t("search")}">
+      <div class="row" style="margin-top:8px">
+        ${pills}
+        <button class="pill" id="open-filters" style="margin-left:auto">⚙ ${t("filters")}</button>
+      </div>
+      <div id="mobile-filters" hidden style="margin-top:8px;display:grid;gap:8px">
+        ${selectFor("cat",t("anyCategory"),catOpts,filters.cat)}
+        ${selectFor("openness",t("anyOpenness"),openOpts,filters.openness)}
+        ${selectFor("effort",t("anyEffort"),effOpts,filters.effort)}
+        ${selectFor("price",t("anyPrice"),priceOpts,filters.price)}
+        ${selectFor("sort",t("order"),sortOpts,filters.sort)}
+      </div>
+    </div>
+    <div class="filterbar-desktop dense">
+      <input class="field" data-filter="q" value="${esc(filters.q)}" placeholder="${t("search")}" aria-label="${t("search")}">
+      ${selectFor("cat",t("anyCategory"),catOpts,filters.cat)}
+      ${selectFor("verdict",t("anyVerdict"),verOpts,filters.verdict)}
+      ${selectFor("openness",t("anyOpenness"),openOpts,filters.openness)}
+      ${selectFor("effort",t("anyEffort"),effOpts,filters.effort)}
+      ${selectFor("price",t("anyPrice"),priceOpts,filters.price)}
+      ${selectFor("sort",t("order"),sortOpts,filters.sort)}
+    </div>
+  </div>`;
+}
+
+function homePage(page){
+  const all = applyFilters(PRODUCTS);
+  const filtering = filtersActive();
+  const pages = Math.max(1, Math.ceil(PRODUCTS.length/PER_PAGE));
+  const rows  = filtering ? all : PRODUCTS.slice((page-1)*PER_PAGE, page*PER_PAGE);
+
+  const hero = page>1 ? "" : `
+    <section class="page-head" id="top"><div class="wrap-prose hero">
+      <h1>${t("heroTitle")}
+        <span class="cycler" id="cycler">${HERO_NAMES.map((n,i)=>`<span${i?" hidden":""}>${n}</span>`).join("")}</span>${LANG==="fr"?" ?":"?"}</h1>
+      <p class="lede">${t("heroBlurb")}</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#list">${t("list")}</a>
+        <a class="btn btn-ghost" href="${P.estimate()}" data-nav>${t("plan")}</a>
+      </div>
+      <dl class="statstrip">
+        <div><dd>${PRODUCTS.length*12}</dd><dt>${t("sProducts")}</dt></div>
+        <div><dd>${PROJECTS.length*54}</dd><dt>${t("sAlternatives")}</dt></div>
+        <div><dd>${PRODUCTS.filter(p=>p.verdict==="not-yet").length*9}</dd><dt>${t("sNoAnswer")}</dt></div>
+        <div><dd>${PRODUCTS.reduce((n,p)=>n+p.switched,0)}</dd><dt>${t("sSwitches")}</dt></div>
+      </dl>
+    </div></section>`;
+
+  return hero + sponsorWall() + `
+    <section id="list" class="wrap" style="padding-bottom:var(--sp-800)">
+      ${page>1?`<h1 style="font-size:24px;font-weight:700;margin-bottom:16px">${t("home")} — ${t("pageOf").replace("{n}",page).replace("{of}",pages)}</h1>`:""}
+      ${filterBar()}
+      ${filtering?`<p class="row nums xs muted" style="margin-top:12px">${rows.length} ${t("sProducts")} · ${t("filtered")}
+        <button class="pill" id="clear-filters" style="font-size:12px;padding:2px 10px">${t("clear")}</button></p>`:""}
+      <ul class="grid-3" style="margin-top:20px">${rows.map(p=>productCard(p,true)).join("")}</ul>
+      ${rows.length===0?`<p class="center muted" style="padding-block:var(--sp-600)">Nothing matches. That is a real answer, not an empty page.</p>`:""}
+      ${filtering?"":pager(page,pages,P.home,PRODUCTS.length*12,t("sProducts"))}
+      <div class="panel" style="margin-top:var(--sp-400);display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--sp-150) var(--sp-300)">
+        <p class="t-body-sm muted" style="max-width:62ch">${t("disclaimer")}</p>
+        <p class="row-4">${["yes","almost","not-yet"].map(verdict).join("")}</p>
+      </div>
+    </section>`;
+}
+
+/* ---- product ----------------------------------------------------------- */
+function productPage(slug){
+  const p = prodBy(slug);
+  if (!p) return notFound();
+  const c = catBy(p.cat);
+  const oss = p.alts.filter(a=>a.kind==="oss");
+  const cheaper = p.alts.filter(a=>a.kind==="cheaper");
+  const siblings = PRODUCTS.filter(x=>x.cat===p.cat && x.slug!==p.slug).slice(0,6);
+
+  return pageHead({
+    crumbs:[{label:t("home"),href:P.home()},{label:tc(c.name),href:P.category(c.slug)},{label:p.name}],
+    wide:true,
+    icon: logo(p.name,52),
+    title:`${t("heroTitle")} ${esc(p.name)}${LANG==="fr"?" ?":"?"}`,
+    meta:`<p class="row-4 nums small muted">
+      ${verdict(p.verdict)}
+      ${p.switched>0?`<span>${p.switched} ${t("sSwitches")}</span>`:`<a href="#report-switch" style="text-decoration:underline">${t("noSwitches")}</a>`}
+      <a class="pill" href="${P.category(c.slug)}" data-nav style="color:var(--brand-text)">${tc(c.name)}</a>
+    </p>`
+  }) + body(`
+    <article class="detail">
+      <div style="min-width:0">
+        <p class="why">${esc(p.why)}</p>
+
+        <div style="margin-top:32px">
+          <h2 class="eyebrow" style="margin-bottom:8px">${t("whatYouLose")}</h2>
+          <ul class="row" style="gap:6px">${p.lose.map(l=>`<li class="pill muted" style="font-size:12px">${esc(l)}</li>`).join("")}</ul>
+        </div>
+
+        <div style="margin-top:32px">
+          <h3 class="eyebrow" style="margin-bottom:8px">${t("ossHeading")}</h3>
+          <ul class="grid-2">${oss.map(altCard).join("")}</ul>
+        </div>
+        ${cheaper.length?`<div style="margin-top:24px">
+          <h3 class="eyebrow" style="margin-bottom:8px">${t("cheaperHeading")}</h3>
+          <ul class="grid-2">${cheaper.map(altCard).join("")}</ul>
+        </div>`:""}
+      </div>
+
+      <aside>
+        <section class="card" style="padding:var(--sp-200)">
+          <h2 class="eyebrow" style="margin-bottom:8px">${t("price")}</h2>
+          <p class="nums" style="font-weight:600;font-size:18px">${priceLabel(p)}</p>
+          <p class="t-body-sm muted" style="margin-top:var(--sp-100)">Business plan, per user</p>
+          <p class="t-body-sm muted" style="margin-top:8px">
+            <a href="#" style="text-decoration:underline;text-underline-offset:2px">${t("takenFrom")} ${esc(p.name.toLowerCase())}.com ${t("on")} 12 Mar 2026 ↗</a>
+          </p>
+        </section>
+        <button id="report-switch" class="btn btn-ghost" style="width:100%;border-color:var(--v-yes);color:var(--v-yes)" data-switch>↺ ${t("reportSwitch")}</button>
+        <a class="t-body-sm muted" href="#" style="text-decoration:underline;text-underline-offset:2px">${t("editPage")} ↗</a>
+      </aside>
+    </article>
+
+    ${siblings.length?section(t("inThis"),
+      `<ul class="grid-2">${siblings.map(s=>productCard(s)).join("")}</ul>`,
+      {more:`<a class="link-more" href="${P.category(c.slug)}" data-nav>${tc(c.name)} →</a>`}):""}
+  `, true);
+}
+
+/* ---- project ----------------------------------------------------------- */
+function projectPage(slug){
+  const pr = projBy(slug);
+  if (!pr) return notFound();
+  const grade = pr.openness==="fully-open"||pr.openness==="mostly-open" ? "good"
+              : pr.openness==="open-core" ? "warn" : "bad";
+  const gc = grade==="good"?"var(--v-yes)":grade==="warn"?"var(--v-almost)":"var(--v-no)";
+
+  return pageHead({
+    wide:true,
+    crumbs:[{label:t("home"),href:P.home()},{label:t("allProjects"),href:P.projects()},{label:pr.name}],
+    eyebrow:esc(pr.effort),
+    title:esc(pr.name),
+    meta:`
+      <p class="row">
+        <a class="pill" href="#" style="max-width:100%">${icon("code",14)}<span style="min-width:0;overflow:hidden;text-overflow:ellipsis">${esc(pr.host)}/${esc(pr.path)}</span> ↗</a>
+        <a class="pill" href="#">🌐 ${esc(pr.slug)}.org ↗</a>
+      </p>
+      <p class="row" style="gap:6px;margin-top:12px">
+        <span class="tag">${esc(pr.licence)}</span>
+        ${(pr.facts||[]).map(f=>`<span class="tag">${esc(f)}</span>`).join("")}
+        <span class="tag">${t("language")} ${esc(pr.lang)}</span>
+        ${pr.compose?`<span class="tag">${t("compose")}</span>`:""}
+        ${pr.archived?`<span class="tag bad">${t("archived")}</span>`:""}
+      </p>`
+  }) + body(`
+    ${pr.archived?`<p class="callout bad" style="margin-bottom:24px"><strong>${t("archived")}.</strong> ${t("archivedNote")}</p>`:""}
+
+    <section>
+      <h2 class="eyebrow" style="margin-bottom:8px">${t("facts")}</h2>
+      <div style="border:1px solid color-mix(in srgb,${gc} 45%,var(--outline-variant));background:color-mix(in srgb,${gc} 5%,transparent);border-radius:var(--shape-md);padding:var(--sp-200)">
+        <p style="display:flex;align-items:center;gap:8px;font-weight:500;color:${gc}">
+          ${icon(grade==="good"?"shield":grade==="warn"?"pkg":"lock",16)}
+          ${grade==="good"?t("openGood"):grade==="warn"?t("openWarn"):t("openBad")}
+        </p>
+        <p class="small muted" style="margin-top:8px">${grade==="good"?t("openGoodNote"):grade==="warn"?t("openWarnNote"):t("openBadNote")}</p>
+        ${grade==="warn"?`<p class="small" style="margin-top:8px"><span class="eyebrow">${t("withheld")}</span> SSO, audit log and role-based access are enterprise-only.</p>`:""}
+      </div>
+    </section>
+
+    ${section(t("replaces"),
+      `<ul class="grid-2">${pr.replaces.map(s=>{const p=prodBy(s);return p?`
+        <li class="card card-link state"><a href="${P.product(p.slug)}" data-nav style="display:block;padding:var(--sp-200)">
+          <span style="font-family:var(--display);font-weight:600">${esc(p.name)}</span>
+          <span class="small muted" style="display:block;margin-top:6px">${esc(p.why.split(".")[0])}.</span>
+        </a></li>`:""}).join("")}</ul>`,
+      {count:pr.replaces.length})}
+
+    ${FEATURES.values[pr.slug] ? section(t("features"), featureListFor(pr.slug)) : ""}
+  `, true);
+}
+
+function featureListFor(slug){
+  const v = FEATURES.values[slug];
+  const MARK = {yes:['✓','mark-yes'],paid:['◐','mark-paid'],no:['✗','mark-no'],unknown:['—','mark-unknown']};
+  return `<div class="grid-3">${FEATURES.domains.map(d=>`
+    <div class="panel">
+      <h3 class="eyebrow">${tc(d)}</h3>
+      <ul style="margin-top:10px;display:grid;gap:8px">
+        ${d.features.map(f=>{const [g,c]=MARK[v[f.k]||"unknown"];return `
+          <li class="small" style="display:flex;gap:8px;align-items:baseline">
+            <span class="${c}" style="width:14px;flex-shrink:0">${g}</span>
+            <span>${tc(f)}</span>
+          </li>`;}).join("")}
+      </ul>
+    </div>`).join("")}</div>`;
+}
+
+/* ---- categories index -------------------------------------------------- */
+function categoriesPage(){
+  const groups = GROUPS.map(g=>({...g, cats:CATEGORIES.filter(c=>c.group===g.key).sort((a,b)=>b.products-a.products)}))
+                       .filter(g=>g.cats.length);
+  return pageHead({
+    wide:true,
+    crumbs:[{label:t("home"),href:P.home()},{label:t("allCategories")}],
+    eyebrow:t("categories"), title:t("catsTitle"), lede:t("catsBlurb"),
+    meta:`<nav aria-label="${t("themes")}">
+      <h2 class="eyebrow">${t("themes")}</h2>
+      <ul class="row" style="margin-top:8px">
+        ${groups.map(g=>`<li><a class="pill" href="#theme-${g.key}">${tc(g)}<span class="nums xs muted">${g.cats.length}</span></a></li>`).join("")}
+      </ul></nav>`
+  }) + body(groups.map((g,gi)=>`
+    <section id="theme-${g.key}" style="margin-top:${gi?48:0}px">
+      <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--sp-150);border-bottom:1px solid var(--outline-variant);padding-bottom:var(--sp-100);margin-bottom:var(--sp-150)">
+        <h2 style="font-size:20px;font-weight:700">${tc(g)}</h2>
+        <p class="nums xs muted">${g.cats.length} ${t("inGroup")} · ${g.cats.reduce((n,c)=>n+c.products,0)} ${t("sProducts")}</p>
+      </div>
+      <ul style="display:grid;gap:8px">${g.cats.map(categoryRow).join("")}</ul>
+    </section>`).join(""), true);
+}
+
+function ladderBar(c){
+  return `<div class="ladder">${c.ladder.map((n,i)=>`<span style="width:${n}%;background:${LADDER_COLORS[i]}"></span>`).join("")}</div>`;
+}
+function ladderLegend(c){
+  return `<p class="ladder-legend">${c.ladder.map((n,i)=>`<span><i style="background:${LADDER_COLORS[i]}"></i>${t(LADDER_KEYS[i])} ${n}%</span>`).join("")}</p>`;
+}
+
+function categoryRow(c){
+  return `<li class="card" style="padding:var(--sp-200)">
+    <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px">
+      <a href="${P.category(c.slug)}" data-nav style="display:flex;align-items:center;gap:8px;font-family:var(--display);font-weight:600;min-width:0">
+        <span style="color:var(--brand);display:flex">${icon(c.icon,16)}</span>${tc(c.name)}</a>
+      <p class="nums xs muted">${c.products} ${t("sProducts")} · ${c.projects} ${t("projectsCount")} · ${c.median}</p>
+    </div>
+    <div style="margin-top:10px;display:grid;gap:10px;align-items:center" class="cat-row-grid">
+      ${ladderBar(c)}
+      <p class="xs" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">
+        <span class="muted">${t("cheapest")}: </span><span style="color:var(--v-yes)">${esc(c.cheapest)}</span></p>
+    </div>
+  </li>`;
+}
+
+/* ---- one category ------------------------------------------------------ */
+function categoryPage(slug){
+  const c = catBy(slug);
+  if (!c) return notFound();
+  const inCat = PRODUCTS.filter(p=>p.cat===slug);
+  const i = CATEGORIES.indexOf(c);
+  const nearby = CATEGORIES.slice(Math.max(0,i-2), i+3).filter(x=>x.slug!==slug);
+
+  return pageHead({
+    wide:true,
+    crumbs:[{label:t("home"),href:P.home()},{label:t("allCategories"),href:P.categories()},{label:tc(c.name)}],
+    eyebrow:t("categories"),
+    icon:`<span style="display:grid;place-items:center;width:44px;height:44px;border-radius:var(--shape-md);border:1px solid var(--outline-variant);background:color-mix(in srgb,var(--brand) 10%,var(--surface));color:var(--brand);flex-shrink:0">${icon(c.icon,20)}</span>`,
+    title:tc(c.name),
+    meta:`<div class="panel">
+      <dl class="figures">
+        <div><dd>${c.products}</dd><dt>${t("sProducts")}</dt></div>
+        <div><dd>${c.projects}</dd><dt>${t("projectsCount")}</dt></div>
+        <div><dd>${c.median}</dd><dt>${t("medianPrice")}</dt></div>
+        <div><dd style="font-size:14px;color:var(--v-yes)">${esc(c.cheapest)}</dd><dt>${t("cheapest")}</dt></div>
+      </dl>
+      <div style="margin-top:var(--sp-200);border-top:1px solid var(--outline-variant);padding-top:var(--sp-150)">
+        <h2 class="eyebrow" style="margin-bottom:8px">${t("ladder")}</h2>
+        ${ladderBar(c)}${ladderLegend(c)}
+      </div>
+    </div>`
+  }) + body(`
+    <nav aria-label="${t("allCategories")}">
+      <h2 class="eyebrow">${t("allCategories")}</h2>
+      <ul class="row" style="margin-top:8px">
+        ${CATEGORIES.map(x=>`<li><a class="pill" data-active="${x.slug===slug}" href="${P.category(x.slug)}" data-nav>${icon(x.icon,13)}${tc(x.name)}<span class="nums xs muted">${x.products}</span></a></li>`).join("")}
+      </ul>
+    </nav>
+
+    ${section(t("inThis"), `<ul class="grid-2">${inCat.map(p=>productCard(p)).join("")}</ul>`, {count:inCat.length})}
+
+    ${section(t("nearby"),
+      `<ul class="grid-2">${nearby.map(x=>`<li class="card card-link state"><a href="${P.category(x.slug)}" data-nav style="display:flex;align-items:center;gap:12px;padding:14px">
+        <span style="color:var(--brand);display:flex">${icon(x.icon,16)}</span>
+        <span class="small" style="flex:1;font-weight:500;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${tc(x.name)}</span>
+        <span class="nums xs muted">${x.products}</span></a></li>`).join("")}</ul>`,
+      {more:`<a class="link-more" href="${P.categories()}" data-nav>${t("allCategories")} →</a>`})}
+  `, true);
+}
+
+/* ---- projects index ---------------------------------------------------- */
+let projFilters = {q:"",openness:"",effort:""};
+function projectsPage(page){
+  const filtering = projFilters.q||projFilters.openness||projFilters.effort;
+  const all = PROJECTS.filter(p=>{
+    if (projFilters.openness && p.openness!==projFilters.openness) return false;
+    if (projFilters.effort && p.effort!==projFilters.effort) return false;
+    if (projFilters.q && !p.name.toLowerCase().includes(projFilters.q.toLowerCase())) return false;
+    return true;
+  });
+  const per = 8, pages = Math.ceil(PROJECTS.length/per);
+  const rows = filtering ? all : PROJECTS.slice((page-1)*per, page*per);
+
+  return pageHead({
+    wide:true,
+    crumbs:[{label:t("home"),href:P.home()},{label:t("allProjects")}],
+    eyebrow:t("alternatives"), title:t("projTitle"), lede:t("projBlurb"),
+    meta:`<p class="nums small muted">${PROJECTS.length*54} ${t("projectsCount")}</p>`
+  }) + body(`
+    <div class="panel dense" style="display:flex;flex-wrap:wrap;gap:var(--sp-100);align-items:center">
+      <input class="field" style="flex:1 1 13rem" data-pfilter="q" value="${esc(projFilters.q)}" placeholder="${t("searchProjects")}" aria-label="${t("searchProjects")}">
+      <label><span class="sr-only">${t("anyOpenness")}</span><select class="field" data-pfilter="openness">
+        ${[["",t("anyOpenness")],["fully-open","fully open"],["mostly-open","mostly open"],["open-core","open core"],["source-available","source available"]]
+          .map(([v,l])=>`<option value="${v}"${v===projFilters.openness?" selected":""}>${l}</option>`).join("")}</select></label>
+      <label><span class="sr-only">${t("anyEffort")}</span><select class="field" data-pfilter="effort">
+        ${[["",t("anyEffort")],["Desktop","Desktop"],["Package","Package"],["Docker","Docker"],["Kubernetes","Kubernetes"]]
+          .map(([v,l])=>`<option value="${v}"${v===projFilters.effort?" selected":""}>${l}</option>`).join("")}</select></label>
+    </div>
+    ${filtering?`<p class="nums xs muted" style="margin-top:8px">${rows.length} ${t("projectsCount")} · ${t("filtered")}</p>`:""}
+    <ul class="grid-2" style="margin-top:24px">${rows.map(projectRow).join("")}</ul>
+    ${rows.length===0?`<p class="center muted" style="padding-block:var(--sp-600)">Nothing matches.</p>`:""}
+    ${filtering?"":pager(page,pages,P.projects,PROJECTS.length*54,t("projectsCount"))}
+  `, true);
+}
+
+/* ---- collections ------------------------------------------------------- */
+function collectionsPage(){
+  return pageHead({
+    wide:true,
+    crumbs:[{label:t("home"),href:P.home()},{label:t("allCollections")}],
+    eyebrow:t("collections"), title:t("collTitle"), lede:t("collBlurb")
+  }) + body(`
+    <ul class="grid-2" style="gap:12px">
+      ${COLLECTIONS.map(c=>`<li class="card card-link state"><a href="${P.collection(c.slug)}" data-nav style="display:flex;flex-direction:column;height:100%;padding:20px">
+        <span style="display:flex;align-items:baseline;justify-content:space-between;gap:12px">
+          <span style="display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:600;font-size:18px">
+            <span style="color:var(--brand);display:flex">${icon(COLLECTION_ICON[c.slug],18)}</span>${esc(c[LANG].t)}</span>
+          <span class="muted" aria-hidden="true">›</span>
+        </span>
+        <span class="small muted" style="margin-top:8px;flex:1;line-height:1.6">${esc(c[LANG].b)}</span>
+        <span class="nums xs" style="margin-top:16px;color:var(--brand)">${c.count} ${c.of==="product"?t("sProducts"):t("projectsCount")}</span>
+      </a></li>`).join("")}
+    </ul>
+    <p class="t-body-sm muted" style="margin-top:32px;max-width:62ch">A "most popular" collection was asked for and is deliberately absent: vote counts change nightly, and a URL whose membership churns every week means something different each time it is shared. The
+      <a href="${P.projects()}" data-nav style="color:var(--brand)">${t("projTitle").toLowerCase()}</a> index is the stable version of that idea.</p>
+  `, true);
+}
+
+function collectionPage(slug){
+  const c = collBy(slug);
+  if (!c) return notFound();
+  const ofProducts = c.of === "product";
+  const rows = ofProducts ? PRODUCTS.slice(0,6) : PROJECTS.slice(0,8);
+  const unresolved = ofProducts ? [] : PROJECTS.slice(8,11);
+
+  return pageHead({
+    wide:true,
+    crumbs:[{label:t("home"),href:P.home()},{label:t("allCollections"),href:P.collections()},{label:c[LANG].t}],
+    eyebrow:t("collections"), title:esc(c[LANG].t), lede:esc(c[LANG].b),
+    meta:`<p class="t-body-sm muted" style="max-width:62ch;border-left:2px solid var(--outline-variant);padding-left:var(--sp-150)">${esc(c[LANG].d)}</p>`
+  }) + body(`
+    <div class="panel dense" style="display:flex;flex-wrap:wrap;gap:var(--sp-100);align-items:center">
+      <label><span class="sr-only">${t("anyEffort")}</span><select class="field"><option>${t("anyEffort")}</option><option>Docker</option><option>Kubernetes</option></select></label>
+      <label><span class="sr-only">${t("anyOpenness")}</span><select class="field"><option>${t("anyOpenness")}</option><option>fully open</option><option>open core</option></select></label>
+      ${ofProducts?`<label><span class="sr-only">${t("anyCategory")}</span><select class="field"><option>${t("anyCategory")}</option>${CATEGORIES.map(x=>`<option>${tc(x.name)}</option>`).join("")}</select></label>`:""}
+    </div>
+    <ul class="grid-2" style="margin-top:24px">${rows.map(r=>ofProducts?productCard(r):projectRow(r)).join("")}</ul>
+    ${pager(1, Math.ceil(c.count/(ofProducts?6:8)), n=>P.collection(slug), c.count, ofProducts?t("sProducts"):t("projectsCount"))}
+    ${unresolved.length?section(t("unresolved"),
+      `<p class="t-body-sm muted" style="max-width:62ch;margin-bottom:12px;line-height:1.6">${t("unresolvedNote")}</p>
+       <ul class="row">${unresolved.map(p=>`<li><a class="pill" href="${P.project(p.slug)}" data-nav>${esc(p.name)}</a></li>`).join("")}</ul>`,
+      {count:unresolved.length}):""}
+  `, true);
+}
+
+/* ---- features explorer ------------------------------------------------- */
+let featState = {need:[], acceptPaid:false, q:""};
+function featuresPage(){
+  const MARK = {yes:['✓','mark-yes'],paid:['◐','mark-paid'],no:['✗','mark-no'],unknown:['—','mark-unknown']};
+  const allFeatures = FEATURES.domains.flatMap(d=>d.features.map(f=>({...f, domain:d})));
+  const shownFeatures = allFeatures.filter(f=>!featState.q || tc(f).toLowerCase().includes(featState.q.toLowerCase()));
+  const ok = v => v==="yes" || (featState.acceptPaid && v==="paid");
+  const rows = Object.keys(FEATURES.values)
+    .filter(slug => featState.need.every(k => ok(FEATURES.values[slug][k])))
+    .map(slug => ({slug, name:(projBy(slug)||{name:slug}).name, v:FEATURES.values[slug]}));
+
+  return pageHead({
+    wide:true,
+    crumbs:[{label:t("home"),href:P.home()},{label:t("features")}],
+    eyebrow:t("features"), title:t("featTitle"), lede:t("featBlurb"),
+    meta:`<p class="nums small muted">${Object.keys(FEATURES.values).length*40} projects covered · ${allFeatures.length*15} features in the vocabulary · v4</p>`
+  }) + body(`
+    <div class="panel">
+      <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+        <input class="field" style="flex:1 1 16rem" id="feat-q" value="${esc(featState.q)}" placeholder="Search features — SSO, offline, backup…" aria-label="Search features">
+        <label class="row" style="gap:8px;font-size:14px;cursor:pointer">
+          <input type="checkbox" id="feat-paid"${featState.acceptPaid?" checked":""}>
+          Count features that are only in a paid tier
+        </label>
+      </div>
+      <div style="margin-top:16px">
+        <h2 class="eyebrow">${t("requireFeature")}</h2>
+        <ul class="row" style="margin-top:8px">
+          ${allFeatures.map(f=>`<li><button class="pill" data-need="${f.k}" aria-pressed="${featState.need.includes(f.k)}">${tc(f)}</button></li>`).join("")}
+        </ul>
+      </div>
+    </div>
+
+    <p class="nums small muted" style="margin-top:16px">${rows.length} projects match${featState.need.length?` · ${featState.need.length} requirement${featState.need.length>1?"s":""}`:""}</p>
+
+    ${rows.length===0
+      ? `<p class="card center muted" style="padding:48px 16px;margin-top:16px">Nothing matches every requirement. That is a real answer, not an empty page — loosen one, or allow paid tiers.</p>`
+      : `<div class="matrix-scroll" style="margin-top:16px">
+      <table class="matrix">
+        <thead><tr><th scope="col">Project</th>${shownFeatures.map(f=>`<th scope="col" title="${esc(tc(f.domain))}">${tc(f)}</th>`).join("")}</tr></thead>
+        <tbody>${rows.map(r=>`<tr>
+          <th scope="row"><a href="${P.project(r.slug)}" data-nav style="text-decoration:underline;text-underline-offset:2px">${esc(r.name)}</a></th>
+          ${shownFeatures.map(f=>{const [g,c]=MARK[r.v[f.k]||"unknown"];return `<td class="${c}" style="text-align:center">${g}</td>`;}).join("")}
+        </tr>`).join("")}</tbody>
+      </table></div>`}
+
+    <p class="panel t-body-sm muted" style="margin-top:var(--sp-500);display:flex;flex-wrap:wrap;gap:var(--sp-100) var(--sp-250)">
+      ${Object.entries(MARK).map(([k,[g,c]])=>`<span><span class="${c}">${g}</span> ${T[LANG].matrixLegend[k]}</span>`).join("")}
+    </p>
+  `, true);
+}
+
+/* ---- estimate / planner ------------------------------------------------ */
+let planPicked = ["notion","slack","datadog"];
+function estimatePage(){
+  const picked = planPicked.map(prodBy).filter(Boolean);
+  const total = picked.reduce((n,p)=>n+p.price,0);
+  const exits = picked.map(p=>({p, alt:p.alts.find(a=>a.kind==="oss")}));
+
+  return pageHead({
+    crumbs:[{label:t("home"),href:P.home()},{label:t("plan")}],
+    eyebrow:`<span style="color:var(--brand)">${t("plan")}</span>`,
+    title:t("planTitle"), lede:t("planBlurb")
+  }, true) + body(`
+    <section>
+      <p class="eyebrow">${t("step")} 1</p>
+      <h2 style="font-size:20px;font-weight:700;margin-top:6px">Pick what you pay for</h2>
+      <ul class="row" style="margin-top:12px">
+        ${PRODUCTS.map(p=>`<li><button class="pill" data-plan="${p.slug}" aria-pressed="${planPicked.includes(p.slug)}">${esc(p.name)} <span class="nums xs muted">${priceLabel(p)}</span></button></li>`).join("")}
+      </ul>
+    </section>
+
+    <section style="margin-top:40px">
+      <p class="eyebrow">${t("step")} 2</p>
+      <h2 style="font-size:20px;font-weight:700;margin-top:6px">${t("total")}</h2>
+      <div class="card" style="margin-top:12px;padding:20px">
+        <p class="nums" style="font-size:32px;font-weight:700">${money(total)}<span class="muted" style="font-size:16px">${t("perMonth")}</span></p>
+        <p class="nums muted small">${money(total*12)} / year · ${picked.length} ${t("picked")}</p>
+        <ul style="margin-top:16px;display:grid;gap:8px">
+          ${picked.map(p=>`<li class="row" style="justify-content:space-between;border-top:1px solid var(--outline-variant);padding-top:var(--sp-100)">
+            <a href="${P.product(p.slug)}" data-nav class="row" style="gap:8px">${logo(p.name,22)} ${esc(p.name)}</a>
+            <span class="nums small muted">${priceLabel(p)}</span></li>`).join("")}
+        </ul>
+      </div>
+    </section>
+
+    <section style="margin-top:40px">
+      <p class="eyebrow">${t("step")} 3</p>
+      <h2 style="font-size:20px;font-weight:700;margin-top:6px">${t("exits")}</h2>
+      <ul class="grid-2" style="margin-top:12px">
+        ${exits.map(({p,alt})=>`<li class="card" style="padding:var(--sp-200)">
+          <div class="row" style="justify-content:space-between">
+            <span class="small muted">${esc(p.name)}</span>${verdict(p.verdict)}
+          </div>
+          <p style="margin-top:6px;font-family:var(--display);font-weight:600">→ ${esc(alt?alt.name:"—")}</p>
+          <p class="row" style="gap:6px;margin-top:10px">
+            ${alt?`<span class="tag">${esc(alt.effort)}</span><span class="tag">${esc(alt.licence)}</span><span class="tag ${gradeTag(alt.grade)}">${alt.grade==="good"?t("openGood"):t("openWarn")}</span>`:""}
+          </p>
+        </li>`).join("")}
+      </ul>
+      <p class="t-body-sm muted" style="margin-top:16px;max-width:62ch">${t("disclaimer")}</p>
+    </section>
+  `);
+}
+
+/* ---- standing pages ---------------------------------------------------- */
+function statsPage(){
+  const rows = [["/en/","Home",41200],["/en/alternatives/notion","Notion",18400],["/en/alternatives/slack","Slack",12100],
+                ["/en/tools/","Alternatives index",9800],["/en/categories/monitoring","Monitoring",7300],["/en/features","Features",5100]];
+  const max = rows[0][2];
+  return pageHead({
+    crumbs:[{label:t("home"),href:P.home()},{label:t("stats")}],
+    wide:true,
+    eyebrow:t("stats"), title:t("statsTitle"), lede:t("statsBlurb")
+  }) + body(`
+    <dl class="statstrip" style="max-width:none;margin-top:0">
+      <div><dd>124,900</dd><dt>pageviews / 30d</dt></div>
+      <div><dd>58,200</dd><dt>visitors / 30d</dt></div>
+      <div><dd>2m 14s</dd><dt>median time on page</dt></div>
+      <div><dd>61%</dd><dt>from search</dt></div>
+    </dl>
+    ${section("Most-read pages", `<ul class="card" style="padding:8px">
+      ${rows.map(([href,label,n])=>`<li style="padding:10px 12px;display:grid;gap:6px">
+        <span class="row" style="justify-content:space-between"><span class="small">${esc(label)}</span><span class="nums xs muted">${n.toLocaleString()}</span></span>
+        <span style="display:block;height:6px;border-radius:var(--shape-full);background:var(--outline-variant)"><span style="display:block;height:6px;border-radius:var(--shape-full);width:${Math.round(n/max*100)}%;background:var(--brand)"></span></span>
+      </li>`).join("")}</ul>`)}
+    <p class="t-body-sm muted" style="margin-top:24px;max-width:62ch">Figures come from our own Umami instance, refreshed hourly. No third-party analytics script runs on this site, and nothing here is derived from a cookie.</p>
+  `);
+}
+
+function sponsorPage(){
+  const steps = ["Pick your positions","Upload the creative","Pay and go live"];
+  return pageHead({
+    crumbs:[{label:t("home"),href:P.home()},{label:t("sponsor")}],
+    eyebrow:`<span style="color:var(--brand-text)">${t("sponsor")}</span>`,
+    wide:true,
+    title:t("sponsorTitle"), lede:t("sponsorBlurb")
+  }) + body(`
+    <ol class="row" style="gap:8px">
+      ${steps.map((s,i)=>`<li class="row" style="gap:8px">
+        ${i?`<span class="muted" aria-hidden="true">→</span>`:""}
+        <span class="pill" ${i===0?'data-active="true"':""}><span class="nums xs">${i+1}</span> ${esc(s)}</span></li>`).join("")}
+    </ol>
+
+    <div class="panel" style="margin-top:var(--sp-300)">
+      <h2 class="eyebrow">Audience, last 30 days</h2>
+      <dl class="figures" style="margin-top:12px">
+        <div><dd>124,900</dd><dt>pageviews</dt></div>
+        <div><dd>58,200</dd><dt>visitors</dt></div>
+        <div><dd>2.1%</dd><dt>median slot CTR</dt></div>
+        <div><dd>${SPONSORS.filter(s=>!s.sold).length}</dd><dt>open positions</dt></div>
+      </dl>
+    </div>
+
+    ${section("Hero positions", `<ul class="card" style="padding:8px">
+      ${SPONSORS.map(s=>`<li style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px;${s.sold?"opacity:.55":""}">
+        <span class="row" style="gap:10px">${s.sold?logo(s.name,22):`<span class="slotbox">+</span>`}
+          <span class="small">${s.sold?esc(s.name):`Position ${s.id}`}</span></span>
+        <span class="nums xs" style="color:${s.sold?"var(--on-surface-variant)":"var(--brand-text)"}">
+          ${money(240)}/30d · ${s.sold?"taken until 12 Sep":"available"}</span>
+      </li>`).join("")}</ul>`)}
+
+    <div class="card" style="margin-top:24px;padding:20px">
+      <h2 style="font-size:18px;font-weight:600">2 positions selected</h2>
+      <p class="nums muted small" style="margin-top:var(--sp-50)">${money(480)} for 30 days · 10% off at 3 months</p>
+      <div class="row" style="margin-top:16px">
+        <input class="field" style="flex:1 1 14rem" placeholder="Billing email" aria-label="Billing email">
+        <button class="btn btn-primary">Continue →</button>
+      </div>
+    </div>
+
+    <p class="policy" style="margin-top:40px">${t("policy")}</p>
+  `);
+}
+
+function submitPage(){
+  return pageHead({
+    crumbs:[{label:t("home"),href:P.home()},{label:t("submit")}],
+    eyebrow:`<span style="color:var(--brand-text)">${t("submit")}</span>`,
+    wide:true,
+    title:t("submitTitle"), lede:t("submitBlurb")
+  }) + body(`
+    <div class="row" style="gap:12px">
+      <a class="btn btn-primary" href="#">Add a product ↗</a>
+      <a class="btn btn-ghost" href="#">Open an issue ↗</a>
+      <a class="btn btn-ghost" href="#">Read CONTRIBUTING ↗</a>
+    </div>
+    ${section("What a good entry looks like", `<div class="grid-3">
+      ${[["A paid product people actually buy","With a public price page we can link to. If the price is 'contact us', say so — that is a fact too."],
+         ["At least one honest alternative","Named, with its licence, and what it does not do. An alternative with no downside listed reads as marketing."],
+         ["A verdict you can defend","'Not yet' is a valid and useful answer. Half the value of this site is the entries that say no."]]
+        .map(([h,b])=>`<div class="card" style="padding:20px">
+          <h3 style="font-size:16px;font-weight:600">${h}</h3>
+          <p class="small muted" style="margin-top:8px;line-height:1.6">${b}</p></div>`).join("")}
+    </div>`)}
+    ${section("Or just tell us what is missing", `<form class="card" style="padding:20px;display:grid;gap:12px" onsubmit="return false">
+      <label style="display:grid;gap:6px"><span class="eyebrow">Product name</span><input class="field" placeholder="e.g. Linear"></label>
+      <label style="display:grid;gap:6px"><span class="eyebrow">What it replaces, if you know</span><input class="field" placeholder="e.g. Plane, Vikunja"></label>
+      <label style="display:grid;gap:6px"><span class="eyebrow">Anything else</span><textarea class="field" rows="4" placeholder="What you pay, what you would need from a replacement…"></textarea></label>
+      <div><button class="btn btn-primary">Send</button></div>
+    </form>`)}
+  `, true);
+}
+
+function signinPage(){
+  return `<div class="wrap-prose" style="max-width:28rem;padding-block:var(--sp-900)">
+    <p class="eyebrow">${t("signin")}</p>
+    <h1 style="font-size:24px;font-weight:700;margin-top:8px">Sign in to manage your campaigns</h1>
+    <p class="small muted" style="margin-top:8px;line-height:1.6">No password. Put in the email you used at checkout and we send a link that signs you in for 30 days.</p>
+    <form class="card" style="margin-top:24px;padding:20px;display:grid;gap:12px" onsubmit="return false">
+      <label style="display:grid;gap:6px"><span class="eyebrow">Email</span><input class="field" type="email" placeholder="you@company.com"></label>
+      <button class="btn btn-primary">Send the link</button>
+    </form>
+    <p class="t-body-sm muted" style="margin-top:16px">Only advertisers need an account. Reading the catalogue never does.</p>
+  </div>`;
+}
+
+const LEGAL_DOCS = [
+  ["terms",     {en:"Terms of use",     fr:"Conditions d’utilisation"}, {en:"What you may do with the catalogue, and the one thing you may not.",fr:"Ce que vous pouvez faire du catalogue."}],
+  ["privacy",   {en:"Privacy",          fr:"Confidentialité"},          {en:"What we store, which is a vote cookie and nothing else.",fr:"Ce que nous stockons."}],
+  ["cookies",   {en:"Cookies",          fr:"Cookies"},                  {en:"Two of them. Neither is for advertising.",fr:"Deux cookies. Aucun publicitaire."}],
+  ["notice",    {en:"Legal notice",     fr:"Mentions légales"},         {en:"Who publishes this site and how to reach them.",fr:"Qui publie ce site."}],
+  ["sponsorship",{en:"Sponsorship terms",fr:"CGV"},                     {en:"What a sponsor buys, and what no amount of money buys.",fr:"Ce qu’un sponsor achète."}],
+  ["disclosure",{en:"Disclosure",       fr:"Transparence"},             {en:"Every paid placement is labelled, on every surface.",fr:"Chaque emplacement payé est signalé."}],
+  ["licences",  {en:"Licences",         fr:"Licences"},                 {en:"The data licence, and the licences of what we build on.",fr:"La licence des données."}],
+];
+
+function legalPage(){
+  return pageHead({
+    wide:true,
+    crumbs:[{label:t("home"),href:P.home()},{label:t("legalTitle")}],
+    title:t("legalTitle"), lede:t("legalBlurb")
+  }) + body(`<ul class="grid-2" style="gap:12px">
+    ${LEGAL_DOCS.map(([slug,title,intro])=>`<li class="card card-link state"><a href="${P.legal()}" data-nav style="display:block;height:100%;padding:var(--sp-200)">
+      <span style="font-family:var(--display);font-weight:600">${tc(title)}</span>
+      <span class="small muted" style="display:block;margin-top:6px;line-height:1.6">${tc(intro)}</span>
+    </a></li>`).join("")}
+  </ul>`, true);
+}
+
+function notFound(){
+  return pageHead({crumbs:[{label:t("home"),href:P.home()}], title:"Nothing here."})
+    + body(`<p class="muted">That URL does not match anything in the catalogue. The
+      <a href="${P.home()}" data-nav style="color:var(--brand)">list</a> is the place to start.</p>`);
+}
+
+/* =========================================================================
+   6. ROUTER
+   ========================================================================= */
+
+function parse(){
+  const raw = location.hash.replace(/^#/,"") || `/${LANG}/`;
+  const parts = raw.split("/").filter(Boolean);
+  const lang = (parts[0]==="en"||parts[0]==="fr") ? parts[0] : "en";
+  if (lang !== LANG){ LANG = lang; document.documentElement.lang = lang; }
+  const [, seg, slug, sub, subslug] = parts;
+  const S2 = SEG[LANG];
+  const num = v => /^[0-9]+$/.test(v||"") ? Number(v) : 1;
+
+  if (!seg) return {name:"home", page:1};
+  if (seg === S2.page) return {name:"home", page:num(slug)};
+  if (seg === S2.alternatives) return slug ? {name:"product", slug} : {name:"home", page:1};
+  if (seg === S2.tools){
+    if (!slug) return {name:"projects", page:1};
+    if (slug === S2.page) return {name:"projects", page:num(sub)};
+    return {name:"project", slug};
+  }
+  if (seg === S2.categories) return slug ? {name:"category", slug} : {name:"categories"};
+  if (seg === S2.collections) return slug ? {name:"collection", slug} : {name:"collections"};
+  if (seg === S2.features) return {name:"features"};
+  if (seg === S2.stats) return {name:"stats"};
+  if (seg === S2.sponsor) return {name:"sponsor"};
+  if (seg === S2.submit) return {name:"submit"};
+  if (seg === S2.estimate) return {name:"estimate"};
+  if (seg === S2.signin) return {name:"signin"};
+  if (seg === S2.legal) return {name:"legal"};
+  return {name:"unknown"};
+}
+
+/** Which nav entry owns each route. A detail page belongs to its index. */
+const SECTION_OF = {
+  home:"list", product:"list", unknown:"list",
+  project:"projects", projects:"projects",
+  category:"categories", categories:"categories",
+  collection:"collections", collections:"collections",
+  features:"features", stats:"stats", sponsor:"sponsor", submit:"submit",
+  estimate:"", signin:"", legal:"",
+};
+
+const VIEWS = {
+  home:        r => homePage(r.page||1),
+  product:     r => productPage(r.slug),
+  project:     r => projectPage(r.slug),
+  projects:    r => projectsPage(r.page||1),
+  categories:  () => categoriesPage(),
+  category:    r => categoryPage(r.slug),
+  collections: () => collectionsPage(),
+  collection:  r => collectionPage(r.slug),
+  features:    () => featuresPage(),
+  estimate:    () => estimatePage(),
+  stats:       () => statsPage(),
+  sponsor:     () => sponsorPage(),
+  submit:      () => submitPage(),
+  signin:      () => signinPage(),
+  legal:       () => legalPage(),
+  unknown:     () => notFound(),
+};
+
+let cyclerTimer = null;
+let route = {name:"home", page:1};
+
+function render(scroll = true){
+  route = parse();
+  document.getElementById("app").innerHTML = (VIEWS[route.name] || VIEWS.unknown)(route);
+  renderChrome();
+  startCycler();
+  closeSheet();
+  if (scroll && !location.hash.includes("#list")) window.scrollTo(0,0);
+}
+
+function startCycler(){
+  clearInterval(cyclerTimer);
+  const el = document.getElementById("cycler");
+  if (!el) return;
+  const spans = [...el.children];
+  let i = 0;
+  cyclerTimer = setInterval(()=>{
+    spans[i].hidden = true;
+    i = (i+1) % spans.length;
+    spans[i].hidden = false;
+  }, 2800);
+}
+
+/* =========================================================================
+   7. CHROME — header nav, dropdowns, sheet, footer. Re-rendered per route so
+   the active state and the locale are always right.
+   ========================================================================= */
+
+function navItems(){
+  const cats = [...CATEGORIES].sort((a,b)=>b.products-a.products).slice(0,10)
+    .map(c=>({href:P.category(c.slug), label:tc(c.name), icon:c.icon, count:c.products}));
+  const colls = COLLECTIONS.map(c=>({href:P.collection(c.slug), label:c[LANG].t, icon:COLLECTION_ICON[c.slug], count:c.count}));
+  return {cats, colls};
+}
+
+function renderChrome(){
+  const cur = SECTION_OF[route.name] || "";
+  const {cats, colls} = navItems();
+  const link = (href,label,key) => `<a class="nav-link" href="${href}" data-nav data-current="${cur===key}">${esc(label)}</a>`;
+
+  const menu = (label,key,items,allHref,allLabel) => `
+    <details class="menu">
+      <summary class="nav-link" data-current="${cur===key}" style="list-style:none;cursor:pointer">
+        ${esc(label)}
+        <svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+      </summary>
+      <div class="menu-panel"><ul>
+        ${items.map(i=>`<li><a class="navrow" href="${i.href}" data-nav>
+          <span style="color:var(--brand);display:flex">${icon(i.icon,16)}</span>
+          <span style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(i.label)}</span>
+          <span class="count">${i.count}</span></a></li>`).join("")}
+        <li><a class="navrow all" href="${allHref}" data-nav><span style="flex:1">${esc(allLabel)}</span> →</a></li>
+      </ul></div>
+    </details>`;
+
+  document.getElementById("mainnav").innerHTML =
+    link(P.home(), t("list"), "list") +
+    link(P.projects(), t("alternatives"), "projects") +
+    link(P.features(), t("features"), "features") +
+    menu(t("categories"), "categories", cats, P.categories(), t("allCategories")) +
+    menu(t("collections"), "collections", colls, P.collections(), t("allCollections")) +
+    link(P.stats(), t("stats"), "stats") +
+    `<span class="nav-sep" aria-hidden="true"></span>` +
+    link(P.submit(), t("submit"), "submit") +
+    `<a class="btn btn-primary btn-sm" href="${P.sponsor()}" data-nav>${t("sponsor")}</a>`;
+
+  document.getElementById("account-label").textContent = t("signin");
+  document.querySelector(".account").setAttribute("href", P.signin());
+  document.getElementById("lang-label").textContent = LANG === "en" ? "FR" : "EN";
+
+  /* mobile sheet — the same links, plus the two groups as nested disclosures */
+  const plain = [
+    [P.home(), t("list"), cur==="list"],
+    [P.projects(), t("alternatives"), cur==="projects"],
+    [P.features(), t("features"), cur==="features"],
+    [P.stats(), t("stats"), cur==="stats"],
+    [P.estimate(), t("plan"), route.name==="estimate"],
+    [P.signin(), t("signin"), route.name==="signin"],
+    [P.submit(), t("submit"), cur==="submit"],
+    [P.sponsor(), t("sponsor"), cur==="sponsor"],
+  ];
+  const group = (title,items,allHref,allLabel) => `
+    <details class="sheet-group">
+      <summary class="navrow" style="font-weight:500"><span style="flex:1">${esc(title)}</span>
+        <svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <ul>${items.map(i=>`<li><a class="navrow" href="${i.href}" data-nav>
+        <span style="color:var(--brand);display:flex">${icon(i.icon,16)}</span>
+        <span style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(i.label)}</span>
+        <span class="count">${i.count}</span></a></li>`).join("")}
+        <li><a class="navrow all" href="${allHref}" data-nav><span style="flex:1">${esc(allLabel)}</span> →</a></li></ul>
+    </details>`;
+
+  document.getElementById("sheet-inner").innerHTML =
+    `<ul style="display:grid;gap:2px">${plain.map(([h,l,c])=>
+      `<li><a class="navrow" href="${h}" data-nav ${c?'aria-current="page"':""} style="font-weight:500${c?";color:var(--brand);background:color-mix(in srgb,var(--brand) 12%,transparent)":""}">${esc(l)}</a></li>`).join("")}</ul>` +
+    group(t("categories"), cats, P.categories(), t("allCategories")) +
+    group(t("collections"), colls, P.collections(), t("allCollections"));
+
+  /* footer */
+  document.getElementById("footer-policy").innerHTML =
+    `${t("policy")} <a href="${P.sponsor()}" data-nav style="color:var(--brand)">${t("policyMore")} →</a>`;
+  document.getElementById("footer-tagline").textContent = t("tagline");
+
+  const col = (title, links) => `<div><h2>${esc(title)}</h2><ul>${links.map(([h,l])=>
+    `<li><a href="${h}" ${h.startsWith("#")?"data-nav":""}>${esc(l)}</a></li>`).join("")}</ul></div>`;
+
+  document.getElementById("footer-cols").innerHTML =
+    col(t("footBrowse"), [[P.home(),t("list")],[P.projects(),t("alternatives")],[P.categories(),t("allCategories")],
+                          [P.collections(),t("allCollections")],[P.estimate(),t("plan")],[P.features(),t("features")]]) +
+    col(t("collections"), COLLECTIONS.map(c=>[P.collection(c.slug), c[LANG].t])) +
+    col(t("footContribute"), [[P.submit(),t("submit")],["#","Suggest a change"],["#","Open an issue"],["#","CONTRIBUTING"]]) +
+    col(t("footAbout"), [["#","Contact"],[P.sponsor(),t("sponsor")],[P.stats(),t("stats")],["#","Repository"],
+                         ["#",`${t("language")}: ${LANG==="en"?"FR":"EN"}`]]) +
+    col(t("footLegal"), LEGAL_DOCS.map(([s,title])=>[P.legal(), tc(title)]));
+}
+
+/* =========================================================================
+   8. EVENTS
+   ========================================================================= */
+
+const sheet = document.getElementById("sheet");
+const burger = document.getElementById("burger");
+function closeSheet(){ sheet.classList.remove("open"); burger.setAttribute("aria-expanded","false"); }
+burger.addEventListener("click", () => {
+  const open = sheet.classList.toggle("open");
+  burger.setAttribute("aria-expanded", String(open));
+});
+
+/* One delegated listener for the whole document. */
+document.addEventListener("click", e => {
+  const a = e.target.closest("a[data-nav]");
+  if (a){
+    // Let a same-page anchor behave like one.
+    if (a.getAttribute("href").startsWith("#list") || a.getAttribute("href") === "#") return;
+    closeSheet();
+    document.querySelectorAll("details.menu[open]").forEach(d => d.open = false);
+    return; // hashchange does the rendering
+  }
+
+  const pill = e.target.closest("[data-verdict]");
+  if (pill){ filters.verdict = pill.dataset.verdict; render(false); return; }
+
+  if (e.target.closest("#clear-filters")){
+    filters = {q:"",cat:"",verdict:"",openness:"",effort:"",price:"",sort:"weight"}; render(false); return;
+  }
+  if (e.target.closest("#open-filters")){
+    const box = document.getElementById("mobile-filters");
+    if (box) box.hidden = !box.hidden;
+    return;
+  }
+  const need = e.target.closest("[data-need]");
+  if (need){
+    const k = need.dataset.need;
+    featState.need = featState.need.includes(k) ? featState.need.filter(x=>x!==k) : [...featState.need, k];
+    render(false); return;
+  }
+  const plan = e.target.closest("[data-plan]");
+  if (plan){
+    const s = plan.dataset.plan;
+    planPicked = planPicked.includes(s) ? planPicked.filter(x=>x!==s) : [...planPicked, s];
+    render(false); return;
+  }
+  const sw = e.target.closest("[data-switch]");
+  if (sw){ sw.textContent = "✓ " + t("reported"); sw.disabled = true; sw.style.opacity = ".6"; return; }
+
+  // Any click outside an open dropdown shuts it.
+  if (!e.target.closest("details.menu"))
+    document.querySelectorAll("details.menu[open]").forEach(d => d.open = false);
+});
+
+document.addEventListener("input", e => {
+  const f = e.target.dataset.filter;
+  if (f){
+    filters[f] = e.target.value;
+    const at = e.target.selectionStart;
+    render(false);
+    if (f === "q"){
+      const box = document.querySelector('[data-filter="q"]');
+      if (box){ box.focus(); box.setSelectionRange(at, at); }
+    }
+    return;
+  }
+  const pf = e.target.dataset.pfilter;
+  if (pf){
+    projFilters[pf] = e.target.value;
+    const at = e.target.selectionStart;
+    render(false);
+    if (pf === "q"){
+      const box = document.querySelector('[data-pfilter="q"]');
+      if (box){ box.focus(); box.setSelectionRange(at, at); }
+    }
+    return;
+  }
+  if (e.target.id === "feat-q"){
+    featState.q = e.target.value;
+    const at = e.target.selectionStart;
+    render(false);
+    const box = document.getElementById("feat-q");
+    if (box){ box.focus(); box.setSelectionRange(at, at); }
+  }
+});
+
+document.addEventListener("change", e => {
+  if (e.target.id === "feat-paid"){ featState.acceptPaid = e.target.checked; render(false); }
+});
+
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape"){
+    closeSheet();
+    document.querySelectorAll("details.menu[open]").forEach(d => d.open = false);
+  }
+});
+
+/* theme — remembered, and honouring the OS on a first visit */
+const themeBtn = document.getElementById("theme-toggle");
+const setTheme = v => {
+  document.documentElement.dataset.theme = v;
+  document.documentElement.style.colorScheme = v;
+  document.getElementById("theme-icon").textContent = v === "dark" ? "☀" : "☾";
+  try { localStorage.setItem("proto-theme", v); } catch {}
+};
+themeBtn.addEventListener("click", () =>
+  setTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark"));
+
+/* language — a navigation to the same page under the other locale, never a
+   state flip, exactly as in the real app. */
+document.getElementById("lang-toggle").addEventListener("click", () => {
+  const other = LANG === "en" ? "fr" : "en";
+  const r = route;
+  LANG = other;
+  document.documentElement.lang = other;
+  const to =
+    r.name === "product"     ? P.product(r.slug)    :
+    r.name === "project"     ? P.project(r.slug)    :
+    r.name === "projects"    ? P.projects(r.page)   :
+    r.name === "category"    ? P.category(r.slug)   :
+    r.name === "categories"  ? P.categories()       :
+    r.name === "collection"  ? P.collection(r.slug) :
+    r.name === "collections" ? P.collections()      :
+    r.name === "features"    ? P.features()         :
+    r.name === "stats"       ? P.stats()            :
+    r.name === "sponsor"     ? P.sponsor()          :
+    r.name === "submit"      ? P.submit()           :
+    r.name === "estimate"    ? P.estimate()         :
+    r.name === "signin"      ? P.signin()           :
+    r.name === "legal"       ? P.legal()            :
+                               P.home(r.page);
+  location.hash = to;
+});
+
+window.addEventListener("hashchange", () => render(true));
+
+/* The top app bar sits on `surface` at rest and lifts to `surface-container`
+   + elevation level 2 once content scrolls under it — M3's app-bar rule, and
+   the reason the bar needs no permanent border or backdrop blur. */
+const header = document.querySelector(".site-header");
+const onScroll = () => header.dataset.scrolled = String(window.scrollY > 4);
+addEventListener("scroll", onScroll, {passive:true});
+onScroll();
+
+/* boot */
+(function init(){
+  let saved = null;
+  try { saved = localStorage.getItem("proto-theme"); } catch {}
+  setTheme(saved || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
+  if (!location.hash) location.hash = "#/en/";
+  render(true);
+})();
+</script>
+
+</body>
+</html>
