@@ -32,7 +32,7 @@ WEB_ORIGIN=http://localhost:3000
 # The API is a second port in development and the frontend dev server does not
 # proxy /api, so a magic link built against WEB_ORIGIN would land on the SPA and
 # silently sign nobody in.
-API_ORIGIN=http://localhost:3001
+API_ORIGIN=http://localhost:3010
 
 # ─── Secrets ──────────────────────────────────────────────────────────────────
 # Signs the voter identity cookie and the network hashes. Rotating it resets
@@ -65,13 +65,13 @@ MAGIC_LINKS_PER_HOUR=3
 # MAIL_DEV_SINK=true
 
 # Local dev goes to mailpit, which \`bun run dev\` starts for you. It accepts
-# anything, delivers nothing, and shows every message at http://localhost:8025 —
+# anything, delivers nothing, and shows every message at http://localhost:8026 —
 # so the sign-in link and the "send us your creative" mail are both readable as
 # the recipient actually sees them, not as a line in a log.
 #
 # Only SMTP_HOST is required; mailpit needs no credentials.
 SMTP_HOST=localhost
-SMTP_PORT=1025
+SMTP_PORT=1026
 MAIL_FROM=canireplaceit <hello@canireplaceit.local>
 
 # For Gmail instead: SMTP_PASS must be a 16-character App Password (Google
@@ -147,6 +147,6 @@ writeFileSync(TARGET, file, { mode: 0o600 });
 console.log(
 	`wrote ${TARGET}\n` +
 		`  VOTE_SECRET, AUTH_SECRET, ADMIN_TOKEN generated (32 random bytes each)\n` +
-		`  mail goes to the local mailpit — read it at http://localhost:8025\n` +
+		`  mail goes to the local mailpit — read it at http://localhost:8026\n` +
 		`  next: bun run dev`,
 );

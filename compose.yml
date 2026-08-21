@@ -6,8 +6,8 @@ services:
     container_name: canireplaceit-mail
     restart: unless-stopped
     ports:
-      - "1025:1025"
-      - "8025:8025"
+      - "1026:1025"
+      - "8026:8025"
     environment:
       MP_DATABASE: /data/mailpit.db
       MP_MAX_MESSAGES: "500"
@@ -26,7 +26,7 @@ services:
     container_name: canireplaceit-umami
     restart: unless-stopped
     ports:
-      - "3002:3000"
+      - "3011:3000"
     environment:
       DATABASE_URL: postgresql://umami:umami@canireplaceit-umami-db:5432/umami
       APP_SECRET: local-dev-only-not-a-secret

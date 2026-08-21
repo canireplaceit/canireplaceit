@@ -13,7 +13,7 @@
 		"import": "bun scripts/import-entries.ts",
 		"dev": "docker compose up -d --wait && bun --filter backend db:push && turbo run dev",
 		"dev:rm": "bun scripts/dev-rm.ts",
-		"dev:mail": "docker compose up -d --wait canireplaceit-mail && echo 'mailpit → http://localhost:8025'",
+		"dev:mail": "docker compose up -d --wait canireplaceit-mail && echo 'mailpit → http://localhost:8026'",
 		"build": "turbo run build && bun scripts/prerender.ts",
 		"check:links": "bun scripts/check-links.ts",
 		"og": "bun scripts/build-og.ts",
@@ -30,7 +30,7 @@
 		"db:reset": "rm -f data/canireplaceit.db data/canireplaceit.db-wal data/canireplaceit.db-shm && bun --filter backend db:push",
 		"hooks": "lefthook install",
 		"deploy": "bash scripts/deploy.sh",
-		"dev:umami": "docker compose up -d --wait canireplaceit-umami && echo 'umami → http://localhost:3002  (admin/umami)'"
+		"dev:umami": "docker compose up -d --wait canireplaceit-umami && echo 'umami → http://localhost:3011  (admin/umami)'"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.5.5",

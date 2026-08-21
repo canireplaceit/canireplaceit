@@ -70,7 +70,7 @@ const voteSecret = str("VOTE_SECRET") ?? DEV_VOTE_SECRET;
 export const env = {
 	isProduction,
 
-	port: num("PORT", 3001),
+	port: num("PORT", 3010),
 
 	/** Undefined means the repo-root default; db/index.ts resolves the path. */
 	databaseUrl: str("DATABASE_URL"),
@@ -85,12 +85,12 @@ export const env = {
 	// they're two different ports, so this needs its own variable — otherwise a magic link silently signs nobody in.
 	apiOrigin:
 		str("API_ORIGIN") ??
-		(webOriginRaw ? webOrigins[0] : "http://localhost:3001"),
+		(webOriginRaw ? webOrigins[0] : "http://localhost:3010"),
 
 	smtp: devSink
 		? {
 				host: "localhost",
-				port: 1025,
+				port: 1026,
 				user: undefined,
 				pass: undefined,
 				secure: false,
