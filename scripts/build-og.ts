@@ -1,10 +1,20 @@
 #!/usr/bin/env bun
 /**
+ * SUPERSEDED. Do not run this. `scripts/build-og-pages.ts` now draws og.png,
+ * in the site's real type and the site's palette, alongside the 1,424 per page
+ * cards. Running this script overwrites that with the older dark card below,
+ * which uses a hand-plotted pixel face and a tagline the site dropped.
+ *
+ * Kept only so the reasoning survives, and because deleting a script is the
+ * owner's call. Delete it once he says so.
+ *
+ * The original header follows.
+ *
  * The site's social card, built rather than hand-maintained.
  *
  *   bun run scripts/build-og.ts
  *
- * One image is served for every URL on the site — see OG_IMAGE in seo.ts — so
+ * One image is served for every URL on the site, see OG_IMAGE in seo.ts, so
  * getting it wrong is wrong four thousand times. The committed PNG was green
  * while the brand is blue (`--brand: #2f6fed`), which nobody would have caught
  * by reading CSS.
@@ -83,7 +93,7 @@ function word(
 // 13 glyphs at 6 cells each, plus two inter-word gaps, inside a 1020px live
 // area: 82 cells across, so 12 is the largest that fits with the 90px margin.
 const cell = 12;
-// "CAN" and "REPLACE IT" in ink, the "I" between them in brand — the wordmark's
+// "CAN" and "REPLACE IT" in ink, the "I" between them in brand, the wordmark's
 // own device, where the I of "can I" is the pivot.
 const can = word("CAN", 90, 190, cell, INK);
 const i = word("I", 90 + can.width + cell * 2, 190, cell, BRAND);
