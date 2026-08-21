@@ -1222,6 +1222,21 @@ export function collectProjects(products: Product[]): Project[] {
 				}
 				// Any citation saying archived is enough — see the field's comment.
 				if (alt.archived) existing.archived = true;
+				// `language` and `hasCompose` are sparse, not contested: across the
+				// whole catalogue 64 projects carry a language on some citations and
+				// none on others, 3 do the same for hasCompose, and ZERO disagree on
+				// either. Taking only the first citation's value therefore threw away
+				// facts we already held whenever the first product to cite a project
+				// happened to omit them — and since "first" is readdir order, the
+				// language collections changed size with the filesystem. Filling a
+				// gap from a later citation needs no `vary` treatment for the same
+				// reason `archived` does not: there is nothing to arbitrate.
+				if (existing.language === undefined && alt.language !== undefined) {
+					existing.language = alt.language;
+				}
+				if (existing.hasCompose === undefined && alt.hasCompose !== undefined) {
+					existing.hasCompose = alt.hasCompose;
+				}
 				continue;
 			}
 
