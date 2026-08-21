@@ -13,17 +13,7 @@ import {
 	orderUndiscountedCents,
 	SPONSOR_TERMS,
 } from "core/src/sponsorship";
-import {
-	and,
-	count,
-	desc,
-	eq,
-	gt,
-	gte,
-	inArray,
-	isNull,
-	sql,
-} from "drizzle-orm";
+import { and, count, desc, eq, gt, inArray, isNull, sql } from "drizzle-orm";
 import { Elysia, t } from "elysia";
 import {
 	type AdPage,
@@ -35,6 +25,7 @@ import {
 	scoreRequest,
 } from "./ad-analytics";
 import { platformAdminApi, RefundBody } from "./admin-api";
+import { publicApi } from "./api-v1";
 import {
 	canManage,
 	consumeMagicLink,
@@ -58,6 +49,7 @@ import {
 	slotLabel,
 	trackedSpendCents,
 } from "./content";
+import { counted, projectCounts, voteCounts } from "./counts";
 import { db, schema } from "./db";
 import { applyMigrations } from "./db/migrate";
 import { normalizeEmail } from "./db/schema";
@@ -179,35 +171,6 @@ const requireAdmin = ({
 	if (!secretEquals(headers.authorization ?? "", `Bearer ${ADMIN_TOKEN}`))
 		return status(401, { error: "nope" });
 };
-
-/** Only trusted, un-nullified votes are ever shown. */
-const counted = () =>
-	and(
-		gte(schema.votes.trust, TRUST_THRESHOLD),
-		isNull(schema.votes.nullifiedAt),
-	);
-
-/** Live tallies per product slug, one query. */
-async function voteCounts(): Promise<Map<string, number>> {
-	const rows = await db
-		.select({ slug: schema.votes.productSlug, n: count() })
-		.from(schema.votes)
-		.where(counted())
-		.groupBy(schema.votes.productSlug);
-	return new Map(rows.map((r) => [r.slug, r.n]));
-}
-
-/** How many people this project got out of something. */
-async function projectCounts(): Promise<Map<string, number>> {
-	const rows = await db
-		.select({ slug: schema.votes.projectSlug, n: count() })
-		.from(schema.votes)
-		.where(counted())
-		.groupBy(schema.votes.projectSlug);
-	return new Map(
-		rows.filter((r) => r.slug !== null).map((r) => [r.slug as string, r.n]),
-	);
-}
 
 async function board() {
 	const taken = await occupancy();
@@ -564,6 +527,9 @@ const app = new Elysia()
 	})
 
 	.get("/health", () => ({ ok: true }))
+
+	/** The public, agent-facing API. Versioned and rate limited; see ./api-v1.ts. */
+	.use(publicApi)
 
 	.get("/api/categories", () => content.categories)
 
