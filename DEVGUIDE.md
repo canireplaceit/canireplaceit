@@ -13,15 +13,15 @@ bun install
 bun run hooks        # lefthook git hooks
 bun run env:gen      # writes .env, secrets already generated
 bun run icons        # caches every logo locally, once
-bun run dev          # containers + schema + seed, api :3001, web :3000
+bun run dev          # containers + schema + seed, api :3010, web :3000
 ```
 
 | | |
 |---|---|
 | web | http://localhost:3000 |
-| api | http://localhost:3001 |
-| mailpit | http://localhost:8025 |
-| umami | http://localhost:3002 |
+| api | http://localhost:3010 |
+| mailpit | http://localhost:8026 |
+| umami | http://localhost:3011 |
 
 `bun run dev:rm` throws the containers, their volumes and the local database
 away.
@@ -47,7 +47,7 @@ instead.
 Umami has no seeding API, so the first run needs four clicks. The volume keeps
 them.
 
-1. http://localhost:3002 — sign in as `admin` / `umami`, change the password.
+1. http://localhost:3011 — sign in as `admin` / `umami`, change the password.
 2. **Settings → Teams → Create team.** Any name.
 3. **Settings → Websites → Add website.** Put it **in the team**, not on
    `admin`, and set the domain to `localhost`. Copy its **Website ID**.
@@ -57,7 +57,7 @@ them.
 Then in `.env`:
 
 ```bash
-UMAMI_URL=http://localhost:3002
+UMAMI_URL=http://localhost:3011
 UMAMI_WEBSITE_ID=<from step 3>
 UMAMI_USERNAME=stats
 UMAMI_PASSWORD=<that user's password>
