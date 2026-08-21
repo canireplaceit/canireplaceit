@@ -66,6 +66,7 @@ import {
 } from "core/src/index";
 import type { Route } from "core/src/routes";
 import { alternateUrls, buildProjectSlugs, LEGAL_DOCS } from "core/src/routes";
+import { markdownFor, mdFor } from "./page-markdown";
 
 const ROOT = join(import.meta.dir, "..");
 const FE = join(ROOT, "apps/frontend");
@@ -488,18 +489,53 @@ d.dataset.theme=t;d.style.colorScheme=t}catch(e){}`.replace(/\n/g, "");
 /**
  * The card this page should unfurl with.
  *
- * `scripts/build-og-pages.ts` writes a per-page card for products and
- * categories; everything else keeps the one static card. Checked on disk rather
- * than assumed, because that script is deliberately NOT part of the build — the
+ * `scripts/build-og-pages.ts` writes one per route name and language;
+ * everything else keeps the one static card. Checked on disk rather than
+ * assumed, because that script is deliberately NOT part of the build. The
  * production image has no fonts, so the cards are generated where fonts exist
  * and committed. A missing file therefore means "not generated yet", which must
- * degrade to the static card rather than to a 404 in every social preview.
+ * degrade to the static card rather than to a 404 in every social preview. That
+ * is also what lets the set land one page type at a time.
+ *
+ * `kind` is the route name, and the language is part of the filename because the
+ * cards carry copy now. A route with no slug of its own is `og/{kind}-{lang}.png`.
  */
 const OG_DIR = join(FE, "public/og");
-const ogFor = (kind: string, slug: string): string =>
-	existsSync(join(OG_DIR, `${kind}-${slug}.png`))
-		? `${SITE}/og/${kind}-${slug}.png`
+const ogFor = (kind: string, slug: string, lang: Lang): string => {
+	const name = slug ? `${kind}-${slug}-${lang}` : `${kind}-${lang}`;
+	return existsSync(join(OG_DIR, `${name}.png`))
+		? `${SITE}/og/${name}.png`
 		: OG_IMAGE;
+};
+
+/** Route names that have a card of their own, keyed by whether it carries a slug. */
+const OG_SLUGGED = new Set(["product", "category", "group", "collection"]);
+const OG_STANDING = new Set([
+	"home",
+	"categories",
+	"collections",
+	"projects",
+	"features",
+	"glossary",
+	"gaps",
+	"stats",
+	"submit",
+	"sponsor",
+	"contact",
+]);
+
+/**
+ * A paginated route keeps its parent's card: page 7 of a collection is the same
+ * subject as page 1, and minting a second image for it would say otherwise.
+ */
+function ogForRoute(route: Route): string | undefined {
+	const slug = (route as { slug?: string }).slug;
+	if (OG_SLUGGED.has(route.name) && slug) {
+		return ogFor(route.name, slug, route.lang);
+	}
+	if (OG_STANDING.has(route.name)) return ogFor(route.name, "", route.lang);
+	return undefined;
+}
 
 function head(o: {
 	lang: Lang;
@@ -622,14 +658,10 @@ function emit(o: {
 	(globalThis as { __DATA__?: Boot }).__DATA__ = o.boot;
 	const body = renderToString(React.createElement(App));
 
-	// Products and categories have their own card when one has been generated;
-	// every other route keeps the static one.
-	const image =
-		o.route.name === "product"
-			? ogFor("product", o.route.slug)
-			: o.route.name === "category"
-				? ogFor("category", o.route.slug)
-				: undefined;
+	// The card for this route, when one has been generated. Sign-in, the
+	// dashboard, admin, the legal pages and the project pages keep the static
+	// card on purpose, see the header of scripts/build-og-pages.ts.
+	const image = ogForRoute(o.route);
 	const html = withHead(
 		lang,
 		head({ lang, meta: o.meta, alternates, noindex, image }),
@@ -638,7 +670,51 @@ function emit(o: {
 		.replace("<body>", `<body><script>window.__DATA__=${json(o.boot)}</script>`)
 		.replace('<div id="root"></div>', `<div id="root">${body}</div>`);
 
-	write(fileFor(url), html);
+	/**
+	 * The Markdown twin, beside the HTML.
+	 *
+	 * Deliberately NOT pushed into `pages`. These are alternate representations
+	 * of a document, not documents of their own, so they stay out of the sitemap
+	 * and out of the hreflang set. Listing them would ask a crawler to treat one
+	 * page as two, which is the duplicate-content problem this file works hard
+	 * everywhere else to avoid.
+	 *
+	 * `markdownFor` returns null for pages whose content lives in the React tree
+	 * rather than in the payload, and those simply get no twin.
+	 */
+	const markdown = markdownFor({
+		route: o.route,
+		url,
+		lang,
+		title: o.meta.title,
+		description: o.meta.description,
+		boot: o.boot,
+		site: SITE,
+		lastmod: o.lastmod,
+	});
+
+	/**
+	 * The twin's `rel="alternate"` tag, added here rather than in `head()`.
+	 *
+	 * Every other tag in this document comes from `head()`, so that is where to
+	 * look for this one first. It is not there because the tag may only be
+	 * emitted when a twin actually exists, and `head()` runs before we know
+	 * that. Threading the answer through its arguments would couple it to a
+	 * question it does not otherwise ask, so the tag goes in afterwards instead.
+	 */
+	const withTwin =
+		markdown === null
+			? html
+			: html.replace(
+					"</head>",
+					`<link rel="alternate" type="text/markdown" href="${SITE}${url.replace(/\/$/, "")}.md">\n</head>`,
+				);
+
+	write(fileFor(url), withTwin);
+	if (markdown !== null) {
+		for (const path of mdFor(url)) write(path, markdown);
+	}
+
 	pages.push({
 		url,
 		lang,
@@ -661,6 +737,9 @@ function emit(o: {
  * page whose membership churns is a URL that means something different every
  * week — which is the one thing an indexable URL must not be.
  */
+/** The not-yet list, inlined into its own page so a crawler can read it. */
+const gapProducts = listed.filter((p) => p.verdict === "not-yet");
+
 const ordered = byWeight(listed);
 const HOME_PAGES = pageCount(ordered.length);
 
@@ -844,7 +923,20 @@ for (const lang of SupportedLangs) {
 		emit({
 			route: { name: page, lang },
 			meta: standingMeta(page, lang),
-			boot: bootFor([]),
+			/**
+			 * Standing pages carry no payload, with one exception.
+			 *
+			 * `gaps` is derived from the catalogue rather than from its own copy, so
+			 * an empty payload made it render its pending state and prerender that.
+			 * The result was the most quotable page on the site shipping zero of its
+			 * 43 product names and zero links to them, which no crawler and no model
+			 * can read. It is 43 products, the smallest slice any page here ships.
+			 *
+			 * The others genuinely have nothing to inline: `features` fetches a
+			 * code-split dataset on demand, `stats` reads live figures from Umami,
+			 * and `glossary` is static copy that already renders.
+			 */
+			boot: page === "gaps" ? bootFor(gapProducts) : bootFor([]),
 			kind: "standing",
 			lastmod: iso(new Date()),
 		});
@@ -933,6 +1025,7 @@ writeFileSync(
 			meta: homeMeta(DEFAULT_LANG, products.length),
 			alternates: alternateUrls({ name: "home", lang: DEFAULT_LANG }),
 			noindex: false,
+			image: ogFor("home", "", DEFAULT_LANG),
 		}),
 	),
 );
@@ -959,6 +1052,8 @@ writeFileSync(
 			meta: homeMeta(DEFAULT_LANG, products.length),
 			alternates: alternateUrls({ name: "home", lang: DEFAULT_LANG }),
 			noindex: true,
+			// A dead link gets shared too, usually as a screenshot.
+			image: ogFor("notfound", "", DEFAULT_LANG),
 		}),
 	),
 );
