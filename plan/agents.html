@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>canireplaceit: agents and AI search</title>
+<style>
+:root{
+  --bg:#0d0f12; --panel:#14171c; --panel2:#1a1e25; --line:#252b34;
+  --fg:#e6e9ee; --dim:#98a2b3; --faint:#6b7481;
+  --acc:#7dd3a0; --acc2:#f0b429; --bad:#f07178; --link:#8ab4f8;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){
+  --bg:#fbfbfa;--panel:#fff;--panel2:#f4f5f7;--line:#e3e6ea;--fg:#1b1f24;--dim:#5b6470;--faint:#8b939e;
+  --acc:#1a7f4b;--acc2:#a86b00;--bad:#c0392b;--link:#1a5fd0;}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+ font:16px/1.65 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+ -webkit-font-smoothing:antialiased}
+.wrap{max-width:940px;margin:0 auto;padding:56px 24px 120px}
+h1{font-size:2.1rem;line-height:1.15;margin:0 0 8px;letter-spacing:-.02em}
+h2{font-size:1.35rem;margin:64px 0 6px;letter-spacing:-.01em;scroll-margin-top:20px}
+h3{font-size:1.02rem;margin:32px 0 6px}
+h2+.sub{color:var(--dim);margin:0 0 18px;font-size:.95rem}
+.lede{color:var(--dim);font-size:1.05rem;max-width:70ch}
+p{max-width:74ch}
+a{color:var(--link)}
+code{font-family:var(--mono);font-size:.86em;background:var(--panel2);padding:1px 5px;border-radius:4px;border:1px solid var(--line)}
+pre{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;overflow-x:auto;font-family:var(--mono);font-size:.82rem;line-height:1.55}
+pre code{background:none;border:0;padding:0;font-size:inherit}
+hr{border:0;border-top:1px solid var(--line);margin:56px 0}
+.tag{display:inline-block;font:600 .68rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;
+ padding:5px 8px;border-radius:5px;border:1px solid var(--line);color:var(--dim);vertical-align:middle}
+.t-p0{color:#0d0f12;background:var(--acc);border-color:var(--acc)}
+.t-p1{color:var(--acc2);border-color:var(--acc2)}
+.t-p2{color:var(--dim)}
+.t-skip{color:var(--faint);text-decoration:line-through}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin:14px 0}
+.card h3{margin-top:0}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+table{width:100%;border-collapse:collapse;font-size:.9rem;margin:14px 0}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--dim);font-weight:600;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em}
+.scroll{overflow-x:auto}
+ul{max-width:74ch;padding-left:20px}
+li{margin:5px 0}
+.good::marker{content:"✓  ";color:var(--acc)}
+.bad::marker{content:"✗  ";color:var(--bad)}
+.meta{color:var(--faint);font-size:.82rem;font-family:var(--mono)}
+.callout{border-left:3px solid var(--acc2);background:var(--panel);padding:14px 18px;border-radius:0 8px 8px 0;margin:18px 0}
+.callout.warn{border-color:var(--bad)}
+nav.toc{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin:28px 0 0}
+nav.toc ol{margin:0;padding-left:20px;columns:2;column-gap:32px;font-size:.92rem}
+nav.toc a{text-decoration:none}
+nav.toc a:hover{text-decoration:underline}
+.kv{font-family:var(--mono);font-size:.82rem;color:var(--dim)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Agents, AI search, and what shipped</h1>
+<p class="lede">The API, the skill, the discovery endpoints and the structured data are built and verified. The Markdown twins are waiting on one file another session is holding. This is the state of it.</p>
+<p class="meta">/home/hades/projects/canireplaceit/plan/agents.html &middot; 2026-08-21</p>
+
+<nav class="toc">
+<ol>
+<li><a href="#status">Status</a></li>
+<li><a href="#api">The API</a></li>
+<li><a href="#skill">The skill</a></li>
+<li><a href="#twins">The Markdown twins</a></li>
+<li><a href="#geo">Structured data</a></li>
+<li><a href="#feed">Feed and IndexNow</a></li>
+<li><a href="#left">What is left</a></li>
+<li><a href="#dataloss">A data-loss bug</a></li>
+<li><a href="#wrong">Corrections</a></li>
+<li><a href="#have">What was already good</a></li>
+<li><a href="#not">Deliberately not built</a></li>
+<li><a href="#sources">Sources</a></li>
+</ol>
+</nav>
+
+<h2 id="status">Status</h2>
+<p class="sub">Everything on the list is built. Two real bugs were found and fixed along the way, both in my own work.</p>
+
+<div class="scroll"><table>
+<tr><th>Thing</th><th>State</th><th>Where</th></tr>
+<tr><td>Versioned public API, 18 routes</td><td><span class="tag t-p0">shipped</span></td><td><code>apps/backend/src/api-v1.ts</code></td></tr>
+<tr><td>Rate limit, 60/min per IP</td><td><span class="tag t-p0">shipped</span></td><td>same file, <code>elysia-rate-limit@4.6.3</code></td></tr>
+<tr><td>Published skill and discovery manifest</td><td><span class="tag t-p0">shipped</span></td><td><code>apps/frontend/public/agent-skills/</code></td></tr>
+<tr><td>llms.txt</td><td><span class="tag t-p0">shipped</span></td><td><code>apps/frontend/public/llms.txt</code></td></tr>
+<tr><td>FAQPage, Offer, WebSite structured data</td><td><span class="tag t-p0">shipped</span></td><td><code>apps/frontend/src/seo.ts</code></td></tr>
+<tr><td>Atom feed of verified prices</td><td><span class="tag t-p0">shipped</span></td><td><code>/feed.xml</code></td></tr>
+<tr><td>IndexNow ping on deploy</td><td><span class="tag t-p0">shipped</span></td><td><code>scripts/indexnow.ts</code></td></tr>
+<tr><td>Markdown twin for every page</td><td><span class="tag t-p0">shipped</span></td><td><code>scripts/page-markdown.ts</code>, wired into <code>prerender.ts</code></td></tr>
+</table></div>
+
+<p>Verified rather than assumed: 312 tests pass (39 of them new), all three packages typecheck, biome is clean on everything I touched, and both nginx configs were tested by running real nginx against them in a container. The API was exercised route by route against a live server on a spare port, including tripping the rate limit on purpose. The full prerender ran to completion and produced 8,814 Markdown twins, which were then served through the real nginx config and fetched back.</p>
+
+<div class="callout">
+<b>Measurement is not on this list, on purpose.</b> Umami already reads UTMs, ChatGPT stamps <code>utm_source=chatgpt.com</code> on outbound links, and there is nothing to build. Two caveats worth carrying: Perplexity, Gemini and Claude do not tag consistently and ChatGPT's mobile app strips the referrer, so the AI number in Umami is a floor rather than a total. Crawler hits never reach Umami at all, since bots do not run the script. That answer is in the nginx access log if you ever want it.
+</div>
+
+<h2 id="api">The API</h2>
+<p class="sub">One route for everything that has a page. Every object carries two links.</p>
+
+<p>The rule the whole surface follows: if it has a URL on the site, it has a route here, and the vocabulary matches the domain types in <code>packages/core/src/content.ts</code> rather than inventing a second naming scheme.</p>
+
+<div class="scroll"><table>
+<tr><th>Route</th><th>Returns</th></tr>
+<tr><td><code>/api/v1</code></td><td>Discovery. Routes, counts, rate limit, and the vocabulary so a caller knows what "open core" and "almost" mean before it uses them.</td></tr>
+<tr><td><code>/api/v1/search</code></td><td>Products and projects together. The route the skill leads with.</td></tr>
+<tr><td><code>/api/v1/products</code>, <code>/products/{slug}</code></td><td>592 paid products. Detail carries pricing with its source and check date, what you lose by leaving, every alternative, and per-feature answers.</td></tr>
+<tr><td><code>/api/v1/projects</code>, <code>/projects/{slug}</code></td><td>3,479 replacements, most-cited first. Detail carries every product the project can replace, with links both ways.</td></tr>
+<tr><td><code>/api/v1/categories</code>, <code>/categories/{slug}</code></td><td>85 categories, and the products in one.</td></tr>
+<tr><td><code>/api/v1/groups</code>, <code>/groups/{slug}</code></td><td>The ten themes.</td></tr>
+<tr><td><code>/api/v1/collections</code>, <code>/collections/{slug}</code></td><td>13 derived slices. <b>The graveyard is <code>/collections/archived</code></b>, reusing the slug the page already has instead of minting a second name for it.</td></tr>
+<tr><td><code>/api/v1/gaps</code></td><td>The 43 products with no credible replacement. The list that says no.</td></tr>
+<tr><td><code>/api/v1/features</code></td><td>The feature taxonomy. Per-record answers ride on each product and project.</td></tr>
+<tr><td><code>/api/v1/stats</code></td><td>Counts, tracked monthly spend, and the date of the last repo health sweep.</td></tr>
+<tr><td><code>/api/v1/dump.json</code></td><td>The whole catalogue, 7.5 MB, one request, cached an hour.</td></tr>
+<tr><td><code>/api/v1/feed.xml</code></td><td>Atom. Also served at <code>/feed.xml</code>.</td></tr>
+<tr><td><code>/api/v1/openapi.json</code></td><td>The contract. A test asserts it documents every route the index advertises.</td></tr>
+</table></div>
+
+<h3>Two links on every object</h3>
+<pre><code>{
+  "slug": "github-appflowy-io-appflowy",
+  "name": "AppFlowy",
+  "license": "AGPL-3.0",
+  "self_hostable": true,
+  "open_core": "minor",
+  "effort": "managed",
+  "archived": false,
+  "last_push": "2026-07-24",
+  "url": "https://canireplaceit.com/en/tools/github-appflowy-io-appflowy",
+  "api": "https://canireplaceit.com/api/v1/projects/github-appflowy-io-appflowy"
+}</code></pre>
+<p><code>url</code> is the referral, and it is the only thing the site gets back for answering the question. <code>api</code> means a caller walks the catalogue by following links instead of guessing how routes are spelled. Nothing ships without both.</p>
+
+<h3>Rate limiting</h3>
+<p>Two findings while wiring this up, both of which would have bitten silently.</p>
+<ul>
+<li><b>Version.</b> <code>elysia-rate-limit@5.x</code> requires elysia 2.0, and this project is on 1.4.29, which is still the <code>latest</code> dist-tag. Pinned to <code>4.6.3</code>, the last release on the 1.x peer range. Upgrading elysia under a 1,700-line <code>index.ts</code> to gain a rate limiter would have been the wrong trade.</li>
+<li><b>The default generator would have made one bucket for the whole internet.</b> It reads <code>server.requestIP()</code>, which behind your nginx is the docker bridge gateway for every caller. It now reads <code>x-forwarded-for</code>, which is safe here specifically because <code>nginx/canireplaceit.conf</code> sets <code>X-Forwarded-For $remote_addr</code>, an overwrite rather than an append, so a client cannot spoof it.</li>
+</ul>
+<p>The limiter is <code>scoping: "scoped"</code> on a sub-instance, so the vote, sponsor and Stripe routes keep their own rules. Verified by firing 66 requests and watching it turn over to 429 at the right count, then confirming a different forwarded address gets its own bucket.</p>
+<p>Two things make the limit cheap to enforce. The pages are served by a separate nginx container from prerendered files, so hammering the API cannot take the site down, only the API. And every v1 GET carries <code>Cache-Control: public, max-age=300</code>, with an hour on the dump, so a polite caller skips most of its requests.</p>
+
+<h2 id="skill">The skill</h2>
+<p class="sub">One file on disk, three URLs, and a test that stops the digest going stale.</p>
+
+<div class="scroll"><table>
+<tr><th>URL</th><th>For</th></tr>
+<tr><td><code>/skill.md</code></td><td>A person pasting a link, and anything that just wants to read it</td></tr>
+<tr><td><code>/.well-known/agent-skills/index.json</code></td><td>The agent-skills 0.2.0 discovery manifest, with a sha256 digest</td></tr>
+<tr><td><code>/.well-known/agent-skills/canireplaceit/SKILL.md</code></td><td>What <code>npx skills add</code> fetches</td></tr>
+</table></div>
+
+<p>The file lives at <code>apps/frontend/public/agent-skills/canireplaceit/SKILL.md</code> and nginx serves it under both paths. It is not stored in a dot-prefixed directory because a bundler copying <code>public/</code> cannot be relied on to carry one, and this way the question never comes up. Content type is <code>text/markdown; charset=utf-8</code> on both, verified against real nginx in a container.</p>
+
+<p>The skill is a map, not a copy of the data. It teaches the vocabulary, the ranking rules and the routes, then sends the agent to the API. A skill that embedded facts would go stale in the user's <code>~/.claude</code> folder within a week of a price sweep.</p>
+
+<div class="callout">
+<b>Still to do by hand:</b> the git marketplace repo. Claude Code installs from a repo with <code>.claude-plugin/marketplace.json</code>, not from a URL, so that half needs a second repo and is the one piece of this that is an announcement rather than a commit. The HTTP discovery path above already works for <code>npx skills add</code> and for anything crawling you.
+</div>
+
+<h3>What the skill tells an agent to do</h3>
+<p>The ranking rules are the interesting part, because they encode judgements the raw data does not: drop anything <code>archived</code>, prefer <code>open_core: "none"</code> over <code>"minor"</code> over <code>"major"</code>, match <code>effort</code> to what the person can actually run, mention a <code>last_push</code> older than a year, and when the verdict is <code>not-yet</code>, say so instead of recommending something weak. Then link the <code>url</code> of everything named.</p>
+
+<h2 id="geo">Structured data</h2>
+<p class="sub">Three additions, one refusal.</p>
+
+<ul>
+<li><b>FAQPage on every product page.</b> The one type both Google and the answer engines lift wholesale. Four questions, all built from the record: is there an open source alternative, can you self-host a replacement, how much does it cost, what do you lose by leaving. The cost answer carries the check date and the vendor URL it was read from, which is the part nobody else in this space can publish.</li>
+<li><b>Offer on the paid product.</b> Real price, real currency, linking the pricing page it came from.</li>
+<li><b>WebSite with a SearchAction</b> on the home page, page one only, pointing at the search API.</li>
+<li><b>No offers on projects.</b> <code>seo.ts</code> already carried an explicit decision against this, with a sound reason: an offer only earns a rich result alongside a rating, and inventing a rating is how a site earns a manual action. I left that decision alone and wrote down why the product differs. The product's price is an event with a receipt. A project has no price to state.</li>
+</ul>
+
+<p>A test asserts no JSON-LD block ever contains the string <code>undefined</code>, <code>NaN</code> or <code>"null"</code>, across three products in both languages. One absent field is all it takes to publish "checked on undefined".</p>
+
+<h2 id="feed">Feed and IndexNow</h2>
+
+<p><b><code>/feed.xml</code></b> is Atom, the 50 most recently re-verified prices. A feed of new products would need a created date the catalogue does not keep, and deriving one from git would be a date about a file rather than about a product. <code>pricing.checkedOn</code> is a real event: a human read a vendor page and wrote down what it said. That is the thing worth subscribing to, and it is the thing nobody else publishes.</p>
+
+<p><b>IndexNow</b> fires after a successful deploy and never fails one. It submits the index pages every time, plus the specific product pages whose data files changed in that release, worked out with <code>git diff</code> and degrading to index pages only when the checkout has no history. Submitting the whole sitemap every deploy is how a site gets its submissions ignored. It is inert until <code>INDEXNOW_ENABLED</code> is set, so nothing goes out before you want it to. The key sits at <code>/indexnow-key.txt</code>, which is public by design.</p>
+<p>Bing matters here more than its search share suggests, because Bing's index is what Copilot answers from.</p>
+
+<h2 id="left">What is left</h2>
+<p class="sub">Nothing, other than one small thing that belongs to another session.</p>
+
+<p>All three open questions are closed. The data licence is confirmed as CC-BY-4.0, which is what every API response and the skill already state. The git marketplace repo is dropped by decision, and it is the right call: people run different agents, and a Claude-specific install path would have been the one piece of this that served a single vendor. The HTTP discovery endpoint is agent agnostic and already works.</p>
+
+<p>The em dashes are gone. 149 of them plus 5 en dashes, across both language blocks of <code>apps/frontend/src/i18n.ts</code>, rewritten to periods and commas, with no parentheses and no hyphen substitutes. 312 tests still pass and every placeholder was counted before and after to prove none were eaten.</p>
+
+<p><b>One regression, caught and closed.</b> <code>build-og-pages.ts</code> splits the 404 string on its dash to get two lines for the card, so removing the dash left one long line and an empty second one. It degraded rather than crashed. I did not fix it myself, since that file was being actively edited in another session, and sent them the exact regex instead. They have applied it and verified that the old wording still splits correctly too, so a revert cannot break it either. The card set is regenerating now and picks up the rewritten copy on submit, glossary, gaps, stats and the 404.</p>
+
+<p>Two dashes were left in place on purpose, in both languages: the feature matrix legend ends with <code>· &ndash; not checked</code>. That is not punctuation, it is the literal glyph <code>FeaturesPage.tsx</code> renders for an unchecked feature, and the sentence above it reads "A dash means nobody has checked". Rewriting the legend without changing the glyph would make the legend lie. Changing the glyph is a decision about the matrix's visual vocabulary rather than a copy fix, so it is yours to make.</p>
+
+<h2 id="twins">The Markdown twins</h2>
+<p class="sub">8,814 files, one extra write in a loop that already existed.</p>
+
+<p>Every page now has a <code>.md</code> beside it, so <code>canireplaceit.com/en/alternatives/notion.md</code> returns the page without the HTML. Built in <code>scripts/page-markdown.ts</code> from the same payload the React render reads, never by converting the HTML, since converting would inherit the navigation, the sponsor rails and the cookie banner, which is exactly the boilerplate the twin exists to drop.</p>
+
+<p>The shape follows what retrieval actually rewards. The verdict is the first line, the price and the date it was checked are the second, and the reasoning comes after. Then a table, because a table survives being chopped into a chunk. Then a footer carrying the canonical URL on every single file, so a model that ingests only the Markdown still has the link to cite.</p>
+
+<pre><code># 12 open source Notion alternatives (2026)
+
+**Almost. The replacements are close, with a real gap.**
+
+Notion costs 10 USD per month (Plus, annual billed monthly). Checked on
+2026-08-02 at https://www.notion.com/pricing.
+
+| Project | Licence | Self-host | Open core | Effort | Last commit |
+|---|---|---|---|---|---|
+| [AppFlowy](https://canireplaceit.com/en/tools/appflowy) | AGPL-3.0 | yes | major | docker | 2026-07-24 |
+...
+
+---
+Source: https://canireplaceit.com/en/alternatives/notion
+API: https://canireplaceit.com/api/v1/products/notion
+Last updated 2026-08-02. Data licensed CC-BY-4.0: cite the source URL above.</code></pre>
+
+<p>Three decisions worth naming:</p>
+<ul>
+<li><b>Twins are not in the sitemap.</b> They are alternate representations of a document, not documents. Listing them would ask a crawler to treat one page as two, which is the duplicate-content problem the rest of that file works hard to avoid. Each page instead carries <code>&lt;link rel="alternate" type="text/markdown"&gt;</code>.</li>
+<li><b>Pages with nothing to say get no twin.</b> The legal documents, the contact form and the dashboard render copy that lives in the React tree rather than in the payload. A stub saying "see the HTML" would be a file that exists to be disappointing.</li>
+<li><b>Index URLs get two files.</b> <code>/en/index.md</code> and <code>/en.md</code>, because "append .md to the URL" and "strip the slash and append .md" are both things a caller will try, and two small files beat a rule with an exception in it.</li>
+</ul>
+
+<p>Verified by running the real prerender to completion, then serving the output through the real nginx config and fetching the twins back at the right content type. Every project link in a generated twin was checked against the pages on disk: 12 of 12 resolve.</p>
+
+<h2 id="dataloss">A data-loss bug, found late</h2>
+<p class="sub">Reported by another session as a determinism problem. It was worse than that.</p>
+
+<p>The OG session noticed that the three language collections changed size depending on the order the product files were read, and that <code>apps/backend/src/content.ts</code> did not sort its <code>readdir</code> while <code>scripts/prerender.ts</code> did. So the API could report different membership than the page it described. That part was exactly right, and the reproduction matched: sorted gave 68/157/158 for Rust, Go and Python, unsorted gave 70/153/159, reversed gave 74/148/159.</p>
+
+<p>The stated cause was different products disagreeing about a project's language, with the first one read winning. I checked how many projects are cited with more than one distinct language. <b>Zero.</b> None disagree, and none disagree about <code>hasCompose</code> either.</p>
+
+<p>The real cause is sparseness. 64 projects carry a language on some citations and none on others, and <code>collectProjects</code> read only the first citation, so whenever the first product to cite a project happened to omit the field, a language the catalogue already held was thrown away. Ardour is cited eight times and named as C++ in three of them, but the first citation is silent, so Ardour had no language at all.</p>
+
+<p>That distinction decided the fix. It was flagged as a product decision needing disagreement handling of the kind <code>factsVary</code> does for facts. With zero conflicts there is nothing to arbitrate, and filling a gap from a later citation is the same move the function already makes one line above for <code>archived</code> and for <code>effort</code>. Those two fields were simply the ones that never got it.</p>
+
+<p>Both fixed: the API now sorts, and the collector fills <code>language</code> and <code>hasCompose</code> from any citation that has them. The result is stronger than determinism.</p>
+
+<div class="scroll"><table>
+<tr><th>Collection</th><th>Before, sorted</th><th>After, any order</th></tr>
+<tr><td><code>in-rust</code></td><td>68</td><td><b>81</b></td></tr>
+<tr><td><code>in-go</code></td><td>157</td><td><b>164</b></td></tr>
+<tr><td><code>in-python</code></td><td>158</td><td><b>159</b></td></tr>
+<tr><td><code>one-compose</code></td><td>varied</td><td><b>178</b></td></tr>
+</table></div>
+
+<p>Every count is now identical under sorted, unsorted and reversed reads. They are also all higher, which is the real result here: those 13 extra Rust projects were always written in Rust, and the site was discarding the fact. Sorting alone would have frozen the wrong answer rather than corrected it. Two regression tests in <code>packages/core/src/content.test.ts</code> assert that citation order cannot change the answer.</p>
+
+<div class="callout warn">
+<b>These numbers are user-visible and they moved.</b> The language and compose collection pages will list more projects than they did, and any generated card printing those counts is stale until it is regenerated. Nothing was invented: every project added was already described as that language somewhere in the catalogue.
+</div>
+
+<h2 id="wrong">Corrections</h2>
+<p class="sub">Things the first draft of this plan got wrong, found by reading the code.</p>
+<ul>
+<li><code>effort</code> is <code>managed</code>, <code>docker</code>, <code>ops</code>. Not low, medium, high.</li>
+<li><code>verdict</code> is <code>yes</code>, <code>almost</code>, <code>not-yet</code>. Not "partial".</li>
+<li>592 products and 3,479 projects, not 527.</li>
+<li><b>The worst bug I wrote, caught before it shipped.</b> A <code>Project</code> carries a forge id like <code>github-appflowy-io-appflowy</code>, and I was emitting that as the page link. The real page is <code>/en/tools/appflowy</code>, built by <code>buildProjectSlugs</code>. Every project link in the API would have 404'd, which is the one field the whole thing exists to produce. It now builds the same map the prerenderer builds, with the product slugs passed in so collisions resolve identically, and the pretty slug is the public id. The forge id still resolves, since vote rows carry it. A test recomputes the map the way prerender does and asserts every published slug matches.</li>
+<li><b>Feature answers were keyed wrongly.</b> I looked projects up by <code>source.path</code>; the generator keys them by <code>healthKey</code>, which prefixes every forge except GitHub with its hostname. Measured: 3,158 resolved before, 3,234 after. Worse than the 76 misses was the collision it hid, since <code>blender/blender</code> exists both on projects.blender.org and as a GitHub mirror. Caught by a peer session reviewing my message rather than my code, which is the only reason I checked.</li>
+<li>The glossary terms live in the page, not in the content, so <code>DefinedTerm</code> markup would mean copying fifteen definitions into <code>seo.ts</code> and letting them drift. Skipped for that reason rather than forgotten.</li>
+<li><code>data/features.json</code> is about to grow a lot, 3,281 projects today and more coming. So <code>/api/v1/features</code> serves the taxonomy and the per-record answers ride on each record. It is read lazily and tolerates the file being mid-rewrite, because another session regenerates it while the server is running.</li>
+</ul>
+
+<h2 id="have">What was already good</h2>
+<p class="sub">Most sites chasing this in 2026 are trying to buy what this repo already had.</p>
+<ul>
+<li class="good">Fully prerendered static HTML. Every AI crawler sees the content on first fetch, with no JS render step. Most React sites fail right here.</li>
+<li class="good">Sharded sitemap with hreflang and honest <code>lastmod</code>, plus deliberate noindex on thin categories and thin projects, and filter states as query params behind a bare canonical. That last part is what everyone gets wrong.</li>
+<li class="good">Pagination as a path, translated URL segments per locale, and a tested inverse between building a URL and reading it back.</li>
+<li class="good"><code>pricing.checkedOn</code>, <code>confidence</code>, <code>PriceSource.url</code>, and a health sweep with <code>lastPush</code> and <code>archived</code>. Verifiable dated facts are exactly what answer engines weight, and this is the differentiator the whole plan is built on.</li>
+<li class="good">Content in git, validated in CI. The API over it was a serialisation job, not a data project.</li>
+</ul>
+
+<h2 id="not">Deliberately not built</h2>
+<ul>
+<li><span class="tag t-skip">skip</span> <b>Remote MCP server.</b> A second protocol over the same queries. The skill and API already cover Claude Code, Cursor and ChatGPT. Worth revisiting once the search API has real usage.</li>
+<li><span class="tag t-skip">skip</span> <b><code>llms-full.txt</code>.</b> Superseded by per-page Markdown.</li>
+<li><span class="tag t-skip">skip</span> <b>Blocking training crawlers.</b> robots.txt stays open to both retrieval bots and training bots. A directory wants to be memorised, and blocking training crawlers is how sites quietly vanish from Claude and ChatGPT answers.</li>
+<li><span class="tag t-skip">skip</span> <b>API keys and quotas.</b> Auth kills agent adoption. Add it the day someone actually abuses the limit, not before.</li>
+</ul>
+
+<div class="callout warn">
+<b>One decision still yours.</b> Everything written here assumes the data is CC-BY-4.0, and that string is now returned by every API response and printed in the skill. If that is not the licence you want, say so now, because it is currently a promise the site is making to every caller.
+</div>
+
+<h2 id="sources">Sources</h2>
+<ul style="font-size:.88rem">
+<li><a href="https://agentskills.io/specification">Agent Skills specification</a> and <a href="https://www.mintlify.com/docs/ai/skillmd">Mintlify's skill.md</a> for the discovery manifest shape</li>
+<li><a href="https://github.com/rayriffy/elysia-rate-limit">rayriffy/elysia-rate-limit</a></li>
+<li><a href="https://geojacker.com/llms-txt">llms.txt: what the 2026 data actually shows</a> and <a href="https://ai.aeo.press/the-state-of-llms-txt-in-2026">the state of llms.txt in 2026</a></li>
+<li><a href="https://www.digitalapplied.com/blog/markdown-first-content-architecture-llms-txt-spec">Markdown-first content architecture</a></li>
+<li><a href="https://www.honeyb.ai/blog/ai-crawler-user-agents-reference-2026">AI crawler user agents reference 2026</a></li>
+<li><a href="https://www.enrichlabs.ai/blog/generative-engine-optimization-geo-complete-guide-2026">GEO complete 2026 guide</a></li>
+<li><a href="https://www.agensi.io/learn/claude-code-plugin-marketplace-guide">Claude Code plugin marketplace guide</a></li>
+</ul>
+
+</div>
+</body>
+</html>

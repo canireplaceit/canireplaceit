@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>canireplaceit — consolidation &amp; next pages</title>
+<style>
+:root{--bg:#fbfbfd;--surface:#fff;--text:#14161a;--muted:#6b7280;--border:#e5e7eb;--brand:#2563eb;--good:#059669;--warn:#b45309;--bad:#dc2626;--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+@media (prefers-color-scheme:dark){:root{--bg:#0d0f13;--surface:#15181e;--text:#e8eaed;--muted:#9aa1ac;--border:#262b33;--brand:#5b8cff;--good:#34d399;--warn:#fbbf24;--bad:#f87171}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px 120px}
+header.top{padding:56px 0 32px;border-bottom:1px solid var(--border);margin-bottom:8px}
+h1{font-size:2.4rem;line-height:1.15;margin:0 0 12px;letter-spacing:-.02em}
+h2{font-size:1.5rem;margin:64px 0 8px;letter-spacing:-.01em;scroll-margin-top:60px}
+h3{font-size:1.05rem;margin:0 0 6px}
+p{margin:0 0 14px}.lede{color:var(--muted);font-size:1.05rem;max-width:70ch}
+small,.muted{color:var(--muted)}code,.mono{font-family:var(--mono);font-size:.88em}
+a{color:var(--brand)}
+nav.toc{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);margin:0 -24px 32px;padding:10px 24px;display:flex;gap:6px;flex-wrap:wrap}
+nav.toc a{font-size:.8rem;text-decoration:none;color:var(--muted);border:1px solid var(--border);border-radius:99px;padding:3px 10px}
+nav.toc a:hover{border-color:var(--brand);color:var(--brand)}
+.p{border:1px solid var(--border);border-radius:12px;background:var(--surface);padding:18px 20px;margin:14px 0}
+.p.rec{border-color:color-mix(in srgb,var(--brand) 45%,var(--border))}
+.p header{padding:0;border:0;margin:0;display:flex;gap:12px;align-items:flex-start}
+.id{font-family:var(--mono);font-size:.75rem;color:var(--muted);border:1px solid var(--border);border-radius:6px;padding:2px 6px;flex-shrink:0;margin-top:2px}
+.tag{display:inline-block;font-size:.68rem;font-family:var(--mono);text-transform:uppercase;letter-spacing:.04em;border-radius:5px;padding:2px 7px;border:1px solid;vertical-align:2px;margin-left:8px}
+.t-rec{color:var(--good);border-color:color-mix(in srgb,var(--good) 40%,transparent);background:color-mix(in srgb,var(--good) 8%,transparent)}
+.t-alt{color:var(--muted);border-color:var(--border)}
+.t-no{color:var(--bad);border-color:color-mix(in srgb,var(--bad) 35%,transparent)}
+.t-fix{color:var(--warn);border-color:color-mix(in srgb,var(--warn) 40%,transparent);background:color-mix(in srgb,var(--warn) 8%,transparent)}
+.t-big{color:var(--brand);border-color:color-mix(in srgb,var(--brand) 40%,transparent)}
+.cost{font-family:var(--mono);font-size:.75rem;color:var(--muted);margin-left:auto;flex-shrink:0;white-space:nowrap}
+.pick{display:flex;gap:6px;margin-top:12px}
+.pick button{font:inherit;font-size:.78rem;padding:3px 12px;border-radius:99px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer}
+.pick button:hover{border-color:var(--brand)}
+.pick button[aria-pressed="true"][data-v="y"]{background:var(--good);border-color:var(--good);color:#fff}
+.pick button[aria-pressed="true"][data-v="n"]{background:var(--bad);border-color:var(--bad);color:#fff}
+.pick button[aria-pressed="true"][data-v="m"]{background:var(--muted);border-color:var(--muted);color:#fff}
+.mock{font-family:var(--mono);font-size:.72rem;line-height:1.45;white-space:pre;overflow-x:auto;background:color-mix(in srgb,var(--text) 4%,transparent);border:1px solid var(--border);border-radius:8px;padding:14px;margin:12px 0}
+table{border-collapse:collapse;width:100%;font-size:.88rem;margin:12px 0}
+th,td{text-align:left;padding:6px 10px;border-bottom:1px solid var(--border);vertical-align:top}
+th{font-weight:600;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+td.n{font-family:var(--mono);text-align:right;white-space:nowrap}
+.evidence{border-left:3px solid var(--warn);background:color-mix(in srgb,var(--warn) 6%,transparent);padding:10px 14px;border-radius:0 8px 8px 0;margin:12px 0;font-size:.9rem}
+.done{border-left:3px solid var(--good);background:color-mix(in srgb,var(--good) 6%,transparent);padding:10px 14px;border-radius:0 8px 8px 0;margin:12px 0;font-size:.9rem}
+ul{margin:0 0 14px;padding-left:22px}li{margin:3px 0}
+#bar{position:fixed;bottom:0;left:0;right:0;background:var(--surface);border-top:1px solid var(--border);padding:10px 24px;display:flex;gap:14px;align-items:center;font-size:.85rem;z-index:50}
+#bar .sp{flex:1}
+#bar button{font:inherit;font-size:.85rem;padding:6px 14px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text);cursor:pointer}
+#bar button.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+#out{position:fixed;inset:auto 24px 60px 24px;max-width:1032px;margin:0 auto;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;display:none;max-height:50vh;overflow:auto}
+#out.on{display:block}#out pre{font-family:var(--mono);font-size:.78rem;white-space:pre-wrap;margin:0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <h1>Consolidation &amp; the next pages</h1>
+  <p class="lede">Second plan. The first one (<code>plan/index.html</code>) covered the redesign and 23 of its proposals are now shipped. This one is about the seams that showed once those landed: dead ends, unexplained jargon, data we hold and never surface — plus a concrete spec for the CLI and dev-tool pages, which is <b>already generating</b> as you read this.</p>
+  <p><small>Pick yes / no / maybe per proposal; the bar at the bottom copies your answers back. Nothing in §2–§6 is implemented — plans only, as asked.</small></p>
+</header>
+
+<nav class="toc">
+  <a href="#fixed">0 · Already fixed</a>
+  <a href="#seams">1 · The seams</a>
+  <a href="#tooltips">2 · Jargon</a>
+  <a href="#dead">3 · Dead ends</a>
+  <a href="#data">4 · Data we waste</a>
+  <a href="#workflows">5 · Workflows</a>
+  <a href="#cli">6 · CLI &amp; dev-tool pages</a>
+  <a href="#tonight">7 · Running tonight</a>
+</nav>
+
+<!-- ═══════════════════════════════ -->
+<h2 id="fixed">0 · Already fixed, because it was a defect not a proposal</h2>
+
+<div class="done">
+<b>The broken links: found, counted, gone.</b> I crawled all 8260 built pages and checked all <b>930,702</b> internal hrefs against what the build actually emits.
+</div>
+
+<table>
+<tr><th>Target</th><th>Broken instances</th><th>Cause</th></tr>
+<tr><td><code>/en/estimate/</code></td><td class="n">4130</td><td rowspan="2">The prerenderer skipped the estimate page on the reasoning that <i>"nothing on the site points at it"</i>. That stopped being true: the hero's second button and the footer link it from <b>every page</b>. So the site shipped a link to a document that was never written, once per page, in both locales.</td></tr>
+<tr><td><code>/fr/estimation/</code></td><td class="n">4130</td></tr>
+</table>
+
+<p><b>8260 broken links, from one missing word in a list.</b> Fixed and rebuilt; the crawl now reports <b>0 broken internal links across 8262 pages</b>. That was the only one — no other internal link on the site points at anything that does not exist.</p>
+
+<p class="muted">Worth keeping: that crawl is ten lines and it caught a fault that had survived every test, every typecheck and a full build. It should run in CI — see <b>W1</b> below.</p>
+
+<!-- ═══════════════════════════════ -->
+<h2 id="seams">1 · The seams, measured</h2>
+
+<table>
+<tr><th>#</th><th>What</th><th>Evidence</th><th>Why it matters</th></tr>
+<tr><td class="mono">S1</td><td><b>Two-thirds of project pages are noindexed dead ends</b></td><td class="n">2069 / 3257<br>replace exactly<br>one product</td><td>They are thin by construction, so they ship <code>noindex, follow</code> — correct — but it means 64% of the pages the build produces exist only to pass authority. They are a cost, not an asset, until they say something a product page does not.</td></tr>
+<tr><td class="mono">S2</td><td><b>Jargon with no explanation anywhere</b></td><td class="n">0 tooltips on<br>the fact tags</td><td>"hosted option", "open core", "mostly open", "one docker compose" are precise terms with definitions in the codebase and <b>nowhere on the page</b>. A reader meets them on a card with no way to find out what they mean. §2.</td></tr>
+<tr><td class="mono">S3</td><td><b>Feature data is answered for a third of projects and drives a page for all of them</b></td><td class="n">1046 / 3257</td><td>Mitigated by the spec strip, but the features explorer still presents a 137-key vocabulary where two-thirds of the answers are dashes.</td></tr>
+<tr><td class="mono">S4</td><td><b>The catalogue answers one question and holds data for six</b></td><td class="n">see §4</td><td>Price, licence, language, compose, effort, archived, switch votes, replaces-count — all collected, most rendered once, none cross-cut. §4.</td></tr>
+</table>
+
+<!-- ═══════════════════════════════ -->
+<h2 id="tooltips">2 · Jargon — your "no hover tooltip"</h2>
+
+<p>Every alternative card wears two or three of these. None of them explains itself:</p>
+
+<table>
+<tr><th>Term</th><th>What it actually means</th><th>Where that definition currently lives</th></tr>
+<tr><td class="mono">hosted option</td><td>Someone will run it for you if you would rather not</td><td><code>EFFORTS</code> in content.ts</td></tr>
+<tr><td class="mono">one docker compose</td><td>The repo ships a compose file; one command and it runs</td><td>detected by <code>fetch-health.ts</code></td></tr>
+<tr><td class="mono">open core</td><td>OSI licence, but the build you can run is a demo of the product</td><td><code>openness()</code> in collections.ts</td></tr>
+<tr><td class="mono">mostly open</td><td>OSI licence, a few enterprise conveniences are sold beside it</td><td>same</td></tr>
+<tr><td class="mono">source-available</td><td>You can read it; the licence is not an open source licence</td><td>same</td></tr>
+<tr><td class="mono">SSO paywalled</td><td>Single sign-on is not in the free build</td><td><code>ssoMark()</code> — <b>and this one is currently wrong at scale</b></td></tr>
+</table>
+
+<div class="p rec" data-id="T1">
+  <header><span class="id">T1</span><div><h3>A tooltip on every fact tag<span class="tag t-rec">recommended</span></h3>
+  <p class="muted">One <code>title</code> per <code>FactTag</code>, plus a real <code>&lt;abbr&gt;</code>-style dotted underline so it is discoverable rather than something you find by accident. The definitions already exist as comments in the code — this is moving them to where the reader is.</p></div>
+  <span class="cost">small</span></header>
+  <div class="pick" data-for="T1"></div>
+</div>
+
+<div class="p" data-id="T2">
+  <header><span class="id">T2</span><div><h3>A glossary page, linked from every term<span class="tag t-alt">bigger, better</span></h3>
+  <p class="muted"><code>/en/glossary</code> — one page defining the fifteen terms this catalogue runs on, each with the rule the site actually applies and an example product. Tooltips link into it. It is also the page that explains the exit ladder, which is currently explained nowhere a reader will find it.</p></div>
+  <span class="cost">one page + links</span></header>
+  <div class="pick" data-for="T2"></div>
+</div>
+
+<div class="p" data-id="T3">
+  <header><span class="id">T3</span><div><h3>Tooltips on the verdict dots too<span class="tag t-rec">cheap</span></h3>
+  <p class="muted">"Replaceable / Almost / Not yet" are editorial judgements with defined meanings (feature-complete for the realistic case / covers part of it / nothing credible). The dot is on all 527 rows of the index and says none of that.</p></div>
+  <div class="pick" data-for="T3"></div>
+</div>
+
+<!-- ═══════════════════════════════ -->
+<h2 id="dead">3 · Dead ends</h2>
+
+<div class="p rec" data-id="E1">
+  <header><span class="id">E1</span><div><h3>Give the 2069 single-product project pages a reason to exist<span class="tag t-rec">recommended</span></h3>
+  <p class="muted">Right now such a page repeats what the product page already said and is noindexed for it. Three additions would each make it a page worth reading, all from data already held:</p></div>
+  <span class="cost">medium</span></header>
+  <ul>
+    <li><b>"Also written in Go"</b> — sibling projects by language, which is the axis a self-hoster actually browses on.</li>
+    <li><b>"Others in this category"</b> — the project's peers, ranked by exit quality. A project page currently links out to its forge and back to one product.</li>
+    <li><b>The spec strip</b> — the same five columns the product page now has, comparing this project against its category peers rather than against one vendor.</li>
+  </ul>
+  <p class="muted">If they earn content, the <code>noindex</code> can be revisited per page rather than as a blanket rule.</p>
+  <div class="pick" data-for="E1"></div>
+</div>
+
+<div class="p" data-id="E2">
+  <header><span class="id">E2</span><div><h3>Nothing links to the theme hubs except the categories index<span class="tag t-rec">cheap</span></h3>
+  <p class="muted">The ten hubs I shipped are reachable from one page and the breadcrumb. They should also be in the header's Categories dropdown as the top level, with the categories nested under them — which is what the dropdown's own <code>byGroup</code> already computes and then flattens.</p></div>
+  <div class="pick" data-for="E2"></div>
+</div>
+
+<div class="p" data-id="E3">
+  <header><span class="id">E3</span><div><h3>The 404 that isn't<span class="tag t-alt">your call</span></h3>
+  <p class="muted">An unknown URL renders the index with a note and <code>noindex</code> — better than a blank page, and it is what I shipped. But it still answers <b>HTTP 200</b>, because the site is static files behind nginx. A real 404 needs an <code>error_page</code> directive in <code>nginx/canireplaceit.conf</code> pointing at a prerendered 404 document. Ten minutes, and it stops a mistyped URL being indexable in principle.</p></div>
+  <div class="pick" data-for="E3"></div>
+</div>
+
+<!-- ═══════════════════════════════ -->
+<h2 id="data">4 · Data we hold and waste</h2>
+
+<p>Every one of these is already in <code>data/</code> and rendered at most once.</p>
+
+<table>
+<tr><th>Field</th><th>Coverage</th><th>Rendered today</th><th>What it could answer</th></tr>
+<tr><td><code>pricing.checkedOn</code></td><td class="n">on every priced product</td><td>a date on the product page</td><td><b>"Prices we have not checked since…"</b> — a freshness page, and an internal work queue. The site's credibility rests on these dates and nothing surfaces the stale ones.</td></tr>
+<tr><td><code>pricing.confidence</code></td><td class="n">high/medium/low</td><td>a small chip</td><td><b>"Claims we are least sure about"</b> — publishing your own weak spots is the most trust-building page a catalogue can have.</td></tr>
+<tr><td><code>switchedTo</code></td><td class="n">358 alternatives</td><td>ordering only</td><td><b>"What people actually switched to this month"</b> — first-party, nobody else has it, and it compounds.</td></tr>
+<tr><td><code>whatYouLose</code></td><td class="n">every product</td><td>chips on one page</td><td><b>"The 40 things open source still cannot do"</b> — aggregate across 527 products, cluster the repeats. This is the single most linkable page in the dataset and it does not exist.</td></tr>
+<tr><td><code>replaces</code> length</td><td class="n">every project</td><td>a leaderboard I just added</td><td><b>"Replace your whole stack with six projects"</b> — set cover over the products, solved greedily. A genuinely novel page.</td></tr>
+<tr><td><code>priceMonthly</code> + rung</td><td class="n">every product</td><td>price bands</td><td><b>"$/month you could stop paying, ranked by how hard it is"</b> — effort-adjusted savings, which is the actual decision.</td></tr>
+</table>
+
+<div class="p rec" data-id="D1">
+  <header><span class="id">D1</span><div><h3>"What open source still cannot do"<span class="tag t-big">the one I would build first</span></h3>
+  <p class="muted">Aggregate all 1581 <code>whatYouLose</code> entries across 527 products, cluster the recurring ones, and publish the list. It is the honest counterweight to a catalogue of 6230 recommendations, it is entirely derived, and it is the page other people link to — because nobody else in this space will publish it.</p></div>
+  <span class="cost">one page + a clustering pass</span></header>
+<div class="mock">What open source still cannot do
+────────────────────────────────────────────────────────────
+Frontier model quality            named by 14 products
+Vendor liability / indemnity      named by 11
+Included inference in the price   named by 9
+Enterprise SSO without ops work   named by 8
+A phone number to call            named by 7</div>
+  <div class="pick" data-for="D1"></div>
+</div>
+
+<div class="p" data-id="D2">
+  <header><span class="id">D2</span><div><h3>Stack cover — replace the most with the fewest<span class="tag t-big">novel</span></h3>
+  <p class="muted">Greedy set cover over <code>replaces</code>: ERPNext (30) + Odoo (28) + Dolibarr (25) + Matomo (16) already covers most of the business stack. Rendered as "six projects replace 91 of the products in this catalogue", with the list. Nobody has this page because nobody else has the replaces graph.</p></div>
+  <div class="pick" data-for="D2"></div>
+</div>
+
+<div class="p" data-id="D3">
+  <header><span class="id">D3</span><div><h3>Price freshness, published<span class="tag t-rec">trust</span></h3>
+  <p class="muted">The footer already claims a freshness figure. Make it a page: what was checked when, what is oldest, what is low-confidence. It doubles as the work queue for keeping the catalogue honest, and admitting the gaps in public is worth more than hiding them.</p></div>
+  <div class="pick" data-for="D3"></div>
+</div>
+
+<!-- ═══════════════════════════════ -->
+<h2 id="workflows">5 · Workflows — keeping it true without you doing it</h2>
+
+<div class="p rec" data-id="W1">
+  <header><span class="id">W1</span><div><h3>Link crawl in CI<span class="tag t-rec">recommended · do this one</span></h3>
+  <p class="muted">Ten lines, runs after the build, fails the job on any internal href that does not resolve. It would have caught 8260 broken links the day they appeared instead of months later. Nothing else in the test suite can see this class of fault, because it only exists in the assembled output.</p></div>
+  <span class="cost">~15 lines in the build workflow</span></header>
+  <div class="pick" data-for="W1"></div>
+</div>
+
+<div class="p rec" data-id="W2">
+  <header><span class="id">W2</span><div><h3>Weekly health sweep already exists — wire its output to a page<span class="tag t-rec">cheap</span></h3>
+  <p class="muted"><code>health.yml</code> runs weekly and commits <code>health.json</code>. When it flips a project to archived, that is news: it should open an issue, and it should appear on the graveyard page as "newly archived this month". Right now the fact lands silently in a JSON file.</p></div>
+  <div class="pick" data-for="W2"></div>
+</div>
+
+<div class="p" data-id="W3">
+  <header><span class="id">W3</span><div><h3>Re-check the oldest prices on a schedule<span class="tag t-alt">needs a decision</span></h3>
+  <p class="muted">Prices drift and the site is judged on them. A monthly job could take the 20 oldest <code>checkedOn</code> dates and open a PR with the pages to re-read. Deliberately a PR and not an auto-edit: a price is a claim, and the whole model here is that a human merges claims.</p></div>
+  <div class="pick" data-for="W3"></div>
+</div>
+
+<div class="p" data-id="W4">
+  <header><span class="id">W4</span><div><h3>Contributions: the repo is the admin panel, but nothing says how<span class="tag t-alt">worth it</span></h3>
+  <p class="muted">"Suggest a change" links to a file on GitHub. For a non-developer that is a wall. A guided form that produces the JSON and opens the PR would widen who can correct the catalogue — and correction volume is the thing that keeps a directory alive.</p></div>
+  <div class="pick" data-for="W4"></div>
+</div>
+
+<!-- ═══════════════════════════════ -->
+<h2 id="cli">6 · CLI &amp; dev-tool pages — the spec</h2>
+
+<p>You asked for pages for CLI tools and dev tools, by category: what they do briefly, what they replace if anything. Here is the shape I settled on, and it is <b>generating now</b>.</p>
+
+<h3 style="margin-top:28px">Why these fit the existing model rather than needing a new one</h3>
+<p>A default tool is a product with no vendor. <code>awk</code>, <code>ssh</code>, <code>cron</code> cost nothing, have no pricing page, and cannot be "cancelled" — but the question the site asks still applies, just inverted: <b>not "can I stop paying" but "should I replace the default, and what does that cost me?"</b> The answer has the same three shapes the catalogue already uses.</p>
+
+<table>
+<tr><th>Field</th><th>For a paid SaaS</th><th>For a default tool</th></tr>
+<tr><td><code>priceMonthly</code></td><td>$20</td><td><b>0</b> — ships with the system. Not "free tier", which is a vendor's offer.</td></tr>
+<tr><td><code>domain</code></td><td>claude.com</td><td><b>null</b> — no vendor, no favicon to fetch.</td></tr>
+<tr><td><code>verdict</code></td><td>can you leave</td><td><b>should you replace the default</b> — and ubiquity is a real cost, so "not-yet" is a common honest answer.</td></tr>
+<tr><td><code>whatYouLose</code></td><td>features behind a plan</td><td><b>portability</b> — "the ls that is on every machine" is the thing you actually give up.</td></tr>
+</table>
+
+<div class="p rec" data-id="C1">
+  <header><span class="id">C1</span><div><h3>70 default tools, seeded then researched<span class="tag t-rec">running now</span></h3>
+  <p class="muted">Authored by hand: slug, display name, category. Generated: the verdict, one paragraph of why, three things you give up — then the existing research pass finds and <i>verifies</i> the replacements, exactly as it did for the 527.</p></div>
+  <span class="cost">running until ~8am</span></header>
+  <table>
+    <tr><th>Category</th><th>Tools</th></tr>
+    <tr><td><code>shell-terminal</code></td><td>awk · sed · less · tail · sort · wc · xargs · cut · tr · screen · completion · Ctrl-R · cron · systemctl · coreutils</td></tr>
+    <tr><td><code>developer-tooling</code></td><td>strace · gdb · valgrind · perf · lsof · gcc · apt · Homebrew · Yarn · pnpm · Cargo · Go toolchain · ESLint · Prettier · man · diff/patch · gitk · git blame</td></tr>
+    <tr><td><code>networking-vpn</code></td><td>tcpdump · netstat · traceroute · iptables · Nmap</td></tr>
+    <tr><td><code>infrastructure-as-code</code></td><td>Vagrant · Ansible · Terraform CLI</td></tr>
+    <tr><td><code>databases-caches</code></td><td>psql · mysql · redis-cli · sqlite3</td></tr>
+    <tr><td><code>cloud-platforms-hosting</code></td><td>AWS CLI · gcloud · Azure CLI</td></tr>
+    <tr><td><code>observability-telemetry</code></td><td>journalctl · dmesg · free · iostat</td></tr>
+    <tr><td>others</td><td>ssh · scp · rsync · OpenSSL · GnuPG · Maven · Gradle · webpack · Jest · Selenium · curl · OpenAPI · Helm · Podman · FFmpeg · ImageMagick · Pandoc · LaTeX</td></tr>
+  </table>
+  <div class="pick" data-for="C1"></div>
+</div>
+
+<div class="p rec" data-id="C2">
+  <header><span class="id">C2</span><div><h3>The guard that makes this safe to run unattended<span class="tag t-rec">already built in</span></h3>
+  <p class="muted">The prompt <b>forbids the model naming any replacement</b>, and the seeder rejects output that does anyway. Naming a project that turns out not to exist is the exact failure this pipeline was built around — twelve real projects were once dismissed as fictional, and the fix was to never let prose invent a name. Replacements come only from the verify pass, which checks every one against its forge.</p></div>
+  <div class="pick" data-for="C2"></div>
+</div>
+
+<div class="p" data-id="C3">
+  <header><span class="id">C3</span><div><h3>Then: a "modern unix" landing page<span class="tag t-big">the payoff</span></h3>
+  <p class="muted">Once these land, <code>shell-terminal</code> holds ~40 products and becomes the biggest thing on the site by some margin. It deserves a page that is a <b>table, not cards</b>: default → replacement → what it costs you. That is the page people bookmark, and it is the one you originally asked for when you said "cd, and how you could replace it with z".</p></div>
+<div class="mock">Modern replacements for the Unix defaults
+─────────────────────────────────────────────────────────────
+DEFAULT   REPLACEMENT   WHY                        COSTS YOU
+cd        zoxide        jumps by frecency          not on a fresh box
+ls        eza           git status, icons, tree    not on a fresh box
+cat       bat           syntax + line numbers      pager by default
+grep      ripgrep       faster, respects .gitignore  different flags
+find      fd            sane defaults              different syntax
+du        dust          reads at a glance          —
+top       btop          worth looking at           —
+man       tldr          examples, not prose        not exhaustive</div>
+  <div class="pick" data-for="C3"></div>
+</div>
+
+<div class="p" data-id="C4">
+  <header><span class="id">C4</span><div><h3>Install lines<span class="tag t-alt">tempting, and I would not</span></h3>
+  <p class="muted">Every one of these could carry <code>brew install eza</code> / <code>apt install eza</code>. Genuinely useful — and a maintenance liability across five package managers and three OSes, where a wrong line is worse than no line. If you want it, it should come from a package index at build time, never from prose.</p></div>
+  <div class="pick" data-for="C4"></div>
+</div>
+
+<!-- ═══════════════════════════════ -->
+<h2 id="tonight">7 · What is running tonight</h2>
+
+<div class="done">
+Two stages, chained, checkpointed, restartable. Everything lands on disk in the repo and <b>nothing is committed automatically</b> — you review in the morning.
+</div>
+
+<table>
+<tr><th>Stage</th><th>What</th><th>Gate</th></tr>
+<tr><td class="mono">1</td><td><b>Seed 70 product stubs.</b> <code>seed-tools.ts</code> — verdict, why, whatYouLose, both locales.</td><td>Rejects a bad verdict, a missing locale, over-long prose, or any output that names a replacement. Cached per tool, so a restart costs nothing.</td></tr>
+<tr><td class="mono">2</td><td><b>Research alternatives</b> for each, through the pipeline that produced the existing 6230.</td><td>Every candidate verified against its forge before promotion; anything unresolvable is skipped rather than guessed.</td></tr>
+<tr><td class="mono">3</td><td><b>Validate + test</b> after each batch.</td><td><code>bun run validate</code> and the 285 tests. A data fault halts the run rather than looping — that rule is already in <code>monitor.sh</code>.</td></tr>
+</table>
+
+<p><b>In the morning:</b> up to 70 new products, several hundred new verified alternatives, <code>shell-terminal</code> and <code>developer-tooling</code> roughly doubled. Then <b>C3</b> is worth building, because it will finally have the rows to fill it.</p>
+
+<p class="muted">Honest limits: some of these have no credible replacement and will land with an empty alternatives list and a "not-yet" verdict. That is the correct answer for <code>ssh</code> and <code>cron</code>, not a failure — but it means the count in the morning will be lower than 70 × something, and the pages that matter are the twenty or so where a real replacement exists.</p>
+
+</div>
+
+<div id="out"><pre id="outtext"></pre></div>
+<div id="bar">
+  <span id="count" class="mono">0 picked · 0 rejected · 0 maybe</span>
+  <span class="sp"></span>
+  <button id="clear">Reset</button>
+  <button id="show" class="primary">Show my picks</button>
+</div>
+
+<script>
+const KEY='cir-plan2-picks';
+const state=JSON.parse(localStorage.getItem(KEY)||'{}');
+const LABEL={y:'Yes',n:'No',m:'Maybe'};
+for(const box of document.querySelectorAll('.pick')){
+  const id=box.dataset.for;
+  for(const v of ['y','n','m']){
+    const b=document.createElement('button');
+    b.type='button'; b.dataset.v=v; b.textContent=LABEL[v];
+    b.setAttribute('aria-pressed', state[id]===v?'true':'false');
+    b.onclick=()=>{
+      state[id]= state[id]===v ? undefined : v;
+      if(!state[id]) delete state[id];
+      localStorage.setItem(KEY,JSON.stringify(state));
+      for(const s of box.children) s.setAttribute('aria-pressed', state[id]===s.dataset.v?'true':'false');
+      render();
+    };
+    box.append(b);
+  }
+}
+function render(){
+  const y=[],n=[],m=[];
+  for(const [k,v] of Object.entries(state)) (v==='y'?y:v==='n'?n:m).push(k);
+  document.getElementById('count').textContent=`${y.length} picked · ${n.length} rejected · ${m.length} maybe`;
+  const title=id=>{const el=document.querySelector(`.p[data-id="${id}"] h3`);return el?el.childNodes[0].textContent.trim():id};
+  const list=a=>a.sort().map(id=>`  ${id} — ${title(id)}`).join('\n')||'  (none)';
+  document.getElementById('outtext').textContent=`YES\n${list(y)}\n\nMAYBE\n${list(m)}\n\nNO\n${list(n)}`;
+}
+document.getElementById('show').onclick=()=>document.getElementById('out').classList.toggle('on');
+document.getElementById('clear').onclick=()=>{localStorage.removeItem(KEY);for(const k in state)delete state[k];
+  for(const b of document.querySelectorAll('.pick button'))b.setAttribute('aria-pressed','false');render()};
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,919 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>canireplaceit — redesign plan</title>
+<style>
+:root{
+  --bg:#fbfbfd; --surface:#fff; --text:#14161a; --muted:#6b7280; --border:#e5e7eb;
+  --brand:#2563eb; --good:#059669; --warn:#b45309; --bad:#dc2626;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0d0f13;--surface:#15181e;--text:#e8eaed;--muted:#9aa1ac;--border:#262b33;--brand:#5b8cff;--good:#34d399;--warn:#fbbf24;--bad:#f87171}
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px 120px}
+header{padding:56px 0 32px;border-bottom:1px solid var(--border);margin-bottom:40px}
+h1{font-size:2.4rem;line-height:1.15;margin:0 0 12px;letter-spacing:-.02em}
+h2{font-size:1.5rem;margin:64px 0 8px;letter-spacing:-.01em;scroll-margin-top:20px}
+h3{font-size:1.05rem;margin:0 0 6px}
+p{margin:0 0 14px}
+.lede{color:var(--muted);font-size:1.05rem;max-width:70ch}
+.muted{color:var(--muted)}
+small{color:var(--muted);font-size:.85rem}
+code,.mono{font-family:var(--mono);font-size:.88em}
+a{color:var(--brand)}
+
+/* nav */
+nav.toc{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);margin:0 -24px 32px;padding:10px 24px;display:flex;gap:6px;flex-wrap:wrap}
+nav.toc a{font-size:.8rem;text-decoration:none;color:var(--muted);border:1px solid var(--border);border-radius:99px;padding:3px 10px}
+nav.toc a:hover{border-color:var(--brand);color:var(--brand)}
+
+/* proposal card */
+.p{border:1px solid var(--border);border-radius:12px;background:var(--surface);padding:18px 20px;margin:14px 0}
+.p.rec{border-color:color-mix(in srgb,var(--brand) 45%,var(--border))}
+.p header{padding:0;border:0;margin:0;display:flex;gap:12px;align-items:flex-start}
+.p .id{font-family:var(--mono);font-size:.75rem;color:var(--muted);border:1px solid var(--border);border-radius:6px;padding:2px 6px;flex-shrink:0;margin-top:2px}
+.tag{display:inline-block;font-size:.68rem;font-family:var(--mono);text-transform:uppercase;letter-spacing:.04em;border-radius:5px;padding:2px 7px;border:1px solid;vertical-align:2px;margin-left:8px}
+.t-rec{color:var(--good);border-color:color-mix(in srgb,var(--good) 40%,transparent);background:color-mix(in srgb,var(--good) 8%,transparent)}
+.t-alt{color:var(--muted);border-color:var(--border)}
+.t-no{color:var(--bad);border-color:color-mix(in srgb,var(--bad) 35%,transparent)}
+.t-bug{color:var(--warn);border-color:color-mix(in srgb,var(--warn) 40%,transparent);background:color-mix(in srgb,var(--warn) 8%,transparent)}
+.t-big{color:var(--brand);border-color:color-mix(in srgb,var(--brand) 40%,transparent)}
+.cost{font-family:var(--mono);font-size:.75rem;color:var(--muted);margin-left:auto;flex-shrink:0;white-space:nowrap}
+
+/* pick control */
+.pick{display:flex;gap:6px;margin-top:12px}
+.pick button{font:inherit;font-size:.78rem;padding:3px 12px;border-radius:99px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer}
+.pick button:hover{border-color:var(--brand)}
+.pick button[aria-pressed="true"][data-v="y"]{background:var(--good);border-color:var(--good);color:#fff}
+.pick button[aria-pressed="true"][data-v="n"]{background:var(--bad);border-color:var(--bad);color:#fff}
+.pick button[aria-pressed="true"][data-v="m"]{background:var(--muted);border-color:var(--muted);color:#fff}
+
+/* mockups */
+.mock{font-family:var(--mono);font-size:.72rem;line-height:1.45;white-space:pre;overflow-x:auto;background:color-mix(in srgb,var(--text) 4%,transparent);border:1px solid var(--border);border-radius:8px;padding:14px;margin:12px 0;color:var(--text)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:760px){.two{grid-template-columns:1fr}}
+.two .mock{margin:0}
+.lbl{font-size:.7rem;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin:0 0 4px}
+
+table{border-collapse:collapse;width:100%;font-size:.88rem;margin:12px 0}
+th,td{text-align:left;padding:6px 10px;border-bottom:1px solid var(--border);vertical-align:top}
+th{font-weight:600;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+td.n{font-family:var(--mono);text-align:right;white-space:nowrap}
+
+figure{margin:16px 0}
+figure img{width:100%;border:1px solid var(--border);border-radius:10px;display:block}
+figcaption{font-size:.82rem;color:var(--muted);margin-top:6px}
+
+.evidence{border-left:3px solid var(--warn);background:color-mix(in srgb,var(--warn) 6%,transparent);padding:10px 14px;border-radius:0 8px 8px 0;margin:12px 0;font-size:.9rem}
+.evidence b{font-family:var(--mono);font-size:.85em}
+ul{margin:0 0 14px;padding-left:22px}
+li{margin:3px 0}
+
+/* summary bar */
+#bar{position:fixed;bottom:0;left:0;right:0;background:var(--surface);border-top:1px solid var(--border);padding:10px 24px;display:flex;gap:14px;align-items:center;font-size:.85rem;z-index:50}
+#bar .sp{flex:1}
+#bar button{font:inherit;font-size:.85rem;padding:6px 14px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text);cursor:pointer}
+#bar button.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+#out{position:fixed;inset:auto 24px 60px 24px;max-width:1032px;margin:0 auto;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;display:none;max-height:50vh;overflow:auto}
+#out.on{display:block}
+#out pre{font-family:var(--mono);font-size:.78rem;white-space:pre-wrap;margin:0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Redesign plan</h1>
+  <p class="lede">Written after walking the running app at 1440&nbsp;px — home, product, category, collections, projects index, features. Every claim below is a number I pulled out of <code>data/</code> or a thing I saw on screen, not a guess. Pick <b>yes</b> / <b>no</b> / <b>maybe</b> per proposal; the bar at the bottom copies your answers back to me.</p>
+  <p><small>Screenshots in <code>plan/shots/</code> · catalogue state: 527 products · 85 categories · 5992 OSS + 238 cheaper alternatives · 3229 unique projects · 10 category groups</small></p>
+</header>
+
+<nav class="toc">
+  <a href="#truth">0 · What's actually wrong</a>
+  <a href="#filters">1 · Filters</a>
+  <a href="#compare">2 · Comparison</a>
+  <a href="#wall">3 · The 36-card wall</a>
+  <a href="#cards">4 · Cards &amp; density</a>
+  <a href="#coll">5 · Collections</a>
+  <a href="#pages">6 · New pages</a>
+  <a href="#links">7 · Links</a>
+  <a href="#og">8 · OG images</a>
+  <a href="#brief">8b · The brand brief</a>
+  <a href="#ads">9 · Sponsor load</a>
+  <a href="#bugs">10 · Bugs</a>
+  <a href="#gap">11 · The data gap</a>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2 id="truth">0 · What's actually wrong <span class="tag t-big">read first</span></h2>
+
+<p>Four root causes explain almost every ugly thing on the site. The proposals after this are just consequences.</p>
+
+<table>
+<tr><th>#</th><th>Root cause</th><th>Evidence</th><th>Shows up as</th></tr>
+<tr>
+  <td class="mono">R1</td>
+  <td><b>Badges that are true for everyone</b></td>
+  <td class="n">5982&nbsp;/&nbsp;5992<br>alternatives are<br><code>selfHostable:true</code></td>
+  <td>Every card wears the same six pills. Six pills that never vary are decoration, not information — so the reader learns nothing and the wall looks identical top to bottom.</td>
+</tr>
+<tr>
+  <td class="mono">R2</td>
+  <td><b>The feature vocabulary is SaaS-shaped</b></td>
+  <td class="n">137 features,<br>median <b>8</b> answered<br>per project</td>
+  <td>The compare table asks a terminal CLI whether it does "OAuth2 social login" and "Roles and permissions". For Claude Code it prints a row reading <i>Has AI features: ● ● ● ●</i>. That is the "comparing products that make no sense" you flagged.</td>
+</tr>
+<tr>
+  <td class="mono">R3</td>
+  <td><b>No ranking, no grouping</b></td>
+  <td class="n">36 alternatives<br>in one flat grid</td>
+  <td>A live drop-in (opencode) and a repo that has been archived since 2024 (Mods, Cody, GPT-Engineer, Roo&nbsp;Code) sit in identical boxes. Only the prose says which is dead.</td>
+</tr>
+<tr>
+  <td class="mono">R4</td>
+  <td><b>Two-thirds of projects have no enrichment</b></td>
+  <td class="n">1047&nbsp;/&nbsp;3229<br>have health data</td>
+  <td>Language, last commit, docker-compose, archived flag exist for 32% of projects. Every dense display idea degrades to blanks for the 2182 added this session. See §11.</td>
+</tr>
+</table>
+
+<div class="evidence">
+The category page is already the best-designed page on the site — stat strip, exit-ladder bar, clean cards. The product page, which is the page people actually land on from Google, is the worst. Most of this plan is <b>moving what the category page already does onto the product page</b>.
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2 id="filters">1 · Filters — your complaint, confirmed</h2>
+
+<figure>
+  <img src="shots/filters.png" alt="Desktop filter bar with six dropdowns">
+  <figcaption>Home at 1440&nbsp;px. Search + <b>six</b> native <code>&lt;select&gt;</code> boxes, wrapping onto two rows, sticky under the header so they follow you down 48 rows. Below 1024&nbsp;px this is already replaced by a single Filters button and a sheet — which is the good version, and desktop doesn't get it.</figcaption>
+</figure>
+
+<p>The code is <code>App.tsx:1253</code> (<code>lg:hidden</code> → sheet) and <code>App.tsx:1285</code> (<code>hidden lg:flex</code> → six selects). The sheet already exists, is already translated, already has pill groups and a searchable category picker. Desktop is the only place it isn't used.</p>
+
+<div class="p rec" data-id="F1">
+  <header><span class="id">F1</span><div><h3>One Filters button at every width<span class="tag t-rec">recommended</span></h3>
+  <p class="muted">Delete the <code>lg:flex</code> six-select bar. The trigger row becomes: search · verdict pills · <b>Filters (2)</b> button · active-filter chips. The sheet stays a bottom sheet on phones and becomes a centred modal (or right drawer) on desktop, where there's room for all five groups without scrolling.</p></div>
+  <span class="cost">~70 lines deleted, ~40 added</span></header>
+<div class="mock">┌─────────────────────────────────────────────────────────────────────────┐
+│ 🔍 Search 527 products…          [ Replaceable ][ Almost ][ Not yet ]   │
+│                                                    ⚙ Filters ②   Clear  │
+│ ─────────────────────────────────────────────────────────────────────── │
+│ AI ✕   ·   at most one docker run ✕                        527 → 41     │
+└─────────────────────────────────────────────────────────────────────────┘</div>
+  <p><small>The chips row is the part that's missing today: with six selects you cannot see what you've narrowed to without reading all six. With chips, one glance and one click to undo each.</small></p>
+  <div class="pick" data-for="F1"></div>
+</div>
+
+<div class="p" data-id="F2">
+  <header><span class="id">F2</span><div><h3>Keep sort inline, everything else in the drawer<span class="tag t-alt">alternative</span></h3>
+  <p class="muted">Same as F1 but "Our order / Most switched / Price / Name" stays as one visible control on the right. Sort isn't a filter and people re-sort more often than they re-filter.</p></div></header>
+  <div class="pick" data-for="F2"></div>
+</div>
+
+<div class="p" data-id="F3">
+  <header><span class="id">F3</span><div><h3>Left sidebar facets<span class="tag t-no">I'd skip it</span></h3>
+  <p class="muted">The classic e-commerce column. Costs 260&nbsp;px of a page that's already a 3-column grid, drops it to 2 columns, and puts the controls out of reach on the pages that matter (category, collection) where they'd have to be repeated.</p></div></header>
+  <div class="pick" data-for="F3"></div>
+</div>
+
+<div class="p" data-id="F4">
+  <header><span class="id">F4</span><div><h3>Filters write to the URL<span class="tag t-alt">worth deciding</span></h3>
+  <p class="muted">Today filters are React state with no query string, deliberately — the comment at <code>browse.tsx:1</code> says it's to stop the combinatorial filter space minting indexable pages. That's the right SEO call, but it means <b>you cannot send anyone a filtered view</b>. Middle path: write <code>?verdict=yes&amp;effort=docker</code> to the URL, keep every parameterised URL <code>noindex</code>, canonical to the bare path. Shareable, still not crawlable.</p></div>
+  <span class="cost">small</span></header>
+  <div class="pick" data-for="F4"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2 id="compare">2 · Comparison — "it doesn't make sense to compare products that make no sense"</h2>
+
+<p>Here is what the product page prints today for Claude Code, verbatim:</p>
+
+<div class="mock">Where they actually differ
+Only features both sides were checked on, and only where they disagree
+
+Feature                  Claude Code   Tabby   Zed   OpenHands   Codex CLI
+OAuth2 social login      ● Free          ●       €       ●           –
+Roles and permissions    € Enterprise    ●       €       –           –
+Teams / groups           € Team          ●       ◐       –           –
+More than one user       € Team          ●       ●       ●           –
+Has AI features          € Pro           ●       ●       ●           ●</div>
+
+<p>Five problems in five rows:</p>
+<ul>
+  <li><b>"Has AI features"</b> on a page comparing AI coding agents. Every column yes. Zero information.</li>
+  <li><b>"OAuth2 social login", "Roles and permissions", "Teams / groups"</b> — a terminal agent that runs on your laptop has no login and no teams. The vocabulary is built for hosted SaaS.</li>
+  <li><b>Codex CLI</b> is 4 dashes out of 5. It's a column of "we didn't check".</li>
+  <li>The columns are picked by <b>how much we happen to know</b> (<code>decidedCount</code>, <code>ReplaceMatrix.tsx:68</code>), not by which alternatives are any good. opencode is the answer to this page and it isn't in the table.</li>
+  <li>Only 5 of 36 alternatives appear, with no way to see the rest.</li>
+</ul>
+
+<div class="evidence">
+Underlying number: <b>median 8 of 137</b> features answered per project. A wide feature matrix over this data can only ever be mostly dashes. The fix isn't a bigger table — it's comparing on the axes that are actually populated.
+</div>
+
+<div class="p rec" data-id="C1">
+  <header><span class="id">C1</span><div><h3>Spec strip instead of a feature matrix, for tool-shaped categories<span class="tag t-rec">recommended</span></h3>
+  <p class="muted">Compare on what we know for everyone: licence (100%), effort (100%), open-core (100%), data residency (100%), plus language / last commit / docker-compose from health. One dense row per alternative, sortable, all 36 of them — not 4.</p></div>
+  <span class="cost">new component, ~120 lines</span></header>
+<div class="mock">                    LICENCE      RUN IT         LANG    LAST COMMIT   STRINGS
+● opencode          MIT          managed        TS      3 days ago     —
+● Crush             FSL-1.1-MIT  managed        Go      1 day ago      source-available
+● Goose             Apache-2.0   managed        Rust    5 days ago     —
+● Aider             Apache-2.0   managed        Python  2 weeks ago    —
+● OpenHands         MIT          one compose    Python  yesterday      —
+◌ Cody              Apache-2.0   managed        TS      Aug 2024       archived
+◌ GPT-Engineer      MIT          managed        Python  Mar 2024       archived</div>
+  <p><small>Every column here is discriminating — no two rows are identical, which is the exact opposite of the six-pill badge soup. Sort by any column.</small></p>
+  <div class="pick" data-for="C1"></div>
+</div>
+
+<div class="p rec" data-id="C2">
+  <header><span class="id">C2</span><div><h3>Only run the feature matrix where the category earns it<span class="tag t-rec">recommended</span></h3>
+  <p class="muted">"Does it do SAML" is a great question for Notion, Airtable, Zoom, GitLab. It is a category error for <code>shell-terminal</code>, <code>ai</code>, <code>3d-cad</code>, <code>scientific-computing</code>. Gate the matrix on the category group: render it for <code>work</code> / <code>growth</code> / <code>commerce</code> / <code>operations</code>, render the C1 spec strip for <code>dev</code> / <code>creative</code> / <code>home</code>, and let <code>infra</code> / <code>ai-data</code> get both.</p></div>
+  <span class="cost">a lookup table + one branch</span></header>
+  <div class="pick" data-for="C2"></div>
+</div>
+
+<div class="p rec" data-id="C3">
+  <header><span class="id">C3</span><div><h3>Kill rows where the alternatives all agree<span class="tag t-rec">recommended</span></h3>
+  <p class="muted"><code>differingOnly</code> today counts a row as differing if <i>any</i> two columns differ — so "Has AI features ● ● ● ●" survives because the vendor's cell says "€ Pro". Tighten it: a row earns its place only if the <b>alternatives</b> disagree with each other, <i>or</i> the vendor charges for something every alternative gives away. The second case is the whole argument of the site; the first is a genuine choice. Everything else is noise.</p></div>
+  <span class="cost">~10 lines in ReplaceMatrix</span></header>
+  <div class="pick" data-for="C3"></div>
+</div>
+
+<div class="p" data-id="C4">
+  <header><span class="id">C4</span><div><h3>"What you're paying for" — a four-row table, not a matrix<span class="tag t-big">the money shot</span></h3>
+  <p class="muted">The taxonomy file already annotates <code>auth.sso.saml</code> with <i>"The one most often paywalled. This is the SSO tax."</i> Turn that into the headline block on SaaS product pages: the handful of features the vendor gates behind a plan that at least one open alternative ships in the free build. Small, brutal, and the most quotable thing the site could publish.</p></div>
+  <span class="cost">medium — needs the C2 gate first</span></header>
+<div class="mock">What Notion charges for, and who gives it away
+────────────────────────────────────────────────────────────────
+SAML single sign-on      Notion: Enterprise    free in: AppFlowy, Docmost
+Audit log                Notion: Enterprise    free in: Docmost
+Roles and permissions    Notion: Plus          free in: AppFlowy, Outline, Docmost
+More than one user       Notion: Plus          free in: all 12</div>
+  <div class="pick" data-for="C4"></div>
+</div>
+
+<div class="p" data-id="C5">
+  <header><span class="id">C5</span><div><h3>Pick columns by verdict, not by how much we know<span class="tag t-rec">cheap</span></h3>
+  <p class="muted">One-line change to <code>ReplaceMatrix.tsx:68</code>: order candidate columns by exit quality (effort, then openness) with decided-count only as a tie-break. Stop showing a column that's four dashes wide. <b>Subsumed by C7</b> if you take that — this is the cheap version if you don't.</p></div>
+  <span class="cost">3 lines</span></header>
+  <div class="pick" data-for="C5"></div>
+</div>
+
+<div class="p" data-id="C6">
+  <header><span class="id">C6</span><div><h3>Pick-any-two compare page<span class="tag t-alt">bigger build</span></h3>
+  <p class="muted"><code>/en/compare/opencode-vs-crush</code> — two projects side by side, every axis, generated for pairs that share a product. Real SEO surface ("X vs Y" is the highest-intent query in this space) but it mints a lot of URLs and the data is thin for most pairs. <b>C7 gets you most of this value with none of the URL sprawl</b> — I'd do C7 first and only revisit this after §11.</p></div>
+  <span class="cost">large</span></header>
+  <div class="pick" data-for="C6"></div>
+</div>
+
+<div class="p rec" data-id="C7">
+  <header><span class="id">C7</span><div><h3>The alternatives page compares 5 by default, and you can swap the columns<span class="tag t-rec">your idea · recommended</span></h3>
+  <p class="muted">Two things you were right about, and one you'll like:</p></div>
+  <span class="cost">medium — mostly moving an existing component</span></header>
+
+  <p><b>1. The page already exists.</b> <code>/en/alternatives/claude-code</code> <i>is</i> the "alternatives of Claude Code" page — the route segment is literally <code>alternatives</code>, and its title already reads <i>"36 open source Claude Code alternatives (2026)"</i>. Nothing to build. The work is in getting people there, which is D1 (cards should say "36 escapes") and L1 (link the names inward).</p>
+
+  <p><b>2. The swap mechanic already exists too — on the wrong page.</b> <code>FeaturesPage.tsx</code> holds a <code>picked: string[]</code>, a toggle to add or drop a column, a <code>?cmp=a,b,c</code> query param, and <code>compare()</code> over the picked keys. It's a working column picker. It just starts empty and says "pick two" on a page nobody lands on. Meanwhile the product page renders a <b>fixed</b> 4 columns chosen by <code>decidedCount</code> with no way to change them.</p>
+
+  <p class="muted">So: pre-seed <code>picked</code> with 5 on the product page, keep the picker, done. Same component, different initial state.</p>
+
+<div class="mock">Compare                                          [ ⇄ swap columns ]
+┌────────────────────┬─────────┬─────────┬───────┬──────┬─────────┐
+│                    │ Claude  │opencode │ Crush │Goose │ Aider ✕ │
+│                    │  Code   │    ✕    │   ✕   │  ✕   │         │
+├────────────────────┼─────────┼─────────┼───────┼──────┼─────────┤
+│ THE FACTS                    (every column, always)             │
+│ Licence            │ propr.  │  MIT    │ FSL   │Apache│ Apache  │
+│ Run it             │ vendor  │ managed │managed│manag.│ managed │
+│ Strings attached   │    —    │  none   │source-│ none │  none   │
+│ Written in         │    —    │   TS    │  Go   │ Rust │ Python  │
+│ Last commit        │    —    │ 3d ago  │1d ago │5d ago│ 2w ago  │
+├────────────────────┼─────────┼─────────┼───────┼──────┼─────────┤
+│ WHAT THEY DO                 (only rows anyone answered)        │
+│ Ships an MCP server│ ● Pro   │    ●    │   ●   │  ●   │    ○    │
+│ Runs offline       │   ○     │    ●    │   ●   │  ●   │    ●    │
+└────────────────────┴─────────┴─────────┴───────┴──────┴─────────┘
+  + add a column:  OpenHands · Continue · Tabby · Zed · Cline · …
+</div>
+
+  <p><b>3. The bit you'll like:</b> splitting the table into <b>facts</b> and <b>features</b> resolves the whole §2 problem. Facts (licence, effort, open-core, residency, language, last commit) are <b>100% populated</b> and always discriminate — that block never renders a blank. Features are 32% populated and category-dependent — that block renders only the rows someone actually answered, and disappears entirely for a category where the vocabulary doesn't apply (C2). You get a table that's always useful and never asks a terminal CLI about SAML.</p>
+
+  <table>
+    <tr><th>Decision</th><th>Recommendation</th></tr>
+    <tr><td>Which 5 are picked by default?</td><td>The computed score from <b>W7</b> — effort, then openness, then still-alive, then switch votes. <b>Not</b> <code>decidedCount</code>, which is what picks them today and is why opencode — the actual answer to that page — isn't in the current table.</td></tr>
+    <tr><td>Swap mechanic</td><td>✕ on a column header to drop it; click any alternative below to add. Cap at 5 (6 columns with the vendor); adding a 6th drops the weakest, or just disable until one is removed.</td></tr>
+    <tr><td>URL</td><td><code>?cmp=opencode,crush,goose</code> — the convention <code>FeaturesPage</code> already uses. <b>Makes a comparison shareable</b>, which is the thing people actually link. Keep parameterised states <code>noindex</code>, canonical to the bare path — same rule as §1 F4.</td></tr>
+    <tr><td>Narrow screens</td><td>Sticky first column, horizontal scroll. Six columns will not fit on a phone and shouldn't try.</td></tr>
+  </table>
+  <div class="pick" data-for="C7"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2 id="wall">3 · The 36-card wall</h2>
+
+<figure>
+  <img src="shots/cc-table.png" alt="Identical alternative cards">
+  <figcaption>Four consecutive alternatives on the Claude Code page. Same six pills on every card: <span class="mono">FULLY OPEN · HOSTED OPTION · &lt;licence&gt; · SELF-HOSTABLE · SSO PAYWALLED · YOUR SERVER</span>. Mods, Cody, GPT-Engineer and Roo&nbsp;Code are all dead projects, and nothing but the prose says so.</figcaption>
+</figure>
+
+<div class="p rec" data-id="W1">
+  <header><span class="id">W1</span><div><h3>Badge diet: show the exception, never the rule<span class="tag t-rec">recommended · biggest visual win</span></h3>
+  <p class="muted">A badge earns its place only if it's <i>false</i> for a meaningful share of the list. Measured across all 5992 alternatives:</p></div>
+  <span class="cost">tiny — a filter, not a rewrite</span></header>
+  <table>
+    <tr><th>Badge</th><th>True for</th><th>Verdict</th></tr>
+    <tr><td class="mono">SELF-HOSTABLE</td><td class="n">5982 / 5992 · 99.8%</td><td><b>Delete.</b> Say it once in the page intro. Badge only the 10 that aren't.</td></tr>
+    <tr><td class="mono">FULLY OPEN</td><td class="n">5214 / 5992 · 87%</td><td><b>Invert.</b> Badge <span class="mono">OPEN CORE</span> (778) and <span class="mono">SOURCE-AVAILABLE</span> instead.</td></tr>
+    <tr><td class="mono">HOSTED OPTION / YOUR SERVER</td><td class="n">near-universal pair</td><td><b>Merge</b> into the effort column of the spec strip.</td></tr>
+    <tr><td class="mono">SSO PAYWALLED</td><td class="n">varies</td><td><b>Hold — the underlying data is being repaired right now.</b> The other session found <code>facts.ssoInFree: false</code> was written to mean "no SSO in the free tier", but it <i>renders</i> as "SSO paywalled". So lazygit, gitui, tig and gitbutler — terminal git clients with no accounts at all — currently accuse someone of paywalling SSO. 1067 such marks across 736 projects. Expect a lot of <code>false</code> → <code>null</code>. Don't design around this badge until that run lands.</td></tr>
+    <tr><td class="mono">ARCHIVED / DORMANT</td><td class="n">9 + 22 known</td><td><b>Keep and make it loud.</b> See W3.</td></tr>
+  </table>
+  <div class="two">
+    <div><p class="lbl">today</p><div class="mock">┌────────────────────────────────┐
+│ ◈ opencode                  ⌂ ⚙│
+│ The most direct equivalent.    │
+│ Provider-agnostic, TUI plus…   │
+│ [FULLY OPEN][HOSTED OPTION]    │
+│ [MIT][SELF-HOSTABLE]           │
+│ [SSO PAYWALLED][YOUR SERVER]   │
+└────────────────────────────────┘</div></div>
+    <div><p class="lbl">after W1</p><div class="mock">┌────────────────────────────────┐
+│ ◈ opencode        MIT · TS   ⚙ │
+│ The most direct equivalent.    │
+│ Provider-agnostic, TUI plus…   │
+│ managed · pushed 3 days ago    │
+│                                │
+│                                │
+└────────────────────────────────┘</div></div>
+  </div>
+  <div class="pick" data-for="W1"></div>
+</div>
+
+<div class="p rec" data-id="W2">
+  <header><span class="id">W2</span><div><h3>Group by exit rung, and name a first pick<span class="tag t-rec">recommended</span></h3>
+  <p class="muted">You already compute the rung (<code>rungOf</code>: drop-in → self-hostable → partial → locked-in). Use it as the page's spine instead of a flat grid. One alternative gets promoted to a wide hero card with the argument for it; the rest fall into rungs.</p></div>
+  <span class="cost">medium</span></header>
+<div class="mock">╔═══════════════════════════════════════════════════════════════════╗
+║ START HERE                                                        ║
+║ ◈ opencode                                    MIT · TypeScript    ║
+║ The most direct equivalent. Provider-agnostic, TUI plus an        ║
+║ LSP-aware editing loop; works against local llama.cpp.            ║
+║ managed · pushed 3 days ago                    [ repo → ][ page →]║
+╚═══════════════════════════════════════════════════════════════════╝
+
+DROP-IN — same job, no server                                     4 ▾
+  Crush · Goose · Aider · Codex CLI
+
+RUN IT YOURSELF — one compose away                                9 ▾
+  OpenHands · Continue · Tabby · …
+
+PARTIAL — covers some of it                                      16 ▾
+
+HISTORICAL — archived or dormant, kept for the record             7 ▸  (collapsed)
+  Mods · Cody · GPT-Engineer · Roo Code · Mentat · AutoDev · smol-developer</div>
+  <div class="pick" data-for="W2"></div>
+</div>
+
+<div class="p rec" data-id="W3">
+  <header><span class="id">W3</span><div><h3>Promote "archived" from a sentence to a field<span class="tag t-bug">this is a real bug</span><span class="tag t-rec">do this first</span></h3>
+  <p class="muted">You asked for <i>"a field that is archived true or false, that way we know everything that exists and existed"</i>. That field was never persisted. Here is where the truth actually lives today:</p></div>
+  <span class="cost">a data migration, not a design change</span></header>
+  <table>
+    <tr><th>Where the fact lives</th><th>Count</th></tr>
+    <tr><td>Alternatives whose <b>English note begins "Archived…"</b></td><td class="n"><b>153</b></td></tr>
+    <tr><td>Alternatives with <code>health.archived === true</code></td><td class="n">11</td></tr>
+    <tr><td>Both agree</td><td class="n">10</td></tr>
+    <tr><td>An <code>archived</code> field on the alternative itself</td><td class="n">0</td></tr>
+  </table>
+  <p>So <b>142 projects we know are dead are only marked dead inside a prose sentence</b>, which nothing can filter, sort, badge or collect on. On the Claude Code page you can read "Archived." in five different cards and the site renders exactly one badge, because only one of those repos has a health record.</p>
+  <p class="muted">Fix: lift it into <code>archived: true</code> on the alternative (the research records already carry it — <code>promote.ts</code> reads <code>c.archived</code> for the prose prompt and then drops it on the floor), fall back to health, and treat the prose as the last resort. <b>Then</b> the design part: collapsed "Historical" section, greyed row, dated badge — <span class="mono">ARCHIVED 2024</span> / <span class="mono">NO COMMITS SINCE MAR 2024</span>. Without the field, X3 (the graveyard page) has 11 members instead of 150+, and W2's Historical rung is empty.</p>
+  <div class="pick" data-for="W3"></div>
+</div>
+
+<div class="p" data-id="W4">
+  <header><span class="id">W4</span><div><h3>Table mode above ~12 alternatives<span class="tag t-alt">alternative to W2</span></h3>
+  <p class="muted">Cards for short lists, one dense sortable table for long ones (the C1 spec strip, expanded to hold the note). 389 of 527 products have 11–20 alternatives, so this is the common case, not the edge case. Could ship as a card/table toggle the reader controls. <b>Pairs well with W6</b>: three cards up top, and what the "show all" button reveals is the table rather than 33 more cards.</p></div>
+  <span class="cost">medium</span></header>
+  <div class="pick" data-for="W4"></div>
+</div>
+
+<div class="p" data-id="W5">
+  <header><span class="id">W5</span><div><h3>Filter the alternatives on the product page<span class="tag t-alt">worth it once W2 lands</span></h3>
+  <p class="muted">36 items with no controls. Three pills would do it: <span class="mono">no server</span> · <span class="mono">still alive</span> · <span class="mono">no strings</span>. Reuses the same filter primitives as §1.</p></div>
+  <div class="pick" data-for="W5"></div>
+</div>
+
+<div class="p rec" data-id="W6">
+  <header><span class="id">W6</span><div><h3>Top 3, then "show all 36" — with a sort<span class="tag t-rec">your idea · recommended</span></h3>
+  <p class="muted">Three real recommendations with room to breathe, then everything else on demand. This composes with W2 rather than competing: the three are the top of the list, the expansion reveals the rung groups underneath.</p></div>
+  <span class="cost">small — the hard part is the sort, see W7</span></header>
+<div class="mock">TOP 3
+┌──────────────────────┐ ┌──────────────────────┐ ┌──────────────────────┐
+│ ◈ opencode  MIT · TS │ │ ◈ Crush     FSL · Go │ │ ◈ Goose  Apache · Rs │
+│ The most direct      │ │ Charm's terminal     │ │ Block's agent, now   │
+│ equivalent. Provider-│ │ agent, MCP-capable,  │ │ maintained in its    │
+│ agnostic, TUI plus…  │ │ any provider…        │ │ own org…             │
+│ managed · 3 days ago │ │ managed · 1 day ago  │ │ managed · 5 days ago │
+└──────────────────────┘ └──────────────────────┘ └──────────────────────┘
+
+            ┌──────────────────────────────────────────────┐
+            │  Show all 36 alternatives            ▾       │
+            └──────────────────────────────────────────────┘
+                     sorted by:  Our pick ▾
+                                 ├ Our pick        (default)
+                                 ├ Most switched to
+                                 ├ Least work
+                                 ├ Most open
+                                 └ Recently active</div>
+  <p><b>One caveat worth knowing before you pick this.</b> "Top 3" today means "first 3 in the JSON array", and that is only editorial for the entries you wrote by hand. <code>promote.ts</code> <b>appends</b>, so on every product the research pass expanded, the tail is in whatever order the pipeline happened to emit. Claude Code is fine — opencode, Crush, Goose lead and the four archived ones trail — but that's luck, not design. The top 3 needs a <i>computed</i> order (W7), not an array slice.</p>
+  <div class="pick" data-for="W6"></div>
+</div>
+
+<div class="p rec" data-id="W7">
+  <header><span class="id">W7</span><div><h3>"By popularity" — you already collect the right signal and never read it<span class="tag t-big">better than stars</span></h3>
+  <p class="muted">There is no popularity field in the data. But there are three candidate signals, and the best one is already in your database:</p></div></header>
+  <table>
+    <tr><th>Signal</th><th>State</th><th>Assessment</th></tr>
+    <tr>
+      <td><b>Switch votes per project</b><br><small>"I switched off X <i>to Y</i>"</small></td>
+      <td>Collected · aggregated · <b>served</b></td>
+      <td><b>Use this.</b> <code>votes.projectSlug</code> is recorded on every vote, <code>projectCounts()</code> already groups by it, and <code>/api/projects</code> already returns it as <code>replacedCount</code>. It just never reaches the product page — <code>/api/products</code> only attaches the per-product total. <b>One line of backend.</b> First-party, honest, and it compounds every week.</td>
+    </tr>
+    <tr>
+      <td>GitHub stars</td>
+      <td>Not collected</td>
+      <td><b>I'd avoid it.</b> One extra field in <code>fetch-health.ts</code>, but it's a popularity contest across four different forges — Codeberg and GitLab stars aren't on the same scale as GitHub's, so a cross-forge sort is meaningless. Worse, stars are cumulative and never decay: it would rank a repo abandoned in 2019 above a live one from 2025. That's the opposite of what this site is for.</td>
+    </tr>
+    <tr>
+      <td>Editorial order</td>
+      <td>Exists, partially</td>
+      <td>The default, and the honest label is "Our pick" — but see the W6 caveat. Needs to become a computed score (effort, then openness, then alive, then votes) so appended entries sort correctly instead of sitting wherever the pipeline dropped them.</td>
+    </tr>
+  </table>
+  <p class="muted">Caveat on scale: <b>277 switches</b> total across 527 products today, so per-project counts are thin and most will be zero. Sort by it, don't <i>display</i> it until a project has a handful — a card reading "1 person switched to this" undersells a good project.</p>
+  <div class="pick" data-for="W7"></div>
+</div>
+
+<div class="p rec" data-id="W8">
+  <header><span class="id">W8</span><div><h3>Render all 36 in the DOM, hide with CSS<span class="tag t-rec">don't skip this one</span></h3>
+  <p class="muted">These pages rank for "open source alternatives to X" — the Claude Code page's own title is <i>"36 open source Claude Code alternatives (2026)"</i>. If the hidden 33 are conditionally rendered in React, the prerendered HTML contains 3 and the title is writing a cheque the page doesn't cash. Use a <code>&lt;details&gt;</code> or a CSS <code>max-height</code> toggle so all 36 are in the served markup. Same reason the pager uses real <code>&lt;a href&gt;</code> links today.</p></div>
+  <span class="cost">a constraint, not work — as long as it's decided up front</span></header>
+  <div class="pick" data-for="W8"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2 id="cards">4 · Cards, density, layout</h2>
+
+<div class="evidence">
+There are <b>three different product-card designs</b> on the site right now. Home: icon + name + price + verdict + switch count. Category: icon + name + price + <i>"15 alternatives"</i> + verdict. Projects index: name + <i>"Replaces: Qualio, ServiceTitan, MaintainX +27"</i> + licence/compose/language chips. The third one is the best and nothing else uses it.
+</div>
+
+<div class="two">
+<figure><img src="shots/tools.png" alt="Projects index cards"><figcaption>The good card — "Replaces: …" plus three discriminating chips.</figcaption></figure>
+<figure><img src="shots/cat.png" alt="Category page"><figcaption>The good page — stat strip and exit-ladder bar.</figcaption></figure>
+</div>
+
+<div class="p rec" data-id="D1">
+  <header><span class="id">D1</span><div><h3>One product card everywhere<span class="tag t-rec">recommended</span></h3>
+  <p class="muted">Adopt the projects-index pattern for products: name, price, verdict, category, and the line that's missing everywhere — <b>who replaces it</b>. A directory whose list view never names a single alternative is asking every reader to click to find out if there's an answer.</p></div>
+  <span class="cost">one component, three call sites</span></header>
+  <div class="two">
+    <div><p class="lbl">today (home)</p><div class="mock">┌──────────────────────────────┐
+│ ◈ Claude Code       $20/mo   │
+│ ● ALMOST              8 ↺    │
+└──────────────────────────────┘</div></div>
+    <div><p class="lbl">proposed</p><div class="mock">┌──────────────────────────────┐
+│ ◈ Claude Code       $20/mo   │
+│ ● ALMOST · AI · 36 escapes   │
+│ opencode, Crush, Goose +33   │
+└──────────────────────────────┘</div></div>
+  </div>
+  <div class="pick" data-for="D1"></div>
+</div>
+
+<div class="p rec" data-id="D2">
+  <header><span class="id">D2</span><div><h3>Give the product page its width back<span class="tag t-rec">recommended</span></h3>
+  <p class="muted">At 1440&nbsp;px the alternatives live in a 2-column block at ~55% width while the right rail is empty from the third card down — roughly 3000&nbsp;px of blank column on the Claude Code page. Let the rail stop being sticky and the list go full-width 3-up below it.</p></div>
+  <span class="cost">CSS</span></header>
+  <div class="pick" data-for="D2"></div>
+</div>
+
+<div class="p" data-id="D3">
+  <header><span class="id">D3</span><div><h3>Stat strip + exit-ladder bar on the product page<span class="tag t-rec">cheap, high impact</span></h3>
+  <p class="muted">The category page has it; the product page — the more important page — doesn't. For Claude Code: <span class="mono">36 alternatives · lowest-effort escape: opencode · 32 with no strings · 4 open-core</span> plus the same coloured ladder bar showing how the 36 split across rungs. Note what I can't put in that strip today: <i>how many are still alive</i> — see §11.</p></div>
+  <span class="cost">reuse existing component</span></header>
+  <div class="pick" data-for="D3"></div>
+</div>
+
+<div class="p" data-id="D4">
+  <header><span class="id">D4</span><div><h3>Icons for projects, not just products<span class="tag t-alt">nice-to-have</span></h3>
+  <p class="muted">Products have real logos; alternatives mostly show a GitHub avatar or a letter tile. The avatar is often an org logo that means nothing (see the OpenHands / Continue / Zed rows). Low priority, but it's the reason the wall reads as grey.</p></div>
+  <div class="pick" data-for="D4"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2 id="coll">5 · Collections — currently six, and two of them are broken</h2>
+
+<table>
+<tr><th>Collection</th><th>Members</th><th>Assessment</th></tr>
+<tr><td>Open source</td><td class="n">3199</td><td><b>Broken.</b> 3199 of 3257 projects = 98% of the catalogue. That's not a cross-section, it's the index with a different title.</td></tr>
+<tr><td>FOSS</td><td class="n">2837</td><td><b>Broken the same way</b> — 87%. Both are exempted from the 60% rule by explicit request, which is fine as a rule but they still read as "everything".</td></tr>
+<tr><td>Self-hostable</td><td class="n">19</td><td><b>Dead end.</b> Below the documented floor of 25. Its own definition undercuts it: 99.8% of alternatives are self-hostable, so the interesting page would be the inverse.</td></tr>
+<tr><td>Open core</td><td class="n">189</td><td><b>Good.</b> Real cross-section, real question.</td></tr>
+<tr><td>Source-available</td><td class="n">—</td><td><b>Good.</b> Genuinely contested territory, and the licence classifier backs it.</td></tr>
+<tr><td>Cheaper, still paid</td><td class="n">238 alts</td><td><b>Good and underexploited</b> — only 238 of 6230 alternatives are the "cheaper" kind. Worth its own editorial push.</td></tr>
+</table>
+
+<p>Every collection below is a query over data that already exists. No authoring, no maintenance, nothing to go stale — which is the promise the collections index page already makes.</p>
+
+<div class="p rec" data-id="X1">
+  <header><span class="id">X1</span><div><h3>One docker compose away<span class="tag t-rec">recommended</span></h3>
+  <p class="muted"><code>health.hasCompose === true</code> → <b>179 projects</b> today, and rising with §11. The most actionable page the site could publish: "here is everything you can be running tonight."</p></div>
+  <div class="pick" data-for="X1"></div>
+</div>
+
+<div class="p rec" data-id="X2">
+  <header><span class="id">X2</span><div><h3>Written in &lt;language&gt; — one page per language<span class="tag t-rec">recommended · free SEO</span></h3>
+  <p class="muted">From <code>health.language</code>, over the 1047 enriched projects: TypeScript 175 · Go 164 · Python 159 · C++ 96 · JavaScript 85 · Rust 81 · PHP 62 · Java 52 · C 36. Nine pages that clear the 25-member floor on today's data alone, and "self-hosted alternatives written in Rust" is a real search. Zero editorial cost.</p></div>
+  <div class="pick" data-for="X2"></div>
+</div>
+
+<div class="p rec" data-id="X3">
+  <header><span class="id">X3</span><div><h3>The graveyard — archived &amp; abandoned<span class="tag t-rec">recommended</span></h3>
+  <p class="muted">You asked to keep everything that ever existed. Give it a home. Size depends entirely on W3: <b>11 members</b> if we keep reading the health flag, <b>150+</b> once the archived field is lifted out of the prose. Nobody else publishes this page, and it's the honest counterweight to a catalogue of 6230 recommendations.</p></div>
+  <div class="pick" data-for="X3"></div>
+</div>
+
+<div class="p rec" data-id="X4">
+  <header><span class="id">X4</span><div><h3>Replace it in your terminal<span class="tag t-rec">recommended — your original ask</span></h3>
+  <p class="muted"><code>shell-terminal</code> is now the <b>biggest category on the site with 26 products</b> — bigger than networking (23), dev tooling (20), AI (8). This is the <i>"cd → z"</i> axis you asked for and it's buried under a generic category page. Give it a proper landing page with its own framing: one table of paid/default tool → replacement, no cards.</p></div>
+  <div class="pick" data-for="X4"></div>
+</div>
+
+<div class="p" data-id="X5">
+  <header><span class="id">X5</span><div><h3>Kill under $10/mo<span class="tag t-alt">good</span></h3>
+  <p class="muted">Products priced under $10 with a drop-in escape. The "why am I still paying for this" page. Straight query over <code>priceMonthly</code> + <code>rungOf</code>.</p></div>
+  <div class="pick" data-for="X5"></div>
+</div>
+
+<div class="p" data-id="X6">
+  <header><span class="id">X6</span><div><h3>The expensive ones<span class="tag t-alt">good</span></h3>
+  <p class="muted">Over $100/mo. Unity Pro $185, Clay $167, Autodesk Maya $156, Semrush $139, Ahrefs $129… where the money actually is. Sorted by annual spend, not monthly.</p></div>
+  <div class="pick" data-for="X6"></div>
+</div>
+
+<div class="p" data-id="X7">
+  <header><span class="id">X7</span><div><h3>No account, no server, no signup<span class="tag t-alt">good</span></h3>
+  <p class="muted">Local-only tools: <code>dataResidency: "self"</code> and a CLI or desktop build. The privacy-first slice, and it's the natural home for everything the research pass added this session.</p></div>
+  <div class="pick" data-for="X7"></div>
+</div>
+
+<div class="p" data-id="X8">
+  <header><span class="id">X8</span><div><h3>The SSO tax<span class="tag t-big">the one I'd lead with</span></h3>
+  <p class="muted">Products where SSO is behind a paid plan and at least one open alternative ships it in the free build. Feeds directly off C4. This is the page that gets linked from Hacker News.</p></div>
+  <div class="pick" data-for="X8"></div>
+</div>
+
+<div class="p" data-id="X9">
+  <header><span class="id">X9</span><div><h3>Retire or rename "Open source" and "FOSS"<span class="tag t-alt">your call</span></h3>
+  <p class="muted">At 98% and 87% of the catalogue they don't cross-section anything. Options: (a) leave them, they're harmless SEO landing pages; (b) rename to "The whole catalogue, licence-checked"; (c) narrow FOSS to <i>FOSS with no hosted upsell at all</i>, which would actually exclude something. I lean (a) — you already ruled on this once and it isn't worth relitigating.</p></div>
+  <div class="pick" data-for="X9"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2 id="pages">6 · New pages</h2>
+
+<div class="p rec" data-id="P1">
+  <header><span class="id">P1</span><div><h3>Category group hubs — 10 pages, data already in the file<span class="tag t-rec">recommended</span></h3>
+  <p class="muted"><code>categories.json</code> already carries a <code>group</code> on every row, and nothing routes it. Meanwhile <b>50 of 85 categories hold 5 products or fewer, and 6 hold exactly one</b> (forms, auth, crm, search, cms…). A one-product category page is a dead end for both readers and crawlers.</p></div>
+  <span class="cost">one route, one template</span></header>
+  <table>
+    <tr><th>Group</th><th>Categories</th><th>Products</th></tr>
+    <tr><td>creative</td><td class="n">12</td><td class="n">91</td></tr>
+    <tr><td>dev</td><td class="n">9</td><td class="n">82</td></tr>
+    <tr><td>infra</td><td class="n">10</td><td class="n">66</td></tr>
+    <tr><td>ai-data</td><td class="n">7</td><td class="n">65</td></tr>
+    <tr><td>work</td><td class="n">12</td><td class="n">65</td></tr>
+    <tr><td>growth</td><td class="n">7</td><td class="n">46</td></tr>
+    <tr><td>operations</td><td class="n">9</td><td class="n">35</td></tr>
+    <tr><td>home</td><td class="n">7</td><td class="n">34</td></tr>
+    <tr><td>commerce</td><td class="n">7</td><td class="n">25</td></tr>
+    <tr><td>security</td><td class="n">5</td><td class="n">18</td></tr>
+  </table>
+  <p><small>Every one clears the 25-member floor except security (18), which can fold into infra or stay as the exception.</small></p>
+  <div class="pick" data-for="P1"></div>
+</div>
+
+<div class="p" data-id="P2">
+  <header><span class="id">P2</span><div><h3>Project pages that earn their existence<span class="tag t-alt">check first</span></h3>
+  <p class="muted"><code>/en/tools/&lt;slug&gt;</code> exists for 3257 projects, and the alternative cards on product pages <b>don't link to it</b> — they only link out to GitHub. Either wire the links up (see L1) or don't ship 3257 pages nothing points at. Worth a look at what one of them actually renders for a project with no health data before deciding.</p></div>
+  <div class="pick" data-for="P2"></div>
+</div>
+
+<div class="p" data-id="P3">
+  <header><span class="id">P3</span><div><h3>"What replaces the most" leaderboard<span class="tag t-alt">fun, cheap</span></h3>
+  <p class="muted">ERPNext replaces 30 products. Odoo 28. Dolibarr 25. One page ranking the projects that kill the most invoices, straight out of the <code>replaces</code> array. Good link bait, one query.</p></div>
+  <div class="pick" data-for="P3"></div>
+</div>
+
+<div class="p" data-id="P4">
+  <header><span class="id">P4</span><div><h3>Stack builder<span class="tag t-no">I'd skip for now</span></h3>
+  <p class="muted">Pick your paid stack → get the open equivalent with total monthly saving. The Estimate page already covers most of this ground; building a second version competes with it.</p></div>
+  <div class="pick" data-for="P4"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2 id="links">7 · Links</h2>
+
+<div class="p rec" data-id="L1">
+  <header><span class="id">L1</span><div><h3>Alternative names link inward, forge icon links outward<span class="tag t-rec">recommended</span></h3>
+  <p class="muted">Today an alternative card's only link is the GitHub icon. Every product page therefore leaks all its outbound weight to github.com and none to the 3257 project pages the site already builds. Make the <b>name</b> go to <code>/en/tools/&lt;slug&gt;</code>, keep the small forge icon as the external escape.</p></div>
+  <span class="cost">small</span></header>
+  <div class="pick" data-for="L1"></div>
+</div>
+
+<div class="p rec" data-id="L2">
+  <header><span class="id">L2</span><div><h3>"Also replaces" on the project page<span class="tag t-rec">recommended</span></h3>
+  <p class="muted">Nextcloud shows up under a dozen products. Its project page should say so and link all twelve — that's the internal-link mesh the site is missing, and it's free from data you already have.</p></div>
+  <div class="pick" data-for="L2"></div>
+</div>
+
+<div class="p" data-id="L3">
+  <header><span class="id">L3</span><div><h3>Deep-link "compare with others"<span class="tag t-alt">small</span></h3>
+  <p class="muted">The link under the compare table drops you on the global features page with 137 features and nothing selected. It should carry the product's category and its alternatives as query params — the features page already supports param-driven state.</p></div>
+  <div class="pick" data-for="L3"></div>
+</div>
+
+<div class="p" data-id="L4">
+  <header><span class="id">L4</span><div><h3>Breadcrumb via the group<span class="tag t-alt">depends on P1</span></h3>
+  <p class="muted">Today: <span class="mono">All products › AI › Claude Code</span>. With group hubs: <span class="mono">All products › AI &amp; data › AI › Claude Code</span>. One more real rung for both readers and crawlers.</p></div>
+  <div class="pick" data-for="L4"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2 id="og">8 · OG images — the existing plan, found</h2>
+
+<p>You were right, and it's why I couldn't find it: <b>it isn't in the repo.</b> It lives at</p>
+<p class="mono" style="font-size:.95rem"><b>/home/hades/canireplaceit-brand/og-designs.html</b> — 76&nbsp;KB, self-contained, open it in a browser</p>
+<p>Title: <i>"canireplaceit — design propositions"</i>. It's a live gallery — every design renders as real SVG from the site's own palette and its own optimised logos, with a Dark/Light toggle. <b>Read it rendered, not as source</b>; the source is generator code. Siblings in that folder: <code>index.html</code>, <code>deploy.html</code>, <code>logos.js</code>, <code>tools/logos.mjs</code>.</p>
+
+<figure style="max-width:560px"><img src="shots/og-current.png" alt="Current OG image"><figcaption>What actually ships today, for <b>all ~4000 URLs</b>. None of the plan below was ever implemented — which is also why it's green against a blue brand.</figcaption></figure>
+
+<div class="evidence">
+<b>I am not re-proposing any of this.</b> The four decisions below were already taken in that file and I'm carrying them as agreed. Everything in §8 is scope, not a question — except O4, which is genuinely open.
+</div>
+
+<h3 style="margin-top:32px">Decisions already taken — carry as agreed</h3>
+<table>
+<tr><th>Decision</th><th>Reasoning as recorded</th></tr>
+<tr><td><b>Dark palette wins.</b> One palette is baked per image.</td><td>X, Discord and Slack are dark for most people, and a dark card on a dark timeline reads as part of the page rather than a flashbang. LinkedIn and iMessage skew light, where a dark card still looks deliberate — the reverse is not true.</td></tr>
+<tr><td><b>Rejected: theme-aware OG images.</b></td><td>Verbatim: <i>"it is not a theme switch — it is two files and a rule for which URL gets which, and that is more moving parts than the gain justifies."</i> The gallery's Dark/Light toggle only picks which palette gets baked into the file you export.</td></tr>
+<tr><td><b>Build-time PNG, not runtime.</b></td><td>An OG image is a flat PNG baked at build; every viewer sees the same file. (This closes what I'd listed as O3 — dropped.)</td></tr>
+<tr><td><b>The twin-arrow mark stays.</b></td><td>The logo explorations in that file are <i>"a record of what was explored, not an open question."</i> The self-assessment is recorded too and it's honest: correct — grey leaving, blue arriving, direction carries the meaning — but not memorable at 16&nbsp;px and not distinct from the fifty other arrow marks in a tab bar. Correct is why it survives.</td></tr>
+</table>
+
+<h3 style="margin-top:32px">The 19 link-preview designs, and which pages in this plan need them</h3>
+<p class="muted">All 1200 × 630 — the size X, LinkedIn, Slack, Discord, WhatsApp and iMessage unfurl. Aimed per page type so a preview says something specific instead of being the same poster every time. Designs 1–4 all carry the two lists that matter: <b>what the paid tool has that the open one doesn't, and what you get back.</b> The numbers in the gallery are placeholders.</p>
+<table>
+<tr><th>#</th><th>Design</th><th>Target page</th><th>Have we got that page?</th></tr>
+<tr><td class="n">1</td><td>The verdict card</td><td>Product</td><td>✅ ships today</td></tr>
+<tr><td class="n">2</td><td>Leaving / arriving split</td><td>Product</td><td>✅</td></tr>
+<tr><td class="n">3</td><td>Parity dial</td><td>Product</td><td>✅</td></tr>
+<tr><td class="n">4</td><td>Head-to-head table</td><td>Product · X post</td><td>✅ — and <b>C7</b> is exactly this, made interactive</td></tr>
+<tr><td class="n">5</td><td>Open source project</td><td>Project</td><td>✅ (3257 of them, nothing links to them — <b>L1</b>)</td></tr>
+<tr><td class="n">6</td><td>Category board</td><td>Category</td><td>✅</td></tr>
+<tr><td class="n">7</td><td>The number</td><td>Estimate</td><td>✅</td></tr>
+<tr><td class="n">8</td><td>House numbers</td><td>Home / stats</td><td>✅</td></tr>
+<tr><td class="n">9</td><td>Pull quote</td><td>X post · any</td><td>✅</td></tr>
+<tr><td class="n">10</td><td>Qualified list</td><td>Intent landing</td><td>❌ <b>no such page</b> — closest is <b>X1–X8</b></td></tr>
+<tr><td class="n">11</td><td>Best-of awards</td><td>Alternatives hub</td><td>⚠️ partial — <code>/en/tools/</code> exists, isn't a hub</td></tr>
+<tr><td class="n">12</td><td>The vote</td><td>Poll result</td><td>❌ <b>polls don't exist</b> — see below</td></tr>
+<tr><td class="n">13</td><td>The fact sheet</td><td>Software profile</td><td>⚠️ ≈ project page</td></tr>
+<tr><td class="n">14</td><td>Spotlight — replacement enlarged</td><td>Product</td><td>✅ — pairs with <b>W6</b>'s hero pick</td></tr>
+<tr><td class="n">15</td><td>Duel — diagonal split</td><td>Compare</td><td>❌ that's <b>C6</b>, which the brief restricts</td></tr>
+<tr><td class="n">16</td><td>Editorial — phrase set large</td><td>Intent landing</td><td>❌</td></tr>
+<tr><td class="n">17</td><td>Mosaic — count as artwork</td><td>Category</td><td>✅ — or <b>P1</b> group hubs</td></tr>
+<tr><td class="n">18</td><td>Gauge — the number nobody else has</td><td>Poll result</td><td>❌</td></tr>
+<tr><td class="n">19</td><td>Poster — mark off the edge</td><td>Any · campaign</td><td>✅</td></tr>
+</table>
+<p><small>The second pass in each group (14–19) is "the same job designed harder" — a staged focal point and a wash of brand colour rather than a tidy grid.</small></p>
+
+<div class="p rec" data-id="O1">
+  <header><span class="id">O1</span><div><h3>Implement the 19 as a build-time step<span class="tag t-rec">agreed design, unbuilt</span></h3>
+  <p class="muted">The designs exist as working 1200×630 SVG generators. The work is wiring them into <code>prerender.ts</code>, feeding real catalogue data instead of placeholders, and writing a PNG per route. Every decision above is already made, so this is engineering, not design.</p></div>
+  <span class="cost">medium — the generators exist</span></header>
+  <div class="pick" data-for="O1"></div>
+</div>
+
+<div class="p rec" data-id="O4">
+  <header><span class="id">O4</span><div><h3>Pick a renderer — this one really is open<span class="tag t-big">needs your call</span></h3>
+  <p class="muted">The brand file specifies <b>no rendering tool</b>. It proves the designs in SVG and stops there. So this is mine to propose, and it's new:</p></div>
+  <span class="cost">a dependency choice</span></header>
+  <table>
+    <tr><th>Option</th><th>Trade</th></tr>
+    <tr><td><b>resvg-js</b> — render the existing SVG straight to PNG</td><td><b>My pick.</b> The generators already emit SVG. This adds one dependency and changes nothing about the designs. Fonts must be embedded or supplied as files.</td></tr>
+    <tr><td>satori + resvg — JSX → SVG → PNG</td><td>The popular stack, but it wants JSX input, so the 19 generators would be rewritten. Buys nothing here.</td></tr>
+    <tr><td>Headless Chrome screenshot</td><td>Perfect fidelity, but a browser in the build for 4000 images. Slow, and the site is otherwise fully static.</td></tr>
+  </table>
+  <div class="pick" data-for="O4"></div>
+</div>
+
+<div class="p" data-id="O2">
+  <header><span class="id">O2</span><div><h3>Recolour the current one as a stopgap<span class="tag t-alt">10-minute version</span></h3>
+  <p class="muted">If O1 isn't happening this month: fix green→blue so the one image we do ship stops contradicting the brand. Doesn't touch the plan above.</p></div>
+  <div class="pick" data-for="O2"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2 id="brief">8b · The rest of the brand file — the "etc etc"</h2>
+
+<p>Same file, after the link previews. This is scope you already have that this redesign should respect rather than reinvent.</p>
+
+<table>
+<tr><th>Section</th><th>What's in it</th><th>Bearing on this plan</th></tr>
+<tr><td><b>Menus</b></td><td>Proposed nav: Alternatives ▾ / Open source ▾ / Savings ▾ / Contribute ▾</td><td>Differs from what ships (The list / Alternatives / Features / Categories ▾ / Collections ▾ / Stats). Worth reconciling — <b>P1</b> group hubs would slot under a ▾.</td></tr>
+<tr><td><b>Footer</b></td><td>Five groups: Browse · Contribute · The project · Support it · Legal</td><td>Close to what ships (four groups). Cheap to align.</td></tr>
+<tr><td><b>SEO plan</b></td><td>"The five query shapes, and who answers them", "What one product actually generates"</td><td><b>Read this before picking collections in §5.</b> My X1–X8 were proposed blind to it.</td></tr>
+<tr><td><b>Being cited by ChatGPT / Claude / Perplexity</b></td><td>Rates the site as already unusually well set up — static HTML per route (most competitors fail on that alone), and dated price claims a model prefers over undated ones.</td><td>Names <b>two gaps</b>: the verdict should be the <i>first</i> paragraph and phrased as a sentence quotable whole; and the poll data doesn't exist. See O5.</td></tr>
+<tr><td><b>What we will not do</b></td><td>Hard scope limits — quoted in full below.</td><td><b>Constrains three of my proposals.</b></td></tr>
+<tr><td><b>Legal pages</b></td><td>Written for a France/EU publisher as the strictest case; describes what the code actually does (self-hosted Umami, Turnstile, Stripe, magic-link, hashed vote identities).</td><td>Already shipped, no action.</td></tr>
+<tr><td><b>Roadmap</b></td><td>Response to the "best replacement engine" brief — audit of asked-for vs existing, plus a build order.</td><td>Should be the parent of this document, not a sibling.</td></tr>
+</table>
+
+<div class="evidence">
+<b>"What we will not do", verbatim:</b> No page per phrasing of the same question. No comparison for a pair we have not reviewed. No keyword density targets. No FAQ schema — Google stopped rendering it and <code>seo.ts</code> already says so. No AI-written product copy: <i>"it is the exact thing the 'helpful content' system was built to demote, and this site's only real asset is being right about what a product costs and whether the replacement works."</i>
+</div>
+
+<p><b>Where that hits this plan:</b></p>
+<ul>
+  <li><b>C6 (compare pages) is restricted</b>, not just expensive — "no comparison for a pair we have not reviewed" rules out generating the pair space. <b>C7 respects this</b>: it compares inside one reviewed product page, mints no URLs, and is the right answer.</li>
+  <li><b>X2 (language pages)</b> — I'd argue these pass, since "written in Rust" is a different fact, not a rephrasing of the same question. Your call.</li>
+  <li><b>"No AI-written product copy"</b> — worth surfacing plainly: the 5992 alternative notes added this session were phrased by deepseek from facts the pipeline verified. The split was deliberate and enforced (<i>the model phrases, it never decides a fact</i>), and that's a defensible reading of the rule — but it's a line the brand file draws hard, and you should be the one to confirm it's the line you meant.</li>
+</ul>
+
+<div class="p" data-id="O5">
+  <header><span class="id">O5</span><div><h3>Lead the product page with a quotable verdict sentence<span class="tag t-rec">cheap · from the brief</span></h3>
+  <p class="muted">The brief's own named gap: the verdict should be the first paragraph, phrased so a model can quote it whole. Today the product page opens with a <code>why</code> paragraph that's good prose but doesn't stand alone — Claude Code's starts <i>"The terminal-agent space caught up in about a year…"</i>, which quoted out of context says nothing about Claude Code. One leading sentence of the form <i>"You can almost replace Claude Code: opencode does the same loop under MIT, but you cannot self-host the model."</i> fixes it, and it also feeds designs 1, 9 and 14.</p></div>
+  <div class="pick" data-for="O5"></div>
+</div>
+
+<div class="p" data-id="O6">
+  <header><span class="id">O6</span><div><h3>Polls — the other named gap<span class="tag t-alt">out of scope here, flagging it</span></h3>
+  <p class="muted">Three of the 19 designs (12, 18, and part of 11) render poll results, and there is no poll feature. Either build it or accept those three designs are unbuildable for now. The vote infrastructure already exists and is trustworthy (scored, hashed, auditable) — a poll is arguably a small extension of it rather than a new system.</p></div>
+  <div class="pick" data-for="O6"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2 id="ads">9 · Sponsor load</h2>
+
+<figure><img src="shots/home.png" alt="Home page full" style="max-height:900px;object-fit:cover;object-position:top"><figcaption>Home, top to bottom. Before the first product card there are <b>three sponsor surfaces</b>: a scrolling marquee under the header, a 10-cell sponsor grid mid-page, and a second marquee — plus a third marquee pinned to the bottom of the viewport at all times. Then <b>4 of the first 12 grid cells are sponsor slots</b>.</figcaption></figure>
+
+<div class="p" data-id="S1">
+  <header><span class="id">S1</span><div><h3>One rail, not three<span class="tag t-rec">recommended</span></h3>
+  <p class="muted">The two marquees plus the bottom sticky bar are the same inventory shown three times. Keep the mid-page grid (it's the honest, labelled one and it converts), drop the top marquee, and un-stick the bottom one so it doesn't overlap content on every page including the product pages.</p></div>
+  <div class="pick" data-for="S1"></div>
+</div>
+
+<div class="p" data-id="S2">
+  <header><span class="id">S2</span><div><h3>Cap inline slots at 1 per 12 cards<span class="tag t-alt">your revenue call</span></h3>
+  <p class="muted">Currently ~1 in 3 on the first screen. This is a business decision, not a design one, so I'm flagging it rather than recommending a number — but a reader who sees four "Sponsor this project" placeholders before four real products reads the catalogue as thin.</p></div>
+  <div class="pick" data-for="S2"></div>
+</div>
+
+<div class="p" data-id="S3">
+  <header><span class="id">S3</span><div><h3>Empty slots shouldn't look like content<span class="tag t-rec">cheap</span></h3>
+  <p class="muted">An unsold slot currently renders a full-size card saying "Sponsor this project — OPEN SLOT — Design, slot 2". Nine of them on the home page. Collapse unsold inventory into a single thin line and the page instantly reads denser.</p></div>
+  <div class="pick" data-for="S3"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2 id="bugs">10 · Bugs I found on the way <span class="tag t-bug">free wins</span></h2>
+
+<table>
+<tr><th>What</th><th>Where</th><th>Detail</th></tr>
+<tr><td>Stale product count</td><td class="mono">i18n.ts:80, 361<br>i18n.ts:1168</td><td>Search placeholder reads <i>"Search 493 products"</i> and the empty state <i>"No match in 493 products"</i>. There are <b>527</b>. Both languages. It's on screen next to a stat block that says 527.</td></tr>
+<tr><td>Stale project counts</td><td class="mono">i18n.ts:306, 1113</td><td><i>"844 of 871 projects carry a recognised open source licence, and 642 of those…"</i> Actual: 3257 / 3199 / 2837. The tools page header says "3257 projects" directly above a blurb saying "All 871 of them".</td></tr>
+<tr><td>Wrong URL renders home</td><td class="mono">routes.ts</td><td><code>/en/products/claude-code</code> — the obvious guess, and what I typed first — silently renders the home page with a 200. Product lives at <code>/en/alternatives/&lt;slug&gt;</code>. Should 404 or redirect.</td></tr>
+<tr><td>Meaningless badge</td><td class="mono">components.tsx</td><td><span class="mono">SELF-HOSTABLE</span> on 5982 of 5992 alternatives. See W1.</td></tr>
+<tr><td><b>Archived is a sentence, not a field</b></td><td class="mono">data/products/*.json</td><td>153 alternatives say "Archived…" in their note; 11 carry the health flag; <b>0</b> have an <code>archived</code> field. The badge reads health only, so 142 known-dead projects render as live. See W3 — this is the one I'd fix first.</td></tr>
+<tr><td>Two console 401s on every page</td><td class="mono">/api/me/*</td><td><code>/api/me/campaigns</code> and <code>/api/me/team</code> fire while signed out. Harmless but they're the only errors in the console, so they mask real ones.</td></tr>
+</table>
+
+<div class="p rec" data-id="B1">
+  <header><span class="id">B1</span><div><h3>Fix all six now, independently of everything else<span class="tag t-rec">recommended</span></h3>
+  <p class="muted">Hardcoded counts should come from the data at build time so they can't drift again — that's the actual fix, and it's the same one-liner in six places.</p></div>
+  <div class="pick" data-for="B1"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2 id="gap">11 · The data gap that decides how much of this works</h2>
+
+<table>
+<tr><th>Signal</th><th>Coverage</th><th>Blocks</th></tr>
+<tr><td>licence, effort, openCore, residency</td><td class="n">3229 / 3229 · 100%</td><td>— nothing, this is the safe foundation</td></tr>
+<tr><td><code>health</code> — language, last commit, compose, archived</td><td class="n">1047 / 3229 · <b>32%</b></td><td>C1 spec strip · W3 dead-demotion · X1 compose · X2 languages · X3 graveyard · D3 stat strip</td></tr>
+<tr><td><code>features</code> — the 137-key vocabulary</td><td class="n">1046 / 3229 · <b>32%</b></td><td>C2 · C3 · C4 · X8 SSO tax · the whole features page</td></tr>
+</table>
+
+<div class="evidence">
+The ~2180 projects added by this session's research pass have <b>no health and no feature data</b>. Every "make the cards denser" idea in this plan renders a blank for two-thirds of the catalogue until that's fixed. This is the single highest-leverage thing on the page and it isn't a design task.
+</div>
+
+<p><b>Confirmed with the other session, which owns this pipeline.</b> The 33% is not a failure — <i>every project that existed when the sweeps ran is done</i> (1053 with facts, 25 genuinely empty, 5 that appeared since). The gap is purely the ~2180 added afterwards. Re-running is cache-first and costs nothing for work already done; the new ones need real model calls, roughly <b>12–15 hours on two lanes</b>.</p>
+
+<p>Two data caveats from that session, both of which affect what renders:</p>
+<ul>
+  <li><b>Fixed today:</b> 5 renamed projects had facts filed under their old key and displayed a fraction of what was on disk — Baserow rendered 4 facts and had 24.</li>
+  <li><b>Open:</b> ~25 projects are cited under two forge addresses (Blender is <code>gitea/blender/blender</code> in 10 product files and <code>blender/blender</code> in 2), so they appear as two half-covered projects and inflate the 3229 denominator. Plan at <code>/home/hades/projects/canireplaceit-ops/annex/PLAN-gaps.md</code>.</li>
+  <li><b>In flight:</b> the <code>ssoInFree</code> repair described in W1 — 1067 marks across 736 projects, 469 with self-contradicting citations. Expect <code>false</code> → <code>null</code> at scale.</li>
+</ul>
+
+<div class="p rec" data-id="G4">
+  <header><span class="id">G4</span><div><h3>Tell them which genres to enrich first<span class="tag t-rec">free — they offered</span></h3>
+  <p class="muted">The other session is walking the enrichment queue alphabetically and offered to reorder it by genre for whichever proposals you pick. Based on this plan I'd ask for <b>shell-terminal</b> (26 products, the biggest category and the weakest data), then <b>dev</b> and <b>ai-data</b> — those are the pages C7's compare table and W1's badge diet will look worst on while empty. Costs nothing but a message.</p></div>
+  <div class="pick" data-for="G4"></div>
+</div>
+
+<div class="p rec" data-id="G1">
+  <header><span class="id">G1</span><div><h3>Run the health backfill before the redesign lands<span class="tag t-rec">recommended · do this first</span></h3>
+  <p class="muted">2182 repos × one <code>gh api</code> call each. Gets language, last push, archived flag and compose detection for the whole catalogue. Mechanical, no model needed, no judgement calls — and it's what turns W1/C1/X1/X2/X3 from "mostly dashes" into the best pages on the site.</p></div>
+  <span class="cost">one script + an hour of API time</span></header>
+  <div class="pick" data-for="G1"></div>
+</div>
+
+<div class="p" data-id="G2">
+  <header><span class="id">G2</span><div><h3>Extend feature answers to the new projects<span class="tag t-alt">bigger</span></h3>
+  <p class="muted">This one does need a model — 2182 projects × 137 questions is not a scrape. Same pipeline as the research pass. Only worth it if you commit to C2/C4/X8; otherwise the 32% we have already covers the products that matter most.</p></div>
+  <div class="pick" data-for="G2"></div>
+</div>
+
+<div class="p" data-id="G3">
+  <header><span class="id">G3</span><div><h3>Design for missing data on purpose<span class="tag t-rec">do this regardless</span></h3>
+  <p class="muted">Whatever the coverage, the rule should be: a column with nothing in it is not rendered, and a dash never appears where a reader could read it as "no". The features page already states this in its intro — the product page should obey it too.</p></div>
+  <div class="pick" data-for="G3"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2>If you only pick three</h2>
+<p>My order, on impact per hour of work:</p>
+<ol>
+  <li><b>W3 — lift <code>archived</code> out of the prose into a field.</b> 142 dead projects currently render as alive. It's the feature you asked for months ago and it silently never landed, and it gates the graveyard page and the Historical rung.</li>
+  <li><b>W1 — the badge diet.</b> One filter over the badge list. It's the difference between a grey wall and a page you can scan, and it costs almost nothing.</li>
+  <li><b>F1 — one Filters button.</b> The sheet is already built and translated. This is deleting code, not writing it.</li>
+</ol>
+<p class="muted">Then <b>W6 + W7 + W8</b> (top 3, show-all, sorted by real switch votes — one backend line unlocks the sort), <b>G1</b> (health backfill — unblocks five other proposals), <b>C2 + C3</b> (stop comparing things that don't compare) and <b>W2</b> (group by rung) as the second wave.</p>
+
+</div>
+
+<div id="out"><pre id="outtext"></pre></div>
+<div id="bar">
+  <span id="count" class="mono">0 picked · 0 rejected · 0 maybe</span>
+  <span class="sp"></span>
+  <button id="clear">Reset</button>
+  <button id="show" class="primary">Show my picks</button>
+</div>
+
+<script>
+const KEY='cir-plan-picks';
+const state=JSON.parse(localStorage.getItem(KEY)||'{}');
+const LABEL={y:'Yes',n:'No',m:'Maybe'};
+for(const box of document.querySelectorAll('.pick')){
+  const id=box.dataset.for;
+  for(const v of ['y','n','m']){
+    const b=document.createElement('button');
+    b.type='button'; b.dataset.v=v; b.textContent=LABEL[v];
+    b.setAttribute('aria-pressed', state[id]===v?'true':'false');
+    b.onclick=()=>{
+      state[id]= state[id]===v ? undefined : v;
+      if(!state[id]) delete state[id];
+      localStorage.setItem(KEY,JSON.stringify(state));
+      for(const s of box.children) s.setAttribute('aria-pressed', state[id]===s.dataset.v?'true':'false');
+      render();
+    };
+    box.append(b);
+  }
+}
+function render(){
+  const y=[],n=[],m=[];
+  for(const [k,v] of Object.entries(state)) (v==='y'?y:v==='n'?n:m).push(k);
+  document.getElementById('count').textContent=`${y.length} picked · ${n.length} rejected · ${m.length} maybe`;
+  const title=id=>{const el=document.querySelector(`.p[data-id="${id}"] h3`);return el?el.childNodes[0].textContent.trim():id};
+  const list=a=>a.sort().map(id=>`  ${id} — ${title(id)}`).join('\n')||'  (none)';
+  document.getElementById('outtext').textContent=
+`YES\n${list(y)}\n\nMAYBE\n${list(m)}\n\nNO\n${list(n)}`;
+}
+document.getElementById('show').onclick=()=>document.getElementById('out').classList.toggle('on');
+document.getElementById('clear').onclick=()=>{localStorage.removeItem(KEY);for(const k in state)delete state[k];
+  for(const b of document.querySelectorAll('.pick button'))b.setAttribute('aria-pressed','false');render()};
+render();
+</script>
+</body>
+</html>
