@@ -62,3 +62,10 @@ docker image prune -f >/dev/null
 REMOTE_SCRIPT
 
 echo "✓ ${TAG} live on ${SITE_DOMAIN}"
+
+# Tell Bing, Yandex and Seznam what changed. Bing's index is what Copilot
+# answers from, so a price change nobody is told about is a wrong price quoted
+# for a week. Never fails the deploy: the release is already live by here.
+if command -v bun >/dev/null 2>&1; then
+  SITE_DOMAIN="$SITE_DOMAIN" bun "$ROOT/scripts/indexnow.ts" "${INDEXNOW_SINCE:-HEAD~1}" || true
+fi
