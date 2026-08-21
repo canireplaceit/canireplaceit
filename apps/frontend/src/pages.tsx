@@ -1354,7 +1354,7 @@ export function GlossaryPage({ ctx }: { ctx: PageCtx }) {
  * the data already had.
  */
 export function GroupPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
-	const { t, tc, lang, categories, products, stats } = ctx;
+	const { t, lang, categories, products, stats } = ctx;
 	if (!(CATEGORY_GROUPS as readonly string[]).includes(slug)) {
 		return <Pending ctx={ctx} empty={categories.length > 0} />;
 	}
