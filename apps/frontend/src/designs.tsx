@@ -87,8 +87,6 @@ export function ProductList(props: ListProps) {
 				) : (
 					<li
 						key={item.p.slug}
-						// The first rows arrive in a short cascade (`card-in` staggers
-						// six, then stops); the verdict stays in the mark, not the frame.
 						className="card-in rounded-[calc(var(--radius))] border border-border bg-surface transition hover:border-[color-mix(in_srgb,var(--accent)_50%,var(--color-border))]"
 					>
 						<Link

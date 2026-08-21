@@ -342,17 +342,13 @@ h3 {
 	}
 }
 
-/* Body-size brand text drops to the AA-safe sibling. Fills (`bg-brand`), the
-   wordmark and large display text keep the true brand hex. Declared after the
-   Tailwind import so it wins the cascade at equal specificity. */
+/* Body-size brand text uses the AA-safe sibling; fills keep the brand hex.
+   Declared after the Tailwind import so it wins the cascade at equal specificity. */
 .text-brand {
 	color: var(--brand-text);
 }
 
-/* ---------------------------------------------------------------------------
-   The verdict stamp. The one place the site is allowed to be theatrical:
-   the editorial judgement lands on the product page like a rubber stamp.
-   --------------------------------------------------------------------------- */
+/* --------------------------- The verdict stamp --------------------------- */
 .stamp {
 	display: inline-block;
 	font-family: var(--font-display);
@@ -365,7 +361,7 @@ h3 {
 	border: 3px solid currentColor;
 	border-radius: var(--radius-sm);
 	transform: rotate(-4deg);
-	/* Two soft voids make the border read as inked rather than drawn. */
+	/* Mask voids give the border an inked look. */
 	-webkit-mask-image:
 		radial-gradient(circle at 30% 40%, #000 92%, transparent 96%),
 		radial-gradient(circle at 70% 60%, #000 90%, transparent 95%);
@@ -393,9 +389,7 @@ h3 {
 	animation: cri-slam 0.45s cubic-bezier(0.05, 0.7, 0.1, 1) both;
 }
 
-/* ---------------------------------------------------------------------------
-   The exit ladder: you-are-here at the top, each rung stepping down and in.
-   --------------------------------------------------------------------------- */
+/* ---------------------------- The exit ladder ---------------------------- */
 .ladder {
 	border-left: 2px solid var(--line-strong);
 }
@@ -441,9 +435,7 @@ h3 {
 	animation-delay: 0.45s;
 }
 
-/* ---------------------------------------------------------------------------
-   The price receipt: dashed rules between facts, a perforated bottom edge.
-   --------------------------------------------------------------------------- */
+/* --------------------------- The price receipt --------------------------- */
 .receipt-row {
 	display: flex;
 	justify-content: space-between;
@@ -454,7 +446,6 @@ h3 {
 	font-size: 0.8125rem;
 }
 .receipt-edge {
-	/* Semicircular tear-off holes, punched out of the card into the page. */
 	display: block;
 	height: 9px;
 	margin: 0.75rem -1rem -1rem;
@@ -466,8 +457,7 @@ h3 {
 	background-size: 16px 9px;
 }
 
-/* Cards entering a list arrive in a short cascade, not all at once. Only the
-   first rows stagger — below the fold the delay would just read as lag. */
+/* Only the first six children stagger. */
 @keyframes cri-card-in {
 	from {
 		opacity: 0;
@@ -497,7 +487,7 @@ h3 {
 	animation-delay: 0.25s;
 }
 
-/* The cycling hero name: the incoming word settles instead of teleporting. */
+/* Hero name swap-in. */
 @keyframes cri-name-swap {
 	from {
 		opacity: 0;

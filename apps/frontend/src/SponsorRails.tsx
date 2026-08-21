@@ -40,9 +40,8 @@ function RailSlot({
 	const composing =
 		preview.draft && preview.ids.has(slot.id) ? preview.draft : null;
 
-	// pointer-events-auto: the rail itself is inert so it never blocks a click meant for the page behind it.
 	const frame =
-		"pointer-events-auto flex h-full min-h-0 flex-1 flex-col rounded-[calc(var(--radius))] border p-3.5 transition";
+		"flex h-full min-h-0 flex-1 flex-col rounded-[calc(var(--radius))] border bg-surface p-3.5 transition";
 
 	if (composing) {
 		return (
@@ -116,7 +115,7 @@ function RailSlot({
 				style={{
 					borderColor: "color-mix(in srgb, var(--brand) 40%, transparent)",
 					background:
-						"linear-gradient(180deg, color-mix(in srgb, var(--brand) 9%, transparent), transparent)",
+						"linear-gradient(180deg, color-mix(in srgb, var(--brand) 9%, var(--surface)), var(--surface))",
 				}}
 			>
 				<span className="flex items-center gap-2.5">
@@ -144,7 +143,7 @@ function RailSlot({
 		<a
 			href={paths.sponsor(lang, slot.id)}
 			data-ad-slot={slot.id}
-			className={`${frame} justify-center border-dashed text-center hover:bg-surface`}
+			className={`${frame} justify-center border-dashed text-center hover:bg-[var(--surface-2)]`}
 			style={{
 				borderColor: "color-mix(in srgb, var(--accent) 40%, transparent)",
 			}}
@@ -185,7 +184,7 @@ export function InListSponsor({
 	const composing =
 		preview.draft && preview.ids.has(slot.id) ? preview.draft : null;
 	const frame =
-		"flex h-full w-full items-start gap-3 rounded-[calc(var(--radius))] border border-dashed p-3.5 transition hover:bg-surface";
+		"flex h-full w-full items-start gap-3 rounded-[calc(var(--radius))] border border-dashed bg-surface p-3.5 transition hover:bg-[var(--surface-2)]";
 	const body = "min-w-0 flex-1";
 	const meta =
 		"mt-0.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-muted";
@@ -300,63 +299,42 @@ export function InListSponsor({
 	);
 }
 
-export function SponsorRails({
+/** One rail, a real grid column at ≥1560px, sticky within its own lane. */
+export function SponsorRail({
 	slots,
+	side: which,
 	t,
 	tc,
 	lang,
 }: {
 	slots: Slot[];
+	side: "left" | "right";
 	t: T;
 	tc: TC;
 	lang: Lang;
 }) {
-	const side = (which: "left" | "right") =>
-		slots
-			.filter((s) => s.placement === "rail" && s.rail === which)
-			.sort((a, b) => (a.position ?? 0) - (b.position ?? 0));
-
-	const left = side("left");
-	const right = side("right");
-	if (left.length === 0 && right.length === 0) return null;
-
-	// Below 1560px the rails are gone entirely and the tapes carry the same inventory instead — no cramped middle state.
-	const rail =
-		"pointer-events-none fixed top-20 bottom-6 z-20 hidden w-[232px] flex-col gap-2.5 min-[1560px]:flex";
+	const side = slots
+		.filter((s) => s.placement === "rail" && s.rail === which)
+		.sort((a, b) => (a.position ?? 0) - (b.position ?? 0));
+	if (side.length === 0) return null;
 
 	return (
-		<>
-			<aside
-				aria-label={t("ads.railLeft")}
-				className={`${rail} left-4 min-[1760px]:left-8`}
-			>
-				{left.map((s) => (
-					<RailSlot
-						key={s.id}
-						slot={s}
-						t={t}
-						tc={tc}
-						lang={lang}
-						house={false}
-					/>
-				))}
-			</aside>
-			<aside
-				aria-label={t("ads.railRight")}
-				className={`${rail} right-4 min-[1760px]:right-8`}
-			>
-				{right.map((s, i) => (
-					<RailSlot
-						key={s.id}
-						slot={s}
-						t={t}
-						tc={tc}
-						lang={lang}
-						house={isHouseSlot(s, i, right.length)}
-					/>
-				))}
-			</aside>
-		</>
+		<aside
+			aria-label={t(which === "left" ? "ads.railLeft" : "ads.railRight")}
+			// Below 1560px the rails are gone entirely and the tapes carry the same inventory instead — no cramped middle state.
+			className="sticky top-20 hidden h-[calc(100dvh-6.5rem)] flex-col gap-2.5 self-start min-[1560px]:flex"
+		>
+			{side.map((s, i) => (
+				<RailSlot
+					key={s.id}
+					slot={s}
+					t={t}
+					tc={tc}
+					lang={lang}
+					house={which === "right" && isHouseSlot(s, i, side.length)}
+				/>
+			))}
+		</aside>
 	);
 }
 
@@ -402,7 +380,7 @@ function TapeItem({
 		<a
 			href={paths.sponsor(lang, slot.id)}
 			data-ad-slot={slot.id}
-			className={`${chip} border-dashed`}
+			className={`${chip} border-dashed bg-surface`}
 			style={{
 				borderColor: "color-mix(in srgb, var(--accent) 45%, transparent)",
 			}}
@@ -447,29 +425,18 @@ export function SponsorTape({
 		...items.map((s) => ({ slot: s, key: `b-${s.id}` })),
 	];
 
-	// The bottom tape ships a spacer of equal height to keep the footer clear, since `fixed` doesn't reserve space.
-	// `top-14`, not `top-0` — the header is `sticky top-0 z-40`, and a tape also at 0 hides behind it (this shipped
-	// once and made the top tape invisible on every phone). 3.5rem matches NavSheet's header-height subtraction.
-	const pinned =
-		position === "top"
-			? "sticky top-14 border-b"
-			: "fixed inset-x-0 bottom-0 border-t";
+	const edge = position === "top" ? "border-b" : "border-t";
 
 	return (
-		<>
-			<aside
-				aria-label={t("ads.tape")}
-				className={`marquee-mask z-30 overflow-hidden border-border bg-bg/95 py-2 backdrop-blur min-[1560px]:hidden ${pinned}`}
-			>
-				<div className="marquee flex w-max gap-2 px-2">
-					{track.map(({ slot, key }) => (
-						<TapeItem key={key} slot={slot} t={t} tc={tc} lang={lang} />
-					))}
-				</div>
-			</aside>
-			{position === "bottom" && (
-				<div aria-hidden className="h-14 min-[1560px]:hidden" />
-			)}
-		</>
+		<aside
+			aria-label={t("ads.tape")}
+			className={`marquee-mask overflow-hidden border-border bg-bg py-2 min-[1560px]:hidden ${edge}`}
+		>
+			<div className="marquee flex w-max gap-2 px-2">
+				{track.map(({ slot, key }) => (
+					<TapeItem key={key} slot={slot} t={t} tc={tc} lang={lang} />
+				))}
+			</div>
+		</aside>
 	);
 }

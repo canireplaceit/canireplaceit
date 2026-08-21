@@ -104,7 +104,7 @@ import {
 	ProjectsIndexPage,
 } from "./pages";
 import { SignInPage } from "./SignInPage";
-import { SponsorRails, SponsorTape } from "./SponsorRails";
+import { SponsorRail, SponsorTape } from "./SponsorRails";
 import { StatsPage } from "./StatsPage";
 import {
 	applyMeta,
@@ -512,7 +512,7 @@ function Header({
 							navigate(alternateUrls(route)[other] + location.search);
 						}}
 						aria-label={t("ui.language")}
-						className={`${iconBtn} w-auto gap-1.5 px-2.5 text-xs uppercase`}
+						className="flex h-9 shrink-0 items-center gap-1.5 rounded-[calc(var(--radius))] border border-border bg-surface px-2.5 text-muted text-xs uppercase transition hover:border-brand hover:text-text"
 					>
 						<Languages className="size-3.5" aria-hidden />
 						{other}
@@ -580,12 +580,7 @@ const HERO_NAMES = [
 	"Jira",
 ];
 
-/**
- * A stat that counts up to its value on first paint. The numbers are the
- * site's proof of work, so they behave like telemetry, not like copy. Renders
- * the final value immediately under reduced motion — and in the prerendered
- * HTML, since the effect only runs after hydration.
- */
+/** Counts up after hydration; prerender and reduced motion get the final figure. */
 function CountUp({ value }: { value: number }) {
 	const [shown, setShown] = useState(value);
 	useEffect(() => {
@@ -643,8 +638,6 @@ function Hero({
 							<span
 								key={n}
 								aria-hidden={k !== i}
-								// `name-swap` re-applies each time a name becomes the visible
-								// one, so the incoming word settles instead of teleporting.
 								className={`col-start-1 row-start-1 ${k === i ? "name-swap" : "invisible"}`}
 							>
 								{n}
@@ -843,7 +836,7 @@ function SiteFooter({ route, t }: { route: Route; t: (k: Key) => string }) {
 	const other: Lang = lang === "fr" ? "en" : "fr";
 
 	return (
-		<footer className="mt-auto border-border border-t bg-[var(--surface-2)]">
+		<footer className="mt-auto border-border border-t">
 			<div className={`mx-auto ${MEASURE} px-4 py-14`}>
 				{/* The positioning statement. It is the promise the whole catalogue
 				    rests on, so it is the first thing in the footer and the only line
@@ -1362,201 +1355,209 @@ export function App() {
 				collectionCounts={ctx.collectionCounts}
 				signedIn={campaigns?.email ?? null}
 			/>
-			{/* Rails on wide screens, a scrolling tape on everything narrower. */}
-			<SponsorRails slots={slots} t={t} tc={tc} lang={lang} />
 			<SponsorTape slots={slots} t={t} tc={tc} lang={lang} position="top" />
-			{isHome ? (
-				<main>
-					{/* Showing the index for a dead URL is deliberate, but doing it
+			<div className="flex w-full flex-1 flex-col min-[1560px]:grid min-[1560px]:grid-cols-[232px_minmax(0,1fr)_232px] min-[1560px]:gap-6 min-[1560px]:px-6 min-[1560px]:pt-4">
+				<SponsorRail slots={slots} side="left" t={t} tc={tc} lang={lang} />
+				<div className="flex min-w-0 flex-1 flex-col">
+					{isHome ? (
+						<main>
+							{/* Showing the index for a dead URL is deliberate, but doing it
 					    silently leaves the reader thinking they landed where they
 					    meant to. One line, above the hero, says otherwise. */}
-					{route.name === "unknown" && (
-						<p
-							className={`mx-auto ${MEASURE} px-4 pt-6 text-muted text-sm`}
-							role="status"
-						>
-							{t("error.noSuchPage")}
-						</p>
-					)}
-					{/* The headline runs on page 1 only, so it isn't repeated on every
+							{route.name === "unknown" && (
+								<p
+									className={`mx-auto ${MEASURE} px-4 pt-6 text-muted text-sm`}
+									role="status"
+								>
+									{t("error.noSuchPage")}
+								</p>
+							)}
+							{/* The headline runs on page 1 only, so it isn't repeated on every
 					    paginated URL; the hero showcase below runs on every page. */}
-					{homePage === 1 && (
-						<Hero names={HERO_NAMES} stats={stats} t={t} lang={lang} />
-					)}
+							{homePage === 1 && (
+								<Hero names={HERO_NAMES} stats={stats} t={t} lang={lang} />
+							)}
 
-					{heroSlots.length > 0 && (
-						<HeroShowcase slots={heroSlots} t={t} tc={tc} lang={lang} />
-					)}
+							{heroSlots.length > 0 && (
+								<HeroShowcase slots={heroSlots} t={t} tc={tc} lang={lang} />
+							)}
 
-					<section id="list" className="px-4 pb-16">
-						{homePage > 1 && (
-							<h1
-								className={`mx-auto ${MEASURE} mb-4 font-bold font-display text-2xl`}
-							>
-								{t("home.pagedTitle").replace("{n}", String(homePage))}
-							</h1>
-						)}
+							<section id="list" className="px-4 pb-16">
+								{homePage > 1 && (
+									<h1
+										className={`mx-auto ${MEASURE} mb-4 font-bold font-display text-2xl`}
+									>
+										{t("home.pagedTitle").replace("{n}", String(homePage))}
+									</h1>
+								)}
 
-						{/*
-						 * Sticky, and the one piece of chrome on the page that is: the
-						 * list is 48 rows deep and the controls that narrow it were at the
-						 * top of a document the reader had already scrolled past. `top-14`
-						 * clears the header, which is the only other sticky thing here.
-						 *
-						 * The wrapper carries the background because a sticky element with
-						 * a transparent one lets rows scroll visibly underneath it.
-						 */}
-						<div className="-mx-4 sticky top-[3.4rem] z-30 mb-4 border-border border-b bg-bg/90 px-4 py-2.5 backdrop-blur-md">
-							{/* One trigger row at every width: full-width search, verdict
+								{/*
+								 * Sticky, and the one piece of chrome on the page that is: the
+								 * list is 48 rows deep and the controls that narrow it were at the
+								 * top of a document the reader had already scrolled past. `top-14`
+								 * clears the header, which is the only other sticky thing here.
+								 *
+								 * The wrapper carries the background because a sticky element with
+								 * a transparent one lets rows scroll visibly underneath it.
+								 */}
+								<div className="-mx-4 sticky top-[3.4rem] z-30 mb-4 border-border border-b bg-bg/90 px-4 py-2.5 backdrop-blur-md">
+									{/* One trigger row at every width: full-width search, verdict
 							    pills, and the rest behind one button that opens a sheet,
 							    with the filters actually in force listed underneath. This
 							    replaced a six-`<select>` bar that appeared at `lg` — the
 							    width where six controls wrap onto two rows and you have to
 							    read all six to learn what you narrowed to. See
 							    `FilterSheet` and `ActiveFilters` in browse.tsx. */}
-							<div className={`mx-auto ${MEASURE}`}>
-								<input
-									value={filters.q}
-									onChange={(e) =>
-										setFilters({ ...filters, q: e.target.value })
-									}
-									placeholder={searchPlaceholder}
-									aria-label={searchPlaceholder}
-									className="w-full rounded-[calc(var(--radius))] border border-border bg-surface px-3 py-2.5 text-sm outline-none focus:border-brand"
-								/>
-								<div className="mt-2 flex flex-wrap items-center gap-2">
-									<VerdictPills
-										t={t}
-										value={filters.verdict}
-										onChange={(v) => setFilters({ ...filters, verdict: v })}
-									/>
-									<FilterSheet
+									<div className={`mx-auto ${MEASURE}`}>
+										<div className="flex flex-wrap items-center gap-2">
+											<input
+												value={filters.q}
+												onChange={(e) =>
+													setFilters({ ...filters, q: e.target.value })
+												}
+												placeholder={searchPlaceholder}
+												aria-label={searchPlaceholder}
+												className="h-10 min-w-[14rem] flex-1 rounded-[calc(var(--radius))] border border-border bg-surface px-3 text-sm outline-none focus:border-brand"
+											/>
+											<VerdictPills
+												t={t}
+												value={filters.verdict}
+												onChange={(v) => setFilters({ ...filters, verdict: v })}
+											/>
+											<FilterSheet
+												t={t}
+												tc={tc}
+												cats={cats}
+												filters={filters}
+												setFilters={setFilters}
+												// Not `shown.length`: unfiltered, `result` is only this
+												// page's slice, which would undercount the true match
+												// total.
+												resultCount={filtering ? shown.length : ordered.length}
+											/>
+										</div>
+										<ActiveFilters
+											t={t}
+											tc={tc}
+											cats={cats}
+											filters={filters}
+											setFilters={setFilters}
+										/>
+									</div>
+								</div>
+
+								<div className={`mx-auto ${MEASURE} mb-5`}>
+									{/* What a filter had to set aside, and why. Never silent. */}
+									<Hidden result={result} t={t} />
+									{filtering && (
+										<p className="nums mt-2 flex flex-wrap items-center gap-2 text-muted text-xs">
+											<span>
+												{result.shown.length} {t("stats.products")} ·{" "}
+												{t("filter.filteredNote")}
+											</span>
+											<button
+												type="button"
+												onClick={() => setFilters(NO_FILTERS)}
+												className="pill px-2 py-0.5 text-xs"
+											>
+												{t("filter.clear")}
+											</button>
+										</p>
+									)}
+								</div>
+
+								{error && (
+									<p
+										className="mx-auto max-w-2xl rounded-[calc(var(--radius))] border p-4 text-center text-sm"
+										style={{ borderColor: "var(--v-no)", color: "var(--v-no)" }}
+									>
+										{t("error.api")}
+									</p>
+								)}
+
+								{shown.length > 0 ? (
+									<ProductList
+										products={shown}
+										slots={slots}
+										lang={lang}
 										t={t}
 										tc={tc}
-										cats={cats}
-										filters={filters}
-										setFilters={setFilters}
-										// Not `shown.length`: unfiltered, `result` is only this
-										// page's slice, which would undercount the true match
-										// total.
-										resultCount={filtering ? shown.length : ordered.length}
 									/>
-								</div>
-								<ActiveFilters
-									t={t}
-									tc={tc}
-									cats={cats}
-									filters={filters}
-									setFilters={setFilters}
-								/>
-							</div>
-						</div>
+								) : (
+									!error && (
+										<p className="py-12 text-center text-sm text-muted">
+											{t("empty.none")}{" "}
+											<Link
+												href={paths.submit(lang)}
+												className="text-brand hover:underline"
+											>
+												{t("empty.submit")}
+											</Link>
+										</p>
+									)
+								)}
 
-						<div className={`mx-auto ${MEASURE} mb-5`}>
-							{/* What a filter had to set aside, and why. Never silent. */}
-							<Hidden result={result} t={t} />
-							{filtering && (
-								<p className="nums mt-2 flex flex-wrap items-center gap-2 text-muted text-xs">
-									<span>
-										{result.shown.length} {t("stats.products")} ·{" "}
-										{t("filter.filteredNote")}
-									</span>
-									<button
-										type="button"
-										onClick={() => setFilters(NO_FILTERS)}
-										className="pill px-2 py-0.5 text-xs"
-									>
-										{t("filter.clear")}
-									</button>
-								</p>
-							)}
-						</div>
-
-						{error && (
-							<p
-								className="mx-auto max-w-2xl rounded-[calc(var(--radius))] border p-4 text-center text-sm"
-								style={{ borderColor: "var(--v-no)", color: "var(--v-no)" }}
-							>
-								{t("error.api")}
-							</p>
-						)}
-
-						{shown.length > 0 ? (
-							<ProductList
-								products={shown}
-								slots={slots}
-								lang={lang}
-								t={t}
-								tc={tc}
-							/>
-						) : (
-							!error && (
-								<p className="py-12 text-center text-sm text-muted">
-									{t("empty.none")}{" "}
-									<Link
-										href={paths.submit(lang)}
-										className="text-brand hover:underline"
-									>
-										{t("empty.submit")}
-									</Link>
-								</p>
-							)
-						)}
-
-						{/* The pager belongs to the URL and the filters do not, so a
+								{/* The pager belongs to the URL and the filters do not, so a
 						    filtered view has no pager — it's a reading aid over page 3,
 						    not a repagination of the catalogue. */}
-						{!filtering && (
-							<div className={`mx-auto ${MEASURE}`}>
-								<Pager
-									page={homePage}
-									pages={homePages}
-									href={(n) => paths.home(lang, n)}
-									t={t}
-								/>
-								<PageCount
-									page={homePage}
-									pages={homePages}
-									total={catalogueTotal}
-									unit={t("stats.products")}
-									t={t}
-								/>
-							</div>
-						)}
+								{!filtering && (
+									<div className={`mx-auto ${MEASURE}`}>
+										<Pager
+											page={homePage}
+											pages={homePages}
+											href={(n) => paths.home(lang, n)}
+											t={t}
+										/>
+										<PageCount
+											page={homePage}
+											pages={homePages}
+											total={catalogueTotal}
+											unit={t("stats.products")}
+											t={t}
+										/>
+									</div>
+								)}
 
-						{/* The key to the three dots above it, and the caveat the whole
+								{/* The key to the three dots above it, and the caveat the whole
 						    list is read under. A panel rather than two loose lines: it is
 						    a legend, and a legend that reads as body copy gets skipped. */}
-						<div
-							className={`panel mx-auto ${MEASURE} mt-8 flex flex-wrap items-center justify-between gap-x-6 gap-y-3 p-4 text-muted text-xs`}
-						>
-							<p className="max-w-2xl leading-relaxed">
-								{t("list.disclaimer")}
-							</p>
-							<p className="flex flex-wrap items-center gap-x-4 gap-y-2">
-								{VERDICTS.map((v) => (
-									<VerdictMark key={v} verdict={v} t={t} />
-								))}
-							</p>
-						</div>
-					</section>
-				</main>
-			) : (
-				<>
-					{/* The sponsor wall runs on every page, not just home, since the
+								<div
+									className={`panel mx-auto ${MEASURE} mt-8 flex flex-wrap items-center justify-between gap-x-6 gap-y-3 p-4 text-muted text-xs`}
+								>
+									<p className="max-w-2xl leading-relaxed">
+										{t("list.disclaimer")}
+									</p>
+									<p className="flex flex-wrap items-center gap-x-4 gap-y-2">
+										{VERDICTS.map((v) => (
+											<VerdictMark key={v} verdict={v} t={t} />
+										))}
+									</p>
+								</div>
+							</section>
+						</main>
+					) : (
+						<>
+							{/* The sponsor wall runs on every page, not just home, since the
 					    hero positions are the most valuable inventory on the site.
 					    Renders after <Page>, above the footer, rather than ahead of
 					    the reader's own h1. */}
-					<Page ctx={ctx} route={route} />
-					{heroSlots.length > 0 && (
-						<HeroShowcase slots={heroSlots} t={t} tc={tc} lang={lang} />
+							<Page ctx={ctx} route={route} />
+							{heroSlots.length > 0 && (
+								<HeroShowcase slots={heroSlots} t={t} tc={tc} lang={lang} />
+							)}
+						</>
 					)}
-				</>
-			)}
-
-			<SponsorTape slots={slots} t={t} tc={tc} lang={lang} position="bottom" />
-
-			<SiteFooter route={route} t={t} />
+					<SponsorTape
+						slots={slots}
+						t={t}
+						tc={tc}
+						lang={lang}
+						position="bottom"
+					/>
+					<SiteFooter route={route} t={t} />
+				</div>
+				<SponsorRail slots={slots} side="right" t={t} tc={tc} lang={lang} />
+			</div>
 		</div>
 	);
 }
