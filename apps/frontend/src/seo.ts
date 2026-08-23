@@ -17,12 +17,7 @@ import type {
 	Project,
 	Source,
 } from "core/src/content";
-import {
-	byExitQuality,
-	CATEGORY_GROUPS,
-	isArchived,
-	projectSlug,
-} from "core/src/content";
+import { CATEGORY_GROUPS, isArchived, projectSlug } from "core/src/content";
 import type { Lang } from "core/src/index";
 import {
 	DEFAULT_LANG,
