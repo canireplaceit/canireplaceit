@@ -1746,7 +1746,10 @@ ${rows
 		[
 			"<url>",
 			`<loc>${SITE}${p.url}</loc>`,
-			`<lastmod>${p.lastmod}</lastmod>`,
+			// Bing asks for ISO 8601 with a time, not a bare date. The date itself
+			// stays per-URL and honest: a page that has not changed keeps its old
+			// one rather than being restamped at generation time.
+			`<lastmod>${p.lastmod.length === 10 ? `${p.lastmod}T00:00:00+00:00` : p.lastmod}</lastmod>`,
 			...SupportedLangs.map(
 				(l) =>
 					`<xhtml:link rel="alternate" hreflang="${l}" href="${SITE}${p.alternates[l]}"/>`,
@@ -1800,7 +1803,7 @@ writeFileSync(
 ${shards
 	.map(
 		(s) =>
-			`<sitemap><loc>${SITE}/${s.name}</loc><lastmod>${s.lastmod}</lastmod></sitemap>`,
+			`<sitemap><loc>${SITE}/${s.name}</loc><lastmod>${s.lastmod.length === 10 ? `${s.lastmod}T00:00:00+00:00` : s.lastmod}</lastmod></sitemap>`,
 	)
 	.join("\n")}
 </sitemapindex>
@@ -1839,13 +1842,19 @@ writeFileSync(
  * token, Timpibot and YouBot (no first-party docs exist at all).
  */
 const crawlerRules = `Allow: /
-Disallow: /api/
+Disallow: /api/v1/dump.json
+Disallow: /api/products
 Disallow: /u/`;
 
 writeFileSync(
 	join(DIST, "robots.txt"),
-	`# /api/v1/dump.json alone is 7 MB of JSON with nothing indexable in it, and
-# /u/ is the Umami proxy. Everything else, including the noindexed pages, is open.
+	`# The two bulk payloads are 7 MB and 5 MB of JSON with nothing indexable in
+# them, and /u/ is the Umami proxy. The REST of /api/v1/ is deliberately open:
+# llms.txt and skill.md both tell agents to start with the API, and a blanket
+# Disallow: /api/ meant this site forbade the surface its own agent documentation
+# points at. Coding agents are the class that actually reads llms.txt AND honours
+# robots.txt, so they were the ones the blanket rule locked out.
+# Everything else, including the noindexed pages, is open.
 User-agent: *
 ${crawlerRules}
 
