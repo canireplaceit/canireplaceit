@@ -36,7 +36,6 @@ import type {
 	Project,
 } from "core/src/content";
 import {
-	byExitQuality,
 	collectProjects,
 	healthKey,
 	isArchived,
