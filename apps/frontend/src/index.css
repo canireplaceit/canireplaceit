@@ -52,6 +52,8 @@
 	   its own, so this is a slightly darker sibling rather than a rescue.
 	   (DESIGN-GUIDELINES.md §5, deviation 2.) */
 	--brand-text: #0e64e0;
+	/* Text on a filled brand button. White clears 5.17:1 on the light brand. */
+	--on-brand: #ffffff;
 }
 
 :root[data-theme="dark"] {
@@ -69,6 +71,9 @@
 	--brand: #4c8dff;
 	/* 5.79:1 on the dark surface — the brand hex passes on its own here. */
 	--brand-text: #4c8dff;
+	/* White on the lighter dark-mode brand is only 3.20:1, so the filled button
+	   inverts instead: the page background on #4c8dff is 6.08:1. */
+	--on-brand: #0a0d13;
 
 	/* Shadow does almost nothing on a near-black page, so depth here comes from
 	   the surface ramp above; the shadows stay only to shape floating panels. */
@@ -205,7 +210,8 @@ h3 {
 .pill[data-active="true"] {
 	border-color: var(--brand);
 	background: color-mix(in srgb, var(--brand) 10%, var(--surface));
-	color: var(--brand);
+	/* Not --brand: on its own 10% tint that is 4.49:1, which misses AA by 0.01. */
+	color: var(--brand-text);
 	font-weight: 500;
 }
 
@@ -218,7 +224,7 @@ h3 {
 	gap: 0.5rem;
 	border-radius: var(--radius);
 	background: var(--brand);
-	color: #fff;
+	color: var(--on-brand);
 	padding: 0.5625rem 1rem;
 	font-size: 0.875rem;
 	font-weight: 500;

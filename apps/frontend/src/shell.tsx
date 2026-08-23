@@ -156,7 +156,12 @@ export function PageShell({
 }) {
 	const hasHead = Boolean(trail || title || eyebrow || lede || meta);
 	return (
-		<>
+		// The page-head sits INSIDE main: the h1 and the breadcrumb are the page's
+		// content, and with them outside it the skip link jumped over the title.
+		// `w-full` because main is a flex item and `mx-auto` on it would disable
+		// align-self:stretch, leaving it fit-content — which is how a table's
+		// min-width used to escape its overflow-x wrapper and widen the document.
+		<main id="main" className="w-full">
 			{hasHead && (
 				<div className="page-head">
 					<div className={`mx-auto ${measure} px-4 pt-5 pb-7 sm:pt-6 sm:pb-9`}>
@@ -191,9 +196,7 @@ export function PageShell({
 					</div>
 				</div>
 			)}
-			<main id="main" className={`mx-auto ${measure} px-4 pt-8 pb-20`}>
-				{children}
-			</main>
-		</>
+			<div className={`mx-auto ${measure} px-4 pt-8 pb-20`}>{children}</div>
+		</main>
 	);
 }

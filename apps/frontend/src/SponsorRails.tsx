@@ -437,12 +437,6 @@ export function SponsorTape({
 		.sort((a, b) => (a.position ?? 0) - (b.position ?? 0));
 	if (items.length === 0) return null;
 
-	// Rendered twice so the loop (translate by half its width, then restart) has no visible seam.
-	const track = [
-		...items.map((s) => ({ slot: s, key: `a-${s.id}` })),
-		...items.map((s) => ({ slot: s, key: `b-${s.id}` })),
-	];
-
 	const edge = position === "top" ? "border-b" : "border-t";
 
 	return (
@@ -458,10 +452,32 @@ export function SponsorTape({
 			 * for a scrollbar, exactly as it does today.
 			 */}
 			<div className="marquee flex min-h-[1.875rem] w-max gap-2 px-2">
-				{hydrated &&
-					track.map(({ slot, key }) => (
-						<TapeItem key={key} slot={slot} t={t} tc={tc} lang={lang} />
-					))}
+				{hydrated && (
+					<>
+						{items.map((s) => (
+							<TapeItem key={`a-${s.id}`} slot={s} t={t} tc={tc} lang={lang} />
+						))}
+						{/*
+						 * The loop translates by half the track and restarts, so the same
+						 * items have to be here twice for the seam to be invisible. The
+						 * second set is decoration: without this a keyboard lands on every
+						 * sponsor a second time, on a copy that is sliding out of view, and
+						 * a screen reader reads the whole rail twice. `display: contents`
+						 * keeps the flex layout identical to the flat list it replaces.
+						 */}
+						<div className="contents" aria-hidden="true" inert>
+							{items.map((s) => (
+								<TapeItem
+									key={`b-${s.id}`}
+									slot={s}
+									t={t}
+									tc={tc}
+									lang={lang}
+								/>
+							))}
+						</div>
+					</>
+				)}
 			</div>
 		</aside>
 	);

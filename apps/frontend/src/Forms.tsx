@@ -1056,8 +1056,8 @@ const Channel = ({
 	children?: React.ReactNode;
 }) => (
 	<section className="border-t border-border pt-6">
-		{/* h3: the Section above already owns the h2 on this page. */}
-		<h3 className="font-display text-lg font-bold tracking-tight">{title}</h3>
+		{/* h2: the Section above owns the h1, hidden, so h3 here skipped a level. */}
+		<h2 className="font-display text-lg font-bold tracking-tight">{title}</h2>
 		<p className="mt-2 max-w-2xl text-pretty text-sm text-muted">{body}</p>
 		{children && <div className="mt-3 flex flex-wrap gap-2">{children}</div>}
 	</section>
