@@ -1608,7 +1608,14 @@ for (const lang of SupportedLangs) {
 	 */
 	emit({
 		route: { name: "products", lang },
-		meta: productsMeta(lang, listed.length, liveCategories.length),
+		meta: productsMeta(
+			lang,
+			listed.length,
+			liveCategories.length,
+			// The 4th argument existed and was never passed, so the one hub whose
+			// whole job is enumerating 592 products listed none of them.
+			productRows(listed, lang),
+		),
 		boot: {
 			...bootFor([]),
 			productIndex: listed.map((p) => [p.slug, p.name, p.category]),

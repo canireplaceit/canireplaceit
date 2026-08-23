@@ -115,11 +115,16 @@ describe("Product", () => {
 			};
 		};
 		expect(product.offers.price).toBe(notion.priceMonthly as number);
-		expect(product.offers.url).toBe(notion.pricing?.url as string);
 		expect(product.offers.priceSpecification.unitCode).toBe("MON");
 		// Nothing on this site is for sale, and "InStock" on 692 pages where
 		// nothing can be bought is the "non-product labeled as product" action.
 		expect(JSON.stringify(product)).not.toContain("availability");
+		// Same reasoning, and this one was left in: `Offer.url` means "where this
+		// offer can be acquired", so it pointed at the vendor's own checkout.
+		expect(product.offers.url).toBeUndefined();
+		expect(JSON.stringify(product)).not.toContain(
+			notion.pricing?.url as string,
+		);
 		// A backward-looking receipt is not a forward-looking guarantee.
 		expect(JSON.stringify(product)).not.toContain("priceValidUntil");
 	});

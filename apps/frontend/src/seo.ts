@@ -374,11 +374,18 @@ const pageNode = (o: {
 	name: o.name,
 	description: o.description,
 	inLanguage: o.lang,
-	isPartOf: { "@id": WEBSITE_ID },
+	/**
+	 * Typed and named inline, not a bare `@id`. Nothing resolves an `@id` across
+	 * documents, so on every page but the home one these used to name a node that
+	 * was not in the graph: 7,676 documents claiming to be part of something and
+	 * to have a publisher, and identifying neither. Same `@id` as the home page's
+	 * full nodes, so a consumer that sees both merges them.
+	 */
+	isPartOf: { "@type": "WebSite", "@id": WEBSITE_ID, name: "canireplaceit" },
 	breadcrumb: { "@id": nodeId(o.url, "breadcrumb") },
 	mainEntity: o.mainEntity ? { "@id": o.mainEntity } : undefined,
 	dateModified: o.dateModified,
-	publisher: { "@id": ORG_ID },
+	publisher: { "@type": "Organization", "@id": ORG_ID, name: "canireplaceit" },
 });
 
 /* ------------------------------------------------------------------ */
@@ -869,8 +876,14 @@ const productNode = (
 					"@type": "Offer",
 					price: product.priceMonthly,
 					priceCurrency: "USD",
-					// The vendor page the figure was read from.
-					url: product.pricing?.url,
+					/*
+					 * No `url`. It meant "where this offer can be acquired", and it
+					 * pointed at the vendor's own pricing page: a priced Offer plus an
+					 * off-site checkout link, on a page that sells nothing, is what
+					 * "non-product labeled as product" looks like. The same reasoning
+					 * already keeps `availability` off this node. The visible page still
+					 * links the receipt, and `dateModified` still dates it.
+					 */
 					/**
 					 * The figure is a monthly subscription and nothing in the old
 					 * `Offer` said so, which reads to a parser as a flat $250. NOT
@@ -897,7 +910,8 @@ const productNode = (
 						name: `${label(lang, "hero.title")} ${product.name}${
 							lang === "fr" ? " ?" : "?"
 						}`,
-						itemReviewed: { "@id": nodeId(url, "product") },
+						// No `itemReviewed`: Google's review-snippet doc says to omit it
+						// when the review is nested under the thing it reviews.
 						reviewAspect:
 							lang === "fr"
 								? "Remplaçabilité par de l'open source"
@@ -1160,8 +1174,10 @@ export function projectMeta(
 					// Our page, not the forge. The forge is where the code is, which is a
 					// different question from where the write-up is.
 					url: abs(url),
+					// The forge URL is in `sameAs` above. It is NOT repeated as
+					// `codeRepository`: that property's domain is SoftwareSourceCode, and
+					// this node is a SoftwareApplication.
 					sameAs: [...new Set(sameAs)],
-					codeRepository: project.source.url,
 					license: licenseValue(project.license),
 					applicationCategory: categoryApplication(opts?.category?.slug),
 					applicationSubCategory: opts?.category
