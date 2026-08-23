@@ -36,12 +36,24 @@ type TC = (v: { en: string }) => string;
  */
 const ADJACENT_PAGE_COUNT = 3;
 
+/**
+ * The long-range rungs: page 10, 20, 30 and so on, named on every page.
+ *
+ * Neighbours alone are a walk, not a jump. First / current ±3 / last let a
+ * reader move three pages per click, so `/en/tools/page/37/` sat 13 clicks from
+ * page 1 — better than the ±1 it replaced, and still a linear crawl. The rungs
+ * cost one anchor per ten pages and turn the walk into two hops for seven pages
+ * in ten (1 → 40 → 37), three for the rest (1 → 30 → 33 → 35).
+ */
+const DECADE_STRIDE = 10;
+
 function pageNumbers(page: number, pages: number): (number | "gap")[] {
 	const wanted = new Set<number>([1, pages, page]);
 	for (let d = 1; d <= ADJACENT_PAGE_COUNT; d++) {
 		if (page - d >= 1) wanted.add(page - d);
 		if (page + d <= pages) wanted.add(page + d);
 	}
+	for (let n = DECADE_STRIDE; n < pages; n += DECADE_STRIDE) wanted.add(n);
 	const sorted = [...wanted].sort((a, b) => a - b);
 	const out: (number | "gap")[] = [];
 	let previous = 0;

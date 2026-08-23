@@ -512,6 +512,33 @@ h3 {
 	animation: cri-name-swap 0.5s cubic-bezier(0.05, 0.7, 0.1, 1) both;
 }
 
+/*
+ * The cell the cycling product name sits in.
+ *
+ * It has to be as wide as the widest name at all times, or the headline reflows
+ * every 2.8 seconds. That used to be paid for by rendering all ten names into
+ * one grid cell and hiding nine — which worked, and left the site's single most
+ * important heading reading "Can I replace NotionFigmaSlack…Jira?" to anything
+ * that walks the DOM.
+ *
+ * The reservation is a pseudo-element instead: same cell, same font, same
+ * string, so the geometry is identical — but generated content is not document
+ * text, and `visibility: hidden` keeps it out of the accessibility tree while
+ * it still sizes the track. The name to draw arrives as `data-sizer` so
+ * HERO_NAMES stays the only place the list lives.
+ */
+.hero-swap {
+	display: inline-grid;
+}
+.hero-swap > *,
+.hero-swap::before {
+	grid-area: 1 / 1;
+}
+.hero-swap::before {
+	content: attr(data-sizer);
+	visibility: hidden;
+}
+
 /* Only the "replaceable" verdict pulses — motion as signal, not decoration. */
 @keyframes cri-pulse {
 	0%,

@@ -5,6 +5,7 @@
 // can count a view without double-counting.
 
 import { paths } from "core/src/routes";
+import { useEffect, useState } from "react";
 import {
 	AdBadge,
 	adLabel,
@@ -409,6 +410,23 @@ export function SponsorTape({
 	lang: Lang;
 	position: "top" | "bottom";
 }) {
+	/**
+	 * The cells are drawn by the browser, never by the prerenderer.
+	 *
+	 * Baking them in is what fixed the home page's 0.5514 CLS: the band had a
+	 * height from the first paint, so /api/slots arriving could not move the
+	 * whole page down. It cost 8.5 kB of chip markup on every one of 8,868
+	 * documents, ten "Sponsor this project" links above the reader's own
+	 * breadcrumb, and 148 ms of the product page's LCP.
+	 *
+	 * The height is the thing that mattered, not the cells — so the track
+	 * reserves it in CSS instead and the board hydrates into a box that is
+	 * already the right size. Both renders agree on empty, so there is no
+	 * hydration mismatch; the effect runs after and fills it in.
+	 */
+	const [hydrated, setHydrated] = useState(false);
+	useEffect(() => setHydrated(true), []);
+
 	// Left five run along the top, right five along the bottom, so a slot keeps the same neighbours at every width.
 	const items = slots
 		.filter(
@@ -432,10 +450,18 @@ export function SponsorTape({
 			aria-label={t("ads.tape")}
 			className={`marquee-mask overflow-hidden border-border bg-bg py-2 min-[1560px]:hidden ${edge}`}
 		>
-			<div className="marquee flex w-max gap-2 px-2">
-				{track.map(({ slot, key }) => (
-					<TapeItem key={key} slot={slot} t={t} tc={tc} lang={lang} />
-				))}
+			{/*
+			 * 1.875rem is exactly what a chip measures (12px label + 2×6px padding
+			 * + 2×1px border), so the reserved band and the filled one are the same
+			 * height to the pixel. `min-h`, not `h`: under `prefers-reduced-motion`
+			 * the track becomes a real horizontal scroller and is allowed to grow
+			 * for a scrollbar, exactly as it does today.
+			 */}
+			<div className="marquee flex min-h-[1.875rem] w-max gap-2 px-2">
+				{hydrated &&
+					track.map(({ slot, key }) => (
+						<TapeItem key={key} slot={slot} t={t} tc={tc} lang={lang} />
+					))}
 			</div>
 		</aside>
 	);

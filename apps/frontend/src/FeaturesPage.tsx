@@ -585,7 +585,7 @@ export function FeaturesPage({
 									: "features.diffMany",
 							).replace("{n}", String(comparison.length))}
 						</p>
-						<div className="mt-3 overflow-x-auto rounded-[calc(var(--radius))] border border-border bg-surface">
+						<div className="relative mt-3 overflow-x-auto rounded-[calc(var(--radius))] border border-border bg-surface">
 							<table className="w-full min-w-[520px] text-sm">
 								<thead>
 									<tr className="border-border border-b">

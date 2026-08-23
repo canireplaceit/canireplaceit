@@ -1513,7 +1513,9 @@ export function SpecStrip({
 	return (
 		<section>
 			<h2 className="eyebrow mb-2">{t("spec.heading")}</h2>
-			<div className="overflow-x-auto">
+			{/* `relative` so the sr-only spans inside stay inside — see the note on the
+			    same wrapper in ReplaceMatrix.tsx. */}
+			<div className="relative overflow-x-auto">
 				<table className="w-full min-w-[34rem] border-collapse text-sm">
 					{/* Google's table extraction keys on caption + th. sr-only, because
 					    the heading above already says this to a reader. */}
@@ -1675,7 +1677,9 @@ export function DefaultsTable({
 				{t("defaults.heading")}
 			</h2>
 			<p className="mt-1 max-w-2xl text-muted text-sm">{t("defaults.blurb")}</p>
-			<div className="mt-3 overflow-x-auto">
+			{/* `relative` so the sr-only spans inside stay inside — see the note on the
+			    same wrapper in ReplaceMatrix.tsx. */}
+			<div className="relative mt-3 overflow-x-auto">
 				<table className="w-full min-w-[36rem] border-collapse text-sm">
 					<caption className="sr-only">{t("defaults.heading")}</caption>
 					<thead>

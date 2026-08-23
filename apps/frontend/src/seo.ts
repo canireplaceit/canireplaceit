@@ -448,11 +448,20 @@ const SPDX_IDS: ReadonlySet<string> = new Set([
 	"Zlib",
 ]);
 
+/**
+ * The licence's page on spdx.org, or null when the string is not an identifier.
+ *
+ * Exported because the project page now links the licence it prints, and the
+ * page and the `SoftwareApplication` node must agree about which strings are
+ * real ids — a link to `spdx.org/licenses/MIT core with an ee-directory.html`
+ * is a 404 on 79 of the catalogue's licence strings.
+ */
+export const spdxUrl = (raw: string | undefined): string | null =>
+	raw && SPDX_IDS.has(raw) ? `https://spdx.org/licenses/${raw}.html` : null;
+
 const licenseValue = (raw: string | undefined): string | Node | undefined => {
 	if (!raw) return undefined;
-	return SPDX_IDS.has(raw)
-		? `https://spdx.org/licenses/${raw}.html`
-		: { "@type": "CreativeWork", name: raw };
+	return spdxUrl(raw) ?? { "@type": "CreativeWork", name: raw };
 };
 
 /* ------------------------------------------------------------------ */

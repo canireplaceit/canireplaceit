@@ -55,6 +55,7 @@ import {
 	type PriceFreshness,
 	type Product,
 	type Project,
+	type ProjectPageFacts,
 	priceFreshness,
 	projectSlug,
 	type Source,
@@ -436,13 +437,6 @@ const categoryOfProject = (project: Project): Category | undefined => {
 	return first ? categoryBySlug.get(first.category) : undefined;
 };
 
-// `thinProject` is in packages/core/src/content.ts: scripts/build-og-pages.ts
-// now reads the same rule to decide which project pages get a card of their own,
-// and two copies of it would disagree the first time either moved.
-const noindexProjects = new Set(
-	projects.filter(thinProject).map((p) => p.slug),
-);
-
 const productsIn = (slug: string) => listed.filter((p) => p.category === slug);
 const liveCategories = categories.filter((c) => productsIn(c.slug).length > 0);
 const noindexCategories = new Set(
@@ -646,6 +640,51 @@ const featuresForProjects = (
 		productTiers,
 	};
 };
+
+/**
+ * What each project page actually says about its project — the join across the
+ * three data files the template reads, handed to the one rule that decides
+ * whether the page is worth indexing.
+ *
+ * `lastPush` is gated on `healthFresh` for the same reason `healthOf` in
+ * apps/frontend/src/api.ts gates it: a stale reading is withheld from the page,
+ * and a rule that counted a date the page will not print would be scoring
+ * markup that does not exist.
+ */
+const pageFactsFor = (project: Project): ProjectPageFacts => {
+	const key = healthKey(project.source);
+	const health = healthFile.repos[key] ?? null;
+	const decided = featureFile.projects[key] ?? {};
+	const labelled = new Map<string, Translations>();
+	for (const d of featureFile.domains) {
+		for (const f of d.features) labelled.set(f.key, f.name);
+	}
+	return {
+		whatYouLose: project.replaces.flatMap((r) =>
+			(listedBySlug.get(r.slug)?.whatYouLose ?? []).map((b) =>
+				resolveTranslation(b, DEFAULT_LANG),
+			),
+		),
+		featureLabels: Object.entries(decided)
+			.filter(([, v]) => v !== "unknown")
+			.map(([k]) => {
+				const name = labelled.get(k);
+				return name ? resolveTranslation(name, DEFAULT_LANG) : "";
+			}),
+		health: health
+			? healthFresh
+				? health
+				: { ...health, lastPush: undefined, archived: undefined }
+			: null,
+	};
+};
+
+// `thinProject` is in packages/core/src/content.ts: scripts/build-og-pages.ts
+// now reads the same rule to decide which project pages get a card of their own,
+// and two copies of it would disagree the first time either moved.
+const noindexProjects = new Set(
+	projects.filter((p) => thinProject(p, pageFactsFor(p))).map((p) => p.slug),
+);
 
 const healthFor = (subset: Listed[]): HealthFile => {
 	const repos: Record<string, Health> = {};
@@ -1133,11 +1172,25 @@ function emit(o: {
 		 * `json()` escapes every `<` as `\u003c`, which is a valid escape inside a
 		 * JSON string, so no `</script>` in the data can end the block early.
 		 */
+		.replace('<div id="root"></div>', `<div id="root">${body}</div>`)
+		/**
+		 * AFTER the markup, not before it.
+		 *
+		 * It used to sit 42 bytes into `<body>`, so on a big page the browser
+		 * parsed half a megabyte of JSON before it reached a single element:
+		 * `/en/collections/foss/` did not have a `<main>` until byte 505,202 of
+		 * 619,370, and under throttling that is ~2s of blank screen followed by
+		 * the whole document laying out at once. That was the residual layout
+		 * shift on the long collection pages, and no amount of trimming markup
+		 * above it helped, because the blob WAS what was above it.
+		 *
+		 * Safe to move: the bundle is `defer`, so it does not run until parsing
+		 * has finished, and `src/index.tsx` reads this tag before hydrating.
+		 */
 		.replace(
-			"<body>",
-			`<body><script type="application/json" id="boot-data">${json(shipped)}</script>`,
-		)
-		.replace('<div id="root"></div>', `<div id="root">${body}</div>`);
+			"</body>",
+			`<script type="application/json" id="boot-data">${json(shipped)}</script></body>`,
+		);
 
 	/**
 	 * The Markdown twin, beside the HTML.

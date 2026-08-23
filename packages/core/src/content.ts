@@ -1264,6 +1264,33 @@ export function collectProjects(products: Product[]): Project[] {
 		}
 	}
 
+	/**
+	 * `replaces` arrives in the order the product FILES were read, which is
+	 * readdir order and means nothing. Everything downstream slices it — the
+	 * page's `<h1>`, `projectMeta`'s title and description, `categoryOfProject`
+	 * in the prerenderer, the Markdown twin — and the social card sorted it by
+	 * editorial weight while nothing else did. That is how the Nextcloud page
+	 * came to be titled "replaces Brandfolder and Cozi" under a card naming
+	 * Google One and iCloud+.
+	 *
+	 * Sorted once, here, so every reader gets the same two products. Same
+	 * comparator as `byWeight` in collections.ts, inlined rather than imported
+	 * because collections.ts imports this file and the cycle is not worth the
+	 * three lines: priority descending, then a byte-wise lowercased name compare
+	 * (not `localeCompare`, which is locale-dependent and would make the
+	 * prerendered and the hydrated page disagree on ordering).
+	 */
+	const weight = new Map(products.map((p) => [p.slug, p.priority]));
+	for (const project of byId.values()) {
+		project.replaces.sort((a, b) => {
+			const d = (weight.get(b.slug) ?? 0) - (weight.get(a.slug) ?? 0);
+			if (d !== 0) return d;
+			const an = a.name.toLowerCase();
+			const bn = b.name.toLowerCase();
+			return an < bn ? -1 : an > bn ? 1 : 0;
+		});
+	}
+
 	// Projects that replace the most products are the most useful to read about.
 	return [...byId.values()].sort(
 		(a, b) =>
@@ -1272,6 +1299,78 @@ export function collectProjects(products: Product[]): Project[] {
 }
 
 const THIN_WORDS = /[\p{L}\p{N}]+/gu;
+const countWords = (s: string): number => (s.match(THIN_WORDS) ?? []).length;
+
+/**
+ * Everything a project page prints ABOUT THE PROJECT, gathered by the caller.
+ *
+ * `Project` alone cannot answer this. What the page renders is a join across
+ * three files — the citing products in `data/products/`, the feature matrix in
+ * `data/features.json` and the repo readings in `data/health.json` — and the
+ * rule has to see the same join the template does or it is measuring something
+ * else. So the caller does the join once and passes the result; both readers of
+ * this rule already hold all three files.
+ */
+export type ProjectPageFacts = {
+	/**
+	 * `whatYouLose` for every product this project is cited against, English,
+	 * one string per bullet. The page prints them under each product it
+	 * replaces: a page arguing for a switch has to say what the switch costs.
+	 */
+	whatYouLose: readonly string[];
+	/**
+	 * The English label of every feature value somebody has actually DECIDED for
+	 * this project. `unknown` is absence and is never rendered, so it is never
+	 * counted — see features.ts.
+	 */
+	featureLabels: readonly string[];
+	/** This repo's reading in `data/health.json`, or null when we hold none. */
+	health: Health | null;
+};
+
+/**
+ * How many words of its own a project page has to show.
+ *
+ * NOT the whole rendered `<main>`. Every project page carries the same ~70
+ * words of frame — the open-core panel's explanation of its own grade, the
+ * section headings, the "edit this page" footer — and counting those would mean
+ * the rule scores a page for markup it shares with 3,478 others. What is left
+ * after the frame is the page's own material, and that is what an index is
+ * being asked to accept.
+ *
+ * Each term is text the template really renders, counted off the same data the
+ * template reads:
+ *
+ *   note           why this project replaces that product, per citation
+ *   whatYouLose    what the reader gives up by leaving it, per citation
+ *   featureLabels  one per decided feature value, from the matrix
+ *   licence, language, last commit, compose file — the repo facts we hold
+ *
+ * Labels are deliberately excluded from the repo facts: "Licence", "Written in"
+ * and the rest are identical on every page that prints them, so counting them
+ * would inflate every score by the same constant and separate nothing.
+ */
+export function projectPageWords(
+	project: Project,
+	facts: ProjectPageFacts,
+): number {
+	let n = 0;
+	for (const r of project.replaces) {
+		n += countWords(resolveTranslation(r.note, DEFAULT_LANG));
+	}
+	for (const bullet of facts.whatYouLose) n += countWords(bullet);
+	for (const label of facts.featureLabels) n += countWords(label);
+
+	n += countWords(project.license);
+	const language = project.language ?? facts.health?.language ?? null;
+	if (language) n += countWords(language);
+	// A rendered date is three words in both locales ("10 August 2026").
+	if (facts.health?.lastPush) n += 3;
+	// `hasCompose` is decided in both directions — "no compose file in the repo
+	// root" is a fact a reader can act on — so absence, not `false`, is the gap.
+	if (facts.health?.hasCompose !== undefined) n += 4;
+	return n;
+}
 
 /**
  * A page with one link and one sentence on it is what Google's scaled-content
@@ -1288,15 +1387,38 @@ const THIN_WORDS = /[\p{L}\p{N}]+/gu;
  * appeared: scripts/build-og-pages.ts draws a card per INDEXABLE project page
  * and skips the rest. Two copies of this rule would mean cards generated for
  * pages nothing indexes, or missing for pages that are.
+ *
+ * WHY THIS SHAPE. The rule used to be `replaces.length < 2 && fewer than 40
+ * unique words of note`, which was a proxy for "the page is nearly empty" — and
+ * measured against the real catalogue, the first half of it decided everything:
+ * all 2,178 pages it held out cited exactly one product. It scored none of the
+ * feature values, none of the repo readings and none of what the reader gives
+ * up, all of which the page renders. So it was rejecting pages for the shape of
+ * their data rather than for what they say. This counts what is on the page.
+ *
+ * WHY 65, measured against the real catalogue (3,479 projects):
+ *
+ *   - `projectPageWords` tracks the rendered `<main>` at r = 0.992, on the fit
+ *     `body ≈ 104 + 1.28 × words`. The 104 is the frame every project page
+ *     carries; the slope is this page's own material. So the score is the
+ *     rendered body with the shared 104 words taken out, not a proxy for it.
+ *   - The distribution has one mode running 35–64 — the ~2,000 pages that cite
+ *     one product, say one sentence and hold nothing else — and it bottoms out
+ *     in the high 60s before the multi-citation tail begins. 65 is that floor.
+ *   - The weakest page it admits renders a 181-word `<main>`. The weakest page
+ *     the OLD rule admitted renders 158. So nothing thinner than what is
+ *     already indexed gets in, and exactly one page that was indexable stops
+ *     being so.
+ *
+ * It is not a target. Moving it up indexes fewer pages and moving it down
+ * indexes emptier ones; re-measure before changing it.
  */
-export const thinProject = (project: Project): boolean =>
-	project.replaces.length < 2 &&
-	new Set(
-		project.replaces
-			.map((r) => resolveTranslation(r.note, DEFAULT_LANG).toLowerCase())
-			.join(" ")
-			.match(THIN_WORDS) ?? [],
-	).size < 40;
+export const MIN_PAGE_WORDS = 65;
+
+export const thinProject = (
+	project: Project,
+	facts: ProjectPageFacts,
+): boolean => projectPageWords(project, facts) < MIN_PAGE_WORDS;
 
 /**
  * The lowest-effort alternative in a category whose free build is the whole

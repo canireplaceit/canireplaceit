@@ -24,6 +24,7 @@ import type {
 	Category,
 	CategoryGroup,
 	CategoryStat,
+	Health,
 	Project,
 } from "core/src/content";
 import {
@@ -40,6 +41,7 @@ import { useState } from "react";
 import {
 	type AdStats,
 	type Campaigns,
+	formatDate,
 	healthOf,
 	homepageOf,
 	type ListedProduct,
@@ -108,6 +110,7 @@ import {
 	distinctNames,
 	GLOSSARY_GROUPS,
 	glossaryAnchor,
+	spdxUrl,
 } from "./seo";
 import { type Crumb, Heading, PageShell, Section } from "./shell";
 
@@ -486,13 +489,16 @@ export function ProjectPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 	if (!project) return <Pending ctx={ctx} empty={ctx.wholeCatalogue} />;
 	const health = healthOf(project.source);
 	const homepage = homepageOf(project.source);
+	// The products citing this project. A project page ships exactly these, so
+	// the lookup is complete before the API answers and stays complete after.
+	const citedBySlug = new Map(ctx.products.map((p) => [p.slug, p]));
 	// The categories of the products citing this project — gates which vertical
 	// feature domains apply. `Project` carries `replaces`, not categories, so the
 	// join happens here rather than in core.
 	const projectCategories = [
 		...new Set(
 			project.replaces
-				.map((r) => ctx.products.find((p) => p.slug === r.slug)?.category)
+				.map((r) => citedBySlug.get(r.slug)?.category)
 				.filter((c): c is string => Boolean(c)),
 		),
 	];
@@ -613,6 +619,8 @@ export function ProjectPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 					/>
 				</section>
 
+				<ProjectRepo project={project} health={health} ctx={ctx} />
+
 				{/* Sibling projects, which is the whole point of this addition.
 			    2069 of the 3257 project pages replace exactly one product, so they
 			    repeat what the product page already said and are `noindex` for it.
@@ -631,20 +639,58 @@ export function ProjectPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 					ctx={ctx}
 				/>
 
+				{/* What each product costs, how far the swap goes and what the swap
+				    takes away, beside the name. All three already travel in this
+				    page's payload — a project page ships the products that cite it in
+				    full — and the card printed the name and the note and nothing
+				    else, so a reader had to open the product page to find out whether
+				    the thing being replaced was $9 or $600. */}
 				<Section title={t("page.replaces")} count={project.replaces.length}>
 					<ul className={`${GRID_1COL} gap-2 sm:grid-cols-2`}>
-						{project.replaces.map((r) => (
-							<li key={r.slug} className="card card-link">
-								<Link href={paths.product(lang, r.slug)} className="block p-4">
-									<span className="font-display font-semibold">{r.name}</span>
-									{r.note && (
-										<span className="mt-1.5 block text-muted text-sm">
-											{tc(r.note)}
-										</span>
-									)}
-								</Link>
-							</li>
-						))}
+						{project.replaces.map((r) => {
+							const cited = citedBySlug.get(r.slug);
+							return (
+								<li key={r.slug} className="card card-link">
+									<Link
+										href={paths.product(lang, r.slug)}
+										className="block p-4"
+									>
+										<span className="font-display font-semibold">{r.name}</span>
+										{cited && (
+											// Plain text, not `VerdictMark`: the mark links to the
+											// glossary and this whole card is already a link.
+											<span className="mt-1 flex flex-wrap items-center gap-x-2 font-mono text-[10px] text-muted uppercase tracking-wider">
+												<span className="nums">
+													{priceLabel(cited, lang, t)}
+												</span>
+												<span aria-hidden>·</span>
+												<span>{t(`verdict.${cited.verdict}` as Key)}</span>
+											</span>
+										)}
+										{r.note && (
+											<span className="mt-1.5 block text-muted text-sm">
+												{tc(r.note)}
+											</span>
+										)}
+										{cited && cited.whatYouLose.length > 0 && (
+											<span className="mt-2.5 block">
+												<span className="eyebrow">{t("row.whatYouLose")}</span>
+												<span className="mt-1.5 flex flex-wrap gap-1.5">
+													{cited.whatYouLose.map((b) => (
+														<span
+															key={b.en}
+															className="rounded-[calc(var(--radius))] border border-border px-2 py-0.5 text-muted text-xs"
+														>
+															{tc(b)}
+														</span>
+													))}
+												</span>
+											</span>
+										)}
+									</Link>
+								</li>
+							);
+						})}
 					</ul>
 				</Section>
 
@@ -1325,6 +1371,103 @@ export function GapsPage({ ctx }: { ctx: PageCtx }) {
  * Membership goes through `collectionMembers` for the same reason the product
  * page's does: one predicate, so a page and a collection cannot disagree.
  */
+/**
+ * The four readings the forge gives us, on the page rather than only in the
+ * JSON-LD.
+ *
+ * `lastPush` was the one dated fact a project page held and it reached nothing
+ * but `dateModified`; the licence was a bare string in the header row with no
+ * way to find out what it permits; the language and the compose file were tags
+ * a reader had to already understand. All four are here, spelled out, as the
+ * `<dl>` a definition list is for.
+ *
+ * A fact we do not hold is left out, never printed as "unknown": `health.json`
+ * covers 1,080 of the 3,479 cited repos, so on two thirds of these pages this
+ * block is the licence and nothing else. An empty row would say we looked and
+ * found nothing, which is the opposite of what happened.
+ *
+ * `hasCompose` is the exception that prints its negative. "No compose file in
+ * the repo root" is a fact somebody's afternoon depends on, and it is decided —
+ * the health run either saw one or did not, so absence of the FIELD is the gap
+ * here, not a `false`.
+ */
+function ProjectRepo({
+	project,
+	health,
+	ctx,
+}: {
+	project: Project;
+	health: Health | null;
+	ctx: PageCtx;
+}) {
+	const { t, lang } = ctx;
+	// `language` is propagated onto the project from whichever citation knew it;
+	// the forge reading is the fallback for the ones no citation named.
+	const language = project.language ?? health?.language ?? null;
+	const spdx = spdxUrl(project.license);
+
+	const rows: { key: string; label: string; value: React.ReactNode }[] = [
+		{
+			key: "licence",
+			label: t("project.licence"),
+			// Linked only when the string really is an SPDX id. 79 of the licence
+			// strings in the catalogue are prose — "MIT core with an ee/ directory" —
+			// and linking those to spdx.org would be a link to a 404.
+			value: spdx ? (
+				<a
+					href={spdx}
+					target="_blank"
+					rel="noopener nofollow"
+					className="hover:underline"
+				>
+					{project.license}
+				</a>
+			) : (
+				project.license
+			),
+		},
+	];
+	if (language) {
+		rows.push({
+			key: "language",
+			label: t("project.writtenIn"),
+			value: language,
+		});
+	}
+	if (health?.lastPush) {
+		rows.push({
+			key: "lastPush",
+			label: t("project.lastCommit"),
+			value: (
+				<time dateTime={health.lastPush} className="nums">
+					{formatDate(health.lastPush, lang)}
+				</time>
+			),
+		});
+	}
+	if (health?.hasCompose !== undefined) {
+		rows.push({
+			key: "compose",
+			label: t("project.composeLabel"),
+			value: t(health.hasCompose ? "project.composeYes" : "project.composeNo"),
+		});
+	}
+
+	return (
+		<section className="mt-6">
+			<Heading>{t("project.repo")}</Heading>
+			<dl className="grid gap-x-6 gap-y-1.5 sm:grid-cols-[max-content_1fr]">
+				{rows.map((r) => (
+					<div key={r.key} className="contents">
+						<dt className="text-muted text-sm">{r.label}</dt>
+						<dd className="text-sm">{r.value}</dd>
+					</div>
+				))}
+			</dl>
+		</section>
+	);
+}
+
 function ProjectPlaces({
 	project,
 	categories,
