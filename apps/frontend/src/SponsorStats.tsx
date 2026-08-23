@@ -31,11 +31,11 @@ const pct = (v: number | null, lang: Lang) =>
 
 function Figure({ label, value }: { label: string; value: string }) {
 	return (
-		<div className="bg-surface px-3 py-4">
-			<dd className="nums text-xl font-bold">{value}</dd>
+		<div className="flex flex-col-reverse bg-surface px-3 py-4">
 			<dt className="mt-1 text-[10px] uppercase tracking-widest text-muted">
 				{label}
 			</dt>
+			<dd className="nums text-xl font-bold">{value}</dd>
 		</div>
 	);
 }

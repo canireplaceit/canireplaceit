@@ -248,23 +248,36 @@ export function RungBar({ stat, t }: { stat: CategoryStat; t: T }) {
 		.join(", ");
 
 	return (
-		<span
-			className="flex h-1.5 w-full overflow-hidden rounded-full bg-border"
-			role="img"
-			aria-label={`${t("cats.ladder")}: ${label}`}
-		>
-			{RUNGS.map((rung) =>
-				stat.rungs[rung] === 0 ? null : (
-					<span
-						key={rung}
-						style={{
-							width: `${(stat.rungs[rung] / total) * 100}%`,
-							background: RUNG_FILL[rung],
-						}}
-					/>
-				),
-			)}
-		</span>
+		<>
+			{/*
+			 * The reading as text, in the document.
+			 *
+			 * It used to live only in an `aria-label` on a `role="img"`, which no
+			 * parser reads and which is not `<meter>`-shaped either — this is four
+			 * proportions, not one value, so a `<meter>` would have to invent a
+			 * figure the data does not hold. Real text says the same thing to a
+			 * screen reader and to a crawler.
+			 */}
+			<span className="sr-only">
+				{t("cats.ladder")}: {label}
+			</span>
+			<span
+				aria-hidden="true"
+				className="flex h-1.5 w-full overflow-hidden rounded-full bg-border"
+			>
+				{RUNGS.map((rung) =>
+					stat.rungs[rung] === 0 ? null : (
+						<span
+							key={rung}
+							style={{
+								width: `${(stat.rungs[rung] / total) * 100}%`,
+								background: RUNG_FILL[rung],
+							}}
+						/>
+					),
+				)}
+			</span>
+		</>
 	);
 }
 

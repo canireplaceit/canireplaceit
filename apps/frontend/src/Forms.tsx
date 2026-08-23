@@ -722,13 +722,21 @@ export function AdsSection({
 						}}
 					>
 						<p className="w-full text-sm text-muted">{t("ads.waitlist")}</p>
-						<input
-							name="email"
-							type="email"
-							required
-							placeholder={t("ads.billingEmail")}
-							className={`${field} max-w-xs flex-1`}
-						/>
+						{/* A real label, not a placeholder standing in for one. sr-only
+						    because the placeholder is the visible instruction and this row
+						    is one line wide. */}
+						<label className="max-w-xs flex-1">
+							<span className="sr-only">{t("ads.billingEmail")}</span>
+							<input
+								name="email"
+								type="email"
+								required
+								aria-required="true"
+								autoComplete="email"
+								placeholder={t("ads.billingEmail")}
+								className={`${field} w-full`}
+							/>
+						</label>
 						<button
 							type="submit"
 							className="rounded-[calc(var(--radius))] border border-border px-4 text-sm"
@@ -920,21 +928,29 @@ export function AdsSection({
 						setPayOpen(true);
 					}}
 				>
-					<div className="grid gap-2">
+					<label className="grid gap-2">
 						<span className="block font-medium text-muted text-xs">
 							{t("ads.billingEmail")}
 						</span>
 						<input
 							type="email"
 							required
+							aria-required="true"
+							autoComplete="email"
+							aria-invalid={buy.step === "error" || undefined}
 							value={payEmail}
 							onChange={(e) => setPayEmail(e.currentTarget.value)}
 							placeholder={t("ads.billingEmail")}
 							className={field}
 						/>
-					</div>
+					</label>
+					{/* A payment failure was announced to nobody. */}
 					{buy.step === "error" && (
-						<p className="text-sm" style={{ color: "var(--v-no)" }}>
+						<p
+							role="alert"
+							className="text-sm"
+							style={{ color: "var(--v-no)" }}
+						>
 							{buy.message}
 						</p>
 					)}
@@ -1120,9 +1136,12 @@ export function ContactSection({ t, lang }: { t: T; lang: Lang }) {
 					}
 				>
 					{CONTACT_EMAIL && (
-						<a href={`mailto:${CONTACT_EMAIL}`} className={contactLink}>
-							{CONTACT_EMAIL}
-						</a>
+						// <address> is exactly this: contact details for the page's owner.
+						<address className="not-italic">
+							<a href={`mailto:${CONTACT_EMAIL}`} className={contactLink}>
+								{CONTACT_EMAIL}
+							</a>
+						</address>
 					)}
 				</Channel>
 

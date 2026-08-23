@@ -34,11 +34,11 @@ const ctrOrDash = (clicks: number, ctr: number | null, lang: Lang) =>
 
 function Figure({ label, value }: { label: string; value: string }) {
 	return (
-		<div className="bg-surface px-3 py-4">
-			<dd className="nums font-bold text-xl">{value}</dd>
+		<div className="flex flex-col-reverse bg-surface px-3 py-4">
 			<dt className="mt-1 text-[10px] text-muted uppercase tracking-widest">
 				{label}
 			</dt>
+			<dd className="nums font-bold text-xl">{value}</dd>
 		</div>
 	);
 }
@@ -145,11 +145,12 @@ export function Dashboard({
 		orgs.find((o) => o.purchases > 0) ??
 		orgs[0] ??
 		null;
-	if (loading) return <main className="mx-auto max-w-4xl px-4 py-16" />;
+	if (loading)
+		return <main id="main" className="mx-auto max-w-4xl px-4 py-16" />;
 
 	if (!data) {
 		return (
-			<main className="mx-auto max-w-md px-4 py-16">
+			<main id="main" className="mx-auto max-w-md px-4 py-16">
 				<p className="font-mono text-[10px] text-muted uppercase tracking-[0.2em]">
 					{t("dash.eyebrow")}
 				</p>
@@ -168,7 +169,7 @@ export function Dashboard({
 	}
 
 	return (
-		<main className="mx-auto max-w-4xl px-4 py-12">
+		<main id="main" className="mx-auto max-w-4xl px-4 py-12">
 			<div className="flex flex-wrap items-start justify-between gap-3">
 				<div>
 					<p className="font-mono text-[10px] text-muted uppercase tracking-[0.2em]">

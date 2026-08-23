@@ -124,6 +124,23 @@ export function Pager({
 	);
 }
 
+/**
+ * How many rows the current filter leaves, announced.
+ *
+ * The pills are correctly `aria-pressed`, so a screen-reader user hears the
+ * control change — and then nothing at all about the list underneath, which is
+ * the only thing that actually changed. Same mechanic as the route announcer in
+ * nav.tsx: one polite, atomic region that is present from first paint, so a
+ * later change to its text is what gets read out.
+ */
+export function ResultsLive({ n, t }: { n: number; t: T }) {
+	return (
+		<p className="sr-only" aria-live="polite" aria-atomic="true">
+			{t("a11y.results").replace("{n}", String(n))}
+		</p>
+	);
+}
+
 export function PageCount({
 	page,
 	pages,

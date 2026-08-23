@@ -93,7 +93,13 @@ export function ProductList(props: ListProps) {
 							href={paths.product(lang, item.p.slug)}
 							className="flex w-full items-start gap-3 p-3.5 text-left"
 						>
-							<ProductLogo product={item.p} size={34} eager={i < 12} />
+							{/* React 19 emits a `<link rel="preload" fetchPriority="high">`
+							    for every eager logo, so this number is a promise about the
+							    first screen. At 390px the list is one column of ~74px rows
+							    under a hero, and twelve high-priority image preloads were
+							    competing with the stylesheet and the fonts for a page whose
+							    LCP is text. Six covers what is actually visible. */}
+							<ProductLogo product={item.p} size={34} eager={i < 6} />
 							<span className="min-w-0 flex-1">
 								<span className="flex items-baseline justify-between gap-2">
 									<span className="truncate font-display font-semibold">

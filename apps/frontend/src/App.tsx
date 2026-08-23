@@ -47,7 +47,7 @@ import {
 	UserRound,
 } from "lucide-react";
 import type { ComponentType } from "react";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AdminPage } from "./AdminPage";
 import { isHouseSlot } from "./ads";
 import { startAdTracking } from "./adTracking";
@@ -56,6 +56,7 @@ import {
 	api,
 	type Campaigns,
 	type Category,
+	healthOf,
 	type ListedProduct,
 	type SiteStats,
 	type Slot,
@@ -74,6 +75,7 @@ import {
 	PageCount,
 	Pager,
 	type ProductFilters,
+	ResultsLive,
 	VerdictPills,
 } from "./browse";
 import { byWeight as byCategoryWeight } from "./categories";
@@ -131,6 +133,13 @@ const VERDICTS: Verdict[] = ["yes", "almost", "not-yet"];
 type Boot = {
 	products: ListedProduct[];
 	categories: Category[];
+	/** The ten hero positions and the ten rail ones, with their occupancy as at
+	 *  build time — no creative, see `slotBoard` in prerender.ts. Here so the
+	 *  sponsor wall and the marquee are part of the first paint: waiting for
+	 *  /api/slots was 0.549 of the home page's 0.551 CLS, because the marquee is
+	 *  a sibling above the entire main column and its arrival moved everything
+	 *  under it. The per-category inventory still arrives with the API. */
+	slots?: Slot[];
 	/** Forge id → pretty slug, computed over the FULL catalogue at build time
 	 *  so collisions resolve the same way regardless of which page's slice loads. */
 	projectSlugs: [string, string][];
@@ -157,6 +166,11 @@ type Boot = {
 	/** Projects a collection can't make a claim about, because their own
 	 *  citations disagree about the field it's built from. */
 	unresolvedRows?: Project[];
+	/** The headline counts, on the home pages only — the one place they render.
+	 *  They used to arrive with /api/stats, so every prerendered home page shipped
+	 *  three em dashes where 592, 6485 and 43 belong. Every figure is known at
+	 *  build time; see `siteStats` in scripts/prerender.ts. */
+	stats?: Stats;
 };
 
 /** Read at render time, not at import time: the prerenderer reuses one module
@@ -520,7 +534,13 @@ function Header({
 					<button
 						type="button"
 						onClick={toggleTheme}
-						aria-label={t("theme.toggle")}
+						// The control is a two-state switch, so it says which state it is
+						// in — both as a pressed state and in the name itself, since
+						// "Toggle theme" alone never told anyone which theme was on.
+						aria-pressed={theme === "dark"}
+						aria-label={`${t("theme.toggle")} — ${t(
+							theme === "dark" ? "theme.dark" : "theme.light",
+						)}`}
 						className={iconBtn}
 					>
 						{theme === "dark" ? (
@@ -679,7 +699,15 @@ function Hero({
 								: []),
 						] as const
 					).map(([key, value]) => (
-						<div key={key} className="bg-surface px-3 py-4">
+						/* dt before dd, per the content model; column-reverse keeps the
+						   figure above its label. */
+						<div
+							key={key}
+							className="flex flex-col-reverse bg-surface px-3 py-4"
+						>
+							<dt className="mt-1 text-[10px] text-muted uppercase tracking-widest">
+								{t(key)}
+							</dt>
 							<dd className="nums font-bold text-2xl">
 								{value !== undefined && value !== null ? (
 									<CountUp value={value} />
@@ -687,9 +715,6 @@ function Hero({
 									"—"
 								)}
 							</dd>
-							<dt className="mt-1 text-[10px] text-muted uppercase tracking-widest">
-								{t(key)}
-							</dt>
 						</div>
 					))}
 				</dl>
@@ -732,7 +757,7 @@ function Page({ ctx, route }: { ctx: PageCtx; route: Route }) {
 			return <CollectionPage ctx={ctx} slug={route.slug} page={route.page} />;
 		case "sponsor":
 			return (
-				<main>
+				<main id="main">
 					<AdsSection
 						onPurchased={ctx.onPurchased}
 						slots={ctx.slots}
@@ -746,7 +771,7 @@ function Page({ ctx, route }: { ctx: PageCtx; route: Route }) {
 			);
 		case "submit":
 			return (
-				<main>
+				<main id="main">
 					<SubmitSection t={ctx.t} lang={ctx.lang} />
 				</main>
 			);
@@ -785,7 +810,7 @@ function Page({ ctx, route }: { ctx: PageCtx; route: Route }) {
 			return <AdminPage t={ctx.t} tc={ctx.tc} lang={ctx.lang} />;
 		case "contact":
 			return (
-				<main>
+				<main id="main">
 					<ContactSection t={ctx.t} lang={ctx.lang} />
 				</main>
 			);
@@ -1008,8 +1033,8 @@ export function App() {
 		() => boot()?.products ?? [],
 	);
 	const [cats, setCats] = useState<Category[]>(() => boot()?.categories ?? []);
-	const [slots, setSlots] = useState<Slot[]>([]);
-	const [stats, setStats] = useState<Stats | null>(null);
+	const [slots, setSlots] = useState<Slot[]>(() => boot()?.slots ?? []);
+	const [stats, setStats] = useState<Stats | null>(() => boot()?.stats ?? null);
 	const [adStats, setAdStats] = useState<AdStats | null>(null);
 	const [siteStats, setSiteStats] = useState<
 		SiteStats | { unavailable: true } | null
@@ -1053,6 +1078,40 @@ export function App() {
 	const [voted, setVoted] = useState<Set<string>>(new Set());
 	const [error, setError] = useState(false);
 
+	/**
+	 * The whole catalogue, fetched at most once and never on first paint.
+	 *
+	 * `window.__DATA__` already carries the slice this document renders, so a
+	 * product page, a category page or page one of the list reproduces itself
+	 * without asking the API for anything. Three things need more:
+	 *
+	 *   - a client-side navigation, which lands on a route this document shipped
+	 *     no data for;
+	 *   - a filter, which searches the whole catalogue rather than this page;
+	 *   - no payload at all — the dev server, and the locale-less shell at `/`.
+	 *
+	 * None of the three happens during a cold load of a prerendered URL, which is
+	 * every load a crawler or a search visitor makes.
+	 */
+	const catalogueAsked = useRef(false);
+	const loadCatalogue = useCallback(() => {
+		if (catalogueAsked.current) return;
+		catalogueAsked.current = true;
+		api
+			.products()
+			.then(setProducts)
+			.catch(() => setError(true));
+	}, []);
+
+	// The route this document was prerendered for. Compared by identity: every
+	// `parseRoute` after it returns a fresh object, so any navigation differs.
+	const firstRoute = useRef(route);
+	useEffect(() => {
+		if (!boot() || route !== firstRoute.current || isFiltered(filters)) {
+			loadCatalogue();
+		}
+	}, [route, filters, loadCatalogue]);
+
 	// Impressions. Started once, outside the data effect, because it observes the
 	// DOM rather than the data — the rails are `position: fixed` and never
 	// unmount, so nothing about them is render-shaped. See adTracking.ts.
@@ -1063,9 +1122,14 @@ export function App() {
 		// so a vote is never the request that also mints the identity.
 		void api.session().catch(() => {});
 
-		Promise.all([api.products(), api.categories(), api.slots(), api.stats()])
-			.then(([p, c, s, st]) => {
-				setProducts(p);
+		// The full catalogue is deliberately NOT here. It is 1.7 MB gzipped, every
+		// page was fetching it on boot to render content the prerendered HTML
+		// already carried, and it cost ten seconds of LCP and 0.63 of CLS on the
+		// home page. `loadCatalogue` below fetches it only when something actually
+		// needs more than this page's own slice. The other three are a few
+		// kilobytes each and every page renders them.
+		Promise.all([api.categories(), api.slots(), api.stats()])
+			.then(([c, s, st]) => {
 				setCats(c);
 				setSlots(s);
 				setStats(st);
@@ -1246,12 +1310,32 @@ export function App() {
 								p,
 								lang,
 								cats.find((c) => c.slug === p.category),
+								{
+									projectSlugs,
+									// The same resolver the page's own components read through, so
+									// the verdict sentence in the markup names the project the
+									// article names.
+									healthOf,
+								},
 							)
 						: null;
 				}
 				case "project": {
 					const pr = projectBySlug.get(route.slug);
-					return pr ? projectMeta(pr, lang, route.slug) : null;
+					if (!pr) return null;
+					// The same three things the prerenderer hands it: where this project
+					// is filed, when the forge last saw a push, and the project's own
+					// site. `healthOf` withholds the dates when the reading is stale,
+					// which is the honest answer and simply omits `dateModified`.
+					const cited = products.find((x) => x.slug === pr.replaces[0]?.slug);
+					const health = healthOf(pr.source);
+					return projectMeta(pr, lang, route.slug, {
+						category: cited
+							? cats.find((c) => c.slug === cited.category)
+							: undefined,
+						lastPush: health?.lastPush,
+						homepage: health?.homepage,
+					});
 				}
 				case "category": {
 					const c = cats.find((x) => x.slug === route.slug);
@@ -1291,6 +1375,13 @@ export function App() {
 				case "sponsor":
 				case "submit":
 				case "stats":
+				// features, glossary and gaps used to fall through to the default and
+				// get the HOME page's meta on a client-side navigation — its canonical,
+				// its title, and now its `WebSite`/`Organization` nodes, which would
+				// have made a second document claim the site entity.
+				case "features":
+				case "glossary":
+				case "gaps":
 				case "signin":
 				// dashboard/admin are noindex; without this they'd fall through to
 				// the home page's meta and lose the noindex tag on hydration.
@@ -1330,6 +1421,7 @@ export function App() {
 		projects,
 		cats,
 		projectBySlug,
+		projectSlugs,
 		lang,
 		catalogueTotal,
 		filtering,
@@ -1344,6 +1436,20 @@ export function App() {
 		// category) still pins its footer to the bottom instead of leaving a band
 		// of empty background under it.
 		<div className="flex min-h-dvh flex-col">
+			{/*
+			 * The first focusable thing on every page.
+			 *
+			 * The header is 88 links wide, so a keyboard or switch user paid for it
+			 * on every one of 8,865 documents before reaching a word of content.
+			 * The other half of 2.4.1 — moving focus and announcing the route on a
+			 * client-side navigation — is already done in nav.tsx.
+			 */}
+			<a
+				href="#main"
+				className="sr-only rounded-[calc(var(--radius))] border border-border bg-surface px-3 py-2 text-sm focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50"
+			>
+				{t("a11y.skip")}
+			</a>
 			<Header
 				t={t}
 				tc={tc}
@@ -1360,7 +1466,7 @@ export function App() {
 				<SponsorRail slots={slots} side="left" t={t} tc={tc} lang={lang} />
 				<div className="flex min-w-0 flex-1 flex-col">
 					{isHome ? (
-						<main>
+						<main id="main">
 							{/* Showing the index for a dead URL is deliberate, but doing it
 					    silently leaves the reader thinking they landed where they
 					    meant to. One line, above the hero, says otherwise. */}
@@ -1432,8 +1538,9 @@ export function App() {
 												setFilters={setFilters}
 												// Not `shown.length`: unfiltered, `result` is only this
 												// page's slice, which would undercount the true match
-												// total.
-												resultCount={filtering ? shown.length : ordered.length}
+												// total. `catalogueTotal` is the same number once the
+												// catalogue is in hand, and the right one before it is.
+												resultCount={filtering ? shown.length : catalogueTotal}
 											/>
 										</div>
 										<ActiveFilters
@@ -1447,6 +1554,9 @@ export function App() {
 								</div>
 
 								<div className={`mx-auto ${MEASURE} mb-5`}>
+									{/* The pills say they were pressed; without this nothing
+									    says what happened to the list under them. */}
+									<ResultsLive n={shown.length} t={t} />
 									{/* What a filter had to set aside, and why. Never silent. */}
 									<Hidden result={result} t={t} />
 									{filtering && (
@@ -1529,7 +1639,7 @@ export function App() {
 									</p>
 									<p className="flex flex-wrap items-center gap-x-4 gap-y-2">
 										{VERDICTS.map((v) => (
-											<VerdictMark key={v} verdict={v} t={t} />
+											<VerdictMark key={v} verdict={v} t={t} lang={lang} />
 										))}
 									</p>
 								</div>

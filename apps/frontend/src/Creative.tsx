@@ -305,28 +305,37 @@ export function CreativeForm({
 		<form onSubmit={submit} className="mt-6 grid gap-8 lg:grid-cols-2">
 			{/* ── Fields ──────────────────────────────────────────────── */}
 			<div className="grid content-start gap-4">
-				<div>
+				{/* A real <label> wrapping the control, not a <span> beside it: nine
+				    inputs on this form had no label at all, so a screen reader read
+				    nine unnamed edit fields. Wrapping keeps the markup identical to
+				    look at. */}
+				<label className="block">
 					<span className={label}>{t("creative.name")}</span>
 					<input
 						required
+						aria-required="true"
+						autoComplete="organization"
 						maxLength={60}
 						value={shared.name}
 						onChange={(e) => set("name")(e.currentTarget.value)}
 						placeholder={t("creative.namePh")}
 						className={field}
 					/>
-				</div>
+				</label>
 
 				<div>
-					<span className={label}>{t("creative.tagline")}</span>
-					<input
-						required
-						maxLength={120}
-						value={shared.tagline}
-						onChange={(e) => set("tagline")(e.currentTarget.value)}
-						placeholder={t("creative.taglinePh")}
-						className={field}
-					/>
+					<label className="block">
+						<span className={label}>{t("creative.tagline")}</span>
+						<input
+							required
+							aria-required="true"
+							maxLength={120}
+							value={shared.tagline}
+							onChange={(e) => set("tagline")(e.currentTarget.value)}
+							placeholder={t("creative.taglinePh")}
+							className={field}
+						/>
+					</label>
 					<p className="mt-1 text-muted text-xs">{t("creative.taglineNote")}</p>
 				</div>
 
@@ -337,27 +346,35 @@ export function CreativeForm({
 					</summary>
 					<p className="mt-2 text-muted text-xs">{t("creative.frenchNote")}</p>
 					<div className="mt-3 grid gap-3">
-						<input
-							maxLength={60}
-							value={shared.nameFr}
-							onChange={(e) => set("nameFr")(e.currentTarget.value)}
-							placeholder={t("creative.nameFrPh")}
-							className={field}
-						/>
-						<input
-							maxLength={120}
-							value={shared.taglineFr}
-							onChange={(e) => set("taglineFr")(e.currentTarget.value)}
-							placeholder={t("creative.taglineFrPh")}
-							className={field}
-						/>
+						<label className="block">
+							<span className="sr-only">{t("creative.nameFrPh")}</span>
+							<input
+								maxLength={60}
+								value={shared.nameFr}
+								onChange={(e) => set("nameFr")(e.currentTarget.value)}
+								placeholder={t("creative.nameFrPh")}
+								className={field}
+							/>
+						</label>
+						<label className="block">
+							<span className="sr-only">{t("creative.taglineFrPh")}</span>
+							<input
+								maxLength={120}
+								value={shared.taglineFr}
+								onChange={(e) => set("taglineFr")(e.currentTarget.value)}
+								placeholder={t("creative.taglineFrPh")}
+								className={field}
+							/>
+						</label>
 					</div>
 				</details>
 
-				<div>
+				<label className="block">
 					<span className={label}>{t("creative.url")}</span>
 					<input
 						required
+						aria-required="true"
+						autoComplete="url"
 						type="url"
 						maxLength={500}
 						value={shared.url}
@@ -365,10 +382,10 @@ export function CreativeForm({
 						placeholder="https://example.com"
 						className={field}
 					/>
-				</div>
+				</label>
 
 				<div>
-					<span className={label}>{t("creative.icon")}</span>
+					<p className={label}>{t("creative.icon")}</p>
 					<div className="flex flex-wrap items-center gap-2">
 						<button
 							type="button"
@@ -395,9 +412,14 @@ export function CreativeForm({
 							</>
 						)}
 					</div>
+					{/* display:none, so it is out of the accessibility tree and the
+					    visible button above is the control — named anyway, because an
+					    unnamed file input is one CSS change away from being a real
+					    failure. */}
 					<input
 						ref={fileRef}
 						type="file"
+						aria-label={t("creative.upload")}
 						accept="image/png,image/jpeg,image/webp"
 						className="hidden"
 						onChange={(e) => {
@@ -407,17 +429,20 @@ export function CreativeForm({
 						}}
 					/>
 					<p className="mt-1 text-muted text-xs">{t("creative.iconNote")}</p>
-					<input
-						maxLength={500}
-						value={shared.logoUrl}
-						onChange={(e) => set("logoUrl")(e.currentTarget.value)}
-						placeholder={t("creative.iconUrlPh")}
-						className={`${field} mt-2`}
-					/>
+					<label className="block">
+						<span className="sr-only">{t("creative.iconUrlPh")}</span>
+						<input
+							maxLength={500}
+							value={shared.logoUrl}
+							onChange={(e) => set("logoUrl")(e.currentTarget.value)}
+							placeholder={t("creative.iconUrlPh")}
+							className={`${field} mt-2`}
+						/>
+					</label>
 				</div>
 
 				<div>
-					<span className={label}>{t("creative.tint")}</span>
+					<p className={label}>{t("creative.tint")}</p>
 					<div className="flex items-center gap-2">
 						<input
 							type="color"
@@ -439,8 +464,9 @@ export function CreativeForm({
 					<p className="mt-1 text-muted text-xs">{t("creative.tintNote")}</p>
 				</div>
 
+				{/* An upload or submit failure was announced to nobody. */}
 				{error && (
-					<p className="text-sm" style={{ color: "var(--danger)" }}>
+					<p role="alert" className="text-sm" style={{ color: "var(--v-no)" }}>
 						{error}
 					</p>
 				)}
@@ -488,18 +514,22 @@ export function CreativeForm({
 										{t("creative.overrideNote")}
 									</p>
 									{(["name", "tagline", "url", "logoUrl"] as const).map((k) => (
-										<input
-											key={k}
-											value={overrides[s.id]?.[k] ?? ""}
-											onChange={(e) =>
-												setOverrides((p) => ({
-													...p,
-													[s.id]: { ...p[s.id], [k]: e.target.value },
-												}))
-											}
-											placeholder={t(`creative.${k}` as Key)}
-											className={field}
-										/>
+										<label key={k} className="block">
+											<span className="sr-only">
+												{t(`creative.${k}` as Key)}
+											</span>
+											<input
+												value={overrides[s.id]?.[k] ?? ""}
+												onChange={(e) =>
+													setOverrides((p) => ({
+														...p,
+														[s.id]: { ...p[s.id], [k]: e.target.value },
+													}))
+												}
+												placeholder={t(`creative.${k}` as Key)}
+												className={field}
+											/>
+										</label>
 									))}
 								</div>
 							)}

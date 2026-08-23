@@ -15,11 +15,11 @@ const dur = (s: number | null) =>
 
 function Figure({ label, value }: { label: string; value: string }) {
 	return (
-		<div className="bg-surface px-3 py-4">
-			<dd className="nums font-bold text-xl">{value}</dd>
+		<div className="flex flex-col-reverse bg-surface px-3 py-4">
 			<dt className="mt-1 text-[10px] text-muted uppercase tracking-widest">
 				{label}
 			</dt>
+			<dd className="nums font-bold text-xl">{value}</dd>
 		</div>
 	);
 }

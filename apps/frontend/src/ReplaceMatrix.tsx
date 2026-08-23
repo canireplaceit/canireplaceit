@@ -198,17 +198,25 @@ export function ReplaceMatrix({
 
 			<div className="mt-3 overflow-x-auto">
 				<table className="w-full min-w-[30rem] border-collapse text-sm">
+					{/* Google's table extraction keys on caption + th, and the visible
+					    heading above the table is not one. sr-only so the block looks
+					    exactly as it did. */}
+					<caption className="sr-only">
+						{t("features.vsHeading")} —{" "}
+						{[product.name, ...alts.map((x) => x.alt.name)].join(", ")}
+					</caption>
 					<thead>
 						<tr className="border-b text-left">
-							<th className="py-2 pr-3 font-normal text-muted">
+							<th scope="col" className="py-2 pr-3 font-normal text-muted">
 								{t("features.featureCol")}
 							</th>
-							<th className="px-2 py-2 text-center font-semibold">
+							<th scope="col" className="px-2 py-2 text-center font-semibold">
 								{product.name}
 							</th>
 							{alts.map((x) => (
 								<th
 									key={x.key}
+									scope="col"
 									className="px-2 py-2 text-center font-normal text-muted"
 								>
 									<button
@@ -227,7 +235,9 @@ export function ReplaceMatrix({
 					<tbody>
 						{rows.map((r) => (
 							<tr key={r.key} className="border-b last:border-0">
-								<td className="py-1.5 pr-3">{tc(r.name)}</td>
+								<th scope="row" className="py-1.5 pr-3 text-left font-normal">
+									{tc(r.name)}
+								</th>
 								{r.values.map((v, i) => {
 									// Only the vendor column carries a plan name; the alternatives
 									// are open source and have no tiers to name.
@@ -240,21 +250,22 @@ export function ReplaceMatrix({
 											key={`${r.key}:${keys[i]}`}
 											className="px-2 py-1.5 text-center"
 										>
-											{v === "unknown" ? (
-												<span
-													className="text-muted"
-													title={t("features.val.unknown")}
-												>
-													–
-												</span>
-											) : (
-												<span
-													className={TONE[v]}
-													title={t(`features.val.${v}`)}
-												>
-													{GLYPH[v]}
-												</span>
-											)}
+											{/*
+											 * The glyph is decoration. `title` is read by neither
+											 * Google nor a screen reader on a non-interactive
+											 * span, so the answer travels beside it as real text
+											 * — the treatment `ProjectFeatures` has always had,
+											 * and which this table never got. Without it a whole
+											 * row indexed as "● – ● – €".
+											 */}
+											<span
+												className={v === "unknown" ? "text-muted" : TONE[v]}
+												aria-hidden="true"
+												title={t(`features.val.${v}`)}
+											>
+												{v === "unknown" ? "–" : GLYPH[v]}
+											</span>
+											<span className="sr-only">{t(`features.val.${v}`)}</span>
 											{tier && (
 												<span className="mt-0.5 block font-mono text-[10px] text-muted leading-tight">
 													{tier}

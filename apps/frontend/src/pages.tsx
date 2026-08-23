@@ -64,6 +64,7 @@ import {
 	type ProductFilters,
 	type ProjectFilters,
 	priceOptions,
+	ResultsLive,
 } from "./browse";
 import {
 	byWeight as byProductCount,
@@ -100,6 +101,7 @@ import { MEASURE, priceLabel } from "./listShared";
 import { Link } from "./nav";
 import { ProjectFeatures } from "./ProjectFeatures";
 import { ReplaceMatrix } from "./ReplaceMatrix";
+import { collectionHeading, GLOSSARY_GROUPS, glossaryAnchor } from "./seo";
 import { type Crumb, Heading, PageShell, Section } from "./shell";
 
 export type PageCtx = {
@@ -198,7 +200,10 @@ const BOTH_GROUPS = new Set<string>(["infra", "ai-data", "security"]);
 export function ProductPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 	const { t, tc, lang, products, categories } = ctx;
 	const product = products.find((p) => p.slug === slug);
-	if (!product) return <Pending ctx={ctx} empty={products.length > 0} />;
+	// `empty` is "we have the whole catalogue and it is not in it", not "we have
+	// some products": a client-side navigation can land here with only the slice
+	// the previous document shipped, and that is loading, not a 404.
+	if (!product) return <Pending ctx={ctx} empty={ctx.wholeCatalogue} />;
 
 	const category = categories.find((c) => c.slug === product.category);
 
@@ -249,7 +254,7 @@ export function ProductPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 			aside={<VerdictStamp verdict={product.verdict} t={t} />}
 			meta={
 				<p className="nums flex flex-wrap items-center gap-x-4 gap-y-2 text-muted text-sm">
-					<VerdictMark verdict={product.verdict} t={t} />
+					<VerdictMark verdict={product.verdict} t={t} lang={lang} />
 					{product.switchedCount > 0 ? (
 						<span>
 							{product.switchedCount}{" "}
@@ -397,7 +402,7 @@ export function ProductPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 export function ProjectPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 	const { t, tc, lang } = ctx;
 	const project = ctx.projectBySlug.get(slug);
-	if (!project) return <Pending ctx={ctx} empty={ctx.products.length > 0} />;
+	if (!project) return <Pending ctx={ctx} empty={ctx.wholeCatalogue} />;
 	const health = healthOf(project.source);
 	const homepage = homepageOf(project.source);
 	// The categories of the products citing this project — gates which vertical
@@ -424,7 +429,17 @@ export function ProjectPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 				{ label: project.name },
 			]}
 			eyebrow={t(`effort.${project.effort}` as Key)}
-			title={project.name}
+			// "2fa" told a searcher nothing and told Google nothing about the title
+			// it sits under. The name still leads the phrase.
+			title={t("project.h1")
+				.replace("{name}", project.name)
+				.replace(
+					"{replaces}",
+					project.replaces
+						.slice(0, 3)
+						.map((r) => r.name)
+						.join(", "),
+				)}
 			meta={
 				<div className="space-y-3">
 					<p className="flex flex-wrap items-center gap-2 text-sm">
@@ -471,6 +486,7 @@ export function ProjectPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 							license={project.license}
 							vary={project.factsVary}
 							t={t}
+							lang={lang}
 							full
 						/>
 						<RepoFreshness
@@ -526,9 +542,11 @@ export function ProjectPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 							<li key={r.slug} className="card card-link">
 								<Link href={paths.product(lang, r.slug)} className="block p-4">
 									<span className="font-display font-semibold">{r.name}</span>
-									<span className="mt-1.5 block text-muted text-sm">
-										{tc(r.note)}
-									</span>
+									{r.note && (
+										<span className="mt-1.5 block text-muted text-sm">
+											{tc(r.note)}
+										</span>
+									)}
 								</Link>
 							</li>
 						))}
@@ -608,11 +626,13 @@ const Figure = ({
 	value: React.ReactNode;
 	label: string;
 }) => (
-	<div>
-		<dd className="nums text-lg font-bold">{value}</dd>
+	/* dt before dd, per the content model; column-reverse keeps the figure on
+	   top where the design puts it. */
+	<div className="flex flex-col-reverse">
 		<dt className="mt-0.5 text-[10px] uppercase tracking-widest text-muted">
 			{label}
 		</dt>
+		<dd className="nums text-lg font-bold">{value}</dd>
 	</div>
 );
 
@@ -672,7 +692,16 @@ export function CategoryPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 					<Icon className="size-5 text-brand" aria-hidden />
 				</span>
 			}
-			title={name}
+			/**
+			 * The title phrase, not the bare category word.
+			 *
+			 * `<h1>AI</h1>` under `<title>8 open source AI alternatives</title>` gave
+			 * Google nothing to confirm the title against, which is what makes a
+			 * rewritten SERP title likely. The category word is still the first thing
+			 * a reader sees — it is inside the phrase, and the icon and the trail
+			 * carry it too.
+			 */
+			title={t("cats.h1").replace("{name}", name)}
 			meta={
 				// Everything here is computed from the entries below it, so the page
 				// cannot claim a figure the list does not support.
@@ -1096,12 +1125,18 @@ export function GapsPage({ ctx }: { ctx: PageCtx }) {
 					return (
 						<li key={p.slug} className="card p-4">
 							<div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-								<Link
-									href={paths.product(lang, p.slug)}
-									className="font-display font-semibold hover:underline"
-								>
-									{p.name}
-								</Link>
+								{/* A real heading, not a bare link in a bullet: 43 entries
+								    with one h2 between them gave a crawler nothing to key a
+								    passage on and a screen-reader user nothing to jump
+								    between. */}
+								<h2 className="font-display font-semibold">
+									<Link
+										href={paths.product(lang, p.slug)}
+										className="hover:underline"
+									>
+										{p.name}
+									</Link>
+								</h2>
 								{cat && (
 									<Link
 										href={paths.category(lang, p.category)}
@@ -1267,44 +1302,13 @@ function Siblings({ project, ctx }: { project: Project; ctx: PageCtx }) {
 export function GlossaryPage({ ctx }: { ctx: PageCtx }) {
 	const { t, lang } = ctx;
 
-	const groups: { heading: string; terms: { label: Key; def: Key }[] }[] = [
-		{
-			heading: t("glossary.verdicts"),
-			terms: [
-				{ label: "verdict.yes", def: "def.verdict.yes" },
-				{ label: "verdict.almost", def: "def.verdict.almost" },
-				{ label: "verdict.not-yet", def: "def.verdict.not-yet" },
-			],
-		},
-		{
-			heading: t("glossary.effort"),
-			terms: [
-				{ label: "effort.managed", def: "def.effort.managed" },
-				{ label: "effort.docker", def: "def.effort.docker" },
-				{ label: "effort.ops", def: "def.effort.ops" },
-			],
-		},
-		{
-			heading: t("glossary.openness"),
-			terms: [
-				{ label: "facts.openCore.none", def: "def.facts.openCore.none" },
-				{ label: "facts.openCore.minor", def: "def.facts.openCore.minor" },
-				{ label: "facts.openCore.major", def: "def.facts.openCore.major" },
-				{ label: "facts.selfHost", def: "def.facts.selfHost" },
-				{ label: "facts.noSelfHost", def: "def.facts.noSelfHost" },
-			],
-		},
-		{
-			heading: t("glossary.repo"),
-			terms: [
-				{ label: "repo.archived", def: "def.repo.archived" },
-				{ label: "repo.dormant", def: "def.repo.dormant" },
-				{ label: "repo.compose", def: "def.repo.compose" },
-				{ label: "facts.sso", def: "def.facts.sso" },
-				{ label: "facts.ssoPaid", def: "def.facts.ssoPaid" },
-			],
-		},
-	];
+	// The term list lives in seo.ts, because the `DefinedTermSet` in the head has
+	// to name exactly the terms this page defines and point at exactly the
+	// anchors it renders. Two copies drifted the moment one of them was edited.
+	const groups = GLOSSARY_GROUPS.map((g) => ({
+		heading: t(g.heading as Key),
+		terms: g.terms as { label: Key; def: Key }[],
+	}));
 
 	return (
 		<PageShell
@@ -1320,8 +1324,14 @@ export function GlossaryPage({ ctx }: { ctx: PageCtx }) {
 					<dl className="mt-2 space-y-3">
 						{g.terms.map((term) => (
 							<div key={term.label} className="border-border border-l-2 pl-3">
-								<dt className="font-mono text-[11px] text-text uppercase tracking-[0.12em]">
-									{t(term.label)}
+								{/* The anchor every verdict pill and effort tag now links to,
+								    and `<dfn>` because this IS the defining instance of the
+								    term — see `glossaryAnchor` in seo.ts. */}
+								<dt
+									id={glossaryAnchor(term.label)}
+									className="font-mono text-[11px] text-text uppercase tracking-[0.12em]"
+								>
+									<dfn>{t(term.label)}</dfn>
 								</dt>
 								<dd className="mt-0.5 text-muted text-sm">{t(term.def)}</dd>
 							</div>
@@ -1379,7 +1389,9 @@ export function GroupPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 				{ label: t(`catGroup.${group}` as Key) },
 			]}
 			eyebrow={t("cats.themes")}
-			title={t(`catGroup.${group}` as Key)}
+			// Same reason as the category page: the theme's own word is a breadcrumb,
+			// not a heading Google can match a title against.
+			title={t("group.h1").replace("{label}", t(`catGroup.${group}` as Key))}
 			lede={t(`catGroupBlurb.${group}` as Key)}
 		>
 			<Section title={t("page.categories")} count={cats.length}>
@@ -1609,6 +1621,7 @@ export function ProjectsIndexPage({
 				</Choice>
 			</div>
 
+			<ResultsLive n={shown.length} t={t} />
 			{filtering && (
 				<p className="nums mt-2 text-muted text-xs">
 					{shown.length} {t("projects.unit")} · {t("filter.filteredNote")}
@@ -1891,8 +1904,10 @@ export function CollectionPage({
 				{ label: t("page.collections"), href: paths.collections(lang) },
 				{ label: title },
 			]}
-			eyebrow={t("nav.collections")}
-			title={title}
+			// The short word moves up to the eyebrow and the title phrase becomes
+			// the heading — same reason as the category and theme pages.
+			eyebrow={title}
+			title={collectionHeading(slug, lang, total) ?? title}
 			lede={t(`collection.${slug}.blurb` as Key)}
 			meta={
 				// How the membership is derived, in one line, on the page itself. A
@@ -1991,6 +2006,10 @@ export function CollectionPage({
 				)}
 			</div>
 
+			<ResultsLive
+				n={ofProducts ? productRows.length : projectRows.length}
+				t={t}
+			/>
 			{filtered && <Hidden result={filtered} t={t} />}
 
 			<ul className={`mt-6 ${GRID_1COL} gap-2 sm:grid-cols-2`}>
