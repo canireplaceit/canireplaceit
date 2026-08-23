@@ -25,6 +25,7 @@ const INDEX_PATH = join(PUBLIC, "agent-skills/index.json");
 const skill = readFileSync(SKILL_PATH);
 const skillText = skill.toString("utf8");
 const manifest = JSON.parse(readFileSync(INDEX_PATH, "utf8")) as {
+	$schema: string;
 	skills: {
 		name: string;
 		type: string;
@@ -72,6 +73,22 @@ describe("SKILL.md", () => {
 
 describe("discovery manifest", () => {
 	const entry = manifest.skills.find((s) => s.name === "canireplaceit");
+
+	/**
+	 * The one URL in this repo that is an identifier rather than a fetch.
+	 *
+	 * Discovery is a Cloudflare RFC rather than part of the agentskills.io
+	 * specification, and it names exactly this URI. We shipped
+	 * `agentskills.io/schemas/discovery-0.2.0.json` instead, which 404s, and per
+	 * the RFC a client that cannot resolve `$schema` falls back to treating the
+	 * index as v0.1.0. It is asserted rather than remembered because the wrong
+	 * one looked right for months.
+	 */
+	test("points at the schema the discovery RFC names", () => {
+		expect(manifest.$schema).toBe(
+			"https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+		);
+	});
 
 	test("lists the skill", () => {
 		expect(entry).toBeDefined();

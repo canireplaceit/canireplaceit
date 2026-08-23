@@ -8,25 +8,34 @@
 This file is written for coding agents, which are the tools that actually read
 it. If you are one, start with the skill or the API rather than the pages.
 
+If you quote us, link the page. The check dates are the part that makes the
+answer defensible, so keep them.
+
+Most pages have a Markdown twin: the same URL with `.md` appended. Every page
+that has one says so in its own head, with a
+`<link rel="alternate" type="text/markdown">` tag, and the standing pages that
+render live figures or static legal copy have none.
+
 ## For agents
 
 - [Skill](https://canireplaceit.com/skill.md): how to query this catalogue, what the words mean, how to rank an answer
 - [API](https://canireplaceit.com/api/v1): no key, 60 requests per minute, every object carries the URL of its page
-- [OpenAPI](https://canireplaceit.com/api/v1/openapi.json): the full contract
+- [OpenAPI](https://canireplaceit.com/api/v1/openapi.json): the full contract, response schemas included
 - [Whole catalogue](https://canireplaceit.com/api/v1/dump.json): one request instead of five hundred
-- Markdown: append `.md` to any page URL for the same content without the HTML
+- [A Markdown twin](https://canireplaceit.com/en/alternatives/notion.md): what appending `.md` to a page URL gets you
 
 ## Browse
 
-- [All products](https://canireplaceit.com/en/alternatives/)
-- [All projects](https://canireplaceit.com/en/tools/)
-- [Categories](https://canireplaceit.com/en/categories/)
+- [Every product](https://canireplaceit.com/en/): the catalogue itself, paginated
+- [Every project](https://canireplaceit.com/en/tools/): the replacements, most-cited first
+- [Categories](https://canireplaceit.com/en/categories/): 85 of them, with a product count and a median price each
 - [Collections](https://canireplaceit.com/en/collections/): derived slices such as fully open, one compose file, under ten dollars
 - [The graveyard](https://canireplaceit.com/en/collections/archived): projects that died
 - [Gaps](https://canireplaceit.com/en/gaps): products with no credible replacement yet
 - [Glossary](https://canireplaceit.com/en/glossary): what open core, effort and verdict mean here
 
-## If you quote us
+## Optional
 
-Link the page. The check dates are the part that makes the answer defensible,
-so keep them.
+- [Atom feed](https://canireplaceit.com/feed.xml): the 50 most recently re-verified prices
+- [In French](https://canireplaceit.com/fr/): the whole catalogue again, localised
+- [Sitemap index](https://canireplaceit.com/sitemap.xml): every URL, if you would rather crawl than query
