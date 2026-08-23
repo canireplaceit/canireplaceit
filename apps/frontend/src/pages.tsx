@@ -51,6 +51,7 @@ import {
 	type Team,
 } from "./api";
 import {
+	AllPages,
 	applyProductFilters,
 	applyProjectFilters,
 	Choice,
@@ -2107,6 +2108,12 @@ export function ProjectsIndexPage({
 						unit={t("projects.unit")}
 						t={t}
 					/>
+					<AllPages
+						page={current}
+						pages={pages}
+						href={(n) => paths.projects(lang, n)}
+						t={t}
+					/>
 				</>
 			)}
 		</PageShell>
@@ -2590,6 +2597,12 @@ export function CollectionPage({
 						pages={pages}
 						total={total}
 						unit={ofProducts ? t("stats.products") : t("projects.unit")}
+						t={t}
+					/>
+					<AllPages
+						page={current}
+						pages={pages}
+						href={(n) => paths.collection(lang, slug, n)}
 						t={t}
 					/>
 				</>

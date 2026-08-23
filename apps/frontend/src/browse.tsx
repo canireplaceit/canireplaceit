@@ -145,6 +145,74 @@ export function Pager({
 }
 
 /**
+ * Every page of a series, listed once on the series' own first page.
+ *
+ * `pageNumbers` names first, last, current ±3 and the decade rungs, which is
+ * the right strip for a reader on page 37 and the wrong one for a crawler
+ * standing on page 1: the pages between the ±3 window and the next rung cost
+ * three hops (1 → 10 → 13 → 16). That put 112 collection pages and 18 project
+ * index pages at depth 4 and 5 from the home page, per locale — all tail, but
+ * a flat site crawls better and the tail is where the long queries land.
+ *
+ * So the HUB carries the complete index and the pages inside the series do not.
+ * A reader deep in the run still gets the compact strip; the one page every
+ * crawl reaches early gets the full one, and the series flattens to one hop.
+ *
+ * A native `<details>` for the same reason the alternatives list uses one: the
+ * anchors sit in the served HTML whether or not anybody opens it, while seventy
+ * numbers laid out in a row read as a link farm to a human.
+ */
+export function AllPages({
+	page,
+	pages,
+	href,
+	t,
+}: {
+	page: number;
+	pages: number;
+	href: (n: number) => string;
+	t: T;
+}) {
+	if (pages <= 1 || page !== 1) return null;
+	const label = t("page.allPages").replace("{n}", String(pages));
+
+	return (
+		// Named, because a screen reader lands on two pagination navs otherwise and
+		// nothing tells them apart.
+		<nav aria-label={label} className="mt-3 flex justify-center">
+			<details className="group">
+				<summary className="inline-flex cursor-pointer items-center gap-1.5 rounded-[calc(var(--radius))] border border-border px-3 py-1.5 text-muted text-xs transition marker:content-none hover:border-brand">
+					{label}
+					<span className="inline-block transition-transform group-open:rotate-90">
+						›
+					</span>
+				</summary>
+				<ol className="mt-2 flex flex-wrap justify-center gap-x-2.5 gap-y-1">
+					{Array.from({ length: pages }, (_, i) => i + 1).map((n) =>
+						n === page ? (
+							<li key={n}>
+								<span aria-current="page" className="nums text-brand text-xs">
+									{n}
+								</span>
+							</li>
+						) : (
+							<li key={n}>
+								<Link
+									href={href(n)}
+									className="nums text-muted text-xs transition hover:text-brand"
+								>
+									{n}
+								</Link>
+							</li>
+						),
+					)}
+				</ol>
+			</details>
+		</nav>
+	);
+}
+
+/**
  * How many rows the current filter leaves, announced.
  *
  * The pills are correctly `aria-pressed`, so a screen-reader user hears the

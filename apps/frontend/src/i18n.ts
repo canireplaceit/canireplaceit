@@ -299,6 +299,9 @@ export const dict = {
 			"{name} — page {page} of the open source catalogue",
 
 		"page.pagination": "Pagination",
+		// The hub's full page index, and the accessible name that keeps it apart
+		// from the compact strip above it.
+		"page.allPages": "All {n} pages",
 		"page.previous": "Prev",
 		"page.next": "Next",
 		"page.pageOf": "Page {n} of {of}",
@@ -1301,6 +1304,7 @@ export const dict = {
 		"collection.pagedTitle": "{name} — page {page} du catalogue open source",
 
 		"page.pagination": "Pagination",
+		"page.allPages": "Les {n} pages",
 		"page.previous": "Précédent",
 		"page.next": "Suivant",
 		"page.pageOf": "Page {n} sur {of}",
