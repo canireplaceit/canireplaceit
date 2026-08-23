@@ -1846,9 +1846,24 @@ writeFileSync(
  * not exist, and `noindex`); this is the same shell served under the status
  * that agrees with it.
  *
- * Empty #root on purpose, exactly as `/` is: a 404 has no locale either, so the
- * client picks one and renders rather than hydrating onto the wrong language.
+ * The #root the client hydrates into stays empty, exactly as `/` does: a 404 has
+ * no locale, so the client picks one rather than hydrating onto the wrong
+ * language. But an empty document is a blank white page to anyone without
+ * JavaScript, and a dead link is exactly the URL a crawler, a mail client or a
+ * text browser is most likely to be holding. So a <main> is written above it, in
+ * both languages, and index.tsx removes it the instant React mounts -- leaving
+ * exactly one landmark either way, and never two.
  */
+const notFoundBody = `<main id="nojs-404" style="max-width:38rem;margin:0 auto;padding:4rem 1.25rem;font:16px/1.6 -apple-system,BlinkMacSystemFont,'Segoe UI',Inter,sans-serif">
+<h1 style="font-size:1.5rem;margin:0 0 .5rem">Page not found · Page introuvable</h1>
+<p style="margin:0 0 1.5rem">This URL does not exist on canireplaceit.com. Cette adresse n'existe pas sur canireplaceit.com.</p>
+<ul style="margin:0;padding-left:1.1rem">
+<li><a href="/en/">All ${products.length} paid products we track</a></li>
+<li><a href="/fr/">Les ${products.length} produits payants suivis</a></li>
+<li><a href="/en/gaps">Tools with no open source alternative</a> · <a href="/fr/manques">Ce que rien ne remplace</a></li>
+</ul>
+</main>`;
+
 writeFileSync(
 	join(DIST, "404.html"),
 	withHead(
@@ -1869,7 +1884,7 @@ writeFileSync(
 			// A dead link gets shared too, usually as a screenshot.
 			card: ogFor("notfound", "", DEFAULT_LANG),
 		}),
-	),
+	).replace('<div id="root"></div>', `${notFoundBody}<div id="root"></div>`),
 );
 
 const indexed = pages.filter((p) => !p.noindex);

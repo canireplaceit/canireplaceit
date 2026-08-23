@@ -31,5 +31,10 @@ if (!el) throw new Error("no #root");
 if (el.hasChildNodes()) {
 	hydrateRoot(el, <App />);
 } else {
+	// The 404 document ships a static bilingual <main> above the empty #root, so
+	// a dead link is not a blank page without JavaScript. React is about to
+	// render its own, and two <main> elements is a worse defect than the one this
+	// fixes, so the fallback goes first.
+	document.getElementById("nojs-404")?.remove();
 	createRoot(el).render(<App />);
 }
