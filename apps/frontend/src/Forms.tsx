@@ -645,7 +645,11 @@ export function AdsSection({
 									role="tab"
 									id={`ads-tab-${p}`}
 									aria-selected={tab === p}
-									aria-controls={`ads-panel-${p}`}
+									// Only the selected panel is rendered, so naming a panel here
+									// unconditionally left every inactive tab pointing at an id
+									// that is not in the document. An absent optional attribute
+									// beats a dangling reference.
+									aria-controls={tab === p ? `ads-panel-${p}` : undefined}
 									onClick={() => setTab(p)}
 									className="border-b-2 px-3 py-2 text-sm transition"
 									style={{
