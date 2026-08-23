@@ -32,6 +32,7 @@ import {
 	CATEGORY_GROUPS,
 	priceState,
 	projectSlug,
+	splitGaps,
 	stackCover,
 } from "core/src/content";
 import type { Lang } from "core/src/index";
@@ -1216,6 +1217,13 @@ function MostReplacing({ ctx }: { ctx: PageCtx }) {
  * entirely derived: `verdict: "not-yet"` is the editorial judgement already
  * made on every product, and `whatYouLose` is already written per entry.
  *
+ * TWO lists, because one verdict lands on two populations. `splitGaps` explains
+ * the split; what it buys the page is that the headline stops being falsifiable
+ * on its own rows. The free list is the better half of the finding anyway: ssh,
+ * psql, pandoc and wc being single points of dependence for a whole industry is
+ * a thing worth publishing, and it is not the same claim as ZoomInfo having no
+ * open source equal.
+ *
  * NOT an aggregate of recurring themes, which is what this page was first
  * sketched as. Measured: 1661 `whatYouLose` entries across the catalogue reduce
  * to 1625 distinct strings, and only six repeat three times or more. There are
@@ -1225,12 +1233,67 @@ function MostReplacing({ ctx }: { ctx: PageCtx }) {
  */
 export function GapsPage({ ctx }: { ctx: PageCtx }) {
 	const { t, tc, lang, products, categories } = ctx;
-	const gaps = byWeight(products.filter((p) => p.verdict === "not-yet"));
-	if (gaps.length === 0)
+	const { paid, free } = splitGaps(products);
+	if (paid.length + free.length === 0)
 		return <Pending ctx={ctx} empty={products.length > 0} />;
 
 	const nameOf = (slug: string) =>
 		categories.find((c) => c.slug === slug)?.name;
+
+	/**
+	 * One row, in both lists.
+	 *
+	 * `price` is off in the free list on purpose: `priceLabel` renders zero as
+	 * "free tier", and a tier is something Pandoc does not have. The heading over
+	 * the list already says these cost nothing, so the column had nothing left to
+	 * add but a wrong word.
+	 */
+	const row = (p: ListedProduct, price: boolean) => {
+		const cat = nameOf(p.category);
+		return (
+			<li key={p.slug} className="card p-4">
+				<div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+					{/* A real heading, not a bare link in a bullet: dozens of entries
+					    with one h2 between them gave a crawler nothing to key a passage
+					    on and a screen-reader user nothing to jump between. h3, because
+					    each list now sits under its own h2. */}
+					<h3 className="font-display font-semibold">
+						<Link
+							href={paths.product(lang, p.slug)}
+							className="hover:underline"
+						>
+							{p.name}
+						</Link>
+					</h3>
+					{cat && (
+						<Link
+							href={paths.category(lang, p.category)}
+							className="text-muted text-xs hover:underline"
+						>
+							{tc(cat)}
+						</Link>
+					)}
+					{price && (
+						<span className="nums ml-auto text-muted text-sm">
+							{priceLabel(p, lang, t)}
+						</span>
+					)}
+				</div>
+				{/* The specific thing that cannot be replaced. This is the whole
+				    point of the page: "no alternative" is a claim, and these are
+				    the reasons behind it. */}
+				{p.whatYouLose.length > 0 && (
+					<ul className="mt-2 flex flex-wrap gap-1.5">
+						{p.whatYouLose.map((l) => (
+							<li key={tc(l)} className="pill text-xs">
+								{tc(l)}
+							</li>
+						))}
+					</ul>
+				)}
+			</li>
+		);
+	};
 
 	// Prices we could not confirm on the vendor's own page. `low` first: those
 	// are the ones a reader should treat as a hint rather than a quote.
@@ -1254,63 +1317,35 @@ export function GapsPage({ ctx }: { ctx: PageCtx }) {
 			measure={MEASURE}
 			trail={[homeCrumb(ctx), { label: t("gaps.title") }]}
 			eyebrow={t("gaps.eyebrow")}
-			// The count, derived from the list below it rather than written down:
-			// "What open source still cannot do" is a thesis statement and nobody's
-			// query, on the page with the least competition on the whole site.
-			title={t("gaps.h1").replace("{n}", String(gaps.length))}
+			// The count, derived from the paid list below it rather than written
+			// down: "What open source still cannot do" is a thesis statement and
+			// nobody's query, on the page with the least competition on the whole
+			// site. It counts the PAID list only, because that is the list the
+			// sentence is about.
+			title={t("gaps.h1").replace("{n}", String(paid.length))}
 			lede={t("gaps.blurb")}
 			meta={
 				<p className="nums text-muted text-sm">
-					{gaps.length} {t("stats.products")}
+					{t("gaps.counts")
+						.replace("{paid}", String(paid.length))
+						.replace("{free}", String(free.length))}
 				</p>
 			}
 		>
-			<ul className="space-y-3">
-				{gaps.map((p) => {
-					const cat = nameOf(p.category);
-					return (
-						<li key={p.slug} className="card p-4">
-							<div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-								{/* A real heading, not a bare link in a bullet: 43 entries
-								    with one h2 between them gave a crawler nothing to key a
-								    passage on and a screen-reader user nothing to jump
-								    between. */}
-								<h2 className="font-display font-semibold">
-									<Link
-										href={paths.product(lang, p.slug)}
-										className="hover:underline"
-									>
-										{p.name}
-									</Link>
-								</h2>
-								{cat && (
-									<Link
-										href={paths.category(lang, p.category)}
-										className="text-muted text-xs hover:underline"
-									>
-										{tc(cat)}
-									</Link>
-								)}
-								<span className="nums ml-auto text-muted text-sm">
-									{priceLabel(p, lang, t)}
-								</span>
-							</div>
-							{/* The specific thing that cannot be replaced. This is the whole
-							    point of the page: "no alternative" is a claim, and these are
-							    the reasons behind it. */}
-							{p.whatYouLose.length > 0 && (
-								<ul className="mt-2 flex flex-wrap gap-1.5">
-									{p.whatYouLose.map((l) => (
-										<li key={tc(l)} className="pill text-xs">
-											{tc(l)}
-										</li>
-									))}
-								</ul>
-							)}
-						</li>
-					);
-				})}
-			</ul>
+			<Section title={t("gaps.paidHeading")} count={paid.length}>
+				<ul className="space-y-3">{byWeight(paid).map((p) => row(p, true))}</ul>
+			</Section>
+
+			{free.length > 0 && (
+				<Section title={t("gaps.freeHeading")} count={free.length}>
+					<p className="mb-3 max-w-2xl text-muted text-sm">
+						{t("gaps.freeBlurb")}
+					</p>
+					<ul className="space-y-3">
+						{byWeight(free).map((p) => row(p, false))}
+					</ul>
+				</Section>
+			)}
 
 			<p className="mt-8 max-w-2xl text-muted text-xs">{t("gaps.footnote")}</p>
 

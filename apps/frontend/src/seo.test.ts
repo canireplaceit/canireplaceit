@@ -13,7 +13,7 @@ import { describe, expect, test } from "bun:test";
 import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import type { Category, Product, Project } from "core/src/content";
-import { collectProjects } from "core/src/content";
+import { collectProjects, splitGaps } from "core/src/content";
 import { buildProjectSlugs } from "core/src/routes";
 import { dict } from "./i18n";
 import {
@@ -500,7 +500,15 @@ describe("the page's own heading", () => {
 	});
 
 	test("carries the gaps count the page itself lists", () => {
-		const gaps = allProducts.filter((p) => p.verdict === "not-yet").length;
+		// The PAID half, not all of `not-yet`: twelve of those rows cost nothing
+		// and several are OSI-licensed, so "43 paid tools with no open source
+		// alternative" was falsifiable on its own price column.
+		const { paid, free } = splitGaps(allProducts);
+		const gaps = paid.length;
+		expect(free.length).toBeGreaterThan(0);
+		expect(gaps).toBeLessThan(
+			allProducts.filter((p) => p.verdict === "not-yet").length,
+		);
 		for (const lang of ["en", "fr"] as const) {
 			const { title } = standingMeta("gaps", lang, { gaps });
 			expect(title).toContain(String(gaps));

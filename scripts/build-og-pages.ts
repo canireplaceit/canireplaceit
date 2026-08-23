@@ -89,6 +89,7 @@ import {
 	type Product,
 	type Project,
 	type ProjectPageFacts,
+	splitGaps,
 	thinProject,
 } from "core/src/content";
 import type { FeatureFile } from "core/src/features";
@@ -1619,9 +1620,16 @@ function featuresCard(lang: Lang): string {
 	${footerBar({ y: 596 })}`);
 }
 
-/** The gaps card: the count in verdict red, and the products it names. */
+/**
+ * The gaps card: the count in verdict red, and the products it names.
+ *
+ * The PAID half only, and headed with that list's own heading rather than the
+ * page title. The card is the unfurl for a `<title>` that says "31 paid tools",
+ * so drawing 43 and six logos that include Pandoc would put the contradiction
+ * the page was split to remove straight into the share preview.
+ */
 async function gapsCard(lang: Lang): Promise<string> {
-	const notYet = byWeight(products.filter((p) => p.verdict === "not-yet"));
+	const notYet = byWeight(splitGaps(products).paid);
 	const shown = notYet.slice(0, 6);
 	for (const p of shown) await loadLogo(productIcon(p), 60);
 
@@ -1640,7 +1648,7 @@ async function gapsCard(lang: Lang): Promise<string> {
 			});
 	});
 
-	const head = wrap(T(lang, "gaps.title"), 690, 50, 2, 700, DISP);
+	const head = wrap(T(lang, "gaps.paidHeading"), 690, 50, 2, 700, DISP);
 	const sub = lead(T(lang, "gaps.blurb"), 690, 24, 2);
 	return frame(`
 	${disp(80, 340, num(notYet.length, lang), { size: 250, fill: t.no })}

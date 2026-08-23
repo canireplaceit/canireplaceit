@@ -482,11 +482,18 @@ export const dict = {
 			"The date is the last commit on the repo, which is the closest thing a forge will tell us to when the work stopped.",
 		"siblings.sameJob": "Others that do this job",
 		"siblings.sameLanguage": "Also written in {lang}",
-		"gaps.title": "What open source still cannot do",
+		"gaps.title": "What nothing replaces yet",
 		"gaps.eyebrow": "The gaps",
 		"gaps.link": "The products nothing open source replaces yet",
 		"gaps.blurb":
-			"The products in this catalogue with no credible open source replacement, and the specific thing each one withholds. Published because a directory that only lists wins is an advertisement.",
+			"The paid products in this catalogue with no credible open source replacement, and the specific thing each one withholds. Published because a directory that only lists wins is an advertisement.",
+		// Both counts, above the fold, so the second list is not a surprise
+		// halfway down. Derived from the two lists below, never written here.
+		"gaps.counts": "{paid} paid products, and {free} free tools listed apart",
+		"gaps.paidHeading": "The paid products nothing replaces",
+		"gaps.freeHeading": "The free tools nothing replaces",
+		"gaps.freeBlurb":
+			"These cost nothing, and most are open source themselves. They are not a gap in open source — they are open source with no second implementation behind it, which makes each one a single point of dependence for an entire industry.",
 		"gaps.footnote":
 			"Every row here is a verdict of “not yet”, which is a judgement about today and not a prediction. When a replacement appears the product moves off this page. That is the point of keeping it derived rather than hand-written.",
 		// The About page. Google's Quality Rater Guidelines name it as the starting
@@ -515,9 +522,9 @@ export const dict = {
 			"A price with no date is a rumour. Every figure on this site carries a receipt: the plan it was read from, the vendor page it was read on, the day it was read, and how confident we are in the reading. A price we could not confirm on the vendor's own pricing page says so instead of passing itself off as confirmed, and a product nobody has priced yet says that too rather than showing a plausible number.",
 		"about.price.p2":
 			"Prices move, and a stale one is the fastest way for a catalogue like this to become useless. Figures are re-read in passes rather than continuously, the date on the page is always the date of the last real reading, and the entries we are least sure about are listed in public rather than quietly left to age.",
-		"about.gaps.h": "Why there is a page about what open source cannot do",
+		"about.gaps.h": "Why there is a page about what nothing replaces",
 		"about.gaps.p1":
-			"A directory that only lists its wins is an advertisement. The gaps page is every product in this catalogue where our own thesis fails: paid tools with no credible open source replacement, and the specific thing each one withholds. It is derived from the verdicts rather than written by hand, so a product leaves the page the day a replacement lands.",
+			"A directory that only lists its wins is an advertisement. The gaps page is every product in this catalogue where our own thesis fails: paid tools with no credible open source replacement, and the specific thing each one withholds. A second list on the same page holds the free tools nothing replaces either, because those are not a gap in open source — they are open source with nothing behind them. Both are derived from the verdicts rather than written by hand, so a product leaves the page the day a replacement lands.",
 		"about.money.h": "How this is paid for, and what that does not buy",
 		"about.money.p1":
 			"Sponsorship slots are paid placements and every one of them is labelled as such, wherever it appears. If a placement is not labelled, it is not paid.",
@@ -1489,11 +1496,17 @@ export const dict = {
 			"La date est celle du dernier commit sur le dépôt, ce qui est ce qu’une forge donne de plus proche du moment où le travail s’est arrêté.",
 		"siblings.sameJob": "D’autres qui font ce travail",
 		"siblings.sameLanguage": "Également écrits en {lang}",
-		"gaps.title": "Ce que l’open source ne sait pas encore faire",
+		"gaps.title": "Ce que rien ne remplace encore",
 		"gaps.eyebrow": "Les manques",
 		"gaps.link": "Les produits que rien d’open source ne remplace encore",
 		"gaps.blurb":
-			"Les produits de ce catalogue sans remplaçant open source crédible, et ce que chacun retient précisément. Publié parce qu’un annuaire qui ne liste que ses succès est une publicité.",
+			"Les produits payants de ce catalogue sans remplaçant open source crédible, et ce que chacun retient précisément. Publié parce qu’un annuaire qui ne liste que ses succès est une publicité.",
+		"gaps.counts":
+			"{paid} produits payants, et {free} outils gratuits listés à part",
+		"gaps.paidHeading": "Les produits payants que rien ne remplace",
+		"gaps.freeHeading": "Les outils gratuits que rien ne remplace",
+		"gaps.freeBlurb":
+			"Ceux-ci ne coûtent rien, et la plupart sont eux-mêmes open source. Ce ne sont pas des manques de l’open source : c’est de l’open source sans deuxième implémentation derrière, ce qui fait de chacun un point de dépendance unique pour toute une industrie.",
 		"gaps.footnote":
 			"Chaque ligne est un verdict « pas encore », c’est-à-dire un jugement sur aujourd’hui, pas une prédiction. Dès qu’un remplaçant apparaît, le produit quitte cette page, d’où l’intérêt de la dériver plutôt que de l’écrire à la main.",
 		"about.title": "À propos",
@@ -1518,10 +1531,9 @@ export const dict = {
 			"Un tarif sans date est une rumeur. Chaque chiffre du site porte son reçu : la formule sur laquelle il a été lu, la page de l’éditeur où il a été lu, le jour où il a été lu, et le degré de confiance dans le relevé. Un tarif que nous n’avons pas pu confirmer sur la page tarifaire de l’éditeur le dit, au lieu de se faire passer pour confirmé, et un produit que personne n’a encore relevé le dit aussi plutôt que d’afficher un chiffre plausible.",
 		"about.price.p2":
 			"Les tarifs bougent, et un tarif périmé est le moyen le plus rapide de rendre un catalogue comme celui-ci inutile. Les chiffres sont repris par passes plutôt qu’en continu, la date affichée est toujours celle du dernier relevé réel, et les entrées dont nous sommes le moins sûrs sont listées en public plutôt que laissées vieillir en silence.",
-		"about.gaps.h":
-			"Pourquoi il existe une page sur ce que l’open source ne sait pas faire",
+		"about.gaps.h": "Pourquoi il existe une page sur ce que rien ne remplace",
 		"about.gaps.p1":
-			"Un annuaire qui ne liste que ses succès est une publicité. La page des manques rassemble tous les produits du catalogue où notre propre thèse échoue : des outils payants sans remplaçant open source crédible, et ce que chacun retient précisément. Elle est dérivée des verdicts plutôt qu’écrite à la main, donc un produit la quitte le jour où un remplaçant apparaît.",
+			"Un annuaire qui ne liste que ses succès est une publicité. La page des manques rassemble tous les produits du catalogue où notre propre thèse échoue : des outils payants sans remplaçant open source crédible, et ce que chacun retient précisément. Une seconde liste, sur la même page, réunit les outils gratuits que rien ne remplace non plus : ceux-là ne sont pas un manque de l’open source, c’est de l’open source sans rien derrière. Les deux sont dérivées des verdicts plutôt qu’écrites à la main, donc un produit quitte la page le jour où un remplaçant apparaît.",
 		"about.money.h": "Comment le site est financé, et ce que cela n’achète pas",
 		"about.money.p1":
 			"Les emplacements de sponsoring sont des placements payants et chacun est signalé comme tel, où qu’il apparaisse. Si un emplacement n’est pas signalé, c’est qu’il n’est pas payé.",

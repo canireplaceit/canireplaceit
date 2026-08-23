@@ -19,7 +19,12 @@ import type {
 	HealthFile,
 	Product,
 } from "core/src/content";
-import { categoryStats, collectProjects, projectSlug } from "core/src/content";
+import {
+	categoryStats,
+	collectProjects,
+	projectSlug,
+	splitGaps,
+} from "core/src/content";
 import { buildProjectSlugs } from "core/src/routes";
 import { type MdBoot, markdownFor, mdFor } from "./page-markdown";
 
@@ -278,12 +283,13 @@ describe("a project twin", () => {
 
 describe("the gaps page", () => {
 	const gaps = products.filter((p) => p.verdict === "not-yet");
+	const { paid, free } = splitGaps(products);
 
 	const doc = markdownFor({
 		route: { name: "gaps", lang: "en" },
 		url: "/en/gaps",
 		lang: "en",
-		title: "What open source still cannot do",
+		title: "What nothing replaces yet",
 		description: "test",
 		boot: bootFor(gaps),
 		site: SITE,
@@ -308,8 +314,36 @@ describe("the gaps page", () => {
 		// The figure existed only as JSON on /api/v1/stats, so the single most
 		// citable claim this catalogue owns appeared on no page in either format.
 		expect(doc).toContain(
-			`${gaps.length} of the ${products.length} paid products in this catalogue have no credible open source replacement, as of `,
+			`${paid.length} of the ${products.length} products in this catalogue are paid and have no credible open source replacement, as of `,
 		);
+		expect(doc).toContain(
+			`A further ${free.length} cost nothing already, and nothing replaces those either.`,
+		);
+	});
+
+	/**
+	 * The defect this twin was split to fix. The single table headed
+	 * "Alternatives" put "Pandoc … 8" on a page whose whole claim is that
+	 * nothing replaces it, and the free tools sat under a heading calling them
+	 * paid.
+	 */
+	test("separates the paid list from the free one", () => {
+		expect(free.length).toBeGreaterThan(0);
+		const freeHeading = doc.indexOf("## The free tools nothing replaces");
+		expect(
+			doc.indexOf("## The paid products nothing replaces"),
+		).toBeGreaterThan(-1);
+		expect(freeHeading).toBeGreaterThan(0);
+		// Every free tool is below the free heading, every paid one above it.
+		for (const p of free)
+			expect(doc.indexOf(`[${p.name}](`)).toBeGreaterThan(freeHeading);
+		for (const p of paid)
+			expect(doc.indexOf(`[${p.name}](`)).toBeLessThan(freeHeading);
+	});
+
+	test("does not head a column of near-misses “Alternatives”", () => {
+		expect(doc).not.toContain("| Alternatives |");
+		expect(doc).toContain("| Candidates considered |");
 	});
 
 	test("does not open on a clipped meta description", () => {

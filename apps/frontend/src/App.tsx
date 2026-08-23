@@ -13,7 +13,7 @@ import type {
 	Project,
 	Verdict,
 } from "core/src/content";
-import { categoryStats, collectProjects } from "core/src/content";
+import { categoryStats, collectProjects, splitGaps } from "core/src/content";
 import type { FeatureFile } from "core/src/features";
 import { isLang, type Lang } from "core/src/index";
 import {
@@ -1374,11 +1374,13 @@ export function App() {
 				case "dashboard":
 				case "admin":
 					return standingMeta(route.name, route.lang);
-				// The title carries the number of not-yet products, which is the
-				// same set `GapsPage` lists, so the <title> and the <h1> agree.
+				// The title carries the number of PAID not-yet products, which is
+				// the set the headline claims and the first list on the page, so the
+				// <title> and the <h1> agree. The free half is counted on the page,
+				// under its own heading — see `splitGaps`.
 				case "gaps":
 					return standingMeta(route.name, route.lang, {
-						gaps: products.filter((p) => p.verdict === "not-yet").length,
+						gaps: splitGaps(products).paid.length,
 					});
 				case "contact":
 					return standingMeta(route.name, lang);

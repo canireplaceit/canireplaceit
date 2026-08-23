@@ -112,6 +112,32 @@ export function priceState(product: {
 }
 
 /**
+ * The two populations inside `verdict: "not-yet"`.
+ *
+ * One verdict, two findings, and they must not share a headline. "43 paid tools
+ * with no open source alternative" was false on twelve of its own rows: Pandoc,
+ * OpenSSH, psql, Cargo and the coreutils are not paid and several are
+ * themselves OSI-licensed, so the page asserted "no open source alternative"
+ * beside a price column reading "free tier". That is a contradiction a reader
+ * can see without scrolling, and it discards the 31 rows that are right.
+ *
+ * The split is `priceMonthly === 0`, which is the same field the price column
+ * already renders — not a list of slugs, which would rot the next time a
+ * product is added. `null` stays on the paid side on purpose: it means nobody
+ * has priced this yet (`priceState` calls it `unverified`), and unpriced is not
+ * free. Zero is a positive claim that the thing costs nothing.
+ */
+export function splitGaps<
+	T extends { verdict: Verdict; priceMonthly: number | null },
+>(products: T[]): { paid: T[]; free: T[] } {
+	const gaps = products.filter((p) => p.verdict === "not-yet");
+	return {
+		paid: gaps.filter((p) => p.priceMonthly !== 0),
+		free: gaps.filter((p) => p.priceMonthly === 0),
+	};
+}
+
+/**
  * How much of the catalogue's pricing carries a source, and the most recent
  * date any of it was read on. The site-level freshness line.
  *

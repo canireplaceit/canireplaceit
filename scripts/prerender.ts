@@ -58,6 +58,7 @@ import {
 	priceFreshness,
 	projectSlug,
 	type Source,
+	splitGaps,
 	thinProject,
 } from "core/src/content";
 import type { FeatureFile } from "core/src/features";
@@ -1367,8 +1368,15 @@ function emit(o: {
  * page whose membership churns is a URL that means something different every
  * week — which is the one thing an indexable URL must not be.
  */
-/** The not-yet list, inlined into its own page so a crawler can read it. */
+/**
+ * The not-yet list, inlined into its own page so a crawler can read it.
+ *
+ * Both halves travel: the page renders the paid ones and the free ones under
+ * separate headings, and `splitGaps` does the dividing on the page and again in
+ * the Markdown twin. Only the paid count reaches the `<title>`.
+ */
 const gapProducts = listed.filter((p) => p.verdict === "not-yet");
+const paidGaps = splitGaps(listed).paid;
 
 const ordered = byWeight(listed);
 const HOME_PAGES = pageCount(ordered.length);
@@ -1592,11 +1600,11 @@ for (const lang of SupportedLangs) {
 			route: { name: page, lang },
 			// The count belongs in the title, not just the H1. App.tsx already
 			// passes it on a client-side navigation, so without this a reader saw
-			// "43 paid tools..." and a crawler saw "Paid tools...".
+			// "31 paid tools..." and a crawler saw "Paid tools...".
 			meta: standingMeta(
 				page,
 				lang,
-				page === "gaps" ? { gaps: gapProducts.length } : undefined,
+				page === "gaps" ? { gaps: paidGaps.length } : undefined,
 			),
 			/**
 			 * Standing pages carry no payload, with one exception.
@@ -1604,7 +1612,7 @@ for (const lang of SupportedLangs) {
 			 * `gaps` is derived from the catalogue rather than from its own copy, so
 			 * an empty payload made it render its pending state and prerender that.
 			 * The result was the most quotable page on the site shipping zero of its
-			 * 43 product names and zero links to them, which no crawler and no model
+			 * product names and zero links to them, which no crawler and no model
 			 * can read. It is 43 products, the smallest slice any page here ships.
 			 *
 			 * The others genuinely have nothing to inline: `features` fetches a

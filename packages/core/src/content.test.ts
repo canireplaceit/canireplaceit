@@ -29,6 +29,7 @@ import {
 	priceState,
 	RUNGS,
 	rungOf,
+	splitGaps,
 	stackCover,
 	validateCategory,
 	validateProduct,
@@ -532,6 +533,21 @@ const validate = (over: Partial<Product>) =>
 
 test("a null price with no receipt is unverified, not free and not quote-only", () => {
 	expect(priceState(product({ priceMonthly: null }))).toBe("unverified");
+});
+
+test("splitGaps keeps a free tool out of a headline that says paid", () => {
+	// The whole reason the gaps page has two lists: `pandoc` is a not-yet with a
+	// price of zero, and "no open source alternative" over it is a sentence a
+	// reader can falsify from the price column beside it.
+	const { paid, free } = splitGaps([
+		product({ slug: "zoominfo", verdict: "not-yet", priceMonthly: 1000 }),
+		product({ slug: "pandoc", verdict: "not-yet", priceMonthly: 0 }),
+		// Unpriced is not free: nobody has looked, so it stays on the paid side.
+		product({ slug: "clearbit", verdict: "not-yet", priceMonthly: null }),
+		product({ slug: "notion", verdict: "yes", priceMonthly: 0 }),
+	]);
+	expect(paid.map((p) => p.slug)).toEqual(["zoominfo", "clearbit"]);
+	expect(free.map((p) => p.slug)).toEqual(["pandoc"]);
 });
 
 test("notPublic is the only way to say a vendor publishes no price", () => {

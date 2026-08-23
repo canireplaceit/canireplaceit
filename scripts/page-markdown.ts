@@ -41,6 +41,7 @@ import {
 	healthKey,
 	isArchived,
 	projectSlug,
+	splitGaps,
 } from "core/src/content";
 import type { Lang } from "core/src/index";
 import { resolveTranslation } from "core/src/index";
@@ -663,6 +664,104 @@ function listMarkdown(
 }
 
 /**
+ * The gaps twin, which is not a list page and stopped being able to pretend.
+ *
+ * Two tables, because the page has two lists and one of them is the answer to a
+ * different question — `splitGaps` in core says why. `listMarkdown` could not
+ * draw this: it heads its last column "Alternatives" and fills it with the
+ * open source projects weighed against the row, so a page whose entire claim is
+ * "nothing replaces this" published "Pandoc … 8 alternatives" beside it. The
+ * column is real and worth keeping; what it counts is candidates that were
+ * tried and found short, and the header now says so.
+ *
+ * The free table drops the price column outright. `0 USD/mo` next to `wc` is
+ * true and useless, and the heading above it already says these cost nothing.
+ */
+function gapsMarkdown(input: MdInput): string {
+	const { lang, site, boot } = input;
+	const { paid, free } = splitGaps(boot.products);
+	const total =
+		boot.categoryStats?.reduce((n, [, c]) => n + c.products, 0) ??
+		boot.products.length;
+	const on = t(
+		lang,
+		`as of ${longDate(input.lastmod, lang)}`,
+		`au ${longDate(input.lastmod, lang)}`,
+	);
+	const candidates = t(lang, "Candidates considered", "Candidats étudiés");
+	const ossCount = (p: Product) =>
+		p.alternatives.filter((a) => a.kind === "oss").length;
+
+	const out: string[] = [
+		`# ${input.title}`,
+		"",
+		// The one sentence on this site worth quoting, written out rather than
+		// left as JSON on /api/v1/stats. Both figures come from the two lists
+		// below, so neither can go stale while the catalogue moves.
+		`**${t(
+			lang,
+			`${num(paid.length, lang)} of the ${num(total, lang)} products in this catalogue are paid and have no credible open source replacement, ${on}. A further ${num(free.length, lang)} cost nothing already, and nothing replaces those either.`,
+			`${num(paid.length, lang)} des ${num(total, lang)} produits de ce catalogue sont payants et n'ont aucun remplaçant open source crédible, ${on}. ${num(free.length, lang)} autres ne coûtent déjà rien, et rien ne les remplace non plus.`,
+		)}**`,
+		"",
+		untruncated(input.description),
+		"",
+		`## ${label(lang, "gaps.paidHeading")}`,
+		"",
+		table(
+			[
+				t(lang, "Product", "Produit"),
+				t(lang, "Category", "Catégorie"),
+				t(lang, "Price", "Tarif"),
+				candidates,
+			],
+			paid.map((p) => [
+				link(p.name, `${site}${paths.product(lang, p.slug)}`),
+				p.category,
+				p.priceMonthly === null ? "-" : `${p.priceMonthly} USD/mo`,
+				ossCount(p),
+			]),
+		),
+	];
+
+	if (free.length > 0) {
+		out.push(
+			"",
+			`## ${label(lang, "gaps.freeHeading")}`,
+			"",
+			label(lang, "gaps.freeBlurb"),
+			"",
+			table(
+				[
+					t(lang, "Tool", "Outil"),
+					t(lang, "Category", "Catégorie"),
+					candidates,
+				],
+				free.map((p) => [
+					link(p.name, `${site}${paths.product(lang, p.slug)}`),
+					p.category,
+					ossCount(p),
+				]),
+			),
+		);
+	}
+
+	out.push(
+		"",
+		t(
+			lang,
+			`“${candidates}” counts the open source projects weighed against a row and found short. None of them is a replacement; each product page says what every one of them fails to do.`,
+			`« ${candidates} » compte les projets open source pesés face à une ligne et jugés insuffisants. Aucun n'est un remplaçant ; chaque fiche produit dit ce que chacun ne sait pas faire.`,
+		),
+		"",
+		label(lang, "gaps.footnote"),
+		"",
+		footer(input, `${site}/api/v1/gaps`),
+	);
+	return out.join("\n");
+}
+
+/**
  * The category index, which is how an agent finds everything else.
  *
  * This twin used to be 336 bytes — a title, a clamped description and a footer —
@@ -853,12 +952,7 @@ export function markdownFor(input: MdInput): string | null {
 		 * the page most worth quoting: the catalogue saying no.
 		 */
 		case "gaps":
-			return listMarkdown(
-				input,
-				slugOf,
-				"gaps",
-				corpusLine(input, boot.products.length),
-			);
+			return gapsMarkdown(input);
 
 		default:
 			return null;

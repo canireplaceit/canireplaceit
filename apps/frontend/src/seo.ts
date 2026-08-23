@@ -1924,7 +1924,11 @@ const gapsHeadline = (lang: Lang, count: number | undefined): string => {
 
 /** What a standing page cannot work out for itself. */
 export type StandingCounts = {
-	/** Products with a `not-yet` verdict — the gaps page's own membership. */
+	/**
+	 * The PAID half of the gaps page: `verdict: "not-yet"` with a price that is
+	 * not zero. `splitGaps` in core says why the free half is counted apart —
+	 * the headline is "paid tools", and Pandoc is not one.
+	 */
 	gaps?: number;
 };
 
@@ -1965,20 +1969,20 @@ export const standingMeta = (
 		 *
 		 * "What open source still cannot do" is a thesis statement and nobody's
 		 * search term, and it sat on the one page here with no competition at all.
-		 * The count comes from the catalogue — `counts.gaps`, the same
-		 * `verdict === "not-yet"` set the page renders — because a number written
-		 * into this file goes stale the first time a replacement lands. The
+		 * The count comes from the catalogue — `counts.gaps`, the same paid half of
+		 * the `not-yet` set the page heads its first list with — because a number
+		 * written into this file goes stale the first time a replacement lands. The
 		 * headline itself is read from the translation table so the `<title>` and
 		 * the page's own `<h1>` cannot drift apart.
 		 */
 		gaps: {
 			en: [
 				gapsHeadline("en", counts?.gaps),
-				"The paid products with no credible open source replacement, and the specific thing each one withholds. The honest counterweight to a catalogue of alternatives.",
+				"The paid products with no credible open source replacement, and the free tools nothing replaces either. What each one withholds, named.",
 			],
 			fr: [
 				gapsHeadline("fr", counts?.gaps),
-				"Les produits payants sans remplaçant open source crédible, et ce que chacun retient précisément. Le contrepoids honnête à un catalogue d’alternatives.",
+				"Les produits payants sans remplaçant open source crédible, et les outils gratuits que rien ne remplace non plus. Ce que chacun retient, nommé.",
 			],
 		},
 		/**
