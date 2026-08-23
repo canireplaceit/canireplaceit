@@ -1,5 +1,27 @@
 # Changelog
 
+## [0.0.3](https://github.com/canireplaceit/canireplaceit/compare/v0.0.2...v0.0.3) (2026-08-23)
+
+
+### chore
+
+* **release:** 0.0.3 ([f5df2d8](https://github.com/canireplaceit/canireplaceit/commit/f5df2d8d62e691cb4cb2e6fb32205f59a0fc414e))
+
+
+### Features
+
+* **backend:** document every response and add a slim product projection ([3ac69c9](https://github.com/canireplaceit/canireplaceit/commit/3ac69c98da9e2ae8d4244c962e7c400e112e44ec))
+* **frontend:** give the money pages a hub, a keyword H1 and a way sideways ([c799ca2](https://github.com/canireplaceit/canireplaceit/commit/c799ca28bbb917ab6cb57b2f92e091dabeba9ed5))
+* **scripts:** give the Markdown twins a lede that answers the question ([7932a00](https://github.com/canireplaceit/canireplaceit/commit/7932a0041a69b5cce5d05afd63619af3a4b22f67))
+
+
+### Bug Fixes
+
+* **deploy:** serve the canonical URL directly, stop downgrading to http ([83440ad](https://github.com/canireplaceit/canireplaceit/commit/83440adb86ca0945abde34d55f6320359d93067c))
+* **features:** stop grepping our own scaffolding for postgres and sqlite ([f2ba2ab](https://github.com/canireplaceit/canireplaceit/commit/f2ba2ab73a2a3d6b919bf1ba8f90b12bd1921b60))
+* **frontend:** drop the boot fetch, fix the heading tree, rebuild the graph ([4c432a2](https://github.com/canireplaceit/canireplaceit/commit/4c432a2e83193021daf0feb44f5dcfb288e0ab87))
+* **frontend:** stop the sr-only labels escaping, thin fewer pages, parse first ([b3f0c00](https://github.com/canireplaceit/canireplaceit/commit/b3f0c000f97c6b003d764a82a3816badf09cfb4c))
+
 ## [0.0.2](https://github.com/canireplaceit/canireplaceit/compare/v0.0.1...v0.0.2) (2026-08-22)
 
 
