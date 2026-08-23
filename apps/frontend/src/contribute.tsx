@@ -59,7 +59,7 @@ export function EditThisPage({
 	className?: string;
 }) {
 	return (
-		<aside className={`${CARD} ${className}`}>
+		<aside aria-label={t("a11y.editAside")} className={`${CARD} ${className}`}>
 			<p className="text-xs text-muted">
 				{t(file ? "edit.blurb" : "edit.derivedBlurb")}
 			</p>

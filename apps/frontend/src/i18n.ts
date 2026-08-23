@@ -789,6 +789,8 @@ export const dict = {
 		"theme.light": "light",
 		"theme.dark": "dark",
 		"a11y.skip": "Skip to content",
+		"a11y.priceAside": "Price and receipt",
+		"a11y.editAside": "Correct this page",
 		"a11y.results": "{n} results",
 
 		"nav.contact": "Contact",
@@ -1801,6 +1803,8 @@ export const dict = {
 		"theme.light": "clair",
 		"theme.dark": "sombre",
 		"a11y.skip": "Aller au contenu",
+		"a11y.priceAside": "Prix et relevé",
+		"a11y.editAside": "Corriger cette page",
 		"a11y.results": "{n} résultats",
 
 		"nav.contact": "Contact",

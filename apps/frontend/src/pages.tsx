@@ -423,7 +423,10 @@ export function ProductPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 					)}
 				</div>
 
-				<aside className="min-w-0 space-y-4 lg:sticky lg:top-24 lg:self-start">
+				<aside
+					aria-label={t("a11y.priceAside")}
+					className="min-w-0 space-y-4 lg:sticky lg:top-24 lg:self-start"
+				>
 					{/* The price is the claim this site is judged on, so it shows its
 					    working rather than sitting in a meta row. */}
 					<section className="card p-4">
