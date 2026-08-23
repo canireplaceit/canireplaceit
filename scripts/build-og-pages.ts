@@ -83,12 +83,16 @@ import {
 	type CategoryGroup,
 	categoryStats,
 	collectProjects,
+	type HealthFile,
+	healthKey,
 	type OssAlternative,
 	type Product,
 	type Project,
+	type ProjectPageFacts,
 	thinProject,
 } from "core/src/content";
-import { DEFAULT_LANG, type Lang } from "core/src/index";
+import type { FeatureFile } from "core/src/features";
+import { DEFAULT_LANG, type Lang, resolveTranslation } from "core/src/index";
 import { alternateUrls, buildProjectSlugs } from "core/src/routes";
 import { discountPct, SPONSOR_TERMS } from "core/src/sponsorship";
 import sharp from "sharp";
@@ -796,7 +800,6 @@ const projectUrlSlug = buildProjectSlugs(
 	projects,
 	products.map((p) => p.slug),
 );
-const cardProjects = projects.filter((p) => !thinProject(p));
 
 /** The products a project's `replaces` cites, for its own card. */
 const productBySlug = new Map(products.map((p) => [p.slug, p]));
@@ -830,8 +833,65 @@ const liveCategories = categories.filter((c) => stats.has(c.slug));
 const slots: { placement: string; priceCents: number }[] = JSON.parse(
 	readFileSync(join(DATA, "sponsors", "slots.json"), "utf8"),
 );
-const features: { domains: unknown[]; projects: Record<string, unknown> } =
-	JSON.parse(readFileSync(join(DATA, "features.json"), "utf8"));
+const features: FeatureFile = JSON.parse(
+	readFileSync(join(DATA, "features.json"), "utf8"),
+);
+
+/**
+ * `thinProject` now scores what a project page actually renders, which is a
+ * join across the products, the feature matrix and the repo readings — so this
+ * script has to make the same join the prerenderer does, or the two would
+ * disagree about which pages get a card. Absent health is not fatal: a project
+ * with no reading simply scores nothing for it, exactly as its page prints
+ * nothing for it.
+ */
+const health: HealthFile = (() => {
+	try {
+		return JSON.parse(readFileSync(join(DATA, "health.json"), "utf8"));
+	} catch {
+		return { fetchedAt: "", repos: {} };
+	}
+})();
+
+const featureLabel = new Map(
+	features.domains.flatMap((d) => d.features.map((f) => [f.key, f.name])),
+);
+
+/**
+ * The same 30-day gate `healthOf` in apps/frontend/src/api.ts and `healthFresh`
+ * in scripts/prerender.ts apply: past it, `lastPush` and `archived` are withheld
+ * from the page, so they must be withheld from the score too or this script and
+ * the prerenderer would disagree about which pages are indexable.
+ */
+const healthFresh = (() => {
+	const at = Date.parse(`${health.fetchedAt}T00:00:00Z`);
+	return Number.isFinite(at) && Date.now() - at < 30 * 86_400_000;
+})();
+
+const pageFactsFor = (project: Project): ProjectPageFacts => {
+	const key = healthKey(project.source);
+	const reading = health.repos[key] ?? null;
+	return {
+		whatYouLose: project.replaces.flatMap((r) =>
+			(productBySlug.get(r.slug)?.whatYouLose ?? []).map((b) =>
+				resolveTranslation(b, DEFAULT_LANG),
+			),
+		),
+		featureLabels: Object.entries(features.projects[key] ?? {})
+			.filter(([, v]) => v !== "unknown")
+			.map(([k]) => {
+				const name = featureLabel.get(k);
+				return name ? resolveTranslation(name, DEFAULT_LANG) : "";
+			}),
+		health: reading
+			? healthFresh
+				? reading
+				: { ...reading, lastPush: undefined, archived: undefined }
+			: null,
+	};
+};
+
+const cardProjects = projects.filter((p) => !thinProject(p, pageFactsFor(p)));
 
 const totalAlternatives = products.reduce(
 	(n, p) => n + p.alternatives.length,

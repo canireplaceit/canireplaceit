@@ -245,6 +245,13 @@ export const dict = {
 		"product.inCollections": "This product also appears in",
 		"project.inCategories": "Replaces products in",
 		"project.inCollections": "This project also appears in",
+		"project.repo": "The repo",
+		"project.licence": "Licence",
+		"project.writtenIn": "Written in",
+		"project.lastCommit": "Last commit",
+		"project.composeLabel": "Docker Compose",
+		"project.composeYes": "a compose file sits in the repo root",
+		"project.composeNo": "no compose file in the repo root",
 		"cats.smallNote":
 			"One of the smaller corners of the catalogue. The nearby categories below cover adjacent ground.",
 
@@ -1242,6 +1249,13 @@ export const dict = {
 		"product.inCollections": "Ce produit figure aussi dans",
 		"project.inCategories": "Remplace des produits dans",
 		"project.inCollections": "Ce projet figure aussi dans",
+		"project.repo": "Le dépôt",
+		"project.licence": "Licence",
+		"project.writtenIn": "Écrit en",
+		"project.lastCommit": "Dernier commit",
+		"project.composeLabel": "Docker Compose",
+		"project.composeYes": "un fichier compose est à la racine du dépôt",
+		"project.composeNo": "pas de fichier compose à la racine du dépôt",
 		"cats.smallNote":
 			"L’un des plus petits recoins du catalogue. Les catégories voisines ci-dessous couvrent un terrain proche.",
 

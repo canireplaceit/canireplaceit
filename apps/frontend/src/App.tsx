@@ -456,6 +456,20 @@ const HERO_NAMES = [
 	"Jira",
 ];
 
+/**
+ * The name the swap cell reserves its width for.
+ *
+ * Width is what stops the reflow, not character count: "Postman" draws 136.1px
+ * where "Tailscale" — the longest string — draws 132.3px at the headline's size,
+ * so sizing on `.length` would under-reserve and let the heading jump.
+ *
+ * It reaches the page as `data-sizer` and is drawn by `.hero-swap::before`, so
+ * the cell keeps the exact geometry the ten stacked spans used to give it
+ * without putting nine extra brand names in the document. Re-measure if
+ * HERO_NAMES changes.
+ */
+const HERO_SIZER = "Postman";
+
 /** Counts up after hydration; prerender and reduced motion get the final figure. */
 function CountUp({ value }: { value: number }) {
 	const [shown, setShown] = useState(value);
@@ -503,22 +517,27 @@ function Hero({
 			    and a step change in size at 640px is the one thing that would make
 			    that obvious. */}
 				<h1 className="text-balance font-bold font-display text-[clamp(2rem,1.2rem+3.6vw,3.25rem)] leading-[1.1]">
-					{t("hero.title")}{" "}
-					{/* All names stack in one grid cell, hidden but the current one, so
-				    the cell is always as wide as the longest and cycling can't reflow. */}
+					{t("hero.title")} {/*
+					 * One name in the DOM, not ten.
+					 *
+					 * All ten used to stack in this cell — nine of them `aria-hidden`
+					 * and `invisible` — so the cell was always as wide as the widest
+					 * and cycling could not reflow the heading. It also made
+					 * `h1.textContent` read "Can I replace NotionFigmaSlack…Jira?",
+					 * which is a keyword list in the one heading the site is ranked on.
+					 * The width reservation now comes from `.hero-swap::before`, which
+					 * draws HERO_SIZER in the same grid cell and is not document text.
+					 */}
 					<span
-						className="inline-grid border-b-[3px] px-1 align-baseline"
+						className="hero-swap border-b-[3px] px-1 align-baseline"
+						data-sizer={HERO_SIZER}
 						style={{ color: "var(--brand)", borderColor: "var(--brand)" }}
 					>
-						{names.map((n, k) => (
-							<span
-								key={n}
-								aria-hidden={k !== i}
-								className={`col-start-1 row-start-1 ${k === i ? "name-swap" : "invisible"}`}
-							>
-								{n}
-							</span>
-						))}
+						{/* Keyed by index so React remounts the span and `name-swap`
+						    replays, rather than mutating text in place. */}
+						<span key={i} className="name-swap">
+							{names[i]}
+						</span>
 					</span>
 					{/* French puts a non-breaking space before a question mark; English does not. */}
 					{lang === "fr" ? " ?" : "?"}

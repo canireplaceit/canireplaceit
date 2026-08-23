@@ -79,7 +79,7 @@ function Table({
 }) {
 	if (rows.length === 0) return null;
 	return (
-		<div className="mt-3 overflow-x-auto">
+		<div className="relative mt-3 overflow-x-auto">
 			<table className="w-full min-w-[24rem] border-collapse text-sm">
 				<thead>
 					<tr>

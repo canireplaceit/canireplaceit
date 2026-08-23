@@ -205,7 +205,19 @@ export function ReplaceMatrix({
 				</a>
 			</p>
 
-			<div className="mt-3 overflow-x-auto">
+			{/*
+			 * `relative` is load-bearing, not decoration.
+			 *
+			 * `.sr-only` is `position: absolute`, and a STATIC scroll container is
+			 * not a containing block — so every sr-only span in this table resolved
+			 * against the initial containing block, kept the wide table's x offset,
+			 * and escaped the clip. The box scrolled correctly and the DOCUMENT grew
+			 * anyway: `documentElement.scrollWidth` measured 474 on /notion/ and 594
+			 * on /1password/ at a 390px viewport, which is a phone page that slides
+			 * sideways. Making the scroller a containing block puts them back inside
+			 * it; measured 390 at 360, 390 and 414 after.
+			 */}
+			<div className="relative mt-3 overflow-x-auto">
 				<table className="w-full min-w-[30rem] border-collapse text-sm">
 					{/* Google's table extraction keys on caption + th, and the visible
 					    heading above the table is not one. sr-only so the block looks
