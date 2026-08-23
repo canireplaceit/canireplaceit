@@ -7,11 +7,18 @@
  * lives in the query string, the parameterised states are noindex, and the
  * canonical points at the bare path — see `seo.ts` and `routes.ts`.
  *
- * The dataset is loaded on demand rather than imported at module scope. At the
- * current 14 projects it is 33 KB and would not matter; at the full 871 it is
- * megabytes, and this page is a small minority of traffic on a site whose
- * dominant case is a single organic landing. Splitting it now costs five lines
- * and avoids a cliff we can already see.
+ * The dataset arrives with the document, baked into the payload by
+ * scripts/prerender.ts, and the code-split import below is the fallback for the
+ * two cases that have no payload: the dev server, and a client-side navigation
+ * into this page from somewhere else.
+ *
+ * It used to be the only path, and that was the bug. The page rendered
+ * "Loading the feature matrix…" into the static HTML, hydration reproduced it,
+ * and the request for the chunk came afterwards — so the one page on this site
+ * that answers "does X support SSO" for 3,234 projects at once was, to every
+ * crawler and every model, twelve words and no links. The dataset is 450 kB
+ * sliced to what this page shows, on ONE document per locale; every other page
+ * still gets only the handful of readings it prints.
  */
 
 import {
@@ -20,6 +27,7 @@ import {
 	type CategoryGroup,
 	healthKey,
 	type Product,
+	projectSlug,
 } from "core/src/content";
 import type { FeatureFile, FeatureValue } from "core/src/features";
 import {
@@ -31,13 +39,15 @@ import {
 	matching,
 } from "core/src/features";
 import type { Translations } from "core/src/index";
+import { paths } from "core/src/routes";
 import { X } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
-import { altIcon } from "./api";
+import { altIcon, bootFeatures } from "./api";
 import { Pill } from "./browse";
 import { CARD, Logo } from "./components";
-import type { Key } from "./i18n";
+import type { Key, Lang } from "./i18n";
 import { MEASURE } from "./listShared";
+import { Link } from "./nav";
 import { type Crumb, PageShell } from "./shell";
 
 type T = (k: Key) => string;
@@ -66,20 +76,46 @@ const chipStyle = (active: boolean) =>
 /** How many genre pills sit in the always-visible row; the rest fold away. */
 const TOP_GENRES = 8;
 
-type Row = {
+/**
+ * How many result cards are drawn before the page asks the reader to narrow.
+ *
+ * 3,234 projects match an empty filter, and drawing all of them costs 2.8 MB of
+ * markup in a document that is now prerendered — five times the largest page on
+ * the site, for a grid nobody scrolls to the bottom of. The filters above are
+ * how this page is actually used, and every one of them narrows to well under
+ * this. The dataset behind it is complete either way: a search, a genre or a
+ * requirement selects out of all 3,234, and a `?cmp=` link compares projects
+ * whether or not they are in the visible slice.
+ */
+const MAX_CARDS = 300;
+
+export type Row = {
 	key: string;
 	name: string;
 	icon: string | null;
 	categories: string[];
 	decided: number;
+	/** The project page this row names, when the project has one. Carried on the
+	 *  row rather than looked up in the card, so the prerendered document and the
+	 *  hydrated one resolve the same href from the same map. */
+	slug: string | null;
 };
 
 /**
  * Projects, with the categories they are cited in — the join core deliberately
  * does not do, because `Project` carries `replaces` (products) and not
  * categories. Done once here rather than per render.
+ *
+ * Exported because scripts/prerender.ts calls it over the WHOLE catalogue to
+ * bake `featureRows` into this page's payload: the page ships no products of
+ * its own (they would be 1.4 MB), so this is the one shape it needs.
  */
-function projectRows(products: Product[], file: FeatureFile | null): Row[] {
+export function projectRows(
+	products: Product[],
+	file: FeatureFile | null,
+	/** Project id → its page's slug, from the whole catalogue. */
+	projectSlugs: Map<string, string>,
+): Row[] {
 	if (!file) return [];
 	const byKey = new Map<string, Row>();
 	for (const p of products) {
@@ -96,6 +132,7 @@ function projectRows(products: Product[], file: FeatureFile | null): Row[] {
 				icon: altIcon(a),
 				categories: [],
 				decided: Object.keys(file.projects[key]).length,
+				slug: projectSlugs.get(projectSlug(a.source)) ?? null,
 			};
 			if (!row.categories.includes(p.category)) row.categories.push(p.category);
 			byKey.set(key, row);
@@ -104,22 +141,42 @@ function projectRows(products: Product[], file: FeatureFile | null): Row[] {
 	return [...byKey.values()].sort((a, b) => a.name.localeCompare(b.name));
 }
 
+/**
+ * The rows this document was prerendered with, baked by scripts/prerender.ts.
+ *
+ * Read at call time for the same reason `bootFeatures` is — the prerenderer
+ * reuses one module instance and swaps `__DATA__` between pages. Absent on a
+ * client-side navigation into this page and on the dev server, where the rows
+ * are derived from the catalogue the app has fetched instead.
+ */
+const bootRows = (): Row[] | null =>
+	(globalThis as { __DATA__?: { featureRows?: Row[] } }).__DATA__
+		?.featureRows ?? null;
+
 export function FeaturesPage({
 	products,
 	categories,
+	projectSlugs,
+	lang,
 	t,
 	tc,
 	trail,
 }: {
 	products: Product[];
 	categories: Category[];
+	/** Project id → page slug, for the links out of each result card. */
+	projectSlugs: Map<string, string>;
+	lang: Lang;
 	t: T;
 	tc: (v: Translations) => string;
 	/** The breadcrumb the shell renders. Built by the caller, which is the only
 	 *  place that knows where this page sits in the nav. */
 	trail: Crumb[];
 }) {
-	const [file, setFile] = useState<FeatureFile | null>(null);
+	// Seeded from the payload, never from null, on a prerendered document: the
+	// first render has to draw the same matrix the static HTML carries or
+	// hydration throws it away and the crawler's renderer is back at "Loading".
+	const [file, setFile] = useState<FeatureFile | null>(bootFeatures);
 	const [loadFailed, setLoadFailed] = useState(false);
 	const [query, setQuery] = useState("");
 	const [need, setNeed] = useState<string[]>([]);
@@ -161,6 +218,8 @@ export function FeaturesPage({
 	}, [need, acceptPaid, genre, picked, bothChecked]);
 
 	useEffect(() => {
+		// Already shipped with the document — no request, and no second copy.
+		if (file) return;
 		let live = true;
 		import("../../../data/features.json")
 			.then((m) => {
@@ -172,9 +231,12 @@ export function FeaturesPage({
 		return () => {
 			live = false;
 		};
-	}, []);
+	}, [file]);
 
-	const rows = useMemo(() => projectRows(products, file), [products, file]);
+	const rows = useMemo(
+		() => bootRows() ?? projectRows(products, file, projectSlugs),
+		[products, file, projectSlugs],
+	);
 
 	const catBySlug = useMemo(
 		() => new Map(categories.map((c) => [c.slug, c])),
@@ -507,15 +569,12 @@ export function FeaturesPage({
 						` · ${need.length} ${t(need.length === 1 ? "features.reqOne" : "features.reqMany")}`}
 				</p>
 				<div className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-					{matched.map((r) => {
+					{matched.slice(0, MAX_CARDS).map((r) => {
 						const on = picked.includes(r.key);
 						return (
-							<button
-								type="button"
+							<div
 								key={r.key}
-								aria-pressed={on}
-								onClick={() => setPicked(toggle(picked, r.key))}
-								className={`${CARD} text-left transition`}
+								className={`${CARD} transition`}
 								style={
 									on
 										? {
@@ -526,18 +585,43 @@ export function FeaturesPage({
 										: undefined
 								}
 							>
-								<span className="flex items-center gap-2.5">
+								<div className="flex items-center gap-2.5">
 									<Logo src={r.icon} name={r.name} size={26} />
-									<span className="min-w-0 flex-1">
-										<span className="block truncate font-medium">{r.name}</span>
+									<div className="min-w-0 flex-1">
+										{/* The one link out of this page. The whole card used to be
+										    the compare toggle, so 3,234 project names sat here with
+										    nowhere to go — on the page the header of every document
+										    on the site points at. The toggle is the chip beside it. */}
+										{r.slug ? (
+											<Link
+												href={paths.project(lang, r.slug)}
+												className="block truncate font-medium hover:text-brand hover:underline"
+											>
+												{r.name}
+											</Link>
+										) : (
+											<span className="block truncate font-medium">
+												{r.name}
+											</span>
+										)}
 										<span className="nums block truncate text-[11px] text-muted">
 											{r.decided} {t("features.facts")} ·{" "}
 											{r.categories.map(genreLabel).join(", ")}
 										</span>
-									</span>
-								</span>
+									</div>
+									<button
+										type="button"
+										aria-pressed={on}
+										aria-label={`${t("features.compare")} — ${r.name}`}
+										onClick={() => setPicked(toggle(picked, r.key))}
+										className="shrink-0 rounded-[calc(var(--radius))] border px-2 py-1 text-xs transition"
+										style={chipStyle(on)}
+									>
+										{on ? "✓" : "+"}
+									</button>
+								</div>
 								{need.length > 0 && (
-									<span className="mt-2 flex flex-wrap gap-x-3 gap-y-1">
+									<div className="mt-2 flex flex-wrap gap-x-3 gap-y-1">
 										{need.map((k) => (
 											<span key={k} className="text-[11px] text-muted">
 												<span
@@ -548,12 +632,17 @@ export function FeaturesPage({
 												{requirementName(k)}
 											</span>
 										))}
-									</span>
+									</div>
 								)}
-							</button>
+							</div>
 						);
 					})}
 				</div>
+				{matched.length > MAX_CARDS && (
+					<p className="nums mt-3 max-w-2xl text-sm text-muted">
+						{matched.length - MAX_CARDS} {t("features.narrow")}
+					</p>
+				)}
 				{matched.length === 0 && (
 					<p className="mt-2 max-w-2xl text-sm text-muted">
 						{t("features.noMatch")}

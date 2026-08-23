@@ -1,5 +1,5 @@
 import { paths } from "core/src/routes";
-import type { SiteStats } from "./api";
+import type { SiteStats, Stats } from "./api";
 import { formatDate } from "./api";
 import type { Key, Lang } from "./i18n";
 import { PageShell } from "./shell";
@@ -144,15 +144,59 @@ function TopPages({
 	);
 }
 
+/**
+ * What the catalogue holds, as opposed to what the site receives.
+ *
+ * Every figure here is derived from the catalogue at build time, so it is in
+ * the prerendered document rather than arriving with a request — this page used
+ * to render its headings and not one number, because the only numbers on it
+ * came from Umami and Umami cannot be baked. The traffic below still cannot;
+ * this is the half that can.
+ */
+function Catalogue({ counts, t, lang }: { counts: Stats; t: T; lang: Lang }) {
+	// A published 0 would read as "broken", not "new" — the same rule the home
+	// page applies to this tile.
+	const showSwitches = counts.switches > 0;
+	return (
+		<dl
+			className={`mt-6 grid gap-px overflow-hidden rounded-[calc(var(--radius))] border border-border bg-border ${showSwitches ? "grid-cols-2 sm:grid-cols-4" : "grid-cols-3"}`}
+		>
+			<Figure label={t("stats.products")} value={num(counts.products, lang)} />
+			<Figure
+				label={t("stats.alternatives")}
+				value={num(counts.ossAlternatives, lang)}
+			/>
+			<Figure label={t("stats.noAnswer")} value={num(counts.notYet, lang)} />
+			{showSwitches && (
+				<Figure
+					label={t(
+						counts.switches === 1 ? "stats.switchesOne" : "stats.switches",
+					)}
+					value={num(counts.switches, lang)}
+				/>
+			)}
+		</dl>
+	);
+}
+
 export function StatsPage({
 	stats,
+	counts,
 	t,
 	lang,
 }: {
 	stats: SiteStats | { unavailable: true } | null;
+	/** The catalogue counts, baked into this page's payload. Null only where
+	 *  there is no payload to read — the dev server, and a client-side
+	 *  navigation that landed here before the request answered. */
+	counts: Stats | null;
 	t: T;
 	lang: Lang;
 }) {
+	// The date the traffic figures are measured from, once they exist. Read out
+	// here because the method note that quotes it renders whether or not they do.
+	const since = stats && !("unavailable" in stats) ? stats.since : null;
+
 	const body = () => {
 		if (!stats) return null;
 
@@ -207,13 +251,6 @@ export function StatsPage({
 					<ChartPending since={stats.since} t={t} lang={lang} />
 				)}
 
-				<p className="mt-3 max-w-2xl text-muted text-xs">
-					{t("sitestats.method")}{" "}
-					{stats.since &&
-						`${t("sitestats.since")} ${formatDate(stats.since.slice(0, 10), lang)}. `}
-					{t("sitestats.sessionsNote")}
-				</p>
-
 				<h2 className="mt-8 font-medium text-sm">{t("sitestats.topPages")}</h2>
 				<TopPages rows={stats.pages} t={t} lang={lang} />
 
@@ -244,6 +281,22 @@ export function StatsPage({
 			title={t("sitestats.title")}
 			lede={t("sitestats.blurb")}
 		>
+			<h2 className="font-medium text-sm">{t("sitestats.catalogue")}</h2>
+			{counts && <Catalogue counts={counts} t={t} lang={lang} />}
+			<p className="mt-3 max-w-2xl text-muted text-xs">
+				{t("sitestats.catalogueNote")}
+			</p>
+
+			<h2 className="mt-10 font-medium text-sm">{t("sitestats.traffic")}</h2>
+			{/* Ahead of the figures rather than under them: it is what makes the
+			    figures readable, and it is the half of this page that is true before
+			    the analytics request answers. */}
+			<p className="mt-3 max-w-2xl text-muted text-xs">
+				{t("sitestats.method")}{" "}
+				{since &&
+					`${t("sitestats.since")} ${formatDate(since.slice(0, 10), lang)}. `}
+				{t("sitestats.sessionsNote")}
+			</p>
 			{body()}
 		</PageShell>
 	);

@@ -49,6 +49,7 @@ import {
 	outboundUrl,
 	type SiteStats,
 	type Slot,
+	type Stats,
 	type Team,
 } from "./api";
 import {
@@ -174,6 +175,12 @@ export type PageCtx = {
 	 * of them.
 	 */
 	siteStats: SiteStats | { unavailable: true } | null;
+	/**
+	 * The headline catalogue counts — what the site holds, as opposed to what it
+	 * receives. Baked into the payload of the two pages that print them (home and
+	 * stats) and fetched only when neither shipped one.
+	 */
+	siteCounts: Stats | null;
 	/** The signed-in advertiser's placements, or null when nobody is signed in. */
 	campaigns: Campaigns | null;
 	campaignsLoading: boolean;

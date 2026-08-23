@@ -669,6 +669,8 @@ function Page({ ctx, route }: { ctx: PageCtx; route: Route }) {
 				<FeaturesPage
 					products={ctx.products}
 					categories={ctx.categories}
+					projectSlugs={ctx.projectSlugs}
+					lang={ctx.lang}
 					t={ctx.t}
 					tc={ctx.tc}
 					trail={[
@@ -678,7 +680,14 @@ function Page({ ctx, route }: { ctx: PageCtx; route: Route }) {
 				/>
 			);
 		case "stats":
-			return <StatsPage stats={ctx.siteStats} t={ctx.t} lang={ctx.lang} />;
+			return (
+				<StatsPage
+					stats={ctx.siteStats}
+					counts={ctx.siteCounts}
+					t={ctx.t}
+					lang={ctx.lang}
+				/>
+			);
 		case "signin":
 			return <SignInPage t={ctx.t} />;
 		case "dashboard":
@@ -1145,6 +1154,15 @@ export function App() {
 				.siteStats()
 				.then(setSiteStats)
 				.catch(() => setSiteStats({ unavailable: true }));
+			// The catalogue half of the page. Baked into the prerendered document,
+			// so this only fires for the dev server and for a navigation that lands
+			// here from a page whose payload carries no counts.
+			if (!stats) {
+				api
+					.stats()
+					.then(setStats)
+					.catch(() => {});
+			}
 		}
 	}, [route.name, stats]);
 
@@ -1267,6 +1285,7 @@ export function App() {
 		slots,
 		adStats,
 		siteStats,
+		siteCounts: stats,
 		campaigns,
 		campaignsLoading,
 		onPurchased: reloadSlots,

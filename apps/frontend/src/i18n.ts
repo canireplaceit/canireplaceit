@@ -791,6 +791,10 @@ export const dict = {
 		"sitestats.title": "What this site actually gets",
 		"sitestats.blurb":
 			"Measured on our own server, with analytics we host ourselves. If we are going to tell you to self-host things, we can start with our own numbers.",
+		"sitestats.catalogue": "What the catalogue holds",
+		"sitestats.catalogueNote":
+			"Counted from the catalogue this site is built out of, as it stood when this page was generated. Nothing here is an estimate and nothing is rounded.",
+		"sitestats.traffic": "What the site receives",
 		"sitestats.pageviews": "Pageviews",
 		"sitestats.sessions": "Sessions",
 		"sitestats.bestDay": "Best day",
@@ -1795,6 +1799,10 @@ export const dict = {
 		"sitestats.title": "Ce que ce site reçoit vraiment",
 		"sitestats.blurb":
 			"Mesuré sur notre propre serveur, avec des analytics que nous hébergeons nous-mêmes. Si nous vous disons d'auto-héberger, autant commencer par nos propres chiffres.",
+		"sitestats.catalogue": "Ce que contient le catalogue",
+		"sitestats.catalogueNote":
+			"Compté à partir du catalogue dont ce site est fait, tel qu'il était à la génération de cette page. Rien ici n'est estimé ni arrondi.",
+		"sitestats.traffic": "Ce que le site reçoit",
 		"sitestats.pageviews": "Pages vues",
 		"sitestats.sessions": "Sessions",
 		"sitestats.bestDay": "Meilleur jour",

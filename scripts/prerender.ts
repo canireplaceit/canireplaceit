@@ -76,6 +76,7 @@ import {
 	LEGAL_DOCS,
 	paths,
 } from "core/src/routes";
+import type { Row as FeatureRow } from "../apps/frontend/src/FeaturesPage";
 import { markdownFor, mdFor } from "./page-markdown";
 
 const ROOT = join(import.meta.dir, "..");
@@ -115,6 +116,19 @@ const { UPDATED: LEGAL_UPDATED } = await import(join(FE, "src/legal.tsx"));
 // because it trims each entry to what `ProductCard` prints — see
 // apps/frontend/src/listShared.tsx.
 const { relatedProducts } = await import(join(FE, "src/listShared.tsx"));
+// The feature explorer's own join, over the whole catalogue rather than one
+// page's slice. Imported from the page for the same reason as `relatedProducts`:
+// a second copy here would be a second answer, and the page would hydrate into
+// a different table from the one we shipped.
+const { projectRows: featureRowsFor } = (await import(
+	join(FE, "src/FeaturesPage.tsx")
+)) as {
+	projectRows: (
+		products: Product[],
+		file: FeatureFile | null,
+		slugs: Map<string, string>,
+	) => FeatureRow[];
+};
 // Read from the one translation table rather than a second copy here: `meta` is
 // computed outside the React tree, so there is no `t` in scope.
 const { dict } = (await import(join(FE, "src/i18n.ts"))) as {
@@ -590,14 +604,23 @@ type Boot = {
 	/** Members per collection, over the whole catalogue. See the note in App.tsx. */
 	collectionCounts?: [string, number][];
 	unresolvedRows?: Project[];
-	/** The feature answers for THIS page's projects, on the two page types that
+	/** The feature answers for THIS page's projects, on the three page types that
 	 *  render them. Absent everywhere else — see `shipBoot`. */
 	features?: FeatureFile;
+	/**
+	 * The feature explorer's result rows, on that page and nowhere else.
+	 *
+	 * Same reason as `projectRows`: the page is a join across every product's
+	 * open source alternatives, and it ships no products of its own — the whole
+	 * catalogue is 1.4 MB and it needs six fields per project. So the join is
+	 * done here, by the page's own `projectRows`.
+	 */
+	featureRows?: FeatureRow[];
 	/** The hero wall and the rail tape, so they are on screen at first paint
 	 *  rather than dropping in when /api/slots answers. See `slotBoard`. */
 	slots: Slot[];
-	/** The headline counts, on the home pages and nowhere else — that is the only
-	 *  page that renders them. See `siteStats` below. */
+	/** The headline counts, on the home pages and the stats page — the two that
+	 *  render them. See `siteStats` below. */
 	stats?: SiteCounts;
 };
 
@@ -739,6 +762,31 @@ const featuresForProjects = (
 		productTiers,
 	};
 };
+
+/**
+ * Every open source alternative anyone cites — the feature explorer's subject.
+ *
+ * The page is the one document on the site that is about all of them at once,
+ * so it is the one page whose slice is the whole file. 3,234 of the 3,281 keys
+ * survive `featuresForProjects`; the rest are projects nothing cites any more.
+ */
+const ossSources: Source[] = listed.flatMap((p) =>
+	p.alternatives.filter((a) => a.kind === "oss").map((a) => a.source),
+);
+
+/**
+ * The explorer's result rows, joined once for both locales.
+ *
+ * Locale-independent by construction: a row carries a project's name, its icon,
+ * the category SLUGS it is cited under and its page's slug — no prose. The
+ * labels beside them are resolved in the page from the categories the payload
+ * already carries.
+ */
+const featureRows: FeatureRow[] = featureRowsFor(
+	listed,
+	featureFile,
+	prettySlug,
+);
 
 /**
  * What each project page actually says about its project — the join across the
@@ -903,11 +951,12 @@ function oneLocale<T>(value: T, lang: Lang): T {
  * so the prerendered markup and the hydrated markup are produced from exactly
  * the same object. Trimming it after the render would be a hydration mismatch.
  *
- * `detail` is a product or project page: the only two that print an
- * alternative's prose or the feature matrix. Every other page ships neither.
+ * `full` is a product page, a project page or the feature explorer: the pages
+ * that print an alternative's prose or the feature matrix. Every other page
+ * ships neither, and carrying the readings there was 170 kB saying nothing.
  */
-const shipBoot = (boot: Boot, lang: Lang, detail: boolean): Boot => {
-	const trimmed = detail
+const shipBoot = (boot: Boot, lang: Lang, full: boolean): Boot => {
+	const trimmed = full
 		? boot
 		: {
 				...boot,
@@ -1252,7 +1301,9 @@ function emit(o: {
 	const shipped = shipBoot(
 		o.boot,
 		lang,
-		o.route.name === "product" || o.route.name === "project",
+		o.route.name === "product" ||
+			o.route.name === "project" ||
+			o.route.name === "features",
 	);
 
 	at(url);
@@ -1377,6 +1428,41 @@ function emit(o: {
  */
 const gapProducts = listed.filter((p) => p.verdict === "not-yet");
 const paidGaps = splitGaps(listed).paid;
+
+/**
+ * What a standing page ships with, which for most of them is nothing.
+ *
+ * Three are exceptions, and for the same reason: their content is derived from
+ * the catalogue rather than written in their own copy, so an empty payload made
+ * them prerender their pending state — a heading over a "Loading…" — and
+ * hydration then reproduced exactly that, which is all a crawler ever sees.
+ *
+ * `gaps` is 43 products, the smallest slice any page here ships.
+ *
+ * `features` is the feature matrix itself: 149 keys over the 3,234 projects
+ * anything cites, which is the one thing on this site nobody else has. It was
+ * fetching that dataset as a code-split chunk AFTER hydration, so the page
+ * linked from the header of all 8,868 documents rendered twelve words and no
+ * links. The rows travel beside it because the page is a join over every
+ * product's alternatives and ships no products of its own.
+ *
+ * `stats` gets the catalogue counts only. The traffic figures beside them are
+ * read from Umami per request and genuinely cannot be baked; that half still
+ * arrives after hydration, under headings and an explanation that no longer
+ * wait for it.
+ */
+const standingBoot = (page: string): Boot => {
+	if (page === "gaps") return bootFor(gapProducts);
+	if (page === "features") {
+		return {
+			...bootFor([]),
+			features: featuresForProjects(ossSources) ?? undefined,
+			featureRows,
+		};
+	}
+	if (page === "stats") return { ...bootFor([]), stats: siteStats };
+	return bootFor([]);
+};
 
 const ordered = byWeight(listed);
 const HOME_PAGES = pageCount(ordered.length);
@@ -1565,18 +1651,18 @@ for (const lang of SupportedLangs) {
 		"sponsor",
 		"submit",
 		"contact",
-		// Both render their own copy and fetch anything dynamic after hydration:
-		// the traffic figures come from Umami at request time, and the sign-in form
-		// has nothing to prerender but its own labels. So they cost one document
-		// each and carry no payload. "signin" and "dashboard" are session-gated, so
+		// Half of this one is genuinely per-request — the traffic figures come from
+		// Umami when somebody asks — and half of it is the catalogue, which is
+		// known here. It carries the catalogue half (`stats` below) and fills the
+		// traffic in after hydration, rather than rendering its headings over
+		// nothing at all. "signin" and "dashboard" are session-gated, so
 		// standingMeta marks them noindex — which is also what keeps them out of
 		// the sitemap shards.
 		"stats",
-		// The feature explorer. ONE document per locale and no payload: the
-		// dataset is code-split and fetched on demand, and the filter state is
-		// query params rather than paths, so this route can never mint a second
-		// URL no matter how many of the 130 keys a reader ticks. That is why it is
-		// safe to index the bare path — see the comment in FeaturesPage.tsx.
+		// The feature explorer. ONE document per locale — the filter state is query
+		// params rather than paths, so this route can never mint a second URL no
+		// matter how many of the 149 keys a reader ticks, which is why it is safe
+		// to index the bare path. It DOES carry a payload: see below.
 		"features",
 		// The terms the whole catalogue runs on. One document, static copy, and
 		// the destination every jargon tooltip points at — including on a phone,
@@ -1606,20 +1692,9 @@ for (const lang of SupportedLangs) {
 				lang,
 				page === "gaps" ? { gaps: paidGaps.length } : undefined,
 			),
-			/**
-			 * Standing pages carry no payload, with one exception.
-			 *
-			 * `gaps` is derived from the catalogue rather than from its own copy, so
-			 * an empty payload made it render its pending state and prerender that.
-			 * The result was the most quotable page on the site shipping zero of its
-			 * product names and zero links to them, which no crawler and no model
-			 * can read. It is 43 products, the smallest slice any page here ships.
-			 *
-			 * The others genuinely have nothing to inline: `features` fetches a
-			 * code-split dataset on demand, `stats` reads live figures from Umami,
-			 * and `glossary` is static copy that already renders.
-			 */
-			boot: page === "gaps" ? bootFor(gapProducts) : bootFor([]),
+			// Nothing, for most of them. See `standingBoot` for the three that
+			// derive their content from the catalogue and so have to carry it.
+			boot: standingBoot(page),
 			kind: "standing",
 			lastmod: STANDING_CHANGED,
 		});
