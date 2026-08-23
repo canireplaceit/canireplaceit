@@ -1315,6 +1315,135 @@ export function SponsorSlot({
  * is dropped rather than shown as zero: "0 with no strings" reads as a finding
  * when it means nobody checked.
  */
+/**
+ * The four questions a searcher actually asks, answered on the page.
+ *
+ * These were `FAQPage` structured data on all 1,184 product pages and nowhere in
+ * the DOM, which is "structured data found on hidden content" for a rich result
+ * Google removed from Search in May 2026. The markup is gone; the questions were
+ * the good half, because they are the queries — "is there an open source
+ * alternative to X", "can you self-host X", "how much does X cost", "what do you
+ * lose". They are here as visible prose, for a reader and for passage
+ * extraction, and NOT as schema again.
+ *
+ * Every answer is assembled from the same fields the rest of the page renders,
+ * so nothing here is a claim the article does not already make. A question with
+ * no data behind it is not asked.
+ */
+export function ProductFaq({
+	product,
+	t,
+	tc,
+	lang,
+}: {
+	product: Product;
+	t: T;
+	tc: (v: { en: string }) => string;
+	lang: Lang;
+}) {
+	const oss = product.alternatives.filter(
+		(a): a is OssAlternative => a.kind === "oss",
+	);
+	const live = oss.filter((a) => !isArchived(a, healthOf(a.source)));
+	const best =
+		live.length > 0
+			? byExitQuality(live, (a) => healthOf(a.source))[0]
+			: undefined;
+	const selfHost = live.filter((a) => a.facts.selfHostable);
+	const noStrings = selfHost.filter((a) => a.facts.openCore === "none");
+	const compose = selfHost.filter((a) => a.hasCompose === true);
+	const managed = live.filter((a) => a.effort === "managed");
+
+	const qa: { q: string; a: string }[] = [];
+
+	// The verdict sentence verbatim, then the two counts the page prints above
+	// it. "not-yet" deliberately names no project, exactly as `VerdictSentence`
+	// does, because the whole claim is that nothing credible exists.
+	if (live.length > 0 && best) {
+		const verdict =
+			product.verdict === "not-yet"
+				? t("lede.notYet").replace("{product}", product.name)
+				: t(product.verdict === "yes" ? "lede.yes" : "lede.almost")
+						.replace("{product}", product.name)
+						.replace("{best}", best.name)
+						.replace("{licence}", best.license);
+		// The count clause is skipped on "not-yet". The sentence above it says
+		// nothing open source covers the job, and "9 projects are listed on this
+		// page" immediately after reads as a contradiction of it — the same reason
+		// `VerdictSentence` suppresses its own second clause there.
+		const counted =
+			product.verdict === "not-yet"
+				? ""
+				: ` ${t("faq.a.oss")
+						.replace("{n}", String(live.length))
+						.replace("{free}", String(noStrings.length))}`;
+		qa.push({
+			q: t("faq.q.oss").replace("{product}", product.name),
+			a: `${verdict}${counted}`,
+		});
+	}
+
+	if (selfHost.length > 0) {
+		const extra =
+			compose.length > 0
+				? ` ${t("faq.a.selfHostCompose").replace("{n}", String(compose.length))}`
+				: managed.length > 0
+					? ` ${t("faq.a.selfHostManaged").replace("{n}", String(managed.length))}`
+					: "";
+		qa.push({
+			q: t("faq.q.selfHost").replace("{product}", product.name),
+			a: `${t("faq.a.selfHost").replace("{n}", String(selfHost.length))}${extra}`,
+		});
+	}
+
+	// Only the two states the page can back with a receipt. "Nobody has checked
+	// this price yet" is a real answer, but it is not an answer to "how much
+	// does it cost", so that product simply does not get the question.
+	if (product.priceMonthly !== null && product.pricing) {
+		qa.push({
+			q: t("faq.q.price").replace("{product}", product.name),
+			a: t("faq.a.price")
+				.replace("{price}", money(product.priceMonthly * 100, lang))
+				.replace("{plan}", product.pricing.plan)
+				.replace("{year}", money(product.priceMonthly * 1200, lang))
+				.replace("{date}", formatDate(product.pricing.checkedOn, lang)),
+		});
+	} else if (product.notPublic) {
+		qa.push({
+			q: t("faq.q.price").replace("{product}", product.name),
+			a: t("faq.a.priceNone").replace("{product}", product.name),
+		});
+	}
+
+	// The same lines the chips above render, as a sentence. They are the
+	// product's genuine strengths, which is why they are also what the markup
+	// files under "Pros".
+	if (product.whatYouLose.length > 0) {
+		qa.push({
+			q: t("faq.q.lose").replace("{product}", product.name),
+			a: `${product.whatYouLose.map((v) => tc(v)).join(". ")}.`,
+		});
+	}
+
+	if (qa.length < 2) return null;
+
+	return (
+		<section className="space-y-3">
+			<h2 className="eyebrow mb-2">
+				{t("faq.heading").replace("{product}", product.name)}
+			</h2>
+			{qa.map((item) => (
+				<div key={item.q} className={CARD}>
+					<h3 className="font-medium text-sm">{item.q}</h3>
+					<p className="mt-1.5 text-pretty text-muted text-sm leading-relaxed">
+						{item.a}
+					</p>
+				</div>
+			))}
+		</section>
+	);
+}
+
 export function ProductEscapeStats({ product, t }: { product: Product; t: T }) {
 	const oss = product.alternatives.filter(
 		(a): a is Extract<Alternative, { kind: "oss" }> => a.kind === "oss",

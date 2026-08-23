@@ -58,6 +58,7 @@ import {
 	priceFreshness,
 	projectSlug,
 	type Source,
+	thinProject,
 } from "core/src/content";
 import type { FeatureFile } from "core/src/features";
 import {
@@ -109,6 +110,10 @@ const { renderToString } = await import(
 );
 const { App } = await import(join(FE, "src/App.tsx"));
 const { UPDATED: LEGAL_UPDATED } = await import(join(FE, "src/legal.tsx"));
+// The neighbours a product page links sideways to. It lives in the frontend
+// because it trims each entry to what `ProductCard` prints — see
+// apps/frontend/src/listShared.tsx.
+const { relatedProducts } = await import(join(FE, "src/listShared.tsx"));
 // Read from the one translation table rather than a second copy here: `meta` is
 // computed outside the React tree, so there is no `t` in scope.
 const { dict } = (await import(join(FE, "src/i18n.ts"))) as {
@@ -124,6 +129,7 @@ const {
 	groupMeta,
 	homeMeta,
 	productMeta,
+	productsMeta,
 	projectMeta,
 	projectsMeta,
 	standingMeta,
@@ -430,27 +436,9 @@ const categoryOfProject = (project: Project): Category | undefined => {
 	return first ? categoryBySlug.get(first.category) : undefined;
 };
 
-/**
- * A page with one link and one sentence on it is what Google's scaled-content
- * policy is aimed at, and that policy is enforced algorithmically — no notice,
- * no appeal. So the thinnest pages ship `noindex, follow` and stay out of the
- * sitemap. `follow`, not `nofollow`: they must keep passing authority to the
- * products they link to, which is the whole reason they exist.
- *
- * Judged once, on the English text, and applied to every locale — a page that is
- * indexable in one language and not the other makes the hreflang set incoherent.
- */
-const WORDS = /[\p{L}\p{N}]+/gu;
-
-const thinProject = (project: Project): boolean =>
-	project.replaces.length < 2 &&
-	new Set(
-		project.replaces
-			.map((r) => resolveTranslation(r.note, DEFAULT_LANG).toLowerCase())
-			.join(" ")
-			.match(WORDS) ?? [],
-	).size < 40;
-
+// `thinProject` is in packages/core/src/content.ts: scripts/build-og-pages.ts
+// now reads the same rule to decide which project pages get a card of their own,
+// and two copies of it would disagree the first time either moved.
 const noindexProjects = new Set(
 	projects.filter(thinProject).map((p) => p.slug),
 );
@@ -482,6 +470,18 @@ type Boot = {
 	categories: Category[];
 	projectSlugs: [string, string][];
 	freshness: PriceFreshness;
+	/**
+	 * The rest of this product's category, card-shaped. A product page ships one
+	 * product, so its neighbours cannot be derived in the browser and travel here
+	 * instead. Trimmed by `relatedProducts`; ~1.2 kB each.
+	 */
+	related?: Listed[];
+	/**
+	 * `[slug, name, category]` for every product, on the products index and
+	 * nowhere else. That page names all 592, so it carries three strings each
+	 * rather than the ~7 kB a full list row costs.
+	 */
+	productIndex?: [string, string, string][];
 	categoryStats: [string, CategoryStat][];
 	health: HealthFile;
 	/**
@@ -839,15 +839,56 @@ d.dataset.theme=t;d.style.colorScheme=t}catch(e){}`.replace(/\n/g, "");
  * cards carry copy now. A route with no slug of its own is `og/{kind}-{lang}.png`.
  */
 const OG_DIR = join(FE, "public/og");
-const ogFor = (kind: string, slug: string, lang: Lang): string => {
+
+/**
+ * Every card is drawn at exactly this size — `W`/`H` in build-og-pages.ts, and
+ * the static `og.png` with them — so `og:image:width`/`height` are constants
+ * rather than a `sharp` call per page. Facebook documents them as the fix for
+ * the blank box the FIRST person to share a URL sees: without them the crawler
+ * queues the file for download and renders the story before it arrives.
+ */
+const OG_W = 1200;
+const OG_H = 630;
+
+/**
+ * What each card actually shows, in words, written beside the PNGs by
+ * build-og-pages.ts.
+ *
+ * `og:image:alt` has to describe the image, and the image is drawn there. A
+ * second description composed here would be a copy of the card's contents that
+ * drifts the first time a card is redesigned — and these cards carry meaning
+ * that exists ONLY as pixels (the verdict, the price, what you give up), so a
+ * wrong one is worse than none. Absent file, or absent key, falls back to the
+ * page's own title, which is also what every page on the static card gets.
+ */
+const OG_ALT: Record<string, string> = existsSync(join(OG_DIR, "alt.json"))
+	? JSON.parse(readFileSync(join(OG_DIR, "alt.json"), "utf8"))
+	: {};
+
+/** A page's card: where it is, and what it says. */
+type Card = { image: string; alt?: string };
+
+const ogFor = (kind: string, slug: string, lang: Lang): Card => {
 	const name = slug ? `${kind}-${slug}-${lang}` : `${kind}-${lang}`;
 	return existsSync(join(OG_DIR, `${name}.png`))
-		? `${SITE}/og/${name}.png`
-		: OG_IMAGE;
+		? { image: `${SITE}/og/${name}.png`, alt: OG_ALT[name] }
+		: { image: OG_IMAGE };
 };
 
-/** Route names that have a card of their own, keyed by whether it carries a slug. */
-const OG_SLUGGED = new Set(["product", "category", "group", "collection"]);
+/**
+ * Route names that have a card of their own, keyed by whether it carries a slug.
+ *
+ * `project` is here for the INDEXABLE project pages only: build-og-pages.ts
+ * draws 2,602 of them and skips the `thinProject` two thirds, and `ogFor` hands
+ * the rest the static card because their file is not on disk.
+ */
+const OG_SLUGGED = new Set([
+	"product",
+	"project",
+	"category",
+	"group",
+	"collection",
+]);
 const OG_STANDING = new Set([
 	"home",
 	"categories",
@@ -866,7 +907,7 @@ const OG_STANDING = new Set([
  * A paginated route keeps its parent's card: page 7 of a collection is the same
  * subject as page 1, and minting a second image for it would say otherwise.
  */
-function ogForRoute(route: Route): string | undefined {
+function ogForRoute(route: Route): Card | undefined {
 	const slug = (route as { slug?: string }).slug;
 	if (OG_SLUGGED.has(route.name) && slug) {
 		return ogFor(route.name, slug, route.lang);
@@ -913,10 +954,13 @@ function head(o: {
 	alternates: Record<Lang, string>;
 	noindex: boolean;
 	/** Per-page card, when one has been generated for this route. */
-	image?: string;
+	card?: Card;
 }): string {
 	const { lang, meta, alternates } = o;
-	const image = o.image ?? OG_IMAGE;
+	const image = o.card?.image ?? OG_IMAGE;
+	// The static card carries the site's own name and tagline, which describes
+	// nothing about the page it is standing in for. The title does.
+	const imageAlt = o.card?.alt ?? meta.title;
 	return [
 		// First, ahead of the title: these are the only things in this block a
 		// preload scanner can start before the stylesheet exists.
@@ -939,8 +983,26 @@ function head(o: {
 				`<link rel="alternate" hreflang="${l}" href="${SITE}${alternates[l]}" data-alt>`,
 		),
 		`<link rel="alternate" hreflang="x-default" href="${SITE}${alternates[DEFAULT_LANG]}" data-alt>`,
-		// The favicon link is already in the shell: rsbuild picks up
-		// apps/frontend/public/favicon.svg on its own.
+		// Feed autodiscovery. /feed.xml has answered 200 with 50 valid Atom entries
+		// since the backend shipped, and nothing in 8,867 documents ever pointed at
+		// it, so every reader's "find the feed" button came back empty. `atom+xml`,
+		// not `rss+xml`: the handler in apps/backend/src/api-v1.ts emits Atom, and
+		// the title is that feed's own <title> so the two cannot disagree. One
+		// feed, English only, which is why there is no per-locale variant here.
+		`<link rel="alternate" type="application/atom+xml" title="canireplaceit: prices just verified" href="${SITE}/feed.xml">`,
+		// The SVG icon link is already in the shell, ahead of this block: rsbuild
+		// picks up apps/frontend/public/favicon.svg on its own, and first is where
+		// a browser that supports SVG should find it. The rasters below are for
+		// everything that does not take one — Google's favicon documentation names
+		// every other format and never SVG, and iOS ignores it outright.
+		`<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">`,
+		`<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">`,
+		`<link rel="manifest" href="/site.webmanifest">`,
+		// The real page background in each scheme, not the brand blue: this paints
+		// the browser's own chrome around the document, and a blue bar over a white
+		// page reads as a rendering bug.
+		`<meta name="theme-color" content="#fbfbfd" media="(prefers-color-scheme: light)">`,
+		`<meta name="theme-color" content="#0a0d13" media="(prefers-color-scheme: dark)">`,
 		`<meta property="og:type" content="website">`,
 		`<meta property="og:site_name" content="canireplaceit">`,
 		`<meta property="og:title" content="${esc(meta.title)}">`,
@@ -949,6 +1011,9 @@ function head(o: {
 			? `<meta property="og:url" content="${meta.canonical}">`
 			: "",
 		`<meta property="og:image" content="${image}">`,
+		`<meta property="og:image:width" content="${OG_W}">`,
+		`<meta property="og:image:height" content="${OG_H}">`,
+		`<meta property="og:image:alt" content="${esc(imageAlt)}">`,
 		`<meta property="og:locale" content="${OG_LOCALE[lang]}">`,
 		...SupportedLangs.filter((l) => l !== lang).map(
 			(l) => `<meta property="og:locale:alternate" content="${OG_LOCALE[l]}">`,
@@ -957,6 +1022,7 @@ function head(o: {
 		`<meta name="twitter:title" content="${esc(meta.title)}">`,
 		`<meta name="twitter:description" content="${esc(meta.description)}">`,
 		`<meta name="twitter:image" content="${image}">`,
+		`<meta name="twitter:image:alt" content="${esc(imageAlt)}">`,
 		...(meta.jsonLd ?? []).map(
 			(s) =>
 				`<script type="application/ld+json" data-ld>${s.replace(/</g, "\\u003c")}</script>`,
@@ -1046,12 +1112,12 @@ function emit(o: {
 	const body = renderToString(React.createElement(App));
 
 	// The card for this route, when one has been generated. Sign-in, the
-	// dashboard, admin, the legal pages and the project pages keep the static
-	// card on purpose, see the header of scripts/build-og-pages.ts.
-	const image = ogForRoute(o.route);
+	// dashboard, admin, the legal pages and the noindex project pages keep the
+	// static card on purpose, see the header of scripts/build-og-pages.ts.
+	const card = ogForRoute(o.route);
 	const html = withHead(
 		lang,
-		head({ lang, meta: o.meta, alternates, noindex, image }),
+		head({ lang, meta: o.meta, alternates, noindex, card }),
 	)
 		/**
 		 * JSON, not JavaScript.
@@ -1292,7 +1358,10 @@ for (const lang of SupportedLangs) {
 				projectSlugs: prettySlug,
 				healthOf: archivedReading,
 			}),
-			boot: bootFor([product]),
+			boot: {
+				...bootFor([product]),
+				related: relatedProducts(listed, product),
+			},
 			kind: "product",
 			lastmod: changedAt.get(product.slug) as string,
 		});
@@ -1346,6 +1415,11 @@ for (const lang of SupportedLangs) {
 		"glossary",
 		// The not-yet list. Derived, so it empties itself as the catalogue improves.
 		"gaps",
+		// Who runs this, how a verdict is decided, how a price is checked and what
+		// sponsorship does not buy. Static copy and no payload, but the Quality
+		// Rater Guidelines name the About page as the starting point for judging
+		// whether a site can be trusted, so its absence was load-bearing.
+		"about",
 		"signin",
 		"dashboard",
 		// The operator's console, on the same terms: one document of labels, its
@@ -1355,7 +1429,14 @@ for (const lang of SupportedLangs) {
 	] as const) {
 		emit({
 			route: { name: page, lang },
-			meta: standingMeta(page, lang),
+			// The count belongs in the title, not just the H1. App.tsx already
+			// passes it on a client-side navigation, so without this a reader saw
+			// "43 paid tools..." and a crawler saw "Paid tools...".
+			meta: standingMeta(
+				page,
+				lang,
+				page === "gaps" ? { gaps: gapProducts.length } : undefined,
+			),
 			/**
 			 * Standing pages carry no payload, with one exception.
 			 *
@@ -1410,6 +1491,27 @@ for (const lang of SupportedLangs) {
 		),
 		boot: { ...bootFor([]), projectSlugs: escapeProjectSlugs },
 		kind: "categories",
+		lastmod: newest(listed.map((p) => p.slug)),
+	});
+
+	/**
+	 * The index over every product, at the prefix all 592 of them sit under.
+	 *
+	 * `/en/alternatives/` had no route at all, so `parseRoute` returned
+	 * `unknown`, nginx answered the directory with its stock 403, and Googlebot's
+	 * path-trimming recorded the whole money-page prefix as blocked. It is not a
+	 * second home page: the home page is a ranked, filterable 48 at a time, and
+	 * this is every product at once, grouped by category. `kind: "standing"` on
+	 * purpose — one document per locale, and the standing shard is where it goes.
+	 */
+	emit({
+		route: { name: "products", lang },
+		meta: productsMeta(lang, listed.length, liveCategories.length),
+		boot: {
+			...bootFor([]),
+			productIndex: listed.map((p) => [p.slug, p.name, p.category]),
+		},
+		kind: "standing",
 		lastmod: newest(listed.map((p) => p.slug)),
 	});
 
@@ -1476,7 +1578,7 @@ writeFileSync(
 			meta: { ...homeMeta(DEFAULT_LANG, products.length), jsonLd: [] },
 			alternates: alternateUrls({ name: "home", lang: DEFAULT_LANG }),
 			noindex: false,
-			image: ogFor("home", "", DEFAULT_LANG),
+			card: ogFor("home", "", DEFAULT_LANG),
 		}),
 	),
 );
@@ -1512,7 +1614,7 @@ writeFileSync(
 			alternates: alternateUrls({ name: "home", lang: DEFAULT_LANG }),
 			noindex: true,
 			// A dead link gets shared too, usually as a screenshot.
-			image: ogFor("notfound", "", DEFAULT_LANG),
+			card: ogFor("notfound", "", DEFAULT_LANG),
 		}),
 	),
 );

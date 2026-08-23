@@ -1,5 +1,6 @@
 // The parts every list design shares: where sponsors sit, and how a row is labelled.
 
+import { byWeight } from "core/src/collections";
 import { priceState } from "core/src/content";
 import { type ListedProduct, money, type Slot } from "./api";
 import type { Key, Lang } from "./i18n";
@@ -91,3 +92,35 @@ export const priceLabel = (
 		? t(`price.basis.${p.pricing.basis}` as Key)
 		: t("price.unverified");
 };
+
+/**
+ * The products a product page links sideways to.
+ *
+ * Called by the prerenderer, not by a component: a product page ships only its
+ * own entry, so the six neighbours it should link to are not in its payload and
+ * cannot be derived in the browser. Same category, heaviest first.
+ *
+ * Trimmed to what `ProductCard` actually prints, which is the name, the price,
+ * the verdict and HOW MANY open source alternatives there are — never one of
+ * them. So each alternative travels as its `kind` and nothing else: the four
+ * fields a card never reads are 5.9 kB of a 7.1 kB entry, and this rides on all
+ * 1,184 product documents. The cast is the price of keeping `ProductCard` on one
+ * type; nothing downstream of `ctx.related` reads any other field.
+ */
+export const relatedProducts = (
+	all: ListedProduct[],
+	product: ListedProduct,
+	limit = 6,
+): ListedProduct[] =>
+	byWeight(
+		all.filter(
+			(p) => p.category === product.category && p.slug !== product.slug,
+		),
+	)
+		.slice(0, limit)
+		.map((p) => ({
+			...p,
+			alternatives: p.alternatives.map(
+				(a) => ({ kind: a.kind }) as (typeof p.alternatives)[number],
+			),
+		}));
