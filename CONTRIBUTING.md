@@ -157,7 +157,14 @@ Add to `data/categories.json` only when nothing existing fits:
 
 ```jsonc
 { "slug": "notes-docs", "name": { "en": "Notes & docs", "fr": "Notes et docs" },
-  "icon": "notebook-pen", "position": 12 }
+  "icon": "notebook-pen", "position": 12,
+  "blurb": {                     // optional, and the only unique prose a category
+                                 // page has. One paragraph on what this corner of
+                                 // the catalogue is and where its exits are.
+                                 // Leave it out rather than write filler.
+    "en": "Almost nothing here is charging you for the editor…",
+    "fr": "Presque personne ici ne vous facture l'éditeur…"
+  } }
 ```
 
 `icon` must be a real [lucide](https://lucide.dev/icons/) name. Every category

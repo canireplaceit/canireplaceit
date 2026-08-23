@@ -109,8 +109,11 @@ function Item({
 /**
  * The menu: one trigger, and a panel holding every category the site has.
  *
- * This is the INDEX menu — all 84, on the pages that browse them. The header's
- * dropdown is a different thing and deliberately shorter; see navMenu.tsx.
+ * This is the INDEX menu — all 85, and on a category page it renders AFTER
+ * `</main>`, beside the footer, because a directory of every other category is
+ * site navigation and not this page's content. See `CategoryPage` in pages.tsx
+ * for what that was measured to be costing. The header's row is a different
+ * thing and deliberately shorter; see navMenu.tsx.
  *
  * The order is `position`, the authored ordering, and not the product count. A
  * count ranking is the right spine for the index page, which argues about size;
@@ -137,6 +140,7 @@ export function CategoryMenu({
 	t,
 	tc,
 	current,
+	footer = false,
 }: {
 	cats: Cat[];
 	stats: Map<string, CategoryStat>;
@@ -145,13 +149,21 @@ export function CategoryMenu({
 	tc: Tc;
 	/** The category being read, marked in the list. Absent on the home page. */
 	current?: string;
+	/**
+	 * The footer-adjacent copy: it names itself rather than the page it is on,
+	 * and it unrolls upward. A 60vh panel this close to the bottom would
+	 * otherwise open over the footer, and a trigger reading "Analytics" under
+	 * the Analytics page is a control nobody can guess the purpose of.
+	 */
+	footer?: boolean;
 }) {
 	// Escape, click-away, close-on-navigation and hover-as-enhancement, shared
 	// with the header dropdowns. See `useDisclosure` in navMenu.tsx.
 	const { open, ref, setOpen } = useDisclosure();
 
 	if (cats.length === 0) return null;
-	const here = current ? cats.find((c) => c.slug === current) : undefined;
+	const here =
+		current && !footer ? cats.find((c) => c.slug === current) : undefined;
 	const ordered = [...cats].sort((a, b) => a.position - b.position);
 	const TriggerIcon = here ? categoryIcon(here.icon) : LayoutGrid;
 
@@ -184,7 +196,9 @@ export function CategoryMenu({
 				{/* `top-full` with the 4px offset as PADDING and not a margin: a gap
 				    between the trigger and the panel is a strip the pointer falls
 				    through on the way down, and the panel closes under it. */}
-				<div className="absolute top-full right-0 left-0 z-20 pt-1">
+				<div
+					className={`absolute right-0 left-0 z-20 ${footer ? "bottom-full pb-1" : "top-full pt-1"}`}
+				>
 					<div className="max-h-[60vh] overflow-y-auto overscroll-contain rounded-[calc(var(--radius))] border border-border bg-surface p-2 shadow-lg">
 						<ul
 							className={`${GRID_1COL} gap-x-3 sm:grid-cols-2 lg:grid-cols-3`}

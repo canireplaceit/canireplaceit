@@ -558,6 +558,9 @@ const CategorySchema = z.object({
 	icon: z.string(),
 	group: z.enum(CATEGORY_GROUPS),
 	position: z.number(),
+	// The authored paragraph, where somebody has written one. `z.object` strips
+	// what it does not name, so an absent line here is the field never arriving.
+	blurb: TranslationsSchema.optional(),
 });
 
 /**

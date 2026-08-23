@@ -818,149 +818,187 @@ export function CategoryPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 	const neighbours = neighboursOf(categories, slug);
 
 	return (
-		<PageShell
-			measure={MEASURE}
-			trail={[
-				homeCrumb(ctx),
-				{ label: t("page.categories"), href: paths.categories(lang) },
-				{ label: name },
-			]}
-			eyebrow={t("page.categories")}
-			icon={
-				<span
-					className="grid size-11 shrink-0 place-items-center rounded-[calc(var(--radius))] border border-border"
-					style={{
-						background: "color-mix(in srgb, var(--brand) 10%, var(--surface))",
-					}}
-				>
-					<Icon className="size-5 text-brand" aria-hidden />
-				</span>
-			}
-			/**
-			 * The title phrase, not the bare category word.
-			 *
-			 * `<h1>AI</h1>` under `<title>8 open source AI alternatives</title>` gave
-			 * Google nothing to confirm the title against, which is what makes a
-			 * rewritten SERP title likely. The category word is still the first thing
-			 * a reader sees — it is inside the phrase, and the icon and the trail
-			 * carry it too.
-			 */
-			title={t("cats.h1").replace("{name}", name)}
-			meta={
-				// Everything here is computed from the entries below it, so the page
-				// cannot claim a figure the list does not support.
-				stat && (
-					<div className="panel space-y-4 p-4">
-						<dl className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-							<Figure value={stat.products} label={t("stats.products")} />
-							<Figure value={stat.projects} label={t("cats.projects")} />
-							<Figure
-								value={medianLabel(stat, lang, t)}
-								label={
-									stat.medianPrice === null
-										? t("cats.medianPrice")
-										: `${t("cats.medianOver")} ${stat.pricedProducts}`
-								}
-							/>
-							<Figure
-								value={
-									<span className="font-medium text-sm">
-										<CheapestEscape
-											stat={stat}
-											lang={lang}
-											t={t}
-											projectSlugs={ctx.projectSlugs}
-										/>
-									</span>
-								}
-								label={t("cats.cheapest")}
-							/>
-						</dl>
-						<div className="border-border border-t pt-3">
-							<Heading>{t("cats.ladder")}</Heading>
-							<RungLegend stat={stat} t={t} />
+		/*
+		 * The fragment is the whole point: the 85-item directory is site
+		 * navigation, so it renders AFTER </main>, beside the footer, and `<main>`
+		 * holds this category and nothing else.
+		 *
+		 * WHY IT MOVED. `CategoryMenu` was the first child of the body, inside
+		 * `<main>`, on all 170 category pages. Measured on the built output that
+		 * made 73% of a category page's `<main>` five-grams identical to every
+		 * other category page's, the median pair 0.59 Jaccard-similar, and 90% of
+		 * the contextual links on a category page point at a sibling category —
+		 * the scaled-content signature, on the exact URLs that should rank for
+		 * "open source CRM". Nothing is orphaned by the move: every link is still
+		 * in the document, still a real `<a href>`, still crawled, and the four
+		 * editorially chosen neighbours plus the breadcrumb are still in `<main>`
+		 * where a reader looking for "somewhere near here" reads them.
+		 */
+		<>
+			<PageShell
+				measure={MEASURE}
+				trail={[
+					homeCrumb(ctx),
+					{ label: t("page.categories"), href: paths.categories(lang) },
+					{ label: name },
+				]}
+				eyebrow={t("page.categories")}
+				icon={
+					<span
+						className="grid size-11 shrink-0 place-items-center rounded-[calc(var(--radius))] border border-border"
+						style={{
+							background:
+								"color-mix(in srgb, var(--brand) 10%, var(--surface))",
+						}}
+					>
+						<Icon className="size-5 text-brand" aria-hidden />
+					</span>
+				}
+				/**
+				 * The title phrase, not the bare category word.
+				 *
+				 * `<h1>AI</h1>` under `<title>8 open source AI alternatives</title>` gave
+				 * Google nothing to confirm the title against, which is what makes a
+				 * rewritten SERP title likely. The category word is still the first thing
+				 * a reader sees — it is inside the phrase, and the icon and the trail
+				 * carry it too.
+				 */
+				title={t("cats.h1").replace("{name}", name)}
+				/**
+				 * The one paragraph that is only true of this category.
+				 *
+				 * Everything else on this page is derived, and derived is exactly why
+				 * 85 of these read as one page with the noun swapped. `blurb` on the
+				 * category is the only field on the site where somebody can say what
+				 * this corner of the catalogue actually is; absent on most of them for
+				 * now, and absent renders nothing rather than a filler sentence.
+				 */
+				lede={category.blurb && tc(category.blurb)}
+				meta={
+					// Everything here is computed from the entries below it, so the page
+					// cannot claim a figure the list does not support.
+					stat && (
+						<div className="panel space-y-4 p-4">
+							<dl className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+								<Figure value={stat.products} label={t("stats.products")} />
+								<Figure value={stat.projects} label={t("cats.projects")} />
+								<Figure
+									value={medianLabel(stat, lang, t)}
+									label={
+										stat.medianPrice === null
+											? t("cats.medianPrice")
+											: `${t("cats.medianOver")} ${stat.pricedProducts}`
+									}
+								/>
+								<Figure
+									value={
+										<span className="font-medium text-sm">
+											<CheapestEscape
+												stat={stat}
+												lang={lang}
+												t={t}
+												projectSlugs={ctx.projectSlugs}
+											/>
+										</span>
+									}
+									label={t("cats.cheapest")}
+								/>
+							</dl>
+							<div className="border-border border-t pt-3">
+								<Heading>{t("cats.ladder")}</Heading>
+								<RungLegend stat={stat} t={t} />
+							</div>
 						</div>
-					</div>
-				)
-			}
-		>
-			<CategoryMenu
-				cats={categories}
-				stats={stats}
-				lang={lang}
-				t={t}
-				tc={tc}
-				current={slug}
-			/>
+					)
+				}
+			>
+				{/*
+				 * SPONSORSHIP MOUNT POINT — owned by the sponsorship work, not this file's
+				 * author. The per-category slot (`placement: "category"`, `category: slug`)
+				 * belongs here, between the menu and the product list: above the fold on a
+				 * phone, and clearly separated from the entries so a paid unit never reads
+				 * as a verdict. Drop a <SponsorSlot slot={…} /> in and nothing else on this
+				 * page has to move.
+				 */}
 
-			{/*
-			 * SPONSORSHIP MOUNT POINT — owned by the sponsorship work, not this file's
-			 * author. The per-category slot (`placement: "category"`, `category: slug`)
-			 * belongs here, between the menu and the product list: above the fold on a
-			 * phone, and clearly separated from the entries so a paid unit never reads
-			 * as a verdict. Drop a <SponsorSlot slot={…} /> in and nothing else on this
-			 * page has to move.
-			 */}
-
-			{/* For a category of things that ship with the system, the mapping IS
+				{/* For a category of things that ship with the system, the mapping IS
 			    the page: "cd → zoxide" is one line and should take one line.
 			    Self-suppresses everywhere else. */}
-			<DefaultsTable products={inCat} t={t} tc={tc} lang={lang} />
+				<DefaultsTable products={inCat} t={t} tc={tc} lang={lang} />
 
-			<Section title={t("cats.inThis")} count={inCat.length}>
-				<ul className={`${GRID_1COL} gap-2 sm:grid-cols-2`}>
-					{inCat.map((p) => (
-						<ProductCard key={p.slug} product={p} ctx={ctx} />
-					))}
-				</ul>
-				{/* Honest orientation for the 17 categories holding two products or
+				<Section title={t("cats.inThis")} count={inCat.length}>
+					<ul className={`${GRID_1COL} gap-2 sm:grid-cols-2`}>
+						{inCat.map((p) => (
+							<ProductCard key={p.slug} product={p} ctx={ctx} />
+						))}
+					</ul>
+					{/* Honest orientation for the 17 categories holding two products or
 				    fewer, which stay `noindex` by the rule in prerender.ts. It tells a
 				    reader who landed here where to go next instead of padding the page
 				    with text to game a threshold. */}
-				{inCat.length > 0 && inCat.length < 3 && (
-					<p className="mt-3 text-muted text-sm">{t("cats.smallNote")}</p>
-				)}
-			</Section>
-
-			{neighbours.length > 0 && (
-				<Section
-					title={t("cats.nearby")}
-					actions={
-						<Link
-							href={paths.categories(lang)}
-							className="text-brand text-sm hover:underline"
-						>
-							{t("cats.all")} →
-						</Link>
-					}
-				>
-					<ul className={`${GRID_1COL} gap-2 sm:grid-cols-2`}>
-						{neighbours.map((c) => {
-							const s = stats.get(c.slug);
-							const NIcon = categoryIcon(c.icon);
-							return (
-								<li key={c.slug} className="card card-link">
-									<Link
-										href={paths.category(lang, c.slug)}
-										className="flex items-center gap-3 p-3.5"
-									>
-										<NIcon className="size-4 shrink-0 text-brand" aria-hidden />
-										<span className="min-w-0 flex-1 truncate font-medium text-sm">
-											{tc(c.name)}
-										</span>
-										<span className="nums text-muted text-xs">
-											{s?.products ?? 0}
-										</span>
-									</Link>
-								</li>
-							);
-						})}
-					</ul>
+					{inCat.length > 0 && inCat.length < 3 && (
+						<p className="mt-3 text-muted text-sm">{t("cats.smallNote")}</p>
+					)}
 				</Section>
-			)}
 
-			<EditThisPage file={CATEGORY_FILE} t={t} className="mt-10" />
-		</PageShell>
+				{neighbours.length > 0 && (
+					<Section
+						title={t("cats.nearby")}
+						actions={
+							<Link
+								href={paths.categories(lang)}
+								className="text-brand text-sm hover:underline"
+							>
+								{t("cats.all")} →
+							</Link>
+						}
+					>
+						<ul className={`${GRID_1COL} gap-2 sm:grid-cols-2`}>
+							{neighbours.map((c) => {
+								const s = stats.get(c.slug);
+								const NIcon = categoryIcon(c.icon);
+								return (
+									<li key={c.slug} className="card card-link">
+										<Link
+											href={paths.category(lang, c.slug)}
+											className="flex items-center gap-3 p-3.5"
+										>
+											<NIcon
+												className="size-4 shrink-0 text-brand"
+												aria-hidden
+											/>
+											<span className="min-w-0 flex-1 truncate font-medium text-sm">
+												{tc(c.name)}
+											</span>
+											<span className="nums text-muted text-xs">
+												{s?.products ?? 0}
+											</span>
+										</Link>
+									</li>
+								);
+							})}
+						</ul>
+					</Section>
+				)}
+
+				<EditThisPage file={CATEGORY_FILE} t={t} className="mt-10" />
+			</PageShell>
+
+			{/* The negative margin eats part of the shell's own bottom padding, so
+			    the directory reads as the last band of this page rather than as a
+			    stray control floating above the footer. */}
+			<div className={`-mt-10 mx-auto ${MEASURE} w-full px-4 pb-12`}>
+				<CategoryMenu
+					cats={categories}
+					stats={stats}
+					lang={lang}
+					t={t}
+					tc={tc}
+					current={slug}
+					footer
+				/>
+			</div>
+		</>
 	);
 }
 

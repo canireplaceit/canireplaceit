@@ -515,6 +515,18 @@ export type Category = {
 	/** Which theme the index files this under. See `CATEGORY_GROUPS`. */
 	group: CategoryGroup;
 	position: number;
+	/**
+	 * The one paragraph that is only true of THIS category — what the software in
+	 * it does, what the paid tier is actually charging for, and where the exits
+	 * are. Optional, because 85 of these have to be written by hand and a blank
+	 * is honest where an auto-generated sentence would not be.
+	 *
+	 * It exists because everything else on a category page is derived, and a
+	 * derived page is a page that differs from its 84 siblings by a noun and five
+	 * integers. Same shape as a product's `why`: authored per locale, English
+	 * required and the fallback.
+	 */
+	blurb?: Translations;
 };
 
 export type Issue = { path: string; message: string };
@@ -937,6 +949,9 @@ export function validateCategory(value: unknown, index: number): Issue[] {
 		});
 	}
 	checkTranslations(value.name, `[${index}].name`, issues);
+	// Optional, so absence is fine and a present-but-broken one is not.
+	if (value.blurb !== undefined)
+		checkTranslations(value.blurb, `[${index}].blurb`, issues);
 	return issues;
 }
 
