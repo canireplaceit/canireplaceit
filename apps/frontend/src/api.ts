@@ -66,6 +66,13 @@ const TranslationsSchema = z.object({
 /** Endpoints that only acknowledge. Extra keys are dropped, as everywhere here. */
 const OkSchema = z.object({ ok: z.literal(true) });
 
+/**
+ * `signedIn` is the browser's only view of the session: the cookie is httpOnly,
+ * so before this the only way to find out was to call `/api/me/*` and read the
+ * 401. Signature check on the server, no database read — see `sessionOf`.
+ */
+const SessionSchema = z.object({ ok: z.literal(true), signedIn: z.boolean() });
+
 const StatsSchema = z.object({
 	products: z.number(),
 	categories: z.number(),
@@ -643,8 +650,9 @@ const post = <S extends z.ZodType>(path: string, schema: S, body: unknown) =>
 	req(path, schema, { method: "POST", body: JSON.stringify(body) });
 
 export const api = {
-	/** Mint the voter cookie before any vote, so voting is not the first request. */
-	session: () => req("/api/session", OkSchema),
+	/** Mint the voter cookie before any vote, so voting is not the first request,
+	 *  and report whether there is a session worth asking `/api/me/*` about. */
+	session: () => req("/api/session", SessionSchema),
 	products: () => req("/api/products", z.array(ListedProductSchema)),
 	categories: () => req("/api/categories", z.array(CategorySchema)),
 	stats: () => req("/api/stats", StatsSchema),

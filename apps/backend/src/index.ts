@@ -617,11 +617,22 @@ const app = new Elysia()
 	})
 
 	/** Issues the voter cookie on first load, so a vote is never the request that mints the identity — see `freshCookie` scoring. */
-	.get("/api/session", ({ cookie }) => {
+	/**
+	 * The voter cookie, plus the one fact about the session cookie the browser
+	 * cannot read for itself: whether there is one. Without it the frontend had
+	 * to ask `/api/me/campaigns` and `/api/me/team` on every page load and read
+	 * the 401, which is two requests wasted on every anonymous visit.
+	 *
+	 * `sessionOf` rather than `readSession`, so an active reader's session still
+	 * rolls forward here now that those two are no longer asked. Stateless JWT:
+	 * a signature check, no database read.
+	 */
+	.get("/api/session", async ({ cookie }) => {
+		const signedIn = (await sessionOf(cookie)) !== null;
 		const existing = readVoterCookie(cookie.cri_v?.value);
-		if (existing) return { ok: true, existing: true };
+		if (existing) return { ok: true, existing: true, signedIn };
 		issueVoterCookie(cookie);
-		return { ok: true, existing: false };
+		return { ok: true, existing: false, signedIn };
 	})
 
 	/** Public traffic figures from Umami; `{ unavailable: true }` rather than a 503 when it's off or unreachable so the page still renders. */

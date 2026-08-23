@@ -983,17 +983,23 @@ export function App() {
 			.catch(() => {});
 	};
 
-	/** Re-read both after a membership change, so the panel and the ads agree. */
-	const refreshAccount = () => {
+	/**
+	 * Read both, after a membership change and once at boot when — and only when
+	 * — `/api/session` says there is a session to read them for.
+	 *
+	 * `useCallback` so the boot effect can depend on it without re-running.
+	 */
+	const refreshAccount = useCallback(() => {
 		void api
 			.campaigns()
 			.then(setCampaigns)
-			.catch(() => setCampaigns(null));
+			.catch(() => setCampaigns(null))
+			.finally(() => setCampaignsLoading(false));
 		void api
 			.team()
 			.then(setTeam)
 			.catch(() => setTeam(null));
-	};
+	}, []);
 	// Filters live in React state only, never the URL: the pager owns URLs, and
 	// filters are a reading aid on top of whichever page the reader is on.
 	// Seeded from the URL so a shared link opens the view that was shared. Read
@@ -1047,53 +1053,101 @@ export function App() {
 	useEffect(() => startAdTracking(), []);
 
 	useEffect(() => {
-		// Fire and forget: gets the voter cookie in place before anyone clicks,
-		// so a vote is never the request that also mints the identity.
-		void api.session().catch(() => {});
+		// Gets the voter cookie in place before anyone clicks, so a vote is never
+		// the request that also mints the identity. It also answers the one
+		// question the browser cannot answer for itself — the session cookie is
+		// httpOnly — so the two `/api/me/*` calls below it are asked only of the
+		// readers who have an account. They used to be asked on every page load,
+		// and on essentially all of them the answer was "not signed in".
+		api
+			.session()
+			.then(({ signedIn }) => {
+				if (signedIn) refreshAccount();
+				else setCampaignsLoading(false);
+			})
+			.catch(() => setCampaignsLoading(false));
 
 		// The full catalogue is deliberately NOT here. It is 1.7 MB gzipped, every
 		// page was fetching it on boot to render content the prerendered HTML
 		// already carried, and it cost ten seconds of LCP and 0.63 of CLS on the
 		// home page. `loadCatalogue` below fetches it only when something actually
-		// needs more than this page's own slice. The other three are a few
-		// kilobytes each and every page renders them.
-		Promise.all([api.categories(), api.slots(), api.stats()])
-			.then(([c, s, st]) => {
-				setCats(c);
-				setSlots(s);
-				setStats(st);
-			})
+		// needs more than this page's own slice.
+		//
+		// Neither are the categories, for the same reason one step smaller: the
+		// payload carries all 85 of them, bilingual, on every page (see `shipBoot`
+		// in scripts/prerender.ts), they are read from the same `categories.json`
+		// the API serves, and they can only change in a build that rewrites this
+		// document too. So this asks only where there is no payload to read — the
+		// dev server, and the locale-less shell at `/`.
+		if (!boot()?.categories) {
+			api
+				.categories()
+				.then(setCats)
+				.catch(() => setError(true));
+		}
+
+		// The slots, on the other hand, are asked for on every page. The payload
+		// carries the board's SHAPE and never its contents — `slotBoard` in
+		// prerender.ts bakes `sponsor: null` into all twenty positions on purpose,
+		// so a paid advert is not frozen into 8,865 static files — and occupancy
+		// changes the moment a run ends. This is the request that fills the cells
+		// the first paint already reserved, plus the per-category inventory that
+		// was never baked at all.
+		api
+			.slots()
+			.then(setSlots)
 			.catch(() => setError(true));
+	}, [refreshAccount]);
 
-		// Separate, and deliberately not part of the `Promise.all` above: the ad
-		// numbers are for a buyer scrolling to the sponsor section, and a page must
-		// never fail to render its list because the analytics query was slow.
-		api
-			.adStats()
-			.then(setAdStats)
-			.catch(() => {});
-
-		// Same reasoning: the stats page's figures come from Umami over the network,
-		// and every other page must render whether or not that answers.
-		api
-			.siteStats()
-			.then(setSiteStats)
-			.catch(() => setSiteStats({ unavailable: true }));
-
-		// A 401 here is the normal case — most readers are not advertisers — so it
-		// resolves to "not signed in" rather than being treated as an error.
-		api
-			.campaigns()
-			.then(setCampaigns)
-			.catch(() => setCampaigns(null))
-			.finally(() => setCampaignsLoading(false));
-
-		// A 401 here is the normal case for a reader who is not an advertiser.
-		api
-			.team()
-			.then(setTeam)
-			.catch(() => setTeam(null));
-	}, []);
+	/**
+	 * The three that only one page each renders, asked for by that page.
+	 *
+	 * All three used to fire on every load, which is 3.6 kB gzipped and three
+	 * round trips spent on a document that renders none of them. The admin page
+	 * has always fetched its own; these now do the same.
+	 *
+	 * `/api/stats` is the one with teeth. The home stat grid is `grid-cols-3`
+	 * until `stats.switches` is non-zero and `sm:grid-cols-4` after, so the
+	 * answer arriving grew a fourth tile and moved the page under it. The
+	 * prerenderer now bakes the figure from the live vote total (`siteStats` in
+	 * prerender.ts, via `loadCounts`), and every other field in it is derived
+	 * from the same catalogue the API derives it from — so on a prerendered home
+	 * page the request could only ever return what the page already shows. The
+	 * per-product counts beside it are baked from that same total and are not
+	 * refetched either, so this keeps the whole page's vote data as of one
+	 * moment rather than making one headline live and the 592 figures under it
+	 * stale. What is left is the case the payload cannot cover: the dev server,
+	 * and a client-side navigation that lands on home from somewhere else.
+	 */
+	const askedFor = useRef(new Set<Route["name"]>());
+	useEffect(() => {
+		if (askedFor.current.has(route.name)) return;
+		if (route.name === "home") {
+			if (stats) return;
+			askedFor.current.add("home");
+			api
+				.stats()
+				.then(setStats)
+				.catch(() => {});
+		}
+		if (route.name === "sponsor") {
+			askedFor.current.add("sponsor");
+			// The ad numbers are for a buyer scrolling the sponsor page, and it must
+			// never fail to render because the analytics query was slow.
+			api
+				.adStats()
+				.then(setAdStats)
+				.catch(() => {});
+		}
+		if (route.name === "stats") {
+			askedFor.current.add("stats");
+			// Umami, over the network, from the one page that prints it.
+			api
+				.siteStats()
+				.then(setSiteStats)
+				.catch(() => setSiteStats({ unavailable: true }));
+		}
+	}, [route.name, stats]);
 
 	// Ten hero positions, in the authored order. `position` is the sold order, so
 	// it drives the layout rather than whatever order the API returned rows in.
