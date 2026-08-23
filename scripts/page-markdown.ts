@@ -883,6 +883,46 @@ function glossaryMarkdown(input: MdInput): string {
  * and the dashboard render copy that lives in the React tree, so a twin for
  * them could only ever say "look at the HTML instead".
  */
+
+/**
+ * The provenance page, as markdown.
+ *
+ * `/en/about` is where the method lives: who decides a verdict, how a price is
+ * checked, what the sponsorship does not buy. That is exactly what a model needs
+ * in order to justify citing this catalogue, and it was the one page of that
+ * kind with no twin. Composed from the same `about.*` keys the React page reads,
+ * in the same order, so the two cannot drift.
+ */
+function aboutMarkdown(input: MdInput): string {
+	const { lang } = input;
+	const d = DICT[lang] ?? DICT.en;
+	const k = (key: string): string => d?.[key] ?? DICT.en?.[key] ?? "";
+	const sections: [string, string[]][] = [
+		["about.who.h", ["about.who.p1", "about.who.p2"]],
+		[
+			"about.verdict.h",
+			["about.verdict.p1", "about.verdict.p2", "about.verdict.p3"],
+		],
+		["about.price.h", ["about.price.p1", "about.price.p2"]],
+		["about.gaps.h", ["about.gaps.p1"]],
+		[
+			"about.money.h",
+			["about.money.p1", "about.money.p2", "about.money.p3", "about.money.p4"],
+		],
+		["about.fix.h", ["about.fix.p1"]],
+	];
+	const out: string[] = [`# ${k("about.h1")}`, "", k("about.blurb"), ""];
+	for (const [h, ps] of sections) {
+		out.push(`## ${k(h)}`, "");
+		for (const para of ps) {
+			const text = k(para);
+			if (text) out.push(text, "");
+		}
+	}
+	out.push(footer(input, `${input.site}/api/v1`));
+	return out.join("\n");
+}
+
 export function markdownFor(input: MdInput): string | null {
 	const { boot, route } = input;
 
@@ -943,7 +983,7 @@ export function markdownFor(input: MdInput): string | null {
 			return glossaryMarkdown(input);
 
 		/**
-		 * The two standing pages with something to serve.
+		 * The standing pages with something to serve.
 		 *
 		 * The rest return null on purpose and must keep doing so: `features`
 		 * fetches a code-split dataset on demand and `stats` reads live figures
@@ -953,6 +993,9 @@ export function markdownFor(input: MdInput): string | null {
 		 */
 		case "gaps":
 			return gapsMarkdown(input);
+
+		case "about":
+			return aboutMarkdown(input);
 
 		default:
 			return null;
