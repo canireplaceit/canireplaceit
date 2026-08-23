@@ -552,9 +552,23 @@ const categoryOfProject = (project: Project): Category | undefined => {
 
 const productsIn = (slug: string) => listed.filter((p) => p.category === slug);
 const liveCategories = categories.filter((c) => productsIn(c.slug).length > 0);
+/**
+ * Categories held out of the index.
+ *
+ * Two products and nothing written is a thin page and should not be indexed.
+ * Two products with a written blurb is not the same document: the rule dates
+ * from before `blurb` existed, when every category page carried the same 33
+ * unique words and differed only by a noun and five integers.
+ *
+ * This matters because the held-out set is not arbitrary — it is `auth`, `crm`,
+ * `forms`, `cms`, `payments`, `search`, `e-commerce`, `internal-tools` and
+ * `website-builders`, which are exactly the head terms a category page exists to
+ * win. Writing the category up is the honest way back in; lowering the bar
+ * without writing anything would not be.
+ */
 const noindexCategories = new Set(
 	liveCategories
-		.filter((c) => productsIn(c.slug).length < 3)
+		.filter((c) => productsIn(c.slug).length < 3 && !c.blurb)
 		.map((c) => c.slug),
 );
 
