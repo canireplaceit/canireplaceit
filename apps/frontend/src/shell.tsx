@@ -41,9 +41,22 @@ export type Crumb = { label: string; href?: string };
  * 375px phone a four-level trail wrapped to three lines, and the word "Home" is
  * the one crumb whose meaning survives being an icon.
  */
+/**
+ * "Breadcrumb" was hardcoded English, announced to every French screen-reader
+ * user on 70 pages. The locale is not threaded into this component and there is
+ * no context in this codebase by design, so it is read off the trail itself:
+ * every crumb in one trail is a URL in one locale, and the first is always the
+ * home page of that locale. Cheaper and less fragile than a prop through all 19
+ * PageShell call sites for one word.
+ */
+const TRAIL_LABEL = { en: "Breadcrumb", fr: "Fil d’Ariane" } as const;
+
 export function Trail({ items }: { items: Crumb[] }) {
+	const label = items[0]?.href?.startsWith("/fr")
+		? TRAIL_LABEL.fr
+		: TRAIL_LABEL.en;
 	return (
-		<nav aria-label="Breadcrumb" className="min-w-0 text-muted text-sm">
+		<nav aria-label={label} className="min-w-0 text-muted text-sm">
 			<ol className="flex flex-wrap items-center gap-x-1.5 gap-y-1">
 				{items.map((item, i) => (
 					<li key={item.label} className="flex min-w-0 items-center gap-1.5">
