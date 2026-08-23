@@ -1056,11 +1056,10 @@ function ogForRoute(route: Route): Card | undefined {
 /**
  * The font files the first screen actually paints in.
  *
- * All 15 @font-face rules already carry `font-display: swap`, and only the latin
- * subsets ever load — but nothing asks for them until the browser has downloaded
- * and parsed a stylesheet that is itself discovered after the head of a large
- * document. Measured, they did not start until 696 ms. Two preload links move
- * that to the first bytes of the head.
+ * Only the latin subsets ever load — but nothing asks for them until the browser
+ * has downloaded and parsed a stylesheet that is itself discovered after the head
+ * of a large document. Measured, they did not start until 696 ms. Three preload
+ * links move that to the first bytes of the head.
  *
  * The names are hashed by rsbuild, so they are read off the build rather than
  * written down here, and a missing file emits nothing rather than a dead link.
@@ -1069,12 +1068,16 @@ function ogForRoute(route: Route): Card | undefined {
  */
 const FONT_DIR = join(DIST, "static/font");
 const fontFiles = existsSync(FONT_DIR) ? readdirSync(FONT_DIR) : [];
-// Two, not three. Space Grotesk is declared for the headings and never actually
-// requested by any page in the build — verified in a real navigation before and
-// after this change — so preloading it downloaded 22 kB nothing renders.
+// Space Grotesk is third because it is now `font-display: optional`: a font that
+// is not there when the page first paints is not used at all for that document,
+// and this is a pushState site, so "that document" is the whole visit. The
+// preload is what gets it there in time — with it, the h1 renders in Space
+// Grotesk from the first paint down to 400 kbps / 400 ms; without it, a first
+// visit is served the fallback throughout. Measured, it costs no LCP.
 const PRELOAD_FONTS = [
 	"ibm-plex-sans-latin-400-normal",
 	"ibm-plex-mono-latin-400-normal",
+	"space-grotesk-latin-wght-normal",
 ]
 	.map((base) =>
 		fontFiles.find((f) => f.startsWith(`${base}.`) && f.endsWith(".woff2")),
