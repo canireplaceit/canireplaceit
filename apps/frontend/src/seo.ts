@@ -758,6 +758,16 @@ export type ProductOpts = {
 	projectSlugs?: ReadonlyMap<string, string>;
 	/** This repo's reading, already gated on the health file's own freshness. */
 	healthOf?: (source: Source) => Pick<Health, "archived"> | null | undefined;
+	/**
+	 * The page's own social card, when one was drawn for it.
+	 *
+	 * Google documents `image` as required on Product, and this node had none:
+	 * the card URL was computed two lines away in prerender.ts and thrown away,
+	 * so `og:image` and the structured data could not agree because one side was
+	 * empty. Absent rather than a fallback, because the static house-ad card
+	 * describes the site and not the product.
+	 */
+	image?: string;
 };
 
 /**
@@ -869,6 +879,7 @@ const productNode = (
 			? resolveTranslation(category.name, lang)
 			: product.category,
 		sameAs: product.domain ? [`https://${product.domain}`] : undefined,
+		image: opts?.image,
 		brand: { "@type": "Brand", name: product.name },
 		mainEntityOfPage: { "@id": nodeId(url, "webpage") },
 		offers: priced
@@ -1104,6 +1115,8 @@ export function projectMeta(
 		lastPush?: string;
 		/** The project's own site as the forge records it, when it declares one. */
 		homepage?: string | null;
+		/** The page's own social card, when one was drawn for it. See ProductOpts. */
+		image?: string;
 	},
 ): Meta {
 	const replaces = distinctNames(project.replaces.map((r) => r.name));
@@ -1184,6 +1197,7 @@ export function projectMeta(
 					// `codeRepository`: that property's domain is SoftwareSourceCode, and
 					// this node is a SoftwareApplication.
 					sameAs: [...new Set(sameAs)],
+					image: opts?.image,
 					license: licenseValue(project.license),
 					applicationCategory: categoryApplication(opts?.category?.slug),
 					applicationSubCategory: opts?.category

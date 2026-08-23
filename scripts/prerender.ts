@@ -1612,6 +1612,7 @@ for (const lang of SupportedLangs) {
 				// forge URL that says the project exists and nothing about this site.
 				projectSlugs: prettySlug,
 				healthOf: archivedReading,
+				image: ogFor("product", product.slug, lang)?.image,
 			}),
 			boot: {
 				...bootFor([product]),
@@ -1637,6 +1638,7 @@ for (const lang of SupportedLangs) {
 				// markup: `bun run health` reads it off the forge nightly.
 				lastPush: healthFile.repos[healthKey(project.source)]?.lastPush,
 				homepage: healthFile.repos[healthKey(project.source)]?.homepage,
+				image: ogFor("project", slug, lang)?.image,
 			}),
 			boot: bootFor(cited),
 			kind: "project",
