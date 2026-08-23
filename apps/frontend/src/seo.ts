@@ -38,6 +38,7 @@ export const SITE = "https://canireplaceit.com";
 
 /** One static card for every share — see scripts/prerender.ts. */
 export const OG_IMAGE = `${SITE}/og.png`;
+const LOGO_IMAGE = `${SITE}/logo-512.png`;
 
 export const OG_LOCALE: Record<Lang, string> = { en: "en_US", fr: "fr_FR" };
 
@@ -61,8 +62,52 @@ export type Meta = {
 	noindex?: boolean;
 };
 
-const clamp = (s: string, n = 155) =>
-	s.length <= n ? s : `${s.slice(0, n - 1).trimEnd()}…`;
+/**
+ * Below this, a "complete sentence" is a stub rather than a summary, and the
+ * word-boundary cut says more. Forty characters is roughly the shortest line
+ * that still describes a page — "What is collected, why, and how long it stays."
+ * is one; "Yes." is not, and one full stop early in a paragraph must not be
+ * allowed to collapse the whole description onto it.
+ */
+const MIN_SENTENCE = 40;
+
+/** The index just past the last sentence that FINISHES inside `s`. */
+const lastSentenceEnd = (s: string): number => {
+	// The optional closing bracket or quote is what keeps a French sentence
+	// ending on a guillemet from being cut a character short.
+	const re = /[.!?][)\]»”"'’]?(?=\s)/g;
+	let end = -1;
+	let m = re.exec(s);
+	while (m !== null) {
+		end = m.index + m[0].length;
+		m = re.exec(s);
+	}
+	return end;
+};
+
+/**
+ * Cut to `n` characters without leaving a hole in the middle of a word.
+ *
+ * The old version sliced at exactly 155 and appended an ellipsis, which put
+ * "…and none replaces the full sur…" in front of 542 English product pages and
+ * ended 1,495 indexable descriptions on a fragment. A description is a sentence
+ * a searcher reads, so it stops where a sentence stops: the last full stop that
+ * fits, or — when the string carries no sentence boundary worth keeping, which
+ * is what a title is — the last whole word.
+ *
+ * The half-budget floor is the difference between "the thought that fits" and
+ * "the first four words": a 155-character budget must not collapse a paragraph
+ * to "Yes." because that was the only full stop in range.
+ */
+const clamp = (s: string, n = 155): string => {
+	const text = s.trim();
+	if (text.length <= n) return text;
+	// One character past the budget: a terminator sitting exactly ON the limit
+	// still ends a sentence that fits.
+	const end = lastSentenceEnd(text.slice(0, n + 1));
+	if (end >= MIN_SENTENCE) return text.slice(0, end).trimEnd();
+	return `${text.slice(0, n - 1).replace(/\s+\S*$/, "")}…`;
+};
 
 /**
  * Google truncates a title around 60 characters, and the tail is the first thing
@@ -70,6 +115,68 @@ const clamp = (s: string, n = 155) =>
  * year is what gets dropped when the line does not fit.
  */
 const TITLE_MAX = 60;
+
+/**
+ * The first candidate that fits, longest-preferred.
+ *
+ * Titles used to be written once and then cut, which is how "— page 42" got
+ * eaten off 287 collection pages and left them byte-identical. A ladder says
+ * what to give up instead: the year first, then the count, then a name.
+ */
+const fit = (candidates: (string | false)[], n = TITLE_MAX): string => {
+	const real = candidates.filter((c): c is string => typeof c === "string");
+	return real.find((c) => c.length <= n) ?? clamp(real[real.length - 1], n);
+};
+
+/** "a, b and c" — the way a description names its top three. */
+const listOf = (names: string[], lang: Lang): string =>
+	names.length < 2
+		? (names[0] ?? "")
+		: `${names.slice(0, -1).join(", ")} ${lang === "fr" ? "et" : "and"} ${
+				names[names.length - 1]
+			}`;
+
+/**
+ * The same list with the near-duplicates dropped.
+ *
+ * A plain `Set` does not catch the case that produced the site's worst title:
+ * "Autodesk Flow Production Tracking (ShotGrid)" and "Autodesk Flow Production
+ * Tracking" are two catalogue entries for one product under its old and new
+ * names, and naming both is naming it twice. Anything that contains, or is
+ * contained by, a name already kept is the same product said twice.
+ *
+ * Exported because the project page's own heading has to name the same two.
+ */
+export const distinctNames = (names: string[]): string[] => {
+	const kept: string[] = [];
+	for (const name of names) {
+		const same = kept.some((k) => k.includes(name) || name.includes(k));
+		if (!same) kept.push(name);
+	}
+	return kept;
+};
+
+/** Whole sentences, in order. Every `why` in the catalogue ends on one. */
+const sentences = (text: string): string[] =>
+	text
+		.split(/(?<=[.!?])\s+/)
+		.map((s) => s.trim())
+		.filter(Boolean);
+
+/**
+ * As many whole sentences of `body` as fit after `lead`, and nothing partial.
+ * `tail` is the fallback for the pages whose argument is one long sentence that
+ * cannot fit at all — without it those descriptions would be the lead alone.
+ */
+const describe = (lead: string, body: string, tail: string): string => {
+	let out = lead;
+	for (const s of sentences(body)) {
+		if (`${out} ${s}`.length > 155) break;
+		out = out ? `${out} ${s}` : s;
+	}
+	if (out === lead && `${out} ${tail}`.length <= 155) out = `${out} ${tail}`;
+	return clamp(out);
+};
 
 /** Build year. Baked once so every page in a build agrees. */
 export const YEAR = new Date().getFullYear();
@@ -146,17 +253,15 @@ const organizationNode = (): Node => ({
 	url: `${SITE}/`,
 	description:
 		"An open catalogue of paid SaaS products and the open source projects that replace them, with a dated price receipt and an honest verdict on each.",
-	// TODO(social): point this at the square raster brand mark once the Social &
-	// OG pass produces one. `og.png` is a 1200x630 share card carrying the
-	// wordmark — the only raster brand asset in the repo today, and legal to use
-	// here, but a logo is what Google wants and a card is not one.
+	// A square mark, not the share card. Google wants a logo it can crop to a
+	// circle; `og.png` is 1200x630 of wordmark and would be cropped to nothing.
 	logo: {
 		"@type": "ImageObject",
 		"@id": LOGO_ID,
-		url: OG_IMAGE,
-		contentUrl: OG_IMAGE,
-		width: 1200,
-		height: 630,
+		url: LOGO_IMAGE,
+		contentUrl: LOGO_IMAGE,
+		width: 512,
+		height: 512,
 		caption: "canireplaceit",
 	},
 	image: { "@id": LOGO_ID },
@@ -564,6 +669,12 @@ export const CATEGORIES_LABEL: Record<Lang, string> = {
 	fr: label("fr", "page.categories"),
 };
 
+/** The index over every product, at `/<lang>/alternatives/`. */
+export const PRODUCTS_LABEL: Record<Lang, string> = {
+	en: label("en", "page.products"),
+	fr: label("fr", "page.products"),
+};
+
 export const PROJECTS_LABEL: Record<Lang, string> = {
 	en: label("en", "page.projects"),
 	fr: label("fr", "page.projects"),
@@ -811,28 +922,91 @@ export function productMeta(
 		(a): a is Extract<Product["alternatives"][number], { kind: "oss" }> =>
 			a.kind === "oss",
 	);
-	const names = oss
-		.slice(0, 3)
-		.map((a) => a.name)
-		.join(", ");
+	const names = oss.slice(0, 3).map((a) => a.name);
+
+	/**
+	 * The two modifiers this catalogue can prove and no title on the site said.
+	 *
+	 * "self hosted X" and "free X alternative" are two of the three highest
+	 * volume query shapes in the category, and selfh.st ranks for both on data
+	 * this repo also holds. `selfHostable` is the claim itself; `openCore: none`
+	 * is what makes "free" true rather than "free tier" — the build you run IS
+	 * the product, so there is no gate behind it. Anything short of both facts
+	 * falls through to the plain "open source" line rather than overclaiming.
+	 */
+	const selfHosted = oss.filter((a) => a.facts.selfHostable);
+	const free = selfHosted.filter((a) => a.facts.openCore === "none");
 
 	// The query people actually type is "<n> best open source <thing>
 	// alternatives <year>" — a count, the product, and a freshness signal. The
 	// verdict phrase that used to sit here is nobody's search term and it was the
-	// half that got truncated away.
-	const dated =
+	// half that got truncated away. The H1 carries "open source <X> alternatives"
+	// on every one of these pages, so the title spends its 60 characters on the
+	// modifiers the heading has no room for.
+	const title = fit(
 		lang === "fr"
-			? `${oss.length} alternatives open source à ${product.name} (${YEAR})`
-			: `${oss.length} open source ${product.name} alternatives (${YEAR})`;
-	const title =
-		dated.length <= TITLE_MAX ? dated : dated.replace(` (${YEAR})`, "");
+			? [
+					free.length >= 2 &&
+						`${free.length} alternatives libres et auto-hébergeables à ${product.name} (${YEAR})`,
+					selfHosted.length >= 2 &&
+						`${selfHosted.length} alternatives auto-hébergeables à ${product.name} (${YEAR})`,
+					oss.length > 0 &&
+						`${oss.length} alternatives open source à ${product.name} (${YEAR})`,
+					oss.length > 0 &&
+						`${oss.length} alternatives open source à ${product.name}`,
+					`Alternatives open source à ${product.name} (${YEAR})`,
+					`Alternatives open source à ${product.name}`,
+					`Alternatives à ${product.name} (${YEAR})`,
+					`Alternatives à ${product.name}`,
+				]
+			: [
+					free.length >= 2 &&
+						`${free.length} free, self-hosted ${product.name} alternatives (${YEAR})`,
+					selfHosted.length >= 2 &&
+						`${selfHosted.length} self-hosted ${product.name} alternatives (${YEAR})`,
+					oss.length > 0 &&
+						`${oss.length} open source ${product.name} alternatives (${YEAR})`,
+					oss.length > 0 &&
+						`${oss.length} open source ${product.name} alternatives`,
+					`Open source ${product.name} alternatives (${YEAR})`,
+					`Open source ${product.name} alternatives`,
+					`${product.name} alternatives (${YEAR})`,
+					`${product.name} alternatives`,
+				],
+	);
 
-	const description = clamp(
-		`${names ? `${names}. ` : ""}${resolveTranslation(product.why, lang)}`,
+	/**
+	 * A complete sentence that names the top three, then the argument.
+	 *
+	 * The old line opened "AppFlowy, Affine, Outline." — three nouns, no verb,
+	 * and a hard cut at 155 that left 542 of these ending mid-word. Search
+	 * results that win this query write the description as a sentence naming the
+	 * top three, so this one does; `describe` then adds whole sentences of the
+	 * hand-written `why` until the next one would not fit, and stops.
+	 */
+	const lead =
+		names.length === 0
+			? ""
+			: lang === "fr"
+				? `${names.length === 1 ? "La meilleure alternative open source à" : "Les meilleures alternatives open source à"} ${product.name} ${names.length === 1 ? "est" : "sont"} ${listOf(names, lang)}.`
+				: `The best open source ${product.name} alternative${names.length === 1 ? " is" : "s are"} ${listOf(names, lang)}.`;
+
+	const description = describe(
+		lead,
+		resolveTranslation(product.why, lang),
+		lang === "fr"
+			? "Verdict, licence et ce que coûte la migration."
+			: "Verdict, licence and what switching costs.",
 	);
 
 	const url = paths.product(lang, product.slug);
-	const trail = [{ name: HOME_LABEL[lang], url: paths.home(lang) }];
+	const trail = [
+		{ name: HOME_LABEL[lang], url: paths.home(lang) },
+		// The one prefix the URL actually contains. The trail used to pass through
+		// `/themes/` and `/categories/`, neither of which appears in
+		// `/en/alternatives/1password`, and skip the one that does.
+		{ name: PRODUCTS_LABEL[lang], url: paths.products(lang) },
+	];
 	if (category) {
 		// Same three rungs the visible breadcrumb walks, or the structured data
 		// and the page disagree about where this product sits.
@@ -903,17 +1077,52 @@ export function projectMeta(
 		homepage?: string | null;
 	},
 ): Meta {
-	const replaces = project.replaces.map((r) => r.name);
-	const title =
-		lang === "fr"
-			? `${project.name} — remplace ${replaces.slice(0, 3).join(", ")}`
-			: `${project.name} — replaces ${replaces.slice(0, 3).join(", ")}`;
+	const replaces = distinctNames(project.replaces.map((r) => r.name));
+	const shortest = [...replaces].sort((a, b) => a.length - b.length)[0] ?? "";
 
-	const description = clamp(
+	// Two names, never three, and never the same product twice: the worst title
+	// on the site was 106 characters and named Autodesk Flow Production Tracking
+	// twice, once with its old name in brackets. `distinctNames` drops the
+	// shorter of any pair where one name contains the other; the ladder gives up
+	// the second name, then the first, before it gives up the project.
+	const title = fit(
 		lang === "fr"
-			? `${project.name} (${project.license}) remplace ${replaces.length} produit(s) payant(s) : ${replaces.join(", ")}.`
-			: `${project.name} (${project.license}) replaces ${replaces.length} paid product${replaces.length > 1 ? "s" : ""}: ${replaces.join(", ")}.`,
+			? [
+					replaces.length >= 2 &&
+						`${project.name} — remplace ${replaces[0]} et ${replaces[1]}`,
+					replaces.length >= 1 && `${project.name} — remplace ${replaces[0]}`,
+					replaces.length >= 1 && `${project.name} — remplace ${shortest}`,
+					`${project.name}, une alternative open source (${YEAR})`,
+					`${project.name}, une alternative open source`,
+					project.name,
+				]
+			: [
+					replaces.length >= 2 &&
+						`${project.name} — replaces ${replaces[0]} and ${replaces[1]}`,
+					replaces.length >= 1 && `${project.name} — replaces ${replaces[0]}`,
+					replaces.length >= 1 && `${project.name} — replaces ${shortest}`,
+					`${project.name}, an open source alternative (${YEAR})`,
+					`${project.name}, an open source alternative`,
+					project.name,
+				],
 	);
+
+	// The same rule one budget up: name what fits, count the rest, and end on a
+	// full stop rather than on the 155th character of a 30-name list.
+	const listed = (k: number): string => {
+		const shown = replaces.slice(0, k);
+		const rest = replaces.length - shown.length;
+		const more =
+			rest > 0
+				? lang === "fr"
+					? ` et ${rest} autre${rest > 1 ? "s" : ""}`
+					: ` and ${rest} more`
+				: "";
+		return lang === "fr"
+			? `${project.name} (${project.license}) remplace ${replaces.length} produit${replaces.length > 1 ? "s" : ""} payant${replaces.length > 1 ? "s" : ""} : ${listOf(shown, lang)}${more}.`
+			: `${project.name} (${project.license}) replaces ${replaces.length} paid product${replaces.length > 1 ? "s" : ""}: ${listOf(shown, lang)}${more}.`;
+	};
+	const description = fit([listed(3), listed(2), listed(1)], 155);
 
 	const url = paths.project(lang, slug);
 	const sameAs = [project.source.url, opts?.homepage].filter(
@@ -979,12 +1188,23 @@ export function categoryMeta(
 	rows?: ListRow[],
 ): Meta {
 	const name = resolveTranslation(category.name, lang);
-	const dated =
+	// Same phrase the page's own <h1> renders (`cats.h1`), so the heading
+	// confirms the title instead of competing with it.
+	const title = fit(
 		lang === "fr"
-			? `${count} alternatives open source ${name} (${YEAR})`
-			: `${count} open source ${name} alternatives (${YEAR})`;
-	const title =
-		dated.length <= TITLE_MAX ? dated : dated.replace(` (${YEAR})`, "");
+			? [
+					`${count} alternatives open source ${name} (${YEAR})`,
+					`${count} alternatives open source ${name}`,
+					`Alternatives open source ${name} (${YEAR})`,
+					`Alternatives open source ${name}`,
+				]
+			: [
+					`${count} open source ${name} alternatives (${YEAR})`,
+					`${count} open source ${name} alternatives`,
+					`Open source ${name} alternatives (${YEAR})`,
+					`Open source ${name} alternatives`,
+				],
+	);
 	const description = clamp(
 		lang === "fr"
 			? `${count} produits ${name} passés en revue, avec leurs alternatives open source et ce que migrer coûte vraiment.`
@@ -1020,6 +1240,62 @@ export function categoryMeta(
 }
 
 /**
+ * The index over every product, at the prefix all 592 of them already sit under.
+ *
+ * `/en/alternatives/` had no route at all, so `parseRoute` returned `unknown`
+ * and the directory answered 403 to Googlebot's path-trimming. It is a hub, not
+ * a second home page: the home page is a ranked, filterable, paginated 48 at a
+ * time, and this is every product at once, grouped by category, which is the
+ * shape that makes all 592 reachable in two clicks from one URL.
+ */
+export function productsMeta(
+	lang: Lang,
+	products: number,
+	categories: number,
+	rows?: ListRow[],
+): Meta {
+	const name = fit(
+		lang === "fr"
+			? [
+					`Les ${products} produits payants suivis (${YEAR})`,
+					`Les ${products} produits payants suivis`,
+				]
+			: [
+					`All ${products} paid products we track (${YEAR})`,
+					`All ${products} paid products we track`,
+				],
+	);
+	const description = clamp(
+		lang === "fr"
+			? `Les ${products} produits payants du catalogue, classés dans ${categories} catégories. Chacun a sa page : ce qui le remplace, ce que ça coûte, ce qu'on y perd.`
+			: `Every one of the ${products} paid products in the catalogue, grouped into ${categories} categories. Each has its own page: what replaces it, what that costs, what you give up.`,
+	);
+	const url = paths.products(lang);
+	return {
+		title: name,
+		description,
+		canonical: abs(url),
+		jsonLd: [
+			graph([
+				pageNode({
+					url,
+					lang,
+					name,
+					description,
+					type: "CollectionPage",
+					mainEntity: rows && rows.length > 0 ? nodeId(url, "list") : undefined,
+				}),
+				itemListNode(url, name, rows),
+				breadcrumbNode(url, [
+					{ name: HOME_LABEL[lang], url: paths.home(lang) },
+					{ name: PRODUCTS_LABEL[lang], url },
+				]),
+			]),
+		],
+	};
+}
+
+/**
  * The category index.
  *
  * No `aggregateRating`: the votes here are boolean "I switched" events with no
@@ -1034,12 +1310,17 @@ export function categoriesMeta(
 	products: number,
 	rows?: ListRow[],
 ): Meta {
-	const title =
+	const name = fit(
 		lang === "fr"
-			? `Les ${categories} catégories — alternatives open source (${YEAR})`
-			: `All ${categories} categories — open source alternatives (${YEAR})`;
-	const name =
-		title.length <= TITLE_MAX ? title : title.replace(` (${YEAR})`, "");
+			? [
+					`Les ${categories} catégories — alternatives open source (${YEAR})`,
+					`Les ${categories} catégories — alternatives open source`,
+				]
+			: [
+					`All ${categories} categories — open source alternatives (${YEAR})`,
+					`All ${categories} categories — open source alternatives`,
+				],
+	);
 	const description = clamp(
 		lang === "fr"
 			? `${products} produits payants répartis en ${categories} catégories, regroupées par thème, avec pour chacune l'échelle de sortie et le prix médian.`
@@ -1105,13 +1386,25 @@ export const homeMeta = (
 			? lang === "fr"
 				? `Alternatives open source aux SaaS payants — page ${page}`
 				: `Open source alternatives to paid SaaS — page ${page}`
-			: base;
+			: fit([
+					base,
+					// The em dash and then "payants" are what get given up when the
+					// French line does not fit. The brand and the phrase a searcher
+					// typed both survive; the old code cut the phrase instead and left
+					// the home page titled "…alternatives open source aux SaaS…".
+					lang === "fr"
+						? "Puis-je le remplacer ? Alternatives open source aux SaaS"
+						: "Open source alternatives to paid SaaS",
+					lang === "fr"
+						? "Alternatives open source aux SaaS payants"
+						: "Open source alternatives to paid SaaS",
+				]);
 	const description =
 		lang === "fr"
 			? `${products} abonnements SaaS, un verdict honnête chacun : l'alternative open source tient-elle la route, et que coûte la migration ?${page > 1 ? ` Page ${page}.` : ""}`
 			: `${products} SaaS subscriptions, one honest verdict each: is the open source alternative good enough yet, and what does switching cost?${page > 1 ? ` Page ${page}.` : ""}`;
 	const url = paths.home(lang, page);
-	const name = title.length <= TITLE_MAX ? title : clamp(title, TITLE_MAX);
+	const name = fit([title]);
 	const clamped = clamp(description);
 	return {
 		title: name,
@@ -1154,16 +1447,21 @@ export const projectsMeta = (
 	page = 1,
 	rows?: ListRow[],
 ): Meta => {
-	const title =
+	const name = fit(
 		lang === "fr"
 			? page > 1
-				? `Projets open source — page ${page}`
-				: `Les ${projects} projets open source du catalogue (${YEAR})`
+				? [`Projets open source — page ${page}`]
+				: [
+						`Les ${projects} projets open source du catalogue (${YEAR})`,
+						`Les ${projects} projets open source du catalogue`,
+					]
 			: page > 1
-				? `Open source projects — page ${page}`
-				: `All ${projects} open source projects (${YEAR})`;
-	const name =
-		title.length <= TITLE_MAX ? title : title.replace(` (${YEAR})`, "");
+				? [`Open source projects — page ${page}`]
+				: [
+						`All ${projects} open source projects (${YEAR})`,
+						`All ${projects} open source projects`,
+					],
+	);
 	const url = paths.projects(lang, page);
 	const description = clamp(
 		lang === "fr"
@@ -1208,8 +1506,8 @@ export const collectionsMeta = (
 			: "Collections — cross-sections of the catalogue";
 	const description = clamp(
 		lang === "fr"
-			? `${collections} collections dérivées du catalogue : ce que vous pouvez auto-héberger, ce qui est open source, ce qui est libre sans contrepartie, ce qui est open core, ce qui n’est pas open source, et ce qui a une alternative payante moins chère.`
-			: `${collections} collections derived from the catalogue: what you can self-host, what is open source, what is free with no strings, what is open core, what is not open source at all, and what has a cheaper paid alternative.`,
+			? `${collections} coupes transversales du catalogue : ce que vous pouvez auto-héberger, ce qui est libre sans contrepartie, et ce qui est open core.`
+			: `${collections} cross-sections of the catalogue: what you can self-host, what is free with no strings, what is open core, and what has a cheaper paid alternative.`,
 	);
 	const url = paths.collections(lang);
 	return {
@@ -1262,7 +1560,7 @@ const COLLECTION_COPY: Record<
 		fr: {
 			title: "{n} SaaS à plus de 100 $/mois, et ce qui les remplace",
 			description:
-				"{n} produits facturés au-delà de 100 $ par mois, avec un verdict honnête sur chacun : le remplaçant open source tient-il la route, et que coûte la migration ?",
+				"{n} produits facturés au-delà de 100 $ par mois, avec pour chacun un verdict honnête : le remplaçant open source tient-il la route ?",
 		},
 	},
 	"in-rust": {
@@ -1414,16 +1712,26 @@ export const groupMeta = (
 	lang: Lang,
 	rows?: ListRow[],
 ): Meta => {
-	const title =
+	// The fallback is `group.h1`, the phrase the page heads itself with.
+	const title = fit(
 		lang === "fr"
-			? `${groupLabel} : ${products} produits et leurs alternatives open source`
-			: `${groupLabel}: ${products} products and their open source alternatives`;
+			? [
+					`${groupLabel} : ${products} produits et leurs alternatives open source`,
+					`${groupLabel} : ${products} alternatives open source`,
+					`${groupLabel} : alternatives open source`,
+				]
+			: [
+					`${groupLabel}: ${products} products and their open source alternatives`,
+					`${groupLabel}: ${products} open source alternatives`,
+					`${groupLabel}: open source alternatives`,
+				],
+	);
 	const description =
 		lang === "fr"
 			? `${products} produits payants répartis sur ${categories} catégories, chacun avec un verdict honnête : le remplaçant open source tient-il la route, et que coûte la migration ?`
 			: `${products} paid products across ${categories} categories, each with an honest verdict: is the open source replacement good enough yet, and what does switching cost?`;
 	const url = paths.group(lang, group);
-	const name = title.length <= TITLE_MAX ? title : clamp(title, TITLE_MAX);
+	const name = title;
 	const clamped = clamp(description);
 	return {
 		title: name,
@@ -1477,13 +1785,36 @@ export const collectionMeta = (
 	const name = copy
 		? copy.title.replace("{n}", String(members))
 		: `${slug} (${members})`;
-	const title = page > 1 ? `${name} — page ${page}` : name;
+	/**
+	 * The page number is appended to a title that has ALREADY been cut to fit it.
+	 *
+	 * The other way round is what made 63 English FOSS pages byte-identical:
+	 * "…no strings attached — page 42" was written first and then truncated at
+	 * 60, which removes the only part of it that differs from page 15's.
+	 */
+	const clamped =
+		page > 1
+			? fit([
+					`${name} — page ${page}`,
+					// The short name the page's own eyebrow renders, in a localized
+					// frame. A phrase cut at "…with no…" to make room for the page
+					// number is worse than the word the collection is actually called,
+					// and the frame is what stops the English page 15 and the French
+					// page 15 from carrying the same line.
+					label(lang, "collection.pagedTitle")
+						.replace("{name}", label(lang, `collection.${slug}.title`))
+						.replace("{page}", String(page)),
+					`${label(lang, `collection.${slug}.title`)} — page ${page}`,
+				])
+			: fit([name, label(lang, `collection.${slug}.title`)]);
 	const url = paths.collection(lang, slug, page);
-	const description = clamp(
-		(copy?.description ?? "").replace("{n}", String(members)) +
-			(page > 1 ? ` Page ${page}.` : ""),
-	);
-	const clamped = title.length <= TITLE_MAX ? title : clamp(title, TITLE_MAX);
+	// Same rule, same reason: " Page 7." is the sentence that identifies the
+	// document, so the copy is cut to leave room for it rather than over it.
+	const pageLine = page > 1 ? ` Page ${page}.` : "";
+	const description = `${clamp(
+		(copy?.description ?? "").replace("{n}", String(members)),
+		155 - pageLine.length,
+	)}${pageLine}`;
 	return {
 		title: clamped,
 		description,
@@ -1532,10 +1863,33 @@ const STANDING_CRUMB: Record<string, string | null> = {
 	features: "nav.features",
 	glossary: "glossary.title",
 	gaps: "gaps.title",
+	about: "about.title",
 	contact: null,
 	signin: null,
 	dashboard: null,
 	admin: null,
+};
+
+/**
+ * The gaps page's headline, with the count in it when the caller knows one.
+ *
+ * `{n} paid tools with no open source alternative` lives in the translation
+ * table because the page's `<h1>` renders the same string; without a count the
+ * phrase still reads as a phrase, which is what a client-side navigation that
+ * has not loaded the catalogue yet gets.
+ */
+const gapsHeadline = (lang: Lang, count: number | undefined): string => {
+	const phrase = label(lang, "gaps.h1").replace(
+		"{n} ",
+		count === undefined ? "" : `${count} `,
+	);
+	return phrase.charAt(0).toUpperCase() + phrase.slice(1);
+};
+
+/** What a standing page cannot work out for itself. */
+export type StandingCounts = {
+	/** Products with a `not-yet` verdict — the gaps page's own membership. */
+	gaps?: number;
 };
 
 /**
@@ -1552,30 +1906,59 @@ export const standingMeta = (
 		| "features"
 		| "glossary"
 		| "gaps"
+		| "about"
 		| "signin"
 		| "dashboard"
 		| "admin",
 	lang: Lang,
+	counts?: StandingCounts,
 ): Meta => {
 	const copy = {
 		sponsor: {
 			en: [
 				"Sponsor canireplaceit",
-				"Sponsors keep the site free and independent. Flat prices, 30-day runs, one rate for everyone, and the audience numbers are published only once they are real.",
+				"Flat prices, 30-day runs, one rate for everyone, and the audience numbers are published only once they are real. No sponsor has ever changed a verdict.",
 			],
 			fr: [
 				"Soutenir canireplaceit",
-				"Les sponsors permettent au site de rester gratuit et indépendant. Tarifs fixes, campagnes de 30 jours, un seul tarif pour tous, et les chiffres d'audience ne sont publiés qu'une fois réels.",
+				"Tarifs fixes, campagnes de 30 jours, un seul tarif pour tous, et des chiffres d'audience publiés seulement une fois réels. Aucun sponsor n'a jamais changé un verdict.",
 			],
 		},
+		/**
+		 * The strongest trust asset on the site, retitled.
+		 *
+		 * "What open source still cannot do" is a thesis statement and nobody's
+		 * search term, and it sat on the one page here with no competition at all.
+		 * The count comes from the catalogue — `counts.gaps`, the same
+		 * `verdict === "not-yet"` set the page renders — because a number written
+		 * into this file goes stale the first time a replacement lands. The
+		 * headline itself is read from the translation table so the `<title>` and
+		 * the page's own `<h1>` cannot drift apart.
+		 */
 		gaps: {
 			en: [
-				"What open source still cannot do",
+				gapsHeadline("en", counts?.gaps),
 				"The paid products with no credible open source replacement, and the specific thing each one withholds. The honest counterweight to a catalogue of alternatives.",
 			],
 			fr: [
-				"Ce que l’open source ne sait pas encore faire",
+				gapsHeadline("fr", counts?.gaps),
 				"Les produits payants sans remplaçant open source crédible, et ce que chacun retient précisément. Le contrepoids honnête à un catalogue d’alternatives.",
+			],
+		},
+		/**
+		 * The page Google's Quality Rater Guidelines name as the starting point
+		 * for assessing Trust, and the one this site did not have. It says who
+		 * writes the verdicts, how a verdict is decided, how a price is checked,
+		 * and what sponsorship does and does not buy.
+		 */
+		about: {
+			en: [
+				"About — who writes these verdicts, and how",
+				"Who runs this catalogue, how a verdict is decided, how every price is checked and re-checked, and what sponsorship does not buy. No affiliate links.",
+			],
+			fr: [
+				"À propos — qui écrit ces verdicts, et comment",
+				"Qui tient ce catalogue, comment un verdict est décidé, comment les tarifs sont relevés, et ce que le sponsoring n'achète pas. Aucun lien affilié.",
 			],
 		},
 		glossary: {
@@ -1585,7 +1968,7 @@ export const standingMeta = (
 			],
 			fr: [
 				"Ce que les mots veulent dire — le vocabulaire du catalogue",
-				"Seize termes définis une fois et appliqués de la même façon à tous les produits : ce que veut dire « presque », ce que coûte l’open core, et quand un dépôt est considéré comme archivé.",
+				"Seize termes définis une fois et appliqués de la même façon à tous les produits : ce que veut dire « presque » et ce que coûte l’open core.",
 			],
 		},
 		features: {
@@ -1595,7 +1978,7 @@ export const standingMeta = (
 			],
 			fr: [
 				"Ce que ces projets open source font vraiment",
-				"Un vocabulaire fermé de fonctionnalités — SSO, édition simultanée, docs publiques, hors ligne, sauvegardes — renseigné projet par projet depuis sa documentation et son dépôt. Un tiret veut dire que personne n'a vérifié, jamais que la réponse est non.",
+				"Un vocabulaire fermé — SSO, édition simultanée, hors ligne, sauvegardes — renseigné projet par projet depuis sa documentation et son dépôt.",
 			],
 		},
 		submit: {
@@ -1676,8 +2059,11 @@ export const standingMeta = (
 	}[page][lang];
 
 	const url = paths[page](lang);
-	const title =
-		copy[0].length <= TITLE_MAX ? copy[0] : clamp(copy[0], TITLE_MAX);
+	// The freshness signal every page that wins this query carries. Only the
+	// gaps page takes it: the others are standing documents, not a yearly list.
+	const title = fit(
+		page === "gaps" ? [`${copy[0]} (${YEAR})`, copy[0]] : [copy[0]],
+	);
 	const description = clamp(copy[1]);
 	const crumb = STANDING_CRUMB[page];
 

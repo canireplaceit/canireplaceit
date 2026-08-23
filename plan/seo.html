@@ -83,6 +83,37 @@ hr{border:0;border-top:1px solid var(--border);margin:36px 0}
 <!-- ========================= OVERVIEW ========================= -->
 <section class="tab on" id="overview">
 
+<h2>Sizing the indexing job</h2>
+<p class="lede">Measured 23 Aug against the corrected dataset, by reconstructing the
+<code>thinProject</code> rule and cross-referencing feature coverage per project.</p>
+<table>
+  <tr><th>Of 3,478 project pages</th><th class="n">Count</th><th>What fixes it</th></tr>
+  <tr><td>Thin by the indexing rule (noindexed today)</td><td class="n">2,177</td><td>—</td></tr>
+  <tr><td class="ok">&nbsp;&nbsp;thin, but <strong>has</strong> feature data</td><td class="n ok">1,253</td><td class="ok">Template enrichment alone. No writing.</td></tr>
+  <tr><td class="no">&nbsp;&nbsp;thin <strong>and</strong> no feature data</td><td class="n no">924</td><td class="no">Hand-written notes. This is the real queue.</td></tr>
+  <tr><td>No feature data but not thin</td><td class="n">171</td><td>Template enrichment</td></tr>
+</table>
+<p><strong>Only 42% of thin pages are also empty.</strong> The other session predicted heavy
+overlap between "no feature data" and "short notes"; measured, it is 924 of 2,177.</p>
+
+<p><strong>But one caveat cuts the good half down.</strong> The <code>cli</code> feature vocabulary
+has never been run at scale: <strong>1 project of 3,281 holds any <code>cli.*</code> value</strong>,
+2 decided values in total, against 3,449 for <code>ops</code> and 3,413 for <code>auth</code>. So
+projects in shell-terminal, developer-tooling and containers-kubernetes render almost nothing even
+when they have a record. Measured, 177 of the 1,253 (14%) are in those categories and hold a median
+of 2 decided values each, which is not enough to lift a page.</p>
+
+<table>
+  <tr><th>Revised sizing</th><th class="n">Pages</th><th>Fix</th></tr>
+  <tr><td class="ok">Thin, has non-CLI feature data</td><td class="n ok">1,076</td><td class="ok">Template enrichment. No writing.</td></tr>
+  <tr><td class="no">Thin, no feature data</td><td class="n no">924</td><td class="no">Hand-written notes</td></tr>
+  <tr><td class="no">Thin, CLI category, ~2 values</td><td class="n no">177</td><td class="no">Hand-written notes</td></tr>
+  <tr><td><strong>Note-writing queue</strong></td><td class="n"><strong>1,101</strong></td><td>~275 per agent across four</td></tr>
+</table>
+<p>So the template change carries roughly half the load, not 58%, and the editorial queue is 1,101
+rather than the 2,177 I first assumed. Worth re-measuring after the other session's feature redo
+lands, since it may move the 924.</p>
+
 <h2>Status</h2>
 <p class="lede">Live tracker. Updated as each tab lands. Nothing here is deployed yet.</p>
 <table>
@@ -2607,11 +2638,39 @@ which is the direction that generates the link.</p>
 </div>
 
 <h3>Report 1, week 4: the open source SSO tax</h3>
-<p><strong>31 projects</strong> (deduped by repo path) put SSO behind a paid licence, against
-<strong>189 that include it free</strong>. Feature-level: SAML present in 38 of 49 checked, OIDC
-118 of 131, LDAP 96 of 107, SCIM only 9 of 16.</p>
-<p>Your own taxonomy already carries the thesis as a note on <code>auth.sso.saml</code>: "The one
-most often paywalled. This is the SSO tax."</p>
+<p>Corrected against the dataset on 23 Aug, after the other session repaired 1,067 wrongly
+inferred marks and fixed a conflict-detection bug:</p>
+<table>
+  <tr><th>Of 3,478 distinct open source projects</th><th class="n">Count</th></tr>
+  <tr><td>SSO paywalled (<code>ssoInFree=false</code>)</td><td class="n">31</td></tr>
+  <tr><td>SSO in the free tier (<code>ssoInFree=true</code>)</td><td class="n ok">191</td></tr>
+  <tr><td>Never checked</td><td class="n">3,256</td></tr>
+  <tr><td>Genuine disagreements between citations</td><td class="n ok">0</td></tr>
+  <tr><td><strong>Checked at all</strong></td><td class="n"><strong>222 (6.4%)</strong></td></tr>
+</table>
+
+<div class="f win">
+  <header><h3>Lead with the 191, not the 31</h3><span class="sev s-win">framing</span></header>
+  <p>"31 projects paywall SSO" is derivative. <code>sso.tax</code> has owned that angle since
+  2018, has 898 stars and a CISA citation, and a copy of it reads as a knock-off.
+  <strong>"191 of the 222 projects we checked include SSO in the free tier"</strong> is a number
+  nobody has published, it is the more defensible half, and naming the 31 underneath still gives
+  the thread something to argue about.</p>
+<pre class="c">Open source mostly does not charge for SSO. 191 of the 222 projects we
+checked include it in the free tier. Here are the 31 that do not.</pre>
+</div>
+
+<p><strong>The caveat that has to travel with the number.</strong> 222 of 3,478 is 6.4% coverage,
+and the 31 are drawn from whichever projects happened to get checked, not from a sample designed
+to be representative. So the honest claim is always "of the 222 we checked", and the list is a
+<em>floor, not a census</em>. If someone asks whether there are more, the answer is yes, almost
+certainly, because 3,256 have never been looked at. Say that before someone says it for you.</p>
+
+<p>The 31, alphabetical: AFFiNE, Argos, BentoML, CVAT, Cline, Dagster, Directus, Docmost,
+Documenso, Formbricks, Gatling, GrowthBook, Hatchet, Hoppscotch, Karrio, Keep, Koel, LangWatch,
+Langfuse, Metabase, Netdata, OpenObserve, OpenReplay, OpnForm, Overleaf Community Edition,
+Papermark, Passbolt, Plausible Analytics, PostHog, Unleash, ZeroTier.</p>
+
 <p><strong>Run an SSO sweep first.</strong> Coverage today is 220 of 3,472 projects, 6.3%. Check
 the field on the 200 projects that appear across the most products. A weekend of work, and it is
 the difference between a report that survives the HN thread and one that does not.</p>

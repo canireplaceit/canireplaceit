@@ -26,7 +26,15 @@ import { Link } from "./nav";
 type T = (k: Key) => string;
 type TC = (v: { en: string }) => string;
 
-const ADJACENT_PAGE_COUNT = 1;
+/**
+ * How many pages either side of the current one the strip names.
+ *
+ * It was 1, which on a 72-page series left `/en/tools/page/37/` at a measured
+ * depth of 39 from the home page: first, last, and one neighbour each way is a
+ * strip you can only walk one hop at a time. Three cuts that walk by two thirds
+ * and costs four anchors a page.
+ */
+const ADJACENT_PAGE_COUNT = 3;
 
 function pageNumbers(page: number, pages: number): (number | "gap")[] {
 	const wanted = new Set<number>([1, pages, page]);

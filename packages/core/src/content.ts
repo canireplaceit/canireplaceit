@@ -6,7 +6,14 @@
  * a language is a data change and never a schema change.
  */
 
-import { isLang, type Lang, SupportedLangs, type Translations } from "./index";
+import {
+	DEFAULT_LANG,
+	isLang,
+	type Lang,
+	resolveTranslation,
+	SupportedLangs,
+	type Translations,
+} from "./index";
 
 /**
  * Editorial judgement of functional parity — how much of the job the best
@@ -1263,6 +1270,33 @@ export function collectProjects(products: Product[]): Project[] {
 			b.replaces.length - a.replaces.length || a.name.localeCompare(b.name),
 	);
 }
+
+const THIN_WORDS = /[\p{L}\p{N}]+/gu;
+
+/**
+ * A page with one link and one sentence on it is what Google's scaled-content
+ * policy is aimed at, and that policy is enforced algorithmically — no notice,
+ * no appeal. So the thinnest project pages ship `noindex, follow` and stay out
+ * of the sitemap. `follow`, not `nofollow`: they must keep passing authority to
+ * the products they link to, which is the whole reason they exist.
+ *
+ * Judged once, on the English text, and applied to every locale — a page that is
+ * indexable in one language and not the other makes the hreflang set incoherent.
+ *
+ * Here rather than in scripts/prerender.ts, which is where it was written and is
+ * still the only thing that acts on it for `robots`, because a second reader
+ * appeared: scripts/build-og-pages.ts draws a card per INDEXABLE project page
+ * and skips the rest. Two copies of this rule would mean cards generated for
+ * pages nothing indexes, or missing for pages that are.
+ */
+export const thinProject = (project: Project): boolean =>
+	project.replaces.length < 2 &&
+	new Set(
+		project.replaces
+			.map((r) => resolveTranslation(r.note, DEFAULT_LANG).toLowerCase())
+			.join(" ")
+			.match(THIN_WORDS) ?? [],
+	).size < 40;
 
 /**
  * The lowest-effort alternative in a category whose free build is the whole

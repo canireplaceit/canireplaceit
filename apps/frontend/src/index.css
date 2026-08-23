@@ -96,8 +96,15 @@ html {
 	scroll-behavior: smooth;
 	background: var(--bg);
 	/* Every in-page anchor on this site (the categories jump bar, #report-switch,
-	   #list) scrolls under the sticky header without this. */
-	scroll-padding-top: 5rem;
+	   #list) scrolls under the sticky header without this. Below `lg` the header
+	   is two rows — a wordmark row and the nav row — so it needs more. */
+	scroll-padding-top: 6.6rem;
+}
+
+@media (min-width: 1024px) {
+	html {
+		scroll-padding-top: 5rem;
+	}
 }
 
 body {

@@ -85,6 +85,7 @@ import {
 	OpenCorePanel,
 	PriceBlock,
 	ProductEscapeStats,
+	ProductFaq,
 	ProductLogo,
 	RepoFreshness,
 	SpecStrip,
@@ -94,14 +95,20 @@ import {
 	VerdictStamp,
 	WhatYouLose,
 } from "./components";
-import { CATEGORY_FILE, EditThisPage, productFile } from "./contribute";
+import { CATEGORY_FILE, EditThisPage, productFile, REPO } from "./contribute";
 import type { Key } from "./i18n";
 import { ForgeIcon } from "./icons";
+import { legalCopy } from "./legal";
 import { MEASURE, priceLabel } from "./listShared";
 import { Link } from "./nav";
 import { ProjectFeatures } from "./ProjectFeatures";
 import { ReplaceMatrix } from "./ReplaceMatrix";
-import { collectionHeading, GLOSSARY_GROUPS, glossaryAnchor } from "./seo";
+import {
+	collectionHeading,
+	distinctNames,
+	GLOSSARY_GROUPS,
+	glossaryAnchor,
+} from "./seo";
 import { type Crumb, Heading, PageShell, Section } from "./shell";
 
 export type PageCtx = {
@@ -126,6 +133,17 @@ export type PageCtx = {
 	 * requires.
 	 */
 	wholeCatalogue: boolean;
+	/**
+	 * The other products in this product's category, on a product page only.
+	 *
+	 * Not derivable in the browser: a product page's payload is one product, so
+	 * before this the page linked to eighteen projects, one category, one theme
+	 * and zero other products — 0 of 592 pages had a lateral path through the
+	 * catalogue. Built by `relatedProducts` in listShared.tsx at build time.
+	 */
+	related: ListedProduct[];
+	/** `[slug, name, category]` for every product, on the products index only. */
+	productIndex: [string, string, string][];
 	/** Pre-derived rows for an index whose rows are projects, before the API answers. */
 	projectRows: Project[];
 	/** How many projects exist in total, so a partial payload can still paginate. */
@@ -215,17 +233,48 @@ export function ProductPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 		return pretty ? paths.project(lang, pretty) : undefined;
 	};
 
-	// The other products filed under the same category. The product page used to
-	// be a dead end — one link back to the list and nothing sideways — which on a
-	// catalogue of this size is the page a reader leaves from.
-	const siblings = category
-		? products.filter((p) => p.category === category.slug && p.slug !== slug)
-		: [];
+	/**
+	 * The other products filed under the same category.
+	 *
+	 * Baked into the payload by `relatedProducts`, because a product page ships
+	 * exactly one product and this cannot be derived from it. The measured state
+	 * before this was 0 product-to-product links across all 592 pages: there was
+	 * no way to travel sideways through the catalogue at all, so every journey
+	 * had to go back up through the nav. The filter below is the dev-server and
+	 * post-API path, where the whole catalogue is in hand.
+	 */
+	const siblings =
+		ctx.related.length > 0
+			? ctx.related
+			: category
+				? products.filter(
+						(p) => p.category === category.slug && p.slug !== slug,
+					)
+				: [];
+
+	/**
+	 * The collections this product qualifies for.
+	 *
+	 * Membership was one-way: collection pages emit 11,607 product links and got
+	 * none back. Answered by `collectionMembers` itself, run over this one
+	 * product, so a page can never claim a membership the collection would
+	 * refuse — or miss one it would grant.
+	 */
+	const inCollections = COLLECTIONS.filter(
+		(c) =>
+			c.of === "product" &&
+			collectionMembers(c.slug, [product], []).products.length > 0,
+	);
 
 	return (
 		<PageShell
 			trail={[
 				homeCrumb(ctx),
+				// The one path prefix this URL actually contains. The trail walked
+				// `/themes/` and `/categories/`, neither of which appears in
+				// `/en/alternatives/1password`, and skipped the segment that does —
+				// which is also the directory that answered 403 to path-trimming.
+				{ label: t("page.products"), href: paths.products(lang) },
 				// The theme sits between the index and the category, which is the
 				// shape the taxonomy always had — a reader on Claude Code is under
 				// AI, and AI is under AI & data. One more real rung for a reader and
@@ -245,7 +294,18 @@ export function ProductPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 				{ label: product.name },
 			]}
 			icon={<ProductLogo product={product} size={52} eager />}
-			title={
+			/**
+			 * The phrase people search, not the phrase the brand says.
+			 *
+			 * "Can I replace Notion?" occupied the strongest element on all 592
+			 * money pages and matches no query anyone types; the `<title>` above it
+			 * already said "open source Notion alternatives" and the heading gave
+			 * Google nothing to confirm it against. Same treatment the category,
+			 * theme and collection pages already had. The slogan is one line below
+			 * and still the sentence the page answers.
+			 */
+			title={t("product.h1").replace("{name}", product.name)}
+			lede={
 				<>
 					{t("hero.title")} {product.name}
 					{lang === "fr" ? " ?" : "?"}
@@ -320,6 +380,11 @@ export function ProductPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 						projectHref={projectHref}
 					/>
 
+					{/* The four questions the deleted FAQPage markup used to describe to
+					    a machine and to nobody else. Same questions, real DOM, no
+					    schema — see `ProductFaq`. */}
+					<ProductFaq product={product} t={t} tc={tc} lang={lang} />
+
 					{/*
 					 * Which comparison this category earns.
 					 *
@@ -378,7 +443,7 @@ export function ProductPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 			    than a second copy of the category page it links to. */}
 			{category && siblings.length > 0 && (
 				<Section
-					title={t("cats.inThis")}
+					title={t("product.related").replace("{category}", tc(category.name))}
 					actions={
 						<Link
 							href={paths.category(lang, category.slug)}
@@ -394,6 +459,22 @@ export function ProductPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 						))}
 					</ul>
 				</Section>
+			)}
+
+			{/* The way back up into the derived slices this product belongs to. */}
+			{inCollections.length > 0 && (
+				<section className="mt-10">
+					<Heading>{t("product.inCollections")}</Heading>
+					<ul className="mt-2 flex flex-wrap gap-1.5">
+						{inCollections.map((c) => (
+							<li key={c.slug}>
+								<Link href={paths.collection(lang, c.slug)} className="pill">
+									{t(`collection.${c.slug}.title` as Key)}
+								</Link>
+							</li>
+						))}
+					</ul>
+				</section>
 			)}
 		</PageShell>
 	);
@@ -431,13 +512,17 @@ export function ProjectPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 			eyebrow={t(`effort.${project.effort}` as Key)}
 			// "2fa" told a searcher nothing and told Google nothing about the title
 			// it sits under. The name still leads the phrase.
+			//
+			// Two names, and never the same product twice: `replaces` holds both
+			// "Autodesk Flow Production Tracking" and "Autodesk Flow Production
+			// Tracking (ShotGrid)" — one product under its old and new names — which
+			// is what put the same words twice in a 106-character heading.
 			title={t("project.h1")
 				.replace("{name}", project.name)
 				.replace(
 					"{replaces}",
-					project.replaces
-						.slice(0, 3)
-						.map((r) => r.name)
+					distinctNames(project.replaces.map((r) => r.name))
+						.slice(0, 2)
 						.join(", "),
 				)}
 			meta={
@@ -536,6 +621,16 @@ export function ProjectPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 			    else does this job. */}
 				<Siblings project={project} ctx={ctx} />
 
+				{/* Where this project sits. A project page carried 4.8 content links,
+				    composed of one product, the home page and the tools index — zero
+				    category, collection or theme links, so nothing here belonged to
+				    anything. */}
+				<ProjectPlaces
+					project={project}
+					categories={projectCategories}
+					ctx={ctx}
+				/>
+
 				<Section title={t("page.replaces")} count={project.replaces.length}>
 					<ul className={`${GRID_1COL} gap-2 sm:grid-cols-2`}>
 						{project.replaces.map((r) => (
@@ -555,6 +650,7 @@ export function ProjectPage({ ctx, slug }: { ctx: PageCtx; slug: string }) {
 
 				<ProjectFeatures
 					source={project.source}
+					name={project.name}
 					categories={projectCategories}
 					lang={lang}
 					t={t}
@@ -1111,7 +1207,10 @@ export function GapsPage({ ctx }: { ctx: PageCtx }) {
 			measure={MEASURE}
 			trail={[homeCrumb(ctx), { label: t("gaps.title") }]}
 			eyebrow={t("gaps.eyebrow")}
-			title={t("gaps.title")}
+			// The count, derived from the list below it rather than written down:
+			// "What open source still cannot do" is a thesis statement and nobody's
+			// query, on the page with the least competition on the whole site.
+			title={t("gaps.h1").replace("{n}", String(gaps.length))}
 			lede={t("gaps.blurb")}
 			meta={
 				<p className="nums text-muted text-sm">
@@ -1217,25 +1316,97 @@ export function GapsPage({ ctx }: { ctx: PageCtx }) {
  * the reason two-thirds of them are `noindex`; this is what a page needs before
  * that rule is worth revisiting.
  */
+/**
+ * The collections and categories a project belongs to.
+ *
+ * Every one of these is answered from the project itself and from the products
+ * that cite it, both of which a project page's payload already holds — so this
+ * is in the prerendered document rather than appearing after the API answers.
+ * Membership goes through `collectionMembers` for the same reason the product
+ * page's does: one predicate, so a page and a collection cannot disagree.
+ */
+function ProjectPlaces({
+	project,
+	categories,
+	ctx,
+}: {
+	project: Project;
+	categories: string[];
+	ctx: PageCtx;
+}) {
+	const { t, tc, lang } = ctx;
+	const cats = categories
+		.map((slug) => ctx.categories.find((c) => c.slug === slug))
+		.filter((c): c is Category => c !== undefined);
+	const collections = COLLECTIONS.filter(
+		(c) =>
+			c.of === "project" &&
+			collectionMembers(c.slug, [], [project]).projects.length > 0,
+	);
+	if (cats.length === 0 && collections.length === 0) return null;
+
+	return (
+		<section className="mt-6 space-y-5">
+			{cats.length > 0 && (
+				<div>
+					<Heading>{t("project.inCategories")}</Heading>
+					<ul className="mt-2 flex flex-wrap gap-1.5">
+						{cats.map((c) => (
+							<li key={c.slug}>
+								<Link href={paths.category(lang, c.slug)} className="pill">
+									{tc(c.name)}
+								</Link>
+							</li>
+						))}
+					</ul>
+				</div>
+			)}
+			{collections.length > 0 && (
+				<div>
+					<Heading>{t("project.inCollections")}</Heading>
+					<ul className="mt-2 flex flex-wrap gap-1.5">
+						{collections.map((c) => (
+							<li key={c.slug}>
+								<Link href={paths.collection(lang, c.slug)} className="pill">
+									{t(`collection.${c.slug}.title` as Key)}
+								</Link>
+							</li>
+						))}
+					</ul>
+				</div>
+			)}
+		</section>
+	);
+}
+
 function Siblings({ project, ctx }: { project: Project; ctx: PageCtx }) {
 	const { t, lang, projects, projectSlugs } = ctx;
-	// Needs the whole catalogue: siblings drawn from one page's payload would be
-	// "the other projects that happen to be on this page", which is not a fact.
-	if (!ctx.wholeCatalogue) return null;
 
 	const href = (p: Project) => {
 		const pretty = projectSlugs.get(p.slug);
 		return pretty ? paths.project(lang, pretty) : undefined;
 	};
 
-	const sameLanguage = project.language
-		? projects
-				.filter(
-					(p) => p.slug !== project.slug && p.language === project.language,
-				)
-				.slice(0, 8)
-		: [];
+	/**
+	 * "Also written in Rust" is a claim about the whole catalogue, so it waits
+	 * for the whole catalogue. The language COLLECTION link that `ProjectPlaces`
+	 * renders is the complete answer to the same question and it is baked in.
+	 */
+	const sameLanguage =
+		ctx.wholeCatalogue && project.language
+			? projects
+					.filter(
+						(p) => p.slug !== project.slug && p.language === project.language,
+					)
+					.slice(0, 8)
+			: [];
 
+	/**
+	 * Complete from this page's own payload, which is why it is not gated on the
+	 * whole catalogue: a project page ships exactly the products it replaces, so
+	 * the projects derived from them are exactly the projects that replace one of
+	 * the same products. Nothing wider could add a row.
+	 */
 	const replacedSlugs = new Set(project.replaces.map((r) => r.slug));
 	const doesTheSameJob = projects
 		.filter(
@@ -1299,6 +1470,142 @@ function Siblings({ project, ctx }: { project: Project; ctx: PageCtx }) {
  * Rendered from the same `def.*` keys the tooltips read, so the page and the
  * hover text cannot drift apart.
  */
+/**
+ * The page Google's raters are told to open first.
+ *
+ * The Quality Rater Guidelines put Trust above every other part of E-E-A-T and
+ * name the About page as the starting point for assessing it — "look at the
+ * 'About us' page on the website … as a starting point" — and this site did not
+ * have one. Nothing on this page is new: the verdict scale is the glossary, the
+ * price receipt is what every product page already prints, and the money section
+ * is the disclosure notice in the words it already uses. What was missing was a
+ * single URL that says all of it, signed.
+ *
+ * No derived numbers. The standing pages prerender with an empty payload, so a
+ * figure here would render as a zero for a crawler and as the truth for a
+ * reader, which is worse than not printing one.
+ */
+export function AboutPage({ ctx }: { ctx: PageCtx }) {
+	const { t, lang } = ctx;
+
+	const sections: { h: Key; p: Key[]; after?: React.ReactNode }[] = [
+		{
+			h: "about.who.h",
+			p: ["about.who.p1", "about.who.p2"],
+			after: (
+				<p className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm">
+					<Link
+						href={paths.legal(lang, "notice")}
+						className="text-brand hover:underline"
+					>
+						{legalCopy("notice", lang).title}
+					</Link>
+					<a
+						href={REPO}
+						target="_blank"
+						rel="noopener"
+						className="text-brand hover:underline"
+					>
+						{t("footer.repo")}
+					</a>
+				</p>
+			),
+		},
+		{
+			h: "about.verdict.h",
+			p: ["about.verdict.p1", "about.verdict.p2", "about.verdict.p3"],
+			after: (
+				<p className="mt-3 text-sm">
+					<Link
+						href={paths.glossary(lang)}
+						className="text-brand hover:underline"
+					>
+						{t("glossary.title")} →
+					</Link>
+				</p>
+			),
+		},
+		{ h: "about.price.h", p: ["about.price.p1", "about.price.p2"] },
+		{
+			h: "about.gaps.h",
+			p: ["about.gaps.p1"],
+			after: (
+				<p className="mt-3 text-sm">
+					<Link href={paths.gaps(lang)} className="text-brand hover:underline">
+						{t("gaps.title")} →
+					</Link>
+				</p>
+			),
+		},
+		{
+			h: "about.money.h",
+			p: [
+				"about.money.p1",
+				"about.money.p2",
+				"about.money.p3",
+				"about.money.p4",
+			],
+			after: (
+				<p className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm">
+					<Link
+						href={paths.legal(lang, "disclosure")}
+						className="text-brand hover:underline"
+					>
+						{legalCopy("disclosure", lang).title}
+					</Link>
+					<Link
+						href={paths.sponsor(lang)}
+						className="text-brand hover:underline"
+					>
+						{t("nav.sponsor")}
+					</Link>
+				</p>
+			),
+		},
+		{
+			h: "about.fix.h",
+			p: ["about.fix.p1"],
+			after: (
+				<p className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm">
+					<Link
+						href={paths.contact(lang)}
+						className="text-brand hover:underline"
+					>
+						{t("nav.contact")}
+					</Link>
+					<Link
+						href={paths.submit(lang)}
+						className="text-brand hover:underline"
+					>
+						{t("nav.submit")}
+					</Link>
+				</p>
+			),
+		},
+	];
+
+	return (
+		<PageShell
+			trail={[homeCrumb(ctx), { label: t("about.title") }]}
+			eyebrow={t("about.eyebrow")}
+			title={t("about.h1")}
+			lede={t("about.blurb")}
+		>
+			{sections.map((section) => (
+				<section key={section.h} className="mt-9 first:mt-0">
+					<h2 className="font-display font-semibold text-lg">{t(section.h)}</h2>
+					{section.p.map((key) => (
+						<p key={key} className="mt-2.5 text-pretty leading-relaxed">
+							{t(key)}
+						</p>
+					))}
+					{section.after}
+				</section>
+			))}
+		</PageShell>
+	);
+}
+
 export function GlossaryPage({ ctx }: { ctx: PageCtx }) {
 	const { t, lang } = ctx;
 
@@ -1664,6 +1971,99 @@ export function ProjectsIndexPage({
 }
 
 /** The index of the derived collections. Six rows, each a real slice. */
+/**
+ * The index over every product, at `/<lang>/alternatives/`.
+ *
+ * WHY THIS EXISTS. `parseRoute` had no case for a bare `alternatives` segment,
+ * so the URL prefix holding all 592 money pages resolved to `unknown` and the
+ * directory answered 403 — to a reader trimming the path, and to Googlebot,
+ * which trims paths on discovery as a matter of course.
+ *
+ * It is not a second home page. The home page is a ranked, filterable, 48-at-a-
+ * time list; this is every product at once, grouped by the category it is filed
+ * under, which is the shape that puts all 592 within two clicks of one URL and
+ * gives the 85 category hubs another honest inbound link each.
+ *
+ * The payload is `[slug, name, category]` per product — three strings, not the
+ * ~7 kB a full list row costs, because the only thing this page prints is the
+ * name.
+ */
+export function ProductsIndexPage({ ctx }: { ctx: PageCtx }) {
+	const { t, tc, lang, categories, stats } = ctx;
+
+	// Baked at build time. The fallback is the dev server and any client-side
+	// navigation onto this route, where the catalogue arrives over the API.
+	const rows: [string, string, string][] =
+		ctx.productIndex.length > 0
+			? ctx.productIndex
+			: ctx.products.map((p) => [p.slug, p.name, p.category]);
+
+	if (rows.length === 0)
+		return <Pending ctx={ctx} empty={ctx.wholeCatalogue} />;
+
+	const byCategory = new Map<string, [string, string][]>();
+	for (const [slug, name, cat] of rows) {
+		const list = byCategory.get(cat);
+		if (list) list.push([slug, name]);
+		else byCategory.set(cat, [[slug, name]]);
+	}
+	for (const list of byCategory.values())
+		list.sort((a, b) =>
+			a[1].toLowerCase() < b[1].toLowerCase()
+				? -1
+				: a[1].toLowerCase() > b[1].toLowerCase()
+					? 1
+					: 0,
+		);
+
+	// The authored `position`, the same editorial ordering the categories index
+	// uses, so the infrastructure ones run together rather than by whichever
+	// happens to hold the most rows.
+	const sections = [...categories]
+		.sort((a, b) => a.position - b.position)
+		.map((c) => ({ cat: c, items: byCategory.get(c.slug) ?? [] }))
+		.filter((x) => x.items.length > 0);
+
+	return (
+		<PageShell
+			measure={MEASURE}
+			trail={[homeCrumb(ctx), { label: t("page.products") }]}
+			eyebrow={t("products.browse")}
+			title={t("products.title")}
+			lede={t("products.blurb").replace("{n}", String(rows.length))}
+		>
+			{sections.map(({ cat, items }) => (
+				<section key={cat.slug} className="mt-10 first:mt-0">
+					<div className="mb-3 flex flex-wrap items-baseline gap-x-3 border-border border-b pb-2">
+						<h2 className="font-display font-bold text-lg">
+							<Link
+								href={paths.category(lang, cat.slug)}
+								className="hover:underline"
+							>
+								{tc(cat.name)}
+							</Link>
+						</h2>
+						<p className="nums text-muted text-xs">
+							{items.length} {t("stats.products")}
+							{stats.get(cat.slug) !== undefined &&
+								` · ${medianLabel(stats.get(cat.slug) as CategoryStat, lang, t)}`}
+						</p>
+					</div>
+					<ul className="flex flex-wrap gap-1.5">
+						{items.map(([slug, name]) => (
+							<li key={slug}>
+								<Link href={paths.product(lang, slug)} className="pill">
+									{name}
+								</Link>
+							</li>
+						))}
+					</ul>
+				</section>
+			))}
+		</PageShell>
+	);
+}
+
 export function CollectionsPage({ ctx }: { ctx: PageCtx }) {
 	const { t, lang } = ctx;
 
@@ -1747,6 +2147,18 @@ export function CollectionsPage({ ctx }: { ctx: PageCtx }) {
 					);
 				})}
 			</ul>
+
+			{/*
+			 * The counterweight to the thirteen cards above, and the page with one
+			 * inbound link on the entire site before this one. A reader who has
+			 * just read thirteen slices of what open source DOES replace is
+			 * exactly the reader for the list of what it does not.
+			 */}
+			<p className="mt-8 text-sm">
+				<Link href={paths.gaps(lang)} className="text-brand hover:underline">
+					{t("gaps.link")} →
+				</Link>
+			</p>
 
 			{/* The one the owner asked for and that is not here. Saying so on the page
 			    is cheaper than letting somebody re-derive the same dead end. */}

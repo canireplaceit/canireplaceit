@@ -10,13 +10,16 @@
  */
 
 import { describe, expect, test } from "bun:test";
-import { readFileSync } from "node:fs";
+import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import type { Category, Product, Project } from "core/src/content";
 import { collectProjects } from "core/src/content";
 import { buildProjectSlugs } from "core/src/routes";
+import { dict } from "./i18n";
 import {
 	categoryApplication,
+	collectionMeta,
+	distinctNames,
 	GLOSSARY_GROUPS,
 	glossaryAnchor,
 	homeMeta,
@@ -359,5 +362,167 @@ describe("dateModified", () => {
 	test("is the date the price was read, on a product page", () => {
 		const raw = (productMeta(notion, "en", categoryOf(notion)).jsonLd ?? [])[0];
 		expect(raw).toContain(notion.pricing?.checkedOn as string);
+	});
+});
+
+/**
+ * Everything below defends a line in a search result rather than a node in the
+ * graph: the words a searcher reads before deciding whether to click, and the
+ * three ways those lines were previously wrong — a modifier the data supports
+ * and no title said, a description cut mid-word, and 287 pages sharing 16
+ * titles because the page number was appended and then truncated away.
+ */
+const allProducts = readdirSync(join(DATA, "products"))
+	.filter((f) => f.endsWith(".json"))
+	.map((f) => read<Product>(`products/${f}`));
+
+const ossOf = (p: Product) =>
+	p.alternatives.filter(
+		(a): a is Extract<Product["alternatives"][number], { kind: "oss" }> =>
+			a.kind === "oss",
+	);
+
+describe("titles", () => {
+	test("fit the 60 characters a search result shows, everywhere", () => {
+		for (const lang of ["en", "fr"] as const) {
+			for (const product of allProducts) {
+				const { title } = productMeta(product, lang, categoryOf(product));
+				expect(title.length).toBeLessThanOrEqual(60);
+				// A title cut with an ellipsis is a title that lost its tail.
+				expect(title.endsWith("…")).toBe(false);
+			}
+		}
+	});
+
+	test("claim self-hosted and free only where the data says both", () => {
+		for (const product of allProducts) {
+			const { title } = productMeta(product, "en", categoryOf(product));
+			const free = ossOf(product).filter(
+				(a) => a.facts.selfHostable && a.facts.openCore === "none",
+			);
+			if (!title.includes("free, self-hosted")) continue;
+			// The count in the title is the count of alternatives that are BOTH
+			// self-hostable and hold nothing back — never the total.
+			expect(title.startsWith(`${free.length} free, self-hosted`)).toBe(true);
+			for (const alt of free) {
+				expect(alt.facts.selfHostable).toBe(true);
+				expect(alt.facts.openCore).toBe("none");
+			}
+		}
+	});
+
+	test("keep the page number instead of truncating it away", () => {
+		// /page/15 and /page/42 of the same collection were byte-identical: the
+		// suffix was appended to a 60-character title and then cut off it.
+		const seen = new Set<string>();
+		for (const lang of ["en", "fr"] as const) {
+			for (const page of [1, 2, 15, 42]) {
+				const { title } = collectionMeta("foss", lang, 3056, page);
+				expect(title.length).toBeLessThanOrEqual(60);
+				if (page > 1) expect(title).toContain(`page ${page}`);
+				expect(seen.has(title)).toBe(false);
+				seen.add(title);
+			}
+		}
+	});
+
+	test("name a replaced product once, and at most two of them", () => {
+		expect(
+			distinctNames([
+				"Autodesk Flow Production Tracking (ShotGrid)",
+				"Autodesk Flow Production Tracking",
+				"Frame.io",
+			]),
+		).toEqual(["Autodesk Flow Production Tracking (ShotGrid)", "Frame.io"]);
+
+		const projects = collectProjects(allProducts);
+		const slugs = buildProjectSlugs(
+			projects,
+			allProducts.map((p) => p.slug),
+		);
+		for (const project of projects) {
+			for (const lang of ["en", "fr"] as const) {
+				const { title } = projectMeta(
+					project,
+					lang,
+					slugs.get(project.slug) as string,
+				);
+				expect(title.length).toBeLessThanOrEqual(60);
+				const named = distinctNames(project.replaces.map((r) => r.name)).filter(
+					(name) => title.includes(name),
+				);
+				expect(named.length).toBeLessThanOrEqual(2);
+			}
+		}
+	});
+});
+
+describe("descriptions", () => {
+	test("stop on a sentence, never mid-word", () => {
+		for (const lang of ["en", "fr"] as const) {
+			for (const product of allProducts) {
+				const { description } = productMeta(product, lang, categoryOf(product));
+				expect(description.length).toBeLessThanOrEqual(155);
+				expect(description.endsWith("…")).toBe(false);
+				expect(/[.!?]$/.test(description)).toBe(true);
+			}
+		}
+	});
+
+	test("open by naming the top three, as a sentence", () => {
+		const { description } = productMeta(notion, "en", categoryOf(notion));
+		const top = ossOf(notion)
+			.slice(0, 3)
+			.map((a) => a.name);
+		expect(
+			description.startsWith("The best open source Notion alternatives are"),
+		).toBe(true);
+		for (const name of top) expect(description).toContain(name);
+	});
+});
+
+describe("the page's own heading", () => {
+	test("is the phrase the title and the graph both name", () => {
+		for (const lang of ["en", "fr"] as const) {
+			const meta = productMeta(notion, lang, categoryOf(notion));
+			const page = typed(nodes(meta.jsonLd), "WebPage");
+			// The graph must name the page whatever the <title> says, or the two
+			// documents describe two different things.
+			expect(page?.name).toBe(meta.title);
+			// And the <h1> the page renders is built from this key.
+			expect(dict[lang]["product.h1"]).toContain("{name}");
+		}
+	});
+
+	test("carries the gaps count the page itself lists", () => {
+		const gaps = allProducts.filter((p) => p.verdict === "not-yet").length;
+		for (const lang of ["en", "fr"] as const) {
+			const { title } = standingMeta("gaps", lang, { gaps });
+			expect(title).toContain(String(gaps));
+			// The same string the page heads itself with, so they cannot drift.
+			expect(title.toLowerCase()).toContain(
+				dict[lang]["gaps.h1"].replace("{n} ", "").slice(0, 20).toLowerCase(),
+			);
+			expect(title.length).toBeLessThanOrEqual(60);
+		}
+	});
+});
+
+describe("the about page", () => {
+	test("exists in both locales, with its own canonical", () => {
+		expect(standingMeta("about", "en").canonical).toBe(
+			"https://canireplaceit.com/en/about",
+		);
+		expect(standingMeta("about", "fr").canonical).toBe(
+			"https://canireplaceit.com/fr/a-propos",
+		);
+		for (const lang of ["en", "fr"] as const) {
+			const meta = standingMeta("about", lang);
+			expect(meta.noindex).not.toBe(true);
+			// The conflict-of-interest line is the reason the page exists.
+			expect(meta.description.toLowerCase()).toContain(
+				lang === "fr" ? "affilié" : "affiliate",
+			);
+		}
 	});
 });

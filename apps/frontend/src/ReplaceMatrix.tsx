@@ -188,11 +188,20 @@ export function ReplaceMatrix({
 				    one path in that dropped the selection, landing the reader on 137
 				    features with nothing chosen and no way back to what they were
 				    just looking at. */}
+				{/* Named, not an arrow. This link was 2,633 of the 3,384 inbound
+				    links to the feature explorer and every one of them said "compare
+				    with others →" — the textbook generic-anchor-at-scale pattern,
+				    3,384 chances to say what that page is spent on a glyph. The
+				    count is `candidates`, not the columns on screen: the reader can
+				    add and remove columns, and anchor text must not move when they
+				    do. */}
 				<a
 					href={`${paths.features(lang)}?cmp=${encodeURIComponent(keys.join(","))}`}
 					className="hover:underline"
 				>
-					{t("features.compareLink")}
+					{t("features.compareProduct")
+						.replace("{name}", product.name)
+						.replace("{n}", String(candidates.length))}
 				</a>
 			</p>
 

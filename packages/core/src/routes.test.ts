@@ -108,11 +108,19 @@ test("no locale prefix, or an unknown one, is unknown", () => {
 
 test("a locale with a segment we do not serve is unknown", () => {
 	expect(at("/en/blog/hello")).toEqual({ name: "unknown", lang: "en" });
-	expect(at("/en/alternatives")).toEqual({ name: "unknown", lang: "en" });
 	expect(at("/en/alternatives/notion/extra")).toEqual({
 		name: "unknown",
 		lang: "en",
 	});
+});
+
+test("the slug-less alternatives URL is the products index, not unknown", () => {
+	// It parsed as `unknown` and the directory answered 403 — to a reader
+	// trimming the path and to Googlebot, which trims paths on discovery.
+	for (const lang of SupportedLangs) {
+		expect(at(paths.products(lang))).toEqual({ name: "products", lang });
+		expect(at(`/${lang}/alternatives`)).toEqual({ name: "products", lang });
+	}
 });
 
 test("the slug-less categories URL is the index, not an unknown route", () => {

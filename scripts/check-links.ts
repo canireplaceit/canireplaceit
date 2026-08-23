@@ -44,7 +44,7 @@ for (const p of pages) {
 
 // Assets are served from disk by nginx, not prerendered, so they are not in the
 // page set and are not this check's business.
-const ASSET = /\.(png|jpe?g|svg|ico|webp|xml|txt|json|js|css|woff2?)$/;
+const ASSET = /\.(png|jpe?g|svg|webmanifest|ico|webp|xml|txt|json|js|css|woff2?)$/;
 
 const broken = new Map<string, { count: number; firstSeenOn: string }>();
 let checked = 0;

@@ -48,6 +48,9 @@ export const dict = {
 			"Only features both sides were checked on, and only where they disagree",
 		"features.checked": "features checked",
 		"features.compareLink": "compare with others →",
+		"features.compareProduct":
+			"compare {name} against {n} open source projects",
+		"features.compareProject": "compare {name} with other open source projects",
 		"features.paidOnly": "paid only",
 		"features.bothChecked": "Only rows both projects were checked on",
 		"features.realDiff": "real disagreements",
@@ -211,6 +214,7 @@ export const dict = {
 			"These facts are written against each product this project is offered to replace, and those entries do not agree here. Check the product page you came from.",
 
 		"nav.categories": "Categories",
+		"nav.glossary": "Glossary",
 
 		// The exit ladder: derived from the verdict plus the facts via `rungOf` in core, never picked directly by a contributor.
 		"rung.locked-in": "locked in",
@@ -220,6 +224,11 @@ export const dict = {
 
 		"cats.all": "All categories",
 		"cats.browse": "Browse categories",
+		"products.browse": "Browse products",
+		"products.title": "Every product we track",
+		"products.blurb":
+			"All {n} paid products in the catalogue, grouped by category. Every one has a page saying what replaces it, what that costs, and what you give up.",
+		"products.inCategory": "products in this category",
 		"cats.title": "Every category",
 		"cats.blurb":
 			"Grouped by theme, and inside each theme ordered by how many paid products we have reviewed, not by an editor's idea of importance. The bar is the exit ladder: how far out of a category you can actually get.",
@@ -232,6 +241,10 @@ export const dict = {
 		"cats.noEscape": "nothing fully open yet",
 		"cats.nearby": "Nearby categories",
 		"cats.inThis": "In this category",
+		"product.related": "Other products in {category}",
+		"product.inCollections": "This product also appears in",
+		"project.inCategories": "Replaces products in",
+		"project.inCollections": "This project also appears in",
 		"cats.smallNote":
 			"One of the smaller corners of the catalogue. The nearby categories below cover adjacent ground.",
 
@@ -257,6 +270,7 @@ export const dict = {
 
 		"page.home": "All products",
 		"page.categories": "All categories",
+		"page.products": "Product index",
 		"page.replaces": "Replaces",
 		"page.notFound": "Nothing here.",
 		"page.loading": "Loading…",
@@ -270,6 +284,11 @@ export const dict = {
 		"hero.sponsorsCta": "Sponsor this project →",
 
 		"home.pagedTitle": "Every product we have reviewed, page {n}",
+		// Page 2+ of a collection, for the <title> only. The long title phrase plus
+		// "— page 42" runs past 60 characters on the big collections, and cutting
+		// the phrase to make room is what made 63 of these pages byte-identical.
+		"collection.pagedTitle":
+			"{name} — page {page} of the open source catalogue",
 
 		"page.pagination": "Pagination",
 		"page.previous": "Prev",
@@ -454,10 +473,52 @@ export const dict = {
 		"siblings.sameLanguage": "Also written in {lang}",
 		"gaps.title": "What open source still cannot do",
 		"gaps.eyebrow": "The gaps",
+		"gaps.link": "The products nothing open source replaces yet",
 		"gaps.blurb":
 			"The products in this catalogue with no credible open source replacement, and the specific thing each one withholds. Published because a directory that only lists wins is an advertisement.",
 		"gaps.footnote":
 			"Every row here is a verdict of “not yet”, which is a judgement about today and not a prediction. When a replacement appears the product moves off this page. That is the point of keeping it derived rather than hand-written.",
+		// The About page. Google's Quality Rater Guidelines name it as the starting
+		// point for assessing Trust, and it is the one page the site did not have.
+		// Everything on it is already true elsewhere on the site; this is the page
+		// that says it in one place.
+		"about.title": "About",
+		"about.eyebrow": "About",
+		"about.h1": "Who writes these verdicts, and how",
+		"about.blurb":
+			"One maintainer, one public repository, and a rule applied the same way to every entry. This page says who, how a verdict is decided, how a price is checked, and what money does not buy here.",
+		"about.who.h": "Who runs this",
+		"about.who.p1":
+			"canireplaceit is written and maintained by one person, publishing as @hadesdevs. This is not a company with a research team behind it, and pretending otherwise would be the first thing on the site that was not true. The publisher's real identity, legal form and address are on the legal notice, because a site that sells sponsorship is required to publish them and because you should be able to find out who is telling you to cancel a subscription.",
+		"about.who.p2":
+			"The catalogue is not a database somebody keeps privately. Every product on this site is one JSON file in a public repository, and every page carries a link straight to the file it was built from. If a verdict is wrong you can read exactly what it was based on, change it, and open a pull request; CI validates the change before anyone merges it.",
+		"about.verdict.h": "How a verdict is decided",
+		"about.verdict.p1":
+			"There are three verdicts and only three. Replaceable means an open source project covers the realistic use case, so leaving costs an install rather than a migration. Almost means it covers part of the job and you give up something real, and the page names what. Not yet means nothing credible replaces the product, and the entry stays on the site anyway so that the answer is on record.",
+		"about.verdict.p2":
+			"A verdict is about how replaceable a product is, not about how good it is. That is why nothing here carries a star rating. A three-point replaceability scale is not a quality score, and turning one into the other would mean publishing a number nobody measured.",
+		"about.verdict.p3":
+			"The facts a verdict rests on are structured fields rather than prose, so the same question gets the same answer on every entry: the licence, whether you can genuinely run the thing yourself, how much of the product is held back behind a paid tier, whether SSO costs extra, and where the data is allowed to sit. Each of those terms is defined once, and the definition is public.",
+		"about.price.h": "How prices are checked, and re-checked",
+		"about.price.p1":
+			"A price with no date is a rumour. Every figure on this site carries a receipt: the plan it was read from, the vendor page it was read on, the day it was read, and how confident we are in the reading. A price we could not confirm on the vendor's own pricing page says so instead of passing itself off as confirmed, and a product nobody has priced yet says that too rather than showing a plausible number.",
+		"about.price.p2":
+			"Prices move, and a stale one is the fastest way for a catalogue like this to become useless. Figures are re-read in passes rather than continuously, the date on the page is always the date of the last real reading, and the entries we are least sure about are listed in public rather than quietly left to age.",
+		"about.gaps.h": "Why there is a page about what open source cannot do",
+		"about.gaps.p1":
+			"A directory that only lists its wins is an advertisement. The gaps page is every product in this catalogue where our own thesis fails: paid tools with no credible open source replacement, and the specific thing each one withholds. It is derived from the verdicts rather than written by hand, so a product leaves the page the day a replacement lands.",
+		"about.money.h": "How this is paid for, and what that does not buy",
+		"about.money.p1":
+			"Sponsorship slots are paid placements and every one of them is labelled as such, wherever it appears. If a placement is not labelled, it is not paid.",
+		"about.money.p2":
+			"Verdicts, rankings, the order of any list, inclusion in the catalogue, and removal from it are never paid. No sponsor sees a verdict before it is published, and no sponsor has ever been given a right of review over one.",
+		"about.money.p3":
+			"A sponsor being reviewed badly on this site is a normal outcome, not an incident.",
+		"about.money.p4":
+			"There are no affiliate links on this site. If that ever changes, links that earn a commission will be marked at the link itself and not only on a page like this one, and the change will be recorded on the disclosure page.",
+		"about.fix.h": "If something here is wrong",
+		"about.fix.p1":
+			"A wrong verdict or a stale price is worth reporting, and reporting one is not a favour to us. The file is public and so is the fix.",
 		"glossary.title": "What the words mean",
 		"glossary.eyebrow": "Glossary",
 		"glossary.blurb":
@@ -465,6 +526,30 @@ export const dict = {
 		"cats.h1": "Open source {name} alternatives",
 		"group.h1": "{label}: open source alternatives",
 		"project.h1": "{name}, an open source alternative to {replaces}",
+		// The keyword phrase, not the brand slogan. All 592 English product pages
+		// headed themselves "Can I replace X?" — nobody's search term — on the
+		// strongest element of the pages that earn the traffic. The slogan is
+		// still there, one line below.
+		"product.h1": "Open source {name} alternatives",
+		// The gaps page's own headline. Carries the count because the page is the
+		// list, and the number is what makes the title worth clicking.
+		"gaps.h1": "{n} paid tools with no open source alternative",
+		"faq.heading": "Questions about {product}",
+		"faq.q.oss": "Is there an open source alternative to {product}?",
+		"faq.a.oss":
+			"{n} open source projects are listed on this page, and {free} of them hold nothing back behind a paid tier.",
+		"faq.q.selfHost": "Can you self-host a replacement for {product}?",
+		"faq.a.selfHost": "{n} of the alternatives here run on your own server.",
+		"faq.a.selfHostCompose":
+			"{n} of those ship a compose file in the repository root, so starting one is a single command.",
+		"faq.a.selfHostManaged":
+			"{n} need no server at all: someone else will host them, or they install as a binary.",
+		"faq.q.price": "How much does {product} cost?",
+		"faq.a.price":
+			"{price} a month on the {plan} plan, which is {year} a year. Checked on {date}.",
+		"faq.a.priceNone":
+			"{product} publishes no price. The vendor asks you to contact sales.",
+		"faq.q.lose": "What do you lose by leaving {product}?",
 		"glossary.verdicts": "The verdict",
 		"glossary.effort": "How much work leaving is",
 		"glossary.openness": "How open it really is",
@@ -965,6 +1050,8 @@ export const dict = {
 			"Uniquement les fonctionnalités vérifiées des deux côtés, et seulement en cas de désaccord",
 		"features.checked": "fonctionnalités vérifiées",
 		"features.compareLink": "comparer avec d'autres →",
+		"features.compareProduct": "comparer {name} à {n} projets open source",
+		"features.compareProject": "comparer {name} aux autres projets open source",
 		"features.paidOnly": "payant",
 		"features.bothChecked": "Seulement les lignes vérifiées des deux côtés",
 		"features.realDiff": "désaccords réels",
@@ -1125,6 +1212,7 @@ export const dict = {
 			"Ces informations sont rédigées produit par produit, et les fiches qui citent ce projet ne concordent pas ici. Reportez-vous à la page produit d’où vous venez.",
 
 		"nav.categories": "Catégories",
+		"nav.glossary": "Glossaire",
 
 		"rung.locked-in": "verrouillé",
 		"rung.partial": "sortie partielle",
@@ -1133,6 +1221,11 @@ export const dict = {
 
 		"cats.all": "Toutes les catégories",
 		"cats.browse": "Parcourir les catégories",
+		"products.browse": "Parcourir les produits",
+		"products.title": "Tous les produits suivis",
+		"products.blurb":
+			"Les {n} produits payants du catalogue, classés par catégorie. Chacun a une page qui dit ce qui le remplace, ce que ça coûte et ce qu’on y perd.",
+		"products.inCategory": "produits dans cette catégorie",
 		"cats.title": "Toutes les catégories",
 		"cats.blurb":
 			"Regroupées par thème, et à l’intérieur de chaque thème classées par nombre de produits payants évalués, pas selon l’idée qu’un éditeur se fait de leur importance. La barre montre l’échelle de sortie : jusqu’où on peut réellement s’échapper d’une catégorie.",
@@ -1145,6 +1238,10 @@ export const dict = {
 		"cats.noEscape": "rien de totalement ouvert",
 		"cats.nearby": "Catégories voisines",
 		"cats.inThis": "Dans cette catégorie",
+		"product.related": "Autres produits dans {category}",
+		"product.inCollections": "Ce produit figure aussi dans",
+		"project.inCategories": "Remplace des produits dans",
+		"project.inCollections": "Ce projet figure aussi dans",
 		"cats.smallNote":
 			"L’un des plus petits recoins du catalogue. Les catégories voisines ci-dessous couvrent un terrain proche.",
 
@@ -1170,6 +1267,7 @@ export const dict = {
 
 		"page.home": "Tous les produits",
 		"page.categories": "Toutes les catégories",
+		"page.products": "Index des produits",
 		"page.replaces": "Remplace",
 		"page.notFound": "Rien ici.",
 		"page.loading": "Chargement…",
@@ -1183,6 +1281,7 @@ export const dict = {
 		"hero.sponsorsCta": "Soutenir ce projet →",
 
 		"home.pagedTitle": "Tous les produits évalués, page {n}",
+		"collection.pagedTitle": "{name} — page {page} du catalogue open source",
 
 		"page.pagination": "Pagination",
 		"page.previous": "Précédent",
@@ -1371,10 +1470,49 @@ export const dict = {
 		"siblings.sameLanguage": "Également écrits en {lang}",
 		"gaps.title": "Ce que l’open source ne sait pas encore faire",
 		"gaps.eyebrow": "Les manques",
+		"gaps.link": "Les produits que rien d’open source ne remplace encore",
 		"gaps.blurb":
 			"Les produits de ce catalogue sans remplaçant open source crédible, et ce que chacun retient précisément. Publié parce qu’un annuaire qui ne liste que ses succès est une publicité.",
 		"gaps.footnote":
 			"Chaque ligne est un verdict « pas encore », c’est-à-dire un jugement sur aujourd’hui, pas une prédiction. Dès qu’un remplaçant apparaît, le produit quitte cette page, d’où l’intérêt de la dériver plutôt que de l’écrire à la main.",
+		"about.title": "À propos",
+		"about.eyebrow": "À propos",
+		"about.h1": "Qui écrit ces verdicts, et comment",
+		"about.blurb":
+			"Une seule personne, un dépôt public, et une règle appliquée de la même façon à chaque entrée. Cette page dit qui, comment un verdict est décidé, comment un tarif est vérifié, et ce que l’argent n’achète pas ici.",
+		"about.who.h": "Qui tient ce site",
+		"about.who.p1":
+			"canireplaceit est écrit et maintenu par une seule personne, qui publie sous le nom @hadesdevs. Ce n’est pas une société avec une équipe de recherche derrière, et prétendre le contraire serait la première chose fausse du site. L’identité réelle de l’éditeur, sa forme juridique et son adresse figurent sur les mentions légales, parce qu’un site qui vend du sponsoring est tenu de les publier et parce que vous devez pouvoir savoir qui vous conseille de résilier un abonnement.",
+		"about.who.p2":
+			"Le catalogue n’est pas une base de données gardée en privé. Chaque produit du site est un fichier JSON dans un dépôt public, et chaque page renvoie directement au fichier dont elle est issue. Si un verdict est faux, vous pouvez lire exactement ce sur quoi il repose, le corriger et ouvrir une pull request ; la CI valide la modification avant toute fusion.",
+		"about.verdict.h": "Comment un verdict est décidé",
+		"about.verdict.p1":
+			"Il y a trois verdicts, et seulement trois. Remplaçable veut dire qu’un projet open source couvre le cas d’usage réaliste : partir coûte une installation, pas une migration. Presque veut dire qu’il couvre une partie du travail et que vous perdez quelque chose de réel, et la page dit quoi. Pas encore veut dire que rien de crédible ne remplace le produit, et l’entrée reste sur le site pour que la réponse soit consignée.",
+		"about.verdict.p2":
+			"Un verdict porte sur la remplaçabilité d’un produit, pas sur sa qualité. C’est pourquoi rien ici ne porte de note en étoiles. Une échelle de remplaçabilité à trois points n’est pas une note de qualité, et convertir l’une en l’autre reviendrait à publier un chiffre que personne n’a mesuré.",
+		"about.verdict.p3":
+			"Les faits sur lesquels repose un verdict sont des champs structurés plutôt que de la prose, pour que la même question reçoive la même réponse sur chaque entrée : la licence, la possibilité réelle d’héberger le logiciel soi-même, la part du produit réservée à une offre payante, le surcoût éventuel du SSO, et l’endroit où les données ont le droit de résider. Chacun de ces termes est défini une fois, et la définition est publique.",
+		"about.price.h": "Comment les tarifs sont relevés, puis revérifiés",
+		"about.price.p1":
+			"Un tarif sans date est une rumeur. Chaque chiffre du site porte son reçu : la formule sur laquelle il a été lu, la page de l’éditeur où il a été lu, le jour où il a été lu, et le degré de confiance dans le relevé. Un tarif que nous n’avons pas pu confirmer sur la page tarifaire de l’éditeur le dit, au lieu de se faire passer pour confirmé, et un produit que personne n’a encore relevé le dit aussi plutôt que d’afficher un chiffre plausible.",
+		"about.price.p2":
+			"Les tarifs bougent, et un tarif périmé est le moyen le plus rapide de rendre un catalogue comme celui-ci inutile. Les chiffres sont repris par passes plutôt qu’en continu, la date affichée est toujours celle du dernier relevé réel, et les entrées dont nous sommes le moins sûrs sont listées en public plutôt que laissées vieillir en silence.",
+		"about.gaps.h":
+			"Pourquoi il existe une page sur ce que l’open source ne sait pas faire",
+		"about.gaps.p1":
+			"Un annuaire qui ne liste que ses succès est une publicité. La page des manques rassemble tous les produits du catalogue où notre propre thèse échoue : des outils payants sans remplaçant open source crédible, et ce que chacun retient précisément. Elle est dérivée des verdicts plutôt qu’écrite à la main, donc un produit la quitte le jour où un remplaçant apparaît.",
+		"about.money.h": "Comment le site est financé, et ce que cela n’achète pas",
+		"about.money.p1":
+			"Les emplacements de sponsoring sont des placements payants et chacun est signalé comme tel, où qu’il apparaisse. Si un emplacement n’est pas signalé, c’est qu’il n’est pas payé.",
+		"about.money.p2":
+			"Les verdicts, les classements, l’ordre des listes, l’entrée au catalogue et la sortie du catalogue ne sont jamais payés. Aucun sponsor ne voit un verdict avant publication, et aucun n’a jamais obtenu de droit de regard sur un verdict.",
+		"about.money.p3":
+			"Qu’un sponsor reçoive un mauvais verdict sur ce site est une situation normale, pas un incident.",
+		"about.money.p4":
+			"Il n’y a aucun lien affilié sur ce site. Si cela change, les liens rémunérés seront signalés au niveau du lien et pas seulement sur une page comme celle-ci, et le changement sera consigné sur la page de transparence.",
+		"about.fix.h": "Si quelque chose est faux ici",
+		"about.fix.p1":
+			"Un verdict erroné ou un tarif périmé mérite d’être signalé, et le signaler ne nous rend pas service. Le fichier est public, et le correctif aussi.",
 		"glossary.title": "Ce que les mots veulent dire",
 		"glossary.eyebrow": "Glossaire",
 		"glossary.blurb":
@@ -1382,6 +1520,25 @@ export const dict = {
 		"cats.h1": "Alternatives open source {name}",
 		"group.h1": "{label} : alternatives open source",
 		"project.h1": "{name}, une alternative open source à {replaces}",
+		"product.h1": "Alternatives open source à {name}",
+		"gaps.h1": "{n} outils payants sans alternative open source",
+		"faq.heading": "Questions sur {product}",
+		"faq.q.oss": "Existe-t-il une alternative open source à {product} ?",
+		"faq.a.oss":
+			"{n} projets open source sont listés sur cette page, dont {free} ne réservent rien à une offre payante.",
+		"faq.q.selfHost": "Peut-on auto-héberger un remplaçant de {product} ?",
+		"faq.a.selfHost":
+			"{n} des alternatives présentées ici tournent sur votre propre serveur.",
+		"faq.a.selfHostCompose":
+			"{n} d’entre elles livrent un fichier compose à la racine du dépôt : une seule commande suffit à les démarrer.",
+		"faq.a.selfHostManaged":
+			"{n} ne demandent aucun serveur : quelqu’un les héberge pour vous, ou elles s’installent comme un binaire.",
+		"faq.q.price": "Combien coûte {product} ?",
+		"faq.a.price":
+			"{price} par mois sur la formule {plan}, soit {year} par an. Relevé le {date}.",
+		"faq.a.priceNone":
+			"{product} ne publie aucun tarif. L’éditeur renvoie vers son service commercial.",
+		"faq.q.lose": "Que perdez-vous en quittant {product} ?",
 		"glossary.verdicts": "Le verdict",
 		"glossary.effort": "Ce que partir demande",
 		"glossary.openness": "À quel point c’est vraiment ouvert",

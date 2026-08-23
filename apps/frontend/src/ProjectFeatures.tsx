@@ -35,12 +35,15 @@ export const TONE: Record<Exclude<FeatureValue, "unknown">, string> = {
 
 export function ProjectFeatures({
 	source,
+	name,
 	categories,
 	lang,
 	t,
 	tc,
 }: {
 	source: Source;
+	/** The project's own name, so the link out to the explorer can say it. */
+	name: string;
 	/** Categories of the products citing this project — gates the vertical domains. */
 	categories: readonly string[];
 	lang: Lang;
@@ -93,8 +96,10 @@ export function ProjectFeatures({
 			</h2>
 			<p className="mt-1 text-sm text-muted">
 				{total} {t("features.checked")} ·{" "}
+				{/* Says what the explorer compares and which project it will be
+				    comparing. See the note on the same link in ReplaceMatrix.tsx. */}
 				<a href={paths.features(lang)} className="hover:underline">
-					{t("features.compareLink")}
+					{t("features.compareProject").replace("{name}", name)}
 				</a>
 			</p>
 

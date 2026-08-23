@@ -23,6 +23,8 @@ export const SEGMENTS: Record<
 		glossary: string;
 		/** The products with no credible open source replacement. */
 		gaps: string;
+		/** Who writes the verdicts and how. See the QRG note in seo.ts. */
+		about: string;
 		signin: string;
 		dashboard: string;
 		admin: string;
@@ -43,6 +45,7 @@ export const SEGMENTS: Record<
 		features: "features",
 		glossary: "glossary",
 		gaps: "gaps",
+		about: "about",
 		signin: "signin",
 		dashboard: "dashboard",
 		admin: "admin",
@@ -64,6 +67,8 @@ export const SEGMENTS: Record<
 		features: "fonctionnalites",
 		glossary: "glossaire",
 		gaps: "manques",
+		// The French address for an About page, unaccented like every other segment.
+		about: "a-propos",
 		signin: "connexion",
 		dashboard: "tableau-de-bord",
 		// Not the bare "admin" — that would read as untranslated English in a French address bar.
@@ -134,6 +139,7 @@ export type Paged = { page?: number };
 export type Route =
 	| ({ name: "home"; lang: Lang } & Paged)
 	| { name: "product"; lang: Lang; slug: string }
+	| { name: "products"; lang: Lang }
 	| { name: "project"; lang: Lang; slug: string }
 	| ({ name: "projects"; lang: Lang } & Paged)
 	| { name: "category"; lang: Lang; slug: string }
@@ -157,6 +163,9 @@ export type Route =
 	// the UI is the short form of an entry here.
 	| { name: "glossary"; lang: Lang }
 	| { name: "gaps"; lang: Lang }
+	// Who runs this, how a verdict is decided and what sponsorship does not buy.
+	// The Quality Rater Guidelines name it as the starting point for Trust.
+	| { name: "about"; lang: Lang }
 	| { name: "signin"; lang: Lang }
 	| { name: "dashboard"; lang: Lang }
 	// Public route, gated data: everything on it is fetched after hydration and refused server-side unless the session email is in SITE_ADMIN.
@@ -176,6 +185,8 @@ export const paths = {
 		pagePath(lang, `/${lang}/`, page),
 	product: (lang: Lang, slug: string): string =>
 		`/${lang}/${SEGMENTS[lang].alternatives}/${slug}`,
+	/** The index over every product, at the prefix all 592 of them already sit under. */
+	products: (lang: Lang): string => `/${lang}/${SEGMENTS[lang].alternatives}/`,
 	project: (lang: Lang, slug: string): string =>
 		`/${lang}/${SEGMENTS[lang].tools}/${slug}`,
 	projects: (lang: Lang, page?: number): string =>
@@ -200,6 +211,7 @@ export const paths = {
 	features: (lang: Lang): string => `/${lang}/${SEGMENTS[lang].features}`,
 	glossary: (lang: Lang): string => `/${lang}/${SEGMENTS[lang].glossary}`,
 	gaps: (lang: Lang): string => `/${lang}/${SEGMENTS[lang].gaps}`,
+	about: (lang: Lang): string => `/${lang}/${SEGMENTS[lang].about}`,
 	signin: (lang: Lang): string => `/${lang}/${SEGMENTS[lang].signin}`,
 	dashboard: (lang: Lang): string => `/${lang}/${SEGMENTS[lang].dashboard}`,
 	admin: (lang: Lang): string => `/${lang}/${SEGMENTS[lang].admin}`,
@@ -296,6 +308,7 @@ export function parseRoute(url: URL): Route {
 		kind === "features" ||
 		kind === "glossary" ||
 		kind === "gaps" ||
+		kind === "about" ||
 		kind === "signin" ||
 		kind === "dashboard" ||
 		kind === "admin"
@@ -315,6 +328,15 @@ export function parseRoute(url: URL): Route {
 				: { name: "unknown", lang };
 	}
 
+	// The bare `alternatives` segment is the products index. Without this it
+	// parsed as `unknown`, so the prefix holding every money page had no hub and
+	// Googlebot's path-trimming found a 403 there.
+	if (kind === "alternatives" && slug === undefined) {
+		return parts.length === 2
+			? { name: "products", lang }
+			: { name: "unknown", lang };
+	}
+
 	if (!slug || parts.length > 3) return { name: "unknown", lang };
 
 	if (kind === "alternatives") return { name: "product", lang, slug };
@@ -329,6 +351,9 @@ export function alternateUrls(route: Route): Record<Lang, string> {
 		switch (route.name) {
 			case "product":
 				out[lang] = paths.product(lang, route.slug);
+				break;
+			case "products":
+				out[lang] = paths.products(lang);
 				break;
 			case "project":
 				out[lang] = paths.project(lang, route.slug);
@@ -353,6 +378,9 @@ export function alternateUrls(route: Route): Record<Lang, string> {
 				break;
 			case "gaps":
 				out[lang] = paths.gaps(lang);
+				break;
+			case "about":
+				out[lang] = paths.about(lang);
 				break;
 			case "group":
 				out[lang] = paths.group(lang, route.slug);

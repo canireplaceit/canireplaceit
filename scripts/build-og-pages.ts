@@ -17,11 +17,24 @@
  * French string is `dict.fr` in apps/frontend/src/i18n.ts. Nothing on a card is
  * typed in twice.
  *
- * WHY NOT ALL 8000: the images are the payload, not the markup. One card per
- * project page is another 7,196 PNGs, roughly 220 MB in the image and in every
- * deploy, for pages that are two-thirds `noindex` and that nobody pastes. Those
- * keep the static card, which `ogFor()` in scripts/prerender.ts already does for
- * free when the file is not on disk.
+ * WHY NOT ALL 8000: the images are the payload, not the markup, and a card for
+ * every project page is another 7,196 PNGs at roughly 220 MB in the image and in
+ * every deploy. That argument holds for the `noindex` two thirds and only for
+ * them. The other third is 1,301 projects — 2,602 cards across both locales —
+ * that Google indexes and people paste, and they were unfurling a card naming
+ * the site rather than the project. So `thinProject` decides: indexable project
+ * pages get a card, the rest keep the static one, which `ogFor()` in
+ * scripts/prerender.ts already does for free when the file is not on disk.
+ *
+ * ALT TEXT SHIPS WITH THE CARDS. Everything on these is pixels — the verdict,
+ * the price, what you give up — so `og:image:alt` cannot be composed beside the
+ * meta tags without being a second, drifting copy of what was drawn here. Each
+ * job carries the sentence its card says, and the set is written to
+ * `public/og/alt.json` for prerender.ts to read back.
+ *
+ * IT ALSO DRAWS THE FAVICONS. Same brand, same `sharp`, same output directory,
+ * and the rasters change about as often as the cards do — see the icons section
+ * at the bottom.
  *
  * DELIBERATELY NOT WIRED INTO `bun run build`. Fonts are the reason. The cards
  * are drawn in Space Grotesk and IBM Plex Sans/Mono, and the production image is
@@ -73,9 +86,10 @@ import {
 	type OssAlternative,
 	type Product,
 	type Project,
+	thinProject,
 } from "core/src/content";
-import type { Lang } from "core/src/index";
-import { alternateUrls } from "core/src/routes";
+import { DEFAULT_LANG, type Lang } from "core/src/index";
+import { alternateUrls, buildProjectSlugs } from "core/src/routes";
 import { discountPct, SPONSOR_TERMS } from "core/src/sponsorship";
 import sharp from "sharp";
 
@@ -768,6 +782,25 @@ const categories: Category[] = JSON.parse(
 	readFileSync(join(DATA, "categories.json"), "utf8"),
 );
 const projects = collectProjects(products);
+
+/**
+ * The project pages that are worth a card of their own: the ones a search engine
+ * is allowed to index.
+ *
+ * Same rule, same function, as the `robots` tag in scripts/prerender.ts — see
+ * `thinProject`. And the same URL slug, off the same builder, because the card's
+ * filename is what `ogFor()` looks up: `og/project-{slug}-{lang}.png`, where
+ * `{slug}` is the one in `/en/tools/{slug}/` and NOT the forge-path id.
+ */
+const projectUrlSlug = buildProjectSlugs(
+	projects,
+	products.map((p) => p.slug),
+);
+const cardProjects = projects.filter((p) => !thinProject(p));
+
+/** The products a project's `replaces` cites, for its own card. */
+const productBySlug = new Map(products.map((p) => [p.slug, p]));
+
 /**
  * The catalogue ordered by how many products cite each project, so a wall of
  * icons shows what the site is actually about rather than whatever sorted first.
@@ -888,8 +921,26 @@ function gains(alt: OssAlternative, lang: Lang): string[] {
 
 /* ── cards ─────────────────────────────────────────────────────────────────── */
 
+/**
+ * A drawing and the sentence that describes it.
+ *
+ * The two come out of one function on purpose. `og:image:alt` is the only thing
+ * a screen reader gets from a card, and everything these carry — the verdict,
+ * the price, the count, what you give up — exists nowhere but the pixels. A
+ * description assembled anywhere else would be a second copy of the same figures
+ * and would drift the first time a card was redesigned, which is worse than no
+ * alt at all. The cards that draw nothing but the page's own title and blurb
+ * return a bare string and let prerender.ts fall back to that title.
+ *
+ * Fact lists, not prose: it should read out in the order the card sets it.
+ */
+type Card = { svg: string; alt: string };
+
+/** The one connective the alt sentences need that the dictionary has no key for. */
+const VS: Record<Lang, string> = { en: "versus", fr: "contre" };
+
 /** The verdict card: the swap as the headline. */
-async function productCard(p: Product, lang: Lang): Promise<string | null> {
+async function productCard(p: Product, lang: Lang): Promise<Card | null> {
 	const alt = topOss(p);
 	if (!alt) return null;
 	const iconA = productIcon(p);
@@ -939,17 +990,17 @@ async function productCard(p: Product, lang: Lang): Promise<string | null> {
 		lang === "fr"
 			? `${alt.name} est ${T(lang, "cats.cheapest")}`
 			: `${alt.name} is the ${T(lang, "cats.cheapest")}`;
-	const meta = [
+	const facts = [
 		price,
 		`${num(ossCount, lang)} ${T(lang, "stats.alternatives")}`,
 		easiest,
-	]
-		.filter(Boolean)
-		.join(" · ");
+	].filter(Boolean);
+	const meta = facts.join(" · ");
 	const metaX = 80 + badge.w + 24;
 	const metaSize = fitSize(meta, W - 80 - metaX, 24, 17);
 
-	return frame(`
+	return {
+		svg: frame(`
 	${logo(80, 110, 86, iconA, p.name)}
 	${disp(190, baseline, nameA, { size, fill: t.text })}
 	${mark(markX, 128, 54)}
@@ -961,11 +1012,95 @@ async function productCard(p: Product, lang: Lang): Promise<string | null> {
 	${lose.length > 0 ? `<path d="M604 268 V436" stroke="${t.line}" stroke-width="2"/>` : ""}
 	${badge.svg}
 	${text(metaX, 494, clip(meta, W - 80 - metaX, metaSize), { size: metaSize, fill: t.muted })}
-	${footerBar()}`);
+	${footerBar()}`),
+		// The badge and the line under it, in the order they are drawn. The card
+		// separates those facts with a middot, which a screen reader reads out.
+		alt: `${p.name} ${VS[lang]} ${alt.name}. ${cap(`verdict ${T(lang, `verdict.${p.verdict}`).toLowerCase()}`)}, ${facts.join(", ")}.`,
+	};
+}
+
+/**
+ * The project card: the paid products this one project gets you out of.
+ *
+ * The mirror image of the product card, which is the page's own frame — the
+ * product page asks "what replaces Notion?", the project page asks "what does
+ * AppFlowy get me out of?". Only the indexable ones are drawn, see the header.
+ *
+ * Four products, not six. Two thirds of the 1,301 pages that get a card cite
+ * exactly two, so a 3x2 board would be two thirds empty on most of the set; two
+ * wide rows fill at two and stay honest at six, and the eyebrow carries the real
+ * total so nothing is hidden by the cut.
+ */
+async function projectCard(p: Project, lang: Lang): Promise<Card> {
+	const icon = projectIcon(p.source);
+	await loadLogo(icon, 88);
+
+	const cited = p.replaces
+		.map((r) => productBySlug.get(r.slug))
+		.filter((r): r is Product => r !== undefined);
+	// `replaces` arrives in the order the product files were read, which put
+	// Brandfolder ahead of Dropbox on the Nextcloud card. The four that get drawn
+	// are the four worth naming, so they come off editorial weight like every
+	// other list on the site.
+	const rows = byWeight(cited).slice(0, 4);
+	for (const r of rows) await loadLogo(productIcon(r), 48);
+
+	const size = fitSize(p.name, 900, 68, 34, 700, DISP);
+	const facts = [p.license, T(lang, `effort.${p.effort}`), p.language].filter(
+		Boolean,
+	);
+	const meta = facts.join(" · ");
+
+	// Centred between the rule and the footer rather than hung off the rule: half
+	// the set is two products and one row, and pinned to the top that reads as a
+	// card whose bottom half failed to render.
+	const boardH = Math.ceil(rows.length / 2) * 104 - 12;
+	const top = 246 + Math.round((284 - (boardH + 40)) / 2);
+
+	let board = "";
+	rows.forEach((r, i) => {
+		const x = 80 + (i % 2) * 534;
+		const y = top + 32 + Math.floor(i / 2) * 104;
+		const col = VERDICT_COLOUR[r.verdict] ?? t.brand;
+		const price =
+			r.priceMonthly === null || r.priceMonthly === 0
+				? null
+				: perMonth(r.priceMonthly, lang);
+		const under = [price, T(lang, `verdict.${r.verdict}`)]
+			.filter(Boolean)
+			.join(" · ");
+		board += panel(x, y, 506, 92, { r: 14 });
+		board += logo(x + 18, y + 22, 48, productIcon(r), r.name);
+		board += disp(x + 80, y + 44, clip(r.name, 330, 26, 700, DISP), {
+			size: 26,
+			fill: t.text,
+		});
+		board += text(x + 80, y + 72, clip(under, 330, 19), {
+			size: 19,
+			fill: t.muted,
+		});
+		board += `<circle cx="${x + 466}" cy="${y + 46}" r="15" fill="${tint(col, 0.16)}"/>`;
+		board +=
+			r.verdict === "not-yet"
+				? cross(x + 466, y + 46, 7, col)
+				: tick(x + 466, y + 48, 7, col);
+	});
+
+	return {
+		svg: frame(`
+	${logo(80, 92, 88, icon, p.name)}
+	${disp(196, 152, clip(p.name, 900, size, 700, DISP), { size, fill: t.brand })}
+	${text(196, 206, clip(meta, 924, 25), { size: 25, fill: t.muted })}
+	<path d="M80 246 H${W - 80}" stroke="${t.line}" stroke-width="2"/>
+	${eyebrow(80, top + 14, `${T(lang, "page.replaces")} ${num(cited.length, lang)}`)}
+	${board}
+	${footerBar()}`),
+		alt: `${p.name} ${T(lang, "page.replaces").toLowerCase()} ${rows.map((r) => r.name).join(", ")}. ${facts.join(", ")}.`,
+	};
 }
 
 /** The category card: a board of real swaps, each with its verdict. */
-async function categoryCard(c: Category, lang: Lang): Promise<string | null> {
+async function categoryCard(c: Category, lang: Lang): Promise<Card | null> {
 	const stat = stats.get(c.slug);
 	const inCat = byWeight(byCategory.get(c.slug) ?? []);
 	if (!stat || inCat.length === 0) return null;
@@ -982,13 +1117,14 @@ async function categoryCard(c: Category, lang: Lang): Promise<string | null> {
 		(n, p) => n + p.alternatives.length,
 		0,
 	);
-	const meta = [
+	const facts = [
 		`${num(stat.products, lang)} ${T(lang, "stats.products")}`,
 		`${num(altsHere, lang)} ${T(lang, "stats.alternatives")}`,
 		stat.medianPrice === null
 			? T(lang, "cats.noMedian")
 			: `${T(lang, "cats.medianPrice")} ${perMonth(stat.medianPrice, lang)}`,
-	].join(" · ");
+	];
+	const meta = facts.join(" · ");
 
 	const title = c.name[lang] ?? c.name.en;
 	const titleSize = fitSize(title, 1040, 64, 34, 700, DISP);
@@ -1015,18 +1151,21 @@ async function categoryCard(c: Category, lang: Lang): Promise<string | null> {
 				: tick(x + 296, y + 56, 7, col);
 	});
 
-	return frame(`
+	return {
+		svg: frame(`
 	${disp(80, 160, title, { size: titleSize, fill: t.text })}
 	${text(80, 206, clip(meta, 1040, 25), { size: 25, fill: t.muted })}
 	${board}
-	${footerBar()}`);
+	${footerBar()}`),
+		alt: `${title}. ${facts.join(", ")}. ${rows.map((r) => `${r.p.name} ${VS[lang]} ${r.alt.name}`).join(", ")}.`,
+	};
 }
 
 /** The theme card: the shape of one hub, with two swaps out of it. */
 async function themeCard(
 	group: CategoryGroup,
 	lang: Lang,
-): Promise<string | null> {
+): Promise<Card | null> {
 	const cats = liveCategories.filter((c) => c.group === group);
 	if (cats.length === 0) return null;
 	const slugs = new Set(cats.map((c) => c.slug));
@@ -1122,12 +1261,17 @@ async function themeCard(
 		row += disp(x, baseline, nameB, { size, fill: t.brand });
 	});
 
-	return frame(`
+	return {
+		svg: frame(`
 	${disp(80, 158, title, { size: titleSize, fill: t.text })}
 	${figureSvg}
 	${bar}
 	${row}
-	${footerBar()}`);
+	${footerBar()}`),
+		alt: `${title}. ${figures.map(([v, label]) => `${v} ${label}`).join(", ")}. ${segments
+			.map(([label, v]) => `${num(v, lang)} ${label}`)
+			.join(", ")}.`,
+	};
 }
 
 /**
@@ -1136,7 +1280,7 @@ async function themeCard(
  * The graveyard gets its own treatment further down. A muted wall is what says
  * "this is over" without a word of extra copy.
  */
-async function collectionCard(slug: string, lang: Lang): Promise<string> {
+async function collectionCard(slug: string, lang: Lang): Promise<Card> {
 	const members = collectionMembers(slug, products, projects);
 	const count = memberCount(members);
 	const title = T(lang, `collection.${slug}.title`);
@@ -1163,14 +1307,17 @@ async function collectionCard(slug: string, lang: Lang): Promise<string> {
 		for (let i = 0; i < 11; i++) {
 			rules += `<rect x="${80 + i * 96}" y="466" width="72" height="6" rx="3" fill="${t.muted}" fill-opacity="${(0.55 - i * 0.045).toFixed(3)}"/>`;
 		}
-		return frame(`
+		return {
+			svg: frame(`
 	${disp(80, 290, num(count, lang), { size: 190, fill: t.muted })}
 	${disp(80, 370, clip(title, 1040, 48, 700, DISP), { size: 48, fill: t.text })}
 	${wrap(lead(blurb, 1040, 26, 2), 1040, 26, 2)
 		.map((l, i) => text(80, 426 + i * 36, l, { size: 26, fill: t.muted }))
 		.join("\n\t")}
 	${rules}
-	${footerBar()}`);
+	${footerBar()}`),
+			alt: `${num(count, lang)}. ${title}. ${blurb}`,
+		};
 	}
 
 	// A part-filled wall still reads as a wall. An empty one does not, so a
@@ -1187,12 +1334,16 @@ async function collectionCard(slug: string, lang: Lang): Promise<string> {
 	);
 	const lines = wrap(lead(blurb, 720, 25, 3), 720, 25, 3);
 
-	return frame(`
+	return {
+		svg: frame(`
 	${disp(80, 300, num(count, lang), { size: 200, fill: t.brand })}
 	${disp(80, 376, clip(unit, 720, 52, 700, DISP), { size: 52, fill: t.text })}
 	${lines.map((l, i) => text(80, 430 + i * 36, l, { size: 25, fill: t.muted })).join("\n\t")}
 	${wall}
-	${footerBar()}`);
+	${footerBar()}`),
+		// The wall is decoration; the count, the unit and the blurb are the card.
+		alt: `${num(count, lang)} ${unit}. ${title}. ${blurb}`,
+	};
 }
 
 /** The collections index: six real slices, each panel a bar as well as a number. */
@@ -1633,8 +1784,9 @@ function notFoundCard(lang: Lang): string {
 
 /**
  * The static site card, the one every page without a card of its own unfurls
- * with. That is 7,162 of the 9,049 built pages, which makes it the most served
- * image on the site by a distance.
+ * with. Still the most served image on the site by a distance, but it is now the
+ * card for the `noindex` project pages, the legal pages, the session-gated ones
+ * and the paginated tails rather than for 2,602 indexable project pages too.
  *
  * It lives here rather than in scripts/build-og.ts because it has to be drawn
  * by the same toolkit as everything else. The committed og.png was the old dark
@@ -1667,15 +1819,25 @@ mkdirSync(OUT, { recursive: true });
 let written = 0;
 let bytes = 0;
 
-async function write(kind: string, slug: string, svg: string | null) {
-	if (svg === null) return;
+/**
+ * The alt sentences, keyed by the filename stem the card was written under, so
+ * `ogFor()` in scripts/prerender.ts can look one up with the name it already
+ * built. Only cards that carry one appear; the rest fall back to the page title.
+ */
+const alts: Record<string, string> = {};
+
+async function write(kind: string, slug: string, card: Card | string | null) {
+	if (card === null) return;
+	const svg = typeof card === "string" ? card : card.svg;
 	// Palette PNG: these are flat colour with a handful of logos on them, and a
 	// 256-colour quantisation is a third of the bytes with no visible change.
 	// The whole set ships in the image and in every deploy.
 	const png = await sharp(Buffer.from(svg))
 		.png({ compressionLevel: 9, palette: true, quality: 90, effort: 7 })
 		.toBuffer();
-	writeFileSync(join(OUT, slug ? `${kind}-${slug}.png` : `${kind}.png`), png);
+	const name = slug ? `${kind}-${slug}` : kind;
+	writeFileSync(join(OUT, `${name}.png`), png);
+	if (typeof card !== "string") alts[name] = card.alt;
 	written += 1;
 	bytes += png.length;
 }
@@ -1685,9 +1847,13 @@ async function write(kind: string, slug: string, svg: string | null) {
  *
  * `kind` is the route name in packages/core/src/routes.ts, so `ogFor()` in
  * scripts/prerender.ts can look a file up without a translation table between
- * the two. Per-project cards are deliberately absent, see the header.
+ * the two. Project cards cover the indexable pages only, see the header.
  */
-type Job = { kind: string; slug: string; make: () => Promise<string | null> };
+type Job = {
+	kind: string;
+	slug: string;
+	make: () => Promise<Card | string | null>;
+};
 
 const jobs: Job[] = [];
 for (const lang of LANGS) {
@@ -1719,7 +1885,16 @@ for (const lang of LANGS) {
 			make: () => collectionCard(def.slug, lang),
 		});
 	}
-	const singles: [string, () => Promise<string> | string][] = [
+	// The slug is the one in the URL, not the forge-path id `Project.slug`
+	// carries: `ogFor()` is handed whatever is in `/en/tools/<here>/`.
+	for (const p of cardProjects) {
+		jobs.push({
+			kind: "project",
+			slug: `${projectUrlSlug.get(p.slug) as string}-${lang}`,
+			make: () => projectCard(p, lang),
+		});
+	}
+	const singles: [string, () => Promise<string | Card> | string | Card][] = [
 		["home", () => homeCard(lang)],
 		["categories", () => categoriesCard(lang)],
 		["collections", () => collectionsCard(lang)],
@@ -1731,8 +1906,14 @@ for (const lang of LANGS) {
 		["submit", () => submitCard(lang)],
 		["sponsor", () => sponsorCard(lang)],
 		["contact", () => contactCard(lang)],
-		["notfound", () => notFoundCard(lang)],
 	];
+	// English only. prerender.ts writes ONE /404.html, in DEFAULT_LANG, because
+	// nginx serves it under every URL that does not exist and a 404 has no locale
+	// to pick from. `notfound-fr.png` was drawn anyway and was the only file in
+	// the set that nothing on the site referenced.
+	if (lang === DEFAULT_LANG) {
+		singles.push(["notfound", () => notFoundCard(lang)]);
+	}
 	for (const [kind, make] of singles) {
 		jobs.push({ kind, slug: lang, make: async () => make() });
 	}
@@ -1752,6 +1933,112 @@ if (written < LIMIT) {
 	writeFileSync(join(FE, "public/og.png"), png);
 	written += 1;
 	bytes += png.length;
+}
+
+/**
+ * The manifest and the icons land on a full run only. `--limit` draws a handful
+ * for looking at, and writing `alt.json` from that would strip the alt text off
+ * every card the run never reached.
+ */
+const FULL = !Number.isFinite(LIMIT);
+
+if (FULL) {
+	writeFileSync(
+		join(OUT, "alt.json"),
+		`${JSON.stringify(alts, Object.keys(alts).sort(), "\t")}\n`,
+	);
+}
+
+/* ── icons ─────────────────────────────────────────────────────────────────── */
+
+/**
+ * The rasters, from the same SVG the browser tab uses.
+ *
+ * `favicon.svg` was the only icon the site had, and Google's favicon
+ * documentation lists every other format and never names SVG — so the entry in
+ * search results may have been a blank globe. iOS ignores an SVG icon outright.
+ *
+ * Drawn here rather than in a script of their own because they are the same
+ * brand, the same `sharp`, and the same output directory as the cards, and they
+ * change on the same occasions: when the mark does.
+ */
+const ICON_SVG = readFileSync(join(FE, "public/favicon.svg"));
+
+/** librsvg rasterises off the density, so ask for the size rather than scaling up. */
+const raster = (size: number) =>
+	sharp(ICON_SVG, { density: (72 * size) / 32 })
+		.resize(size, size)
+		.png({ compressionLevel: 9 })
+		.toBuffer();
+
+/**
+ * The mark on an opaque tile, inset.
+ *
+ * `favicon.svg` deliberately has no background — a tile eats a 16x16 tab icon.
+ * Two places need one anyway: iOS composites a transparent apple-touch-icon onto
+ * BLACK, which turns the grey arrow invisible, and a knowledge-panel logo is
+ * shown on white.
+ */
+async function tile(size: number, pad: number): Promise<Buffer> {
+	const inner = Math.round(size * (1 - pad * 2));
+	const mark = await raster(inner);
+	return sharp({
+		create: {
+			width: size,
+			height: size,
+			channels: 4,
+			background: t.bg,
+		},
+	})
+		.composite([
+			{
+				input: mark,
+				top: Math.round((size - inner) / 2),
+				left: Math.round((size - inner) / 2),
+			},
+		])
+		.png({ compressionLevel: 9 })
+		.toBuffer();
+}
+
+if (FULL) {
+	const pub = (name: string) => join(FE, "public", name);
+	const icons: [string, Buffer][] = [
+		// Google's rule is square, at least 8x8, larger than 48x48 preferred.
+		["favicon-96x96.png", await raster(96)],
+		["icon-192.png", await raster(192)],
+		["icon-512.png", await raster(512)],
+		["apple-touch-icon.png", await tile(180, 0.16)],
+		// The square brand mark, for `Organization.logo` in
+		// apps/frontend/src/seo.ts. That property pointed at og.png, which is a
+		// 1200x630 share card and not a logo at all.
+		["logo-512.png", await tile(512, 0.16)],
+	];
+	for (const [name, buf] of icons) writeFileSync(pub(name), buf);
+
+	writeFileSync(
+		pub("site.webmanifest"),
+		`${JSON.stringify(
+			{
+				name: "canireplaceit",
+				short_name: "canireplaceit",
+				start_url: "/",
+				display: "browser",
+				background_color: t.bg,
+				theme_color: t.bg,
+				icons: [
+					{ src: "/icon-192.png", sizes: "192x192", type: "image/png" },
+					{ src: "/icon-512.png", sizes: "512x512", type: "image/png" },
+					{ src: "/favicon.svg", sizes: "any", type: "image/svg+xml" },
+				],
+			},
+			null,
+			"\t",
+		)}\n`,
+	);
+	console.log(
+		`${icons.length} icons + site.webmanifest · apps/frontend/public`,
+	);
 }
 
 console.log(

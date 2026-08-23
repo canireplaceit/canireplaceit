@@ -13,11 +13,7 @@ import type {
 	Project,
 	Verdict,
 } from "core/src/content";
-import {
-	CATEGORY_GROUPS,
-	categoryStats,
-	collectProjects,
-} from "core/src/content";
+import { categoryStats, collectProjects } from "core/src/content";
 import type { FeatureFile } from "core/src/features";
 import { isLang, type Lang } from "core/src/index";
 import {
@@ -28,25 +24,7 @@ import {
 	paths,
 	type Route,
 } from "core/src/routes";
-import {
-	Archive,
-	Banknote,
-	BookOpen,
-	Cog,
-	Coins,
-	Container,
-	FileLock2,
-	Heart,
-	Languages,
-	Moon,
-	PackageOpen,
-	PiggyBank,
-	ServerCog,
-	ShieldCheck,
-	Sun,
-	UserRound,
-} from "lucide-react";
-import type { ComponentType } from "react";
+import { Heart, Languages, Moon, Sun, UserRound } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AdminPage } from "./AdminPage";
 import { isHouseSlot } from "./ads";
@@ -78,8 +56,6 @@ import {
 	ResultsLive,
 	VerdictPills,
 } from "./browse";
-import { byWeight as byCategoryWeight } from "./categories";
-import { categoryIcon } from "./categoryIcons";
 import { GRID_1COL, SponsorSlot, VerdictMark } from "./components";
 import { REPO } from "./contribute";
 import { Dashboard } from "./Dashboard";
@@ -91,8 +67,8 @@ import { LegalIndexPage, LegalPage, legalCopy } from "./legal";
 import { MEASURE } from "./listShared";
 import { Mark } from "./Mark";
 import { Link, navigate } from "./nav";
-import { type NavItem, NavMenu, NavSheet } from "./navMenu";
 import {
+	AboutPage,
 	CategoriesPage,
 	CategoryPage,
 	CollectionPage,
@@ -102,6 +78,7 @@ import {
 	GroupPage,
 	type PageCtx,
 	ProductPage,
+	ProductsIndexPage,
 	ProjectPage,
 	ProjectsIndexPage,
 } from "./pages";
@@ -118,6 +95,7 @@ import {
 	homeMeta,
 	legalMeta,
 	productMeta,
+	productsMeta,
 	projectMeta,
 	projectsMeta,
 	standingMeta,
@@ -145,6 +123,20 @@ type Boot = {
 	projectSlugs: [string, string][];
 	/** Over the FULL catalogue — the footer line is a claim about the whole site. */
 	freshness?: PriceFreshness;
+	/**
+	 * The other products in this product's category, card-shaped.
+	 *
+	 * A product page ships only its own entry, so the neighbours it links to
+	 * sideways cannot be derived in the browser. Built by `relatedProducts` in
+	 * listShared.tsx at prerender time. Absent everywhere else.
+	 */
+	related?: ListedProduct[];
+	/**
+	 * `[slug, name, category]` for every product, on the products index and
+	 * nowhere else. That index names all 592, so it carries three strings each
+	 * rather than the ~7 kB a full list row costs.
+	 */
+	productIndex?: [string, string, string][];
 	/** Per-category counts over the FULL catalogue, for the category menu. */
 	categoryStats?: [string, CategoryStat][];
 	/** Repo liveness for the repos THIS page cites, not all of them. Read
@@ -221,36 +213,6 @@ function HeroShowcase({
 	);
 }
 
-// How many categories the header's dropdown shows — a shortcut, not the
-// index, so it has to fit above the fold. Chosen as the ten with the most
-// reviewed products (derived from `categoryStats`, so it can't go stale),
-// not the authored `position` order or a hand-picked list.
-const NAV_CATEGORIES = 10;
-
-/**
- * An icon per collection. The collections are derived, but their icons are not
- * derivable from anything — four slugs, four pictures, named here so the
- * dropdown and the sheet cannot disagree about them.
- */
-const COLLECTION_ICONS: Record<
-	string,
-	ComponentType<{ className?: string }>
-> = {
-	"self-hostable": ServerCog,
-	"open-source": BookOpen,
-	foss: ShieldCheck,
-	"open-core": PackageOpen,
-	"source-available": FileLock2,
-	cheaper: PiggyBank,
-	"one-compose": Container,
-	archived: Archive,
-	"under-10": Coins,
-	expensive: Banknote,
-	"in-rust": Cog,
-	"in-go": Cog,
-	"in-python": Cog,
-};
-
 /**
  * Which nav entry owns each route.
  *
@@ -263,6 +225,7 @@ const COLLECTION_ICONS: Record<
 const SECTION_OF: Record<Route["name"], string> = {
 	home: "list",
 	product: "list",
+	products: "list",
 	// An unknown URL renders the list, so the header has to agree with the body.
 	unknown: "list",
 	project: "projects",
@@ -273,8 +236,9 @@ const SECTION_OF: Record<Route["name"], string> = {
 	collection: "collections",
 	collections: "collections",
 	features: "features",
-	glossary: "features",
+	glossary: "glossary",
 	gaps: "list",
+	about: "",
 	stats: "stats",
 	sponsor: "sponsor",
 	submit: "submit",
@@ -287,112 +251,75 @@ const SECTION_OF: Record<Route["name"], string> = {
 
 function Header({
 	t,
-	tc,
 	route,
 	theme,
 	toggleTheme,
-	cats,
-	catStats,
-	collectionCounts,
 	signedIn,
 }: {
 	t: (k: Key) => string;
-	tc: (v: { en: string }) => string;
 	route: Route;
 	theme: string;
 	toggleTheme: () => void;
-	cats: Category[];
-	catStats: Map<string, CategoryStat>;
-	collectionCounts: Map<string, number>;
 	/** The signed-in advertiser's email, or null. */
 	signedIn: string | null;
 }) {
 	const lang = route.lang;
 	const other: Lang = lang === "fr" ? "en" : "fr";
 
-	// Both baked into every page's payload by prerender.ts, so these render the
-	// same on the server and on the first client pass — which is what hydration
-	// requires of anything in the header.
-	const topCats: NavItem[] = byCategoryWeight(cats, catStats)
-		.slice(0, NAV_CATEGORIES)
-		.map((c) => ({
-			key: c.slug,
-			href: paths.category(lang, c.slug),
-			label: tc(c.name),
-			icon: categoryIcon(c.icon),
-			count: catStats.get(c.slug)?.products ?? 0,
-		}));
-
-	/**
-	 * The ten themes, as a nav group of their own.
-	 *
-	 * The dropdown showed the ten biggest categories out of 85 — a shortcut that
-	 * leaves 75 of them reachable only from the index. The themes cover all 85
-	 * between them, so this is the level that actually browses: ten entries,
-	 * every category underneath one of them, and the theme hubs finally have an
-	 * inbound link from every page rather than from the categories index alone.
-	 */
-	const themeItems: NavItem[] = CATEGORY_GROUPS.map((g) => {
-		const inGroup = cats.filter((c) => c.group === g);
-		return {
-			key: g,
-			href: paths.group(lang, g),
-			label: t(`catGroup.${g}` as Key),
-			icon: categoryIcon(inGroup[0]?.icon ?? "sparkles"),
-			count: inGroup.reduce(
-				(n, c) => n + (catStats.get(c.slug)?.products ?? 0),
-				0,
-			),
-		};
-	}).filter((i) => i.count > 0);
-
-	const collectionItems: NavItem[] = COLLECTIONS.map((c) => ({
-		key: c.slug,
-		href: paths.collection(lang, c.slug),
-		label: t(`collection.${c.slug}.title` as Key),
-		icon: COLLECTION_ICONS[c.slug] ?? PackageOpen,
-		count: collectionCounts.get(c.slug),
-	}));
-
 	/** Which nav entry the current URL belongs under. */
 	const section = SECTION_OF[route.name];
 
-	/** The links that are just links. Shared by the row and the sheet. */
-	const plainLinks = [
-		{
-			href: paths.home(lang),
-			label: t("nav.list"),
-			current: section === "list",
-		},
+	/**
+	 * The whole sitewide nav: eight links, rendered exactly once.
+	 *
+	 * WHAT THIS USED TO BE. Ten themes, ten categories and thirteen collections
+	 * in three dropdowns, plus a mobile sheet that rendered every one of them a
+	 * second time and hid it with CSS — 88 anchors for 43 unique URLs, on all
+	 * 8,864 documents. The measured result was that `/en/legal/cookies/` carried
+	 * the same inbound authority as the home page and a twelve-product category
+	 * carried three hundred times more than `/en/alternatives/notion/`.
+	 *
+	 * The grids were not deleted, they were moved to the two hubs that already
+	 * existed for them: `/categories/` carries all 85 categories AND all ten
+	 * theme hubs, `/collections/` carries all thirteen collections. Both are one
+	 * click from here.
+	 *
+	 * No counts in the labels either: "Open source 3420" changes on every build,
+	 * so the anchor text of 8,864 links churned on every deploy.
+	 */
+	const links = [
+		{ href: paths.home(lang), label: t("nav.list"), section: "list" },
 		{
 			href: paths.projects(lang),
 			label: t("nav.projects"),
-			current: section === "projects",
+			section: "projects",
 		},
+		{
+			href: paths.categories(lang),
+			label: t("nav.categories"),
+			section: "categories",
+		},
+		{
+			href: paths.collections(lang),
+			label: t("nav.collections"),
+			section: "collections",
+		},
+		// Beside Alternatives on purpose: the feature explorer's rows ARE the
+		// projects, so the reader who wants "which of these does SSO" is the reader
+		// who just came from that index.
 		{
 			href: paths.features(lang),
 			label: t("nav.features"),
-			current: section === "features",
+			section: "features",
 		},
+		// The catalogue's own vocabulary, and the destination every jargon tooltip
+		// points at — including on a phone, where there is no hover.
 		{
-			href: paths.stats(lang),
-			label: t("nav.stats"),
-			current: section === "stats",
-		},
-		{
-			href: signedIn ? paths.dashboard(lang) : paths.signin(lang),
-			label: signedIn ?? t("nav.signin"),
-			current: route.name === "dashboard" || route.name === "signin",
-		},
-		{
-			href: paths.sponsor(lang),
-			label: t("nav.sponsor"),
-			current: section === "sponsor",
-		},
-		{
-			href: paths.submit(lang),
-			label: t("nav.submit"),
-			current: section === "submit",
+			// "Glossary" here, "What the words mean" in the footer: one URL, two
+			// honest anchors, and the nav row stays a row.
+			href: paths.glossary(lang),
+			label: t("nav.glossary"),
+			section: "glossary",
 		},
 	];
 
@@ -403,7 +330,7 @@ function Header({
 
 	return (
 		<header className="sticky top-0 z-40 border-border border-b bg-bg/80 backdrop-blur-md">
-			<div className="mx-auto flex max-w-6xl items-center gap-3 px-4 py-2.5 xl:gap-5">
+			<div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-3 gap-y-1 px-4 py-2 lg:py-2.5 xl:gap-x-5">
 				<Link
 					href={paths.home(lang)}
 					className="group flex shrink-0 items-center gap-2 font-bold font-display text-base tracking-tight"
@@ -417,83 +344,37 @@ function Header({
 					</span>
 				</Link>
 
-				{/* `lg` and not `md`: eight links, a language switch and a theme
-				    toggle beside the wordmark don't fit the 768px `md:` viewport.
-				    Below `lg` the sheet at the end carries the same links and more. */}
-				{/* gap-3 below xl: the French labels are the widest — at 1024px a
-				    gap-4 wrapped "La liste" onto two lines. */}
+				{/*
+				 * One row, rendered once, reflowed by CSS.
+				 *
+				 * The desktop `<nav>` and a mobile `<details>` sheet used to BOTH
+				 * render in full and hide each other with `hidden`/`lg:hidden`, which
+				 * is how 43 unique hrefs became 88 anchors in every document. There is
+				 * one subtree now: inline beside the wordmark from `lg` up, and below
+				 * it a second row that scrolls sideways on a phone. Eight short labels
+				 * fit that row; the three dropdown grids that did not are on
+				 * /categories/ and /collections/.
+				 */}
 				<nav
 					aria-label={t("nav.menu")}
-					className="ml-auto hidden items-center gap-3 whitespace-nowrap text-muted text-sm lg:flex xl:gap-5"
+					className="-mx-4 order-last flex w-full items-center gap-4 overflow-x-auto whitespace-nowrap px-4 pb-0.5 text-muted text-sm [scrollbar-width:none] lg:order-none lg:mx-0 lg:ml-auto lg:w-auto lg:overflow-x-visible lg:px-0 lg:pb-0 xl:gap-5 [&::-webkit-scrollbar]:hidden"
 				>
-					<Link
-						href={paths.home(lang)}
-						className="nav-link"
-						data-current={section === "list"}
-					>
-						{t("nav.list")}
-					</Link>
-					<Link
-						href={paths.projects(lang)}
-						className="nav-link"
-						data-current={section === "projects"}
-					>
-						{t("nav.projects")}
-					</Link>
-					{/* Beside Alternatives on purpose: the feature explorer's rows ARE
-					    the projects, so the reader who wants "which of these does SSO"
-					    is the reader who just came from that index. */}
-					<Link
-						href={paths.features(lang)}
-						className="nav-link"
-						data-current={section === "features"}
-					>
-						{t("nav.features")}
-					</Link>
-					{/* Themes first: ten entries that cover all 85 categories between
-					    them, where the categories dropdown beside it can only ever show
-					    the ten biggest. */}
-					<NavMenu
-						label={t("cats.themes")}
-						items={themeItems}
-						allHref={paths.categories(lang)}
-						allLabel={t("cats.all")}
-						current={section === "categories"}
-					/>
-					<NavMenu
-						label={t("nav.categories")}
-						items={topCats}
-						allHref={paths.categories(lang)}
-						allLabel={t("cats.all")}
-						current={section === "categories"}
-					/>
-					<NavMenu
-						label={t("nav.collections")}
-						items={collectionItems}
-						allHref={paths.collections(lang)}
-						allLabel={t("collections.all")}
-						current={section === "collections"}
-					/>
-					<Link
-						href={paths.stats(lang)}
-						className="nav-link"
-						data-current={section === "stats"}
-					>
-						{t("nav.stats")}
-					</Link>
-					{/* Ruled off from the eight: these two are what a reader can GIVE the
-					    site, not another part of the catalogue to read. */}
-					<span className="h-5 w-px bg-border" aria-hidden />
-					<Link
-						href={paths.submit(lang)}
-						className="nav-link"
-						data-current={section === "submit"}
-					>
-						{t("nav.submit")}
-					</Link>
+					{links.map((l) => (
+						<Link
+							key={l.href}
+							href={l.href}
+							className="nav-link"
+							data-current={section === l.section}
+						>
+							{l.label}
+						</Link>
+					))}
+					{/* Ruled off from the six: this is what a reader can GIVE the site,
+					    not another part of the catalogue to read. */}
+					<span className="h-5 w-px shrink-0 bg-border" aria-hidden />
 					<Link
 						href={paths.sponsor(lang)}
-						className="btn-primary px-3 py-1.5 text-xs"
+						className="btn-primary shrink-0 px-3 py-1.5 text-xs"
 						data-current={section === "sponsor"}
 					>
 						{t("nav.sponsor")}
@@ -505,11 +386,12 @@ function Header({
 					    something anyone guesses — so this lives on every page. */}
 					<Link
 						href={signedIn ? paths.dashboard(lang) : paths.signin(lang)}
-						className="hidden max-w-[12rem] items-center gap-1.5 truncate rounded-[calc(var(--radius))] border border-border bg-surface px-2.5 py-2 text-xs transition hover:border-brand lg:flex"
+						className="flex max-w-[12rem] items-center gap-1.5 truncate rounded-[calc(var(--radius))] border border-border bg-surface px-2.5 py-2 text-xs transition hover:border-brand"
 						title={signedIn ?? undefined}
+						aria-label={signedIn ?? t("nav.signin")}
 					>
 						<UserRound className="size-3.5 shrink-0" aria-hidden />
-						<span className="min-w-0 truncate">
+						<span className="hidden min-w-0 truncate lg:inline">
 							{signedIn ?? t("nav.signin")}
 						</span>
 					</Link>
@@ -549,32 +431,6 @@ function Header({
 							<Moon className="size-4" aria-hidden />
 						)}
 					</button>
-					{/* Everything the row above holds, for every width the row does not
-					    fit. Below `lg` this is the whole nav; there used to be none. */}
-					<NavSheet
-						label={t("nav.menu")}
-						links={plainLinks}
-						groups={[
-							{
-								title: t("cats.themes"),
-								items: themeItems,
-								allHref: paths.categories(lang),
-								allLabel: t("cats.all"),
-							},
-							{
-								title: t("nav.categories"),
-								items: topCats,
-								allHref: paths.categories(lang),
-								allLabel: t("cats.all"),
-							},
-							{
-								title: t("nav.collections"),
-								items: collectionItems,
-								allHref: paths.collections(lang),
-								allLabel: t("collections.all"),
-							},
-						]}
-					/>
 				</div>
 			</div>
 		</header>
@@ -747,8 +603,12 @@ function Page({ ctx, route }: { ctx: PageCtx; route: Route }) {
 			return <GlossaryPage ctx={ctx} />;
 		case "gaps":
 			return <GapsPage ctx={ctx} />;
+		case "about":
+			return <AboutPage ctx={ctx} />;
 		case "categories":
 			return <CategoriesPage ctx={ctx} />;
+		case "products":
+			return <ProductsIndexPage ctx={ctx} />;
 		case "projects":
 			return <ProjectsIndexPage ctx={ctx} page={route.page} />;
 		case "collections":
@@ -909,13 +769,22 @@ function SiteFooter({ route, t }: { route: Route; t: (k: Key) => string }) {
 								{t("glossary.title")}
 							</Link>
 						</li>
-						{COLLECTIONS.map((c) => (
-							<li key={c.slug}>
-								<Link href={paths.collection(lang, c.slug)} className={fLink}>
-									{t(`collection.${c.slug}.title` as Key)}
-								</Link>
-							</li>
-						))}
+						<li>
+							{/*
+							 * The gaps page had exactly ONE inbound link on the whole
+							 * site — the French twin's language switcher — while being
+							 * indexable, in the sitemap, and the most quotable thing
+							 * here. It is also the only page that argues against the
+							 * catalogue, which is why it is worth a permanent link.
+							 *
+							 * The anchor says what the page holds rather than repeating
+							 * its title, so this is not a fourteenth copy of an anchor
+							 * string that already exists elsewhere.
+							 */}
+							<Link href={paths.gaps(lang)} className={fLink}>
+								{t("gaps.link")}
+							</Link>
+						</li>
 					</FooterColumn>
 
 					<FooterColumn title={t("footer.contribute")}>
@@ -943,8 +812,22 @@ function SiteFooter({ route, t }: { route: Route; t: (k: Key) => string }) {
 
 					<FooterColumn title={t("footer.about")}>
 						<li>
+							{/* Who writes the verdicts, how one is decided, and what
+							    sponsorship does not buy. Linked from every page because
+							    the Quality Rater Guidelines treat it as the starting
+							    point for assessing whether any of this is trustworthy. */}
+							<Link href={paths.about(lang)} className={fLink}>
+								{t("about.title")}
+							</Link>
+						</li>
+						<li>
 							<Link href={paths.contact(lang)} className={fLink}>
 								{t("nav.contact")}
+							</Link>
+						</li>
+						<li>
+							<Link href={paths.stats(lang)} className={fLink}>
+								{t("nav.stats")}
 							</Link>
 						</li>
 						<li>
@@ -1272,6 +1155,8 @@ export function App() {
 		categories: cats,
 		projects,
 		wholeCatalogue,
+		related: boot()?.related ?? [],
+		productIndex: boot()?.productIndex ?? [],
 		projectRows: boot()?.projectRows ?? [],
 		projectTotal: boot()?.projectTotal ?? projects.length,
 		collectionCounts: new Map(boot()?.collectionCounts ?? []),
@@ -1361,6 +1246,8 @@ export function App() {
 				}
 				case "categories":
 					return categoriesMeta(lang, cats.length, products.length);
+				case "products":
+					return productsMeta(lang, catalogueTotal, cats.length);
 				case "projects":
 					return projectsMeta(lang, projects.length, route.page ?? 1);
 				case "collections":
@@ -1381,13 +1268,19 @@ export function App() {
 				// have made a second document claim the site entity.
 				case "features":
 				case "glossary":
-				case "gaps":
+				case "about":
 				case "signin":
 				// dashboard/admin are noindex; without this they'd fall through to
 				// the home page's meta and lose the noindex tag on hydration.
 				case "dashboard":
 				case "admin":
 					return standingMeta(route.name, route.lang);
+				// The title carries the number of not-yet products, which is the
+				// same set `GapsPage` lists, so the <title> and the <h1> agree.
+				case "gaps":
+					return standingMeta(route.name, route.lang, {
+						gaps: products.filter((p) => p.verdict === "not-yet").length,
+					});
 				case "contact":
 					return standingMeta(route.name, lang);
 				case "legal":
@@ -1452,13 +1345,9 @@ export function App() {
 			</a>
 			<Header
 				t={t}
-				tc={tc}
 				route={route}
 				theme={theme}
 				toggleTheme={toggle}
-				cats={cats}
-				catStats={catStats}
-				collectionCounts={ctx.collectionCounts}
 				signedIn={campaigns?.email ?? null}
 			/>
 			<SponsorTape slots={slots} t={t} tc={tc} lang={lang} position="top" />
@@ -1506,7 +1395,7 @@ export function App() {
 								 * The wrapper carries the background because a sticky element with
 								 * a transparent one lets rows scroll visibly underneath it.
 								 */}
-								<div className="-mx-4 sticky top-[3.4rem] z-30 mb-4 border-border border-b bg-bg/90 px-4 py-2.5 backdrop-blur-md">
+								<div className="-mx-4 sticky top-[6.1rem] z-30 mb-4 border-border border-b bg-bg/90 px-4 py-2.5 backdrop-blur-md lg:top-[3.4rem]">
 									{/* One trigger row at every width: full-width search, verdict
 							    pills, and the rest behind one button that opens a sheet,
 							    with the filters actually in force listed underneath. This
