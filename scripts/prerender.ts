@@ -137,6 +137,7 @@ const {
 	legalMeta,
 	OG_IMAGE,
 	OG_LOCALE,
+	X_HANDLE,
 } = await import(join(FE, "src/seo.ts"));
 
 type Meta = {
@@ -1099,6 +1100,9 @@ function head(o: {
 			? `<meta property="og:url" content="${meta.canonical}">`
 			: "",
 		`<meta property="og:image" content="${image}">`,
+		// Recommended by Facebook: with the type declared the scraper does not have
+		// to probe-fetch the file the first time a URL is shared.
+		`<meta property="og:image:type" content="image/png">`,
 		`<meta property="og:image:width" content="${OG_W}">`,
 		`<meta property="og:image:height" content="${OG_H}">`,
 		`<meta property="og:image:alt" content="${esc(imageAlt)}">`,
@@ -1107,6 +1111,10 @@ function head(o: {
 			(l) => `<meta property="og:locale:alternate" content="${OG_LOCALE[l]}">`,
 		),
 		`<meta name="twitter:card" content="summary_large_image">`,
+		// Without these X renders the card with no attribution and no way back to
+		// an account. The handle is the one already linked in the footer.
+		`<meta name="twitter:site" content="${X_HANDLE}">`,
+		`<meta name="twitter:creator" content="${X_HANDLE}">`,
 		`<meta name="twitter:title" content="${esc(meta.title)}">`,
 		`<meta name="twitter:description" content="${esc(meta.description)}">`,
 		`<meta name="twitter:image" content="${image}">`,

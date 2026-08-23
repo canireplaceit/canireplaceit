@@ -218,6 +218,8 @@ const FOUNDER_ID = `${SITE}/#founder`;
 const GITHUB_ORG = "https://github.com/canireplaceit";
 const GITHUB_REPO = "https://github.com/canireplaceit/canireplaceit";
 const X_PROFILE = "https://x.com/hadesdevs";
+/** The same account as `X_PROFILE`, in the @handle form the card tags want. */
+export const X_HANDLE = `@${X_PROFILE.split("/").pop()}`;
 
 const abs = (path: string): string => `${SITE}${path}`;
 
