@@ -1,0 +1,2791 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>canireplaceit SEO audit</title>
+<style>
+:root{--bg:#fbfbfd;--surface:#fff;--surface2:#f6f7f9;--text:#14161a;--muted:#6b7280;--border:#e5e7eb;--brand:#2563eb;--good:#059669;--warn:#b45309;--bad:#dc2626;--crit:#9f1239;--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+@media (prefers-color-scheme:dark){:root{--bg:#0d0f13;--surface:#15181e;--surface2:#1b1f26;--text:#e8eaed;--muted:#9aa1ac;--border:#262b33;--brand:#5b8cff;--good:#34d399;--warn:#fbbf24;--bad:#f87171;--crit:#fb7185}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px 120px}
+header.top{padding:48px 0 24px}
+h1{font-size:2.3rem;line-height:1.15;margin:0 0 10px;letter-spacing:-.02em}
+h2{font-size:1.45rem;margin:52px 0 10px;letter-spacing:-.01em}
+h2:first-of-type{margin-top:20px}
+h3{font-size:1.02rem;margin:28px 0 6px}
+p{margin:0 0 14px}.lede{color:var(--muted);font-size:1.05rem;max-width:74ch}
+small,.muted{color:var(--muted)}
+code,.mono{font-family:var(--mono);font-size:.87em;background:color-mix(in srgb,var(--text) 6%,transparent);padding:1px 5px;border-radius:4px}
+a{color:var(--brand)}
+nav.tabs{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 93%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);margin:0 -24px 28px;padding:10px 24px;display:flex;gap:6px;flex-wrap:wrap}
+nav.tabs button{font:inherit;font-size:.82rem;text-decoration:none;color:var(--muted);border:1px solid var(--border);background:transparent;border-radius:99px;padding:4px 13px;cursor:pointer}
+nav.tabs button:hover{border-color:var(--brand);color:var(--brand)}
+nav.tabs button[aria-selected="true"]{background:var(--brand);border-color:var(--brand);color:#fff}
+nav.tabs .n{font-family:var(--mono);font-size:.72em;opacity:.75;margin-left:5px}
+section.tab{display:none}section.tab.on{display:block}
+.f{border:1px solid var(--border);border-left-width:4px;border-radius:10px;background:var(--surface);padding:16px 20px;margin:14px 0}
+.f.crit{border-left-color:var(--crit)}.f.high{border-left-color:var(--bad)}.f.med{border-left-color:var(--warn)}.f.low{border-left-color:var(--muted)}.f.win{border-left-color:var(--good)}
+.f>header{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;margin-bottom:6px;padding:0;border:0}
+.f>header h3{margin:0;font-size:1.05rem;flex:1;min-width:260px}
+.sev{font-size:.66rem;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em;border-radius:5px;padding:2px 7px;border:1px solid;flex-shrink:0}
+.s-crit{color:var(--crit);border-color:color-mix(in srgb,var(--crit) 45%,transparent);background:color-mix(in srgb,var(--crit) 10%,transparent)}
+.s-high{color:var(--bad);border-color:color-mix(in srgb,var(--bad) 40%,transparent);background:color-mix(in srgb,var(--bad) 8%,transparent)}
+.s-med{color:var(--warn);border-color:color-mix(in srgb,var(--warn) 40%,transparent);background:color-mix(in srgb,var(--warn) 8%,transparent)}
+.s-low{color:var(--muted);border-color:var(--border)}
+.s-done{color:#fff;background:var(--good);border-color:var(--good)}
+.s-win{color:var(--good);border-color:color-mix(in srgb,var(--good) 40%,transparent);background:color-mix(in srgb,var(--good) 8%,transparent)}
+.eff{font-family:var(--mono);font-size:.72rem;color:var(--muted);white-space:nowrap}
+pre.c{font-family:var(--mono);font-size:.75rem;line-height:1.5;white-space:pre;overflow-x:auto;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;margin:10px 0}
+pre.c .del{color:var(--bad)}pre.c .add{color:var(--good)}
+table{border-collapse:collapse;width:100%;font-size:.86rem;margin:14px 0;display:block;overflow-x:auto}
+th,td{text-align:left;padding:7px 11px;border-bottom:1px solid var(--border);vertical-align:top}
+th{font-weight:600;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);white-space:nowrap}
+td.n{font-family:var(--mono);text-align:right;white-space:nowrap}
+td.ok{color:var(--good)}td.no{color:var(--bad)}
+.fix{border-left:3px solid var(--good);background:color-mix(in srgb,var(--good) 6%,transparent);padding:9px 14px;border-radius:0 8px 8px 0;margin:10px 0;font-size:.9rem}
+.fix strong{color:var(--good)}
+.why{color:var(--muted);font-size:.92rem;margin:6px 0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:18px 0}
+.card{border:1px solid var(--border);border-radius:10px;background:var(--surface);padding:14px 16px}
+.card .v{font-family:var(--mono);font-size:1.5rem;font-weight:600;line-height:1.1;display:block}
+.card .k{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.card.bad .v{color:var(--bad)}.card.good .v{color:var(--good)}.card.warn .v{color:var(--warn)}
+ul,ol{margin:0 0 14px;padding-left:22px}li{margin:4px 0}
+hr{border:0;border-top:1px solid var(--border);margin:36px 0}
+.pending{border:1px dashed var(--border);border-radius:10px;padding:22px;text-align:center;color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <h1>SEO audit, canireplaceit.com</h1>
+  <p class="lede">Audited 22 August 2026 against the live site and the prerendered build in
+  <code>/home/hades/projects/canireplaceit/apps/frontend/dist</code>. 8,865 prerendered pages,
+  4,472 sitemap URLs, 592 products, 3,480 project pages, two languages.</p>
+</header>
+
+<nav class="tabs" role="tablist">
+  <button role="tab" aria-selected="true" data-t="overview">Overview</button>
+  <button role="tab" aria-selected="false" data-t="crawl">Crawl &amp; index</button>
+  <button role="tab" aria-selected="false" data-t="speed">Speed</button>
+  <button role="tab" aria-selected="false" data-t="semantics">Semantics</button>
+  <button role="tab" aria-selected="false" data-t="schema">Schema</button>
+  <button role="tab" aria-selected="false" data-t="social">Social &amp; OG</button>
+  <button role="tab" aria-selected="false" data-t="ai">AI &amp; LLM</button>
+  <button role="tab" aria-selected="false" data-t="content">Content</button>
+  <button role="tab" aria-selected="false" data-t="links">Internal links</button>
+  <button role="tab" aria-selected="false" data-t="marketing">Marketing</button>
+</nav>
+
+<!-- ========================= OVERVIEW ========================= -->
+<section class="tab on" id="overview">
+
+<h2>Status</h2>
+<p class="lede">Live tracker. Updated as each tab lands. Nothing here is deployed yet.</p>
+<table>
+  <tr><th>Tab</th><th>State</th><th>What shipped</th></tr>
+  <tr><td>Crawl &amp; index</td><td class="ok"><strong>done</strong></td><td>Redirect chain killed, 26 403s gone, gzip fixed, HSTS + HTTP/3, robots, sitemap lastmod, IndexNow enabled</td></tr>
+  <tr><td>Speed</td><td class="ok"><strong>done</strong></td><td>Boot fetch lazy, payload −60%, CLS ~0, Lighthouse home 0.65 → 0.93</td></tr>
+  <tr><td>Semantics</td><td class="ok"><strong>done</strong></td><td>Matrix labels, heading tree fixed, 1,356 dl blocks corrected, table scope, skip link, stat tiles real, 12,349 glossary deep links, brand contrast 4.40 → 5.00</td></tr>
+  <tr><td>Schema</td><td>queued</td><td>Delete faqJsonLd, Organization, @id graph, Product+Review</td></tr>
+  <tr><td>Social &amp; OG</td><td>queued</td><td>og:image dims/alt, feed discovery, raster favicon</td></tr>
+  <tr><td>AI &amp; LLM</td><td>queued</td><td>llms.txt spec, md twins, OpenAPI schemas, markdown ledes</td></tr>
+  <tr><td>Content</td><td>queued</td><td>H1 keywords, titles, descriptions, About page, comparison pages</td></tr>
+  <tr><td>Internal links</td><td>queued</td><td>Nav slimming, related products, gaps linking, products index</td></tr>
+  <tr><td>Indexing to 100%</td><td>queued</td><td>Project page enrichment, thinProject rule, per-project notes</td></tr>
+</table>
+
+<h3>Carried forward</h3>
+<p>Things found <em>during</em> the fixes that were not in the original audit. Recorded so they do
+not get lost.</p>
+<table>
+  <tr><th>#</th><th>Item</th><th>Why it is open</th></tr>
+  <tr><td>C1</td><td>No products index at <code>/en/alternatives/</code></td><td><code>routes.ts</code> has no route for a bare <code>alternatives</code> segment. It 301s to the locale home for now, which clears the 403 but leaves the 592 money pages without a hub at their own prefix.</td></tr>
+  <tr><td>C2</td><td>Sponsor board is baked into every page</td><td>Fixed CLS 0.28 → 0 on product pages, but costs ~23 KB per page and pushed product LCP 696 → 844 ms. A CSS <code>min-height</code> reserving the same space would do it for roughly zero bytes.</td></tr>
+  <tr><td>C3</td><td><code>/en/collections/foss/</code> still shifts ~0.076</td><td>Halved from 0.134 by the speed pass but not diagnosed. <code>main</code> doubles in height at ~1.95 s.</td></tr>
+  <tr><td>C4</td><td>Lazy fetch does not use <code>?view=list</code></td><td>The slim projection is live and documented (27× smaller) but the home filters read the <code>alternatives</code> array it drops, so consuming it needs a new record shape threaded through several call sites.</td></tr>
+  <tr><td>C6</td><td>Exit-ladder bar has no <code>&lt;meter&gt;</code></td><td>The bar is four proportions, not one value, so a meter would invent a figure the data does not hold. The reading is now real <code>sr-only</code> text and <code>role="img"</code> is gone, which fixes the half Google could not read. Worth a decision.</td></tr>
+  <tr><td>C7</td><td>Confidence chip is new visible copy</td><td>It returned <code>null</code> for <code>high</code>, leaving a dangling label. Now renders as "confirmed" on most priced product pages. Correct, but it is new text on ~822 pages and a designer should see it.</td></tr>
+  <tr><td>C5</td><td>My CLS attribution in the original audit was wrong</td><td>Blocking <code>/api/products</code> also rejected the <code>Promise.all</code>, so the sponsor slots never rendered either. That hid the real cause. Recorded because the same trap would mislead the next person reading the Speed tab.</td></tr>
+</table>
+
+<h2>The short version</h2>
+<p>The engineering here is better than most sites in this category. Every page is really
+prerendered, pagination canonicals to itself instead of to page one, thin project pages are
+deliberately held out of the index and correctly kept out of the sitemaps, there is a Markdown
+twin of every page and a working public API. That is a good base.</p>
+
+<p>The problem is that one line of nginx config is quietly undoing a large part of it.</p>
+
+<div class="cards">
+  <div class="card bad"><span class="v">12.6 s</span><span class="k">homepage LCP on mobile</span></div>
+  <div class="card bad"><span class="v">0.627</span><span class="k">homepage CLS</span></div>
+  <div class="card bad"><span class="v">4,462</span><span class="k">of 4,472 sitemap URLs redirect</span></div>
+  <div class="card bad"><span class="v">80%</span><span class="k">of the homepage is one inline script</span></div>
+  <div class="card bad"><span class="v">1,184</span><span class="k">pages with manual-action risk</span></div>
+</div>
+
+<h2>Fix these first</h2>
+<p>Three of these are single config lines. Two are real work. Between them they account for most
+of what is holding the site back mechanically.</p>
+
+<div class="f crit">
+  <header><h3>1. One API call costs ten seconds of LCP on every page</h3>
+  <span class="sev s-done">FIXED</span></header>
+  <div class="fix"><strong>Fixed 23 Aug.</strong> The boot <code>Promise.all</code> no longer pulls the catalogue; a lazy <code>loadCatalogue()</code> fires only on a client-side navigation or a filter, never on a cold load. A slim <code>/api/products?view=list</code> projection was added and documented in the OpenAPI spec: 5,179,526 to <strong>188,512</strong> bytes against the live backend, 27x smaller. Measured on <code>/en/</code>: LCP 2,244 to <strong>1,112 ms</strong>, transfer 1,823 to <strong>335 KiB</strong>, Lighthouse 0.65 to <strong>0.93</strong>. <em>Caveat:</em> the lazy fetch still calls the full endpoint, not the slim one, because the home filters read the <code>alternatives</code> array the projection drops. The projection is live and documented but not yet consumed.</div>
+  <p><code>/api/products</code> is 1.68 MB gzipped, 5.18 MB raw, all 592 products, and it runs
+  unconditionally in a boot effect at
+  <code>/home/hades/projects/canireplaceit/apps/frontend/src/App.tsx:1066</code>. A product page
+  downloads all 592 records to render one product.</p>
+  <p>I blocked that single request and re-measured:</p>
+<pre class="c">                    Perf     LCP       CLS      Transfer
+baseline            <span class="del">0.16</span>   <span class="del">12,601ms</span>    <span class="del">0.627</span>     2216 KiB
+/api/products off   <span class="add">0.65</span>    <span class="add">2,701ms</span>    <span class="add">0.007</span>      570 KiB</pre>
+  <p class="why">What a phone actually does: paints the prerendered page, looks finished, then
+  sits for ten seconds while React re-renders the whole tree from a payload it did not need.
+  TTFB is 45 ms, so none of this is the server. Full numbers on the Speed tab.</p>
+  <div class="fix"><strong>Fix.</strong> Make the boot fetch conditional on the route needing the
+  full list, and add a slim list projection to <code>/api/products</code>. Nothing else in this
+  audit is worth ten seconds.</div>
+</div>
+
+<div class="f crit">
+  <header><h3>2. Every canonical on the site points at a URL that redirects</h3>
+  <span class="sev s-done">FIXED</span><span class="eff">1 line</span></header>
+  <div class="fix"><strong>Fixed 23 Aug.</strong> front.conf now serves the no-slash URL directly: <code>try_files $uri $uri/index.html $uri/ =404;</code> plus <code>absolute_redirect off;</code>. Verified against a real nginx: <code>/en/alternatives/adguard</code> returns 200 with <strong>zero redirects</strong>, and no Location header anywhere contains <code>http://</code>. The canonical, all three hreflang links, og:url and 4,462 sitemap URLs now name the URL that actually serves 200.</div>
+  <p>A product page declares itself canonical at <code>/en/alternatives/adguard</code>. Ask the
+  server for that URL and it does not serve the page. It sends you somewhere else, twice, and the
+  first hop drops you to plain HTTP.</p>
+<pre class="c">$ curl -sSI https://canireplaceit.com/en/alternatives/adguard
+HTTP/2 301
+location: <span class="del">http://</span>canireplaceit.com/en/alternatives/adguard/   <span class="muted">&lt;- protocol downgrade</span>
+
+$ curl -sSL -o /dev/null -w '%{num_redirects} hops, %{time_total}s\n' ...
+2 hops, 0.337s</pre>
+  <p>The same wrong URL is in the canonical, in all three hreflang links, in the
+  <code>rel="alternate" type="text/markdown"</code> link, in <code>og:url</code>, and in
+  4,462 of the 4,472 <code>&lt;loc&gt;</code> entries across the twenty sitemaps. Every internal
+  link on the site points at it too.</p>
+  <p class="why">Why it matters: you are telling Google the canonical URL of 8,865 pages is a URL
+  that does not serve a page. Google follows the redirect and indexes the other one, so the URL
+  you declare and the URL that ranks disagree. Every crawl of every page costs three requests
+  instead of one, and one of them is unencrypted.</p>
+  <p><strong>Cause.</strong> In <code>/home/hades/projects/canireplaceit/apps/frontend/front.conf</code>
+  the fallback is <code>try_files $uri $uri/ $uri/index.html =404;</code>. <code>$uri/</code>
+  matches the directory before <code>$uri/index.html</code> gets a chance, so nginx emits its
+  own "add the trailing slash" 301. It builds that Location from the frontend container's own
+  scheme, and the container listens on plain <code>:80</code>, so the Location says
+  <code>http://</code>.</p>
+  <div class="fix"><strong>Fix.</strong> Swap two terms so the index file is tried before the directory.
+<pre class="c"><span class="del">-  try_files $uri $uri/ $uri/index.html =404;</span>
+<span class="add">+  absolute_redirect off;</span>
+<span class="add">+  try_files $uri $uri/index.html $uri/ =404;</span></pre>
+  <code>absolute_redirect off</code> makes any redirect nginx still emits relative, so the scheme
+  can never be downgraded again.</div>
+  <p><strong>Verified.</strong> I reproduced both configs against nginx 1.29-alpine in a throwaway
+  container with the same directory layout, rather than reasoning about it:</p>
+<pre class="c">                            current              proposed
+/en/alternatives/adguard    <span class="del">301 -&gt; http://…/</span>     <span class="add">200</span>
+/en/gaps                    <span class="del">301 -&gt; http://…/</span>     <span class="add">200</span>
+/en/alternatives/adguard/   200                  <span class="add">200</span>
+/en/alternatives/           403                  403   <span class="muted">&lt;- finding 3, separate fix</span>
+/nope                       404                  404   <span class="muted">&lt;- real 404 preserved</span></pre>
+  <p class="why">Both URL forms answer 200 after the change, which is fine: the canonical and the
+  sitemaps both name the no-slash form, so Google is told which one to keep. The 403 on
+  <code>/en/alternatives/</code> is a different bug and this does not fix it.</p>
+</div>
+
+<div class="f crit">
+  <header><h3>3. Your comparison matrix indexes as "● – €"</h3>
+  <span class="sev s-done">FIXED</span><span class="eff">1 day</span></header>
+  <div class="fix"><strong>Fixed 23 Aug.</strong> Every glyph is now
+  <code>aria-hidden</code> with an <code>sr-only</code> word beside it, copying the pattern
+  <code>ProjectFeatures.tsx</code> already used. 24 glyph/label pairs on the Notion page. The table
+  also gained an <code>sr-only</code> <code>&lt;caption&gt;</code>, <code>scope="col"</code> on 7
+  headers and <code>scope="row"</code> on the feature column, which is what Google's table
+  extraction keys on. Visually identical.
+  <br><br>A row that used to index as
+  <code>More than one user € Families/Teams Starter Pack ● – ● – €</code> now indexes as
+  <code>SAML 2.0 — log in with · Paid tier only · Business · Yes · Not checked …</code></div>
+  <p>The feature matrix is the best data you have and the most snippet-eligible content on the
+  site. Every cell's meaning lives in a <code>title</code> attribute, which Google does not
+  extract and screen readers do not announce.</p>
+<pre class="c">&lt;td&gt;&lt;span class="text-yes" title="Yes"&gt;●&lt;/span&gt;&lt;/td&gt;
+
+indexes as:  More than one user € Families/Teams Starter Pack ● – ● – €</pre>
+  <p>A sibling component in the same codebase already does it right. Detail and the fix on the
+  Semantics tab.</p>
+</div>
+
+<div class="f crit">
+  <header><h3>4. FAQ markup on 1,184 pages describes content that does not exist</h3>
+  <span class="sev s-crit">manual action risk</span><span class="eff">delete 78 lines</span></header>
+  <p>Every product page emits questions like "Is there an open source alternative to Modal?" and
+  answers to match. Those strings appear <strong>zero times</strong> in the rendered body, and zero
+  times after hydration. There is no FAQ component on the site.</p>
+  <p>Google's policy: "Don't mark up content that is not visible to readers of the page." The
+  Search Console manual action for this is live, and it costs rich result eligibility.</p>
+  <p>And <strong>FAQ rich results were removed from Google Search entirely on 7 May 2026.</strong>
+  This markup buys nothing today while risking everything else. Your own <code>seo.ts</code>
+  already says so in two comments while the product path keeps emitting it.</p>
+  <div class="fix"><strong>Fix.</strong> Delete <code>faqJsonLd</code>. Nothing is lost.</div>
+</div>
+
+<div class="f win">
+  <header><h3>5. The GitHub repo linked from every page is a 404</h3>
+  <span class="sev s-win">FIXED 23 Aug</span></header>
+  <p>Every one of your 8,865 pages ends with "This page is one JSON file in the repo. Edit it and
+  open a pull request." Four footer links carry that promise. All four are dead.</p>
+<pre class="c">github.com/canireplaceit/canireplaceit                    <span class="del">404</span>
+github.com/canireplaceit/canireplaceit/…/CONTRIBUTING.md  <span class="del">404</span>
+github.com/canireplaceit/canireplaceit/issues/new?…       <span class="del">404</span>
+github.com/canireplaceit/canireplaceit/…/data/products    <span class="del">404</span>
+github.com/canireplaceit                                  <span class="add">200</span>  <span class="muted">the org exists</span></pre>
+  <p class="why">This is the site's entire accountability story, and it is the credibility claim
+  that separates it from every uncritical listicle in the category. It currently points at nothing.
+  It is also the single artefact that every competitor has and this site does not: openalternative's
+  repo has 6,597 stars, awesome-selfhosted has 314,261.</p>
+  <div class="fix"><strong>Fixed.</strong> The repo was private; it is public as of 23 Aug 2026.
+  All seven links re-tested and every one returns 200, including the per-product
+  <code>edit/main/data/products/&lt;slug&gt;.json</code> deep links and the
+  <code>issues/new?labels=correction</code> form. The footer links stay as they are.
+  <br><br>This also unblocks r/opensource Rule 4, r/developpeurs Rule 2, the Zenodo DOI, both
+  invite requests and the maintainer outreach on the Marketing tab.</div>
+</div>
+
+<div class="f crit">
+  <header><h3>6. 721 KB of the 903 KB homepage is one inline script</h3>
+  <span class="sev s-done">FIXED</span><span class="eff">1 to 3 days</span></header>
+  <div class="fix"><strong>Fixed 23 Aug.</strong> <code>__DATA__</code> 727,778 to <strong>328,151</strong> bytes: the non-active locale is stripped, <code>$comment</code> dropped, alternative prose removed, <code>features</code> shipped only where rendered. Now a <code>&lt;script type="application/json"&gt;</code> read with <code>JSON.parse</code>. <code>/en/</code> is 904,670 to <strong>531,259</strong> raw and 190,270 to <strong>76,133</strong> gzipped, a 60% cut. Verified across 400 sampled pages: all parse cleanly, zero raw <code>&lt;/</code> in any payload.</div>
+  <p>The homepage already paginates at fifty products a page. It still ships the entire
+  catalogue, inline, on every one of them.</p>
+<pre class="c">/en/                        904,670 bytes   721,439 in one &lt;script&gt;  (80%)
+/en/categories/design/      419,893 bytes   231,368                  (55%)
+/en/alternatives/adguard/   227,277 bytes    74,925                  (32%)
+/en/glossary/               143,673 bytes    44,236                  (30%)
+
+window.__DATA__={"products":[{"slug":"adobe-photoshop","name":"Adobe Photoshop", ...</pre>
+  <p class="why">Why it matters: pagination is supposed to make the page smaller and it is not
+  making the page smaller. The browser also has to parse those 721 KB on the main thread before
+  anything becomes interactive, because a bare <code>&lt;script&gt;</code> is parsed as
+  JavaScript.</p>
+  <div class="fix"><strong>Fix, cheapest first.</strong>
+  <ol>
+    <li>Change the tag to <code>&lt;script type="application/json" id="d"&gt;</code> and read it
+    with <code>JSON.parse</code>. Same bytes, but V8 parses JSON roughly twice as fast as an
+    equivalent object literal, and it no longer blocks the JS parser. This is an afternoon.</li>
+    <li>Ship only the slice the page renders. A product page needs one product and its
+    alternatives, not 592 products.</li>
+    <li>Anything still missing after hydration, fetch from <code>/api/v1</code>. You already
+    built the API.</li>
+  </ol></div>
+</div>
+
+<div class="f high">
+  <header><h3>7. 26 directory URLs return 403, and llms.txt links to one of them</h3>
+  <span class="sev s-done">FIXED</span></header>
+  <div class="fix"><strong>Fixed 23 Aug.</strong> Six trailing-slash-optional regexes replace what would have been 26 exact rules, so the <em>no-slash</em> forms (<code>/en/themes</code>, <code>/en/page</code>) are covered too and a collection that starts paginating later cannot silently 403. Verified: <code>/en/collections/expensive/page</code> redirects correctly despite having no <code>/page/</code> directory today. <code>/en/themes/</code> goes to <code>/en/categories/</code> because routes.ts parses a bare <code>groups</code> segment as the categories page. <strong>Still outstanding:</strong> a real products index at <code>/en/alternatives/</code>, which redirects to the locale home for now.</div>
+  <p>I enumerated every directory in the build with children and no <code>index.html</code>. There
+  are 26 on content paths: both <code>/alternatives/</code>, both <code>/themes/</code>, every
+  <code>/page/</code> parent, and every collection's <code>/page/</code> parent.</p>
+  <p>Nothing on the site links to any of them, <strong>which is exactly why your own
+  <code>check-links.ts</code> reports green</strong>: it asks "does something link to a missing
+  page", and nobody links to these. Googlebot path-trims on discovery, so it finds them anyway.
+  And <code>/llms.txt</code> lists <code>/en/alternatives/</code> first under Browse, as "All
+  products".</p>
+  <p>The deeper issue: there is no hub page for your 592 money pages at their own URL prefix.
+  <code>routes.ts</code> has no route for the <code>alternatives</code> segment at all. Detail on
+  the Crawl and Links tabs.</p>
+  <div class="fix"><strong>Fix.</strong> Either prerender a real index at that path, or point
+  llms.txt at a URL that exists. Given the file's own advice is "start with the skill or the
+  API", pointing it at <code>/api/v1/dump.json</code> is the honest one-line version.</div>
+</div>
+
+<div class="f high">
+  <header><h3>8. The apex domain serves an empty page</h3>
+  <span class="sev s-high">high</span><span class="eff">1 hour</span></header>
+  <p><code>/home/hades/projects/canireplaceit/apps/frontend/dist/index.html</code> is 2,862 bytes.
+  The whole body is:</p>
+<pre class="c">&lt;body&gt;
+&lt;div id="root"&gt;&lt;/div&gt;
+&lt;/body&gt;</pre>
+  <p class="why">Why it matters: <code>canireplaceit.com</code> is the URL people type, share and
+  link to. It is the one URL that will accumulate backlinks. It canonicals to
+  <code>/en/</code> so it will not be indexed as a duplicate, but it is the only page on an
+  otherwise fully prerendered site whose content depends entirely on JavaScript, and its LCP is
+  whatever the JS bundle costs.</p>
+  <div class="fix"><strong>Fix.</strong> Either prerender the English homepage at <code>/</code>
+  as well, or make <code>/</code> a 302 to <code>/en/</code> so at least there is no blank page
+  in the crawl. Prerendering it is better: a redirect on your most-linked URL wastes the link
+  equity of every backlink you will ever earn.</div>
+</div>
+
+<div class="f high">
+  <header><h3>9. Compression is misconfigured in two ways at once</h3>
+  <span class="sev s-done">FIXED</span><span class="eff">2 lines</span></header>
+  <div class="fix"><strong>Fixed 23 Aug.</strong> <code>gzip_comp_level 6</code>, <code>gzip_min_length 256</code>, and <code>gzip_types</code> now carries <code>text/xml</code> and <code>text/markdown</code>. Measured after: <code>sitemap-project-en.xml</code> 503,874 to <strong>25,044</strong> bytes; <code>favicon.svg</code> 843 to 489. HSTS, X-Content-Type-Options and Referrer-Policy added in the same pass, plus HTTP/3 with <code>reuseport</code> (verified nothing else on that nginx claims it). No brotli: the production nginx has no brotli module, so <code>gzip_static on</code> is used.</div>
+  <p><strong>gzip is running at level 1.</strong> <code>gzip_comp_level</code> is never set, so
+  nginx uses its default of 1. The homepage ships 232,301 bytes; the same file at level 6 is
+  190,156. That is <strong>42,145 wasted bytes on the homepage alone</strong>, and proportionally
+  on every page, every JS file and the CSS. Level 9 measured slightly worse than 6 for much more
+  CPU, so use 6.</p>
+  <p><strong>And whole content types miss compression entirely.</strong></p>
+<pre class="c">/en/                        content-encoding: gzip   ok
+/llms.txt                   content-encoding: gzip   ok
+/sitemap-product-en.xml     <span class="del">none</span>                     240 KB on the wire
+/en/alternatives/adguard.md <span class="del">none</span>
+/counts.json                <span class="del">none</span></pre>
+  <p>In <code>/home/hades/projects/canireplaceit/nginx/canireplaceit.conf</code> the
+  <code>gzip_types</code> list has <code>application/xml</code>. nginx serves the sitemaps as
+  <code>text/xml</code>, which is a different string, so they miss. <code>text/markdown</code>
+  is not in the list at all, so every Markdown twin, the thing you built specifically for AI
+  crawlers, is sent raw.</p>
+  <p>Measured on the real files:</p>
+<pre class="c">                              raw        gzip -9    saving
+sitemap-product-en.xml     246,305        11,007       96%
+sitemap-project-en.xml     503,874        24,484       95%
+counts.json                  3,385         1,426       58%
+en/index.md                  5,877         1,518       74%
+
+all 21 sitemap files      1,791,815        86,756       96%
+8,819 markdown twins                                   65%</pre>
+  <div class="fix"><strong>Fix.</strong> Both lines, in
+  <code>/home/hades/projects/canireplaceit/nginx/canireplaceit.conf</code>:
+<pre class="c">gzip_comp_level 6;
+gzip_types text/plain text/css text/xml text/markdown
+           application/javascript application/json
+           application/xml application/rss+xml image/svg+xml;</pre>
+  1.79 MB of sitemap becomes 87 KB, every <code>.md</code> twin drops 65%, and every existing
+  gzipped response gets 18% smaller. Cheapest win in the audit by a distance.</div>
+</div>
+
+<div class="f med">
+  <header><h3>10. Even gzipped, the homepage is 190 KB of HTML</h3>
+  <span class="sev s-done">FIXED</span></header>
+  <div class="fix"><strong>Fixed 23 Aug.</strong> Now <strong>76,133</strong> bytes gzipped, down from 190,270. The largest page on the site, <code>/en/themes/dev/</code>, went 1,397,947 to 761,720 raw.</div>
+<pre class="c">en/index.html       904,670 raw   ->   189,691 gzipped
+en/gaps/index.html  624,057 raw   ->   142,791 gzipped</pre>
+  <p class="why">Worth stating plainly so finding 2 does not look solved by compression. gzip
+  already runs on HTML. 190 KB is still a large document to download and parse before anything
+  paints, and it is mostly the <code>__DATA__</code> blob.</p>
+</div>
+
+<h2>The config-only fixes, in one place</h2>
+<p>These are lines, not projects. Together they fix the redirect chain on 8,865 pages, 1.7 MB of
+uncompressed sitemap, an 18% compression loss on every response, and 26 forbidden URLs.</p>
+
+<pre class="c"><span class="muted">apps/frontend/front.conf, inside `location /`</span>
+<span class="add">absolute_redirect off;</span>
+<span class="del">-  try_files $uri $uri/ $uri/index.html =404;</span>
+<span class="add">+  try_files $uri $uri/index.html $uri/ =404;</span>
+
+<span class="muted">apps/frontend/front.conf, inside `location ~ \.md$`</span>
+<span class="add">add_header X-Robots-Tag "noindex, follow" always;</span>
+
+<span class="muted">apps/frontend/front.conf, new blocks</span>
+<span class="add">location = /en/alternatives/ { return 301 /en/; }   # and the other 25</span>
+<span class="add">location /og/ { add_header Cache-Control "public, max-age=604800"; }</span>
+<span class="add">location ~ ^(.*)/index\.html$ { return 301 $1/; }</span>
+
+<span class="muted">nginx/canireplaceit.conf</span>
+<span class="add">gzip_comp_level 6;</span>
+<span class="add">gzip_min_length 256;</span>
+<span class="add">gzip_types text/plain text/css text/xml text/markdown</span>
+<span class="add">           application/javascript application/json</span>
+<span class="add">           application/xml application/atom+xml image/svg+xml;</span>
+<span class="add">add_header Strict-Transport-Security "max-age=31536000" always;</span>
+
+<span class="muted">.github/workflows/deploy.yml</span>
+<span class="add">env:   INDEXNOW_ENABLED: true</span>
+<span class="add">with:  fetch-depth: 0        # IndexNow has never fired without these</span></pre>
+
+<p>And three deletions that cost nothing:</p>
+<ul>
+  <li><code>faqJsonLd</code> in <code>seo.ts</code>. The feature died on 7 May 2026 and the markup
+  is a manual-action risk.</li>
+  <li>The <code>SearchAction</code> block. Dead since 21 Nov 2024, and its target was never a valid
+  page anyway.</li>
+  <li>The canonical on <code>404.html</code>, which currently claims the 404 is your homepage.</li>
+</ul>
+
+<h2>What is already right</h2>
+<div class="f win">
+  <header><h3>Do not let anyone talk you out of these</h3><span class="sev s-win">keep</span></header>
+  <ul>
+    <li>Real prerendered HTML on 8,865 pages, not a JS shell. A crawler and a reader see the same document.</li>
+    <li>Paginated pages canonical to themselves, not to page one. This is the current correct
+    practice and most sites still get it wrong.</li>
+    <li>2,178 thin project pages carry <code>noindex, follow</code> and are held out of the
+    sitemaps. The sitemap contains 1,301 of the 1,302 indexable ones. That is deliberate,
+    consistent, and rarer than it should be.</li>
+    <li>Unknown URLs return a real 404 instead of a soft 200. The comment in
+    <code>front.conf</code> shows this was a considered fix, not an accident.</li>
+    <li>A Markdown twin of every page, a public no-key API, an OpenAPI spec, a whole-catalogue
+    dump and a published agent skill. Almost nobody in this category has any of that.</li>
+  </ul>
+</div>
+
+<h2>One strategic question</h2>
+<div class="f med">
+  <header><h3>2,178 noindexed project pages is 63% of the project catalogue</h3>
+  <span class="sev s-med">decide</span></header>
+  <p>Holding thin pages out of the index is the right instinct. But those pages are exactly the
+  queries with the least competition: "self-hosted <em>X</em>", "<em>X</em> vs <em>Y</em>",
+  "is <em>X</em> any good". Right now 1,302 project pages are indexable and 2,178 are not.</p>
+  <p>The answer is not to index them as they are. It is to decide which two hundred of them
+  could carry enough real content to deserve indexing, and thicken those. See the Content tab.</p>
+</div>
+
+</section>
+
+<!-- ========================= placeholder tabs ========================= -->
+<section class="tab" id="crawl">
+
+<h2>Crawl and indexation</h2>
+<p class="lede">128 live URLs sampled. All 8,865 prerendered pages parsed on disk for canonical,
+hreflang and robots meta. All 20 sitemap shards validated with <code>xmllint</code> and
+cross-referenced against the build output in both directions.</p>
+
+<div class="cards">
+  <div class="card good"><span class="v">26,595</span><span class="k">hreflang entries, 0 broken</span></div>
+  <div class="card good"><span class="v">4,472</span><span class="k">sitemap URLs, all real pages</span></div>
+  <div class="card bad"><span class="v">6</span><span class="k">directories returning 403</span></div>
+  <div class="card bad"><span class="v">8,819</span><span class="k">crawlable .md duplicates</span></div>
+  <div class="card bad"><span class="v">7 MB</span><span class="k">dump.json, crawlable</span></div>
+</div>
+
+<h2>Findings</h2>
+
+<div class="f crit">
+  <header><h3>The trailing-slash mismatch, measured across the whole site</h3>
+  <span class="sev s-crit">critical</span></header>
+  <p>This is finding 1 on the Overview tab. Here is how far it actually reaches:</p>
+  <table>
+    <tr><th>Signal</th><th class="n">Wrong form</th><th class="n">Total</th><th class="n">%</th></tr>
+    <tr><td>Sitemap <code>&lt;loc&gt;</code></td><td class="n">4,462</td><td class="n">4,472</td><td class="n no">99.8</td></tr>
+    <tr><td>Canonicals</td><td class="n">8,854</td><td class="n">8,865</td><td class="n no">99.9</td></tr>
+    <tr><td>hreflang hrefs</td><td class="n">26,562</td><td class="n">26,595</td><td class="n no">99.9</td></tr>
+    <tr><td>Internal links on <code>/en/tools/</code></td><td class="n">296</td><td class="n">314</td><td class="n no">94.3</td></tr>
+  </table>
+  <p>Fifty URLs were followed at random. Every single one took exactly two hops. None took fewer.</p>
+</div>
+
+<div class="f high">
+  <header><h3>Six directory URLs return 403 Forbidden</h3>
+  <span class="sev s-high">high</span><span class="eff">~10 lines</span></header>
+  <p>I found one. There are six.</p>
+<pre class="c">/en/alternatives/   403      /fr/alternatives/   403
+/en/themes/         403      /fr/themes/         403
+/en/page/           403      /fr/page/           403</pre>
+  <p>All six are directories with children and no <code>index.html</code>. nginx has no autoindex,
+  so they answer with the stock nginx 403 page, not the site's own 404.</p>
+  <p>The containment is good: all 8,865 pages were scanned and no <code>&lt;a href&gt;</code>
+  anywhere on the site points at any of the six. The only exposure is the
+  <code>llms.txt</code> link to <code>/en/alternatives/</code>.</p>
+  <p class="why">Why it matters: Google logs a 403 as "Blocked due to access forbidden" and keeps
+  retrying it, unlike a 404 which it eventually drops.</p>
+  <div class="fix"><strong>Fix.</strong> Redirect them somewhere real, and repoint llms.txt.
+<pre class="c">location = /en/alternatives/ { return 301 /en/; }
+location = /fr/alternatives/ { return 301 /fr/; }
+location = /en/themes/       { return 301 /en/; }
+location = /fr/themes/       { return 301 /fr/; }
+location = /en/page/         { return 301 /en/; }
+location = /fr/page/         { return 301 /fr/; }</pre></div>
+</div>
+
+<div class="f high">
+  <header><h3>8,819 Markdown twins are crawlable duplicates with no canonical signal</h3>
+  <span class="sev s-high">high</span><span class="eff">1 line</span></header>
+  <p>Every page links its own twin, the twins serve 200 as <code>text/markdown</code>, and
+  llms.txt advertises the pattern. Markdown cannot carry a <code>&lt;link rel="canonical"&gt;</code>,
+  the <code>location ~ \.md$</code> block sets no <code>X-Robots-Tag</code>, and robots.txt says
+  <code>Allow: /</code>.</p>
+  <p class="why">Why it matters: the crawlable URL space roughly doubles, and the duplicate half
+  has no way to say "the HTML is the real one". This is the cost of a feature that is otherwise a
+  genuine advantage.</p>
+  <div class="fix"><strong>Fix.</strong> In <code>/home/hades/projects/canireplaceit/apps/frontend/front.conf</code>,
+  inside the existing <code>location ~ \.md$</code> block:
+<pre class="c">add_header X-Robots-Tag "noindex, follow" always;</pre>
+  Search engines drop them from the index. Agents and LLM crawlers ignore the header and keep
+  reading them, which is exactly the split you want.</div>
+</div>
+
+<div class="f med">
+  <header><h3>robots.txt is 71 bytes and leaves a 7 MB file open to Googlebot</h3>
+  <span class="sev s-med">medium</span></header>
+<pre class="c">User-agent: *
+Allow: /
+
+Sitemap: https://canireplaceit.com/sitemap.xml</pre>
+  <p><code>/api/v1/dump.json</code> returns <strong>7,092,019 bytes</strong>, status 200, and is
+  linked from llms.txt. Googlebot will fetch 7 MB of JSON repeatedly and get nothing indexable
+  out of it. The Umami proxy at <code>/u/</code> is open too.</p>
+  <p>Two things robots.txt currently gets <em>right</em>, and should keep getting right: the
+  single <code>Sitemap:</code> line pointing at the index is correct, and leaving
+  <code>/en/admin/</code>, <code>/en/dashboard/</code> and <code>/en/signin/</code> crawlable is
+  correct. Those pages carry <code>noindex</code>, and a <code>Disallow</code> would stop Google
+  reading the very tag that keeps them out.</p>
+  <div class="fix"><strong>Fix.</strong> Add <code>Disallow: /api/</code> and
+  <code>Disallow: /u/</code> to the <code>*</code> group, written from
+  <code>/home/hades/projects/canireplaceit/scripts/prerender.ts</code>. The AI crawler policy is
+  a separate decision, covered on the AI tab.</div>
+</div>
+
+<div class="f med">
+  <header><h3>Mid-catalogue listing pages are 35 clicks from the hub</h3>
+  <span class="sev s-med">medium</span></header>
+  <p>Pagination is real, server-rendered, 48 items a page, and each page canonicals to itself.
+  All correct. The pager itself is the problem: it offers previous, next and last, and no page
+  numbers.</p>
+<pre class="c">/en/tools/         -&gt; page/2, page/72
+/en/tools/page/2   -&gt; page/3, page/72
+/en/tools/page/36  -&gt; page/35, page/37, page/72</pre>
+  <p class="why">Why it matters: reaching page 36 takes 35 sequential hops, each of which is
+  itself a two-redirect chain. Internal link equity does not travel that far. Those pages are
+  discoverable only because the sitemap names them directly.</p>
+  <div class="fix"><strong>Fix.</strong> Render a numbered pager: first, current ±3, last. Any
+  page then sits within two clicks. Do not add <code>rel="next"</code>/<code>rel="prev"</code>;
+  Google dropped support in 2019 and the site correctly has none.</div>
+</div>
+
+<div class="f low">
+  <header><h3>Sitemap index lastmod is the build date on all 20 shards</h3>
+  <span class="sev s-low">low</span></header>
+  <p><code>sitemap.xml</code> stamps every shard <code>2026-08-22</code> from
+  <code>iso(new Date())</code> in prerender.ts. But <code>sitemap-legal-en.xml</code> holds 8 URLs
+  all dated <code>2026-08-06</code>. Nothing in it changed.</p>
+  <p>Per-URL <code>lastmod</code> is honest: three distinct real dates across 4,472 URLs, derived
+  from actual content changes. It is only the shard-level dates that lie.</p>
+  <div class="fix"><strong>Fix.</strong> Set each shard's index <code>lastmod</code> to the
+  maximum of the URL lastmods inside it. Otherwise Google refetches all 20 shards on every deploy
+  and eventually stops trusting the field.</div>
+</div>
+
+<div class="f low">
+  <header><h3>Two small ones</h3><span class="sev s-low">low</span></header>
+  <p><strong>index.html variants serve 200.</strong> <code>/en/gaps/index.html</code>,
+  <code>/en/index.html</code> and <code>/index.html</code> all return the same document. The
+  canonical contains it, so this is only crawl waste unless someone links the
+  <code>index.html</code> form. One rule fixes it:
+  <code>location ~ ^(.*)/index\.html$ { return 301 $1/; }</code></p>
+  <p><strong>www takes two hops.</strong> <code>http://www.</code> goes to
+  <code>https://www.</code> and then to the apex. There is no <code>listen 80</code> block in
+  <code>/home/hades/projects/canireplaceit/nginx/canireplaceit.conf</code> at all, so something
+  outside the repo is doing the first hop scheme-only. Add a port 80 block covering both names
+  that jumps straight to <code>https://canireplaceit.com$request_uri</code>.</p>
+</div>
+
+<h2>What came back clean</h2>
+<div class="f win">
+  <header><h3>Verified, not assumed</h3><span class="sev s-win">clean</span></header>
+  <ul>
+    <li><strong>hreflang is flawless.</strong> 26,595 entries across 8,865 pages: zero missing
+    <code>x-default</code>, zero missing self-references, zero non-reciprocal pairs, zero targets
+    that do not exist. The en/fr round trip holds on every pair. I have not seen a bilingual site
+    get this fully right before.</li>
+    <li><strong>Sitemaps validate.</strong> All 20 parse under <code>xmllint</code>, all declare
+    the right namespaces, all use <code>xmlns:xhtml</code> correctly. Largest shard is 1,301 URLs
+    and 0.48 MB against limits of 50,000 and 50 MB.</li>
+    <li><strong>No <code>changefreq</code> or <code>priority</code> anywhere.</strong> Zero
+    occurrences. Correct: Google ignores both, and the comment in prerender.ts shows this was a
+    decision rather than an omission.</li>
+    <li><strong>Every sitemap URL is a real page.</strong> 4,472 locs, 4,472 unique, zero dangling.</li>
+    <li><strong>The 4,393 pages missing from sitemaps are the deliberate noindex set.</strong>
+    The arithmetic closes exactly: 4,473 indexable minus the root shell equals 4,472 sitemap URLs.</li>
+    <li><strong>404s are real 404s.</strong> Unknown URLs return a genuine 404 with
+    <code>noindex, follow</code>. <code>/404.html</code> is marked <code>internal</code> so it
+    cannot be indexed directly.</li>
+    <li><strong>Content is not thin.</strong> Median word counts: products 1,065, collections
+    1,082, themes 1,020, tools 547, categories 833. Exactly one page on the site falls under 100
+    words, and that is the apex shell.</li>
+  </ul>
+</div>
+
+<h2>Scale note</h2>
+<p>Total prerendered HTML on disk is <strong>1,734 MB across 8,865 pages</strong>. 64 pages exceed
+500 KB. The largest is
+<code>/home/hades/projects/canireplaceit/apps/frontend/dist/en/themes/dev/index.html</code> at
+1,365 KB. Combined with <code>Cache-Control: no-cache</code> on every HTML response, Googlebot
+re-downloads full bodies rather than getting 304s.</p>
+<div class="fix"><strong>Fix.</strong> The pages already emit strong <code>ETag</code> and
+<code>Last-Modified</code>, so <code>no-cache</code> is leaving free 304s on the table. Switch
+<code>location /</code> to <code>Cache-Control: public, max-age=0, must-revalidate</code>. Then
+move the shared <code>__DATA__</code> blob into one hashed file under <code>/static/</code>, which
+is already cached immutable for a year, instead of inlining it 8,865 times.</div>
+
+</section>
+<section class="tab" id="speed">
+
+<h2>Core Web Vitals</h2>
+<p class="lede">Lighthouse 12.8.2 against the live site, mobile and desktop, four page types.
+These are measured numbers, not estimates.</p>
+
+<table>
+  <tr><th>Page</th><th>Device</th><th class="n">Perf</th><th class="n">FCP</th><th class="n">LCP</th><th class="n">TBT</th><th class="n">CLS</th><th class="n">TTFB</th><th class="n">Transfer</th></tr>
+  <tr><td>/en/</td><td>mobile</td><td class="n no">0.16</td><td class="n">2297</td><td class="n no">12601</td><td class="n">3916</td><td class="n no">0.627</td><td class="n">45</td><td class="n">2216 KiB</td></tr>
+  <tr><td>/en/</td><td>desktop</td><td class="n">0.61</td><td class="n">470</td><td class="n">558</td><td class="n">892</td><td class="n no">0.206</td><td class="n">45</td><td class="n">2236 KiB</td></tr>
+  <tr><td>/en/tools/</td><td>mobile</td><td class="n no">0.47</td><td class="n">1523</td><td class="n">2123</td><td class="n no">4992</td><td class="n no">0.537</td><td class="n">44</td><td class="n">2071 KiB</td></tr>
+  <tr><td>/en/tools/</td><td>desktop</td><td class="n">0.68</td><td class="n">388</td><td class="n">722</td><td class="n">388</td><td class="n no">0.285</td><td class="n">43</td><td class="n">2071 KiB</td></tr>
+  <tr><td>/en/alternatives/adobe-photoshop/</td><td>mobile</td><td class="n">0.54</td><td class="n">1555</td><td class="n">2380</td><td class="n">2892</td><td class="n no">0.284</td><td class="n">49</td><td class="n">2010 KiB</td></tr>
+  <tr><td>/en/alternatives/adobe-photoshop/</td><td>desktop</td><td class="n">0.74</td><td class="n">401</td><td class="n">832</td><td class="n">569</td><td class="n ok">0.077</td><td class="n">49</td><td class="n">2011 KiB</td></tr>
+  <tr><td>/en/categories/design/</td><td>mobile</td><td class="n">0.70</td><td class="n">1376</td><td class="n">1679</td><td class="n">2983</td><td class="n ok">0.064</td><td class="n">43</td><td class="n">2064 KiB</td></tr>
+  <tr><td>/en/categories/design/</td><td>desktop</td><td class="n">0.76</td><td class="n">371</td><td class="n">729</td><td class="n">500</td><td class="n ok">0.094</td><td class="n">47</td><td class="n">2064 KiB</td></tr>
+</table>
+
+<p>Two things to read off that table. Your server is not the problem: TTFB is 43 to 49 ms on
+every page. And LCP is a <em>text</em> element on all four pages, with load delay and load time at
+zero, so LCP is TTFB plus render delay and nothing else. This is a JavaScript problem end to end.</p>
+
+<h2>The counterfactual that explains everything</h2>
+<p>I blocked one request and re-ran the homepage on mobile.</p>
+<table>
+  <tr><th>Scenario</th><th class="n">Perf</th><th class="n">FCP</th><th class="n">LCP</th><th class="n">TBT</th><th class="n">CLS</th><th class="n">Transfer</th></tr>
+  <tr><td>baseline</td><td class="n no">0.16</td><td class="n">2297</td><td class="n no">12601</td><td class="n">3916</td><td class="n no">0.627</td><td class="n">2216 KiB</td></tr>
+  <tr><td><code>/api/products</code> blocked</td><td class="n">0.65</td><td class="n">2039</td><td class="n ok">2701</td><td class="n">2690</td><td class="n ok">0.007</td><td class="n">570 KiB</td></tr>
+  <tr><td>all JS blocked</td><td class="n ok">0.72</td><td class="n">2302</td><td class="n ok">2910</td><td class="n ok">843</td><td class="n ok">0.000</td><td class="n">318 KiB</td></tr>
+</table>
+
+<div class="f crit">
+  <header><h3>1. /api/products is 1.68 MB and loads on every page. It costs ten seconds of LCP.</h3>
+  <span class="sev s-crit">critical</span></header>
+  <p>1,682,447 bytes on the wire, 5,110,528 raw, 592 products. It runs unconditionally in a boot
+  effect at <code>/home/hades/projects/canireplaceit/apps/frontend/src/App.tsx:1066</code>:</p>
+<pre class="c">Promise.all([api.products(), api.categories(), api.slots(), api.stats()])</pre>
+  <p>So a product page downloads all 592 products' full records to render one product. So does a
+  category page. The prerendered HTML already contains everything the first screen needs.</p>
+  <p class="why">What the user sees: the page paints, looks finished, and then sits there for ten
+  seconds while React re-renders the whole tree from a payload it did not need. On
+  <code>/en/tools/</code> the same block takes TBT from 4,992 ms to 1,567 ms and CLS from 0.537
+  to zero.</p>
+  <div class="fix"><strong>Fix.</strong> Make the boot fetch conditional on the route actually
+  needing the full list, and add a slim list projection to <code>/api/products</code>. The
+  <code>alternatives</code> array alone is the bulk of every record. Note also that
+  <code>api.ts:648</code> validates all 592 records through Zod on the main thread.</div>
+</div>
+
+<div class="f crit">
+  <header><h3>2. CLS 0.627 is one shift of the entire app root</h3>
+  <span class="sev s-crit">critical</span></header>
+  <p>Lighthouse attributes 0.6265 of the 0.6273 total to a single shift of
+  <code>body &gt; div#root &gt; div.flex &gt; div.flex</code>. The whole application root moves at once.</p>
+  <p>The prerendered page paints, the API data arrives, React re-renders the list with different
+  content, and everything below jumps. Same cause as finding 1. Fixing that fixes this: CLS goes
+  to 0.007.</p>
+</div>
+
+<div class="f high">
+  <header><h3>3. gzip is running at level 1</h3>
+  <span class="sev s-high">high</span><span class="eff">1 line</span></header>
+  <p><code>gzip_comp_level</code> is never set in
+  <code>/home/hades/projects/canireplaceit/nginx/canireplaceit.conf</code>, so nginx uses its
+  default of 1. The homepage ships 232,301 bytes. The same file at level 6 is 190,156.</p>
+  <p><strong>42,145 bytes wasted on the homepage alone</strong>, and proportionally on every HTML
+  page, every JS file and the CSS. This is the single best bytes-per-keystroke line in the audit.</p>
+  <div class="fix"><strong>Fix.</strong> <code>gzip_comp_level 6;</code><br>
+  Level 9 measured 190,485, slightly <em>worse</em> than 6 and much more CPU. Use 6.</div>
+</div>
+
+<div class="f high">
+  <header><h3>4. What is actually inside the 903 KB homepage</h3>
+  <span class="sev s-high">high</span></header>
+  <table>
+    <tr><th>Part</th><th class="n">Raw bytes</th><th class="n">%</th></tr>
+    <tr><td>head and shell</td><td class="n">3,015</td><td class="n">0.3</td></tr>
+    <tr><td><code>window.__DATA__</code></td><td class="n">727,772</td><td class="n no">80.6</td></tr>
+    <tr><td>body markup</td><td class="n">172,545</td><td class="n">19.1</td></tr>
+  </table>
+  <p>Inside <code>__DATA__</code>, the striking number: <code>products</code> is 483,719 bytes,
+  and 422,938 of those are the nested <code>alternatives</code> arrays. That is 643 nested
+  entries, of which <strong>exactly one appears in the rendered markup</strong>.</p>
+  <p>On top of that, 1,147 bilingual <code>{en, fr}</code> objects put <strong>162,028 bytes of
+  French text on the English page</strong>, against 127,261 bytes of English. None of it renders.</p>
+  <p>The trimming ladder, measured:</p>
+  <table>
+    <tr><th>Variant</th><th class="n">Raw HTML</th><th class="n">gzip now</th><th class="n">gzip 6</th><th class="n">brotli 11</th></tr>
+    <tr><td>current</td><td class="n">921,323</td><td class="n">222,230</td><td class="n">191,081</td><td class="n">144,692</td></tr>
+    <tr><td>drop fr on the en page</td><td class="n">744,384</td><td class="n">155,425</td><td class="n">132,921</td><td class="n">97,970</td></tr>
+    <tr><td>+ only top 3 alternatives</td><td class="n">522,239</td><td class="n">98,886</td><td class="n">83,379</td><td class="n">61,160</td></tr>
+    <tr><td>+ lazy-load features/health</td><td class="n">333,748</td><td class="n">65,457</td><td class="n">57,547</td><td class="n">43,542</td></tr>
+    <tr><td>+ drop alternatives entirely</td><td class="n">274,415</td><td class="n">50,591</td><td class="n">44,663</td><td class="n">33,331</td></tr>
+  </table>
+  <p><strong>The markup is not the problem.</strong> 172,545 bytes of body markup compresses to
+  17,459, because 74,649 bytes of Tailwind class attributes are drawn from only 156 unique
+  strings. After gzip, markup is 17 KB and <code>__DATA__</code> is 171 KB. 74% of the
+  transferred homepage is the inline JSON.</p>
+  <p class="why">Honest expectation: trimming this moves FCP by roughly 250 ms, not LCP. The ten
+  second LCP win is finding 1. Trim <code>__DATA__</code> for transfer and parse cost, and do not
+  expect it to fix the vitals on its own.</p>
+</div>
+
+<div class="f high">
+  <header><h3>5. No brotli</h3><span class="sev s-high">high</span></header>
+  <table>
+    <tr><th>File</th><th class="n">Wire today</th><th class="n">brotli 11</th><th class="n">Saving</th></tr>
+    <tr><td>/en/</td><td class="n">232,301</td><td class="n">143,845</td><td class="n">38.1%</td></tr>
+    <tr><td>/en/gaps/</td><td class="n">172,722</td><td class="n">107,928</td><td class="n">37.5%</td></tr>
+    <tr><td>index.js</td><td class="n">132,433</td><td class="n">87,514</td><td class="n">33.9%</td></tr>
+    <tr><td>lib-react.js</td><td class="n">70,446</td><td class="n">50,978</td><td class="n">27.6%</td></tr>
+  </table>
+  <div class="fix"><strong>Fix.</strong> Because <code>/static/</code> is hash-named and immutable,
+  precompress at build time and serve with <code>brotli_static on</code>, which costs zero
+  request-time CPU. Needs an nginx image with <code>ngx_brotli</code>.</div>
+</div>
+
+<div class="f med">
+  <header><h3>6. 87 KiB of JavaScript is never executed</h3><span class="sev s-med">medium</span></header>
+  <p><code>index.js</code>: 57,818 of 131,775 unused (43.9%). <code>lib-react.js</code>: 31,039 of
+  70,536 unused (44.0%).</p>
+  <p>Main-thread work is 10.3 s on mobile: 3,039 ms script evaluation, 2,380 ms style and layout,
+  3,293 ms other, 478 ms parse and compile. <code>lib-react.js</code> alone accounts for 2,889 ms,
+  which is hydration of a 1,927-element DOM. There are 20 long tasks, the worst 735 ms.</p>
+  <p><strong>Unused CSS is zero.</strong> Tailwind's purge is working correctly.</p>
+</div>
+
+<div class="f med">
+  <header><h3>7. Cache and protocol gaps</h3><span class="sev s-med">medium</span></header>
+  <ul>
+    <li><strong>1,424 OG PNGs, 42 MB, served <code>no-cache</code>.</strong> Build artifacts that
+    change only on deploy, revalidated by every card crawler and repeat visitor. Add a
+    <code>location /og/</code> block matching the one <code>/icons/</code> already has.</li>
+    <li><strong><code>/api/*</code> sends no <code>Cache-Control</code> at all.</strong> With no
+    directive, shared caches guess and browsers disagree. The catalogue changes on deploy, not per
+    request: <code>public, max-age=300, stale-while-revalidate=3600</code>.</li>
+    <li><strong>No HTTP/3.</strong> No <code>alt-svc</code> header and <code>--http3-only</code>
+    is refused. TLS handshake measured at 126 ms; QUIC removes a round trip. You are on nginx
+    1.29.7, so <code>listen 443 quic reuseport</code> is available.</li>
+    <li><strong>No Early Hints, no preload headers.</strong> The CSS and both fonts cannot start
+    until the browser has parsed the head of a 232 KB document.</li>
+    <li><strong>Fonts are correct but unpreloaded.</strong> Self-hosted, subsetted (only latin
+    loads out of 25 files), all 15 <code>@font-face</code> rules use <code>font-display: swap</code>.
+    They just do not start until 696 ms. One preload link fixes it.</li>
+    <li><strong><code>favicon.svg</code> is 843 bytes</strong>, under the
+    <code>gzip_min_length 1024</code> threshold, so it ships raw on every page. Lower the
+    threshold to 256.</li>
+    <li><strong>One third-party request:</strong> <code>hadesdev.com/favicon.svg</code>, 649
+    bytes, a whole extra DNS and TLS handshake for a favicon that could be inlined.</li>
+  </ul>
+</div>
+
+<h2>Verified as correct</h2>
+<div class="f win">
+  <header><h3>Do not touch these</h3><span class="sev s-win">clean</span></header>
+  <ul>
+    <li><strong>Images are in genuinely good shape.</strong> All 47 <code>&lt;img&gt;</code> on the
+    homepage carry width and height. 12 above-fold are eager with <code>fetchPriority="high"</code>
+    and matching preloads; 35 below-fold are lazy. All 500 product icons are WebP. Lighthouse
+    scores 1 on unsized-images, responsive-images, modern-image-formats, offscreen-images and
+    optimized-images. No image is the LCP on any page.</li>
+    <li><strong><code>/static/</code> immutable caching survives the outer proxy.</strong> I
+    checked, because it was worth checking: the public edge returns
+    <code>max-age=31536000, immutable</code> untouched.</li>
+    <li><strong><code>no-cache</code> on HTML is the right call.</strong> It permits storage, and a
+    conditional request returns 304 in 113 ms with zero bytes against 196 ms and 232 KB. Keep it.</li>
+    <li><strong>Umami costs nothing.</strong> 1,912 bytes on the wire, deferred, same origin,
+    0 ms main-thread blocking in Lighthouse's third-party summary. Not a problem, despite being
+    the obvious thing to blame.</li>
+    <li><strong>TTFB 43 to 49 ms.</strong> The server is fine.</li>
+  </ul>
+</div>
+
+<h2>If you do one thing</h2>
+<p>Finding 1. Making <code>/api/products</code> conditional is measured at minus 9.9 seconds of
+LCP and minus 99% CLS on the homepage, taking mobile performance from 0.16 to 0.65, without
+touching the HTML, the bundles or nginx. Everything else here is worth tens to low hundreds of
+kilobytes. That one is worth ten seconds.</p>
+
+</section>
+<section class="tab" id="semantics">
+
+<h2>Semantics and accessibility</h2>
+<p class="lede">Ten page types parsed in both languages on disk, then hydration, contrast and tap
+targets verified live in a real browser at 390×844.</p>
+
+<p>Landmarks are clean everywhere: exactly one <code>&lt;main&gt;</code>, one
+<code>&lt;header&gt;</code>, one <code>&lt;footer&gt;</code>, every <code>&lt;nav&gt;</code>
+labelled, no unnamed links or buttons, no <code>target=_blank</code> without
+<code>rel=noopener</code>, no image missing <code>alt</code>. The problems are in the heading tree
+and in content that exists only as pixels or only after hydration.</p>
+
+<h2>The one that costs you the most</h2>
+
+<div class="f crit">
+  <header><h3>The comparison matrix indexes as "● – €"</h3><span class="sev s-crit">critical</span></header>
+  <p>Source: <code>/home/hades/projects/canireplaceit/apps/frontend/src/ReplaceMatrix.tsx:236-256</code></p>
+<pre class="c">&lt;td&gt;&lt;span class="text-yes"    title="Yes"&gt;●&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class="text-muted"  title="Not checked"&gt;–&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class="text-almost" title="Paid tier only"&gt;€&lt;/span&gt;&lt;/td&gt;</pre>
+  <p>The whole row indexes as:</p>
+<pre class="c">More than one user € Families/Teams Starter Pack ● – ● – €</pre>
+  <p class="why">Why this is the worst finding on the tab: this block is your differentiator and
+  the most snippet-eligible content you have. Its meaning lives entirely in <code>title</code>
+  attributes, which Google does not extract and which NVDA and JAWS do not announce on a
+  non-interactive span. You built the best comparison data in the category and it reaches the
+  index as punctuation.</p>
+  <p>The sibling component <code>ProjectFeatures.tsx:106-112</code> already does this correctly,
+  with <code>aria-hidden</code> on the glyph and a real text label beside it. The matrix just
+  never got the same treatment.</p>
+  <div class="fix"><strong>Fix.</strong> Keep the glyph as
+  <code>&lt;span aria-hidden="true"&gt;</code> and add <code>&lt;span class="sr-only"&gt;Yes&lt;/span&gt;</code>
+  next to it. The row then indexes as "More than one user, Paid tier only, Yes, Not checked, Yes".</div>
+</div>
+
+<h2>Heading structure</h2>
+
+<div class="f high">
+  <header><h3>Product pages jump h1 to h4, and the levels are font sizes rather than structure</h3>
+  <span class="sev s-high">high</span></header>
+  <p>Verbatim outline from <code>/en/alternatives/1password/</code>, identical on every product
+  page checked and identical in French:</p>
+<pre class="c">h1  Can I replace 1Password ?
+h4  What you give up            <span class="del">&lt;- jump 1 to 4</span>
+h2  Your exit ladder
+h4  Open source                 <span class="del">&lt;- jump 2 to 4</span>
+h5  hosted option 8
+h5  one docker compose 6
+h2  Where they actually differ
+h4  Side by side                <span class="del">&lt;- jump 2 to 4</span>
+h2  Price</pre>
+  <p>The cause is visible in <code>components.tsx:858</code>: the level was chosen to get 10px
+  mono uppercase, not to express depth.</p>
+  <p class="why">Why it matters: Google builds its passage model from the heading tree. A page
+  that reads h1, h4, h2, h4, h5 has no usable tree, so "Your exit ladder", "Open source" and
+  "Side by side", the three blocks a searcher actually wants, cannot be lifted as passages.
+  This affects roughly 592 products in two languages.</p>
+  <div class="fix"><strong>Fix.</strong> Make them <code>h3</code> under their <code>h2</code>,
+  <code>h4</code> for the effort rungs, and move the mono styling into the class.
+  <code>WhatYouLose</code> sits before any <code>h2</code>, so it should be one.</div>
+</div>
+
+<div class="f high">
+  <header><h3>Category, collection and tool h1s throw away the query the title targets</h3>
+  <span class="sev s-high">high</span></header>
+<pre class="c">en/categories/ai/       &lt;title&gt;8 open source AI alternatives (2026)&lt;/title&gt;    &lt;h1&gt;AI&lt;/h1&gt;
+en/collections/foss/    &lt;title&gt;Free and open source: 3056 projects…&lt;/title&gt;    &lt;h1&gt;FOSS&lt;/h1&gt;
+en/tools/2fa/           &lt;title&gt;2fa — replaces Auth0&lt;/title&gt;                    &lt;h1&gt;2fa&lt;/h1&gt;</pre>
+  <p class="why">A one-word h1 that only repeats the breadcrumb gives Google nothing to confirm
+  the title against, which makes a rewritten SERP title more likely. This is roughly 172 category,
+  28 collection and 3,480 tool pages per language.</p>
+  <div class="fix"><strong>Fix.</strong> Make the h1 the title phrase: "Open source AI
+  alternatives", "Free and open source projects", "2fa, an open source Auth0 alternative". Keep
+  the short word as the eyebrow it already is.</div>
+</div>
+
+<div class="f med">
+  <header><h3>The gaps page is 200 entries with one h2 between them</h3><span class="sev s-med">medium</span></header>
+  <p>Every entry's title is a bare <code>&lt;a&gt;</code> inside an <code>&lt;li&gt;</code>. The
+  page's answer to "what can open source not do yet" is 200 unheaded blocks, so there is nothing
+  for Google to key a passage on and no way for a screen reader user to jump between entries.</p>
+</div>
+
+<h2>Content the crawler cannot see</h2>
+
+<div class="f high">
+  <header><h3>Every headline number on the homepage is an em dash in the prerendered HTML</h3>
+  <span class="sev s-high">high</span></header>
+<pre class="c">prerendered:  &lt;dd class="nums font-bold text-2xl"&gt;<span class="del">—</span>&lt;/dd&gt;
+              &lt;dt&gt;products reviewed&lt;/dt&gt;
+
+hydrated:     592 products reviewed
+              6485 open source alternatives
+              43 we say don't bother
+              9 switches reported     <span class="muted">&lt;- this tile is not in the HTML at all</span></pre>
+  <p><code>stats</code> is <code>null</code> at prerender because it comes from an API call. Your
+  own meta description already claims "592 SaaS subscriptions", so the number is known at build
+  time.</p>
+  <div class="fix"><strong>Fix.</strong> Seed <code>stats</code> from the same build-time payload
+  that already fills <code>window.__DATA__</code>.</div>
+</div>
+
+<div class="f med">
+  <header><h3>"In this category" exists only after hydration</h3><span class="sev s-med">medium</span></header>
+  <p>Present in the live DOM on a product page, absent from the prerendered file:</p>
+<pre class="c">&lt;h2&gt;In this category&lt;/h2&gt;&lt;a href="/en/categories/security"&gt;Security →&lt;/a&gt;</pre>
+  <p class="why">This is the only in-body internal link from a product page to its category, and
+  it is invisible to the initial fetch. Sponsor blocks are also hydration-only, which is correct
+  and should stay that way.</p>
+</div>
+
+<div class="f med">
+  <header><h3>The 404 page is an empty document, and the French one claims to be English</h3>
+  <span class="sev s-med">medium</span></header>
+<pre class="c">dist/404.html body:  &lt;body&gt;&lt;div id="root"&gt;&lt;/div&gt;&lt;/body&gt;
+
+curl /fr/pas-la/  ->  404 (correct) but &lt;html lang="en"&gt;,
+                      the English homepage title, og:image=notfound-en.png</pre>
+</div>
+
+<h2>Markup that is invalid or lossy</h2>
+
+<div class="f med">
+  <header><h3>Every &lt;dl&gt; puts &lt;dd&gt; before &lt;dt&gt;</h3><span class="sev s-med">medium</span></header>
+<pre class="c">&lt;div&gt;
+  <span class="del">&lt;dd&gt;17&lt;/dd&gt;</span>
+  <span class="del">&lt;dt&gt;live alternatives&lt;/dt&gt;</span>
+&lt;/div&gt;</pre>
+  <p>The content model requires <code>dt</code> then <code>dd</code>. Reversed, browsers build no
+  term/description pairing, so "17" and "live alternatives" are two unrelated strings to
+  assistive tech and to any parser walking the list. This is on the home hero, every product stat
+  strip and the category stat strip.</p>
+  <div class="fix"><strong>Fix.</strong> Swap the order and invert visually with CSS
+  <code>order</code> or <code>column-reverse</code>.</div>
+</div>
+
+<div class="f med">
+  <header><h3>Tables have no caption, no scope, no row headers</h3><span class="sev s-med">medium</span></header>
+  <p><code>scope</code> appears on 0 of 7 and 0 of 5 <code>th</code> elements on the two product
+  tables, and the feature-name column is <code>&lt;td&gt;</code> rather than
+  <code>&lt;th scope="row"&gt;</code>.</p>
+  <p class="why">Google's table extraction, the thing that produces comparison-table rich results,
+  keys on <code>caption</code> plus <code>th</code>. Without them your comparison table is a grid
+  of unlabelled cells.</p>
+</div>
+
+<div class="f med">
+  <header><h3>&lt;time&gt; is used well, and only twice</h3><span class="sev s-med">medium</span></header>
+<pre class="c">&lt;span class="text-muted"&gt;Checked&lt;/span&gt;&lt;time datetime="2026-08-02"&gt;Aug 2, 2026&lt;/time&gt;   <span class="add">good</span>
+&lt;span class="text-muted"&gt;Confidence&lt;/span&gt;                                          <span class="del">empty</span></pre>
+  <p>The checked date is machine-readable, which is exactly right for your differentiator. But
+  <code>ConfidenceChip</code> returns <code>null</code> when confidence is "high", the common
+  case, leaving a dangling label with nothing after it on most product pages. Verified live: the
+  row is still empty after hydration.</p>
+  <p>Missing where they would pay: <code>&lt;data value="9"&gt;$9/mo&lt;/data&gt;</code> for prices,
+  <code>&lt;meter&gt;</code> for the exit-ladder bar (currently <code>role="img"</code> with an
+  <code>aria-label</code> Google cannot read), <code>&lt;address&gt;</code> for the contact email,
+  <code>&lt;abbr&gt;</code> and <code>&lt;dfn&gt;</code> in the glossary.</p>
+</div>
+
+<div class="f low">
+  <header><h3>Three smaller ones</h3><span class="sev s-low">low</span></header>
+  <ul>
+    <li><strong>The homepage h1 renders as a keyword list.</strong> Live,
+    <code>h1.textContent</code> is
+    <code>Can I replace NotionFigmaSlackDatadogAirtableZendeskPostmanCalendlyTailscaleJira?</code>
+    Screen readers are fine, since <code>aria-hidden</code> and <code>visibility:hidden</code>
+    both remove the inactive names. Google mostly discounts hidden text, so this is a risk rather
+    than a confirmed problem, but your most important heading currently reads as ten brand names
+    glued together.</li>
+    <li><strong>The contact page hides its own h1.</strong> A <code>headingHidden</code> flag puts
+    the h1 in <code>sr-only</code>, suppresses the breadcrumb nav entirely and drops the lede.
+    Google discounts visually hidden headings, so the page effectively opens on
+    <code>h3 Something here is wrong</code>.</li>
+    <li><strong>88 header links for 43 unique hrefs.</strong> The desktop nav and the mobile
+    sheet both render in full and hide each other with CSS breakpoints, so
+    <code>/en/categories/</code> appears four times per page across ~8,800 pages.</li>
+    <li><strong>French pages carry English landmark labels.</strong>
+    <code>aria-label="Breadcrumb"</code> and <code>"Pagination"</code> are never translated, and
+    one <code>&lt;h4&gt;Open source&lt;/h4&gt;</code> survives untranslated in FR content.</li>
+  </ul>
+</div>
+
+<h2>WCAG failures</h2>
+
+<table>
+  <tr><th>#</th><th>Failure</th><th>SC</th><th>Detail</th></tr>
+  <tr><td>A</td><td>No skip link anywhere on the site</td><td>2.4.1 A</td><td>The harder half is already done: SPA navigation moves focus and announces the route. Only the static link is missing.</td></tr>
+  <tr><td>B</td><td>Sponsor forms have no labels</td><td>1.3.1, 3.3.2, 4.1.2 A</td><td><code>Creative.tsx</code>: 9 inputs, 0 <code>&lt;label&gt;</code>. Placeholder-only email fields with no <code>autocomplete</code>.</td></tr>
+  <tr><td>C</td><td>Form errors are silent</td><td>3.3.1 A, 4.1.3 AA</td><td>No <code>role="alert"</code>, no <code>aria-live</code>, no <code>aria-invalid</code>. A payment failure is announced to nobody.</td></tr>
+  <tr><td>D</td><td>49 tap targets under 24px on mobile</td><td>2.5.8 AA</td><td>Breadcrumb home link is 14×14. 30 footer links at 18px. 5 matrix remove-column buttons at 20px.</td></tr>
+  <tr><td>E</td><td>Control borders at 1.21:1</td><td>1.4.11 AA</td><td>Needs 3:1. This border is the only visible boundary of the search input, the filters, both selects, every pill and every card.</td></tr>
+  <tr><td>F</td><td>Brand link text at 4.40:1 in light theme</td><td>1.4.3 AA</td><td>Needs 4.5. Misses by 0.1. On <code>--surface</code> it is 4.55:1, so links inside cards pass.</td></tr>
+  <tr><td>G</td><td>Definitions are tooltip-only</td><td>1.3.1 A, 1.4.13 AA</td><td>Every verdict pill uses <code>title</code>. Not focusable, so a keyboard user can never read it.</td></tr>
+  <tr><td>H</td><td>An <code>&lt;aside&gt;</code> inside an <code>&lt;aside&gt;</code>, neither named</td><td>1.3.1 A</td><td>6 complementary landmarks live, 2 announce as bare "complementary".</td></tr>
+  <tr><td>I</td><td>Mobile nav sits outside any <code>&lt;nav&gt;</code></td><td>1.3.1 A</td><td>Its <code>&lt;summary aria-label="Menu"&gt;</code> also collides with the desktop <code>&lt;nav aria-label="Menu"&gt;</code>.</td></tr>
+  <tr><td>J</td><td>Theme toggle has no state</td><td>4.1.2 A</td><td>No <code>aria-pressed</code>, and the label never says which theme is active.</td></tr>
+  <tr><td>K</td><td>Filter results change silently</td><td>4.1.3 AA</td><td>The pills correctly use <code>aria-pressed</code>, but zero <code>aria-live</code> regions exist on any list page.</td></tr>
+  <tr><td>L</td><td>Sponsor page ships an empty <code>tablist</code></td><td>1.3.1 A</td><td>Prerender artifact only. Hydration builds correct tabs.</td></tr>
+</table>
+
+<p>Two of these are worth pulling out. <strong>G is a free win</strong>: the exact definition text
+already exists as a <code>&lt;dd&gt;</code> in the glossary, so turning each pill into
+<code>&lt;a href="/en/glossary#almost"&gt;</code> fixes the accessibility failure and adds ~600
+internal links to the glossary at the same time. And <strong>F misses by 0.1</strong>: darkening
+<code>--brand</code> from <code>#2f6fed</code> to <code>#2563eb</code> takes it to 4.9:1.</p>
+
+<h2>What is already right</h2>
+<div class="f win">
+  <header><h3>Do not regress these</h3><span class="sev s-win">clean</span></header>
+  <ul>
+    <li>Exactly one h1 and one <code>&lt;main&gt;</code> on every page type, verified across 200
+    sampled product pages.</li>
+    <li>Zero anchors or buttons without an accessible name across all ten page types.</li>
+    <li>Link rel attributes are correct throughout: ads are <code>sponsored noopener</code>, the
+    vendor price source is <code>nofollow</code>, editorial project links are followed. This is a
+    Google policy area and you are on the right side of it.</li>
+    <li>All 3,680 icons are 96×96 WebP with explicit dimensions, <code>loading</code>,
+    <code>decoding</code> and <code>alt=""</code> beside the visible name. Correct decorative
+    treatment, zero CLS, and no text-in-image anywhere on the site.</li>
+    <li>Card grids are real lists. The glossary is a textbook <code>&lt;dl&gt;</code>. Filter
+    groups use <code>fieldset</code> and <code>legend</code>. Sort selects are wrapped in labels.</li>
+    <li>Focus indicator is a solid 2px ring, and SPA navigation moves focus to
+    <code>&lt;main&gt;</code> and announces the new title through a polite live region. That is
+    better than most React sites manage.</li>
+    <li>Dark theme has no text contrast failures at all.</li>
+  </ul>
+</div>
+
+</section>
+<section class="tab" id="schema">
+
+<h2>Structured data</h2>
+<p class="lede">19,334 JSON-LD blocks across 8,867 files, all parsed and validated. Google's current
+docs and the Search Central changelog checked live, because half the schema advice on the internet
+is about features Google has since deleted.</p>
+
+<p>Mechanical hygiene is good: every block parses, every one uses the right
+<code>@context</code>, no microdata, no RDFa, no duplicates, no relative URLs, no bad
+<code>position</code> values. The problems are what is claimed and what is missing.</p>
+
+<table>
+  <tr><th>Type</th><th class="n">Pages</th></tr>
+  <tr><td>BreadcrumbList</td><td class="n">8,840</td></tr>
+  <tr><td>SoftwareApplication</td><td class="n">8,142</td></tr>
+  <tr><td>ItemList</td><td class="n">1,184</td></tr>
+  <tr><td>FAQPage</td><td class="n">1,184</td></tr>
+  <tr><td>Offer</td><td class="n">692</td></tr>
+  <tr><td>CollectionPage</td><td class="n">472</td></tr>
+  <tr><td>WebSite</td><td class="n">4</td></tr>
+  <tr><td>Organization, Review, Person, Dataset, DefinedTermSet, Article</td><td class="n no">0</td></tr>
+</table>
+<p>Property census across all 19,334 blocks: <code>@id</code> 0, <code>sameAs</code> 0,
+<code>publisher</code> 0, <code>dateModified</code> 0, <code>datePublished</code> 0.</p>
+
+<h2>The one that can cost you</h2>
+
+<div class="f crit">
+  <header><h3>FAQPage on 1,184 pages markets up content that appears nowhere</h3>
+  <span class="sev s-crit">manual action risk</span><span class="eff">delete 78 lines</span></header>
+  <p>Every product page emits questions and answers like "Is there an open source alternative to
+  Modal?". Those strings appear <strong>zero times</strong> in the rendered body. The JS bundle was
+  grepped too: the only occurrence is inside the generator itself, so they are absent after
+  hydration as well. There is no FAQ component on the site.</p>
+  <p>Google's policy, updated 2026-07-10: <em>"Don't mark up content that is not visible to
+  readers of the page."</em> The Search Console manual action is now called "Structured data
+  issue", with the sub-issue "Structured data found on hidden content".</p>
+  <p class="why">And the kicker: <strong>FAQ rich results were removed from Google Search entirely
+  on 7 May 2026</strong> and the docs were deleted on 15 June. This markup buys nothing at all
+  today, and it puts every other rich result on the site at risk.</p>
+  <div class="fix"><strong>Fix.</strong> Delete <code>faqJsonLd</code> from
+  <code>/home/hades/projects/canireplaceit/apps/frontend/src/seo.ts</code>. Note that the same
+  file already says "Google stopped rendering FAQ results in May 2026" in two other comments while
+  the product path keeps emitting it. The comments are right and the code is stale.</div>
+</div>
+
+<h2>What Google actually still renders in 2026</h2>
+<p>Worth being blunt about, because a lot of schema advice is years out of date.</p>
+<table>
+  <tr><th>Type</th><th>Status</th><th>What it buys</th></tr>
+  <tr><td>BreadcrumbList</td><td class="ok">live</td><td>Desktop breadcrumb trail. You already earn this.</td></tr>
+  <tr><td>Software App</td><td class="ok">live</td><td>Stars and price. Needs name + offers.price + one of rating/review.</td></tr>
+  <tr><td>Product snippet</td><td class="ok">live</td><td><strong>Pros and cons block</strong>, restricted to editorial product review pages.</td></tr>
+  <tr><td>Organization</td><td class="ok">live</td><td>Site logo, knowledge panel, attribution. No required properties.</td></tr>
+  <tr><td>WebSite name</td><td class="ok">live</td><td>The site name shown above the URL.</td></tr>
+  <tr><td>FAQPage</td><td class="no">dead 7 May 2026</td><td>Nothing. Remove it.</td></tr>
+  <tr><td>HowTo</td><td class="no">dead Sept 2023</td><td>Nothing.</td></tr>
+  <tr><td>Sitelinks searchbox</td><td class="no">dead 21 Nov 2024</td><td>Nothing. You emit one.</td></tr>
+  <tr><td>ItemList</td><td>hygiene only</td><td>No generic list carousel exists. SoftwareApplication is eligible for none of the carousel types.</td></tr>
+  <tr><td>Dataset</td><td>hygiene only</td><td>Dataset Search only, confirmed 2025-11-05. Not Google Search.</td></tr>
+  <tr><td>DefinedTerm</td><td>hygiene only</td><td>No docs, no gallery entry, no rich result. Anything claiming it drives LLM citation is vendor marketing.</td></tr>
+</table>
+
+<h2>The biggest available upgrade</h2>
+
+<div class="f crit">
+  <header><h3>Your product pages are ineligible for the one rich result they are shaped for</h3>
+  <span class="sev s-crit">critical</span></header>
+  <p>The pros-and-cons appearance is restricted to editorial product review pages.
+  <code>/en/alternatives/modal</code> <em>is</em> an editorial product review page. It already
+  shows the pros and cons visibly, under "What you give up" and in the verdict line. None of it is
+  marked up.</p>
+<pre class="c"><span class="del">current:</span>
+{"@type":"SoftwareApplication","name":"Modal",
+ "applicationCategory":"ai-infrastructure",      <span class="del">&lt;- invalid value</span>
+ "url":"https://modal.com",                      <span class="del">&lt;- not your page</span>
+ "offers":{"price":250,"availability":"InStock"}} <span class="del">&lt;- nothing is for sale here</span>
+
+<span class="add">corrected:</span>
+{"@type":"Product","@id":"…/en/alternatives/modal#product",
+ "name":"Modal","url":"https://canireplaceit.com/en/alternatives/modal",
+ "sameAs":"https://modal.com",
+ "review":{"@type":"Review",
+   "author":{"@id":"https://canireplaceit.com/#org"},
+   "datePublished":"2026-08-02",
+   "reviewAspect":"Open source replaceability",
+   "positiveNotes":{"@type":"ItemList","itemListElement":[
+     {"position":1,"name":"10 open source projects cover most of the job"},
+     {"position":2,"name":"Cog is Apache-2.0 and holds nothing back"},
+     {"position":3,"name":"Saves $3,000/yr"}]},
+   "negativeNotes":{"@type":"ItemList","itemListElement":[
+     {"position":1,"name":"Sub-second GPU cold starts"},
+     {"position":2,"name":"Per-second billing, scale to zero"}]}}}</pre>
+  <p><code>negativeNotes</code> maps one to one onto <code>product.whatYouLose</code>, which is
+  already visible on the page. No rating is required alongside pros and cons.</p>
+  <p class="why">This is a pros/cons block under your result on 592 product pages, on exactly the
+  query the site is built for. None of your four competitors claims it.</p>
+</div>
+
+<div class="f high">
+  <header><h3>On the self-serving review question you asked about</h3><span class="sev s-high">answered</span></header>
+  <p>The prohibition is <strong>scoped to LocalBusiness and Organization only</strong>. Verbatim
+  from the review snippet doc, updated 2026-07-24:</p>
+<pre class="c">"If the entity that's being reviewed controls the reviews about itself, their
+ pages that use LocalBusiness or any other type of Organization structured data
+ are ineligible for star review feature."</pre>
+  <p>It is not written against <code>Product</code> or <code>SoftwareApplication</code>. And the
+  manual action sub-issue says reviews must not be written by the business "unless they are
+  customer, independent, and unpaid editorial reviews". canireplaceit reviewing Modal is a third
+  party reviewing another company's product, independently and unpaid. <strong>Explicitly
+  allowed.</strong></p>
+  <p>Three real constraints do apply:</p>
+  <ul>
+    <li>Review goes on product and project pages only. Never on a category, collection, theme or
+    the gaps page. "Provide review information about a specific item, not a category or a list."</li>
+    <li>"No mechanism for submitting a new review" is its own manual action sub-issue. Your
+    "Suggest a change" and "Challenge a verdict" links satisfy it. Keep them next to the verdict,
+    not only in the footer.</li>
+    <li>New as of 2026-07-24: no undisclosed incentivized reviews. If a sponsored product's page
+    carries a Review, the disclosure must be on <em>that page</em>, not only on /en/sponsor.</li>
+  </ul>
+  <div class="fix"><strong>What I would not do: emit a numeric <code>reviewRating</code>.</strong>
+  Your verdict is a three-point scale measuring <em>replaceability</em>, not product quality. Two
+  stars out of three attached to "Modal" renders in the SERP as "this reviewer thinks Modal is
+  mediocre", which is the opposite of what your page says. The page says Modal is good and hard to
+  replace. Use <code>positiveNotes</code> and <code>negativeNotes</code> with
+  <code>reviewAspect</code> and no <code>ratingValue</code>. You get the appearance without
+  asserting a score you never made.</div>
+</div>
+
+<h2>Identity and entity wiring</h2>
+
+<div class="f high">
+  <header><h3>The site has no identity in the graph at all</h3><span class="sev s-high">high</span></header>
+  <p>Zero <code>Organization</code> nodes and zero <code>sameAs</code> properties across 19,334
+  blocks. Your footer visibly links your GitHub org and your X account, and none of it is marked
+  up. Meanwhile the <code>WebSite</code> block carries a <code>SearchAction</code> that has been
+  dead since 21 Nov 2024 and whose target was never valid anyway, since it points at a JSON API
+  endpoint rather than a page a human can view.</p>
+  <div class="fix"><strong>Fix.</strong> Add an <code>Organization</code> node on the home page
+  only (Google's guidance is explicitly "you don't need to include it on every page") with
+  <code>logo</code>, <code>sameAs</code> to GitHub and X, and a <code>founder</code>. Wire
+  <code>WebSite.publisher</code> to it by <code>@id</code>. Drop the SearchAction.</div>
+</div>
+
+<div class="f high">
+  <header><h3>20,620 SoftwareApplication nodes, and not one points at a page on your site</h3>
+  <span class="sev s-high">high</span></header>
+  <p>19,344 point at github.com. Product pages point at the vendor domain. No node carries
+  <code>@id</code>, <code>mainEntityOfPage</code> or <code>sameAs</code>.</p>
+<pre class="c">"url":"https://github.com/SCons/scons"    <span class="del">&lt;- says "SCons exists and lives on GitHub"</span>
+                                          <span class="del">   never says "and this page is about it"</span></pre>
+  <p class="why">Google currently has no way to associate any of your 3,479 projects or 592
+  products with a canireplaceit URL. None of the editorial work can accrue to this domain as an
+  entity. The site publishes each project twice (once on its own page, once in a product page's
+  ItemList) and claims neither.</p>
+  <div class="fix"><strong>Fix.</strong> Point <code>url</code> at your own page, move the forge
+  URL to <code>sameAs</code> and <code>codeRepository</code>, add <code>@id</code>. The project
+  homepages you need are already in <code>/home/hades/projects/canireplaceit/data/health.json</code>,
+  populated for 897 of 1,080 repos, with <code>lastPush</code> for all 1,080.</div>
+</div>
+
+<h2>Correctness problems</h2>
+
+<div class="f med">
+  <header><h3>applicationCategory is an invalid value on 692 pages</h3><span class="sev s-med">medium</span></header>
+  <p>Product pages pass the internal category slug straight through:
+  <code>"applicationCategory": "ai-infrastructure"</code>. Google publishes a closed list of 25
+  values. There are 80 distinct slugs in use across the build and none of them is valid. Project
+  pages correctly use <code>BusinessApplication</code>, so the site contradicts itself between its
+  own two page types.</p>
+  <div class="fix"><strong>Fix.</strong> An 85-row mapping table from slug to one of Google's 25
+  values, with the human label moved to <code>applicationSubCategory</code>.</div>
+</div>
+
+<div class="f med">
+  <header><h3>Breadcrumb markup disagrees with the visible trail on 7,300+ pages</h3><span class="sev s-med">medium</span></header>
+  <table>
+    <tr><th class="n">Pages</th><th>Visible</th><th>Markup</th></tr>
+    <tr><td class="n">7,030</td><td>All products › All open source projects › SCons</td><td>All products › SCons</td></tr>
+    <tr><td class="n">324</td><td>… › Collections › The expensive ones</td><td>… › Collections › 46 SaaS products over $100/mo…</td></tr>
+    <tr><td class="n">16</td><td>Home › Legal › Terms of use</td><td>All products › Legal › Terms of use</td></tr>
+  </table>
+  <p>The project one is the notable case: <code>projectMeta</code> builds a two-rung trail while
+  the page renders three. <code>categoryMeta</code> already does this correctly and its comment
+  explains why. <code>projectMeta</code> never got the same treatment.</p>
+  <p>Separately, <strong>8 pages emit a BreadcrumbList with no visible breadcrumb at all</strong>
+  (contact, signin, dashboard, admin, and their French twins). Same hidden-content rule as the FAQ
+  finding, at much smaller scale.</p>
+</div>
+
+<div class="f med">
+  <header><h3>Your differentiator is absent from the markup</h3><span class="sev s-med">medium</span></header>
+  <p>Zero <code>dateModified</code> and zero <code>datePublished</code> across all 19,334 blocks.
+  The check date renders correctly as <code>&lt;time datetime="2026-08-02"&gt;</code> and appears
+  in the sitemap as <code>lastmod</code>. In structured data the only place it exists is buried in
+  FAQ answer prose, in the block you are about to delete.</p>
+  <p>The current Offer also states a monthly subscription as a flat one-off price. Nothing in it
+  says "per month"; a parser reads $250, full stop.</p>
+  <div class="fix"><strong>Use <code>dateModified</code>, not <code>priceValidUntil</code>.</strong>
+  <code>priceValidUntil</code> means "the price is guaranteed until", and Google drops the price
+  from a rich result once it expires. Your date is a backward-looking receipt, not a
+  forward-looking guarantee. Wrong property. Use <code>UnitPriceSpecification</code> with
+  <code>unitCode: "MON"</code> to make "per month" machine-readable.</div>
+</div>
+
+<div class="f low">
+  <header><h3>Gaps and empty shells</h3><span class="sev s-low">low</span></header>
+  <ul>
+    <li><strong>172 category pages and 20 theme pages carry only a breadcrumb.</strong> No SERP
+    change from fixing it, but <code>CollectionPage</code> + <code>ItemList</code> is the cheapest
+    way to tell a crawler which products live there.</li>
+    <li><strong>The 472 CollectionPage blocks are two properties each</strong>, restating the title
+    and the canonical. The description copy already exists in <code>COLLECTION_COPY</code>.</li>
+    <li><strong>The glossary has 20 defined terms and no DefinedTermSet.</strong> Be honest about
+    what this buys: no rich result, no Google documentation. The reason to add it is that these
+    terms are your own vocabulary, every product page uses them as labels, and
+    <code>@id</code>-referencing them gives a machine one consistent definition instead of 592
+    loose adjectives. None of the four competitors uses it, and you are the only one of the five
+    with a real glossary to put in it.</li>
+    <li><strong>6,958 project pages fail both Software App required properties.</strong> The
+    comment in <code>seo.ts</code> refusing to invent a rating is right. The conclusion is half
+    right: <code>offers.price: 0</code> on a genuinely free project is a true statement, not an
+    invention, and it is what Google asks for.</li>
+    <li><strong>22 paginated home pages carry no structured data at all.</strong> Not giving each
+    of ten pages a WebSite claim is correct; throwing out the breadcrumb with it is not.</li>
+    <li><strong>404.html emits the WebSite entity and canonicals to the homepage.</strong> Drop
+    both.</li>
+    <li><strong>The glossary says 527 products; the homepage says 592.</strong></li>
+  </ul>
+</div>
+
+<h2>What the competitors mark up</h2>
+<table>
+  <tr><th></th><th>Product</th><th>AggregateRating</th><th>Review</th><th>Organization</th><th>sameAs</th><th>@id graph</th></tr>
+  <tr><td>alternativeto.net</td><td>–</td><td class="ok">yes</td><td class="ok">yes</td><td class="ok">yes</td><td class="ok">yes</td><td>–</td></tr>
+  <tr><td>openalternative.co</td><td>–</td><td>–</td><td>–</td><td class="ok">yes</td><td>–</td><td class="ok">yes</td></tr>
+  <tr><td>saashub.com</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td></tr>
+  <tr><td>opensourcealternative.to</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td></tr>
+  <tr><td><strong>canireplaceit</strong></td><td class="no">no</td><td>no</td><td class="no">no</td><td class="no">no</td><td class="no">no</td><td class="no">no</td></tr>
+</table>
+<p>Two things to take from that. <strong>alternativeto is the only one of the five earning
+stars</strong>, via user-generated <code>aggregateRating</code> ("68 ratings" visible on the page).
+Their execution is sloppy, with truncated review bodies, double-escaped entities and one author
+literally named "3", but they earn the feature and you do not. And
+<strong>openalternative's single <code>@graph</code> with <code>@id</code> cross-references is the
+pattern to copy</strong>: Organization to WebSite to WebPage to BreadcrumbList to
+SoftwareApplication, all wired. You emit four disconnected blocks with no <code>@id</code> at all.</p>
+<p>What you have that none of them do: dated price receipts, a real <code>license</code> per
+project, and an <code>Offer</code> with an actual price (saashub's Offer is an empty shell around a
+link). Nobody uses <code>Product</code>. <strong>The pros-and-cons appearance is unclaimed by all
+five.</strong></p>
+
+<h2>Manual action exposure</h2>
+<p>The manual action costs rich result eligibility on the affected pages. It does not affect web
+ranking.</p>
+<ul>
+  <li><strong>One item would currently trigger it:</strong> the FAQPage block on 1,184 pages.</li>
+  <li><strong>Two are borderline:</strong> breadcrumb markup on 8 pages with no visible breadcrumb,
+  and <code>availability: InStock</code> on 692 pages where nothing can be purchased.</li>
+  <li><strong>Nothing else is exposed.</strong> No fake reviews, no invented ratings, no aggregated
+  third-party review data, no markup contradicting visible prices.</li>
+</ul>
+<p>The refusal in <code>seo.ts</code> to build an <code>aggregateRating</code> out of 277 boolean
+votes is the right call, and it is the main reason your exposure here is one deletable block
+rather than a systemic problem.</p>
+
+<h2>Order of work</h2>
+<ol>
+  <li>Delete <code>faqJsonLd</code>. Removes the exposure, loses nothing.</li>
+  <li>Add Organization, fix WebSite, drop SearchAction.</li>
+  <li>Add <code>@id</code> everywhere and wire product pages as WebPage → mainEntity → Product with <code>dateModified</code>.</li>
+  <li>Add the nested Review with positiveNotes/negativeNotes and no numeric rating. <strong>This is the one change that buys a visible SERP feature.</strong></li>
+  <li>Point SoftwareApplication.url at your own pages.</li>
+  <li>Map the 80 slugs onto Google's 25 applicationCategory values.</li>
+  <li>Fix the breadcrumb rungs and labels.</li>
+  <li>ItemList on category, theme and collection pages.</li>
+  <li>DefinedTermSet on the glossary.</li>
+</ol>
+<p>Steps 1 to 4 are where the value is. 5 to 9 will not move a SERP but make the catalogue legible
+to anything parsing it.</p>
+
+</section>
+<section class="tab" id="social">
+
+<h2>Open Graph and social cards</h2>
+<p class="lede">8,867 HTML files and 1,425 generated PNGs checked on disk, plus live unfurl tests
+with the real Facebook, Twitterbot, LinkedIn, Slack, Discord and WhatsApp user agents.</p>
+
+<p>This is the strongest part of the site. Every page carries a complete and correct OG and
+Twitter Card set, and the generated cards are genuinely well made. Two problems are worth
+fixing and most of the rest is polish.</p>
+
+<div class="cards">
+  <div class="card good"><span class="v">1,425</span><span class="k">cards, all exactly 1200×630</span></div>
+  <div class="card good"><span class="v">27.7 KB</span><span class="k">mean card size</span></div>
+  <div class="card bad"><span class="v">2,602</span><span class="k">indexable pages on the generic card</span></div>
+  <div class="card bad"><span class="v">0</span><span class="k">feed discovery links in 8,867 files</span></div>
+</div>
+
+<h3>Two things in my brief turned out to be wrong</h3>
+<p>Worth recording, because both are widely repeated. <strong>Slack does not respect
+robots.txt</strong>, and says so at <a href="https://api.slack.com/robots">api.slack.com/robots</a>.
+And <strong>X's Twitter Cards documentation no longer exists</strong>: every card doc URL 307s to
+a generic landing page, and the full 5.4 MB <code>docs.x.com/llms-full.txt</code> corpus contains
+zero occurrences of <code>twitter:card</code>, <code>summary_large_image</code> or
+<code>twitter:image</code>. The familiar "X allows 5 MB, 4096×4096, 420-char alt" numbers cannot
+be verified against any live official page. Google's favicon doc has also dropped the "multiple of
+48px" rule I asked about; it now says square, at least 8×8, larger than 48×48 recommended.</p>
+
+<h2>Compliance</h2>
+<table>
+  <tr><th>Platform</th><th>Requirement</th><th>State</th><th>Verdict</th></tr>
+  <tr><td>OGP spec</td><td>og:title, og:type, og:image, og:url</td><td>All four, all 8,866 pages</td><td class="ok">pass</td></tr>
+  <tr><td>OGP spec</td><td>og:image:alt, the spec's only normative "should"</td><td>Absent everywhere</td><td class="no">fail</td></tr>
+  <tr><td>Facebook</td><td>1200×630, ≤8 MB, JPEG/GIF/PNG</td><td>All 1,425 exactly 1200×630, max 44.1 KB, PNG</td><td class="ok">pass</td></tr>
+  <tr><td>Facebook</td><td>width/height to render on first share</td><td>Absent</td><td class="no">fail</td></tr>
+  <tr><td>Facebook</td><td>og:url undecorated, engagement aggregates there</td><td>Matches canonical, but that URL 301s</td><td class="no">fail</td></tr>
+  <tr><td>X</td><td>twitter:card, the one tag with no OG fallback</td><td>summary_large_image everywhere</td><td class="ok">pass</td></tr>
+  <tr><td>LinkedIn</td><td>og:title, image, description, url; min 1200×627</td><td>All present, 1200×630</td><td class="ok">pass</td></tr>
+  <tr><td>Slack</td><td>Uses whichever of OG/Twitter comes first in the document</td><td>og: block precedes twitter:</td><td class="ok">pass</td></tr>
+  <tr><td>Discord</td><td>Reads OG, proxies images</td><td>Complete</td><td class="ok">pass</td></tr>
+  <tr><td>WhatsApp</td><td>&lt;head&gt; within first 300 KB of HTML</td><td>Worst case 11.7 KB</td><td class="ok">pass</td></tr>
+  <tr><td>iMessage</td><td>Main resource ≤1 MB</td><td>6 theme pages are 1.12 to 1.37 MB</td><td class="no">fail</td></tr>
+  <tr><td>Google favicon</td><td>Square, ≥8×8, crawlable, stable URL</td><td>SVG only, no raster fallback</td><td class="no">fail</td></tr>
+  <tr><td>RSS autodiscovery</td><td>&lt;link rel="alternate" type="application/atom+xml"&gt;</td><td>Feed works, zero discovery links</td><td class="no">fail</td></tr>
+</table>
+
+<h2>Findings that matter</h2>
+
+<div class="f high">
+  <header><h3>2,602 indexable pages share one card that never names what is on the page</h3>
+  <span class="sev s-high">high</span></header>
+  <p>The generic <code>og.png</code> is the <code>og:image</code> for 6,980 of 8,866 pages. 4,356
+  of those are <code>noindex</code>, which leaves <strong>2,602 indexable, shareable pages</strong>
+  on a card that says nothing about them. That is 58.5% of all indexable pages.</p>
+  <p>Paste a tool page into Slack and the preview reads "canireplaceit, opensource, free or
+  cheaper alternatives to apps you pay for". Paste a product page and you get both logos, a
+  verdict badge and a price.</p>
+  <p>This was a deliberate call, not an oversight. The header comment in
+  <code>/home/hades/projects/canireplaceit/scripts/build-og-pages.ts</code> ("WHY NOT ALL 8000")
+  argues against roughly 7,196 more PNGs at about 220 MB per deploy for pages that are two thirds
+  <code>noindex</code>. That reasoning is right for the noindex two thirds and wrong for the
+  indexable third.</p>
+  <div class="fix"><strong>Fix.</strong> Generate cards for the 2,602 indexable project pages
+  only. At the measured 27.7 KB mean that is about 72 MB, not 220 MB. Add <code>"project"</code>
+  to <code>OG_SLUGGED</code> in
+  <code>/home/hades/projects/canireplaceit/scripts/prerender.ts</code>. <code>ogFor()</code>
+  already falls back to the generic image when no file exists on disk, so this rolls out
+  incrementally and cannot break.</div>
+</div>
+
+<div class="f high">
+  <header><h3>Four lines in prerender.ts fix three findings at once</h3>
+  <span class="sev s-high">high</span><span class="eff">4 lines</span></header>
+  <p><strong>og:image:width and og:image:height are absent on all 8,866 pages.</strong> Facebook
+  documents these as the specific fix for the blank-image-on-first-share problem: specifying them
+  lets the crawler render immediately instead of downloading and processing the file
+  asynchronously. Every image is 1200×630 without exception, so these are two constants.</p>
+  <p><strong>og:image:alt and twitter:image:alt are absent too.</strong> This is the OGP spec's
+  only normative "should" among the image properties, and it matters more here than on most sites
+  because these cards carry meaning that exists only as pixels. The Notion card shows the verdict
+  ALMOST, the price, and six give-up/get bullets. None of that reaches a screen reader.</p>
+  <p><strong>The Atom feed is undiscoverable.</strong> <code>/feed.xml</code> returns 200,
+  <code>application/atom+xml</code>, 24,536 bytes, 50 valid entries. It parses cleanly. And there
+  are zero <code>&lt;link rel="alternate"&gt;</code> feed tags across all 8,867 HTML files, so
+  every feed reader's "find the feed" button finds nothing.</p>
+  <div class="fix"><strong>Fix.</strong> In <code>head()</code> in prerender.ts:
+<pre class="c">&lt;meta property="og:image:width"  content="1200"&gt;
+&lt;meta property="og:image:height" content="630"&gt;
+&lt;meta property="og:image:alt"    content="Notion versus AppFlowy: verdict almost,
+                                          $10/mo, 12 open source alternatives"&gt;
+&lt;link rel="alternate" type="application/atom+xml"
+      title="canireplaceit: prices just verified"
+      href="https://canireplaceit.com/feed.xml"&gt;</pre>
+  Use <code>application/atom+xml</code>, not <code>rss+xml</code>. The feed is Atom.</div>
+</div>
+
+<div class="f med">
+  <header><h3>No raster favicon, no apple-touch-icon</h3><span class="sev s-med">medium</span></header>
+  <p><code>favicon.svg</code> at 843 bytes is the only icon on the site.
+  <code>/favicon.ico</code>, <code>/apple-touch-icon.png</code>, <code>/manifest.json</code> and
+  <code>/site.webmanifest</code> all return 404.</p>
+  <p>Google's doc says "any valid favicon format is supported" and never names SVG. There is no
+  Google statement confirming SVG-only favicons render in search results, and there are Search
+  Central reports of them being skipped. You may be showing a blank globe next to your results.</p>
+  <div class="fix"><strong>Fix.</strong> The build already runs <code>sharp</code>. Render a 96×96
+  PNG and a 180×180 <code>apple-touch-icon.png</code> from the existing SVG, drop them in
+  <code>/home/hades/projects/canireplaceit/apps/frontend/public/</code>, and link both alongside
+  the SVG. Keep the SVG first for browsers. Add <code>theme-color</code> and a manifest in the
+  same pass, since it produces the icons a manifest needs anyway.</div>
+</div>
+
+<div class="f low">
+  <header><h3>The rest</h3><span class="sev s-low">low</span></header>
+  <ul>
+    <li><strong>385 pages have an og:title over 60 characters.</strong> Worst is
+    <code>/en/tools/kitsu/</code> at 106 chars, which names the same product twice: "Kitsu,
+    replaces Autodesk Flow Production Tracking (ShotGrid), Autodesk Flow Production Trackin…".
+    Cap the replaced-product list at two names and de-duplicate. Descriptions are fine, only 7
+    pages exceed 155 chars.</li>
+    <li><strong>The Atom feed has no <code>&lt;author&gt;</code>.</strong> RFC 4287 requires at
+    least one at feed level unless every entry has its own. One line in the backend handler.</li>
+    <li><strong>Six theme pages exceed Apple's 1 MB iMessage budget</strong> (dev at 1,365 KB,
+    creative at 1,163 KB, infra at 1,120 KB, both languages). Those links may show a grey box
+    instead of a card. Apple calls these guidelines only, and it is six pages.</li>
+    <li><strong>404.html advertises the homepage as its og:url.</strong> Someone sharing a broken
+    link gets a preview claiming the URL is the homepage, which hides the fact that it is dead.</li>
+    <li><strong><code>notfound-fr.png</code> is generated and never used</strong>, because there
+    is no French 404 page. It is the only orphan among 1,424 files.</li>
+    <li><strong>OG images are served <code>no-cache</code></strong>. Harmless, since Facebook and
+    Slack cache their own copies. If you add a cache header, version the filenames first;
+    Facebook caches by URL and will not refresh a changed image at the same path.</li>
+  </ul>
+</div>
+
+<h2>Tags to deliberately skip</h2>
+<div class="f win">
+  <header><h3>A checklist tool will nag about these. None earn their place.</h3>
+  <span class="sev s-win">skip</span></header>
+  <ul>
+    <li><code>fb:app_id</code>. Meta scopes it to one thing: Facebook Insights. No Insights, no reason.</li>
+    <li><code>og:image:secure_url</code>. Exists for sites serving HTTP with an HTTPS alternate. Every URL here is already https.</li>
+    <li><code>og:image:type</code> and <code>og:image:url</code>. The MIME type is in the response header; <code>og:image:url</code> is defined as identical to <code>og:image</code>.</li>
+    <li><code>twitter:site</code> and <code>twitter:creator</code>. Cards render without them, and X has deleted the documentation that once called them required. Only add them if there is an account worth attributing.</li>
+    <li><code>article:published_time</code>, <code>article:modified_time</code>,
+    <code>og:updated_time</code>. These belong to <code>og:type=article</code>. Setting them while
+    the type is <code>website</code> does nothing, and a directory listing is legitimately a website.</li>
+    <li><code>og:type=product</code>. Would unlock Pinterest Product Rich Pins, but also requires
+    price properties, and Pinterest is not a plausible traffic source for a self-hosting directory.</li>
+    <li>Safari <code>mask-icon</code>. Obsolete. Apple's doc is in the Documentation Archive, MDN
+    no longer lists it, and adding one can override your real favicon in some Safari versions.</li>
+    <li>An <strong>oEmbed endpoint</strong>. <code>/oembed</code> 404s today and that is the right
+    answer. oEmbed pays off for providers whose content is an interactive player. A directory page
+    has a title, a description and an image, which is exactly what OG already carries. It would
+    change nothing a viewer sees.</li>
+  </ul>
+</div>
+
+<h2>How the cards actually look</h2>
+<p>I opened the PNGs rather than trusting the generator. They are better than the category norm.
+alternativeto.net could not be fetched for a side by side (Cloudflare returns 403 to bots and
+browsers alike), but its shares are a single generic logo card, which is precisely what this site
+avoids on product and category pages.</p>
+<ul>
+  <li><strong>Product card</strong> (29.7 KB): real Notion and AppFlowy logos flanking the swap
+  glyph, a two-column "what you give up" / "what you actually get" split, then an amber ALMOST
+  verdict pill next to "$10/mo · 12 open source alternatives · AppFlowy is the lowest-effort
+  escape". Name, verdict and price all present. The logos survive a feed thumbnail; the bullet
+  columns do not, but they reward the click rather than being needed for it.</li>
+  <li><strong>Collection card</strong> (43.6 KB): a huge brand-blue <strong>3,056</strong> over
+  "open source projects", with specific copy ("no Commons Clause, no BSL") and a 4×3 logo mosaic.
+  That numeral is the strongest small-size element in the whole set. This is the one that stops a
+  scroll.</li>
+  <li><strong>Category card</strong> (25.7 KB): large display type, a stats line, a 3×2 grid of six
+  real from-to swaps with vendor logos and verdict chips. Dense but legible at small size.</li>
+  <li><strong>Generic card</strong> (13.4 KB): clean and on brand. As a <em>site</em> card it is
+  good. As the card on 2,602 individual tool pages it is the problem above.</li>
+</ul>
+<p>Contrast is strong throughout, the palette comes from the real stylesheet, and the type is
+Space Grotesk with IBM Plex. The cards are baked light-mode only, documented as a choice in
+build-og-pages.ts, so a dark-mode Slack user sees a bright rectangle. That is normal for OG cards
+and not worth fixing.</p>
+<p>Technically the set is close to perfect: 1,425 files, every one exactly 1200×630, 8-bit indexed
+PNG, 8.2 to 44.1 KB, zero duplicates by content hash, zero dangling references, all served 200
+with no redirect. Every file clears every platform minimum by three orders of magnitude.</p>
+
+</section>
+<section class="tab" id="ai">
+
+<h2>AI and answer-engine discoverability</h2>
+<p class="lede">Every crawler token checked against its operator's own documentation, with the
+source URL. Nine head queries run in both languages. All API endpoints, Markdown twins and the
+agent skill tested live.</p>
+
+<h2>Two things I verified myself because they are severe</h2>
+
+<div class="f crit">
+  <header><h3>The GitHub repo linked from all 8,865 pages is a 404</h3>
+  <span class="sev s-crit">critical</span></header>
+<pre class="c">https://github.com/canireplaceit/canireplaceit                  <span class="del">404</span>
+https://github.com/canireplaceit/canireplaceit/blob/…/CONTRIBUTING.md  <span class="del">404</span>
+https://github.com/canireplaceit/canireplaceit/issues/new?…     <span class="del">404</span>
+https://github.com/canireplaceit/canireplaceit/tree/…/data/products    <span class="del">404</span>
+https://github.com/canireplaceit                                <span class="add">200</span>  <span class="muted">org exists, repo does not</span></pre>
+  <p class="why">Four dead links in every page footer, and they are precisely the "correct us,
+  here is the raw data" links that make a catalogue look accountable. Every page says "This page
+  is one JSON file in the repo. Edit it and open a pull request." The repo is not there.</p>
+  <div class="fix"><strong>Fix.</strong> Publish the repo, or unlink it. Publishing is also step
+  one of fixing the citation problem below: a public starred repo is the one artefact every
+  competitor has and this site does not.</div>
+</div>
+
+<div class="f crit">
+  <header><h3>IndexNow has never fired. Not once.</h3>
+  <span class="sev s-crit">critical</span><span class="eff">2 lines</span></header>
+<pre class="c">scripts/indexnow.ts:80
+if (!process.env.INDEXNOW_ENABLED) {
+    console.log(`indexnow: INDEXNOW_ENABLED unset, would have submitted ${n} urls`);
+    process.exit(0);
+}</pre>
+  <p><code>INDEXNOW_ENABLED</code> appears in exactly three places in the repo: that guard,
+  <code>turbo.json</code>'s env passthrough list, and <code>plan/agents.html</code>, which candidly
+  says "It is inert until INDEXNOW_ENABLED is set". <strong>It is not set in
+  <code>.github/workflows/deploy.yml</code></strong>, which is the only thing that runs the deploy
+  script. I checked. The script has printed "would have submitted N urls" and exited 0 on every
+  deploy since it was written.</p>
+  <p>A second, independent bug behind it: <code>deploy.sh</code> passes
+  <code>${INDEXNOW_SINCE:-HEAD~1}</code>, but <code>deploy.yml</code> checks out with no
+  <code>fetch-depth</code>, so it is a shallow depth-1 clone. <code>git diff HEAD~1..HEAD</code>
+  fails, and even once enabled it would only ever submit the 12 index pages, never the product
+  pages whose prices changed. <code>release.yml</code> already sets
+  <code>fetch-depth: 0</code>; <code>deploy.yml</code> never got it.</p>
+  <p>The key file and endpoint are both correct:
+  <code>/indexnow-key.txt</code> returns 200 with 32 hex chars, and the script posts to the global
+  <code>api.indexnow.org</code> endpoint, which shares the submission across all participating
+  engines.</p>
+  <p class="why">Why this matters more than it looks: <strong>Microsoft publishes no AI-specific
+  crawler or opt-out token at all.</strong> No Copilot crawler, no Bing equivalent of
+  Google-Extended. Copilot answers from the Bing index, so bingbot plus IndexNow is the
+  <em>entire</em> controllable surface for Copilot citations, and both of your touchpoints with it
+  are switched off.</p>
+</div>
+
+<div class="f high">
+  <header><h3>Not one search engine verification token exists</h3><span class="sev s-high">high</span></header>
+<pre class="c">google-site-verification       absent from every page
+msvalidate.01 (Bing)           absent
+yandex / naver / baidu         absent
+/BingSiteAuth.xml              404</pre>
+  <p>The complete set of <code>&lt;meta name=…&gt;</code> tags on your homepage is:
+  <code>description</code>, four <code>twitter:*</code>, and <code>viewport</code>. That is all.</p>
+  <p>Without a Bing property there is no way to see whether IndexNow submissions land once you
+  switch them on. Fix this in the same sitting as the finding above.</p>
+</div>
+
+<h2>Where the site is cited today</h2>
+<div class="f crit">
+  <header><h3>Nowhere, and there is no artefact that would earn a citation</h3><span class="sev s-crit">critical</span></header>
+  <p>Nine head queries in both languages. canireplaceit.com appeared in zero. It ranks fine for
+  its own brand name, and for obscure products (<code>open source Optmyzr alternative</code> lands
+  position 4, above g2.com). The pattern: it wins only where nobody else bothered.</p>
+  <p>External footprint, measured against APIs rather than guessed:</p>
+  <table>
+    <tr><th>Signal</th><th class="n">canireplaceit</th><th class="n">competitors</th></tr>
+    <tr><td>Hacker News mentions (Algolia API)</td><td class="n no">0</td><td class="n">alternativeto 487, awesome-selfhosted 265, openalternative 20</td></tr>
+    <tr><td>GitHub repo search</td><td class="n no">0</td><td class="n">awesome-selfhosted 314,261 stars; openalternative's repo 6,597</td></tr>
+    <tr><td>Reddit, Product Hunt, Lobsters, dev.to</td><td class="n no">0</td><td class="n">alternativeto has a Wikipedia article</td></tr>
+  </table>
+  <p class="why">This is the binding constraint. Every technical item in this audit is worth
+  fixing, and none of them moves the needle while nothing links to the site. openalternative.co
+  went from nothing to position 1 on four head queries in two years, and the thing that did it was
+  a repo that earned 6,597 stars.</p>
+</div>
+
+<h2>llms.txt, graded honestly</h2>
+<div class="f med">
+  <header><h3>The evidence is worse than "no proof it works". There is positive evidence of no mechanism.</h3>
+  <span class="sev s-med">medium</span></header>
+  <p>Google has said so in writing, on Search Central, under a heading literally called "LLMS.txt
+  files and other 'special' markup":</p>
+<pre class="c">"You don't need to create new machine readable files, AI text files, markup, or
+ Markdown to appear in Google Search (including its generative AI capabilities),
+ as Google Search itself doesn't use them… Doing so will neither harm nor help
+ your site's visibility or rankings in Google Search, as Google Search ignores them."</pre>
+  <p>John Mueller, primary source, Bluesky, 17 June 2025: <em>"FWIW no AI system currently uses
+  llms.txt."</em> And in the same thread, the falsification test: watch your logs for whether any
+  AI system fetches it as often as robots.txt.</p>
+  <p>Three independent server-log studies agree:</p>
+  <table>
+    <tr><th>Study</th><th>Measurement</th></tr>
+    <tr><td>Ahrefs, 137,210 domains</td><td class="no">97% of llms.txt files received zero requests</td></tr>
+    <tr><td>EZY, 83 sites, 12 weeks</td><td>OpenAI fetched robots.txt 3,990 times, llms.txt 7. Perplexity 775 vs 0</td></tr>
+    <tr><td>Otterly</td><td>62,100 AI bot visits, 84 hits on /llms.txt (0.1%). They then removed it from their own product</td></tr>
+    <tr><td>SE Ranking, ~300k domains</td><td>So unpredictive that dropping the variable improved the model</td></tr>
+  </table>
+  <p>I also read OpenAI's, Anthropic's, Perplexity's and Google's crawler docs directly.
+  <strong>None of the four mentions llms.txt.</strong> Every one of those labs publishes an
+  llms.txt for its own developer docs, and not one documents reading yours.</p>
+
+  <div class="fix"><strong>But keep the file, because your reason for having it is the correct
+  one.</strong> Ahrefs found Claude-Code out-fetching every AI retrieval bot and every training
+  crawler except GPTBot. Your first line reads: <em>"This file is written for coding agents, which
+  are the tools that actually read it."</em> That is the only defensible justification and you
+  already made it. Fix the spec violations and the dead links <em>because coding agents read
+  them</em>, and stop counting the file toward ChatGPT, Perplexity or Google visibility.</div>
+
+  <p>Spec violations found against llmstxt.org: the <code>## If you quote us</code> section is
+  prose under an H2 where the spec wants file lists, the Markdown bullet has no hyperlink at all,
+  and of 11 links in the file one is a 403 and three are 301s. There is no
+  <code>## Optional</code> section, so an agent on a tight context budget gets no steer on what to
+  drop. <code>llms-full.txt</code> returning 404 is <em>not</em> a spec failure; the spec does not
+  mention it, and <code>dump.json</code> already covers that ground.</p>
+  <p>One thing to actively distrust: presenc.ai's "State of llms.txt 2026" claims Anthropic
+  publicly confirmed that Claude respects llms.txt in retrieval. No such statement exists in
+  Anthropic's docs and their page carries no citation. Presenc sells llms.txt auditing.</p>
+</div>
+
+<h2>Markdown twins</h2>
+<div class="f med">
+  <header><h3>47 pages have no twin, and two hub twins are empty shells</h3><span class="sev s-med">medium</span></header>
+  <p>25 URLs tested live across every page type and both locales. <strong>No .md URL returned the
+  wrong content type</strong>: every working one is <code>text/markdown; charset=utf-8</code>. The
+  <code>location ~ \.md$</code> block does its job, including the <code>charset_types</code> line
+  most people forget.</p>
+  <p>What 404s: <code>/en/glossary.md</code> (which llms.txt links to), <code>/en/stats.md</code>,
+  <code>/en/features.md</code>, all 20 theme pages, all 16 legal pages, and the French
+  equivalents.</p>
+  <p><strong>Discoverability is better than expected and correctly conditional.</strong> The
+  <code>&lt;link rel="alternate" type="text/markdown"&gt;</code> is present in the head, and it is
+  <em>absent</em> on exactly the pages that have no twin. The HTML is honest where llms.txt is not:
+  llms.txt and SKILL.md both claim "any page has a Markdown twin".</p>
+  <p>Two real content bugs: <strong><code>/en/categories.md</code> is 336 bytes and
+  <code>/en/collections.md</code> is 386 bytes</strong>. Title, description, footer, nothing else.
+  The HTML versions list all 85 categories and 13 collections with links; the twins list none.
+  These are the exact pages an agent crawls to discover everything else.</p>
+  <p>Otherwise the twins are genuinely good: full comparison tables, per-alternative notes, dated
+  prices with the vendor URL, and a footer carrying the canonical URL, the date and the CC-BY-4.0
+  attribution line. The French twins are complete and properly localised.</p>
+</div>
+
+<h2>What the AI crawlers actually get</h2>
+<div class="f win">
+  <header><h3>Byte-identical to every user agent. Nothing wrong here.</h3><span class="sev s-win">clean</span></header>
+<pre class="c">GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot, Googlebot, bingbot, baseline:
+
+/en/                      200   903,348 bytes   identical across all seven
+/en/alternatives/notion/  200   247,986 bytes   identical
+/en/alternatives/notion.md 200  text/markdown   identical</pre>
+  <p>No cloaking, no bot challenge, no Cloudflare interstitial. The Notion page yields 6,413
+  characters of extractable text, with <code>&lt;main&gt;</code> contributing 3,849 of it, cleanly
+  separated from navigation. Unknown routes return a real 404 with <code>noindex, follow</code>.</p>
+  <p>Two nits. A naive extractor sees about 1,400 characters of navigation before the first
+  sentence of the answer. And the homepage h1 extracts as
+  <code>Can I replace Notion Figma Slack Datadog Airtable Zendesk Postman Calendly Tailscale Jira ?</code>
+  because the word-swap animation leaves nine hidden spans in the DOM.</p>
+</div>
+
+<h2>The API is the best-designed thing on the site</h2>
+<pre class="c">/api/v1                   200  0.14s      1,947b
+/api/v1/search?q=notion   200  0.12s      6,274b
+/api/v1/products/notion   200  0.15s      9,584b
+/api/v1/dump.json         200         7,092,019b raw / 1,330,226b gzipped
+/api/v1/feed.xml          200        24,536b  application/atom+xml</pre>
+<p>Every response carries <code>RateLimit-Limit</code>, <code>RateLimit-Remaining</code> and
+<code>RateLimit-Reset</code>, plus permissive CORS. A search result object carries the page URL,
+its own API URL, the check date, the vendor page the price came from, and a
+<code>confidence</code> grade. The envelope closes with:</p>
+<pre class="c">"license": "CC-BY-4.0. Attribution required: link the `url` field."</pre>
+<p>Page URL, self-referential API URL, check date, source, confidence grade, and an in-band
+attribution instruction. Every claim your llms.txt makes about the API is true.</p>
+<p><strong>One real gap.</strong> The OpenAPI spec is 3.1.0, structurally clean, 18 paths, 51
+well-typed query parameters with enums and defaults. But all 18 responses are
+<code>"application/json": {}</code> with no <code>schema</code>, <code>components.schemas</code> is
+empty, and 429 is documented nowhere despite the rate limit being the one thing a client must
+handle. An agent learns the routes and nothing about what comes back. For a file llms.txt calls
+"the full contract", that is a gap between the claim and the artefact.</p>
+<p>And one caveat: the <code>url</code> field is the no-trailing-slash form, so every URL the API
+hands an agent to cite redirects twice through plaintext http.</p>
+
+<h2>The agent skill</h2>
+<div class="f win">
+  <header><h3>Spec-perfect except for one 404 in the manifest</h3><span class="sev s-win">clean</span></header>
+  <p>Measured against agentskills.io: name 13 chars and matches its directory, description 559
+  chars naming Notion, Figma, Datadog, Slack, Zoom and Jira as trigger keywords, 136 lines and
+  about 1,700 tokens against a 500-line and 5,000-token recommendation. Both SKILL.md URLs are
+  byte-identical and the sha256 matches the manifest digest exactly.
+  <code>scripts/skill.test.ts</code> locks all of it down, which is why it is in this shape.</p>
+  <p>The one defect: the manifest's <code>$schema</code> is a 404. The discovery convention is a
+  Cloudflare RFC rather than part of the agentskills.io spec, and it wants
+  <code>https://schemas.agentskills.io/discovery/0.2.0/schema.json</code>. Per that RFC a client
+  that cannot resolve <code>$schema</code> should treat the index as v0.1.0.</p>
+  <p>The ranking rules inside are the kind of instruction that genuinely changes an agent's output:
+  <em>"a missing tier means we do not know which plan gates this, so do not report it as included
+  in the free plan"</em>. The catch is that no runtime today probes
+  <code>/.well-known/agent-skills/</code>. Like llms.txt, it is a correct bet on a convention, not
+  a lever.</p>
+</div>
+
+<h2>Crawler policy</h2>
+<p>Your robots.txt allows everything, which for this site is the right <em>policy</em>. Every token
+below was verified against its operator's own documentation. Six corrections to what I asked the
+agent to check are worth recording, because they are all widely repeated errors:</p>
+<ul>
+  <li><strong><code>Google-Extended</code> does not control AI Overviews or AI Mode.</strong> Those
+  ride on <code>Googlebot</code>. There is no way to be in Google Search and out of AI Overviews
+  except <code>nosnippet</code>/<code>noindex</code>, which also destroys ordinary snippets. This
+  is the biggest gap between what publishers think they control and what they do.</li>
+  <li><strong><code>anthropic-ai</code> and <code>claude-web</code> are not current.</strong>
+  Anthropic documents exactly three bots and neither token appears. They survive only in copied
+  robots.txt files.</li>
+  <li><strong><code>cohere-ai</code> is contradicted by Cohere's own page</strong>, whose bot table
+  literally reads <code>| N/A | N/A |</code>.</li>
+  <li><strong><code>Applebot</code> falls back to Googlebot's rules</strong> if you name Googlebot
+  and not Applebot. So a half-named robots.txt is more dangerous than a wildcard-only one.</li>
+  <li><strong>Three of the four live user-fetchers say robots.txt may not apply</strong> to them
+  (OpenAI, Perplexity and Meta all state this). Only Anthropic's <code>Claude-User</code> carries
+  no such carve-out.</li>
+  <li><strong>No first-party docs exist</strong> for Bytespider, any xAI token (their own
+  robots.txt names other people's crawlers and none of their own), Timpibot, YouBot, or anything
+  from Nvidia, Baidu, DeepSeek or Alibaba. Brave deliberately publishes no token.</li>
+</ul>
+
+<div class="f med">
+  <header><h3>Why to name them, honestly</h3><span class="sev s-med">medium</span></header>
+  <p>Under RFC 9309 a named <code>Allow: /</code> and a wildcard <code>Allow: /</code> grant
+  <strong>identical access</strong>. Naming crawlers is not a ranking signal and not a citation
+  signal, and anyone telling you otherwise is selling something. The reasons are operational:</p>
+  <ol>
+    <li><strong>The Applebot trap.</strong> Today's wildcard-only file is safe. A half-named file
+    is not.</li>
+    <li><strong>Per-agent control the moment you need it.</strong> Throttling one misbehaving
+    crawler is one line instead of a restructure.</li>
+    <li><strong>It documents the decision.</strong> In six months "did we decide about training
+    crawlers?" has an answer in the file rather than in someone's head.</li>
+  </ol>
+  <p>Worth the thirty lines. Do not expect it to move rankings.</p>
+  <p>One genuine strategic point though: <strong>training crawlers are the ambiguous group.</strong>
+  They produce no citation and no link. For a catalogue whose facts carry check dates and expire, a
+  model that memorises "Notion costs $10 as of August 2026" and repeats it uncited in 2028 has
+  taken the value and dropped the attribution, which is exactly what your SKILL.md asks agents not
+  to do. Against that, training presence is how a brand name becomes something models recognise.
+  Allow them, but know it is a bet rather than a lever.</p>
+</div>
+
+<h2>Citation-worthiness</h2>
+<div class="f high">
+  <header><h3>The format built for LLMs opens weaker than the one built for humans</h3>
+  <span class="sev s-high">high</span></header>
+  <p>Asked "what's the best open source alternative to Notion?", an LLM reading your Markdown twin
+  finds a table and a verdict string with no subject. There is no self-contained sentence naming a
+  winner. The HTML is better, because it says something the twin does not.</p>
+  <p><code>page-markdown.ts</code> has the right instinct in its header comment, "The answer goes
+  in the first hundred words". The string <code>productMarkdown()</code> actually emits,
+  <code>VERDICT.almost</code>, has no subject.</p>
+<pre class="c"><span class="del">before:</span>
+# 12 open source Notion alternatives (2026)
+
+**Almost. The replacements are close, with a real gap.**
+
+Notion costs 10 USD per month (Plus, annual billed monthly…).
+Checked on 2026-08-02 at https://www.notion.com/pricing.
+
+<span class="add">after:</span>
+# 12 open source Notion alternatives (2026)
+
+**As of 2 August 2026, Notion can almost be replaced: Joplin (AGPL-3.0)
+covers most of it and switching saves $120 a year. What you give up is
+Notion's databases and relations.**
+
+Of the 12 open source alternatives tracked here, 9 hold nothing back
+behind a paid tier and 6 need no server at all. Notion's own price was
+$10/month, read from https://www.notion.com/pricing on 2026-08-02.</pre>
+  <p>Every number in the rewrite already exists in the boot payload
+  <code>page-markdown.ts</code> reads. This is a change to <code>productMarkdown()</code>, not a
+  data change. It hands a retrieval system a named entity, a licence, a dollar figure and a date
+  inside the first 60 words, in one liftable sentence.</p>
+</div>
+
+<div class="f high">
+  <header><h3>Your most quotable claim exists only as JSON</h3><span class="sev s-high">high</span></header>
+  <p><code>/api/v1/stats</code> returns <code>"gaps": 43</code>, <code>"products": 592</code>,
+  <code>"alternatives": 6723</code>, <code>"tracked_monthly_usd": 20690</code>. None of those
+  appears as a quotable sentence on any page in either format.</p>
+  <p><em>"43 of 592 paid products have no credible open source replacement, as of 10 August
+  2026"</em> is the single most citable sentence this site could write, and it exists nowhere on
+  the site.</p>
+  <p>Meanwhile <code>/en/stats/</code> prerenders <strong>0 characters</strong> inside
+  <code>&lt;main&gt;</code>, and <code>/en/features/</code> prerenders 27. Two page types with no
+  indexable content at all.</p>
+</div>
+
+<h2>This week</h2>
+<ol>
+  <li>Set <code>INDEXNOW_ENABLED: true</code> and <code>fetch-depth: 0</code> in
+  <code>deploy.yml</code>. Two lines. The machinery is written, tested, and has never run.</li>
+  <li>Claim Bing Webmaster Tools and Google Search Console. Same sitting: without Bing you cannot
+  see whether IndexNow worked.</li>
+  <li><code>absolute_redirect off;</code> in <code>front.conf</code>.</li>
+  <li>Fix the <code>/en/alternatives/</code> 403 that llms.txt points at.</li>
+  <li>Publish the GitHub repo, or unlink it. Four 404s in every footer today.</li>
+  <li>Fix the manifest <code>$schema</code> and add an assertion to <code>skill.test.ts</code> so
+  it cannot drift back.</li>
+  <li>Prerender the homepage stat tiles.</li>
+</ol>
+
+<h2>This quarter</h2>
+<ol>
+  <li><strong>Earn the first hundred links.</strong> Nothing technical clears that ceiling.</li>
+  <li>Rewrite the twin ledes, and give <code>VERDICT</code> product-aware templates.</li>
+  <li>Add <code>dateModified</code>, <code>license</code> and a <code>Dataset</code> node.</li>
+  <li>Fill the OpenAPI response schemas; document 404 and 429.</li>
+  <li>Give <code>/en/categories.md</code> and <code>/en/collections.md</code> real bodies.</li>
+  <li>Link the machine-facing half from the human-facing half. There is currently no link anywhere
+  in the HTML to <code>/api/v1</code>, <code>/llms.txt</code>, <code>/skill.md</code> or any
+  <code>.md</code> twin. The most differentiated half of this site is reachable only by guessing.</li>
+  <li>Decide about the ~4,500 undeclared project pages at a median 706 characters.</li>
+  <li>Write the statistics down as sentences.</li>
+  <li><strong>Run Mueller's falsification test.</strong> Put a unique nonsense string in llms.txt
+  and watch for six months whether any AI system surfaces it. Cheap, and it settles the question
+  for this site specifically rather than in general.</li>
+</ol>
+
+</section>
+<section class="tab" id="content">
+
+<h2>Content and competitors</h2>
+<p class="lede">12 real SERPs run, EN and FR. All 8,867 titles and descriptions extracted from the
+build. Competitor pages fetched and read. Google's spam policy and Quality Rater Guidelines quoted
+from source.</p>
+
+<div class="f low">
+  <header><h3>Two limits on this tab, stated up front</h3><span class="sev s-low">caveat</span></header>
+  <p>The search budget ran out partway, so this is <strong>12 SERPs, not the 20+ I asked for</strong>,
+  and the French set is 2 queries rather than 6. Treat the French sizing as directional. And the
+  search tool returns organic links only, so <strong>nothing here is a measurement of AI
+  Overviews</strong>. Where they come up, it is inference and labelled as such.
+  <code>selfh.st</code> returned 403 to the fetch, so its page contents are not analysed rather
+  than guessed at.</p>
+</div>
+
+<h2>Where you rank</h2>
+<div class="f crit">
+  <header><h3>canireplaceit.com appeared in 0 of 12 money queries</h3><span class="sev s-crit">critical</span></header>
+  <p>It is indexed. A brand query returns real pages. So this is a ranking problem, not a crawling
+  problem.</p>
+  <table>
+    <tr><th>Query</th><th>Who wins</th><th>Page type</th></tr>
+    <tr><td>open source alternative to notion</td><td>docmost.com/blog, itsfoss, xda</td><td>vendor blog</td></tr>
+    <tr><td>notion alternatives</td><td>meistertask, docmost, slite, zapier, alternativeto</td><td>listicle</td></tr>
+    <tr><td>self hosted notion alternative</td><td>ssdnodes, appflowy, <strong>selfh.st</strong></td><td>guide + directory</td></tr>
+    <tr><td>open source slack alternative</td><td>itsfoss, <strong>openalternative.co</strong>, rocket.chat</td><td>directory + vendor</td></tr>
+    <tr><td>open source alternatives</td><td>baserow, <strong>openalternative.co</strong>, opensource.com</td><td>directory</td></tr>
+    <tr><td>airtable self hosted</td><td>airtable forum, <strong>selfh.st</strong>, nocobase</td><td>forum + vendor</td></tr>
+    <tr><td>notion vs obsidian</td><td>slite, productive.io, plaky, g2</td><td>head to head</td></tr>
+    <tr><td>alternative open source à notion (FR)</td><td><strong>openalternative.co</strong> (an English page)</td><td>directory</td></tr>
+  </table>
+</div>
+
+<h3>Four things the SERP data actually says</h3>
+<ul>
+  <li><strong>alternativeto.net is not your real threat.</strong> It appears in 5 of 12 and almost
+  never in the top 3, often on a <em>filtered</em> URL (<code>?p=9</code>,
+  <code>?platform=self-hosted</code>). Ranking on deep faceted variants is what a site does when
+  its canonical page is losing.</li>
+  <li><strong>The real competitor is <code>openalternative.co</code></strong>, which was not on my
+  list. Number 2 for "open source slack alternative", number 2 for "open source alternatives", and
+  number 1 for the French query "alternative open source à notion" <em>with an English page</em>.
+  It is the closest structural analogue to what you are building and it is winning. Study it
+  first.</li>
+  <li><strong><code>selfh.st/alternatives/&lt;product&gt;</code> owns the self-hosted modifier.</strong>
+  Number 3 for both "self hosted notion alternative" and "airtable self hosted". That is your
+  positioning, taken.</li>
+  <li><strong>Reddit appeared in none of the 12.</strong> The "Reddit dominates everything"
+  assumption does not hold for this query class. That is good news and it changes the marketing
+  plan.</li>
+</ul>
+<p>One more worth copying: XDA-Developers shows up in 4 of 12 with first-person headlines like
+"I replaced Figma with four open-source alternatives for a week, and only one actually stuck".
+That is the Experience half of E-E-A-T being rewarded directly.</p>
+
+<h2>Why the winners win, verbatim</h2>
+<pre class="c">openalternative.co/alternatives/notion
+  title  10+ Best Open Source Notion Alternatives in 2026
+  h1     Open Source Notion Alternatives
+  ~8,500 words, 20 tools, author byline, "Last updated: August 20, 2026"
+
+alternativeto.net/software/notion/
+  title  Best Notion Alternatives: Top Note-taking Tools in 2026
+  meta   The best Notion alternatives are Obsidian, AppFlowy and Anytype…
+  382 alternatives, comments and likes per entry, visible last-updated date
+
+canireplaceit.com/en/alternatives/notion
+  title  12 open source Notion alternatives (2026)
+  h1     <span class="del">Can I replace Notion?</span>
+  meta   <span class="del">AppFlowy, Affine, Outline.</span> Databases and relations are the moat.
+  666 body words</pre>
+<p>Three differences, and none of them is about quality. Winners use a superlative and a year.
+Winners write the meta description as a <em>complete sentence naming the top three</em>. Winners
+show a visible last-updated date. Your description opens with three nouns and no verb.</p>
+
+<h2>On-page findings</h2>
+
+<div class="f crit">
+  <header><h3>Your H1 targets no query anyone types</h3>
+  <span class="sev s-crit">critical</span><span class="eff">1 template</span></header>
+  <p>All 592 English product H1s are <code>Can I replace &lt;X&gt;?</code> All 592 French are
+  <code>Puis-je remplacer &lt;X&gt; ?</code></p>
+  <p class="why">The brand slogan occupies the single strongest on-page element on your 592 money
+  pages. The title says "open source Notion alternatives". The H1 says nothing. Nobody searches
+  "can I replace Notion".</p>
+  <div class="fix"><strong>Fix.</strong> H1 becomes <code>Open source Notion alternatives</code>
+  and the slogan moves to a <code>&lt;p&gt;</code> beneath it. One template, 1,184 pages. This is
+  the cheapest high-value change in the entire audit.</div>
+</div>
+
+<div class="f high">
+  <header><h3>The words "self-hosted" and "free" appear in no product title</h3>
+  <span class="sev s-high">high</span><span class="eff">hours</span></header>
+  <p><code>selfHostable</code>, <code>effort:docker</code>, <code>hasCompose</code> and
+  <code>openCore:none</code> all exist in your JSON. None of them reaches a title or an H1.</p>
+  <p class="why">These are two of the three highest-volume query patterns in the category, and
+  <code>selfh.st</code> is currently ranking third for them using data you also have.</p>
+</div>
+
+<div class="f high">
+  <header><h3>287 pages share 16 titles, because the truncator eats the page number</h3>
+  <span class="sev s-high">high</span></header>
+<pre class="c">/en/collections/foss/page/15/  and  /page/42/  both:
+&lt;title&gt;Free and open source: 3056 projects with no strings attache…&lt;/title&gt;</pre>
+  <p>The "— page N" suffix is appended and then a 60-character cut removes it. 63 EN FOSS pages,
+  70 FR open-source pages and 62 EN open-source pages are byte identical.</p>
+  <div class="fix"><strong>Fix.</strong> Truncate the base title <em>before</em> appending the page
+  number.</div>
+</div>
+
+<div class="f high">
+  <header><h3>542 of 592 product descriptions are cut mid-word</h3><span class="sev s-high">high</span></header>
+<pre class="c">"…and none replaces the full sur…"
+"…The rota itself is e…"</pre>
+  <p>Descriptions are hard-cut at exactly 155 characters. 1,495 indexable descriptions end in an
+  ellipsis, including 542 of the 592 English money pages.</p>
+  <div class="fix"><strong>Fix.</strong> Hard-stop at a sentence boundary at or under 155
+  characters, and open with a verb. Worked example for <code>/en/alternatives/modal/</code>:
+<pre class="c"><span class="del">Beam, dstack, Ray. Modal's actual product is sub-second cold starts on
+GPU containers, which is a hard systems problem nobody has fully cloned…</span>
+
+<span class="add">The best open source Modal alternatives are Beam, dstack and Ray, but none
+clone Modal's sub-second GPU cold starts. Verdict and switching cost inside.</span>  (152 chars, complete)</pre></div>
+</div>
+
+<h2>The comparison-page opportunity, with the spam line drawn</h2>
+
+<div class="f crit">
+  <header><h3>There are zero X vs Y pages, and the engine that would build them already exists</h3>
+  <span class="sev s-crit">critical</span><span class="eff">1 to 2 weeks</span></header>
+  <p>Your Notion page already renders a live feature table called "Where they actually differ",
+  comparing Notion against Joplin, Logseq, SiYuan, nb and VimWiki on SAML, backup, multi-user and
+  translated UI. It links to:</p>
+<pre class="c">/en/features?cmp=notion,laurent22/joplin,logseq/logseq,siyuan-note/siyuan,…</pre>
+  <p>That page <strong>prerenders to the literal text "Loading the feature matrix…"</strong>. The
+  comparison engine exists, the data exists, and it produces zero indexable pages. This is the
+  highest-value broken page on the site.</p>
+
+  <p>How many comparison pages the data honestly supports, measured across 6,723 product/alternative
+  pairs:</p>
+  <table>
+    <tr><th>Differing features (the only rows a table earns)</th><th class="n">Pairs</th></tr>
+    <tr><td>0</td><td class="n">4,904</td></tr>
+    <tr><td>1 to 4</td><td class="n">1,700</td></tr>
+    <tr><td><strong>5 or more</strong></td><td class="n"><strong>119</strong></td></tr>
+    <tr><td>8 or more</td><td class="n">13</td></tr>
+  </table>
+  <p>So the ceiling on <em>feature-matrix</em> comparisons is about 119 pages, not thousands. 73%
+  of pairs share zero feature data, and a comparison page with nothing to compare is a blank
+  table.</p>
+  <p>But features are not the only honest axis. All 592 products have a verdict, a why, a
+  whatYouLose list and a full alternatives array. 389 have a dated price check. Every alternative
+  carries licence, effort, self-hostability, open-core status and a hand-written note.</p>
+
+  <table>
+    <tr><th>Tier</th><th class="n">Pages</th><th>What it is</th><th>Verdict</th></tr>
+    <tr><td>1</td><td class="n">592</td><td>X vs its top alternative. Dated price, licence, effort, whatYouLose, editorial note on both sides.</td><td class="ok">build now</td></tr>
+    <tr><td>2</td><td class="n">119</td><td>Pairs with 5+ differing features get the full matrix.</td><td class="ok">build selectively</td></tr>
+    <tr><td>3</td><td class="n">~175,000</td><td>Full N² product × product.</td><td class="no">do not build</td></tr>
+  </table>
+
+  <p>Google's actual policy text, from the spam policies page:</p>
+<pre class="c">"Scaled content abuse is when many pages are generated for the primary purpose
+ of manipulating search rankings and not helping users."
+
+"Creating substantially similar pages that are closer to search results than a
+ clearly defined, browseable hierarchy"</pre>
+
+  <div class="fix"><strong>The operational test.</strong> A comparison page is safe when it
+  contains at least one sentence that is true of <em>this pair and no other pair</em>: a differing
+  verdict, a differing licence, a dated price delta, or five or more differing features. If the
+  page reads identically after swapping both product names, it is tier 3. That test is mechanically
+  checkable at build time, and it is exactly what separates 711 useful pages from 175,000
+  doorways.</div>
+</div>
+
+<h2>Content depth, measured honestly</h2>
+<table>
+  <tr><th>Page</th><th class="n">Total words</th><th class="n">Nav</th><th class="n">Footer</th><th class="n">Body</th></tr>
+  <tr><td>/en/alternatives/notion/</td><td class="n">1,066</td><td class="n">291</td><td class="n">109</td><td class="n">666</td></tr>
+  <tr><td>/en/alternatives/slack/</td><td class="n">909</td><td class="n">291</td><td class="n">109</td><td class="n">509</td></tr>
+  <tr><td>/en/alternatives/1password/</td><td class="n">1,419</td><td class="n">291</td><td class="n">109</td><td class="n">1,019</td></tr>
+  <tr><td>/en/tools/joplin/</td><td class="n">936</td><td class="n">292</td><td class="n">109</td><td class="n">535</td></tr>
+</table>
+<p><strong>400 words of repeated chrome on every page, 38% of a typical product page</strong>,
+because the nav mega-menu renders twice (desktop and mobile) in the prerendered HTML.</p>
+<p>Verdict: yes the pages are thin, at 666 body words against openalternative's ~8,500 for the
+same product. But they are not padded. There is no filler anywhere. The Notion page carries a
+verdict, a what-you-give-up list, an exit ladder with a $120/yr figure, 12 alternatives each with
+a real one-sentence tradeoff, a feature table and a dated price check. The problem is volume, not
+quality, which is a much better problem to have.</p>
+<p>Four ways to add ~400 words per page of genuinely new information, all derivable from data you
+already hold, none of it "write more":</p>
+<ol>
+  <li><strong>A migration section per alternative.</strong> "Notion to Joplin: what imports, what
+  does not." You already have <code>whatYouLose</code>; make it directional.</li>
+  <li><strong>Surface the open-core detail as prose.</strong> <code>facts.paywalled</code> exists
+  on 786 alternatives and currently renders as a bare fragment. "AppFlowy self-hosted is free for
+  one member; a second member requires the paid tier" answers a real query.</li>
+  <li><strong>A dated price-history line.</strong> "Checked Aug 2, 2026: $10/mo. Previously $8/mo
+  (Jan 2026)." Nobody else in this space has this.</li>
+  <li><strong>Render the FAQ you already emit schema for.</strong> <code>FAQPage</code> is on all
+  592 pages and none of it is visible.</li>
+</ol>
+
+<h2>E-E-A-T, the biggest lever you are not pulling</h2>
+<div class="f crit">
+  <header><h3>Zero Person, zero Organization, zero dateModified, no About page</h3>
+  <span class="sev s-crit">critical</span><span class="eff">hours</span></header>
+  <p>Measured across all 8,867 files: <code>"@type":"Person"</code> on 0 pages.
+  <code>"@type":"Organization"</code> on 0 pages. <code>dateModified</code> or
+  <code>datePublished</code> in any schema on 0 pages. No <code>/about</code> page exists.</p>
+  <p>What the Quality Rater Guidelines actually say:</p>
+<pre class="c">"Trust is the most important member of the E-E-A-T family because untrustworthy
+ pages have low E-E-A-T no matter how Experienced, Expert, or Authoritative they
+ may seem."                                                            (p.26-27)
+
+"What the website or content creators say about themselves: Look at the 'About us'
+ page on the website … as a starting point."                              (p.27)
+
+"A long-standing Internet alias or username can identify the content creator."
+                                                                     (p.63, §5.5)</pre>
+  <p>That last line matters: <strong><code>@hadesdevs</code> is an acceptable identifier. The
+  alias is not the problem.</strong> The missing About page is, because the QRG names it as the
+  starting point for the Trust assessment.</p>
+
+  <p>Meanwhile the site is already strong here and gets no credit for it:</p>
+  <ul>
+    <li>389 products carry a dated price check rendering as "Checked Aug 2, 2026 · from docs, not
+    the pricing page". That is an Experience signal: someone actually looked.</li>
+    <li>Every page ends with "This page is one JSON file in the repo. Edit it and open a pull
+    request. CI validates it before anyone merges." Verifiable provenance.</li>
+    <li><code>/en/gaps/</code> says: <em>"Published because a directory that only lists wins is an
+    advertisement."</em> 43 products where your own thesis fails. <strong>This is the strongest
+    trust signal on the site</strong>, and it sits under a title targeting no query.</li>
+  </ul>
+  <div class="fix"><strong>Fix, in order.</strong> Create <code>/en/about</code> and
+  <code>/fr/a-propos</code> with methodology, verdict criteria and a conflict-of-interest
+  statement. Emit <code>Organization</code> sitewide and <code>Person</code> with
+  <code>sameAs</code> to GitHub. Emit <code>dateModified</code> from
+  <code>pricing.checkedOn</code> and render "Last checked" above the fold, not at the bottom.
+  Retitle the gaps page to <code>43 paid tools with no open source alternative (2026)</code>.</div>
+</div>
+
+<h2>French is your most undervalued asset</h2>
+<div class="f win">
+  <header><h3>It is a real human localisation, not machine translation</h3><span class="sev s-win">asset</span></header>
+  <table>
+    <tr><th>Field</th><th class="n">Translated</th></tr>
+    <tr><td><code>why</code></td><td class="n ok">592 / 592</td></tr>
+    <tr><td><code>whatYouLose</code></td><td class="n ok">1,829 / 1,829</td></tr>
+    <tr><td>alternative <code>note</code></td><td class="n ok">6,723 / 6,723</td></tr>
+    <tr><td><code>facts.paywalled</code></td><td class="n ok">786 / 786</td></tr>
+  </table>
+  <p>Only 13 strings are identical in both languages, and every one is a proper noun that should
+  stay English (<code>SSO</code>, <code>Grasshopper</code>, <code>Schema Registry</code>).</p>
+<pre class="c">Figma EN:  "The moat is not the editor, it is that everyone you work with
+            is already in it."
+Figma FR:  "Le fossé n'est pas l'éditeur, c'est que tous vos interlocuteurs
+            y sont déjà."        <span class="add">&lt;- "interlocuteurs", not a literal gloss</span>
+
+Notion FR: le « Notion comme plateforme applicative », non.
+                              <span class="add">&lt;- correct guillemets with non-breaking spaces</span>
+H1 FR:     Puis-je remplacer Modal ?        <span class="add">&lt;- correct space before the ?</span></pre>
+  <p>And in the French SERPs, Google served <strong>English pages in four of the top six</strong>
+  for "alternative à slack open source", and ranked an English openalternative.co page first for
+  "alternative open source à notion". Google is visibly short of good French content in this
+  niche. The French competitors that do rank are small blogs with none of your data depth.</p>
+  <p>Winnable fast, using pages that already exist: <code>alternative open source à X</code> for
+  all 592, <code>alternative française à X</code> (zero competition, and
+  <code>dataResidency</code> is already in your data), <code>X auto-hébergé</code>, and
+  <code>logiciel libre &lt;catégorie&gt;</code> across 86 existing FR category pages.</p>
+</div>
+
+<h2>The 15 highest-leverage actions</h2>
+<table>
+  <tr><th>#</th><th>Action</th><th>Effort</th><th>Wins</th></tr>
+  <tr><td>1</td><td>Prerender <code>/en/features</code> and mint static X vs Y pages for the 592 tier-1 and 119 tier-2 pairs</td><td>L</td><td>notion vs joplin, airtable vs nocodb. Zero coverage today</td></tr>
+  <tr><td>2</td><td>Put the keyword in the H1</td><td>S</td><td>Every "open source X alternative" query</td></tr>
+  <tr><td>3</td><td>Add self-hosted and free to titles where the data says so</td><td>S</td><td>selfh.st and vendor-blog territory</td></tr>
+  <tr><td>4</td><td>Create /en/about and /fr/a-propos</td><td>S</td><td>No query, but gates everything else per the QRG</td></tr>
+  <tr><td>5</td><td>Fix the title truncator to preserve "page N"</td><td>S</td><td>Kills 287 duplicate titles</td></tr>
+  <tr><td>6</td><td>Rewrite product descriptions as complete sentences</td><td>M</td><td>CTR on 1,184 pages; fixes 542 mid-word cuts</td></tr>
+  <tr><td>7</td><td>Emit Organization, Person and dateModified; show "last checked" above the fold</td><td>S</td><td>Trust signal both competitors show and you hide</td></tr>
+  <tr><td>8</td><td>Retitle /en/gaps</td><td>S</td><td>Zero competition, strongest trust asset</td></tr>
+  <tr><td>9</td><td>Add lateral product to product links within a category</td><td>M</td><td>Topical clustering; scaffolds #1</td></tr>
+  <tr><td>10</td><td>Add the migration section from directional whatYouLose</td><td>M</td><td>"migrate from X to Y"; +150 words/page</td></tr>
+  <tr><td>11</td><td>Fix the homepage H1 rotator</td><td>S</td><td>Homepage relevance</td></tr>
+  <tr><td>12</td><td>Render the FAQPage Q&amp;As visibly</td><td>S</td><td>"is there a free X alternative"</td></tr>
+  <tr><td>13</td><td>Push French hard</td><td>M</td><td>Weakest competition measured</td></tr>
+  <tr><td>14</td><td>Stop prerendering the nav mega-menu twice</td><td>M</td><td>Content-to-chrome from 62% to ~80% sitewide</td></tr>
+  <tr><td>15</td><td>Cap tool titles at two replaced products and dedupe</td><td>S</td><td>Fixes 378 over-length titles</td></tr>
+</table>
+<p><strong>If you do only three:</strong> 2, 3 and 1. Those attack exactly the gap the SERP data
+shows. You rank for nothing, while selfh.st owns "self hosted X", vendor blogs own "open source X
+alternative", and <em>nobody at all</em> owns "X vs Y".</p>
+
+</section>
+<section class="tab" id="links">
+
+<h2>Internal linking and architecture</h2>
+<p class="lede">Full link graph built by parsing all 8,867 prerendered files. 1,270,442 anchors
+parsed, 1,179,606 internal links, 558,022 unique source to destination pairs.</p>
+
+<div class="cards">
+  <div class="card good"><span class="v">0</span><span class="k">broken internal links</span></div>
+  <div class="card good"><span class="v">100%</span><span class="k">product ↔ project reciprocity</span></div>
+  <div class="card bad"><span class="v">88.7%</span><span class="k">of internal links are boilerplate</span></div>
+  <div class="card bad"><span class="v">26</span><span class="k">directory URLs returning 403</span></div>
+  <div class="card bad"><span class="v">21</span><span class="k">inbound links to /alternatives/notion/</span></div>
+</div>
+
+<h2>The link graph is badly distorted</h2>
+
+<div class="f crit">
+  <header><h3>/en/legal/cookies/ has the same inbound authority as your homepage</h3>
+  <span class="sev s-crit">critical</span></header>
+  <p>Every page carries 88 header anchors plus 35 footer anchors. 123 identical sitewide links,
+  against a median of 8 real content links.</p>
+  <table>
+    <tr><th>Page type</th><th class="n">Count</th><th class="n">Content links (mean)</th><th class="n">Boilerplate share</th></tr>
+    <tr><td>project</td><td class="n">3,479</td><td class="n no">4.8</td><td class="n no">96%</td></tr>
+    <tr><td>product</td><td class="n">592</td><td class="n">16.1</td><td class="n no">88%</td></tr>
+    <tr><td>legal</td><td class="n">8</td><td class="n">2.8</td><td class="n no">98%</td></tr>
+    <tr><td>category</td><td class="n">85</td><td class="n ok">100.3</td><td class="n">55%</td></tr>
+  </table>
+  <p>The result, measured. Inbound content-region links to the pages that are supposed to rank:</p>
+<pre class="c">/en/legal/cookies/                4,432   <span class="del">&lt;- a cookie policy</span>
+/en/                              4,433
+every nav category and collection 4,433
+
+/en/alternatives/semrush/            14   <span class="del">&lt;- high-intent commercial query</span>
+/en/alternatives/notion/             21   <span class="del">&lt;- probably your highest-volume query</span>
+/en/alternatives/1password/          67
+/en/alternatives/claude-code/       127</pre>
+  <p class="why">The nav hardcodes 10 themes, 10 categories and 13 collections, repeated 8,864
+  times. So the link graph tells Google that a 12-product category page matters 300 times more
+  than your Notion page, and that your cookie policy is as important as your homepage.</p>
+  <div class="fix"><strong>Fix.</strong> Cut the header to about 8 links and move the theme,
+  category and collection grids behind <code>/en/categories/</code> and
+  <code>/en/collections/</code>. Drop the footer's 13 collection links, which duplicate the
+  header. Together with the next finding this moves roughly a million boilerplate links' worth of
+  signal onto the 592 pages that need it.</div>
+</div>
+
+<div class="f crit">
+  <header><h3>Products never link to other products, and collection membership is one-way</h3>
+  <span class="sev s-crit">critical</span></header>
+  <p>Content-region composition of all 592 English product pages:</p>
+<pre class="c">-&gt; product      <span class="del">0/592 pages,      0 links</span>   no related products, ever
+-&gt; collection   <span class="del">0/592 pages,      0 links</span>   never links to a collection it is in
+-&gt; project       592/592 pages,  6,485 links   (avg 10.95)
+-&gt; category      592/592 pages,    592 links   (exactly 1)
+-&gt; theme         592/592 pages,    592 links   (exactly 1)</pre>
+  <p>Your 1Password page links to 18 open source projects, one category and one theme. It links to
+  no other password manager, no competing SaaS, and none of the collections it belongs to.
+  Meanwhile collection pages emit 11,607 product links, all unreciprocated.</p>
+  <p>Project pages are worse: 4.8 content links each, composed of one product, the home page and
+  the tools index. Zero category, collection, theme or sibling-project links.</p>
+  <p class="why">There is no way to travel sideways through the catalogue. Every journey has to go
+  back up through the nav, and the topical clusters Google looks for never form.</p>
+  <div class="fix"><strong>Fix.</strong> On each product page add 5 to 8 related products from the
+  same category, and links to every collection the product qualifies for. On each project page add
+  its category, its language collection, and 3 to 5 sibling projects. This is also the scaffolding
+  the X vs Y pages on the Content tab would hang off.</div>
+</div>
+
+<h2>The one axis that works</h2>
+<div class="f win">
+  <header><h3>Product to project reciprocity is 100.0%</h3><span class="sev s-win">keep</span></header>
+<pre class="c">6,485 product -&gt; project content links
+6,485 project -&gt; product content links
+6,485 reciprocated pairs        =  100.0%</pre>
+  <p>Your 1Password page links to Vaultwarden, and Vaultwarden links back with the sentence
+  "1Password — Rust server, official clients work against it." Category hubs are complete too:
+  <strong>0 of 592</strong> products fail to be linked back from a category they link to, and the
+  85 category pages between them cover all 592 products.</p>
+  <p>This is the axis that works. The two findings above are about the axes that do not.</p>
+</div>
+
+<h2>Crawl structure</h2>
+
+<div class="f high">
+  <header><h3>26 directory URLs return 403, and your own link checker cannot see them</h3>
+  <span class="sev s-high">high</span></header>
+  <p>I enumerated every directory in the build with children and no <code>index.html</code>:</p>
+<pre class="c">/en/alternatives/    /fr/alternatives/    /en/themes/    /fr/themes/
+/en/page/            /fr/page/            /en/tools/page/  /fr/outils/page/
+/en/collections/{archived,cheaper,foss,in-go,in-python,in-rust,
+                 one-compose,open-core,open-source}/page/   + the 9 FR twins</pre>
+  <p>Zero pages link to any of them, <strong>which is exactly why
+  <code>/home/hades/projects/canireplaceit/scripts/check-links.ts</code> reports green</strong>.
+  The checker only asks "does something link to a missing page". Nobody links to these, so it
+  never looks. Googlebot does path-trimming on discovery: it sees
+  <code>/en/alternatives/1password</code>, tries the parent, gets 403.</p>
+  <p>Worse than the crawl error: <strong>there is no hub page for your 592 money pages at their
+  own URL prefix.</strong> Confirmed in <code>packages/core/src/routes.ts</code>: the
+  <code>Route</code> union has home, product, project, projects, category, group, categories,
+  collections, collection, and no route for the <code>alternatives</code> segment at all.</p>
+  <div class="fix"><strong>Fix.</strong> Add a products route and prerender it as the real product
+  index. Then extend <code>check-links.ts</code> to assert that every directory under
+  <code>dist/</code> has an <code>index.html</code>. That is the check that would have caught
+  this.</div>
+</div>
+
+<div class="f med">
+  <header><h3>462 paginated URLs are indexable, self-canonicalising, and up to 37 clicks deep</h3>
+  <span class="sev s-med">medium</span></header>
+  <p>All 462 are in the sitemaps. The pager renders only <code>1 · 2 · … · 72</code>, so page 37
+  is reachable only by walking 37 hops, each of which is itself a two-redirect chain.
+  <code>/en/tools/page/37/</code> sits at depth 37 with 3 inbound links, and it canonicals to
+  itself with no robots meta.</p>
+  <p>The good news: <strong>every product and every indexable project page is at depth 3 or
+  less.</strong> All 592 products, all 1,301 indexable projects. Only pagination goes deeper.</p>
+  <div class="fix"><strong>Fix.</strong> Render a real number strip, and drop
+  <code>/page/N/</code> from the sitemaps.</div>
+</div>
+
+<div class="f med">
+  <header><h3>/en/gaps/ has exactly one inbound link on the entire site</h3><span class="sev s-med">medium</span></header>
+  <p>It is indexable and it is in <code>sitemap-standing-en.xml</code>. Its only inbound internal
+  link is from <code>/fr/manques/</code>, via the language switcher. The French page's only inbound
+  link is <code>/en/gaps/</code>. They point at each other and at nothing else.</p>
+  <p class="why">This is the page the Content tab calls your strongest trust signal. A page nobody
+  links to is a page Google treats as unimportant, whatever the sitemap says.</p>
+</div>
+
+<h2>Anchor text</h2>
+<div class="f med">
+  <header><h3>Good where it counts, wasted in two specific places</h3><span class="sev s-med">medium</span></header>
+  <p>First the good part, because it is genuinely unusual: 53,742 links point at product pages
+  across 17,124 distinct anchor strings, led by real product names. <strong>Zero "read more", zero
+  "click here", zero icon-only internal content links sitewide.</strong></p>
+  <p>Two places it leaks:</p>
+  <ul>
+    <li><strong>27.3% of every anchor pointing at a project page says "fr", "en", "Language: FR"
+    or "Langue: EN"</strong>, 13,916 of 51,008. The language switcher is the single largest
+    anchor-text class targeting project pages, because a project page has so few other inbound
+    links.</li>
+    <li><strong><code>/en/features/</code> receives 3,384 inbound links, every single one anchored
+    "compare with others →".</strong> That is the textbook generic-anchor-at-scale pattern: 3,384
+    chances to say what that page is, spent on an arrow. Anchor it on what it compares instead:
+    "compare 1Password against 18 open source projects".</li>
+    <li><strong>Nav anchors carry live counts</strong> ("Open source 3420", "FOSS 3056"). The count
+    changes every build, so the anchor text of 8,864 links churns on every deploy.</li>
+  </ul>
+</div>
+
+<h2>External links and rel attributes</h2>
+<div class="f low">
+  <header><h3>Correct in code. The volume is the only issue.</h3><span class="sev s-low">low</span></header>
+<pre class="c">89,700 external links across 1,411 hosts
+  88,922  rel="noopener"            dofollow
+     778  rel="noopener nofollow"   the paid-vendor pricing links
+       0  rel="sponsored"           no sponsor is live, so none in the build</pre>
+  <p><strong>The sponsor policy is right and there is nothing to fix.</strong>
+  <code>components.tsx</code> emits <code>rel="sponsored noopener"</code> on paid slots, and
+  <code>api.ts</code> documents the deliberate split: "a repo we recommend on the merits must never
+  be marked paid". The 389 product pages with a pricing source correctly carry
+  <code>rel="noopener nofollow"</code> on the vendor link.</p>
+  <p>The volume note: 52,136 of the 89,700 go to your own GitHub repo, about 5.9 per page, because
+  each product page adds a per-product "Suggest a change" edit link on top of the four sitewide
+  ones. Links to the projects' own sites and repos should stay dofollow. Those are the citations
+  that make the verdicts credible.</p>
+</div>
+
+<div class="f low">
+  <header><h3>Breadcrumbs do not match the URL hierarchy</h3><span class="sev s-low">low</span></header>
+  <p>Your 1Password page declares the trail <code>/en/</code> › <code>/en/themes/security</code> ›
+  <code>/en/categories/security</code> › 1Password. The URL is
+  <code>/en/alternatives/1password</code>. The trail passes through two path prefixes the URL never
+  contains, and skips the one it does, which is the one that returns 403.</p>
+  <p>Project pages skip <code>/en/tools/</code> entirely, and 440 paginated pages end their trail
+  at the parent rather than themselves.</p>
+</div>
+
+<h2>Verified clean</h2>
+<div class="f win">
+  <header><h3>Six things that came back with zero defects</h3><span class="sev s-win">clean</span></header>
+  <ul>
+    <li><strong>Zero broken internal links</strong> out of 1,179,606.</li>
+    <li><strong>Zero true orphans</strong> among real pages. The only three are <code>/</code>,
+    <code>/404.html</code> and <code>.shell.html</code>.</li>
+    <li><strong>Zero URLs in a sitemap that are not prerendered</strong>, and zero sitemap URLs
+    with no inbound links.</li>
+    <li><strong>Cross-language linking is clean.</strong> Exactly the language switcher in each
+    direction and nothing else. No accidental EN to FR body links leaking equity.</li>
+    <li><strong>The 4,395 pages absent from sitemaps are all deliberate</strong>: 4,356 noindex
+    project pages, 30 noindex categories, 3 standing pages, and the 3 non-pages above.</li>
+    <li><strong>Zero generic or icon-only anchor text</strong> pointing at content pages.</li>
+  </ul>
+</div>
+
+</section>
+<section class="tab" id="marketing">
+
+<h2>Organic growth plan</h2>
+<p class="lede">Every rule quoted verbatim from the community's own page. Every link-equity claim
+checked by inspecting live markup. No free backlink checker was reachable without a login, so
+there are no third-party link counts here; the competitor analysis rests on Hacker News' API,
+Wikipedia LinkSearch, live DOM inspection and the sites' own press pages.</p>
+
+<h2>Start here</h2>
+<div class="f crit">
+  <header><h3>The repo being unpublished gates most of this plan</h3><span class="sev s-crit">blocker</span></header>
+  <p>It is not a sequencing detail. It is a hard gate on:</p>
+  <ul>
+    <li><strong>r/opensource Rule 4</strong>: "Code or repositories linked to MUST have a LICENSE
+    file that MUST be an OSI listed Open Source license." No public repo, no post. This is the best
+    Reddit target you have.</li>
+    <li><strong>r/developpeurs Rule 2</strong>: the self-promotion exception applies only
+    <em>"si le projet est open-source (lien repo necessaire)"</em>.</li>
+    <li><strong>A Zenodo DOI</strong> for the dataset, which runs through the GitHub release
+    integration.</li>
+    <li><strong>Lobsters and Journal du hacker invitations</strong>, both of which ask for a
+    verification URL and both of which accept a GitHub account.</li>
+    <li><strong>Maintainer outreach</strong>, where the entire pitch is "a PR fixes it".</li>
+  </ul>
+  <p class="why">And a credibility problem larger than any of those. Your README and every page
+  footer say content lives in git and "a pull request is how an entry changes, so every change is
+  reviewable, attributable and revertible". On a site whose brand is verifiable honesty, that claim
+  is currently unverifiable. Someone will notice, and the first person to notice will be in a
+  Hacker News thread.</p>
+</div>
+
+<div class="f high">
+  <header><h3>Five other things to fix before promoting anything</h3><span class="sev s-high">high</span></header>
+  <ul>
+    <li><strong>The https to http redirect.</strong> Most inbound links get written without a
+    trailing slash, so most of them will take a plaintext hop. Covered on the Overview tab.</li>
+    <li><strong>CORS advertises only HEAD.</strong> <code>access-control-allow-methods: HEAD</code>
+    on <code>/api/v1/*</code>. Simple GETs work because nothing preflights, but any browser app
+    sending a custom header fails. The whole dataset strategy below depends on people building on
+    this API.</li>
+    <li><strong>The README says 493 products.</strong> The data says 592.</li>
+    <li><strong>Project names are not normalised.</strong> <code>Affine</code>/<code>AFFiNE</code>,
+    <code>docmost</code>/<code>Docmost</code>, three spellings of Plausible, two of Overleaf.
+    Deduped by repo path the SSO list is 31 projects, not 36. Publish numbers someone can
+    recount.</li>
+    <li><strong><code>ops.postgres</code> and <code>ops.sqlite</code> read 3,217 yes and 0 no.</strong>
+    That is a bug, not a finding. Publish nothing derived from those keys.</li>
+  </ul>
+</div>
+
+<h2>How the incumbents actually got their authority</h2>
+
+<h3>One single-issue data page becomes the citation</h3>
+<p><code>sso.tax</code> is one page holding one table. Its own press page lists who cited it:
+<strong>CISA</strong> (a .gov citation), a USENIX Enigma talk, CSO Online, PCMag, Tailscale,
+Kolide, the Australian Computer Society and the Identity Defined Security Alliance.</p>
+<p>A 590-product catalogue is diffuse and hard to cite. A single named grievance with a dated
+table is easy to cite. <strong>Spin single-issue micro-assets out of the catalogue.</strong> This
+is the core recommendation of the whole plan.</p>
+
+<h3>The same URL, resubmitted to HN over years</h3>
+<p><code>sso.tax</code> has been submitted at least 15 times since 2018:</p>
+<table>
+  <tr><th>Date</th><th>Title</th><th class="n">Points</th></tr>
+  <tr><td>2018-10-20</td><td>SSO Wall of Shame: vendors that treat SSO as luxury feature</td><td class="n">39</td></tr>
+  <tr><td>2020-02-12</td><td>Vendors who charge extra for single sign-on</td><td class="n">65</td></tr>
+  <tr><td>2021 (×3)</td><td>The SSO Wall of Shame</td><td class="n">2 / 3 / 6</td></tr>
+  <tr><td>2022-04-27</td><td>The SSO Wall of Shame</td><td class="n">106</td></tr>
+  <tr><td>2024–25 (×4)</td><td>The SSO Wall of Shame</td><td class="n">2 / 4 / 4 / 2</td></tr>
+  <tr><td><strong>2025-08-19</strong></td><td><strong>Vendors that treat single sign-on as a luxury feature</strong></td><td class="n ok"><strong>288</strong></td></tr>
+</table>
+<p>The biggest hit came seven years after launch, and the winning title was not the site's name. It
+was a sentence describing the grievance. HN's FAQ permits this: "If a story has not had significant
+attention in the last year or so, a small number of reposts is ok."</p>
+
+<h3>Publish your own traffic numbers</h3>
+<p>The cheapest high-return channel found anywhere, traced end to end for
+european-alternatives.eu: the owner opened his analytics publicly and posted about it on Mastodon.
+Someone else submitted that to HN (87 points). Plausible then wrote the analysis themselves, and
+<em>their</em> post hit <strong>493 points</strong>, larger than anything the site ever posted
+itself. heise, t3n and futurezone followed. Cost to the owner: one checkbox and one Mastodon post.</p>
+<p><strong>You have already built this asset and never announced it.</strong>
+<code>/en/stats/</code> is live, public and indexable. Your version is stronger, because you can
+run it against seven vendors instead of one: Umami, Elysia, Rsbuild, Drizzle, Biome, Bun and
+Turbo all want a production case study, and an 8,865-page prerendered site with a public metrics
+page is better material than most of what they have.</p>
+
+<h3>"caniuse but for X"</h3>
+<p><code>caniemail.com</code> took <strong>755 points and 250 comments</strong> on that framing
+alone. <code>caniwebview.com</code> took 195. Your domain is built for this and you are not using
+it.</p>
+
+<h3>What does not work</h3>
+<ul>
+  <li><strong>Wikipedia is a near-zero channel.</strong> Their own external links guideline says
+  it: "adding your website to Wikipedia will not help with search engine optimization, because
+  Google and other search engines ignore links on Wikipedia." Mainspace link counts:
+  privacyguides.org 6, awesome-selfhosted.net 2, selfh.st 1, alternativeto.net essentially zero
+  outside Talk and deletion pages.</li>
+  <li><strong>Peer directories do not cross-link.</strong> I checked five comparable sites against
+  each other and found <strong>zero cross-links in any direction</strong>. They compete on HN
+  instead. Do not spend an email on openalternative.co or opensourcealternative.to. selfh.st is
+  different because it is a newsletter, not a competitor.</li>
+  <li><strong>Big press mostly will not link.</strong> european-alternatives.eu had two HN front
+  pages, an international news cycle and two million lifetime visitors. The durable haul was four
+  German-language tech blogs and two Wikipedia mainspace links. netzpolitik, tagesschau and ara.cat
+  covered it without linking. <strong>Your links will come from 500 small maintainer links, not
+  five big ones.</strong></li>
+</ul>
+
+<h2>Link equity, measured</h2>
+<p>Every <code>rel</code> below was checked against live markup.</p>
+<table>
+  <tr><th>Channel</th><th>rel on outbound links</th><th>Verdict</th></tr>
+  <tr><td>Hacker News front page and /best</td><td>none</td><td class="ok">dofollow</td></tr>
+  <tr><td>dev.to article body</td><td>noopener noreferrer</td><td class="ok">dofollow, no reputation gate</td></tr>
+  <tr><td>LinuxFr.org</td><td>none</td><td class="ok">dofollow</td></tr>
+  <tr><td>Journal du hacker</td><td>none</td><td class="ok">dofollow</td></tr>
+  <tr><td>HN /newest</td><td>nofollow</td><td>until it gains points</td></tr>
+  <tr><td>Lobsters</td><td>ugc noreferrer</td><td class="no">no credit</td></tr>
+  <tr><td>Product Hunt</td><td>noreferrer noopener ugc</td><td class="no">no credit</td></tr>
+  <tr><td>Reddit</td><td>noopener nofollow ugc</td><td class="no">zero</td></tr>
+  <tr><td>Lemmy, Mastodon (incl. verified profile field)</td><td>nofollow noopener</td><td class="no">zero</td></tr>
+  <tr><td>Hashnode</td><td>dofollow, but from your own subdomain</td><td class="no">self-link, zero</td></tr>
+</table>
+<p>On HN specifically: <code>/newest</code> had 29 of 30 story links nofollowed, the front page 29
+of 30 dofollow, <code>/best</code> 30 of 30. HN strips <code>nofollow</code> once a submission
+crosses a points threshold, so <strong>a flop gives you nothing at all</strong>. That raises the
+stakes on framing.</p>
+<p><strong>Only four channels produce durable dofollow links: Hacker News, dev.to, LinuxFr and
+Journal du hacker.</strong> Reddit, Lemmy, Mastodon and Product Hunt are traffic, and traffic
+matters here only because a fraction of it is maintainers and writers who then link you from
+somewhere that counts.</p>
+
+<h2>Channels worth using</h2>
+
+<div class="f win">
+  <header><h3>selfh.st is the highest value per unit of effort anywhere in this plan</h3>
+  <span class="sev s-win">do this</span></header>
+  <p>Their homepage: "Join <strong>30,000+ readers</strong> discovering the latest in self-hosted
+  software and updates every Friday." That is roughly 85% of Lemmy's entire active network,
+  weekly, aimed exactly at your reader.</p>
+  <p>Submit under <strong>Web Content</strong>, not Project Launch, and not to
+  <code>selfh.st/apps</code>. That directory catalogues apps you run; yours is a resource you read.
+  Getting the bucket wrong signals you did not look at the site. The description caps at
+  <strong>200 characters</strong>, so write it before you open the form. The form asks whether AI
+  assisted development. Answer honestly.</p>
+  <p>Their house style is literally your premise: "Meet Floppy, a self-hosted media tracker and
+  alternative to Trakt, Letterboxd, and TV Time." Contact the human,
+  <code>@shollyethan</code> (1,799 followers), not <code>@selfhst</code>, which is an
+  announce-only feed following four accounts.</p>
+</div>
+
+<div class="f med">
+  <header><h3>The rest, ranked</h3><span class="sev s-med">plan</span></header>
+  <ul>
+    <li><strong>dev.to.</strong> Best durable dofollow you fully control. But Terms §11 forbids
+    posts that "merely reference an external link that contains the full post", so publish the
+    <em>full</em> report with <code>canonical_url:</code> pointing home. Honest traffic: 38 of 40
+    new posts sampled got zero reactions; one that catches does 3,000 to 15,000 lifetime views.</li>
+    <li><strong>Hacker News.</strong> Highest ceiling, one shot per URL per year. Directory
+    launches are a lottery with a fat left tail: 810, 398, 156 points at the top, then 48, 6, 3, 2,
+    1. Individual tools framed as "open source alternative to X" score 400 to 2,000 routinely.
+    <strong>The angle beats the artifact.</strong> Note that Show HN's rules exclude "lists", so
+    frame any Show HN around the API and dataset.</li>
+    <li><strong>LinuxFr.</strong> Dofollow, and publishable this week: <strong>journals publish
+    instantly and need only karma above zero, and default karma is 20</strong>. Their rule blocks
+    new sites unless the site "ait un contenu éditorial déjà important" or "innove réellement".
+    590 written verdicts and an open dataset clear both. Lead with the corpus, never the site.
+    Traffic from their own click counters: 150 to 450 clicks for a good dépêche, 1,410
+    exceptional.</li>
+    <li><strong>r/opensource</strong>, 377,069 subscribers, sanctioned <code>Promotional</code>
+    flair. Eighteen of the top forty posts of the month are project posts, two of them flaired
+    promotional at 581 and 196 points. That is not true anywhere else on Reddit.</li>
+    <li><strong>r/developpeurs</strong>, 79,142 subs, and Rule 2 is written for your exact case.
+    Verified precedents at 235, 148 and 89 points. Expect 300 to 1,500 clicks.</li>
+    <li><strong>lemmy.world/c/selfhosted.</strong> Requires an account <strong>30 days old</strong>
+    with "no exemptions", and a <code>[CBH]</code> or <code>[AIP]</code> tag. Register the account
+    in week 1 so the clock runs while you do everything else.</li>
+    <li><strong>Mastodon</strong>, discovery only. Counter-intuitive data:
+    <code>#opensource</code> runs 427 posts a day with a <strong>median of zero boosts</strong>.
+    Those are bots. Use <code>#selfhosted</code> (33 a day, median 1 boost).</li>
+  </ul>
+</div>
+
+<div class="f low">
+  <header><h3>Blocked or a waste of time</h3><span class="sev s-low">skip</span></header>
+  <ul>
+    <li><strong>r/selfhosted is barred until roughly 3 November 2026.</strong> Rule 6 restricts
+    projects "younger than 3 months (measured by first public presence, e.g. git commit)" to a
+    megathread. Your first commit is 2026-08-03. Median score of the last 100 new posts there is
+    1 anyway, and <code>Release (AI)</code> flaired posts scored 0, 0, 0, 0.</li>
+    <li><strong>Product Hunt: cut it.</strong> Their guidelines say verbatim they do not feature
+    "Directories or lists", and <strong>a failed launch locks your root domain for six
+    months</strong>. Links are <code>ugc</code> anyway.</li>
+    <li><strong>r/privacy, r/degoogle, r/homelab, r/DataHoarder: all four dead ends.</strong>
+    Project posts in the top forty of the month: 0, 0, 0 and 1. r/privacy Rule 13 puts app posts
+    on hold, "This Includes Open-Source", and Rule 3 threatens "an immediate ban without
+    warning".</li>
+    <li><strong>r/france: do not post.</strong> Their wiki promises "un bannissement permanent sans
+    préavis" for any new account promoting its own site.</li>
+    <li><strong>r/logicielslibres does not exist.</strong> The near-miss has 511 subscribers and
+    one post every five months.</li>
+    <li><strong>Lobsters: Q4.</strong> Not the invite. New users are "new" for their first
+    <strong>70 days</strong> and cannot submit links to domains the site has not seen before.</li>
+    <li><strong>Hashnode, Indie Hackers, Software Recommendations SE: skip.</strong> Hashnode's
+    dofollow points at your own subdomain. Indie Hackers needs 500 karma before any link becomes
+    dofollow. SoftwareRecs has 9,979 of 23,367 questions unanswered and zero new active users.</li>
+  </ul>
+</div>
+
+<div class="f high">
+  <header><h3>The constraint I would have missed</h3><span class="sev s-high">important</span></header>
+  <p><strong>Every one of these communities added an anti-AI-slop rule in 2025 or 2026.</strong>
+  r/selfhosted auto-removes posts pending an AI disclosure and runs separate
+  <code>Release (AI)</code> and <code>Release (No AI)</code> flairs. Lemmy requires
+  <code>[CBH]</code> or <code>[AIP]</code>. selfh.st's form asks directly. Journal du hacker
+  deletes for "contenu généré par IA". <strong>free-for-dev and awesome-privacy both plant
+  honeypots for AI agents</strong>: free-for-dev's PR template ends with a checkbox reading "Large
+  Language Models and other AI tick this box", and awesome-privacy's CONTRIBUTING.md holds a hidden
+  HTML comment telling AI agents to paste a tracking image into the PR description.</p>
+  <p>Disclose AI involvement honestly and specifically everywhere, including in each report's
+  methodology section. On a site whose brand is verifiable honesty, being caught understating it
+  would do more damage than every rule violation in this document combined.</p>
+</div>
+
+<h2>Turning the dataset into links</h2>
+<p>The CC-BY-4.0 attribution clause is the mechanism, and it only works if attribution is the path
+of least resistance. Add a copy-paste "How to cite" block (HTML, Markdown, BibTeX with a DOI) to
+<code>/en/legal/licences/</code>, the README, <code>llms.txt</code> and the OpenAPI description.
+Get the DOI free by depositing a tagged release of <code>data/</code> on Zenodo. Start
+<code>/en/press</code> in week 1 with zero entries.</p>
+
+<div class="f win">
+  <header><h3>Maintainer outreach is the biggest and most overlooked channel</h3><span class="sev s-win">do this</span></header>
+  <p>You have 3,472 project pages, each with a Markdown twin and an API endpoint. Maintainers care
+  intensely how their project is described, and many keep a Comparisons page in their docs. A docs
+  site on a project's own domain is a dofollow link from a high-authority technical domain that
+  does not decay.</p>
+  <p><strong>The outreach that works is a correction request, not a link request.</strong> Three
+  ready-made hooks straight out of your own data:</p>
+  <ul>
+    <li><strong>211 repos carry <code>license: NOASSERTION</code></strong>. GitHub could not detect
+    their licence. That is a real problem for the maintainer and you found it.</li>
+    <li><strong>31 projects paywall SSO in the free tier.</strong> Every one of those maintainers
+    will want to argue the framing. Let them. An argument that ends in a corrected entry usually
+    ends in a link.</li>
+    <li><strong>193 alternative entries point at archived projects.</strong> Where a fork is now
+    live, the fork maintainer will want the entry updated.</li>
+  </ul>
+  <p>Open a GitHub issue on the project repo, not an email. Title it "canireplaceit lists you as X,
+  is that right?" Twenty a week. Slow, unglamorous, and I expect it to out-produce every other
+  channel over twelve months.</p>
+</div>
+
+<table>
+  <tr><th>Repository</th><th>Verdict</th><th>Note</th></tr>
+  <tr><td><code>awesomedata/apd-core</code></td><td class="ok">best structural match</td><td>Their bar is "able to be downloaded directly… not barred by login". <code>dump.json</code> clears it outright.</td></tr>
+  <tr><td><code>public-apis/public-apis</code></td><td class="ok">qualifies</td><td>Free tier, <code>Auth: No</code>, CORS column. Caveat: 1,702 open PRs.</td></tr>
+  <tr><td><code>ripienaar/free-for-dev</code></td><td class="ok">qualifies</td><td>They close AI-written PRs without review. Leave the honeypot checkbox unticked.</td></tr>
+  <tr><td><code>awesome-selfhosted-data</code></td><td>External Links only</td><td>Two of the five existing entries are dead since 2021. A PR adding you and flagging both is a genuine contribution.</td></tr>
+  <tr><td><code>APIs.guru</code></td><td class="ok">qualifies</td><td>Web form only. They close PRs of the YAML.</td></tr>
+  <tr><td><code>RunaCapital/awesome-oss-alternatives</code></td><td class="no">skip</td><td>Criterion 3 requires a for-profit company. Stale since 2025-09-03.</td></tr>
+</table>
+<p>One licensing trap: <code>awesome-selfhosted-data</code> is CC BY-SA 3.0. Do not import their
+data into yours, because ShareAlike would propagate. Your data can flow to them under BY alone,
+which is the direction that generates the link.</p>
+
+<h2>The three reports</h2>
+<p>592 products and no reason to come back. Three recurring assets on different clocks fix that.</p>
+
+<div class="f high">
+  <header><h3>Monthly: the price changelog. Start it now, it cannot be backfilled.</h3>
+  <span class="sev s-high">urgent</span></header>
+  <p>All 389 dated prices currently read <code>2026-08-02</code>. That is a snapshot, not a time
+  series, and it is the dataset's one real weakness. Six months of sweeps turns it into a time
+  series, and a time series is what makes the annual report unanswerable.</p>
+</div>
+
+<h3>Report 1, week 4: the open source SSO tax</h3>
+<p><strong>31 projects</strong> (deduped by repo path) put SSO behind a paid licence, against
+<strong>189 that include it free</strong>. Feature-level: SAML present in 38 of 49 checked, OIDC
+118 of 131, LDAP 96 of 107, SCIM only 9 of 16.</p>
+<p>Your own taxonomy already carries the thesis as a note on <code>auth.sso.saml</code>: "The one
+most often paywalled. This is the SSO tax."</p>
+<p><strong>Run an SSO sweep first.</strong> Coverage today is 220 of 3,472 projects, 6.3%. Check
+the field on the 200 projects that appear across the most products. A weekend of work, and it is
+the difference between a report that survives the HN thread and one that does not.</p>
+
+<h3>Report 2, month 2: the graveyard</h3>
+<p>35 repos are archived or over a year without a push. The names carry the story:</p>
+<table>
+  <tr><th>Project</th><th>Last push</th><th class="n">Days stale</th></tr>
+  <tr><td><code>Staffjoy/suite</code></td><td>2018-03-28</td><td class="n">3,057</td></tr>
+  <tr><td><code>Laverna/laverna</code></td><td>2021-05-30</td><td class="n">1,898</td></tr>
+  <tr><td><code>papercups-io/papercups</code></td><td>2024-02-15</td><td class="n">907</td></tr>
+  <tr><td><code>ggreer/the_silver_searcher</code></td><td>2024-06-16</td><td class="n">785</td></tr>
+  <tr><td><code>httpie/cli</code></td><td>2024-12-17</td><td class="n">601</td></tr>
+  <tr><td><code>grafana/oncall</code></td><td>archived 2026-03-24</td><td class="n">139</td></tr>
+</table>
+<p>"The Silver Searcher has not had a commit in two years and every list still recommends it" is a
+fact people argue about, and arguing is sharing. <strong>Send each list maintainer their own stale
+entries before publishing.</strong> That courtesy turns an attack into a link.</p>
+
+<h3>Report 3, January: State of Open Source Alternatives</h3>
+<p>Publish in January. A "State of X" published in June gets cited for a month; one published in
+January gets cited all year.</p>
+<p><strong>The chart that will travel</strong>, because the pattern is coherent and slightly
+embarrassing:</p>
+<table>
+  <tr><th>Category</th><th class="n">Products</th><th class="n">Verdict yes</th><th class="n">Median price</th></tr>
+  <tr><td>SEO and rank tracking</td><td class="n">9</td><td class="n no">0</td><td class="n">$99/mo</td></tr>
+  <tr><td>Sales outreach and data</td><td class="n">10</td><td class="n no">0</td><td class="n"></td></tr>
+  <tr><td>Advertising and affiliate</td><td class="n">5</td><td class="n no">0</td><td class="n"></td></tr>
+  <tr><td>3D and CAD</td><td class="n">12</td><td class="n">2</td><td class="n">$70/mo</td></tr>
+  <tr><td>Shell and terminal</td><td class="n">40</td><td class="n ok">24</td><td class="n"></td></tr>
+  <tr><td>API development</td><td class="n">8</td><td class="n ok">6</td><td class="n"></td></tr>
+</table>
+<p>The headline writes itself: open source has comprehensively solved the developer's own
+toolchain and produced almost nothing for sales, marketing and logistics. That is a finding about
+who writes open source, and it will run a long thread.</p>
+<p><strong>Two numbers that are entirely yours:</strong></p>
+<ul>
+  <li><strong>MCP adoption.</strong> Of 1,075 projects checked, <strong>555 ship an MCP server
+  (52%)</strong>, 186 official and 339 community-built. Nobody has measured MCP adoption across
+  self-hosted software. It has a shelf life, so publish it early.</li>
+  <li><strong>Telemetry.</strong> Of 176 projects checked, <strong>123 phone home by default
+  (70%)</strong>. Written precisely, this is the most linkable single number in the dataset,
+  because the privacy audience assumes self-hosted means silent and mostly it is not. Say "phones
+  home by default", link each project's own docs, and note where opt-out exists.</li>
+</ul>
+<p><strong>On denominators.</strong> Coverage is sparse and absence means unknown. State the
+denominator in every sentence: "123 of 176 projects we checked". Given the brand is honesty about
+what you do not know, small denominators are an asset. Bury one and a critic in the HN thread will
+find it, and that is the end of the report's credibility.</p>
+
+<div class="f high">
+  <header><h3>The permanent asset you are missing</h3><span class="sev s-high">high</span></header>
+  <p>Each of the 149 feature keys across 3,281 projects should be a page under
+  <code>/en/features/&lt;key&gt;</code> with a Markdown twin. "Self-hosted apps with SAML in the
+  free tier", "with ARM images", "that do not phone home", "that ship an MCP server", "that fully
+  export your data".</p>
+  <p>Those are the queries people type, no competitor can build them without your feature taxonomy,
+  and they are the natural landing pages for the reports. Right now <code>/en/features</code> is
+  one page that prerenders the string "Loading the feature matrix…".</p>
+</div>
+
+<h2>The SSO angle, specifically</h2>
+<p><strong>Yes it stands alone, but not the version you would expect.</strong> <code>sso.tax</code>
+covers proprietary SaaS, has 898 stars, and CISA cites it. Competing there is pointless.</p>
+<p><strong>The gap is the other side.</strong> Nobody has systematically documented open source and
+open-core projects that paywall SSO. SSD Nodes tried on 2026-08-15 and named six projects from
+memory. You have 31 with check dates. The angle is sharper than the original because it criticises
+the side the audience likes, which is what makes a post travel rather than get nodded at.</p>
+<p><strong>Framing matters.</strong> Not a wall of shame; sso.tax owns that and a copy reads as
+derivative. Frame it as the honest question the open-core model raises:
+<strong>"If you self-host it, where does the paywall fall?"</strong> That invites maintainers to
+answer instead of defend, and every answer is a correction that ends in a link. Then tell Rob
+Chahin. A maintainer drowning in submissions is far more likely to link a complementary list than
+a competing one.</p>
+
+<h2>Positioning</h2>
+<p>The honest verdict is a strong hook and you are underusing it. Your page titles do not carry it:
+"12 open source Notion alternatives (2026)" is the same title every competitor uses. The verdict
+sits in the meta description and the OG image, not the title.</p>
+<table>
+  <tr><th>#</th><th>Angle</th><th>Verdict</th></tr>
+  <tr><td>1</td><td>"Can I replace it? 592 SaaS subscriptions, one honest verdict each."</td><td>Current. Accurate, forgettable.</td></tr>
+  <tr><td>2</td><td>"caniuse.com, for the software you are paying for."</td><td>Clearest one-line explanation. caniemail took 755 HN points on exactly this.</td></tr>
+  <tr><td>3</td><td><strong>"The open source alternatives list that says no."</strong></td><td class="ok"><strong>Strongest</strong></td></tr>
+  <tr><td>4</td><td>"43 things open source still cannot do."</td><td>Strong for one launch, too narrow for a brand.</td></tr>
+  <tr><td>5</td><td>"Every price has a date. Every verdict has a cost."</td><td>The real moat, but too abstract to lead with.</td></tr>
+</table>
+<p><strong>Number 3 wins because it is the only one a competitor cannot copy.</strong> Any directory
+can add an API, or French, or more products. None of them can start saying no, because their
+models depend on yes. The affiliate blogs cannot, the vendor blogs cannot, and the community lists
+do not see it as their job. Positions get written about; feature lists do not.</p>
+<p>Your best writing is already on the gaps page: <em>"Published because a directory that only
+lists wins is an advertisement."</em> That belongs on the homepage, in the README, and in the HN
+submission text.</p>
+<p><strong>One caution.</strong> Honesty is a moat only while it is verifiable. The moment a stale
+price gets caught in an HN thread, the position inverts into a liability. That is the real argument
+for the monthly sweep, and the second-best argument for publishing the repo.</p>
+
+<h2>Measurement, free tools only</h2>
+<p>Track referrer domains in Umami as your real backlink monitor. A free rank tracker will never
+show you a link from <code>docs.someproject.io</code>; a referral will. Watch EN and FR separately
+in Search Console: FR should move first because the competition is thinner, and if it does not,
+something is wrong with hreflang.</p>
+<table>
+  <tr><th></th><th class="n">Month 1</th><th class="n">Month 3</th><th class="n">Month 6</th><th class="n">Month 12</th></tr>
+  <tr><td>Pages indexed</td><td class="n">1.5–3k</td><td class="n">4–6k</td><td class="n">6–8k</td><td class="n">8k+</td></tr>
+  <tr><td>GSC clicks/month</td><td class="n">&lt;200</td><td class="n">0.5–1.5k</td><td class="n">2–6k</td><td class="n">8–25k</td></tr>
+  <tr><td>Referring domains</td><td class="n">5–15</td><td class="n">25–50</td><td class="n">60–120</td><td class="n">150–300</td></tr>
+  <tr><td>Repos linking back</td><td class="n">0–2</td><td class="n">5–10</td><td class="n">15–30</td><td class="n">40–80</td></tr>
+  <tr><td>GitHub stars</td><td class="n">20–100</td><td class="n">150–500</td><td class="n">400–1.5k</td><td class="n">800–4k</td></tr>
+</table>
+<p>The month 12 range is wide on purpose. It depends almost entirely on whether one data report
+lands.</p>
+<p><strong>What not to track:</strong> Domain Authority, Domain Rating or any third-party authority
+score. Not Google metrics, free tiers rate-limited to uselessness, and watching them produces
+anxiety rather than decisions.</p>
+
+<h2>The 90 days</h2>
+<table>
+  <tr><th>Week</th><th>Do</th></tr>
+  <tr><td><strong>1</strong><br>no promotion</td><td>Publish the repo with the MIT LICENSE at root. Fix the http redirect and CORS. Fix the 493/592 count and the name normalisation. Add the "How to cite" block. Create <code>/en/press</code> empty. Deposit on Zenodo, record the DOI. Submit to the Wayback Machine (there is <em>no</em> snapshot of the domain). Verify GSC by DNS TXT and claim Bing. <strong>Register the Lemmy account</strong> so the 30-day clock runs. Request the Journal du hacker invite. Post a LinuxFr <em>journal</em> about the licensing numbers. Test verdict-carrying titles on 20 pages.</td></tr>
+  <tr><td><strong>2</strong></td><td>PRs to public-apis, free-for-dev, apd-core, awesome-selfhosted-data (footer External Links). APIs.guru form. Framalibre, which has an "Alternative à" field and a CC-BY option, the best structural fit anywhere. Publish <code>/en/colophon</code>. <strong>Announce the open metrics page on Mastodon</strong> and do not submit it to HN yourself. Email Umami for a case study. Begin the SSO sweep.</td></tr>
+  <tr><td><strong>3</strong></td><td>20 GitHub issues on project repos, prioritising the 31 SSO projects and the 211 NOASSERTION licences. selfh.st submission under Web Content. <strong>Email Matt Connor at SSD Nodes</strong> about his 2026-08-15 SSO piece, offering the systematic list. Time-sensitive. Changelog News. Korben tip.</td></tr>
+  <tr><td><strong>4</strong></td><td>Publish the SSO report. HN once, framed around the dataset. <strong>r/opensource</strong> with the Promotional flair and the repo link, not r/selfhosted. Lemmy if the account has aged. Full text to dev.to with canonical_url. Mastodon on #selfhosted. r/developpeurs with the French version. Email Rob Chahin. <strong>No Product Hunt.</strong></td></tr>
+  <tr><td><strong>Month 2</strong></td><td>First monthly changelog off a 150-product sweep. 20 more maintainer issues. Ship the MCP server, submit to the official registry. Graveyard report, with maintainers warned first. French push: LinuxFr dépêche, Next.ink, Journal du hacker.</td></tr>
+  <tr><td><strong>Month 3</strong></td><td>Ship <code>/en/features/&lt;key&gt;</code> pages. Telemetry report to Privacy Guides' showcase and Techlore, <em>not</em> r/privacy. 20 more issues. Ship the CLI to npm. Measurement review; cut what is not working. Draft the annual report. Lobsters opens mid-October when the 70-day domain restriction lapses.</td></tr>
+  <tr><td><strong>Nov 2026</strong></td><td>r/selfhosted opens. Use it for the graveyard report, not a launch.</td></tr>
+</table>
+
+<h2>Grey areas, briefly</h2>
+<p><strong>Merely aggressive and fine:</strong> competitor brand-name pages are your entire site and
+they are legitimate, because each carries original editorial judgement rather than a spun template.
+Google's problem is scaled content abuse, not comparison pages that have something to say. Pitching
+journalists through Qwoted or Featured.com is normal PR.</p>
+<p><strong>Named violations, avoid:</strong> Google's link spam policy explicitly names buying or
+selling links, excessive link exchanges, automated link creation, low-quality directory links, and
+forum comments with optimised links. That covers PBNs, paid packages and comment seeding. Expired
+domain abuse is its own named policy. Parasite SEO on Reddit or Medium falls under site reputation
+abuse, which has drawn manual actions since 2024.</p>
+<p><strong>Recommendation: none of them.</strong> The site's value is that its claims are checkable.
+A manual action would be recoverable; being the honest directory that got caught buying links would
+not be. And the two channels that actually produce durable links here, Hacker News and open source
+maintainers, are precisely the two audiences most likely to notice and least likely to forgive.</p>
+
+<h2>What could not be verified</h2>
+<ul>
+  <li>No free backlink checker was reachable without a login, so there are <strong>no numeric link
+  counts for competitor sites anywhere in this plan</strong>.</li>
+  <li>Reddit blocks curl and every Redlib mirror. The rule text here came from driving a real
+  browser against Reddit's own JSON API, so it is their output, but read each sidebar again before
+  posting.</li>
+  <li>The OpenAlternative r/selfhosted removal story is the founder's own telling. Reddit's search
+  index excludes removed posts, so it can be neither confirmed nor disproven. The advice survives
+  either way: no monetisation links in community threads.</li>
+  <li>No <code>.edu</code> or <code>.gov</code> citation could be checked for the comparison sites,
+  because every general search engine was unreachable or serving bot detection. Unverified rather
+  than disproven. The one confirmed <code>.gov</code> citation is CISA citing sso.tax.</li>
+</ul>
+
+</section>
+
+</div>
+<script>
+const tabs=[...document.querySelectorAll('nav.tabs button')];
+const secs=[...document.querySelectorAll('section.tab')];
+function show(id){
+  tabs.forEach(b=>b.setAttribute('aria-selected',String(b.dataset.t===id)));
+  secs.forEach(s=>s.classList.toggle('on',s.id===id));
+  history.replaceState(null,'','#'+id);
+  window.scrollTo(0,0);
+}
+tabs.forEach(b=>b.onclick=()=>show(b.dataset.t));
+if(location.hash&&document.getElementById(location.hash.slice(1)))show(location.hash.slice(1));
+</script>
+</body>
+</html>
