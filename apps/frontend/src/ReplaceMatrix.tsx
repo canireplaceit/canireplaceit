@@ -235,9 +235,15 @@ export function ReplaceMatrix({
 								{product.name}
 							</th>
 							{alts.map((x) => (
+								// `aria-labelledby` so the column is named by the project and
+								// nothing else. The remove control is a button inside the header
+								// cell, and a button's `aria-label` joins the cell's own name
+								// computation -- so every data cell in the column announced its
+								// header as "Remove column: Trilium" rather than "Trilium".
 								<th
 									key={x.key}
 									scope="col"
+									aria-labelledby={`cmp-col-${x.key}`}
 									className="px-2 py-2 text-center font-normal text-muted"
 								>
 									<button
@@ -246,7 +252,7 @@ export function ReplaceMatrix({
 										aria-label={`${t("features.removeColumn")}: ${x.alt.name}`}
 										className="inline-flex items-center gap-1 hover:text-text"
 									>
-										{x.alt.name}
+										<span id={`cmp-col-${x.key}`}>{x.alt.name}</span>
 										<X className="size-3 shrink-0 opacity-50" aria-hidden />
 									</button>
 								</th>

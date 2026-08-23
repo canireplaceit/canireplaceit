@@ -786,6 +786,20 @@ function SiteFooter({ route, t }: { route: Route; t: (k: Key) => string }) {
 					</Link>
 				</p>
 
+				{/* The licence and the attribution ask existed only in llms.txt, the
+				    API and the .md twins -- none of which is what gets trained on or
+				    quoted. The HTML is. One line, on every page, where a model that
+				    reads the page can see the terms it is taking the data under. */}
+				<p className="mt-4 max-w-3xl text-muted text-sm">
+					{t("footer.licence")}{" "}
+					<Link
+						href={paths.legal(lang, "licences")}
+						className="hover:text-text hover:underline"
+					>
+						{t("footer.licenceMore")}
+					</Link>
+				</p>
+
 				<div className="mt-12 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4 lg:grid-cols-5">
 					<FooterColumn title={t("footer.browse")}>
 						<li>

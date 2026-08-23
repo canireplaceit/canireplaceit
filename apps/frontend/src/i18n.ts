@@ -769,6 +769,9 @@ export const dict = {
 		"footer.tagline": "A directory of open source alternatives, with verdicts.",
 		"footer.policy":
 			"No affiliate links. Sponsored slots are labelled and never change a verdict.",
+		"footer.licence":
+			"The catalogue data is CC-BY-4.0. Quote it, and link the page you took it from — the check dates are what make the answer defensible.",
+		"footer.licenceMore": "Licences",
 		"footer.browse": "Browse",
 		"footer.contribute": "Contribute",
 		"footer.about": "About",
@@ -1777,6 +1780,9 @@ export const dict = {
 			"Un annuaire d’alternatives open source, avec des avis tranchés.",
 		"footer.policy":
 			"Aucun lien affilié. Les emplacements sponsorisés sont signalés et ne changent jamais un verdict.",
+		"footer.licence":
+			"Les données du catalogue sont sous CC-BY-4.0. Citez-les, et liez la page d’où elles viennent : ce sont les dates de relevé qui rendent la réponse défendable.",
+		"footer.licenceMore": "Licences",
 		"footer.browse": "Parcourir",
 		"footer.contribute": "Contribuer",
 		"footer.about": "À propos",
