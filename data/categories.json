@@ -231,7 +231,11 @@
 		},
 		"icon": "activity",
 		"group": "infra",
-		"position": 16
+		"position": 16,
+		"blurb": {
+			"en": "Datadog is the single most common reason companies self-host anything, because the bill grows faster than the company does — and the replacement is now a well-trodden stack of Grafana, Loki, Tempo and Prometheus, or SigNoz if you want it in one box. Statuspage charges twenty-nine dollars a month for a page that says whether things are up, which Uptime Kuma does in a container along with the checks and the notifications. Sentry publishes its own self-host repo and is not hiding the door. PagerDuty is the one that holds: waking somebody at 3am reliably, forever, is an infrastructure promise rather than a feature.",
+			"fr": "Datadog est la raison la plus fréquente pour laquelle une entreprise se met à héberger quoi que ce soit : la facture grossit plus vite que l'entreprise — et le remplacement est aujourd'hui une pile bien balisée, Grafana, Loki, Tempo et Prometheus, ou SigNoz si vous la voulez d'un seul bloc. Statuspage facture vingt-neuf dollars par mois une page qui dit si les choses fonctionnent, ce qu'Uptime Kuma fait dans un conteneur, sondes et notifications comprises. Sentry publie lui-même son dépôt d'auto-hébergement : il ne cache pas la porte. PagerDuty est celui qui tient : réveiller quelqu'un à 3 h du matin de façon fiable, pour toujours, est une promesse d'infrastructure et non une fonctionnalité."
+		}
 	},
 	{
 		"slug": "payments",
@@ -241,7 +245,11 @@
 		},
 		"icon": "credit-card",
 		"group": "commerce",
-		"position": 17
+		"position": 17,
+		"blurb": {
+			"en": "One product, and it is the hardest entry on the site. You cannot self-host a banking licence. BTCPay Server, Lago and Hyperswitch each do a real piece of the job — crypto acceptance, metering and billing, payment routing — but none of them settles money into your account, because settling means being regulated in every country you take a card from. Nothing on this site is less replaceable than Stripe, and saying otherwise would be a lie.",
+			"fr": "Un seul produit, et c'est l'entrée la plus dure du site. On n'auto-héberge pas une licence bancaire. BTCPay Server, Lago et Hyperswitch font chacun une part réelle du travail — encaissement en cryptomonnaie, mesure et facturation, routage des paiements — mais aucun ne fait arriver l'argent sur votre compte, parce qu'encaisser suppose d'être régulé dans chaque pays où vous acceptez une carte. Rien sur ce site n'est moins remplaçable que Stripe, et prétendre le contraire serait mentir."
+		}
 	},
 	{
 		"slug": "productivity",
@@ -439,7 +447,11 @@
 		},
 		"icon": "activity",
 		"group": "infra",
-		"position": 34
+		"position": 34,
+		"blurb": {
+			"en": "OpenTelemetry made the agent portable, so switching backends is now a config change — which is bad news for New Relic charging ninety-nine dollars per user, since per-seat pricing on dashboards makes people stop looking at them to save money. Session replay is rrweb plus storage, and rrweb is MIT; everyone including LogRocket builds on it. What survives is vantage. ThousandEyes answers \"is it us, our ISP or AWS?\" by correlating traceroutes and BGP from thousands of agents on networks you will never reach, and Splunk survives on SPL, the language every detection rule you own is written in.",
+			"fr": "OpenTelemetry a rendu l'agent portable : changer de backend n'est plus qu'une affaire de configuration — mauvaise nouvelle pour New Relic et ses quatre-vingt-dix-neuf dollars par utilisateur, puisque facturer des tableaux de bord au siège pousse les gens à cesser de les regarder pour économiser. Le rejeu de session, c'est rrweb plus du stockage, et rrweb est sous licence MIT : tout le monde, LogRocket compris, construit dessus. Ce qui survit, c'est le point d'observation. ThousandEyes répond à « est-ce nous, notre opérateur ou AWS ? » en corrélant traceroutes et données BGP depuis des milliers d'agents sur des réseaux auxquels vous n'aurez jamais accès, et Splunk survit grâce à SPL, le langage dans lequel sont écrites toutes vos règles de détection."
+		}
 	},
 	{
 		"slug": "secrets-privileged-access",
@@ -473,7 +485,11 @@
 		},
 		"icon": "network",
 		"group": "infra",
-		"position": 37
+		"position": 37,
+		"blurb": {
+			"en": "Twenty-seven entries, and they split on one question: are you buying software or geography? WireGuard is faster and easier to audit than anything Cisco ships, HAProxy has in its open build the four features F5 charges roughly $2,500 per instance a year for, and AdGuard publishes AdGuard Home under GPL-3.0 itself. What you cannot self-host is a place. Fastly's edge is Varnish-derived and you can run the software, but not a hundred POPs, so your cache sits 4ms away in Frankfurt and 280ms away in São Paulo. Commercial VPNs sell crowd cover, and your own WireGuard endpoint is an IP address used by exactly one person: you.",
+			"fr": "Vingt-sept entrées, et elles se départagent sur une seule question : achetez-vous du logiciel ou de la géographie ? WireGuard est plus rapide et plus simple à auditer que tout ce que livre Cisco, HAProxy embarque dans sa version libre les quatre fonctions que F5 facture environ 2 500 dollars par instance et par an, et AdGuard publie lui-même AdGuard Home sous licence GPL-3.0. Ce qui ne s'auto-héberge pas, c'est un lieu. L'edge de Fastly dérive de Varnish et vous pouvez faire tourner le logiciel, mais pas cent points de présence : votre cache est à 4 ms de Francfort et à 280 ms de São Paulo. Les VPN commerciaux vendent l'anonymat de la foule, et votre propre point WireGuard est une adresse IP utilisée par exactement une personne : vous."
+		}
 	},
 	{
 		"slug": "api-development",
@@ -539,7 +555,11 @@
 		},
 		"icon": "users",
 		"group": "operations",
-		"position": 42
+		"position": 42,
+		"blurb": {
+			"en": "Payroll comes with an instruction rather than a recommendation: do not self-host it. Gusto is not software, it is a regulated filing relationship with tax authorities in every place you employ someone, and Frappe HR can compute gross-to-net perfectly while leaving you personally liable for a late filing. The other two are softer. Frappe HR and OrangeHRM hold a directory, time-off balances and a document vault; what they do not hold is the compliance record auditors point at, or Greenhouse's one-click posting to LinkedIn and Indeed, which is the actual product.",
+			"fr": "La paie s'accompagne d'une consigne plutôt que d'une recommandation : ne l'auto-hébergez pas. Gusto n'est pas un logiciel, c'est une relation déclarative encadrée avec l'administration fiscale de chaque endroit où vous employez quelqu'un, et Frappe HR peut calculer parfaitement le net à partir du brut tout en vous laissant personnellement responsable d'une déclaration en retard. Les deux autres sont plus souples. Frappe HR et OrangeHRM tiennent un annuaire, des soldes de congés et un coffre à documents ; ce qu'ils ne tiennent pas, c'est le dossier de conformité que désignent les auditeurs, ni la publication en un clic de Greenhouse vers LinkedIn et Indeed, qui est le vrai produit."
+		}
 	},
 	{
 		"slug": "commerce-payments-ops",
@@ -633,7 +653,11 @@
 		},
 		"icon": "library",
 		"group": "home",
-		"position": 49
+		"position": 49,
+		"blurb": {
+			"en": "Six of these ten come apart cleanly, and the line runs between the player and the catalogue. Miniflux polls RSS faster than Feedly and will never add an AI summary you did not ask for; wallabag will outlive Instapaper, and read-later is better maintained in the open than commercially since Pocket shut down in 2025; Immich has closed the gap on Google Photos to the point that people do not quietly switch back. What does not come apart is a licence. Spotify sells a hundred-million-track catalogue, KaraFun sells sixty thousand cleared backing tracks, and Soundtrack Your Brand sells the public performance right your own MP3s do not carry.",
+			"fr": "Six de ces dix produits se démontent proprement, et la ligne de partage sépare le lecteur du catalogue. Miniflux interroge les flux RSS plus vite que Feedly et n'ajoutera jamais un résumé par IA que vous n'avez pas demandé ; wallabag survivra à Instapaper, et la lecture différée est mieux entretenue en libre qu'en commercial depuis la fermeture de Pocket en 2025 ; Immich a comblé l'écart avec Google Photos au point que les gens ne reviennent pas discrètement en arrière. Ce qui ne se démonte pas, c'est une licence. Spotify vend un catalogue de cent millions de titres, KaraFun soixante mille bandes-son libérées de droits, et Soundtrack Your Brand le droit de représentation publique que vos propres MP3 n'emportent pas."
+		}
 	},
 	{
 		"slug": "home-devices",
@@ -657,7 +681,11 @@
 		},
 		"icon": "piggy-bank",
 		"group": "home",
-		"position": 51
+		"position": 51,
+		"blurb": {
+			"en": "Three products and one shared wall. The budgeting itself ports cleanly — Actual Budget is the same envelope method by people who wanted it local-first, and arguably the better implementation, while Spliit does Splitwise's debt-simplification arithmetic without the ads Splitwise added to it. What does not port is bank aggregation, which is the thing that makes these apps effortless: self-hosted, you either pay an aggregator yourself or you import CSVs forever. That is the whole trade here, and it is worth knowing before you move a year of transactions.",
+			"fr": "Trois produits et un mur commun. La partie budget se transpose sans peine : Actual Budget reprend la méthode des enveloppes, pensée par des gens qui la voulaient d'abord locale, et l'implémente sans doute mieux, tandis que Spliit refait l'arithmétique de simplification des dettes de Splitwise sans la publicité que Splitwise y a ajoutée. Ce qui ne se transpose pas, c'est l'agrégation bancaire, précisément ce qui rend ces applications si commodes : auto-hébergé, soit vous payez un agrégateur vous-même, soit vous importez des CSV à vie. C'est tout l'arbitrage de cette catégorie, et il vaut mieux le connaître avant de déplacer un an de transactions."
+		}
 	},
 	{
 		"slug": "community-publishing",
@@ -747,7 +775,11 @@
 		},
 		"icon": "smartphone",
 		"group": "dev",
-		"position": 58
+		"position": 58,
+		"blurb": {
+			"en": "Two hard facts shape this category and neither is about features. Apple's licence says a macOS build must run on Apple hardware, so mobile CI is expensive for a reason no open project can change — everything above the machine, the build steps, the signing and the distribution, is already free in fastlane. And the best crash reporter, Sentry, relicensed to the FSL: self-hosting it is still free and still works, but it is no longer open source. Appfigures is the entry with no replacement, because rank tracking means scraping two stores across dozens of countries continuously and nobody maintains that for free.",
+			"fr": "Deux faits durs façonnent cette catégorie, et aucun ne concerne les fonctionnalités. La licence d'Apple impose qu'une compilation macOS tourne sur du matériel Apple : l'intégration continue mobile est donc chère pour une raison qu'aucun projet libre ne peut changer — tout ce qui se trouve au-dessus de la machine, les étapes de build, la signature et la distribution, est déjà gratuit dans fastlane. Et le meilleur collecteur de plantages, Sentry, est passé sous licence FSL : l'auto-héberger reste gratuit et fonctionne toujours, mais ce n'est plus de l'open source. Appfigures est l'entrée sans remplaçant, parce que suivre un classement suppose de scruter deux boutiques dans des dizaines de pays en continu, et personne ne maintient cela gratuitement."
+		}
 	},
 	{
 		"slug": "research-science",
@@ -839,7 +871,11 @@
 		},
 		"icon": "handshake",
 		"group": "commerce",
-		"position": 66
+		"position": 66,
+		"blurb": {
+			"en": "Requisitions, approvals and purchase orders are a solved problem — Odoo, ERPNext and Dolibarr all run them, and Procurify is that same workflow with virtual cards attached, which are a banking product rather than software. The other two are memberships. Coupa's value is that your suppliers are already on it and already send compliant invoices, and Ariba is a trading network your large customers mandate: if a buyer told you to be on Ariba, no open project resolves that. If you chose it yourself, an open ERP runs the same procurement for a rounding error of the fee.",
+			"fr": "Demandes d'achat, validations et bons de commande sont un problème résolu : Odoo, ERPNext et Dolibarr les gèrent tous, et Procurify n'est que ce même circuit augmenté de cartes virtuelles, qui relèvent de la banque et non du logiciel. Les deux autres sont des adhésions. La valeur de Coupa tient à ce que vos fournisseurs y sont déjà et y envoient déjà des factures conformes, et Ariba est un réseau d'échange que vos grands clients imposent : si un acheteur vous a demandé d'y être, aucun projet libre ne règle cela. Si vous l'avez choisi vous-même, un ERP libre fera tourner les mêmes achats pour une fraction négligeable de la facture."
+		}
 	},
 	{
 		"slug": "construction-tech",
@@ -1015,7 +1051,11 @@
 		},
 		"icon": "tv",
 		"group": "home",
-		"position": 80
+		"position": 80,
+		"blurb": {
+			"en": "Jellyfin literally is Emby, forked in 2018 at the moment Emby's server stopped being open source, and everything Premiere charges for — hardware transcoding, mobile sync, live TV DVR — is free in it. That makes Emby the cleanest swap on the whole site, and Plex nearly as clean, especially since Plex began charging for remote streaming of your own files. The two that hold are holding data rather than code: Roon's product is the metadata — credits, band lineages, reviews — that nobody open source licenses, and Channels' is a regional EPG, where the free XMLTV grabbers run from excellent to broken depending on where you live.",
+			"fr": "Jellyfin est littéralement Emby, forké en 2018 au moment où le serveur d'Emby a cessé d'être open source, et tout ce que Premiere facture — transcodage matériel, synchronisation mobile, enregistrement de la TV en direct — y est gratuit. Cela fait d'Emby l'échange le plus net de tout le site, et de Plex presque autant, surtout depuis que Plex fait payer la diffusion à distance de vos propres fichiers. Les deux qui tiennent tiennent par les données, pas par le code : le produit de Roon, ce sont les métadonnées — crédits, filiations de groupes, chroniques — que personne ne concède en open source, et celui de Channels, un guide des programmes régional, là où les collecteurs XMLTV libres vont de l'excellent au cassé selon l'endroit où vous vivez."
+		}
 	},
 	{
 		"slug": "digital-signage",
