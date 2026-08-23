@@ -1125,12 +1125,37 @@ const PAGE_PARAMS = [
 	param("offset", "Rows to skip.", { type: "integer", default: 0 }),
 ];
 
-const okJson = (description: string) => ({
-	"200": { description, content: { "application/json": {} } },
+const ref = (name: string) => ({ $ref: `#/components/schemas/${name}` });
+
+/**
+ * Every response this API can produce, named.
+ *
+ * The 429 is the one a client MUST handle — 60 requests a minute is the only
+ * rule here that will actually stop a caller — so it is attached to every route
+ * rather than mentioned in prose. The 404 is attached only where a path
+ * parameter can miss; a list route has nothing to not-find.
+ */
+const RATE_LIMITED = {
+	description: `Rate limited. ${RATE_MAX} requests per minute per IP. Read RateLimit-Reset and wait, or take /dump.json instead.`,
+	content: { "application/json": { schema: ref("RateLimitError") } },
+};
+
+const NOT_FOUND = {
+	description: "No record with that slug.",
+	content: { "application/json": { schema: ref("NotFoundError") } },
+};
+
+const okJson = (description: string, schema: string) => ({
+	"200": {
+		description,
+		content: { "application/json": { schema: ref(schema) } },
+	},
+	"429": RATE_LIMITED,
 });
 
 const op = (
 	summary: string,
+	schema: string,
 	parameters: unknown[] = [],
 	description?: string,
 ) => ({
@@ -1138,9 +1163,752 @@ const op = (
 		summary,
 		description,
 		parameters: [LANG_PARAM, ...parameters],
-		responses: okJson(summary),
+		responses: okJson(summary, schema),
 	},
 });
+
+/** A GET on a `{slug}` path: the same as `op`, plus the 404 it can answer with. */
+const item = (
+	summary: string,
+	schema: string,
+	slugSchema: Record<string, unknown> = { type: "string" },
+	parameters: unknown[] = [],
+	description?: string,
+) => ({
+	get: {
+		summary,
+		description,
+		parameters: [
+			{ name: "slug", in: "path", required: true, schema: slugSchema },
+			LANG_PARAM,
+			...parameters,
+		],
+		responses: { ...okJson(summary, schema), "404": NOT_FOUND },
+	},
+});
+
+/* ------------------------------------------------------------------ */
+/* Schemas                                                             */
+/*                                                                     */
+/* Written against the shape functions above, field for field. The rule */
+/* that matters to a caller: `null` means nobody established the fact,  */
+/* never zero and never false, so nearly everything here is nullable.   */
+/* ------------------------------------------------------------------ */
+
+const str = { type: "string" } as const;
+const nullableStr = { type: ["string", "null"] };
+const nullableNum = { type: ["number", "null"] };
+const nullableBool = { type: ["boolean", "null"] };
+
+/** `{ total, limit, offset, ...extra, results, license }`, the envelope every list route returns. */
+const paged = (
+	itemSchema: Record<string, unknown>,
+	extra: Record<string, unknown> = {},
+	extraRequired: string[] = [],
+) => ({
+	type: "object",
+	properties: {
+		total: { type: "integer", description: "Rows before paging." },
+		limit: { type: "integer" },
+		offset: { type: "integer" },
+		...extra,
+		results: { type: "array", items: itemSchema },
+		license: { ...str, description: LICENSE },
+	},
+	required: [
+		"total",
+		"limit",
+		"offset",
+		"results",
+		"license",
+		...extraRequired,
+	],
+});
+
+const SCHEMAS: Record<string, unknown> = {
+	RateLimitError: {
+		type: "object",
+		properties: {
+			error: { const: "rate limited" },
+			limit: str,
+			hint: str,
+			docs: { ...str, format: "uri" },
+		},
+		required: ["error", "limit", "docs"],
+	},
+
+	NotFoundError: {
+		type: "object",
+		properties: {
+			error: { ...str, description: "e.g. `no such product`." },
+			slug: { ...str, description: "The slug that was asked for." },
+			search: {
+				...str,
+				format: "uri",
+				description: "Where to look it up instead. Present on record routes.",
+			},
+			index: {
+				...str,
+				format: "uri",
+				description: "The index to browse instead. Present on index routes.",
+			},
+			known: {
+				type: "array",
+				items: str,
+				description: "The legal values, on the closed-vocabulary routes.",
+			},
+		},
+		required: ["error", "slug"],
+	},
+
+	Pricing: {
+		type: "object",
+		description:
+			"The receipt for the price. Quote `checked_on` and `url` together or do not quote the price.",
+		properties: {
+			plan: { ...str, description: "The plan the figure was read off." },
+			basis: {
+				...str,
+				description: "What the price is per, e.g. `per-seat`.",
+			},
+			url: {
+				...str,
+				format: "uri",
+				description: "The vendor page it was read on.",
+			},
+			checked_on: {
+				...str,
+				format: "date",
+				description: "The day a human read it.",
+			},
+			confidence: { type: "string", enum: ["high", "medium", "low"] },
+		},
+		required: ["plan", "url", "checked_on"],
+	},
+
+	CheaperAlternative: {
+		type: "object",
+		description:
+			"Somebody else's paid product. It has a vendor page, not a page here.",
+		properties: {
+			kind: { const: "cheaper" },
+			name: str,
+			homepage: { ...str, format: "uri" },
+			price_monthly: nullableNum,
+			price_once: nullableNum,
+			note: nullableStr,
+		},
+		required: ["kind", "name", "homepage"],
+	},
+
+	OssAlternative: {
+		type: "object",
+		description: "One open source replacement, as cited by one paid product.",
+		properties: {
+			kind: { const: "oss" },
+			slug: str,
+			name: str,
+			license: {
+				...str,
+				description: "SPDX-ish, as authored. e.g. `AGPL-3.0`.",
+			},
+			foss: {
+				type: "string",
+				enum: ["foss", "source-available", "not-foss"],
+				description: "The licence string classified.",
+			},
+			effort: { type: "string", enum: ["managed", "docker", "ops"] },
+			openness: {
+				type: "string",
+				enum: [
+					"hosted-only",
+					"source-available",
+					"open-core",
+					"mostly-open",
+					"fully-open",
+				],
+			},
+			self_hostable: nullableBool,
+			open_core: {
+				type: ["string", "null"],
+				enum: ["none", "minor", "major", null],
+			},
+			paywalled: {
+				...nullableStr,
+				description: "What exactly the free build withholds.",
+			},
+			sso_in_free: {
+				...nullableBool,
+				description: "The SSO tax. `null` is unknown, not no.",
+			},
+			data_residency: nullableStr,
+			has_compose: nullableBool,
+			archived: {
+				type: "boolean",
+				description: "The forge's reading wins over ours.",
+			},
+			language: nullableStr,
+			last_push: { ...nullableStr, format: "date" },
+			repo: { ...str, format: "uri" },
+			forge: {
+				...str,
+				description: "Host of the repository, e.g. `github.com`.",
+			},
+			note: nullableStr,
+			switched_to: {
+				type: "integer",
+				description:
+					"Self-reported switches. Thin: order on it, never quote it.",
+			},
+			url: { ...str, format: "uri", description: "The page. Link this." },
+			api: { ...str, format: "uri" },
+		},
+		required: ["kind", "slug", "name", "license", "effort", "url", "api"],
+	},
+
+	Alternative: {
+		description:
+			"An open source project, or somebody else's cheaper paid product.",
+		oneOf: [ref("OssAlternative"), ref("CheaperAlternative")],
+	},
+
+	Product: {
+		type: "object",
+		description: "A paid product, as a row.",
+		properties: {
+			slug: str,
+			name: str,
+			domain: nullableStr,
+			category: str,
+			category_url: { ...str, format: "uri" },
+			verdict: {
+				type: "string",
+				enum: ["yes", "almost", "not-yet"],
+				description: "Is a credible replacement here yet.",
+			},
+			rung: {
+				type: "string",
+				enum: ["locked-in", "partial", "self-hostable", "drop-in"],
+				description:
+					"How far up the exit ladder this product's best exit gets.",
+			},
+			price_monthly: {
+				...nullableNum,
+				description: "USD per month. `null` needs `not_public` to read.",
+			},
+			not_public: {
+				type: "boolean",
+				description:
+					"true means somebody checked and the vendor publishes nothing. false with a null price means nobody has checked. Different answers.",
+			},
+			pricing: { oneOf: [ref("Pricing"), { type: "null" }] },
+			alternatives_count: { type: "integer" },
+			oss_count: { type: "integer" },
+			best_openness: nullableStr,
+			easiest_effort: {
+				type: ["string", "null"],
+				enum: ["managed", "docker", "ops", null],
+			},
+			switched_count: { type: "integer" },
+			url: { ...str, format: "uri", description: "The page. Link this." },
+			api: { ...str, format: "uri" },
+		},
+		required: [
+			"slug",
+			"name",
+			"category",
+			"verdict",
+			"not_public",
+			"url",
+			"api",
+		],
+	},
+
+	ProductDetail: {
+		type: "object",
+		description: "One paid product, with everything the page renders.",
+		allOf: [
+			ref("Product"),
+			{
+				type: "object",
+				properties: {
+					priority: { type: ["integer", "null"] },
+					why: { ...nullableStr, description: "The one-paragraph argument." },
+					what_you_lose: { type: "array", items: str },
+					features: {
+						...ref("FeatureAnswers"),
+						description:
+							"Sparse. An absent key means nobody checked, never no.",
+					},
+					feature_tiers: {
+						type: ["object", "null"],
+						additionalProperties: str,
+						description:
+							"Which plan gates a paid feature. Sparser still: a missing tier means unknown, never included in the free plan.",
+					},
+					alternatives: { type: "array", items: ref("Alternative") },
+					license: str,
+				},
+			},
+		],
+	},
+
+	Project: {
+		type: "object",
+		description: "One replacement, derived from every product that cites it.",
+		properties: {
+			slug: str,
+			name: str,
+			license: str,
+			foss: { type: "string", enum: ["foss", "source-available", "not-foss"] },
+			effort: { type: "string", enum: ["managed", "docker", "ops"] },
+			openness: {
+				type: "string",
+				enum: [
+					"hosted-only",
+					"source-available",
+					"open-core",
+					"mostly-open",
+					"fully-open",
+				],
+			},
+			self_hostable: nullableBool,
+			open_core: {
+				type: ["string", "null"],
+				enum: ["none", "minor", "major", null],
+			},
+			sso_in_free: nullableBool,
+			data_residency: nullableStr,
+			facts_vary: {
+				type: "array",
+				items: str,
+				description:
+					"Fields the citing products disagree about. Do not state these as settled; read the product records.",
+			},
+			foss_vary: { type: "boolean" },
+			has_compose: nullableBool,
+			archived: { type: "boolean" },
+			language: nullableStr,
+			last_push: { ...nullableStr, format: "date" },
+			homepage: { ...nullableStr, format: "uri" },
+			repo: { ...str, format: "uri" },
+			forge: str,
+			replaces_count: { type: "integer" },
+			switched_to: { type: "integer" },
+			url: { ...str, format: "uri", description: "The page. Link this." },
+			api: { ...str, format: "uri" },
+		},
+		required: ["slug", "name", "license", "effort", "archived", "url", "api"],
+	},
+
+	ProjectDetail: {
+		type: "object",
+		allOf: [
+			ref("Project"),
+			{
+				type: "object",
+				properties: {
+					features: ref("FeatureAnswers"),
+					paywalled: nullableStr,
+					replaces: {
+						type: "array",
+						items: {
+							type: "object",
+							properties: {
+								slug: str,
+								name: str,
+								note: nullableStr,
+								url: { ...str, format: "uri" },
+								api: { ...str, format: "uri" },
+							},
+							required: ["slug", "name", "url", "api"],
+						},
+					},
+					license: str,
+				},
+			},
+		],
+	},
+
+	FeatureAnswers: {
+		type: ["object", "null"],
+		additionalProperties: { type: "string", enum: ["yes", "no", "paid"] },
+		description:
+			"Feature key to answer. Sparse: an absent key means nobody checked, never that the answer is no.",
+	},
+
+	Category: {
+		type: "object",
+		properties: {
+			slug: str,
+			name: { ...str, description: "In the requested locale." },
+			group: { type: "string", enum: CATEGORY_GROUPS },
+			icon: nullableStr,
+			position: { type: "integer" },
+			products_count: { type: "integer" },
+			url: { ...str, format: "uri" },
+			api: { ...str, format: "uri" },
+		},
+		required: ["slug", "name", "group", "products_count", "url", "api"],
+	},
+
+	Group: {
+		type: "object",
+		description:
+			"One of the ten themes. It carries no display name: those live in the web app's dictionary, and a second set here would drift.",
+		properties: {
+			slug: { type: "string", enum: CATEGORY_GROUPS },
+			categories_count: { type: "integer" },
+			products_count: { type: "integer" },
+			url: { ...str, format: "uri" },
+			api: { ...str, format: "uri" },
+		},
+		required: ["slug", "categories_count", "products_count", "url", "api"],
+	},
+
+	Collection: {
+		type: "object",
+		description: "A query over the catalogue, never a hand-kept list.",
+		properties: {
+			slug: { type: "string", enum: COLLECTIONS.map((c) => c.slug) },
+			of: { type: "string", enum: ["product", "project"] },
+			count: { type: "integer" },
+			unresolved_count: {
+				type: "integer",
+				description:
+					"Projects whose own citations disagree on the field this collection is built from.",
+			},
+			url: { ...str, format: "uri" },
+			api: { ...str, format: "uri" },
+		},
+		required: ["slug", "of", "count", "url", "api"],
+	},
+
+	ProjectRef: {
+		type: "object",
+		properties: {
+			slug: str,
+			name: str,
+			url: { ...str, format: "uri" },
+			api: { ...str, format: "uri" },
+		},
+		required: ["slug", "name", "url", "api"],
+	},
+
+	Discovery: {
+		type: "object",
+		description: "Everything a caller needs to use the rest without guessing.",
+		properties: {
+			name: { const: "canireplaceit" },
+			description: str,
+			site: { ...str, format: "uri" },
+			skill: { ...str, format: "uri" },
+			openapi: { ...str, format: "uri" },
+			languages: {
+				type: "array",
+				items: { type: "string", enum: ["en", "fr"] },
+			},
+			rate_limit: {
+				type: "object",
+				properties: {
+					requests: { type: "integer" },
+					window_seconds: { type: "integer" },
+					per: { const: "ip" },
+					headers: str,
+					bulk: { ...str, format: "uri" },
+				},
+			},
+			counts: { type: "object", additionalProperties: { type: "integer" } },
+			routes: {
+				type: "object",
+				additionalProperties: { ...str, format: "uri" },
+			},
+			vocabulary: {
+				type: "object",
+				description:
+					"What the words mean here. The same set /en/glossary defines.",
+			},
+			license: str,
+			cite: str,
+		},
+		required: ["name", "site", "routes", "license"],
+	},
+
+	SearchResults: paged(
+		{
+			description:
+				"A product or a project, told apart by `type`. Both are shipped from one route because 'what replaces Notion' and 'what does AppFlowy replace' are the same question from two ends.",
+			oneOf: [
+				{
+					allOf: [
+						{ type: "object", properties: { type: { const: "product" } } },
+						ref("Product"),
+					],
+				},
+				{
+					allOf: [
+						{ type: "object", properties: { type: { const: "project" } } },
+						ref("Project"),
+					],
+				},
+			],
+		},
+		{
+			query: {
+				type: "object",
+				description:
+					"Every filter as it was actually parsed, including the ones you did not send.",
+			},
+			matched: {
+				type: "object",
+				properties: {
+					products: { type: "integer" },
+					projects: { type: "integer" },
+				},
+			},
+		},
+		["query", "matched"],
+	),
+
+	ProductList: paged(ref("Product")),
+	ProjectList: paged(ref("Project")),
+	CategoryList: paged(ref("Category")),
+
+	CategoryDetail: {
+		type: "object",
+		description: "One category, with the products in it as a paged envelope.",
+		allOf: [
+			ref("Category"),
+			{
+				type: "object",
+				properties: { group_api: { ...str, format: "uri" } },
+			},
+			paged(ref("Product")),
+		],
+	},
+
+	GroupList: {
+		type: "object",
+		properties: {
+			total: { type: "integer" },
+			results: { type: "array", items: ref("Group") },
+			license: str,
+		},
+		required: ["total", "results", "license"],
+	},
+
+	GroupDetail: {
+		type: "object",
+		allOf: [
+			ref("Group"),
+			{
+				type: "object",
+				properties: {
+					categories: { type: "array", items: ref("Category") },
+					license: str,
+				},
+				required: ["categories"],
+			},
+		],
+	},
+
+	CollectionList: {
+		type: "object",
+		properties: {
+			total: { type: "integer" },
+			note: str,
+			results: { type: "array", items: ref("Collection") },
+			license: str,
+		},
+		required: ["total", "results", "license"],
+	},
+
+	CollectionDetail: {
+		type: "object",
+		allOf: [
+			{
+				type: "object",
+				properties: {
+					slug: str,
+					of: { type: "string", enum: ["product", "project"] },
+					url: { ...str, format: "uri" },
+				},
+				required: ["slug", "of", "url"],
+			},
+			paged(
+				{
+					description: "Products or projects, depending on `of`.",
+					oneOf: [ref("Product"), ref("Project")],
+				},
+				{
+					unresolved: {
+						type: "array",
+						items: ref("ProjectRef"),
+						description:
+							"Named rather than dropped: dropping them would assert a consensus nobody established.",
+					},
+				},
+				["unresolved"],
+			),
+		],
+	},
+
+	Gaps: {
+		type: "object",
+		description: "The catalogue arguing against itself.",
+		allOf: [
+			{
+				type: "object",
+				properties: {
+					note: str,
+					url: { ...str, format: "uri" },
+				},
+				required: ["note", "url"],
+			},
+			paged(ref("Product")),
+		],
+	},
+
+	Features: {
+		type: "object",
+		description:
+			"The feature vocabulary. The per-record answers ride on each product and project.",
+		properties: {
+			taxonomy_version: { type: "integer" },
+			url: { ...str, format: "uri" },
+			note: str,
+			covered: {
+				type: "object",
+				properties: {
+					products: { type: "integer" },
+					projects: { type: "integer" },
+				},
+			},
+			domains: {
+				type: "array",
+				items: {
+					type: "object",
+					properties: {
+						key: str,
+						kind: str,
+						name: str,
+						features: {
+							type: "array",
+							items: {
+								type: "object",
+								properties: { key: str, name: str },
+								required: ["key", "name"],
+							},
+						},
+					},
+					required: ["key", "name", "features"],
+				},
+			},
+			license: str,
+		},
+		required: ["taxonomy_version", "domains", "license"],
+	},
+
+	Stats: {
+		type: "object",
+		description:
+			"The corpus in numbers. `gaps` of `products` is the sentence worth quoting; `health_fetched_at` dates the repo sweep behind `last_push` and `archived`.",
+		properties: {
+			products: { type: "integer" },
+			projects: { type: "integer" },
+			categories: { type: "integer" },
+			groups: { type: "integer" },
+			collections: { type: "integer" },
+			alternatives: { type: "integer" },
+			oss_alternatives: { type: "integer" },
+			gaps: {
+				type: "integer",
+				description: "Products with no credible open source replacement.",
+			},
+			priced_products: {
+				type: "integer",
+				description:
+					"Products with a price on record. The rest are unchecked or not public.",
+			},
+			tracked_monthly_usd: { type: "integer" },
+			switches: { type: "integer" },
+			switches_to_projects: { type: "integer" },
+			health_fetched_at: { ...nullableStr, format: "date-time" },
+			license: str,
+		},
+		required: ["products", "projects", "categories", "gaps", "license"],
+	},
+
+	Dump: {
+		type: "object",
+		description:
+			"The whole catalogue. One request instead of five hundred, cached for an hour.",
+		properties: {
+			generated_for: { type: "string", enum: ["en", "fr"] },
+			site: { ...str, format: "uri" },
+			counts: { type: "object", additionalProperties: { type: "integer" } },
+			categories: { type: "array", items: ref("Category") },
+			products: { type: "array", items: ref("ProductDetail") },
+			projects: { type: "array", items: ref("Project") },
+			license: str,
+		},
+		required: ["categories", "products", "projects", "license"],
+	},
+
+	RawProductList: {
+		type: "array",
+		description:
+			"The raw editorial records as they sit in git: camelCase, no `url` and no `api`, unpaged. Prefer /products unless you specifically want this shape.",
+		items: {
+			type: "object",
+			properties: {
+				slug: str,
+				name: str,
+				category: str,
+				verdict: { type: "string", enum: ["yes", "almost", "not-yet"] },
+				priceMonthly: nullableNum,
+				switchedCount: { type: "integer" },
+				alternatives: { type: "array", items: { type: "object" } },
+				why: { type: "object", description: "Translations, keyed by locale." },
+				whatYouLose: { type: "array", items: { type: "object" } },
+			},
+			required: ["slug", "name", "category", "verdict"],
+		},
+	},
+
+	RawProductListSlim: {
+		type: "array",
+		description:
+			"`?view=list`: the same records with `alternatives`, `why` and `whatYouLose` removed — 90% of the bytes — and two counts put back. 5.1 MB becomes 189 KB.",
+		items: {
+			type: "object",
+			properties: {
+				slug: str,
+				name: str,
+				category: str,
+				verdict: { type: "string", enum: ["yes", "almost", "not-yet"] },
+				priceMonthly: nullableNum,
+				switchedCount: { type: "integer" },
+				alternativesCount: { type: "integer" },
+				ossCount: { type: "integer" },
+			},
+			required: [
+				"slug",
+				"name",
+				"category",
+				"verdict",
+				"alternativesCount",
+				"ossCount",
+			],
+		},
+	},
+
+	OpenApiDocument: {
+		type: "object",
+		description: "This document.",
+		properties: { openapi: { const: "3.1.0" } },
+	},
+};
 
 function openapi() {
 	return {
@@ -1155,13 +1923,20 @@ function openapi() {
 				"",
 				`Rate limit: ${RATE_MAX} requests per minute per IP, reported in RateLimit-* headers. For the whole catalogue use /dump.json, which is one request.`,
 			].join("\n"),
-			license: { name: "CC-BY-4.0" },
+			// `identifier` is the 3.1 SPDX field; a generator that only knows 3.0
+			// still reads `name`.
+			license: { name: "CC-BY-4.0", identifier: "CC-BY-4.0" },
 		},
 		servers: [{ url: API }],
+		components: { schemas: SCHEMAS },
 		paths: {
-			"/": op("Discovery: routes, counts, rate limit and vocabulary."),
+			"/": op(
+				"Discovery: routes, counts, rate limit and vocabulary.",
+				"Discovery",
+			),
 			"/search": op(
 				"Search products and projects together.",
+				"SearchResults",
 				[
 					param("q", "Free text over names, categories and alternatives."),
 					param("type", "Restrict to one kind.", {
@@ -1201,7 +1976,7 @@ function openapi() {
 				],
 				"The route to start from. Project filters applied to products keep any product with at least one alternative that passes.",
 			),
-			"/products": op("The paid products.", [
+			"/products": op("The paid products.", "ProductList", [
 				param("category", "Category slug."),
 				param("verdict", "Filter by verdict.", {
 					type: "string",
@@ -1209,121 +1984,146 @@ function openapi() {
 				}),
 				...PAGE_PARAMS,
 			]),
-			"/products/{slug}": {
-				get: {
-					summary:
-						"One product: pricing with its source and check date, what you lose, every alternative, feature answers.",
-					parameters: [
-						{
-							name: "slug",
-							in: "path",
-							required: true,
-							schema: { type: "string" },
-						},
-						LANG_PARAM,
-					],
-					responses: okJson("One product."),
-				},
-			},
-			"/projects": op("The replacements, most-cited first.", [
+			"/products/{slug}": item(
+				"One product: pricing with its source and check date, what you lose, every alternative, feature answers.",
+				"ProductDetail",
+			),
+			"/projects": op("The replacements, most-cited first.", "ProjectList", [
 				param("archived", "Only dead, or only living.", { type: "boolean" }),
 				param("language", "Top language as the forge reports it."),
 				...PAGE_PARAMS,
 			]),
-			"/projects/{slug}": {
-				get: {
-					summary: "One project, including every product it can replace.",
-					parameters: [
-						{
-							name: "slug",
-							in: "path",
-							required: true,
-							schema: { type: "string" },
-						},
-						LANG_PARAM,
-					],
-					responses: okJson("One project."),
-				},
-			},
-			"/categories": op("The categories.", [
+			"/projects/{slug}": item(
+				"One project, including every product it can replace.",
+				"ProjectDetail",
+				{ type: "string" },
+				[],
+				"The pretty slug the page uses, or the forge id a vote row carries. Both resolve.",
+			),
+			"/categories": op("The categories.", "CategoryList", [
 				param("group", "Theme slug.", {
 					type: "string",
 					enum: CATEGORY_GROUPS,
 				}),
 			]),
-			"/categories/{slug}": {
-				get: {
-					summary: "One category and the products in it.",
-					parameters: [
-						{
-							name: "slug",
-							in: "path",
-							required: true,
-							schema: { type: "string" },
-						},
-						LANG_PARAM,
-						...PAGE_PARAMS,
-					],
-					responses: okJson("One category."),
-				},
-			},
-			"/groups": op("The ten themes the categories are filed under."),
-			"/groups/{slug}": {
-				get: {
-					summary: "One theme and its categories.",
-					parameters: [
-						{
-							name: "slug",
-							in: "path",
-							required: true,
-							schema: { type: "string", enum: CATEGORY_GROUPS },
-						},
-						LANG_PARAM,
-					],
-					responses: okJson("One theme."),
-				},
-			},
-			"/collections": op("Derived slices of the catalogue."),
-			"/collections/{slug}": {
-				get: {
-					summary:
-						"One collection. `archived` is the graveyard: projects that died.",
-					parameters: [
-						{
-							name: "slug",
-							in: "path",
-							required: true,
-							schema: {
-								type: "string",
-								enum: COLLECTIONS.map((c) => c.slug),
-							},
-						},
-						LANG_PARAM,
-						...PAGE_PARAMS,
-					],
-					responses: okJson("One collection."),
-				},
-			},
+			"/categories/{slug}": item(
+				"One category and the products in it.",
+				"CategoryDetail",
+				{ type: "string" },
+				PAGE_PARAMS,
+			),
+			"/groups": op(
+				"The ten themes the categories are filed under.",
+				"GroupList",
+			),
+			"/groups/{slug}": item("One theme and its categories.", "GroupDetail", {
+				type: "string",
+				enum: CATEGORY_GROUPS,
+			}),
+			"/collections": op("Derived slices of the catalogue.", "CollectionList"),
+			"/collections/{slug}": item(
+				"One collection. `archived` is the graveyard: projects that died.",
+				"CollectionDetail",
+				{ type: "string", enum: COLLECTIONS.map((c) => c.slug) },
+				PAGE_PARAMS,
+			),
 			"/gaps": op(
 				"Products with no credible replacement yet.",
+				"Gaps",
 				PAGE_PARAMS,
 				"The catalogue arguing against itself. Quote it when the honest answer is that nothing is good enough.",
 			),
-			"/features": op(
-				"The feature taxonomy. Per-record answers ride on each product and project.",
-			),
-			"/stats": op("Corpus counts and the health sweep date."),
+			"/features": {
+				get: {
+					summary:
+						"The feature taxonomy. Per-record answers ride on each product and project.",
+					parameters: [LANG_PARAM],
+					responses: {
+						...okJson("The feature taxonomy.", "Features"),
+						// The one route reading a file that is rewritten while the server
+						// runs, so it degrades rather than serving half a taxonomy.
+						"503": {
+							description: "The feature file is being regenerated. Retry.",
+							content: {
+								"application/json": {
+									schema: {
+										type: "object",
+										properties: { error: str, retry: str },
+										required: ["error"],
+									},
+								},
+							},
+						},
+					},
+				},
+			},
+			"/stats": op("Corpus counts and the health sweep date.", "Stats"),
 			"/dump.json": op(
 				"The whole catalogue in one response.",
+				"Dump",
 				[],
 				"Use this instead of paging through everything. Cached for an hour.",
 			),
-			"/feed.xml": op(
-				"Atom feed of the 50 most recently re-verified prices.",
-				[],
-				"Also reachable at https://canireplaceit.com/feed.xml.",
-			),
-			"/openapi.json": op("This document."),
+			"/feed.xml": {
+				get: {
+					summary: "Atom feed of the 50 most recently re-verified prices.",
+					description: "Also reachable at https://canireplaceit.com/feed.xml.",
+					parameters: [LANG_PARAM],
+					responses: {
+						"200": {
+							description: "An Atom 1.0 feed.",
+							content: {
+								"application/atom+xml": { schema: { type: "string" } },
+							},
+						},
+						"429": RATE_LIMITED,
+					},
+				},
+			},
+			"/openapi.json": op("This document.", "OpenApiDocument"),
+			/**
+			 * The site's own catalogue endpoint, which is not under /api/v1 — hence
+			 * the `servers` override on the path item.
+			 *
+			 * It is documented here because it is the one route that answers "give me
+			 * every product in one response with no paging and no shaping", and
+			 * because its `view=list` projection is the cheap way to read the
+			 * catalogue: /api/products is 5.1 MB raw and 1.4 MB gzipped, and
+			 * `?view=list` drops `alternatives`, `why` and `whatYouLose` — 90% of it —
+			 * for callers that only need the rows.
+			 *
+			 * Everything in this document ships shaped, snake_cased records with `url`
+			 * and `api` on them. This one does not: it is the raw editorial shape as
+			 * it sits in git. Prefer /products above unless you specifically want
+			 * that.
+			 */
+			"/api/products": {
+				servers: [{ url: SITE }],
+				get: {
+					summary: "Every product, unshaped and unpaged.",
+					description:
+						"The raw catalogue as authored. `view=list` returns the same records without `alternatives`, `why` and `whatYouLose`, plus `alternativesCount` and `ossCount`.",
+					parameters: [
+						param("view", "`list` for the slim list projection.", {
+							type: "string",
+							enum: ["list"],
+						}),
+					],
+					responses: {
+						"200": {
+							description:
+								"Every product. `RawProductListSlim` when `view=list`, `RawProductList` otherwise.",
+							content: {
+								"application/json": {
+									schema: {
+										oneOf: [ref("RawProductList"), ref("RawProductListSlim")],
+									},
+								},
+							},
+						},
+					},
+				},
+			},
 		},
 	};
 }
