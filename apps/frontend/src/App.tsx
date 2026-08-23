@@ -19,7 +19,6 @@ import { isLang, type Lang } from "core/src/index";
 import {
 	alternateUrls,
 	buildProjectSlugs,
-	LEGAL_DOCS,
 	parseRoute,
 	paths,
 	type Route,
