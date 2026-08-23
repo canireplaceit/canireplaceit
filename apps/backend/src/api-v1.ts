@@ -1007,6 +1007,11 @@ export const publicApi = new Elysia({ prefix: "/api/v1" })
 			),
 			switches: sum(switched),
 			switches_to_projects: sum(switchedTo),
+			// Sparse on purpose: only slugs with a counted vote, which is a few
+			// dozen keys rather than 592 + 3,479 zeroes. The prerender reads these
+			// so a CI build with no database still bakes the real numbers in.
+			switched_by_product: Object.fromEntries(switched),
+			switched_by_project: Object.fromEntries(switchedTo),
 			health_fetched_at: healthFile()?.fetchedAt ?? null,
 			license: LICENSE,
 		};
@@ -1833,6 +1838,18 @@ const SCHEMAS: Record<string, unknown> = {
 			tracked_monthly_usd: { type: "integer" },
 			switches: { type: "integer" },
 			switches_to_projects: { type: "integer" },
+			switched_by_product: {
+				type: "object",
+				additionalProperties: { type: "integer" },
+				description:
+					"Counted votes per product slug. Sparse: a slug with no votes is absent, not zero.",
+			},
+			switched_by_project: {
+				type: "object",
+				additionalProperties: { type: "integer" },
+				description:
+					"Counted votes per project slug: how many people switched to it. Sparse.",
+			},
 			health_fetched_at: { ...nullableStr, format: "date-time" },
 			license: str,
 		},

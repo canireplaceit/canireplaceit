@@ -202,23 +202,70 @@ const newest = (slugs: string[]) =>
  * Live counts, baked into the HTML.
  *
  * Pages are regenerated on every vote, so the number a crawler sees and the
- * number a reader sees on first paint are the same one. The DB is optional: a
- * fresh clone or a CI run with no database still builds, just with zeroes.
+ * number a reader sees on first paint are the same one.
  *
- * Read directly rather than through the API so a build never needs the server
- * running. Must stay in step with `counted()` in apps/backend/src/index.ts.
+ * The database is read directly when it is here, because that is exact and
+ * needs no server running. It is only here for a local build: release images
+ * come out of CI, where the file does not exist, so that path falls back to the
+ * live API and zeroes are the last resort rather than the normal case.
+ * Must stay in step with `counted()` in apps/backend/src/index.ts.
  */
 const TRUST_THRESHOLD = 0.5;
 const DB_PATH = process.env.DATABASE_URL ?? join(ROOT, "data/canireplaceit.db");
 
-function loadCounts(): {
+type Counts = {
 	products: Map<string, number>;
 	projects: Map<string, number>;
 	total: number;
-} {
-	const empty = { products: new Map(), projects: new Map(), total: 0 };
-	// No file yet is the normal case on a fresh clone and in CI, not an error.
-	if (!existsSync(DB_PATH)) return empty;
+};
+
+const emptyCounts = (): Counts => ({
+	products: new Map(),
+	projects: new Map(),
+	total: 0,
+});
+
+/**
+ * The live site, asked for the tallies when the database is not on this box.
+ *
+ * Release images are built in CI from a fresh checkout and the database lives
+ * on the server, so `DB_PATH` never exists in a real build. Reading zeroes there
+ * is not the harmless fallback the comment above assumed: `/counts.json` ships
+ * empty, all 592 product pages claim nobody switched, and the home page
+ * prerenders a three-column stat grid that grows a fourth column the instant it
+ * hydrates, which is a layout shift on the most-linked page on the site.
+ *
+ * Best effort by design. A build must never fail because the site is down.
+ */
+async function fetchCounts(): Promise<Counts> {
+	try {
+		const res = await fetch(`${SITE}/api/v1/stats`, {
+			signal: AbortSignal.timeout(10_000),
+		});
+		if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+		const body = (await res.json()) as {
+			switches?: number;
+			switched_by_product?: Record<string, number>;
+			switched_by_project?: Record<string, number>;
+		};
+		const products = new Map(Object.entries(body.switched_by_product ?? {}));
+		const projects = new Map(Object.entries(body.switched_by_project ?? {}));
+		const total =
+			body.switches ?? [...products.values()].reduce((a, b) => a + b, 0);
+		console.log(
+			`  counts from ${SITE}: ${total} switches, ${products.size} products`,
+		);
+		return { products, projects, total };
+	} catch (e) {
+		console.warn(`  ! no counts baked in: ${(e as Error).message}`);
+		return emptyCounts();
+	}
+}
+
+async function loadCounts(): Promise<Counts> {
+	// No file is the normal case in CI and on a fresh clone, so ask the live
+	// site instead of baking zeroes.
+	if (!existsSync(DB_PATH)) return fetchCounts();
 
 	try {
 		// `create: false` so a typo in DATABASE_URL fails loudly rather than
@@ -249,12 +296,14 @@ function loadCounts(): {
 		}
 		return { products, projects, total: rows.length };
 	} catch (e) {
-		console.warn(`  ! no counts baked in: ${(e as Error).message}`);
-		return empty;
+		console.warn(
+			`  ! local db unreadable (${(e as Error).message}), asking ${SITE}`,
+		);
+		return fetchCounts();
 	}
 }
 
-const counts = loadCounts();
+const counts = await loadCounts();
 
 /**
  * The three headline figures on the home page, baked in.
