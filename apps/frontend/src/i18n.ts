@@ -292,6 +292,10 @@ export const dict = {
 		"hero.sponsorsCta": "Sponsor this project →",
 
 		"home.pagedTitle": "Every product we have reviewed, page {n}",
+		/* Appended to a paginated heading so ten sibling pages are not ten
+		   identically-headed documents. The home route already did this with its
+		   own key; the project index and the collections did not. */
+		"page.headingSuffix": ", page {n}",
 		// Page 2+ of a collection, for the <title> only. The long title phrase plus
 		// "— page 42" runs past 60 characters on the big collections, and cutting
 		// the phrase to make room is what made 63 of these pages byte-identical.
@@ -1315,6 +1319,7 @@ export const dict = {
 		"hero.sponsorsCta": "Soutenir ce projet →",
 
 		"home.pagedTitle": "Tous les produits évalués, page {n}",
+		"page.headingSuffix": ", page {n}",
 		"collection.pagedTitle": "{name} — page {page} du catalogue open source",
 
 		"page.pagination": "Pagination",

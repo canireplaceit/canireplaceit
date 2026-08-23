@@ -2102,7 +2102,12 @@ export function ProjectsIndexPage({
 			measure={MEASURE}
 			trail={[homeCrumb(ctx), { label: t("page.projects") }]}
 			eyebrow={t("nav.projects")}
-			title={t("projects.title")}
+			title={
+				current > 1
+					? t("projects.title") +
+						t("page.headingSuffix").replace("{n}", String(current))
+					: t("projects.title")
+			}
 			lede={t("projects.blurb")}
 			meta={
 				<p className="nums text-muted text-sm">
@@ -2549,7 +2554,12 @@ export function CollectionPage({
 			// The short word moves up to the eyebrow and the title phrase becomes
 			// the heading — same reason as the category and theme pages.
 			eyebrow={title}
-			title={collectionHeading(slug, lang, total) ?? title}
+			title={
+				(collectionHeading(slug, lang, total) ?? title) +
+				(current > 1
+					? t("page.headingSuffix").replace("{n}", String(current))
+					: "")
+			}
 			lede={t(`collection.${slug}.blurb` as Key)}
 			meta={
 				// How the membership is derived, in one line, on the page itself. A
