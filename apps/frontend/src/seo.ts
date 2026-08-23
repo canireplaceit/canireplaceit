@@ -1154,17 +1154,77 @@ export function projectMeta(
 	const listed = (k: number): string => {
 		const shown = replaces.slice(0, k);
 		const rest = replaces.length - shown.length;
-		const more =
+		// `listOf` puts "and" before the last name, so with a remainder the list
+		// read "Evernote, Obsidian Sync and Bear and 7 more". When something
+		// follows, the shown names are plain commas and the "and" belongs to it.
+		const names =
 			rest > 0
-				? lang === "fr"
-					? ` et ${rest} autre${rest > 1 ? "s" : ""}`
-					: ` and ${rest} more`
-				: "";
+				? `${shown.join(", ")}${
+						lang === "fr"
+							? ` et ${rest} autre${rest > 1 ? "s" : ""}`
+							: ` and ${rest} more`
+					}`
+				: listOf(shown, lang);
 		return lang === "fr"
-			? `${project.name} (${project.license}) remplace ${replaces.length} produit${replaces.length > 1 ? "s" : ""} payant${replaces.length > 1 ? "s" : ""} : ${listOf(shown, lang)}${more}.`
-			: `${project.name} (${project.license}) replaces ${replaces.length} paid product${replaces.length > 1 ? "s" : ""}: ${listOf(shown, lang)}${more}.`;
+			? `${project.name} (${project.license}) remplace ${replaces.length} produit${replaces.length > 1 ? "s" : ""} payant${replaces.length > 1 ? "s" : ""} : ${names}.`
+			: `${project.name} (${project.license}) replaces ${replaces.length} paid product${replaces.length > 1 ? "s" : ""}: ${names}.`;
 	};
-	const description = fit([listed(3), listed(2), listed(1)], 155);
+	/**
+	 * What it costs to run, when the citations agree on it.
+	 *
+	 * `listed()` alone spent a median of 60 characters of a 155-character budget,
+	 * because most projects replace exactly one product and there is nothing more
+	 * to list. Only 7 of 3,479 project descriptions reached the useful band. This
+	 * is the one extra fact a searcher deciding between two projects wants, and
+	 * it is already on the record.
+	 *
+	 * `factsVary` is honoured: a project cited against five products carries five
+	 * opinions of its open-core state, and printing one as "the" fact would be
+	 * inventing a consensus. Absent rather than guessed.
+	 */
+	const running = (): string => {
+		const parts: string[] = [];
+		if (
+			!project.factsVary.includes("openCore") &&
+			project.facts.openCore === "none"
+		) {
+			parts.push(
+				lang === "fr"
+					? "Rien n'est réservé à une offre payante"
+					: "Nothing is held back for a paid tier",
+			);
+		}
+		const effort =
+			lang === "fr"
+				? {
+						managed: "une offre hébergée existe",
+						docker: "un docker compose suffit",
+						ops: "il faut de vraies opérations",
+					}[project.effort]
+				: {
+						managed: "a hosted option exists",
+						docker: "one docker compose runs it",
+						ops: "it takes real ops work",
+					}[project.effort];
+		parts.push(effort);
+		const joined =
+			parts.length === 2
+				? `${parts[0]}${lang === "fr" ? ", et " : ", and "}${parts[1]}`
+				: parts[0];
+		return ` ${joined.charAt(0).toUpperCase()}${joined.slice(1)}.`;
+	};
+	const tail = running();
+	const description = fit(
+		[
+			listed(3) + tail,
+			listed(2) + tail,
+			listed(1) + tail,
+			listed(3),
+			listed(2),
+			listed(1),
+		],
+		155,
+	);
 
 	const url = paths.project(lang, slug);
 	const sameAs = [project.source.url, opts?.homepage].filter(
