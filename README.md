@@ -6,7 +6,7 @@ Every entry answers one question honestly: **is the open source option actually 
 yet, and what does switching really cost?** Each product also carries a cheaper-but-still-paid
 escape route, for people who want off the expensive thing without running a server.
 
-493 products · 84 categories · 1,701 alternatives · English and French.
+592 products · 85 categories · 6,723 alternatives · 3,479 open source projects · English and French.
 
 ## How it works
 
