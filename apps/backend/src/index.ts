@@ -542,12 +542,35 @@ const app = new Elysia()
 		}));
 	})
 
-	/** The whole list, straight from git plus live vote counts — filtering and search happen client-side since the payload is small. */
-	.get("/api/products", async () => {
+	/**
+	 * The whole list, straight from git plus live vote counts.
+	 *
+	 * Two shapes. The default is every field of every record, which is what the
+	 * site's own pages, `dump.json` and any third party reading the catalogue
+	 * expect, and it is 5.1 MB raw / 1.4 MB gzipped because `alternatives` — 6,723
+	 * of them across 592 products, each carrying bilingual prose — is 90% of it.
+	 *
+	 * `?view=list` is the projection a LIST needs: the same records with
+	 * `alternatives`, `why` and `whatYouLose` taken out and two counts put back,
+	 * so a caller that renders rows does not download the argument for every one
+	 * of them. Same route, same order, same field names for everything it keeps —
+	 * a caller can move between the two without relearning the shape.
+	 */
+	.get("/api/products", async ({ query }) => {
 		const [votes, byProject] = await Promise.all([
 			voteCounts(),
 			projectCounts(),
 		]);
+		if ((query as { view?: string }).view === "list") {
+			return content.products.map(
+				({ alternatives, why: _why, whatYouLose: _lose, ...rest }) => ({
+					...rest,
+					switchedCount: votes.get(rest.slug) ?? 0,
+					alternativesCount: alternatives.length,
+					ossCount: alternatives.filter((a) => a.kind === "oss").length,
+				}),
+			);
+		}
 		return content.products.map((p) => ({
 			...p,
 			switchedCount: votes.get(p.slug) ?? 0,
