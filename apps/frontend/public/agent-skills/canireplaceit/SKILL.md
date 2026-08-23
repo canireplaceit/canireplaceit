@@ -92,8 +92,10 @@ Notion because Notion itself is not self-hostable.
 | `/dump.json` | the whole catalogue in one response |
 | `/openapi.json` | the full contract |
 
-Any page also has a Markdown twin. Append `.md` to a page URL to read it
-without the HTML.
+Most pages also have a Markdown twin: append `.md` to a page URL to read it
+without the HTML. A page that has one says so in its own head, with a
+`<link rel="alternate" type="text/markdown">` tag. The standing pages that
+render live figures or static legal copy have none, so do not assume.
 
 ## Reading a record
 
