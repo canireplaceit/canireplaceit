@@ -30,7 +30,6 @@ import {
 	mkdirSync,
 	readdirSync,
 	readFileSync,
-	statSync,
 	writeFileSync,
 } from "node:fs";
 import { dirname, join } from "node:path";
@@ -184,20 +183,69 @@ const shell = readFileSync(SHELL_PATH, "utf8");
 /**
  * When the page last actually changed. Google uses <lastmod>; it ignores
  * <priority> entirely, which is why that is gone.
+ *
+ * A price check dates the page it is printed on. Everything else is dated by
+ * git, never by the file system: `apps/frontend/Dockerfile` does `COPY . .`
+ * from a fresh CI checkout, so every mtime in the image is the checkout time,
+ * and stamping that told Google the 203 products with no price check had all
+ * changed on the morning of every deploy. A sitemap that cries wolf on every
+ * build is one a crawler learns to stop reading, and it costs us the one signal
+ * that is genuinely ours to give. One pass over the history is enough: `git
+ * log` lists the newest commit first, so the first mention of a path is the
+ * last time that path changed.
  */
-const iso = (d: Date) => d.toISOString().slice(0, 10);
+const CATALOGUE_SEEDED = "2026-08-02";
+const committedAt = ((): Map<string, string> => {
+	const map = new Map<string, string>();
+	try {
+		const log = Bun.spawnSync(["git", "log", "--format=%cI", "--name-only"], {
+			cwd: ROOT,
+			stderr: "ignore",
+		});
+		let day = CATALOGUE_SEEDED;
+		for (const line of log.stdout.toString().split("\n")) {
+			if (!line) continue;
+			if (/^\d{4}-\d{2}-\d{2}T/.test(line)) day = line.slice(0, 10);
+			else if (!map.has(line)) map.set(line, day);
+		}
+	} catch {
+		// No git binary at all. Handled below, like a shallow clone.
+	}
+	return map;
+})();
+/**
+ * A shallow clone, an export with no `.git`, or an image with no git binary:
+ * the history is simply not there to read. The answer then is one frozen date,
+ * because today's date is the exact lie this function exists to remove, and a
+ * build must not fail over a missing `.git`. CI clones with `fetch-depth: 0`,
+ * so the real build always has the real answer.
+ */
+const lastChange = (path: string) => committedAt.get(path) ?? CATALOGUE_SEEDED;
+/**
+ * The standing pages have no data file of their own: their copy is the
+ * frontend source, so the newest commit under it is when they last changed.
+ * They used to be stamped with the build clock, which said "changed today" on
+ * every deploy — the same lie as the mtimes above, just written by hand. The
+ * few that print a live count can now understate the date when only the
+ * catalogue moved, and understating is the harmless direction.
+ */
+const STANDING_CHANGED =
+	[...committedAt]
+		.filter(([path]) => path.startsWith("apps/frontend/src/"))
+		.map(([, day]) => day)
+		.sort()
+		.at(-1) ?? CATALOGUE_SEEDED;
 const changedAt = new Map<string, string>(
 	files.map((f, i) => [
 		products[i].slug,
-		products[i].pricing?.checkedOn ??
-			iso(statSync(join(DATA, "products", f)).mtime),
+		products[i].pricing?.checkedOn ?? lastChange(`data/products/${f}`),
 	]),
 );
 const newest = (slugs: string[]) =>
 	slugs
 		.map((s) => changedAt.get(s) ?? "")
 		.sort()
-		.at(-1) || iso(new Date());
+		.at(-1) || CATALOGUE_SEEDED;
 
 /**
  * Live counts, baked into the HTML.
@@ -1562,7 +1610,7 @@ for (const lang of SupportedLangs) {
 			 */
 			boot: page === "gaps" ? bootFor(gapProducts) : bootFor([]),
 			kind: "standing",
-			lastmod: iso(new Date()),
+			lastmod: STANDING_CHANGED,
 		});
 	}
 
