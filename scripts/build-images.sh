@@ -120,10 +120,19 @@ docker build -f apps/frontend/Dockerfile -t "$FE:fat" . \
 # busybox is the only thing in this image that can speak HTTP, and /usr/bin/wget
 # is a symlink to it. Slim keeps the symlink and drops the target, which leaves a
 # healthcheck that can never pass — see compose.prod.yml.
+#
+# --preserve-path, not --include-path, for the brotli modules. /usr/lib is
+# already an --include-path above and slim still wrote both .so files out at
+# zero bytes, so nginx died on startup with "Exec format error" and the site
+# would have been down for the length of a deploy. --include-bin did the same.
+# --preserve-path is the one that copies them through untouched. libbrotlienc
+# needs no flag: nginx dlopens the filter module during slim's trace, so it is
+# seen as used the normal way.
 slim_and_drop "$FE:fat" "$FE:$TAG" \
 	--include-path /etc/nginx \
 	--include-path /var/lib/nginx \
 	--include-path /var/cache/nginx \
+	--preserve-path /usr/lib/nginx/modules \
 	--include-bin /bin/busybox
 
 echo

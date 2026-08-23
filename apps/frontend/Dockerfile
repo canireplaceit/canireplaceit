@@ -1,3 +1,9 @@
+# The runtime tag is pinned to this exact patch, not the floating `1-`, because
+# an nginx dynamic module is refused by any nginx but the one it was built
+# against — "version 1026003 instead of 1029004". Bumping it means bumping the
+# base and the module source together, which is what this single ARG is for.
+ARG NGINX_VERSION=1.29.4
+
 FROM dhi.io/bun:1.3.14-dev AS build
 WORKDIR /app
 COPY . .
@@ -14,12 +20,49 @@ ENV PUBLIC_UMAMI_WEBSITE_ID=$PUBLIC_UMAMI_WEBSITE_ID
 ENV PUBLIC_UMAMI_SRC=$PUBLIC_UMAMI_SRC
 RUN if [ "$DEV_MODE" = "true" ]; then NODE_ENV=development bun run build; else bun run build; fi
 
-FROM dhi.io/nginx:1-alpine3.21 AS production
+# nginx has no brotli of its own — it is a third-party module, and the hardened
+# base ships no package manager to install one with. Alpine packages it, but for
+# its own nginx 1.26.3, so that .so will not load here either.
+#
+# Compiling it against the base's own nginx source is what keeps the hardened
+# runtime. `--with-compat` is the flag that makes a module loadable into an
+# nginx configured differently from the one it was built beside, and the base is
+# itself built with it.
+FROM alpine:3.21 AS brotli
+ARG NGINX_VERSION
+# Pinned to a commit: ngx_brotli has no usable release tag, so the alternative
+# is building whatever is on master the morning of the deploy.
+ARG NGX_BROTLI_REF=a71f9312c2deb28875acc7bacfdd5695a111aa53
+RUN apk add --no-cache brotli-dev build-base curl git linux-headers openssl-dev pcre2-dev zlib-dev
+WORKDIR /build
+RUN curl -fsSL "https://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz" | tar xz
+RUN git init ngx_brotli \
+	&& git -C ngx_brotli remote add origin https://github.com/google/ngx_brotli.git \
+	&& git -C ngx_brotli fetch --depth 1 origin "$NGX_BROTLI_REF" \
+	&& git -C ngx_brotli checkout -q FETCH_HEAD \
+	&& git -C ngx_brotli submodule update --init --recursive --depth 1
+RUN cd "nginx-${NGINX_VERSION}" \
+	&& ./configure --with-compat --add-dynamic-module=../ngx_brotli \
+	&& make -j"$(nproc)" modules
+
+FROM dhi.io/nginx:${NGINX_VERSION}-alpine3.21 AS production
+ARG NGINX_VERSION
 
 LABEL org.opencontainers.image.source=https://github.com/hadestructhor/canireplaceit
 LABEL org.opencontainers.image.description="canireplaceit frontend"
 
+COPY --from=brotli /build/nginx-${NGINX_VERSION}/objs/ngx_http_brotli_filter_module.so /usr/lib/nginx/modules/
+COPY --from=brotli /build/nginx-${NGINX_VERSION}/objs/ngx_http_brotli_static_module.so /usr/lib/nginx/modules/
+# The static module only reads .br files off disk and needs nothing. The filter
+# module is the one that compresses, and it links libbrotlienc dynamically, so
+# the encoder has to come with it — same Alpine 3.21 and same musl as the base.
+COPY --from=brotli /usr/lib/libbrotlienc.so.1 /usr/lib/libbrotlicommon.so.1 /usr/lib/
 COPY apps/frontend/front.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /app/apps/frontend/dist /usr/share/nginx/html
+
+# `load_module` is a main-context directive and conf.d/ is included inside
+# `http`, so the only place for it that does not mean replacing the base's own
+# nginx.conf is here. The image's ENTRYPOINT is already `nginx`.
+CMD ["-g", "load_module modules/ngx_http_brotli_filter_module.so; load_module modules/ngx_http_brotli_static_module.so; daemon off;"]
 
 EXPOSE 80
