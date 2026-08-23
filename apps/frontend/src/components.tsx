@@ -409,6 +409,11 @@ export function PriceBlock({
 							<span className="min-w-0 text-right">{pricing.plan}</span>
 						</p>
 					)}
+					{/* Under the receipt, never inside the price sentence: it says why
+					    this particular figure is weaker than the rest. */}
+					{pricing.note && (
+						<p className="mt-1 text-muted text-xs">{pricing.note}</p>
+					)}
 					<p className="receipt-row">
 						<span className="text-muted">{t("price.basisLabel")}</span>
 						<span className="nums">

@@ -63,6 +63,18 @@ export type PriceSource = {
 	/** ISO date, YYYY-MM-DD. */
 	checkedOn: string;
 	confidence: "high" | "medium" | "low";
+	/**
+	 * Why this reading is weaker than the others, when it is.
+	 *
+	 * Kept out of `plan` on purpose. These caveats used to be appended to the
+	 * plan name, and `plan` is rendered inside the sentence that states the
+	 * price -- so 16 products published "Gusto costs 40 USD per month (Simple,
+	 * monthly base plus per-person fee (gusto.com blocks automated fetches;
+	 * figure not read off the page))", asserting a number and withdrawing it in
+	 * the same breath. The caveat is worth publishing; it is not worth
+	 * publishing inside the claim.
+	 */
+	note?: string;
 };
 
 export const PRICE_BASIS = [

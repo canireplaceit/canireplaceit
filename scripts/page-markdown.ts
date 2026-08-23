@@ -202,10 +202,13 @@ function priceLine(product: Product, lang: Lang): string {
 			)
 		: "";
 	const plan = product.pricing ? ` (${product.pricing.plan})` : "";
+	// A separate sentence after the receipt. Inside the price sentence it read as
+	// "X costs $40 (... figure not read off the page)".
+	const priceNote = product.pricing?.note ? ` ${product.pricing.note}.` : "";
 	return t(
 		lang,
-		`${product.name} costs ${product.priceMonthly} USD per month${plan}.${checked}`,
-		`${product.name} coûte ${product.priceMonthly} USD par mois${plan}.${checked}`,
+		`${product.name} costs ${product.priceMonthly} USD per month${plan}.${checked}${priceNote}`,
+		`${product.name} coûte ${product.priceMonthly} USD par mois${plan}.${checked}${priceNote}`,
 	);
 }
 

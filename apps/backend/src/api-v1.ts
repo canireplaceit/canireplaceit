@@ -269,6 +269,7 @@ function shapeProduct(
 		pricing: product.pricing
 			? {
 					plan: product.pricing.plan,
+					note: product.pricing.note,
 					basis: product.pricing.basis,
 					url: product.pricing.url,
 					checked_on: product.pricing.checkedOn,
