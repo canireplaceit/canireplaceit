@@ -67,6 +67,7 @@ export function Link({
 	// most links are not a destination the reader is currently at.
 	"aria-current": ariaCurrent,
 	"data-current": dataCurrent,
+	rel,
 }: {
 	href: string;
 	className?: string;
@@ -74,11 +75,14 @@ export function Link({
 	title?: string;
 	"aria-current"?: "page";
 	"data-current"?: boolean;
+	/** For the few internal links that should carry no weight, e.g. sign-in. */
+	rel?: string;
 }) {
 	return (
 		<a
 			href={href}
 			title={title}
+			rel={rel}
 			aria-current={ariaCurrent}
 			data-current={dataCurrent}
 			className={className}

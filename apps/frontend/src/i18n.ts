@@ -284,6 +284,7 @@ export const dict = {
 
 		"ui.language": "Language",
 
+		"nav.products": "Products",
 		"nav.projects": "Alternatives",
 		"nav.collections": "Collections",
 
@@ -762,6 +763,7 @@ export const dict = {
 		"footer.contribute": "Contribute",
 		"footer.about": "About",
 		"footer.legal": "Legal",
+		"footer.legalAll": "All documents",
 		"footer.repo": "The repository",
 		"footer.madeWith": "Made with",
 		"footer.by": "by",
@@ -1288,6 +1290,7 @@ export const dict = {
 
 		"ui.language": "Langue",
 
+		"nav.products": "Produits",
 		"nav.projects": "Alternatives",
 		"nav.collections": "Collections",
 
@@ -1758,6 +1761,7 @@ export const dict = {
 		"footer.contribute": "Contribuer",
 		"footer.about": "À propos",
 		"footer.legal": "Informations légales",
+		"footer.legalAll": "Tous les documents",
 		"footer.repo": "Le dépôt",
 		"footer.madeWith": "Fait avec",
 		"footer.by": "par",

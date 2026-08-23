@@ -289,6 +289,14 @@ function Header({
 	 */
 	const links = [
 		{ href: paths.home(lang), label: t("nav.list"), section: "list" },
+		// The 592-product hub. It had no contextual inbound link anywhere on the
+		// site: only 592 breadcrumbs reached it, so the one page that lists every
+		// money page held 0.2% of internal weight.
+		{
+			href: paths.products(lang),
+			label: t("nav.products"),
+			section: "products",
+		},
 		{
 			href: paths.projects(lang),
 			label: t("nav.projects"),
@@ -384,8 +392,11 @@ function Header({
 				<div className="ml-auto flex shrink-0 items-center gap-2 lg:ml-0">
 					{/* An advertiser has no other way in — the dashboard URL is not
 					    something anyone guesses — so this lives on every page. */}
+					{/* `nofollow`: a login form on all 8,871 pages was taking 2.7% of
+					    the site's internal link weight and can never rank for anything. */}
 					<Link
 						href={signedIn ? paths.dashboard(lang) : paths.signin(lang)}
+						rel="nofollow"
 						className="flex max-w-[12rem] items-center gap-1.5 truncate rounded-[calc(var(--radius))] border border-border bg-surface px-2.5 py-2 text-xs transition hover:border-brand"
 						title={signedIn ?? undefined}
 						aria-label={signedIn ?? t("nav.signin")}
@@ -735,6 +746,15 @@ function Out({ href, children }: { href: string; children: React.ReactNode }) {
 // Three labelled columns, grouped by what a reader came to do, plus the
 // policy line. Every URL is built by `paths`, never a template literal — the
 // segment table is localized and a hand-written `/fr/tools/x` is a silent 404.
+/**
+ * The legal documents worth a link from all 8,871 pages.
+ *
+ * The other four (cookies, sponsorship, disclosure, licences) live on /legal,
+ * linked directly below them. A link-weight decision, not a legal one: every
+ * document is still exactly one click from every page on the site.
+ */
+const FOOTER_LEGAL_DOCS = ["terms", "privacy", "notice"] as const;
+
 function SiteFooter({ route, t }: { route: Route; t: (k: Key) => string }) {
 	const lang = route.lang;
 	const other: Lang = lang === "fr" ? "en" : "fr";
@@ -869,17 +889,24 @@ function SiteFooter({ route, t }: { route: Route; t: (k: Key) => string }) {
 							</a>
 						</li>
 					</FooterColumn>
-					{/* Required pages, so they are linked from every page rather than
-					    buried on one. LEGAL_DOCS drives the list: adding a document is
-					    one line in routes.ts and it appears here. */}
+					{/* The three a reader actually looks for, plus the index holding the
+					    rest. All seven used to be here, on all 8,871 pages: legal
+					    documents alone took 38.8% of the site's internal link weight
+					    while the 592 product pages shared 10.7%. Nothing became
+					    unreachable -- /legal lists every document and is linked here. */}
 					<FooterColumn title={t("footer.legal")}>
-						{LEGAL_DOCS.map((doc) => (
+						{FOOTER_LEGAL_DOCS.map((doc) => (
 							<li key={doc}>
 								<Link href={paths.legal(lang, doc)} className={fLink}>
 									{legalCopy(doc, lang).title}
 								</Link>
 							</li>
 						))}
+						<li>
+							<Link href={paths.legal(lang)} className={fLink}>
+								{t("footer.legalAll")}
+							</Link>
+						</li>
 					</FooterColumn>
 				</div>
 
