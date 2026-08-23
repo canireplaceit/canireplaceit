@@ -377,10 +377,11 @@ function productMarkdown(
 	);
 	const cheaper = product.alternatives.filter((a) => a.kind === "cheaper");
 
-	// The same ranking the page itself leads with — see `Ladder` in
+	// The same ranking the page itself leads with — see `VerdictSentence` in
 	// components.tsx — so the twin and the HTML never name a different winner.
+	// Editorial order, not `byExitQuality`: see the note there.
 	const live = oss.filter((a) => !isArchived(a, healthOf(a)));
-	const best = byExitQuality(live, (a) => healthOf(a))[0];
+	const best = live[0];
 	const shape = fieldLine(oss, lang);
 
 	const out: string[] = [

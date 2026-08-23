@@ -1345,10 +1345,14 @@ export function ProductFaq({
 		(a): a is OssAlternative => a.kind === "oss",
 	);
 	const live = oss.filter((a) => !isArchived(a, healthOf(a.source)));
-	const best =
-		live.length > 0
-			? byExitQuality(live, (a) => healthOf(a.source))[0]
-			: undefined;
+	// Editorial order, not `byExitQuality`. That ranking sorts on effort and
+	// openness with no term for how close a functional match the project is, so
+	// it answered "Slack: Irssi", "Datadog: Glances", "Figma: Graphite" -- while
+	// the meta description on the same page named Mattermost, Grafana and Penpot.
+	// One page, two answers, and the wrong one in the sentence people quote.
+	// `byExitQuality` stays where it belongs: the exit ladder, whose own label
+	// says "least work first".
+	const best = live.length > 0 ? live[0] : undefined;
 	const selfHost = live.filter((a) => a.facts.selfHostable);
 	const noStrings = selfHost.filter((a) => a.facts.openCore === "none");
 	const compose = selfHost.filter((a) => a.hasCompose === true);
@@ -1597,7 +1601,14 @@ export function VerdictSentence({
 		.filter((a): a is Extract<Alternative, { kind: "oss" }> => a.kind === "oss")
 		.filter((a) => !isArchived(a, healthOf(a.source)));
 	if (live.length === 0) return null;
-	const best = byExitQuality(live, (a) => healthOf(a.source))[0];
+	// Editorial order, not `byExitQuality`. That ranking sorts on effort and
+	// openness with no term for how close a functional match the project is, so
+	// it answered "Slack: Irssi", "Datadog: Glances", "Figma: Graphite" -- while
+	// the meta description on the same page named Mattermost, Grafana and Penpot.
+	// One page, two answers, and the wrong one in the sentence people quote.
+	// `byExitQuality` stays where it belongs: the exit ladder, whose own label
+	// says "least work first".
+	const best = live[0];
 	const lose = product.whatYouLose[0];
 
 	// Three verdicts, three shapes. "not-yet" deliberately does not name a

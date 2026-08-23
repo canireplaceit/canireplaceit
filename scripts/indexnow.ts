@@ -31,6 +31,16 @@ const key = readFileSync(
 	"utf8",
 ).trim();
 
+/** The release before this one, so a release checkout compares against content. */
+function previousTag(): string | null {
+	const proc = Bun.spawnSync(
+		["git", "describe", "--tags", "--abbrev=0", "HEAD^"],
+		{ cwd: ROOT },
+	);
+	if (proc.exitCode !== 0) return null;
+	return proc.stdout.toString().trim() || null;
+}
+
 /** Files changed since a ref, or null when this checkout has no history to read. */
 function changedSince(ref: string): string[] | null {
 	const proc = Bun.spawnSync(
@@ -57,7 +67,13 @@ for (const lang of SupportedLangs) {
 	urls.add(`${SITE}${paths.stats(lang)}`);
 }
 
-const since = process.argv[2] ?? "HEAD~1";
+/**
+ * The previous release tag, not the previous commit. A release checkout's HEAD~1
+ * is release-please's own commit, which touches CHANGELOG.md, package.json and
+ * the manifest and no data at all -- so the default used to resolve to "nothing
+ * changed" on every single deploy.
+ */
+const since = process.argv[2] ?? previousTag() ?? "HEAD~1";
 const changed = changedSince(since);
 
 if (changed === null) {

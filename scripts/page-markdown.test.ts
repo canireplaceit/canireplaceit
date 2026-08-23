@@ -118,8 +118,10 @@ describe("a product twin", () => {
 	test("names the product, the winner and a number in the first sentence", () => {
 		const [, first] = productDoc(notion).split("**");
 		expect(first).toContain("Notion");
-		// The same pick `byExitQuality` hands the page itself.
-		expect(first).toContain("Joplin");
+		// The same pick the page's own lede and its meta description name. NOT
+		// `byExitQuality`, which used to answer "Joplin" here while the description
+		// three lines up said AppFlowy.
+		expect(first).toContain("AppFlowy");
 		expect(first).toContain("AGPL-3.0");
 		// 10 USD a month, said as the yearly figure somebody would quote.
 		expect(first).toContain("$120 a year");

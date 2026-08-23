@@ -795,10 +795,13 @@ const productNode = (
 		(a): a is Extract<Product["alternatives"][number], { kind: "oss" }> =>
 			a.kind === "oss",
 	);
-	/** The same two lines `VerdictSentence` and `ExitLadder` compute. */
+	/** The same two lines `VerdictSentence` computes, and for the same reason. */
 	const health = opts?.healthOf;
 	const live = oss.filter((a) => !isArchived(a, health?.(a.source)));
-	const best = byExitQuality(live, (a) => health?.(a.source))[0];
+	// Editorial order, not `byExitQuality` -- see the note in components.tsx.
+	// This node quotes the verdict sentence verbatim, so if it picks differently
+	// the markup contradicts the paragraph it is describing.
+	const best = live[0];
 
 	/**
 	 * Pros and cons, read the way a searcher reads them.
@@ -947,7 +950,13 @@ export function productMeta(
 		(a): a is Extract<Product["alternatives"][number], { kind: "oss" }> =>
 			a.kind === "oss",
 	);
-	const names = oss.slice(0, 3).map((a) => a.name);
+	// Archived projects are kept on the page but must not be named as the answer,
+	// and the lede skips them, so the description has to skip them too or the two
+	// disagree on the first name.
+	const names = oss
+		.filter((a) => !isArchived(a, opts?.healthOf?.(a.source)))
+		.slice(0, 3)
+		.map((a) => a.name);
 
 	/**
 	 * The two modifiers this catalogue can prove and no title on the site said.

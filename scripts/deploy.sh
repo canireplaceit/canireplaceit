@@ -67,5 +67,10 @@ echo "✓ ${TAG} live on ${SITE_DOMAIN}"
 # answers from, so a price change nobody is told about is a wrong price quoted
 # for a week. Never fails the deploy: the release is already live by here.
 if command -v bun >/dev/null 2>&1; then
-  SITE_DOMAIN="$SITE_DOMAIN" bun "$ROOT/scripts/indexnow.ts" "${INDEXNOW_SINCE:-HEAD~1}" || true
+  # The previous RELEASE TAG, not HEAD~1. The workflow checks out `v<version>`,
+  # whose parent is release-please's own commit -- it touches CHANGELOG.md,
+  # package.json and the manifest and nothing else, so HEAD~1 saw zero data
+  # changes and announced 12 index pages instead of the ~1,200 real ones.
+  SINCE="${INDEXNOW_SINCE:-$(git -C "$ROOT" describe --tags --abbrev=0 HEAD^ 2>/dev/null || echo HEAD~1)}"
+  SITE_DOMAIN="$SITE_DOMAIN" bun "$ROOT/scripts/indexnow.ts" "$SINCE" || true
 fi
