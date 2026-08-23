@@ -191,7 +191,9 @@ export function PageShell({
 					</div>
 				</div>
 			)}
-			<main className={`mx-auto ${measure} px-4 pt-8 pb-20`}>{children}</main>
+			<main id="main" className={`mx-auto ${measure} px-4 pt-8 pb-20`}>
+				{children}
+			</main>
 		</>
 	);
 }

@@ -499,18 +499,20 @@ export function LegalPage({ lang, doc }: { lang: Lang; doc: LegalDoc }) {
 
 			<p className={`${P} mt-10`}>
 				{lang === "fr" ? "Une question ? " : "A question? "}
-				{PUBLISHER.email ? (
-					<a
-						href={`mailto:${PUBLISHER.email}`}
-						className="text-brand hover:underline"
-					>
-						{PUBLISHER.email}
-					</a>
-				) : (
-					<a href={REPO} className="text-brand hover:underline">
-						{REPO}
-					</a>
-				)}
+				<address className="inline not-italic">
+					{PUBLISHER.email ? (
+						<a
+							href={`mailto:${PUBLISHER.email}`}
+							className="text-brand hover:underline"
+						>
+							{PUBLISHER.email}
+						</a>
+					) : (
+						<a href={REPO} className="text-brand hover:underline">
+							{REPO}
+						</a>
+					)}
+				</address>
 			</p>
 		</PageShell>
 	);

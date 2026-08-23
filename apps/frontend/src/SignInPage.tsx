@@ -75,7 +75,7 @@ export function SignInPage({ t }: { t: T }) {
 	};
 
 	return (
-		<main className="mx-auto max-w-md px-4 py-14">
+		<main id="main" className="mx-auto max-w-md px-4 py-14">
 			<p className="font-mono text-[10px] text-muted uppercase tracking-[0.2em]">
 				{t("signin.eyebrow")}
 			</p>

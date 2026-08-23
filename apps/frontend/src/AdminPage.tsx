@@ -600,7 +600,7 @@ function Card({
 	signin?: boolean;
 }) {
 	return (
-		<main className="mx-auto max-w-md px-4 py-16">
+		<main id="main" className="mx-auto max-w-md px-4 py-16">
 			<p className={EYEBROW}>{t("admin.eyebrow")}</p>
 			<h1 className="mt-2 font-bold font-display text-2xl tracking-tight">
 				{title}
@@ -648,7 +648,7 @@ export function AdminPage({ t, tc, lang }: { t: T; tc: TC; lang: Lang }) {
 
 	// The prerendered document has no session, so it ships this and nothing else.
 	if (gate === "loading")
-		return <main className="mx-auto max-w-5xl px-4 py-16" />;
+		return <main id="main" className="mx-auto max-w-5xl px-4 py-16" />;
 	if (gate === "signedOut") {
 		return (
 			<Card
@@ -684,7 +684,7 @@ export function AdminPage({ t, tc, lang }: { t: T; tc: TC; lang: Lang }) {
 	}
 	if (gate === "error" || !data) {
 		return (
-			<main className="mx-auto max-w-md px-4 py-16">
+			<main id="main" className="mx-auto max-w-md px-4 py-16">
 				<p role="alert" className="text-sm" style={{ color: "var(--danger)" }}>
 					{t("admin.loadError")}
 				</p>
@@ -700,7 +700,7 @@ export function AdminPage({ t, tc, lang }: { t: T; tc: TC; lang: Lang }) {
 	}
 
 	return (
-		<main className="mx-auto max-w-5xl px-4 py-12">
+		<main id="main" className="mx-auto max-w-5xl px-4 py-12">
 			<p className={EYEBROW}>{t("admin.eyebrow")}</p>
 			<h1 className="mt-1.5 font-bold font-display text-2xl tracking-tight">
 				{t("admin.title")}

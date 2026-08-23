@@ -45,10 +45,11 @@
 	--font-body: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
 	--font-mono-stack: "IBM Plex Mono", ui-monospace, monospace;
 
-	/* The logo blue. Its own token, deliberately never folded into --accent or a verdict colour. */
-	--brand: #2f6fed;
-	/* The brand hex measures 4.34:1 on --bg — fails AA at body size. Fills and
-	   large text keep --brand; body-size brand TEXT uses this tone-45 sibling.
+	/* The logo blue. Its own token, deliberately never folded into --accent or a verdict colour.
+	   Was #2f6fed, which measured 4.40:1 on --bg and failed 1.4.3 by a tenth. */
+	--brand: #2563eb;
+	/* Body-size brand TEXT keeps its own token. --brand now passes AA on --bg on
+	   its own, so this is a slightly darker sibling rather than a rescue.
 	   (DESIGN-GUIDELINES.md §5, deviation 2.) */
 	--brand-text: #0e64e0;
 }

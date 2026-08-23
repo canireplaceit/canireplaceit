@@ -45,6 +45,7 @@ import {
 	ssoMark,
 } from "./icons";
 import { Link } from "./nav";
+import { glossaryAnchor } from "./seo";
 
 // grid-cols-1 forces the auto column to stay one track wide; without it a single long child (a tag, a name) widens the grid past the viewport and scrolls the page sideways.
 export const GRID_1COL = "grid grid-cols-1";
@@ -126,7 +127,16 @@ export const ProductLogo = ({
 	/>
 );
 
-export function VerdictMark({ verdict, t }: { verdict: Verdict; t: T }) {
+export function VerdictMark({
+	verdict,
+	t,
+	lang,
+}: {
+	verdict: Verdict;
+	t: T;
+	/** Set only where the mark is NOT already inside a link — see `DefinedTerm`. */
+	lang?: Lang;
+}) {
 	const color = VERDICT_COLOR[verdict];
 	const isReplaceable = verdict === "yes";
 	return (
@@ -135,16 +145,17 @@ export function VerdictMark({ verdict, t }: { verdict: Verdict; t: T }) {
 				className={`size-2 rounded-full ${isReplaceable ? "pulse-yes" : ""}`}
 				style={{ background: color }}
 			/>
-			<span
+			{/* "Replaceable / Almost / Not yet" are editorial judgements with defined
+			    meanings, printed on all 527 rows of the index and, until this link,
+			    explained only in a tooltip. */}
+			<DefinedTerm
+				label={`verdict.${verdict}`}
+				t={t}
+				lang={lang}
 				className="cursor-help font-mono text-[10px] uppercase tracking-[0.12em] decoration-dotted underline-offset-2 hover:underline"
-				style={{ color }}
-				// "Replaceable / Almost / Not yet" are editorial judgements with
-				// defined meanings, printed on all 527 rows of the index and
-				// explained nowhere.
-				title={definitionOf(`verdict.${verdict}`, t)}
 			>
-				{t(`verdict.${verdict}` as Key)}
-			</span>
+				<span style={{ color }}>{t(`verdict.${verdict}` as Key)}</span>
+			</DefinedTerm>
 		</span>
 	);
 }
@@ -262,7 +273,12 @@ export function ExitLadder({
 							</>
 						)}
 					</p>
-					<p className="mt-0.5 text-muted text-xs">{tc(best.note)}</p>
+					{/* A list page ships its alternatives without the prose only this
+					    page prints, so a client-side navigation that lands here before
+					    the catalogue has loaded has a name and no note. */}
+					{best.note && (
+						<p className="mt-0.5 text-muted text-xs">{tc(best.note)}</p>
+					)}
 				</li>
 			</ul>
 		</section>
@@ -305,7 +321,9 @@ function ConfidenceChip({
 	confidence: PriceSource["confidence"];
 	t: T;
 }) {
-	if (confidence === "high") return null;
+	// "high" is the common case, and returning null for it left a "Confidence"
+	// label with nothing after it on most product pages — a dangling row in the
+	// receipt and an empty cell to anything parsing the page.
 	const isLowConfidence = confidence === "low";
 	return (
 		<span
@@ -317,7 +335,7 @@ function ConfidenceChip({
 					: { borderColor: "var(--color-border)" }
 			}
 		>
-			{t(isLowConfidence ? "price.confidence.low" : "price.confidence.medium")}
+			{t(`price.confidence.${confidence}` as Key)}
 		</span>
 	);
 }
@@ -371,7 +389,14 @@ export function PriceBlock({
 						: undefined
 				}
 			>
-				{value}
+				{/* The figure a parser should read, beside the one a reader does:
+				    "$9/mo" is a currency, a number and a period glued together, and
+				    only the number is comparable. */}
+				{product.priceMonthly !== null ? (
+					<data value={String(product.priceMonthly)}>{value}</data>
+				) : (
+					value
+				)}
 			</p>
 			{state === "no-price" && (
 				<p className="mt-1 text-xs text-muted">{t("price.noPublicNote")}</p>
@@ -579,7 +604,7 @@ export function AlternativeCard({
 					</IconLink>
 				)}
 			</div>
-			<p className="mt-1.5 text-sm text-muted">{tc(alt.note)}</p>
+			{alt.note && <p className="mt-1.5 text-sm text-muted">{tc(alt.note)}</p>}
 			{alt.kind === "oss" && alt.facts.paywalled && (
 				<p className="mt-1 text-xs text-muted">— {tc(alt.facts.paywalled)}</p>
 			)}
@@ -591,17 +616,28 @@ export function AlternativeCard({
 						    says nothing. What matters is spotting the 13% that hold
 						    something back. */}
 						{alt.facts.openCore !== "none" && (
-							<FactTag mark={openCoreMark(alt.facts.openCore)} t={t} />
+							<FactTag
+								mark={openCoreMark(alt.facts.openCore)}
+								t={t}
+								lang={lang}
+							/>
 						)}
 						<Tag>
-							<span
+							<DefinedTerm
+								label={`effort.${alt.effort}`}
+								t={t}
+								lang={lang}
 								className="cursor-help decoration-dotted underline-offset-2 hover:underline"
-								title={definitionOf(`effort.${alt.effort}`, t)}
 							>
 								{t(`effort.${alt.effort}` as Key)}
-							</span>
+							</DefinedTerm>
 						</Tag>
-						<FactMarks facts={alt.facts} license={alt.license} t={t} />
+						<FactMarks
+							facts={alt.facts}
+							license={alt.license}
+							t={t}
+							lang={lang}
+						/>
 						<RepoFreshness
 							source={alt.source}
 							t={t}
@@ -700,18 +736,74 @@ export const definitionOf = (label: string, t: T): string | undefined => {
 	return d === `def.${label}` ? undefined : d;
 };
 
-export function FactTag({ mark, t }: { mark: FactMark; t: T }) {
+/**
+ * A term whose meaning we wrote down, linked to where we wrote it.
+ *
+ * `title` alone was the whole affordance: not focusable, so a keyboard user
+ * could never read it, invisible to a touch reader with no hover, and invisible
+ * to Google. The definition already exists as a `<dd>` on the glossary, so the
+ * fix is a link to it — which also gives the glossary the inbound links it had
+ * none of.
+ *
+ * `lang` is what gates it: rendered inside an `<a>` (a product card, a project
+ * row) callers leave it off and get the old non-interactive span, because a
+ * nested anchor is not markup a browser will keep.
+ */
+export function DefinedTerm({
+	label,
+	t,
+	lang,
+	className,
+	children,
+}: {
+	label: string;
+	t: T;
+	lang?: Lang;
+	className?: string;
+	children: React.ReactNode;
+}) {
+	const definition = definitionOf(label, t);
+	if (!definition) return <span className={className}>{children}</span>;
+	if (!lang)
+		return (
+			<span className={className} title={definition}>
+				{children}
+			</span>
+		);
+	return (
+		<a
+			href={`${paths.glossary(lang)}#${glossaryAnchor(label)}`}
+			title={definition}
+			className={className}
+		>
+			{children}
+		</a>
+	);
+}
+
+export function FactTag({
+	mark,
+	t,
+	lang,
+}: {
+	mark: FactMark;
+	t: T;
+	/** Set only where the tag is NOT already inside a link — see `DefinedTerm`. */
+	lang?: Lang;
+}) {
 	const { Icon, tone } = mark;
 	const definition = definitionOf(mark.label, t);
 	return (
 		<Tag warn={tone === "warn"} bad={tone === "bad"}>
-			<span
+			<DefinedTerm
+				label={mark.label}
+				t={t}
+				lang={lang}
 				className={`inline-flex items-center gap-1${definition ? " cursor-help decoration-dotted underline-offset-2 hover:underline" : ""}`}
-				title={definition}
 			>
 				<Icon className="size-3 shrink-0" aria-hidden />
 				{t(mark.label as Key)}
-			</span>
+			</DefinedTerm>
 		</Tag>
 	);
 }
@@ -720,12 +812,15 @@ export function FactMarks({
 	facts,
 	license,
 	t,
+	lang,
 	vary = [],
 	full,
 }: {
 	facts: Facts;
 	license?: string;
 	t: T;
+	/** Set only where the marks are NOT already inside a link. */
+	lang?: Lang;
 	// Fields the citing products disagree on; see Product.factsVary. Non-empty only on project pages.
 	vary?: (keyof Facts)[];
 	/** Show the facts nobody has checked, rather than dropping them. */
@@ -753,7 +848,7 @@ export function FactMarks({
 				// two that do.
 				.filter((m) => full || (m.tone !== "unknown" && !m.unremarkable))
 				.map((m) => (
-					<FactTag key={m.label} mark={m} t={t} />
+					<FactTag key={m.label} mark={m} t={t} lang={lang} />
 				))}
 		</>
 	);
@@ -855,9 +950,7 @@ export function AlternativeList({
 		<div className="space-y-4">
 			<section>
 				<div className="mb-2 flex flex-wrap items-center gap-2">
-					<h4 className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted">
-						{t("alt.ossHeading")}
-					</h4>
+					<h2 className="eyebrow">{t("alt.ossHeading")}</h2>
 					{/* Only worth offering when there is enough to narrow. */}
 					{oss.length > LEAD && (
 						<div className="flex flex-wrap gap-1.5">
@@ -881,6 +974,11 @@ export function AlternativeList({
 						</div>
 					)}
 				</div>
+				{/* The three narrowing pills are `aria-pressed`; this is what says
+				    what happened to the list under them. */}
+				<p className="sr-only" aria-live="polite" aria-atomic="true">
+					{t("a11y.results").replace("{n}", String(shown.length))}
+				</p>
 				<ul className={`${GRID_1COL} gap-2 sm:grid-cols-2`}>
 					{shown.slice(0, LEAD).map((a) => (
 						<AlternativeCard
@@ -930,10 +1028,10 @@ export function AlternativeList({
 							if (inRung.length === 0) return null;
 							return (
 								<div key={effort} className="mt-3">
-									<h5 className="mb-1.5 font-mono text-[10px] text-muted uppercase tracking-[0.16em]">
+									<h3 className="eyebrow mb-1.5">
 										{t(`effort.${effort}` as Key)}
 										<span className="nums ml-1.5">{inRung.length}</span>
-									</h5>
+									</h3>
 									<ul
 										className={`${GRID_1COL} gap-2 sm:grid-cols-2 xl:grid-cols-3`}
 									>
@@ -984,9 +1082,7 @@ export function AlternativeList({
 			)}
 			{cheaper.length > 0 && (
 				<section>
-					<h4 className="mb-2 font-mono text-[10px] uppercase tracking-[0.16em] text-muted">
-						{t("alt.cheaperHeading")}
-					</h4>
+					<h2 className="eyebrow mb-2">{t("alt.cheaperHeading")}</h2>
 					<ul className={`${GRID_1COL} gap-2 sm:grid-cols-2`}>
 						{cheaper.map((a) => (
 							<AlternativeCard key={a.name} alt={a} t={t} tc={tc} lang={lang} />
@@ -1010,9 +1106,7 @@ export function WhatYouLose({
 	if (product.whatYouLose.length === 0) return null;
 	return (
 		<div>
-			<h4 className="mb-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-muted">
-				{t("row.whatYouLose")}
-			</h4>
+			<h2 className="eyebrow mb-1.5">{t("row.whatYouLose")}</h2>
 			<ul className="flex flex-wrap gap-1.5">
 				{product.whatYouLose.map((b) => (
 					<li
@@ -1244,13 +1338,15 @@ export function ProductEscapeStats({ product, t }: { product: Product; t: T }) {
 	return (
 		<dl className="grid grid-cols-2 gap-px overflow-hidden rounded-[calc(var(--radius))] border border-border bg-border sm:grid-cols-4">
 			{cells.map((c) => (
-				<div key={c.label} className="bg-surface p-3">
-					<dd className="nums truncate font-display font-semibold text-base">
-						{c.value}
-					</dd>
+				/* dt before dd, which is what the content model requires; the value
+				   still reads above the label because the column is reversed. */
+				<div key={c.label} className="flex flex-col-reverse bg-surface p-3">
 					<dt className="mt-0.5 font-mono text-[10px] text-muted uppercase tracking-wider">
 						{c.label}
 					</dt>
+					<dd className="nums truncate font-display font-semibold text-base">
+						{c.value}
+					</dd>
 				</div>
 			))}
 		</dl>
@@ -1287,24 +1383,39 @@ export function SpecStrip({
 
 	return (
 		<section>
-			<h4 className="mb-2 font-mono text-[10px] text-muted uppercase tracking-[0.16em]">
-				{t("spec.heading")}
-			</h4>
+			<h2 className="eyebrow mb-2">{t("spec.heading")}</h2>
 			<div className="overflow-x-auto">
 				<table className="w-full min-w-[34rem] border-collapse text-sm">
+					{/* Google's table extraction keys on caption + th. sr-only, because
+					    the heading above already says this to a reader. */}
+					<caption className="sr-only">
+						{t("spec.heading")} — {rows.map((a) => a.name).join(", ")}
+					</caption>
 					<thead>
 						<tr className="border-b text-left text-muted">
-							<th className="py-2 pr-3 font-normal">{t("spec.project")}</th>
-							<th className="px-2 py-2 font-normal">{t("spec.licence")}</th>
-							<th className="px-2 py-2 font-normal">{t("spec.runIt")}</th>
-							<th className="px-2 py-2 font-normal">{t("spec.language")}</th>
-							<th className="px-2 py-2 font-normal">{t("spec.strings")}</th>
+							<th scope="col" className="py-2 pr-3 font-normal">
+								{t("spec.project")}
+							</th>
+							<th scope="col" className="px-2 py-2 font-normal">
+								{t("spec.licence")}
+							</th>
+							<th scope="col" className="px-2 py-2 font-normal">
+								{t("spec.runIt")}
+							</th>
+							<th scope="col" className="px-2 py-2 font-normal">
+								{t("spec.language")}
+							</th>
+							<th scope="col" className="px-2 py-2 font-normal">
+								{t("spec.strings")}
+							</th>
 						</tr>
 					</thead>
 					<tbody>
 						{rows.map((a) => (
 							<tr key={a.name} className="border-b last:border-0">
-								<td className="py-1.5 pr-3 font-medium">{a.name}</td>
+								<th scope="row" className="py-1.5 pr-3 text-left font-medium">
+									{a.name}
+								</th>
 								<td className="px-2 py-1.5 text-muted">{a.license}</td>
 								<td className="px-2 py-1.5 text-muted">
 									{t(`effort.${a.effort}` as Key)}
@@ -1437,26 +1548,31 @@ export function DefaultsTable({
 			<p className="mt-1 max-w-2xl text-muted text-sm">{t("defaults.blurb")}</p>
 			<div className="mt-3 overflow-x-auto">
 				<table className="w-full min-w-[36rem] border-collapse text-sm">
+					<caption className="sr-only">{t("defaults.heading")}</caption>
 					<thead>
 						<tr className="border-b text-left text-muted">
-							<th className="py-2 pr-3 font-normal">{t("defaults.tool")}</th>
-							<th className="px-2 py-2 font-normal">
+							<th scope="col" className="py-2 pr-3 font-normal">
+								{t("defaults.tool")}
+							</th>
+							<th scope="col" className="px-2 py-2 font-normal">
 								{t("defaults.replacement")}
 							</th>
-							<th className="px-2 py-2 font-normal">{t("defaults.costs")}</th>
+							<th scope="col" className="px-2 py-2 font-normal">
+								{t("defaults.costs")}
+							</th>
 						</tr>
 					</thead>
 					<tbody>
 						{rows.map(({ p, best, lose }) => (
 							<tr key={p.slug} className="border-b last:border-0">
-								<td className="py-1.5 pr-3">
+								<th scope="row" className="py-1.5 pr-3 text-left font-normal">
 									<Link
 										href={paths.product(lang, p.slug)}
 										className="font-medium hover:underline"
 									>
 										{p.name}
 									</Link>
-								</td>
+								</th>
 								<td className="px-2 py-1.5">
 									{best?.name}
 									<span className="ml-1.5 text-muted text-xs">

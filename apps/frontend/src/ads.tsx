@@ -35,8 +35,12 @@ export const adLabel = (t: T, name: string, tagline?: string | null) =>
 export const HOUSE = {
 	name: "hadesdev",
 	url: "https://hadesdev.com",
-	// `favicon.svg`, not `favicon.png` — the .png path 200s with the SPA's catch-all `text/html`, not an image.
-	logoUrl: "https://hadesdev.com/favicon.svg",
+	// Inlined rather than linked. It used to be `https://hadesdev.com/favicon.svg`,
+	// which is 649 bytes on the wire and a whole extra DNS lookup and TLS
+	// handshake — the site's only third-party request — for a 24px mark. As a data
+	// URI it costs 470 bytes inside the bundle and no request at all.
+	logoUrl:
+		"data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20width='24'%20height='24'><rect%20x='1'%20y='1'%20width='22'%20height='22'%20rx='5'%20fill='%2324273a'/><path%20d='M6%208.5%20L10%2012%20L6%2015.5'%20fill='none'%20stroke='%23c6a0f6'%20stroke-width='2.2'%20stroke-linecap='round'%20stroke-linejoin='round'/><line%20x1='12'%20y1='15.5'%20x2='18'%20y2='15.5'%20stroke='%23c6a0f6'%20stroke-width='2.2'%20stroke-linecap='round'/></svg>",
 	/** Shown by `Logo` if that ever stops resolving. */
 	initial: "H",
 } as const;
