@@ -69,6 +69,8 @@ export type MdBoot = {
 	categoryStats?: [string, CategoryStat][];
 	/** Members per collection, over the whole catalogue. */
 	collectionCounts?: [string, number][];
+	/** Every product as [slug, name, category], on the product hub only. */
+	productIndex?: [string, string, string][];
 	/** The headline counts, on the home pages and nowhere else. */
 	stats?: {
 		products: number;
@@ -922,6 +924,51 @@ function aboutMarkdown(input: MdInput): string {
 	return out.join("\n");
 }
 
+/**
+ * The product hub, as markdown.
+ *
+ * `/en/alternatives/` is the one page whose whole job is enumerating all 592
+ * products, and llms.txt points agents at it, but it had no twin: the hub was
+ * readable only as 250 kB of HTML while `/en/tools.md` beside it worked. Its
+ * payload carries `productIndex` rather than whole products, which is why
+ * `listMarkdown` could not draw it.
+ *
+ * Grouped by category, in the order the page groups them, so an agent reading
+ * this gets the taxonomy and the catalogue in one request.
+ */
+function productsHubMarkdown(input: MdInput): string {
+	const { lang, site, boot } = input;
+	const rows = boot.productIndex ?? [];
+	const byCategory = new Map<string, [string, string][]>();
+	for (const [slug, name, category] of rows) {
+		const list = byCategory.get(category) ?? [];
+		list.push([slug, name]);
+		byCategory.set(category, list);
+	}
+	const named = new Map(
+		boot.categories.map((c) => [c.slug, resolveTranslation(c.name, lang)]),
+	);
+	const out: string[] = [
+		`# ${input.title}`,
+		"",
+		untruncated(input.description),
+		"",
+	];
+	for (const [slug, list] of [...byCategory].sort((a, b) =>
+		(named.get(a[0]) ?? a[0]).localeCompare(named.get(b[0]) ?? b[0], lang),
+	)) {
+		out.push(`## ${named.get(slug) ?? slug}`, "");
+		for (const [productSlug, name] of list.sort((a, b) =>
+			a[1].localeCompare(b[1], lang),
+		)) {
+			out.push(`- [${name}](${site}${paths.product(lang, productSlug)})`);
+		}
+		out.push("");
+	}
+	out.push(footer(input, `${site}/api/v1/products`));
+	return out.join("\n");
+}
+
 export function markdownFor(input: MdInput): string | null {
 	const { boot, route } = input;
 
@@ -971,6 +1018,9 @@ export function markdownFor(input: MdInput): string | null {
 		// were HTML-only.
 		case "group":
 			return listMarkdown(input, slugOf);
+
+		case "products":
+			return productsHubMarkdown(input);
 
 		case "categories":
 			return categoriesMarkdown(input);
