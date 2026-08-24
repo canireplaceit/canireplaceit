@@ -42,6 +42,7 @@ import {
 } from "./api";
 import {
 	ActiveFilters,
+	AllPages,
 	applyProductFilters,
 	FilterSheet,
 	filtersFromQuery,
@@ -667,6 +668,11 @@ function Page({ ctx, route }: { ctx: PageCtx; route: Route }) {
 		case "features":
 			return (
 				<FeaturesPage
+					// Remount on a locale switch. The feature domain names are collapsed
+					// to one language by `oneLocale` at build time and held in state, so
+					// without this the chrome switched and all 12 domain headings stayed
+					// in the language the visit started in.
+					key={ctx.lang}
 					products={ctx.products}
 					categories={ctx.categories}
 					projectSlugs={ctx.projectSlugs}
@@ -1192,7 +1198,13 @@ export function App() {
 		// again when the reader moves from one category to the next.
 		if (categorySlug) {
 			const known = cats.find((c) => c.slug === categorySlug);
-			if (known && !known.blurb) {
+			// `askedFor` and not the blurb itself: `api.categories()` resolves to a
+			// fresh array, `setCats` changes the dependency identity, and a category
+			// with no blurb written would still have none afterwards, so keying the
+			// guard on the blurb turns that page into a request flood. Today every
+			// category has one, which is the only reason this is latent.
+			if (known && !known.blurb && !askedFor.current.has("categories")) {
+				askedFor.current.add("categories");
 				api
 					.categories()
 					.then(setCats)
@@ -1667,6 +1679,16 @@ export function App() {
 											pages={homePages}
 											total={catalogueTotal}
 											unit={t("stats.products")}
+											t={t}
+										/>
+										{/* The project index and the collections got this; the home
+										    series is the one most likely to be crawled and did not.
+										    From /en/ the pager reaches 2, 3, 4 and the last three,
+										    so 5 through 9 were two hops out. */}
+										<AllPages
+											page={homePage}
+											pages={homePages}
+											href={(n) => paths.home(lang, n)}
 											t={t}
 										/>
 									</div>
