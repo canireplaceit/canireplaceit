@@ -1142,6 +1142,9 @@ export function App() {
 	 * and a client-side navigation that lands on home from somewhere else.
 	 */
 	const askedFor = useRef(new Set<Route["name"]>());
+	// `route` is a union and only some members carry a slug, so the effect below
+	// depends on this rather than on the property.
+	const categorySlug = route.name === "category" ? route.slug : null;
 	useEffect(() => {
 		if (askedFor.current.has(route.name)) return;
 		if (route.name === "home") {
@@ -1187,8 +1190,8 @@ export function App() {
 		// exists for. One request fixes every category page for the rest of the
 		// visit, because it replaces the whole list, so this does not need to fire
 		// again when the reader moves from one category to the next.
-		if (route.name === "category") {
-			const known = cats.find((c) => c.slug === route.slug);
+		if (categorySlug) {
+			const known = cats.find((c) => c.slug === categorySlug);
 			if (known && !known.blurb) {
 				api
 					.categories()
@@ -1196,7 +1199,7 @@ export function App() {
 					.catch(() => {});
 			}
 		}
-	}, [route.name, stats]);
+	}, [route.name, categorySlug, stats, cats]);
 
 	// Ten hero positions, in the authored order. `position` is the sold order, so
 	// it drives the layout rather than whatever order the API returned rows in.
