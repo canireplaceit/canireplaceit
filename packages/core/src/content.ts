@@ -56,8 +56,8 @@ export const ALT_KINDS = ["oss", "cheaper"] as const;
 
 /** Prices drift. Every claim carries a receipt so a reviewer can check it. */
 export type PriceSource = {
-	/** What the vendor calls the tier we priced. */
-	plan: string;
+	/** What the vendor calls the tier we priced. Absent when there are no tiers. */
+	plan?: string;
 	basis: "flat" | "per-seat" | "usage" | "one-time" | "custom";
 	url: string;
 	/** ISO date, YYYY-MM-DD. */

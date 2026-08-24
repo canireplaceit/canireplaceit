@@ -491,7 +491,9 @@ const LogoSchema = z.object({
  * core's — this is the same data, arriving over a network rather than a file.
  */
 const PriceSourceSchema = z.object({
-	plan: z.string(),
+	// Optional: a quote-only product has no tier to name, and a placeholder
+	// saying so is not one. `notPublic` carries that fact instead.
+	plan: z.string().optional(),
 	basis: z.enum(PRICE_BASIS),
 	url: z.string(),
 	checkedOn: z.string(),

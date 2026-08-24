@@ -1421,7 +1421,7 @@ export function ProductFaq({
 			q: t("faq.q.price").replace("{product}", product.name),
 			a: t("faq.a.price")
 				.replace("{price}", money(product.priceMonthly * 100, lang))
-				.replace("{plan}", product.pricing.plan)
+				.replace("{plan}", product.pricing.plan ?? "")
 				.replace("{year}", money(product.priceMonthly * 1200, lang))
 				.replace("{date}", formatDate(product.pricing.checkedOn, lang)),
 		});
