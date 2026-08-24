@@ -4,7 +4,14 @@
 	"domain": "snowflake.com",
 	"category": "data-platform-etl",
 	"priceMonthly": null,
-	"pricing": null,
+	"pricing": {
+		"plan": "Standard",
+		"basis": "usage",
+		"url": "https://www.snowflake.com/en/pricing-options/",
+		"checkedOn": "2026-08-24",
+		"confidence": "high",
+		"note": "Billed per compute credit and per terabyte stored, with no fixed monthly fee."
+	},
 	"verdict": "almost",
 	"why": {
 		"en": "ClickHouse and DuckDB will out-run Snowflake on most workloads under a few terabytes for a fraction of the credits. What you lose is zero-copy cloning, cross-account data sharing, and the fact that your finance team already trusts the bill format. Pricing is credit-metered, so there is no list price — your bill tracks warehouse size and query volume.",

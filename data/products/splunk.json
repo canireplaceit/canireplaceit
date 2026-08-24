@@ -3,8 +3,15 @@
 	"name": "Splunk",
 	"domain": "splunk.com",
 	"category": "observability-telemetry",
-	"priceMonthly": null,
-	"pricing": null,
+	"priceMonthly": 15,
+	"pricing": {
+		"plan": "Splunk Observability Cloud Infrastructure, annual billed monthly",
+		"basis": "per-seat",
+		"url": "https://www.splunk.com/en_us/products/pricing.html",
+		"checkedOn": "2026-08-24",
+		"confidence": "high",
+		"note": "Priced per monitored host rather than per user; Splunk's log platform is quoted separately."
+	},
 	"verdict": "almost",
 	"why": {
 		"en": "Ingest-volume pricing is why nobody logs what they'd like to. The query languages are the sticking point: SPL is genuinely more expressive than anything open source, and every dashboard and detection rule you own is written in it.",

@@ -3,8 +3,15 @@
 	"name": "NS1 / Managed DNS",
 	"domain": "ns1.com",
 	"category": "networking-vpn",
-	"priceMonthly": null,
-	"pricing": null,
+	"priceMonthly": 99,
+	"pricing": {
+		"plan": "Essentials",
+		"basis": "flat",
+		"url": "https://www.ibm.com/products/ns1-connect/pricing",
+		"checkedOn": "2026-08-24",
+		"confidence": "high",
+		"note": "IBM marks the figure indicative and varying by country."
+	},
 	"verdict": "almost",
 	"why": {
 		"en": "PowerDNS and Knot are the same software the managed providers run. What you cannot self-host is anycast: a hundred POPs so that a query from Jakarta resolves in 12ms and a DDoS against your nameserver doesn't take your company offline.",
