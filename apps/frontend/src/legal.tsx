@@ -552,6 +552,22 @@ export function LegalIndexPage({ lang }: { lang: Lang }) {
 }
 
 /** Title and one-line summary, for <title>/<meta> — see seo.ts. */
+/**
+ * A document as plain prose, for the Markdown twin.
+ *
+ * The twins exist so an agent can read a page without pulling 200 kB of HTML,
+ * and the licence document is the one that says what the catalogue may be used
+ * for. Reading the same `DOCS` the page renders, so the two cannot drift.
+ */
+export const legalSections = (
+	doc: LegalDoc,
+	lang: Lang,
+): { h: string; p: string[] }[] =>
+	DOCS[doc].sections.map((s) => ({
+		h: s.h[lang],
+		p: s.p.map((para) => para[lang]),
+	}));
+
 export const legalCopy = (doc: LegalDoc | undefined, lang: Lang) =>
 	doc
 		? { title: DOCS[doc].title[lang], description: DOCS[doc].intro[lang] }

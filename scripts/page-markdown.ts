@@ -47,6 +47,7 @@ import { resolveTranslation } from "core/src/index";
 import type { Route } from "core/src/routes";
 import { paths } from "core/src/routes";
 import { dict } from "../apps/frontend/src/i18n";
+import { legalCopy, legalSections, UPDATED } from "../apps/frontend/src/legal";
 
 /**
  * The one translation table, read here for the same reason scripts/prerender.ts
@@ -969,6 +970,30 @@ function productsHubMarkdown(input: MdInput): string {
 	return out.join("\n");
 }
 
+/**
+ * A legal document, as markdown.
+ *
+ * Sixteen of these had no twin. Most are boilerplate, but one is not: the
+ * licence document is where the catalogue says what it may be used for, and the
+ * site footer now links it from every page. An agent following that link should
+ * not have to parse a page to read the terms.
+ */
+function legalMarkdown(input: MdInput, doc: LegalDoc): string {
+	const { lang, site } = input;
+	const copy = legalCopy(doc, lang);
+	const out: string[] = [`# ${copy.title}`, "", copy.description, ""];
+	for (const section of legalSections(doc, lang)) {
+		out.push(`## ${section.h}`, "");
+		for (const para of section.p) if (para) out.push(para, "");
+	}
+	out.push(
+		t(lang, `Last updated ${UPDATED}.`, `Mis à jour le ${UPDATED}.`),
+		"",
+		footer(input, `${site}/api/v1`),
+	);
+	return out.join("\n");
+}
+
 export function markdownFor(input: MdInput): string | null {
 	const { boot, route } = input;
 
@@ -1045,6 +1070,9 @@ export function markdownFor(input: MdInput): string | null {
 
 		case "about":
 			return aboutMarkdown(input);
+
+		case "legal":
+			return route.doc ? legalMarkdown(input, route.doc) : null;
 
 		default:
 			return null;
