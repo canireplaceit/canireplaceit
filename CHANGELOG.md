@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.0.5](https://github.com/canireplaceit/canireplaceit/compare/v0.0.4...v0.0.5) (2026-08-24)
+
+
+### chore
+
+* **release:** 0.0.5 ([cf92f7a](https://github.com/canireplaceit/canireplaceit/commit/cf92f7a57829a13fd0359677929b7c6fec5a745a))
+
+
+### Bug Fixes
+
+* **frontend:** stop linting the search engine verification files ([52f33d3](https://github.com/canireplaceit/canireplaceit/commit/52f33d3efbc787b86516fac0bb66fd0f38260fe7))
+
+
+### Performance
+
+* **deploy:** redirect the apex to a prerendered document ([d5af7a4](https://github.com/canireplaceit/canireplaceit/commit/d5af7a4f042d32d9d1368be201ffaafc86ecbd83))
+
 ## [0.0.4](https://github.com/canireplaceit/canireplaceit/compare/v0.0.3...v0.0.4) (2026-08-24)
 
 
