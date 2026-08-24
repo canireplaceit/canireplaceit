@@ -60,9 +60,25 @@ COPY --from=brotli /usr/lib/libbrotlienc.so.1 /usr/lib/libbrotlicommon.so.1 /usr
 COPY apps/frontend/front.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /app/apps/frontend/dist /usr/share/nginx/html
 
-# `load_module` is a main-context directive and conf.d/ is included inside
-# `http`, so the only place for it that does not mean replacing the base's own
-# nginx.conf is here. The image's ENTRYPOINT is already `nginx`.
-CMD ["-g", "load_module modules/ngx_http_brotli_filter_module.so; load_module modules/ngx_http_brotli_static_module.so; daemon off;"]
+# `load_module` is a main-context directive and this base includes conf.d/
+# inside `http`, with no main-context include anywhere. Passing it through
+# `-g` in CMD does run the server, but nothing else inherits it: `nginx -t`
+# and `nginx -s reload` both die with `unknown directive "brotli"`, so any
+# healthcheck, CI gate or operator sees what looks like a broken config and a
+# graceful reload is impossible. Prepending to nginx.conf puts it where every
+# invocation reads it. UID 0 only for the edit, because this base has no `root`
+# entry in passwd; the runtime user is unchanged. The pid file is removed after
+# the check because `nginx -t` writes one as the building user, and nginx then
+# cannot overwrite a root-owned pid file at startup.
+USER 0
+RUN printf 'load_module modules/ngx_http_brotli_filter_module.so;\nload_module modules/ngx_http_brotli_static_module.so;\n' > /tmp/m.conf \
+ && cat /etc/nginx/nginx.conf >> /tmp/m.conf \
+ && cat /tmp/m.conf > /etc/nginx/nginx.conf \
+ && rm /tmp/m.conf \
+ && nginx -t \
+ && rm -f /var/run/nginx.pid
+USER nginx
+
+CMD ["-g", "daemon off;"]
 
 EXPOSE 80
