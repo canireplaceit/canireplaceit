@@ -382,6 +382,16 @@ const pageNode = (o: {
 	breadcrumb: { "@id": nodeId(o.url, "breadcrumb") },
 	mainEntity: o.mainEntity ? { "@id": o.mainEntity } : undefined,
 	dateModified: o.dateModified,
+	/**
+	 * The terms the catalogue data is published under, as a property rather than
+	 * only as prose.
+	 *
+	 * The licence was stated in llms.txt, the API and the Markdown twins, and
+	 * nowhere a machine reading the page's structured data would look for it.
+	 * A crawler that ingests the markup and nothing else now has the terms in the
+	 * markup.
+	 */
+	license: "https://creativecommons.org/licenses/by/4.0/",
 	publisher: { "@type": "Organization", "@id": ORG_ID, name: "canireplaceit" },
 });
 
