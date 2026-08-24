@@ -28,7 +28,7 @@ export const dict = {
 		"features.searchPlaceholder":
 			"Search features: SSO, markdown, offline, webhooks…",
 		"features.acceptPaid": "Count features that are only in a paid tier",
-		"features.narrow": "more. Narrow with the search box.",
+		"features.narrow": "more. Add a required feature to narrow the list.",
 		"features.compare": "Compare",
 		"features.pickTwo":
 			"Pick two or more projects above to see only the features where they actually differ.",
@@ -1062,7 +1062,8 @@ export const dict = {
 			"Chercher : SSO, markdown, hors ligne, webhooks…",
 		"features.acceptPaid":
 			"Compter les fonctionnalités réservées à une offre payante",
-		"features.narrow": "de plus. Affinez avec la recherche.",
+		"features.narrow":
+			"de plus. Exigez une fonctionnalité pour réduire la liste.",
 		"features.compare": "Comparer",
 		"features.pickTwo":
 			"Sélectionnez au moins deux projets ci-dessus pour ne voir que ce qui les distingue vraiment.",
