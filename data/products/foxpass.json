@@ -3,8 +3,15 @@
 	"name": "Foxpass",
 	"domain": "foxpass.com",
 	"category": "networking-vpn",
-	"priceMonthly": null,
-	"pricing": null,
+	"priceMonthly": 0.5,
+	"pricing": {
+		"plan": "Cloud PKI (Standalone), annual billed monthly",
+		"basis": "per-seat",
+		"url": "https://www.splashtop.com/foxpass/product/licensing-pricing",
+		"checkedOn": "2026-08-24",
+		"confidence": "medium",
+		"note": "The Cloud RADIUS tiers, Standard and Advanced, are quote-only; only the standalone PKI tier lists a rate."
+	},
 	"verdict": "yes",
 	"why": {
 		"en": "Hosted RADIUS and LDAP that syncs from your IdP is three days of work with FreeRADIUS and an LDAP proxy, and after that it costs nothing per user forever. The one thing to think about: RADIUS is UDP on your network, so hosting it yourself is usually the more sensible topology anyway.",
