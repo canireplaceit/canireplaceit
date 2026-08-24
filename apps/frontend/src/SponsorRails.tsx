@@ -441,7 +441,7 @@ export function SponsorTape({
 
 	return (
 		<aside
-			aria-label={t("ads.tape")}
+			aria-label={t(position === "top" ? "ads.tapeTop" : "ads.tapeBottom")}
 			className={`marquee-mask overflow-hidden border-border bg-bg py-2 min-[1560px]:hidden ${edge}`}
 		>
 			{/*

@@ -67,6 +67,12 @@ export function Link({
 	// most links are not a destination the reader is currently at.
 	"aria-current": ariaCurrent,
 	"data-current": dataCurrent,
+	// The header's sign-in link passes one, because its own text is inside a
+	// `lg:inline` span and disappears below 1024px, leaving an icon-only link with
+	// no accessible name. It was silently dropped here for months: TypeScript does
+	// not apply excess-property checking to hyphenated JSX attribute names, so the
+	// call site type-checked and the attribute never reached the anchor.
+	"aria-label": ariaLabel,
 	rel,
 }: {
 	href: string;
@@ -75,6 +81,7 @@ export function Link({
 	title?: string;
 	"aria-current"?: "page";
 	"data-current"?: boolean;
+	"aria-label"?: string;
 	/** For the few internal links that should carry no weight, e.g. sign-in. */
 	rel?: string;
 }) {
@@ -85,6 +92,7 @@ export function Link({
 			rel={rel}
 			aria-current={ariaCurrent}
 			data-current={dataCurrent}
+			aria-label={ariaLabel}
 			className={className}
 			onClick={(e) => {
 				// Anything but a plain left-click is the browser's business.

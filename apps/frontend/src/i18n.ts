@@ -680,7 +680,12 @@ export const dict = {
 		"ads.previewing": "Your preview",
 		"ads.railLeft": "Sponsors, left",
 		"ads.railRight": "Sponsors, right",
-		"ads.tape": "Sponsors",
+		// The tape renders twice on every page, once under the header and once above
+		// the footer, so a single "Sponsors" gave the page two complementary
+		// landmarks with identical names and no way to tell them apart in a landmark
+		// list. The rails next door already distinguish themselves the same way.
+		"ads.tapeTop": "Sponsors, top",
+		"ads.tapeBottom": "Sponsors, bottom",
 
 		// Three slots per order must match ORDER_MAX_SLOTS in packages/core/src/sponsorship.ts.
 		"ads.pickRule":
@@ -1698,7 +1703,8 @@ export const dict = {
 		"ads.previewing": "Aperçu",
 		"ads.railLeft": "Sponsors, à gauche",
 		"ads.railRight": "Sponsors, à droite",
-		"ads.tape": "Sponsors",
+		"ads.tapeTop": "Sponsors, en haut",
+		"ads.tapeBottom": "Sponsors, en bas",
 
 		"ads.pickRule":
 			"Trois emplacements par commande : un panneau latéral, un emplacement sur la page d'accueil, et une catégorie.",

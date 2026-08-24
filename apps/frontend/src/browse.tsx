@@ -570,7 +570,10 @@ export function VerdictPills({
 	onChange: (v: string) => void;
 }) {
 	const seg =
-		"px-3 text-sm text-muted transition first:border-l-0 border-l border-border hover:text-text aria-pressed:bg-[color-mix(in_srgb,var(--brand)_10%,var(--surface))] aria-pressed:font-medium aria-pressed:text-brand";
+		// Not aria-pressed:text-brand. On its own 10% tint that is 4.49:1, which
+		// misses AA by 0.01 -- the same pair index.css:268 already documents and
+		// solves with --brand-text. This segmented control reached for --brand again.
+		"px-3 text-sm text-muted transition first:border-l-0 border-l border-border hover:text-text aria-pressed:bg-[color-mix(in_srgb,var(--brand)_10%,var(--surface))] aria-pressed:font-medium aria-pressed:text-[var(--brand-text)]";
 	return (
 		<fieldset className="m-0 min-w-0 border-0 p-0">
 			<legend className="sr-only">{t("filter.verdict")}</legend>

@@ -1078,7 +1078,11 @@ export function ContactSection({ t, lang }: { t: T; lang: Lang }) {
 			id="contact"
 			eyebrow={t("contact.eyebrow")}
 			title={t("contact.title")}
-			headingHidden
+			// Was `headingHidden`, which put this page's only h1 inside a `sr-only`
+			// wrapper. Measured 1px wide at 1440, 900 and 390 in both locales, so the
+			// page rendered with no visible top-level heading at all while claiming
+			// one in the outline. Sponsor and submit, the two pages that share this
+			// component and this headingLevel, both show theirs.
 			headingLevel="h1"
 		>
 			<div className="grid gap-8">
