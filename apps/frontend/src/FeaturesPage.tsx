@@ -176,7 +176,17 @@ export function FeaturesPage({
 	// Seeded from the payload, never from null, on a prerendered document: the
 	// first render has to draw the same matrix the static HTML carries or
 	// hydration throws it away and the crawler's renderer is back at "Loading".
-	const [file, setFile] = useState<FeatureFile | null>(bootFeatures);
+	//
+	// Gated on `bootRows`, not on `bootFeatures` being truthy. `window.__DATA__`
+	// belongs to the document the VISIT started on and pushState never replaces
+	// it, so arriving here from a product page finds that product's own feature
+	// slice: twelve projects rather than 3,234, and the `if (file) return` below
+	// then skips the full import because the slice is not null. `featureRows` is
+	// written only into this page's payload, so it is the one honest signal that
+	// the slice in hand belongs to this page.
+	const [file, setFile] = useState<FeatureFile | null>(() =>
+		bootRows() ? bootFeatures() : null,
+	);
 	const [loadFailed, setLoadFailed] = useState(false);
 	const [query, setQuery] = useState("");
 	const [need, setNeed] = useState<string[]>([]);

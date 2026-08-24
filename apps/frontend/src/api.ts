@@ -655,7 +655,10 @@ const post = <S extends z.ZodType>(path: string, schema: S, body: unknown) =>
 export const api = {
 	/** Mint the voter cookie before any vote, so voting is not the first request,
 	 *  and report whether there is a session worth asking `/api/me/*` about. */
-	session: () => req("/api/session", SessionSchema),
+	// `no-store` because this reports `signedIn`, and a cached answer tells a
+	// reader who just signed in that they are signed out. Belt to the nginx
+	// braces: the edge sets `private, no-store` on this path too.
+	session: () => req("/api/session", SessionSchema, { cache: "no-store" }),
 	products: () => req("/api/products", z.array(ListedProductSchema)),
 	categories: () => req("/api/categories", z.array(CategorySchema)),
 	stats: () => req("/api/stats", StatsSchema),
@@ -723,7 +726,8 @@ export const api = {
 	requestSignIn: (email: string) =>
 		post("/api/auth/request", OkSchema, { email }),
 	me: () => req("/api/me", z.object({ email: z.string() })),
-	campaigns: () => req("/api/me/campaigns", CampaignsSchema),
+	campaigns: () =>
+		req("/api/me/campaigns", CampaignsSchema, { cache: "no-store" }),
 	/** Which slots a creative token covers, so the form can preview each. */
 	creativeSlots: (token: string) =>
 		req(
@@ -754,7 +758,7 @@ export const api = {
 			return parsed.data;
 		}),
 	signOut: () => post("/api/auth/logout", OkSchema, {}),
-	team: () => req("/api/me/team", TeamSchema),
+	team: () => req("/api/me/team", TeamSchema, { cache: "no-store" }),
 	addMember: (body: { email: string; role: OrgRole; owner?: string }) =>
 		post("/api/me/team", OkSchema, body),
 	removeMember: (body: { email: string; owner?: string }) =>
