@@ -497,9 +497,17 @@ export function LegalPage({ lang, doc }: { lang: Lang; doc: LegalDoc }) {
 				))}
 			</div>
 
-			<p className={`${P} mt-10`}>
+			{/*
+			 * `<address>`, not `<p>`, as the outer element. It was inside one, and
+			 * `<p>` takes phrasing content only, so the parser hoisted the address
+			 * out and made it a sibling while React had rendered it nested. That is
+			 * a hydration mismatch on all 14 legal pages, and React regenerates a
+			 * mismatched tree on the client, which is the one thing a prerendered
+			 * site cannot afford.
+			 */}
+			<address className={`${P} mt-10 not-italic`}>
 				{lang === "fr" ? "Une question ? " : "A question? "}
-				<address className="inline not-italic">
+				<span className="inline">
 					{PUBLISHER.email ? (
 						<a
 							href={`mailto:${PUBLISHER.email}`}
@@ -512,8 +520,8 @@ export function LegalPage({ lang, doc }: { lang: Lang; doc: LegalDoc }) {
 							{REPO}
 						</a>
 					)}
-				</address>
-			</p>
+				</span>
+			</address>
 		</PageShell>
 	);
 }
