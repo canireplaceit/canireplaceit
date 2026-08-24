@@ -2294,7 +2294,34 @@ function syncAlternates(alternates: Record<Lang, string>): void {
  * shows, and a stale block claiming the previous page's crumbs is the one
  * structured-data error Google treats as a mismatch with the page.
  */
+/**
+ * The prerendered document already carries the richest graph the site can build,
+ * because scripts/prerender.ts has the whole catalogue in memory when it writes
+ * it. On the first pass through applyMeta the app does not: rows are still
+ * loading, so categoryMeta's `rows && rows.length > 0` guard fails, itemListNode
+ * returns nothing and productNode has no image options. Replacing on that pass
+ * traded a complete graph for a thinner one on every page.
+ *
+ * Measured before this guard: /en/categories/video shipped CollectionPage +
+ * ItemList(12) + BreadcrumbList and the browser was left with CollectionPage +
+ * BreadcrumbList, mainEntity gone. /en/alternatives/1password/ shipped
+ * Product.image and the browser had none. Google renders before it extracts, so
+ * that was the version Google read, on 1,184 product and 3,186 project URLs.
+ *
+ * Client-side navigation still has to replace: by then the head describes the
+ * previous page, and a BreadcrumbList claiming the wrong trail is exactly the
+ * mismatch this function exists to prevent.
+ */
+let jsonLdOwned = false;
+
 function syncJsonLd(blocks: string[]): void {
+	// Leave the prerendered blocks alone the first time. `jsonLdOwned` rather than
+	// a "did we navigate yet" flag, because the honest condition is whether these
+	// blocks were written by this module or by the build.
+	if (!jsonLdOwned) {
+		jsonLdOwned = true;
+		if (document.head.querySelector("script[data-ld]")) return;
+	}
 	for (const el of document.head.querySelectorAll("script[data-ld]")) {
 		el.remove();
 	}
