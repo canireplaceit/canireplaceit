@@ -1178,6 +1178,24 @@ export function App() {
 					.catch(() => {});
 			}
 		}
+
+		// The payload deliberately withholds the category BLURBS: all 85 written up
+		// in two languages is 113 kB, and only a category page renders one, so
+		// `shipBoot` ships just the blurb of the document it is building. Arriving
+		// here by client-side navigation therefore lands on a payload holding every
+		// category and this one's prose missing, which is the paragraph the page
+		// exists for. One request fixes every category page for the rest of the
+		// visit, because it replaces the whole list, so this does not need to fire
+		// again when the reader moves from one category to the next.
+		if (route.name === "category") {
+			const known = cats.find((c) => c.slug === route.slug);
+			if (known && !known.blurb) {
+				api
+					.categories()
+					.then(setCats)
+					.catch(() => {});
+			}
+		}
 	}, [route.name, stats]);
 
 	// Ten hero positions, in the authored order. `position` is the sold order, so

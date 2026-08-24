@@ -969,7 +969,13 @@ function oneLocale<T>(value: T, lang: Lang): T {
  * that print an alternative's prose or the feature matrix. Every other page
  * ships neither, and carrying the readings there was 170 kB saying nothing.
  */
-const shipBoot = (boot: Boot, lang: Lang, full: boolean): Boot => {
+const shipBoot = (
+	boot: Boot,
+	lang: Lang,
+	full: boolean,
+	/** The one category whose prose this page actually renders, if any. */
+	blurbFor?: string,
+): Boot => {
 	const trimmed = full
 		? boot
 		: {
@@ -979,11 +985,17 @@ const shipBoot = (boot: Boot, lang: Lang, full: boolean): Boot => {
 			};
 	return {
 		...oneLocale(trimmed, lang),
-		// The one exception, and it stays bilingual on purpose: `byWeight` in
-		// categories.tsx breaks ties on `name.en` so the menu comes out in the same
-		// order in both languages. Collapsing it would reorder the French menu.
-		// All 85 of them cost 2.2 kB, which is not worth a behaviour change.
-		categories: boot.categories,
+		// Bilingual on purpose: `byWeight` in categories.tsx breaks ties on
+		// `name.en` so the menu comes out in the same order in both languages, and
+		// collapsing it would reorder the French menu.
+		//
+		// The blurbs do NOT travel with them. They were 2.2 kB when every category
+		// held a name and an icon; writing all 85 up in two languages took that to
+		// 126 kB, on all 8,868 documents, to render one paragraph on 170 of them.
+		// Only the category whose page this is keeps its prose.
+		categories: boot.categories.map((c) =>
+			c.blurb && c.slug !== blurbFor ? { ...c, blurb: undefined } : c,
+		),
 	};
 };
 
@@ -1318,6 +1330,7 @@ function emit(o: {
 		o.route.name === "product" ||
 			o.route.name === "project" ||
 			o.route.name === "features",
+		o.route.name === "category" ? o.route.slug : undefined,
 	);
 
 	at(url);
