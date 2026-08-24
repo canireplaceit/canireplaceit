@@ -578,7 +578,7 @@ export function FeaturesPage({
 					{need.length > 0 &&
 						` · ${need.length} ${t(need.length === 1 ? "features.reqOne" : "features.reqMany")}`}
 				</p>
-				<div className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+				<div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
 					{matched.slice(0, MAX_CARDS).map((r) => {
 						const on = picked.includes(r.key);
 						return (

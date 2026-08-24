@@ -204,7 +204,14 @@ function priceLine(product: Product, lang: Lang): string {
 				` Relevé le ${product.pricing.checkedOn} sur ${product.pricing.url}.`,
 			)
 		: "";
-	const plan = product.pricing ? ` (${product.pricing.plan})` : "";
+	// Same rule as the receipt row on the page: `plan` is an untranslated vendor
+	// string, so the quote-only placeholder would read as English inside a French
+	// sentence, and the line above already says there is no public price.
+	const plan =
+		product.pricing &&
+		!(product.pricing.basis === "custom" && product.priceMonthly === null)
+			? ` (${product.pricing.plan})`
+			: "";
 	// A separate sentence after the receipt. Inside the price sentence it read as
 	// "X costs $40 (... figure not read off the page)".
 	const priceNote = product.pricing?.note ? ` ${product.pricing.note}.` : "";

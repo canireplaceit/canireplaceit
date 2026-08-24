@@ -197,9 +197,16 @@ export function CategoryMenu({
 				    between the trigger and the panel is a strip the pointer falls
 				    through on the way down, and the panel closes under it. */}
 				<div
-					className={`absolute right-0 left-0 z-20 ${footer ? "bottom-full pb-1" : "top-full pt-1"}`}
+					// `z-50` because the footer copy opens UPWARD and the sticky header
+					// is `z-40`: at `z-20` the header painted over the panel's top rows
+					// and they were not clickable. The height is capped against the
+					// viewport too, or an 85-item list opening upward runs off the top
+					// of the screen on a short one.
+					className={`absolute right-0 left-0 ${footer ? "bottom-full z-50 pb-1" : "top-full z-20 pt-1"}`}
 				>
-					<div className="max-h-[60vh] overflow-y-auto overscroll-contain rounded-[calc(var(--radius))] border border-border bg-surface p-2 shadow-lg">
+					<div
+						className={`${footer ? "max-h-[min(60vh,calc(100vh-8rem))]" : "max-h-[60vh]"} overflow-y-auto overscroll-contain rounded-[calc(var(--radius))] border border-border bg-surface p-2 shadow-lg`}
+					>
 						<ul
 							className={`${GRID_1COL} gap-x-3 sm:grid-cols-2 lg:grid-cols-3`}
 						>

@@ -403,12 +403,20 @@ export function PriceBlock({
 			)}
 			{pricing && (
 				<div className="mt-2">
-					{pricing.plan && (
-						<p className="receipt-row">
-							<span className="text-muted">{t("price.plan")}</span>
-							<span className="min-w-0 text-right">{pricing.plan}</span>
-						</p>
-					)}
+					{/* `plan` is the vendor's own name for a tier and is not translated,
+					    which is fine for a proper noun like "Plus, annual billed monthly"
+					    and not fine for a sentence. 82 quote-only products carry
+					    "Contact sales, no published list price", which rendered as
+					    English inside the French price block on 260 pages. The line
+					    above already says "Aucun prix public", so the placeholder adds
+					    nothing in either language. */}
+					{pricing.plan &&
+						!(pricing.basis === "custom" && !product.priceMonthly) && (
+							<p className="receipt-row">
+								<span className="text-muted">{t("price.plan")}</span>
+								<span className="min-w-0 text-right">{pricing.plan}</span>
+							</p>
+						)}
 					{/* Under the receipt, never inside the price sentence: it says why
 					    this particular figure is weaker than the rest. */}
 					{pricing.note && (
