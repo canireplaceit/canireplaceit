@@ -5326,14 +5326,7 @@
 			"ops.subpath": "yes"
 		},
 		"TykTechnologies/tyk": {
-			"auth.anonymous": "yes",
-			"auth.auditLog": "paid",
-			"auth.local": "yes",
-			"auth.rbac": "paid",
-			"auth.rbac.granular": "paid",
-			"auth.sso": "yes",
-			"auth.sso.oidc": "yes",
-			"auth.teams": "paid",
+			"auth.apiTokens": "yes",
 			"data.api.graphql": "yes",
 			"data.api.rest": "yes",
 			"ops.armSupport": "yes",
@@ -13028,7 +13021,12 @@
 			"data.encryption.rest": "yes",
 			"i18n.multiLanguage": "yes"
 		},
-		"hobbyfarm/hobbyfarm": {},
+		"hobbyfarm/hobbyfarm": {
+			"auth.rbac": "yes",
+			"auth.rbac.granular": "yes",
+			"collab.multiUser": "yes",
+			"ops.subpath": "partial"
+		},
 		"holoviz/panel": {
 			"auth.sso.oauth2": "yes"
 		},
@@ -13105,6 +13103,7 @@
 			"i18n.multiLanguage": "no"
 		},
 		"hovancik/stretchly": {
+			"i18n.multiLanguage": "yes",
 			"ops.armSupport": "yes",
 			"ops.healthcheck": "yes"
 		},
@@ -13116,7 +13115,14 @@
 			"ai.mcp.server": "no",
 			"ops.armSupport": "yes"
 		},
-		"htcondor/htcondor": {},
+		"htcondor/htcondor": {
+			"auth.anonymous": "yes",
+			"auth.apiTokens": "yes",
+			"auth.auditLog": "yes",
+			"collab.multiUser": "yes",
+			"data.api.rest": "yes",
+			"i18n.multiLanguage": "no"
+		},
 		"htop-dev/htop": {
 			"ai.features": "no",
 			"ai.mcp.server": "no"
@@ -13164,7 +13170,10 @@
 			"ops.s3": "yes",
 			"ops.smtp": "yes"
 		},
-		"huxingyi/dust3d": {},
+		"huxingyi/dust3d": {
+			"data.export.open": "yes",
+			"i18n.multiLanguage": "no"
+		},
 		"hwgilbert16/scholarsome": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
@@ -13181,7 +13190,11 @@
 		"hydrogen-music/hydrogen": {
 			"i18n.multiLanguage": "yes"
 		},
-		"hydrusnetwork/hydrus": {},
+		"hydrusnetwork/hydrus": {
+			"auth.apiTokens": "yes",
+			"data.api.rest": "yes",
+			"data.telemetry.none": "yes"
+		},
 		"hyperdxio/hyperdx": {
 			"ai.features": "yes",
 			"ai.mcp.community": "no",
@@ -13205,11 +13218,21 @@
 			"ops.sqlite": "yes"
 		},
 		"hyvor/relay": {
+			"auth.apiTokens": "yes",
+			"auth.multiTenant": "yes",
+			"auth.sso": "yes",
+			"auth.sso.oidc": "yes",
+			"collab.multiUser": "yes",
+			"data.api.rest": "yes",
+			"data.webhooks": "yes",
 			"ops.healthcheck": "yes",
 			"ops.postgres": "yes"
 		},
 		"hzeller/timg": {},
-		"iCreateWorks/esigning": {},
+		"iCreateWorks/esigning": {
+			"data.api.rest": "yes",
+			"ops.subpath": "yes"
+		},
 		"iMartinezMateu/openbravo-pos": {},
 		"iSoron/uhabits": {
 			"ai.features": "yes",
@@ -13229,8 +13252,23 @@
 		"ibara/oksh": {
 			"ops.armSupport": "yes"
 		},
-		"ibericode/koko-analytics": {},
+		"ibericode/koko-analytics": {
+			"collab.notifications.email": "paid",
+			"data.api.rest": "yes",
+			"data.export.open": "yes",
+			"data.import.fromProprietary": "yes",
+			"data.telemetry.none": "yes"
+		},
 		"ibuilder/massing": {
+			"auth.anonymous": "partial",
+			"auth.local": "yes",
+			"auth.mfa.totp": "yes",
+			"auth.rbac": "yes",
+			"auth.scim": "yes",
+			"auth.sso": "yes",
+			"auth.sso.oauth2": "yes",
+			"auth.sso.saml": "yes",
+			"data.export.open": "yes",
 			"ops.healthcheck": "yes",
 			"ops.metrics": "yes",
 			"ops.postgres": "yes",
@@ -13242,16 +13280,34 @@
 		},
 		"iczelia/bzip3": {},
 		"idaholab/moose": {},
-		"idank/explainshell": {},
+		"idank/explainshell": {
+			"ai.byoKey": "yes",
+			"ai.features": "yes",
+			"ai.optional": "yes",
+			"data.export.full": "yes",
+			"i18n.multiLanguage": "no"
+		},
 		"ideawu/ssdb": {},
 		"igrek51/wat": {},
 		"igvteam/igv": {},
 		"ihabunek/toot": {},
 		"ihopeit/recruitment": {
+			"auth.rbac": "yes",
+			"auth.sso.ldap": "yes",
+			"auth.teams": "yes",
+			"collab.multiUser": "yes",
+			"data.api.rest": "yes",
+			"data.export.full": "partial",
+			"data.export.open": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.metrics": "yes"
 		},
 		"illacloud/illa-builder": {
+			"auth.local": "yes",
+			"collab.realtime": "yes",
 			"data.api.graphql": "yes",
+			"i18n.multiLanguage": "yes",
+			"notes.collab.realtime": "yes",
 			"ops.healthcheck": "yes",
 			"ops.postgres": "yes"
 		},
@@ -13262,8 +13318,11 @@
 			"i18n.multiLanguage": "no",
 			"ops.healthcheck": "yes"
 		},
-		"im2nguyen/rover": {},
+		"im2nguyen/rover": {
+			"data.import.fromProprietary": "yes"
+		},
 		"imazen/imageflow": {
+			"i18n.multiLanguage": "no",
 			"ops.armSupport": "yes"
 		},
 		"imgproxy/imgproxy": {
@@ -13360,8 +13419,22 @@
 			"ops.subpath": "yes"
 		},
 		"indico/indico": {
+			"auth.local": "yes",
+			"auth.rbac": "yes",
+			"auth.rbac.granular": "yes",
+			"auth.sso": "yes",
+			"auth.sso.ldap": "yes",
+			"auth.sso.oauth2": "yes",
+			"auth.sso.oidc": "yes",
+			"auth.sso.saml": "yes",
+			"auth.teams": "yes",
+			"collab.multiUser": "yes",
+			"collab.notifications.email": "yes",
+			"data.backup.builtin": "no",
+			"i18n.multiLanguage": "yes",
 			"ops.armSupport": "yes",
-			"ops.postgres": "yes"
+			"ops.postgres": "yes",
+			"ops.smtp": "yes"
 		},
 		"influxdata/telegraf": {
 			"ops.healthcheck": "yes",
@@ -13369,7 +13442,12 @@
 			"ops.s3": "yes",
 			"ops.sqlite": "yes"
 		},
-		"informatici/openhospital": {},
+		"informatici/openhospital": {
+			"collab.multiUser": "yes",
+			"data.api.rest": "yes",
+			"data.backup.documented": "yes",
+			"i18n.multiLanguage": "yes"
+		},
 		"infracost/infracost": {
 			"auth.apiTokens": "yes",
 			"auth.auditLog": "paid",
@@ -13382,7 +13460,9 @@
 			"ops.metrics": "yes",
 			"ops.s3": "yes"
 		},
-		"inkscape/inkscape": {},
+		"inkscape/inkscape": {
+			"i18n.multiLanguage": "yes"
+		},
 		"inovector/mixpost": {
 			"ai.features": "yes",
 			"ai.mcp.community": "no",
@@ -13396,7 +13476,10 @@
 			"auth.sso.oidc": "paid",
 			"auth.teams": "yes"
 		},
-		"insanum/gcalcli": {},
+		"insanum/gcalcli": {
+			"auth.sso.oauth2": "yes",
+			"data.import.fromProprietary": "yes"
+		},
 		"instructure/canvas-lms": {
 			"ai.features": "yes",
 			"ai.mcp.community": "yes",
@@ -13409,12 +13492,16 @@
 			"ops.postgres": "yes"
 		},
 		"int128/kubelogin": {
+			"auth.sso": "yes",
+			"auth.sso.oidc": "yes",
 			"ops.metrics": "yes"
 		},
 		"internetarchive/fatcat": {
 			"ops.postgres": "yes"
 		},
 		"internetarchive/openlibrary": {
+			"auth.local": "yes",
+			"data.api.rest": "yes",
 			"ops.metrics": "yes",
 			"ops.postgres": "yes"
 		},
@@ -13462,6 +13549,7 @@
 			"ops.postgres": "yes"
 		},
 		"inventree/inventree-python": {
+			"data.api.rest": "yes",
 			"ops.sqlite": "yes"
 		},
 		"inverse-inc/packetfence": {
@@ -13490,7 +13578,9 @@
 			"ops.s3": "yes",
 			"ops.smtp": "yes"
 		},
-		"ioBroker/ioBroker.js-controller": {},
+		"ioBroker/ioBroker.js-controller": {
+			"data.telemetry.none": "no"
+		},
 		"iredmail/iRedMail": {
 			"auth.local": "yes",
 			"auth.mfa.totp": "paid",
@@ -13502,7 +13592,9 @@
 			"data.backup.documented": "yes",
 			"ops.healthcheck": "yes"
 		},
-		"irontec/sngrep": {},
+		"irontec/sngrep": {
+			"data.import.fromProprietary": "yes"
+		},
 		"irssi/irssi": {},
 		"isaacs/nave": {},
 		"isc-projects/bind9": {},
@@ -13521,6 +13613,7 @@
 			"ops.subpath": "yes"
 		},
 		"itaysk/kubectl-neat": {
+			"data.export.open": "yes",
 			"ops.metrics": "yes"
 		},
 		"itchyny/gojq": {
@@ -13533,7 +13626,9 @@
 			"data.api.graphql": "yes",
 			"ops.armSupport": "yes"
 		},
-		"itsvic-dev/deliveries": {},
+		"itsvic-dev/deliveries": {
+			"i18n.multiLanguage": "yes"
+		},
 		"itthinx/affiliates": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
@@ -13559,7 +13654,9 @@
 		"jackc/tern": {
 			"ops.postgres": "yes"
 		},
-		"jacoco/jacoco": {},
+		"jacoco/jacoco": {
+			"data.export.open": "yes"
+		},
 		"jaegertracing/jaeger": {
 			"auth.apiTokens": "yes",
 			"auth.rbac": "no",
@@ -13585,6 +13682,8 @@
 			"ops.s3": "yes"
 		},
 		"jambonz/jambonz-feature-server": {
+			"data.api.rest": "yes",
+			"data.webhooks": "yes",
 			"ops.s3": "yes"
 		},
 		"jamesmcm/vopono": {},
@@ -13618,7 +13717,13 @@
 			"i18n.multiLanguage": "yes"
 		},
 		"janreges/siteone-crawler": {
-			"ops.armSupport": "yes"
+			"ai.features": "yes",
+			"collab.notifications.email": "yes",
+			"collab.share.publicLink": "yes",
+			"data.export.full": "yes",
+			"data.export.open": "yes",
+			"ops.armSupport": "yes",
+			"ops.smtp": "yes"
 		},
 		"jarun/buku": {
 			"data.encryption.rest": "yes",
@@ -13628,7 +13733,9 @@
 			"i18n.multiLanguage": "yes"
 		},
 		"jarun/googler": {},
-		"jarun/nnn": {},
+		"jarun/nnn": {
+			"data.telemetry.none": "yes"
+		},
 		"jasp-stats/jasp-desktop": {
 			"ai.features": "yes",
 			"ai.mcp.community": "no",
@@ -13643,7 +13750,10 @@
 		"jaspervdj/patat": {
 			"ops.armSupport": "yes"
 		},
-		"jazzband/Watson": {},
+		"jazzband/Watson": {
+			"collab.share.internal": "yes",
+			"data.export.open": "yes"
+		},
 		"jazzband/pip-tools": {},
 		"jblindsay/whitebox-tools": {},
 		"jdx/mise": {
@@ -13672,7 +13782,9 @@
 			"i18n.multiLanguage": "no"
 		},
 		"jedisct1/minisign": {},
-		"jeessy2/ddns-go": {},
+		"jeessy2/ddns-go": {
+			"data.webhooks": "yes"
+		},
 		"jeffkaufman/icdiff": {},
 		"jeffvli/feishin": {
 			"ai.features": "yes",
@@ -13698,7 +13810,11 @@
 			"i18n.multiLanguage": "yes",
 			"ops.healthcheck": "yes"
 		},
-		"jendrikseipp/rednotebook": {},
+		"jendrikseipp/rednotebook": {
+			"data.backup.builtin": "yes",
+			"data.export.open": "yes",
+			"i18n.multiLanguage": "yes"
+		},
 		"jenkinsci/jenkins": {
 			"ai.features": "no",
 			"ai.mcp.community": "no",
@@ -13724,6 +13840,7 @@
 			"i18n.multiLanguage": "yes"
 		},
 		"jessfraz/cliaoke": {
+			"data.telemetry.none": "no",
 			"ops.armSupport": "yes"
 		},
 		"jetify-com/devbox": {
@@ -13735,6 +13852,8 @@
 			"ops.smtp": "yes"
 		},
 		"jgm/pandoc": {
+			"data.export.open": "yes",
+			"data.import.fromProprietary": "yes",
 			"ops.armSupport": "yes"
 		},
 		"jgraph/drawio": {
@@ -13752,6 +13871,7 @@
 			"ops.healthcheck": "yes"
 		},
 		"jgraph/drawio-desktop": {
+			"data.telemetry.none": "yes",
 			"ops.armSupport": "yes"
 		},
 		"jhawthorn/fzy": {},
@@ -13780,6 +13900,7 @@
 			"ops.smtp": "yes"
 		},
 		"jhspetersson/fselect": {
+			"data.export.open": "yes",
 			"ops.armSupport": "yes"
 		},
 		"jhuckaby/Cronicle": {
@@ -13793,8 +13914,14 @@
 			"i18n.multiLanguage": "no",
 			"ops.smtp": "yes"
 		},
-		"jianfch/stable-ts": {},
-		"jiixyj/libebur128": {},
+		"jianfch/stable-ts": {
+			"ai.features": "yes",
+			"ai.localModel": "yes",
+			"data.export.open": "yes"
+		},
+		"jiixyj/libebur128": {
+			"i18n.multiLanguage": "no"
+		},
 		"jimmejardine/qiqqa-open-source": {
 			"ops.healthcheck": "yes"
 		},
@@ -13845,19 +13972,56 @@
 		},
 		"jmathai/elodie": {},
 		"jmespath/jp": {
+			"i18n.multiLanguage": "no",
 			"ops.armSupport": "yes"
 		},
-		"joaomoreno/gifcap": {},
+		"joaomoreno/gifcap": {
+			"auth.anonymous": "yes",
+			"auth.apiTokens": "no",
+			"auth.auditLog": "no",
+			"auth.invite": "no",
+			"auth.local": "no",
+			"auth.mfa.email": "no",
+			"auth.mfa.enforced": "no",
+			"auth.mfa.totp": "no",
+			"auth.mfa.webauthn": "no",
+			"auth.multiTenant": "no",
+			"auth.provider.ldap": "no",
+			"auth.provider.oidc": "no",
+			"auth.provider.saml": "no",
+			"auth.rbac": "no",
+			"auth.rbac.granular": "no",
+			"auth.scim": "no",
+			"auth.sso": "no",
+			"auth.sso.enforced": "no",
+			"auth.sso.header": "no",
+			"auth.sso.ldap": "no",
+			"auth.sso.oauth2": "no",
+			"auth.sso.oidc": "no",
+			"auth.sso.saml": "no",
+			"auth.teams": "no",
+			"data.telemetry.none": "yes"
+		},
 		"joe-editor/joe": {},
 		"joewalnes/websocketd": {},
-		"joh/when-changed": {},
+		"joh/when-changed": {
+			"i18n.multiLanguage": "no"
+		},
 		"johanmattssonm/birdfont": {
 			"ai.features": "no",
 			"ai.mcp.server": "no",
 			"data.export.open": "yes"
 		},
-		"johnSamilin/rosplata": {},
-		"johnfactotum/foliate": {},
+		"johnSamilin/rosplata": {
+			"collab.comments": "yes",
+			"collab.multiUser": "yes",
+			"i18n.multiLanguage": "yes"
+		},
+		"johnfactotum/foliate": {
+			"data.backup.documented": "yes",
+			"data.export.open": "yes",
+			"data.import.fromProprietary": "yes"
+		},
 		"johnkerl/miller": {
 			"ops.armSupport": "yes"
 		},
@@ -13866,9 +14030,12 @@
 			"ai.mcp.server": "no",
 			"i18n.multiLanguage": "no"
 		},
-		"jordansissel/xdotool": {},
+		"jordansissel/xdotool": {
+			"i18n.multiLanguage": "no"
+		},
 		"jorgebucaran/nvm.fish": {},
 		"jorgerojas26/lazysql": {
+			"i18n.multiLanguage": "no",
 			"ops.sqlite": "yes"
 		},
 		"jovandeginste/workout-tracker": {
@@ -13912,7 +14079,9 @@
 			"notes.search.fulltext": "yes",
 			"notes.webClipper": "no"
 		},
-		"jscad/OpenJSCAD.org": {},
+		"jscad/OpenJSCAD.org": {
+			"i18n.multiLanguage": "yes"
+		},
 		"jspsych/jsPsych": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no"
@@ -13937,8 +14106,24 @@
 			"ops.s3": "yes",
 			"ops.sqlite": "yes"
 		},
-		"julien-nc/cospend-nc": {},
-		"julien-nc/phonetrack": {},
+		"julien-nc/cospend-nc": {
+			"collab.multiUser": "yes",
+			"collab.share.external": "yes",
+			"collab.share.internal": "yes",
+			"collab.share.publicLink": "yes",
+			"data.api.rest": "yes",
+			"data.import.fromProprietary": "yes",
+			"i18n.multiLanguage": "yes"
+		},
+		"julien-nc/phonetrack": {
+			"auth.anonymous": "yes",
+			"collab.multiUser": "yes",
+			"collab.share.external": "yes",
+			"collab.share.internal": "yes",
+			"collab.share.publicLink": "yes",
+			"data.api.rest": "yes",
+			"data.export.open": "yes"
+		},
 		"junegunn/fzf": {
 			"i18n.multiLanguage": "no"
 		},
@@ -13998,10 +14183,23 @@
 			"i18n.multiLanguage": "yes",
 			"ops.armSupport": "yes"
 		},
-		"jupyterlite/jupyterlite": {},
-		"jupytext/jupytext": {},
+		"jupyterlite/jupyterlite": {
+			"collab.realtime": "no",
+			"collab.share.publicLink": "yes",
+			"data.export.open": "yes",
+			"i18n.multiLanguage": "yes",
+			"notes.collab.realtime": "no"
+		},
+		"jupytext/jupytext": {
+			"data.export.full": "partial",
+			"data.export.open": "yes"
+		},
 		"juspay/hyperswitch": {
+			"collab.notifications.email": "partial",
 			"data.api.graphql": "yes",
+			"data.api.rest": "yes",
+			"data.webhooks": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.healthcheck": "yes",
 			"ops.metrics": "yes",
 			"ops.postgres": "yes"
@@ -14013,6 +14211,14 @@
 			"ops.subpath": "yes"
 		},
 		"k0sproject/k0s": {
+			"auth.rbac": "yes",
+			"auth.sso": "yes",
+			"auth.sso.oidc": "yes",
+			"collab.multiUser": "yes",
+			"data.backup.builtin": "yes",
+			"data.backup.documented": "yes",
+			"data.export.full": "partial",
+			"data.telemetry.none": "no",
 			"ops.armSupport": "yes",
 			"ops.healthcheck": "yes",
 			"ops.metrics": "yes",
@@ -14048,10 +14254,15 @@
 			"ops.metrics": "yes",
 			"ops.s3": "yes"
 		},
-		"kaelzhang/shell-safe-rm": {},
+		"kaelzhang/shell-safe-rm": {
+			"data.backup.documented": "yes"
+		},
 		"kaleidos-ventures/taiga": {
+			"auth.sso.oauth2": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.healthcheck": "yes",
-			"ops.postgres": "yes"
+			"ops.postgres": "yes",
+			"ops.smtp": "yes"
 		},
 		"kamailio/kamailio": {
 			"auth.local": "yes",
@@ -14088,6 +14299,8 @@
 			"ops.subpath": "yes"
 		},
 		"kando-menu/kando": {
+			"data.telemetry.none": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.armSupport": "yes"
 		},
 		"kanidm/kanidm": {
@@ -14101,11 +14314,15 @@
 			"ops.s3": "yes"
 		},
 		"kanisterio/kanister": {
+			"data.backup.builtin": "yes",
 			"ops.healthcheck": "yes",
 			"ops.metrics": "yes",
 			"ops.s3": "yes"
 		},
 		"kanriapp/kanri": {
+			"data.backup.builtin": "yes",
+			"data.import.fromProprietary": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.armSupport": "yes"
 		},
 		"karakeep-app/karakeep": {
@@ -14162,7 +14379,10 @@
 		"kdheepak/taskwarrior-tui": {
 			"ops.armSupport": "yes"
 		},
-		"kedro-org/kedro": {},
+		"kedro-org/kedro": {
+			"ai.features": "yes",
+			"data.api.rest": "yes"
+		},
 		"keepass.info/dominikreichl/keepass": {
 			"ai.mcp.community": "yes",
 			"ai.mcp.official": "no",
@@ -14197,11 +14417,17 @@
 			"i18n.multiLanguage": "yes",
 			"ops.armSupport": "yes"
 		},
-		"kellerben/dudle": {},
+		"kellerben/dudle": {
+			"collab.multiUser": "yes",
+			"i18n.multiLanguage": "yes",
+			"ops.subpath": "yes"
+		},
 		"kellyjonbrazil/jc": {
+			"data.api.rest": "yes",
 			"ops.armSupport": "yes"
 		},
 		"kellyjonbrazil/jello": {
+			"data.export.open": "yes",
 			"ops.armSupport": "yes"
 		},
 		"keplergl/kepler.gl": {
@@ -14214,6 +14440,7 @@
 			"i18n.multiLanguage": "yes"
 		},
 		"kerberos-io/agent": {
+			"i18n.multiLanguage": "yes",
 			"ops.armSupport": "yes"
 		},
 		"kestra-io/kestra": {
@@ -14231,7 +14458,9 @@
 			"ops.healthcheck": "yes",
 			"ops.postgres": "yes"
 		},
-		"key-networks/ztncui": {},
+		"key-networks/ztncui": {
+			"auth.local": "yes"
+		},
 		"keycloak/keycloak": {
 			"ai.features": "yes",
 			"ai.mcp.community": "yes",
@@ -14255,6 +14484,8 @@
 			"ops.subpath": "yes"
 		},
 		"keystonejs/keystone": {
+			"auth.local": "yes",
+			"auth.rbac.granular": "yes",
 			"data.api.graphql": "yes",
 			"ops.s3": "yes"
 		},
@@ -14345,6 +14576,10 @@
 			"ops.s3": "yes"
 		},
 		"knowledgefutures/pubpub": {
+			"auth.apiTokens": "yes",
+			"auth.sso": "yes",
+			"auth.sso.oidc": "yes",
+			"collab.comments": "yes",
 			"ops.armSupport": "yes",
 			"ops.s3": "yes"
 		},
@@ -14376,8 +14611,15 @@
 			"ops.postgres": "yes",
 			"ops.sqlite": "yes"
 		},
-		"kohler/hotcrp": {},
+		"kohler/hotcrp": {
+			"collab.comments": "yes",
+			"collab.multiUser": "yes",
+			"collab.notifications.email": "yes",
+			"data.api.rest": "yes",
+			"ops.subpath": "yes"
+		},
 		"komari-monitor/komari": {
+			"data.backup.builtin": "yes",
 			"ops.armSupport": "yes",
 			"ops.sqlite": "yes"
 		},
@@ -14409,10 +14651,18 @@
 			"ops.smtp": "yes"
 		},
 		"koreader/koreader": {
+			"i18n.multiLanguage": "yes",
 			"ops.armSupport": "yes"
 		},
-		"kornelski/pngquant": {},
-		"koush/scrypted": {},
+		"kornelski/pngquant": {
+			"i18n.multiLanguage": "no"
+		},
+		"koush/scrypted": {
+			"ai.features": "yes",
+			"ai.localModel": "yes",
+			"collab.notifications.push": "yes",
+			"i18n.multiLanguage": "no"
+		},
 		"kovidgoyal/calibre": {
 			"i18n.multiLanguage": "yes",
 			"ops.armSupport": "yes",
@@ -14426,6 +14676,7 @@
 		},
 		"krakend/krakend-ce": {
 			"data.api.graphql": "yes",
+			"data.api.rest": "yes",
 			"ops.metrics": "yes",
 			"ops.s3": "yes"
 		},
@@ -14440,14 +14691,33 @@
 			"ops.smtp": "yes"
 		},
 		"kresusapp/kresus": {
+			"auth.local": "yes",
+			"auth.sso.header": "yes",
+			"collab.multiUser": "yes",
+			"collab.notifications.email": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.healthcheck": "yes",
 			"ops.postgres": "yes",
-			"ops.sqlite": "yes"
+			"ops.smtp": "yes",
+			"ops.sqlite": "yes",
+			"ops.subpath": "yes"
 		},
 		"krille-chan/fluffychat": {
+			"collab.multiUser": "yes",
+			"collab.notifications.push": "yes",
+			"data.backup.builtin": "yes",
+			"data.encryption.e2e": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.armSupport": "yes"
 		},
-		"krishagni/openspecimen": {},
+		"krishagni/openspecimen": {
+			"auth.auditLog": "yes",
+			"auth.rbac": "yes",
+			"collab.multiUser": "yes",
+			"data.api.rest": "yes",
+			"data.export.open": "yes",
+			"i18n.multiLanguage": "yes"
+		},
 		"kserve/kserve": {
 			"ai.features": "yes",
 			"ai.mcp.community": "yes",
@@ -14467,6 +14737,7 @@
 		},
 		"kstenerud/KSCrash": {},
 		"ktgw0316/LightZone": {
+			"i18n.multiLanguage": "yes",
 			"ops.armSupport": "yes"
 		},
 		"kube-green/kube-green": {
@@ -14503,7 +14774,9 @@
 			"ai.mcp.server": "no",
 			"ops.armSupport": "yes"
 		},
-		"kubernetes-sigs/kubespray": {},
+		"kubernetes-sigs/kubespray": {
+			"i18n.multiLanguage": "no"
+		},
 		"kubernetes/minikube": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
@@ -14514,16 +14787,37 @@
 			"ops.s3": "yes"
 		},
 		"kubero-dev/kubero": {
+			"collab.multiUser": "yes",
+			"collab.share.internal": "yes",
+			"data.webhooks": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.metrics": "yes",
 			"ops.sqlite": "yes"
 		},
-		"kubeshark/kubeshark": {},
+		"kubeshark/kubeshark": {
+			"ai.features": "yes",
+			"auth.rbac": "yes",
+			"auth.sso": "yes",
+			"auth.sso.oidc": "yes",
+			"auth.sso.saml": "yes",
+			"collab.multiUser": "yes",
+			"data.export.open": "yes",
+			"data.telemetry.none": "no"
+		},
 		"kubesphere/kubesphere": {
+			"auth.local": "yes",
+			"auth.multiTenant": "yes",
+			"auth.rbac": "yes",
+			"collab.multiUser": "yes",
+			"data.api.rest": "yes",
 			"ops.healthcheck": "yes",
 			"ops.metrics": "yes",
 			"ops.s3": "yes"
 		},
 		"kubevirt/kubevirt": {
+			"data.api.rest": "yes",
+			"data.backup.builtin": "partial",
+			"data.backup.documented": "partial",
 			"ops.armSupport": "yes",
 			"ops.healthcheck": "yes",
 			"ops.metrics": "yes"
@@ -14532,18 +14826,39 @@
 			"ops.armSupport": "yes"
 		},
 		"kucherenko/jscpd": {
+			"ai.features": "yes",
+			"data.api.rest": "yes",
+			"data.export.open": "yes",
 			"ops.armSupport": "yes"
 		},
 		"kumatrk/initialrelease": {
+			"auth.apiTokens": "yes",
+			"auth.local": "yes",
+			"collab.notifications.push": "no",
+			"data.api.rest": "yes",
+			"data.encryption.rest": "partial",
+			"i18n.multiLanguage": "no",
 			"ops.healthcheck": "yes"
 		},
 		"kuzzleio/kuzzle": {
+			"auth.anonymous": "yes",
+			"auth.apiTokens": "yes",
+			"auth.local": "yes",
+			"auth.rbac": "yes",
+			"auth.sso.ldap": "yes",
+			"auth.sso.oauth2": "yes",
+			"collab.multiUser": "yes",
+			"data.backup.documented": "yes",
+			"data.export.full": "yes",
+			"data.export.open": "yes",
 			"ops.healthcheck": "yes"
 		},
 		"kythe/kythe": {
 			"ops.s3": "yes"
 		},
-		"laixintao/iredis": {},
+		"laixintao/iredis": {
+			"i18n.multiLanguage": "no"
+		},
 		"lancedb/lancedb": {
 			"auth.apiTokens": "paid",
 			"data.api.rest": "yes",
@@ -14578,10 +14893,21 @@
 			"ops.subpath": "yes"
 		},
 		"langgenius/dify": {
+			"ai.byoKey": "yes",
+			"ai.features": "yes",
+			"auth.apiTokens": "yes",
+			"collab.multiUser": "yes",
+			"data.api.rest": "yes",
+			"data.export.open": "yes",
+			"data.telemetry.none": "no",
+			"data.webhooks": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.armSupport": "yes",
 			"ops.healthcheck": "yes",
 			"ops.postgres": "yes",
-			"ops.s3": "yes"
+			"ops.s3": "yes",
+			"ops.smtp": "yes",
+			"ops.subpath": "yes"
 		},
 		"languagetool-org/languagetool": {
 			"ai.features": "yes",
@@ -14591,6 +14917,23 @@
 			"data.api.rest": "yes"
 		},
 		"langwatch/langwatch": {
+			"ai.byoKey": "yes",
+			"ai.features": "yes",
+			"auth.apiTokens": "yes",
+			"auth.auditLog": "paid",
+			"auth.local": "yes",
+			"auth.multiTenant": "yes",
+			"auth.rbac": "yes",
+			"auth.sso": "yes",
+			"auth.sso.oidc": "yes",
+			"auth.teams": "yes",
+			"collab.multiUser": "yes",
+			"collab.share.internal": "yes",
+			"data.api.rest": "yes",
+			"data.backup.builtin": "partial",
+			"data.encryption.rest": "yes",
+			"data.telemetry.none": "no",
+			"data.webhooks": "yes",
 			"ops.armSupport": "yes",
 			"ops.healthcheck": "yes",
 			"ops.metrics": "yes",
@@ -14647,7 +14990,9 @@
 			"ops.sqlite": "yes"
 		},
 		"laurikari/tre": {},
-		"lbiedma/shift-scheduling": {},
+		"lbiedma/shift-scheduling": {
+			"data.export.open": "yes"
+		},
 		"ldidry/lstu": {
 			"ops.postgres": "yes",
 			"ops.sqlite": "yes"
@@ -14659,15 +15004,29 @@
 			"ai.features": "yes",
 			"ai.mcp.server": "no"
 		},
-		"legendary-gl/legendary": {},
-		"lemnos/tt": {},
+		"legendary-gl/legendary": {
+			"data.import.fromProprietary": "yes"
+		},
+		"lemnos/tt": {
+			"data.export.open": "yes"
+		},
 		"lervag/vimtex": {
 			"ops.healthcheck": "yes"
 		},
 		"lesion/gancio": {
+			"auth.anonymous": "yes",
+			"auth.apiTokens": "yes",
+			"auth.local": "yes",
+			"collab.multiUser": "yes",
+			"data.api.rest": "yes",
+			"data.backup.documented": "yes",
+			"data.export.open": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.healthcheck": "yes",
 			"ops.postgres": "yes",
-			"ops.sqlite": "yes"
+			"ops.smtp": "yes",
+			"ops.sqlite": "yes",
+			"ops.subpath": "no"
 		},
 		"lesspass/lesspass": {
 			"ai.features": "yes",
@@ -14703,15 +15062,24 @@
 			"data.export.open": "yes",
 			"i18n.multiLanguage": "yes"
 		},
-		"lgrees/resy-cli": {},
-		"libarchive/libarchive": {},
+		"lgrees/resy-cli": {
+			"auth.apiTokens": "yes"
+		},
+		"libarchive/libarchive": {
+			"data.export.open": "yes"
+		},
 		"libero/reviewer": {
 			"ops.healthcheck": "yes",
 			"ops.postgres": "yes",
 			"ops.s3": "yes"
 		},
 		"liberusoftware/maintenance-laravel": {
-			"ops.healthcheck": "yes"
+			"auth.rbac": "yes",
+			"auth.teams": "yes",
+			"collab.multiUser": "yes",
+			"collab.notifications.email": "yes",
+			"ops.healthcheck": "yes",
+			"ops.smtp": "yes"
 		},
 		"libfive/libfive": {},
 		"libgdx/libgdx": {},
@@ -14786,6 +15154,7 @@
 			"ops.smtp": "yes"
 		},
 		"lightningnetwork/lnd": {
+			"data.api.rest": "yes",
 			"ops.armSupport": "yes",
 			"ops.healthcheck": "yes",
 			"ops.metrics": "yes",
@@ -14795,7 +15164,10 @@
 		"lightpohl/podcast-dl": {
 			"ops.armSupport": "yes"
 		},
-		"lighttpd/lighttpd1.4": {},
+		"lighttpd/lighttpd1.4": {
+			"auth.local": "yes",
+			"auth.sso.ldap": "yes"
+		},
 		"lima-vm/lima": {
 			"ai.features": "no",
 			"ai.mcp.server": "yes",
@@ -14847,7 +15219,9 @@
 			"ops.smtp": "yes"
 		},
 		"linto-ai/whisper-timestamped": {},
-		"linux-test-project/lcov": {},
+		"linux-test-project/lcov": {
+			"data.import.fromProprietary": "yes"
+		},
 		"linuxfoundation/crowd.dev": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
@@ -14861,7 +15235,11 @@
 			"ops.postgres": "yes"
 		},
 		"lirantal/daloradius": {
-			"ops.healthcheck": "yes"
+			"auth.auditLog": "yes",
+			"auth.local": "yes",
+			"i18n.multiLanguage": "yes",
+			"ops.healthcheck": "yes",
+			"ops.smtp": "yes"
 		},
 		"lite-xl/lite-xl": {
 			"ops.armSupport": "yes"
@@ -14912,21 +15290,56 @@
 			"ops.healthcheck": "yes",
 			"ops.smtp": "yes"
 		},
-		"lm-sys/FastChat": {},
+		"lm-sys/FastChat": {
+			"ai.byoKey": "yes",
+			"ai.features": "yes",
+			"ai.localModel": "yes",
+			"data.api.rest": "yes"
+		},
 		"lnbits/lnbits": {
+			"auth.apiTokens": "yes",
+			"auth.auditLog": "yes",
+			"auth.local": "yes",
+			"auth.multiTenant": "partial",
+			"auth.rbac": "yes",
+			"auth.sso": "yes",
+			"auth.sso.oauth2": "yes",
+			"auth.sso.oidc": "yes",
+			"collab.multiUser": "yes",
+			"collab.notifications.email": "yes",
 			"data.api.graphql": "yes",
+			"data.api.rest": "yes",
+			"data.export.full": "partial",
+			"data.export.open": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.healthcheck": "yes",
 			"ops.postgres": "yes",
 			"ops.sqlite": "yes"
 		},
 		"lobehub/lobehub": {
+			"ai.byoKey": "yes",
+			"ai.features": "yes",
+			"ai.localModel": "yes",
+			"auth.local": "yes",
+			"auth.sso": "yes",
+			"auth.sso.enforced": "yes",
+			"auth.sso.oauth2": "yes",
+			"auth.sso.oidc": "yes",
+			"collab.multiUser": "yes",
+			"data.backup.builtin": "yes",
+			"data.export.open": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.armSupport": "yes",
 			"ops.healthcheck": "yes",
 			"ops.metrics": "yes",
 			"ops.postgres": "yes",
 			"ops.s3": "yes"
 		},
-		"local-npm/local-npm": {},
+		"local-npm/local-npm": {
+			"collab.multiUser": "yes",
+			"collab.share.internal": "yes",
+			"i18n.multiLanguage": "no"
+		},
 		"localtunnel/localtunnel": {
 			"collab.share.external": "yes",
 			"collab.share.publicLink": "yes"
@@ -14948,9 +15361,30 @@
 			"ops.healthcheck": "yes",
 			"ops.postgres": "yes"
 		},
-		"logdyhq/logdy-core": {},
+		"logdyhq/logdy-core": {
+			"data.api.rest": "yes",
+			"data.telemetry.none": "partial",
+			"ops.subpath": "yes"
+		},
 		"logicalclocks/hopsworks": {
-			"ops.healthcheck": "yes"
+			"ai.features": "yes",
+			"auth.apiTokens": "yes",
+			"auth.local": "yes",
+			"auth.mfa.enforced": "yes",
+			"auth.mfa.totp": "yes",
+			"auth.rbac": "yes",
+			"auth.sso": "yes",
+			"auth.sso.ldap": "yes",
+			"auth.sso.oidc": "yes",
+			"auth.teams": "yes",
+			"collab.multiUser": "yes",
+			"collab.notifications.email": "yes",
+			"collab.share.internal": "yes",
+			"data.api.rest": "yes",
+			"data.backup.builtin": "yes",
+			"i18n.multiLanguage": "no",
+			"ops.healthcheck": "yes",
+			"ops.smtp": "yes"
 		},
 		"logseq/logseq": {
 			"ai.features": "yes",
@@ -15028,10 +15462,28 @@
 		},
 		"lowag/libremaint": {},
 		"lowcoder-org/lowcoder": {
-			"ops.healthcheck": "yes"
+			"auth.anonymous": "yes",
+			"auth.apiTokens": "yes",
+			"auth.local": "yes",
+			"auth.rbac": "yes",
+			"auth.rbac.granular": "yes",
+			"auth.sso.oauth2": "yes",
+			"auth.teams": "yes",
+			"collab.multiUser": "yes",
+			"collab.share.internal": "yes",
+			"collab.share.publicLink": "yes",
+			"data.api.rest": "yes",
+			"i18n.multiLanguage": "yes",
+			"ops.healthcheck": "yes",
+			"ops.smtp": "yes"
 		},
 		"lowercasename/gathio": {
-			"ops.armSupport": "yes"
+			"auth.anonymous": "yes",
+			"collab.comments": "yes",
+			"collab.notifications.email": "yes",
+			"i18n.multiLanguage": "yes",
+			"ops.armSupport": "yes",
+			"ops.smtp": "yes"
 		},
 		"loxilb-io/loxilb": {
 			"ops.healthcheck": "yes",
@@ -15055,7 +15507,10 @@
 			"data.telemetry.none": "yes",
 			"ops.armSupport": "yes"
 		},
-		"lucc/khard": {},
+		"lucc/khard": {
+			"data.export.full": "yes",
+			"data.export.open": "yes"
+		},
 		"lucide-icons/lucide": {
 			"ai.features": "yes",
 			"ai.mcp.community": "yes",
@@ -15085,7 +15540,10 @@
 			"data.backup.documented": "partial",
 			"i18n.multiLanguage": "partial"
 		},
-		"lwouis/alt-tab-macos": {},
+		"lwouis/alt-tab-macos": {
+			"data.telemetry.none": "yes",
+			"i18n.multiLanguage": "yes"
+		},
 		"lyx.org/git.lyx.org/lyx": {
 			"i18n.multiLanguage": "yes"
 		},
@@ -15105,7 +15563,10 @@
 			"i18n.multiLanguage": "yes",
 			"ops.healthcheck": "yes"
 		},
-		"m8sec/CrossLinked": {},
+		"m8sec/CrossLinked": {
+			"data.export.full": "yes",
+			"data.export.open": "yes"
+		},
 		"mCaptcha/mCaptcha": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
@@ -15120,13 +15581,25 @@
 		},
 		"madmatah/seo-ranking-engine": {},
 		"mage-ai/mage-ai": {
+			"ai.byoKey": "yes",
+			"ai.features": "yes",
+			"ai.optional": "yes",
+			"auth.apiTokens": "yes",
+			"auth.rbac": "paid",
+			"auth.sso.ldap": "yes",
+			"data.api.rest": "yes",
+			"i18n.multiLanguage": "no",
 			"ops.metrics": "yes",
-			"ops.postgres": "yes"
+			"ops.postgres": "yes",
+			"ops.smtp": "yes"
 		},
 		"magefile/mage": {
 			"ops.armSupport": "yes"
 		},
-		"magenta/magenta": {},
+		"magenta/magenta": {
+			"ai.features": "yes",
+			"ai.localModel": "yes"
+		},
 		"magento/magento2": {
 			"i18n.multiLanguage": "yes"
 		},
@@ -15179,6 +15652,8 @@
 			"ops.smtp": "yes"
 		},
 		"mailslurper/mailslurper": {
+			"auth.local": "yes",
+			"collab.multiUser": "yes",
 			"ops.healthcheck": "yes",
 			"ops.sqlite": "yes"
 		},
@@ -15203,14 +15678,24 @@
 			"ops.postgres": "yes",
 			"ops.s3": "yes"
 		},
-		"maksimowiczm/FoodYou": {},
+		"maksimowiczm/FoodYou": {
+			"auth.anonymous": "yes",
+			"data.backup.builtin": "yes",
+			"i18n.multiLanguage": "yes"
+		},
 		"mamba-org/mamba": {},
 		"manticoresoftware/manticoresearch": {
+			"ai.features": "yes",
+			"data.api.rest": "yes",
 			"ops.healthcheck": "yes"
 		},
-		"manuel-freire/ac2": {},
+		"manuel-freire/ac2": {
+			"data.telemetry.none": "yes"
+		},
 		"mapbox/pixelmatch": {},
-		"mapeditor/tiled": {},
+		"mapeditor/tiled": {
+			"data.export.open": "yes"
+		},
 		"maplibre/maplibre-gl-js": {
 			"ai.features": "no",
 			"ai.mcp.community": "yes",
@@ -15231,7 +15716,8 @@
 			"ops.metrics": "yes",
 			"ops.postgres": "yes",
 			"ops.s3": "yes",
-			"ops.sqlite": "yes"
+			"ops.sqlite": "yes",
+			"ops.subpath": "yes"
 		},
 		"maptiler/tileserver-gl": {
 			"ai.features": "no",
@@ -15240,8 +15726,12 @@
 			"ops.metrics": "yes",
 			"ops.s3": "yes"
 		},
-		"marcan/blitzloop": {},
-		"marcburnie/CMMS": {},
+		"marcan/blitzloop": {
+			"i18n.multiLanguage": "yes"
+		},
+		"marcburnie/CMMS": {
+			"auth.local": "yes"
+		},
 		"marimo-team/marimo": {
 			"ai.features": "yes",
 			"ai.mcp.community": "no",
@@ -15252,10 +15742,16 @@
 			"ops.healthcheck": "yes"
 		},
 		"marktext/marktext": {
+			"auth.anonymous": "yes",
+			"data.export.full": "yes",
+			"data.export.open": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.armSupport": "yes"
 		},
 		"markusfisch/PieLauncher": {},
-		"marlam/msmtp": {},
+		"marlam/msmtp": {
+			"ops.smtp": "yes"
+		},
 		"marp-team/marp": {
 			"ai.features": "yes",
 			"ai.mcp.community": "yes",
@@ -15264,9 +15760,12 @@
 			"ops.armSupport": "yes"
 		},
 		"marp-team/marp-cli": {
+			"data.export.open": "yes",
 			"ops.armSupport": "yes"
 		},
-		"martanne/abduco": {},
+		"martanne/abduco": {
+			"collab.multiUser": "yes"
+		},
 		"martanne/dvtm": {},
 		"martanne/vis": {
 			"data.encryption.e2e": "no",
@@ -15275,13 +15774,27 @@
 		},
 		"martiinii/UltraStar-CLI": {},
 		"martinmicunda/employee-scheduling-ui": {
+			"auth.local": "yes",
+			"auth.rbac": "yes",
+			"collab.multiUser": "yes",
 			"ops.metrics": "yes"
 		},
-		"martinrotter/rssguard": {},
-		"martyr-deepin/deepin-screenshot": {},
-		"mas-bandwidth/netcode": {},
-		"mas-bandwidth/yojimbo": {},
+		"martinrotter/rssguard": {
+			"data.export.open": "yes"
+		},
+		"martyr-deepin/deepin-screenshot": {
+			"i18n.multiLanguage": "yes"
+		},
+		"mas-bandwidth/netcode": {
+			"collab.multiUser": "yes"
+		},
+		"mas-bandwidth/yojimbo": {
+			"collab.multiUser": "yes"
+		},
 		"matecat/MateCat": {
+			"ai.features": "yes",
+			"auth.sso.oauth2": "yes",
+			"collab.multiUser": "yes",
 			"ops.healthcheck": "yes"
 		},
 		"material-foundation/material-color-utilities": {
@@ -15369,7 +15882,12 @@
 			"ai.mcp.server": "no",
 			"i18n.multiLanguage": "no"
 		},
-		"maxgoedjen/secretive": {},
+		"maxgoedjen/secretive": {
+			"data.backup.builtin": "no",
+			"data.export.full": "no",
+			"data.export.open": "no",
+			"i18n.multiLanguage": "yes"
+		},
 		"maybe-finance/maybe": {
 			"auth.apiTokens": "yes",
 			"auth.local": "yes",
@@ -15382,12 +15900,26 @@
 		},
 		"mayflower/docker-ls": {},
 		"mayswind/ezbookkeeping": {
+			"ai.byoKey": "yes",
+			"ai.features": "yes",
+			"ai.optional": "yes",
+			"auth.mfa.webauthn": "yes",
+			"auth.sso": "yes",
+			"auth.sso.oidc": "yes",
+			"collab.multiUser": "yes",
+			"data.api.rest": "yes",
+			"data.export.open": "yes",
+			"data.import.fromProprietary": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.armSupport": "yes",
 			"ops.healthcheck": "yes",
 			"ops.s3": "yes",
-			"ops.sqlite": "yes"
+			"ops.sqlite": "yes",
+			"ops.subpath": "yes"
 		},
-		"mbasaglia/glaxnimate": {},
+		"mbasaglia/glaxnimate": {
+			"i18n.multiLanguage": "yes"
+		},
 		"mcollina/autocannon": {},
 		"mealie-recipes/mealie": {
 			"ai.features": "yes",
@@ -15441,7 +15973,10 @@
 			"ops.healthcheck": "yes",
 			"ops.postgres": "yes"
 		},
-		"mediadrop/mediadrop": {},
+		"mediadrop/mediadrop": {
+			"collab.comments": "yes",
+			"i18n.multiLanguage": "yes"
+		},
 		"mediaelement/mediaelement": {},
 		"medplum/medplum": {
 			"ai.features": "yes",
@@ -15481,7 +16016,12 @@
 			"collab.multiUser": "yes",
 			"data.api.rest": "yes"
 		},
-		"meeting-room-booking-system/mrbs-code": {},
+		"meeting-room-booking-system/mrbs-code": {
+			"auth.local": "yes",
+			"data.export.open": "yes",
+			"i18n.multiLanguage": "yes",
+			"ops.subpath": "yes"
+		},
 		"megadose/holehe": {},
 		"meilisearch/meilisearch": {
 			"ai.features": "yes",
@@ -15510,7 +16050,10 @@
 			"data.telemetry.none": "no",
 			"i18n.multiLanguage": "yes"
 		},
-		"meodai/color-names": {},
+		"meodai/color-names": {
+			"data.export.full": "yes",
+			"data.export.open": "yes"
+		},
 		"mermaid-js/mermaid": {
 			"ai.features": "yes",
 			"ai.mcp.server": "yes"
@@ -15532,6 +16075,8 @@
 			"ops.postgres": "yes"
 		},
 		"metabrainz/picard": {
+			"data.export.full": "partial",
+			"data.export.open": "yes",
 			"ops.armSupport": "yes"
 		},
 		"metafloor/bwip-js": {},
@@ -15542,7 +16087,19 @@
 			"data.export.open": "yes",
 			"i18n.multiLanguage": "no"
 		},
-		"mettle/sendportal": {},
+		"mettle/sendportal": {
+			"auth.apiTokens": "yes",
+			"auth.invite": "yes",
+			"auth.multiTenant": "yes",
+			"auth.rbac": "yes",
+			"auth.teams": "yes",
+			"collab.multiUser": "yes",
+			"collab.share.internal": "yes",
+			"data.api.rest": "yes",
+			"data.encryption.rest": "yes",
+			"data.webhooks": "yes",
+			"ops.smtp": "yes"
+		},
 		"mfaerevaag/wd": {
 			"ops.armSupport": "yes"
 		},
@@ -15551,12 +16108,33 @@
 			"ops.armSupport": "yes"
 		},
 		"mgba-emu/mgba": {
+			"i18n.multiLanguage": "yes",
 			"ops.armSupport": "yes"
 		},
 		"mhsabbagh/green-recorder": {},
-		"miantiao-me/Sink": {},
-		"michaelforney/samurai": {},
-		"michenriksen/gitrob": {},
+		"miantiao-me/Sink": {
+			"ai.features": "yes",
+			"ai.optional": "yes",
+			"auth.apiTokens": "yes",
+			"auth.sso.enforced": "no",
+			"collab.share.expiring": "yes",
+			"collab.share.publicLink": "yes",
+			"data.api.rest": "yes",
+			"data.backup.builtin": "yes",
+			"data.backup.documented": "yes",
+			"data.export.full": "no",
+			"data.export.open": "yes",
+			"data.webhooks": "yes",
+			"i18n.multiLanguage": "yes"
+		},
+		"michaelforney/samurai": {
+			"data.import.fromProprietary": "yes"
+		},
+		"michenriksen/gitrob": {
+			"collab.share.internal": "yes",
+			"data.export.full": "yes",
+			"data.export.open": "yes"
+		},
 		"mickael-kerjean/filestash": {
 			"auth.anonymous": "yes",
 			"auth.auditLog": "paid",
@@ -15605,8 +16183,13 @@
 			"ops.subpath": "yes"
 		},
 		"microsoft/DevSkim": {},
-		"microsoft/beachball": {},
+		"microsoft/beachball": {
+			"ai.features": "yes"
+		},
 		"microsoft/garnet": {
+			"ai.features": "yes",
+			"collab.multiUser": "yes",
+			"data.encryption.e2e": "yes",
 			"ops.armSupport": "yes"
 		},
 		"microsoft/playwright": {
@@ -15619,7 +16202,9 @@
 			"i18n.multiLanguage": "yes",
 			"ops.armSupport": "yes"
 		},
-		"miguelchavez/lemonpos": {},
+		"miguelchavez/lemonpos": {
+			"collab.multiUser": "yes"
+		},
 		"mikefarah/yq": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
@@ -15720,11 +16305,17 @@
 			"ai.mcp.server": "yes",
 			"i18n.multiLanguage": "yes"
 		},
-		"mkdocs/mkdocs": {},
+		"mkdocs/mkdocs": {
+			"i18n.multiLanguage": "yes",
+			"ops.subpath": "yes"
+		},
 		"mkeeter/antimony": {
 			"i18n.multiLanguage": "no"
 		},
-		"ml-explore/mlx-examples": {},
+		"ml-explore/mlx-examples": {
+			"ai.features": "yes",
+			"ai.localModel": "yes"
+		},
 		"mlc-ai/mlc-llm": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
@@ -15749,9 +16340,16 @@
 		},
 		"mlj/castget": {},
 		"mljar/mercury": {
+			"collab.multiUser": "yes",
+			"collab.share.internal": "yes",
+			"data.export.open": "yes",
 			"ops.healthcheck": "yes"
 		},
 		"mlrun/mlrun": {
+			"ai.byoKey": "yes",
+			"ai.features": "yes",
+			"ai.localModel": "yes",
+			"data.api.rest": "yes",
 			"ops.healthcheck": "yes",
 			"ops.postgres": "yes"
 		},
@@ -15765,7 +16363,9 @@
 			"data.export.open": "yes",
 			"i18n.multiLanguage": "yes"
 		},
-		"mmatczuk/go-http-tunnel": {},
+		"mmatczuk/go-http-tunnel": {
+			"auth.local": "yes"
+		},
 		"mmp/pbrt-v3": {},
 		"mmp/pbrt-v4": {},
 		"mnemosyne-proj/mnemosyne": {
@@ -15782,6 +16382,11 @@
 			"i18n.multiLanguage": "no"
 		},
 		"mock-server/mockserver-monorepo": {
+			"ai.features": "yes",
+			"ai.localModel": "yes",
+			"auth.auditLog": "yes",
+			"data.api.rest": "yes",
+			"data.webhooks": "yes",
 			"ops.armSupport": "yes",
 			"ops.healthcheck": "yes",
 			"ops.metrics": "yes"
@@ -15819,7 +16424,10 @@
 		"moncho/dry": {
 			"ops.armSupport": "yes"
 		},
-		"moneymanagerex/android-money-manager-ex": {},
+		"moneymanagerex/android-money-manager-ex": {
+			"data.telemetry.none": "no",
+			"i18n.multiLanguage": "yes"
+		},
 		"moneymanagerex/moneymanagerex": {
 			"data.encryption.rest": "yes",
 			"data.export.open": "yes",
@@ -15828,13 +16436,24 @@
 			"ops.sqlite": "yes"
 		},
 		"mongo-express/mongo-express": {
-			"ops.healthcheck": "yes"
+			"auth.local": "yes",
+			"auth.sso": "yes",
+			"auth.sso.oidc": "yes",
+			"ops.healthcheck": "yes",
+			"ops.subpath": "yes"
 		},
 		"mongodb-js/mongosh": {
+			"auth.local": "yes",
+			"auth.sso": "yes",
+			"auth.sso.oidc": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.armSupport": "yes"
 		},
 		"mongodb/mongo": {},
 		"mongodb/mongo-tools": {
+			"data.backup.builtin": "yes",
+			"data.backup.documented": "yes",
+			"data.export.open": "yes",
 			"ops.s3": "yes"
 		},
 		"monicahq/monica": {
@@ -15861,7 +16480,9 @@
 			"collab.multiUser": "yes",
 			"i18n.multiLanguage": "yes"
 		},
-		"mookid/diffr": {},
+		"mookid/diffr": {
+			"i18n.multiLanguage": "no"
+		},
 		"moonlight-stream/moonlight-qt": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
@@ -15870,26 +16491,38 @@
 		},
 		"moonpyk/dtrx": {},
 		"moov-io/paygate": {
+			"auth.multiTenant": "yes",
+			"data.api.rest": "yes",
 			"ops.healthcheck": "yes",
 			"ops.metrics": "yes",
 			"ops.sqlite": "yes"
 		},
-		"mooz/percol": {},
+		"mooz/percol": {
+			"i18n.multiLanguage": "no"
+		},
 		"mopidy/mopidy": {
 			"collab.multiUser": "yes"
 		},
 		"morpheus65535/bazarr": {
+			"auth.apiTokens": "yes",
+			"auth.local": "yes",
 			"ops.healthcheck": "yes",
 			"ops.sqlite": "yes"
 		},
 		"motion-canvas/motion-canvas": {},
-		"motioneye-project/motioneye": {},
+		"motioneye-project/motioneye": {
+			"auth.local": "yes",
+			"i18n.multiLanguage": "yes"
+		},
 		"moul/sshportal": {
+			"collab.multiUser": "yes",
+			"collab.share.internal": "yes",
 			"ops.healthcheck": "yes",
 			"ops.postgres": "yes",
 			"ops.sqlite": "yes"
 		},
 		"mountebank-testing/mountebank": {
+			"data.api.rest": "yes",
 			"ops.metrics": "yes"
 		},
 		"mov-cli/mov-cli": {},
@@ -15900,14 +16533,27 @@
 			"data.telemetry.none": "yes"
 		},
 		"mozilla/DeepSpeech": {
+			"ai.features": "yes",
+			"ai.localModel": "yes",
 			"ops.armSupport": "yes"
 		},
 		"mozilla/experimenter": {
-			"ops.postgres": "yes"
+			"data.api.rest": "yes",
+			"i18n.multiLanguage": "no",
+			"ops.postgres": "yes",
+			"ops.smtp": "yes"
 		},
-		"mozilla/mozjpeg": {},
+		"mozilla/mozjpeg": {
+			"data.import.fromProprietary": "yes"
+		},
 		"mozilla/pdf.js": {},
 		"mozilla/pontoon": {
+			"auth.rbac": "yes",
+			"auth.teams": "yes",
+			"collab.multiUser": "yes",
+			"collab.notifications.email": "yes",
+			"data.export.open": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.healthcheck": "yes",
 			"ops.postgres": "yes"
 		},
@@ -15918,6 +16564,12 @@
 			"ai.mcp.server": "yes"
 		},
 		"mozilla/send": {
+			"auth.anonymous": "yes",
+			"collab.share.expiring": "yes",
+			"collab.share.publicLink": "yes",
+			"data.encryption.e2e": "yes",
+			"data.telemetry.none": "no",
+			"i18n.multiLanguage": "yes",
 			"ops.s3": "yes"
 		},
 		"mpv-player/mpv": {
@@ -15929,8 +16581,13 @@
 			"ai.mcp.server": "no",
 			"ops.armSupport": "yes"
 		},
-		"mrdoob/three.js": {},
-		"mrossinek/cobib": {},
+		"mrdoob/three.js": {
+			"data.export.open": "yes"
+		},
+		"mrossinek/cobib": {
+			"data.import.fromProprietary": "yes",
+			"i18n.multiLanguage": "no"
+		},
 		"ms-jpq/sad": {
 			"ops.armSupport": "yes"
 		},
@@ -15938,6 +16595,13 @@
 			"data.api.graphql": "yes"
 		},
 		"mtlynch/picoshare": {
+			"auth.anonymous": "yes",
+			"collab.share.expiring": "yes",
+			"collab.share.external": "yes",
+			"collab.share.publicLink": "yes",
+			"data.backup.builtin": "yes",
+			"data.backup.documented": "yes",
+			"i18n.multiLanguage": "no",
 			"ops.armSupport": "yes",
 			"ops.sqlite": "yes"
 		},
@@ -15967,9 +16631,23 @@
 			"ai.mcp.server": "no"
 		},
 		"muety/wakapi": {
+			"auth.apiTokens": "yes",
+			"auth.invite": "yes",
+			"auth.local": "yes",
+			"auth.mfa.webauthn": "yes",
+			"auth.sso": "yes",
+			"auth.sso.enforced": "yes",
+			"auth.sso.header": "yes",
+			"auth.sso.oidc": "yes",
+			"collab.multiUser": "yes",
+			"collab.notifications.email": "yes",
+			"data.api.rest": "yes",
+			"data.import.fromProprietary": "yes",
 			"ops.healthcheck": "yes",
 			"ops.postgres": "yes",
-			"ops.sqlite": "yes"
+			"ops.smtp": "yes",
+			"ops.sqlite": "yes",
+			"ops.subpath": "yes"
 		},
 		"mumble-voip/mumble": {
 			"ai.features": "no",
@@ -16002,20 +16680,37 @@
 			"ai.mcp.server": "yes"
 		},
 		"mxpv/podsync": {
-			"ops.s3": "yes"
+			"data.export.full": "partial",
+			"data.export.open": "yes",
+			"data.webhooks": "yes",
+			"ops.s3": "yes",
+			"ops.subpath": "yes"
 		},
-		"mxrch/GHunt": {},
+		"mxrch/GHunt": {
+			"data.export.open": "yes",
+			"data.telemetry.none": "no"
+		},
 		"mypaint/mypaint": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
 			"i18n.multiLanguage": "yes"
 		},
-		"myrtille-rdp/myrtille": {},
-		"myshell-ai/OpenVoice": {},
+		"myrtille-rdp/myrtille": {
+			"auth.local": "yes",
+			"collab.multiUser": "yes",
+			"data.api.rest": "yes",
+			"ops.subpath": "yes"
+		},
+		"myshell-ai/OpenVoice": {
+			"ai.features": "yes"
+		},
 		"mysql/mysql-workbench": {
+			"data.backup.builtin": "yes",
+			"data.import.fromProprietary": "yes",
 			"ops.sqlite": "yes"
 		},
 		"mytardis/mytardis": {
+			"data.api.rest": "yes",
 			"ops.postgres": "yes"
 		},
 		"n8n-io/n8n": {
@@ -16043,7 +16738,12 @@
 		},
 		"nachoparker/dutree": {},
 		"naelstrof/maim": {},
-		"nagadomi/waifu2x": {},
+		"nagadomi/waifu2x": {
+			"ai.byoKey": "yes",
+			"ai.features": "yes",
+			"ai.localModel": "yes",
+			"i18n.multiLanguage": "yes"
+		},
 		"naggie/dstask": {
 			"ai.features": "no",
 			"ai.mcp.server": "no",
@@ -16052,8 +16752,13 @@
 			"data.import.fromProprietary": "yes",
 			"ops.armSupport": "yes"
 		},
-		"nanobox-io/nanobox": {},
-		"narunlifescience/AlphaPlot": {},
+		"nanobox-io/nanobox": {
+			"data.telemetry.none": "no"
+		},
+		"narunlifescience/AlphaPlot": {
+			"data.export.open": "yes",
+			"i18n.multiLanguage": "yes"
+		},
 		"nats-io/nats-server": {
 			"ai.features": "no",
 			"ai.mcp.community": "yes",
@@ -16104,8 +16809,14 @@
 		},
 		"nbs-system/naxsi": {},
 		"ncarlier/feedpushr": {
+			"auth.sso": "yes",
+			"auth.sso.oidc": "yes",
+			"collab.notifications.email": "yes",
+			"data.api.rest": "yes",
+			"data.export.open": "yes",
 			"ops.armSupport": "yes",
-			"ops.healthcheck": "yes"
+			"ops.healthcheck": "yes",
+			"ops.smtp": "yes"
 		},
 		"ncarlier/webhookd": {
 			"data.webhooks": "yes",
@@ -16113,7 +16824,9 @@
 			"ops.armSupport": "yes",
 			"ops.healthcheck": "yes"
 		},
-		"nccgroup/ScoutSuite": {},
+		"nccgroup/ScoutSuite": {
+			"i18n.multiLanguage": "no"
+		},
 		"ncmpcpp/ncmpcpp": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no"
@@ -16122,14 +16835,20 @@
 			"auth.apiTokens": "yes",
 			"data.api.rest": "paid"
 		},
-		"neatlogic/neatlogic-itsm": {},
+		"neatlogic/neatlogic-itsm": {
+			"auth.rbac": "yes",
+			"auth.teams": "yes",
+			"data.webhooks": "yes"
+		},
 		"nektos/act": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
 			"i18n.multiLanguage": "no",
 			"ops.healthcheck": "yes"
 		},
-		"nelsontky/gh-pages-url-shortener": {},
+		"nelsontky/gh-pages-url-shortener": {
+			"ops.subpath": "yes"
+		},
 		"neomutt/neomutt": {
 			"ai.features": "no",
 			"ai.mcp.server": "no",
@@ -16242,6 +16961,8 @@
 			"ops.postgres": "yes"
 		},
 		"nextcloud/cookbook": {
+			"data.api.rest": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.postgres": "yes"
 		},
 		"nextcloud/deck": {
@@ -16260,7 +16981,9 @@
 			"data.export.open": "yes",
 			"data.import.fromProprietary": "yes"
 		},
-		"nextcloud/news": {},
+		"nextcloud/news": {
+			"auth.local": "yes"
+		},
 		"nextcloud/notes": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
@@ -16336,19 +17059,27 @@
 			"data.api.rest": "paid"
 		},
 		"nhost/nhost": {
+			"auth.anonymous": "yes",
+			"auth.local": "yes",
+			"collab.notifications.email": "yes",
 			"data.api.graphql": "yes",
 			"ops.armSupport": "yes",
 			"ops.healthcheck": "yes",
 			"ops.metrics": "yes",
 			"ops.postgres": "yes",
 			"ops.s3": "yes",
+			"ops.smtp": "yes",
 			"ops.sqlite": "yes"
 		},
 		"nickfox/GpsTracker": {
+			"collab.multiUser": "yes",
 			"ops.postgres": "yes",
-			"ops.sqlite": "yes"
+			"ops.sqlite": "yes",
+			"ops.subpath": "yes"
 		},
 		"nicnocquee/bluesky-later": {
+			"auth.anonymous": "no",
+			"auth.local": "yes",
 			"ops.armSupport": "yes",
 			"ops.healthcheck": "yes",
 			"ops.postgres": "yes"
@@ -16363,7 +17094,11 @@
 			"data.export.open": "yes",
 			"ops.healthcheck": "yes"
 		},
-		"nicolasmaldonadoj/google-ads-cli-toolkit": {},
+		"nicolasmaldonadoj/google-ads-cli-toolkit": {
+			"ai.features": "yes",
+			"ai.optional": "yes",
+			"data.telemetry.none": "yes"
+		},
 		"nightwatchjs/nightwatch": {},
 		"nikitabobko/AeroSpace": {
 			"ai.features": "no",
@@ -16406,11 +17141,24 @@
 			"ops.armSupport": "yes"
 		},
 		"nkanaev/yarr": {
+			"i18n.multiLanguage": "yes",
 			"ops.healthcheck": "yes",
 			"ops.postgres": "yes",
 			"ops.sqlite": "yes"
 		},
 		"nocobase/nocobase": {
+			"ai.byoKey": "yes",
+			"ai.features": "yes",
+			"ai.localModel": "yes",
+			"ai.optional": "yes",
+			"auth.apiTokens": "yes",
+			"auth.auditLog": "yes",
+			"auth.local": "yes",
+			"auth.rbac": "yes",
+			"auth.rbac.granular": "yes",
+			"data.backup.builtin": "yes",
+			"data.backup.documented": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.healthcheck": "yes",
 			"ops.postgres": "yes",
 			"ops.sqlite": "yes"
@@ -16458,14 +17206,23 @@
 			"data.telemetry.none": "no",
 			"i18n.multiLanguage": "yes"
 		},
-		"nodeGame/nodegame": {},
-		"nodejs/corepack": {},
+		"nodeGame/nodegame": {
+			"collab.multiUser": "yes"
+		},
+		"nodejs/corepack": {
+			"i18n.multiLanguage": "no"
+		},
 		"nodenv/nodenv": {},
 		"nojima/httpie-go": {},
 		"nomacs/nomacs": {
+			"collab.comments": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.armSupport": "yes"
 		},
-		"nomeata/arbtt": {},
+		"nomeata/arbtt": {
+			"data.export.full": "yes",
+			"data.export.open": "yes"
+		},
 		"nomic-ai/gpt4all": {
 			"ai.features": "yes",
 			"ai.mcp.server": "yes",
@@ -16473,7 +17230,9 @@
 			"i18n.multiLanguage": "yes"
 		},
 		"nordtheme/nord": {},
-		"nortikin/sverchok": {},
+		"nortikin/sverchok": {
+			"data.export.open": "yes"
+		},
 		"notmuch/notmuch": {
 			"data.backup.builtin": "yes",
 			"data.backup.documented": "yes",
@@ -16483,8 +17242,18 @@
 			"i18n.multiLanguage": "no",
 			"ops.smtp": "no"
 		},
-		"notrinos/NotrinosERP": {},
-		"novnc/noVNC": {},
+		"notrinos/NotrinosERP": {
+			"auth.local": "yes",
+			"auth.rbac": "yes",
+			"collab.multiUser": "yes",
+			"data.export.open": "partial",
+			"i18n.multiLanguage": "yes",
+			"ops.subpath": "yes"
+		},
+		"novnc/noVNC": {
+			"auth.anonymous": "yes",
+			"i18n.multiLanguage": "yes"
+		},
 		"novuhq/novu": {
 			"ai.features": "yes",
 			"ai.mcp.community": "no",
@@ -16494,8 +17263,15 @@
 			"ops.armSupport": "yes",
 			"ops.healthcheck": "yes"
 		},
-		"nsupdate-info/nsupdate.info": {},
+		"nsupdate-info/nsupdate.info": {
+			"auth.local": "yes",
+			"auth.sso.oauth2": "yes",
+			"i18n.multiLanguage": "yes"
+		},
 		"nteract/nteract": {
+			"ai.features": "yes",
+			"collab.realtime": "yes",
+			"notes.collab.realtime": "yes",
 			"ops.armSupport": "yes",
 			"ops.healthcheck": "yes"
 		},
@@ -16531,6 +17307,7 @@
 			"ops.sqlite": "yes"
 		},
 		"nylas/nylas-mail": {
+			"data.telemetry.none": "no",
 			"ops.healthcheck": "yes"
 		},
 		"nytopop/askii": {},
@@ -16542,7 +17319,9 @@
 			"data.import.fromProprietary": "yes",
 			"i18n.multiLanguage": "partial"
 		},
-		"oTranscribe/oTranscribe": {},
+		"oTranscribe/oTranscribe": {
+			"data.export.open": "yes"
+		},
 		"oasdiff/oasdiff": {
 			"auth.anonymous": "yes",
 			"auth.auditLog": "paid",
@@ -16591,7 +17370,9 @@
 			"i18n.multiLanguage": "yes",
 			"ops.armSupport": "yes"
 		},
-		"obsproject/obs-websocket": {},
+		"obsproject/obs-websocket": {
+			"auth.anonymous": "yes"
+		},
 		"ocrmypdf/OCRmyPDF": {
 			"data.export.open": "yes"
 		},
@@ -16600,7 +17381,9 @@
 			"data.import.fromProprietary": "yes",
 			"i18n.multiLanguage": "no"
 		},
-		"oculix-org/SikuliX1": {},
+		"oculix-org/SikuliX1": {
+			"i18n.multiLanguage": "yes"
+		},
 		"odoo/odoo": {
 			"ai.features": "yes",
 			"ai.mcp.community": "yes",
@@ -16631,7 +17414,9 @@
 			"ops.armSupport": "yes"
 		},
 		"oh-my-fish/oh-my-fish": {},
-		"ohmybash/oh-my-bash": {},
+		"ohmybash/oh-my-bash": {
+			"data.backup.builtin": "yes"
+		},
 		"ohmyform/ohmyform": {
 			"collab.multiUser": "yes",
 			"collab.notifications.email": "yes",
@@ -16644,15 +17429,34 @@
 			"ops.smtp": "yes",
 			"ops.sqlite": "yes"
 		},
-		"ohmyzsh/ohmyzsh": {},
-		"ohwgiles/laminar": {},
+		"ohmyzsh/ohmyzsh": {
+			"i18n.multiLanguage": "no"
+		},
+		"ohwgiles/laminar": {
+			"collab.notifications.push": "yes",
+			"ops.subpath": "yes"
+		},
 		"oils-for-unix/oils": {},
 		"okd-project/okd": {
+			"auth.local": "yes",
+			"auth.multiTenant": "yes",
+			"auth.sso.ldap": "yes",
+			"auth.sso.oauth2": "yes",
+			"auth.teams": "yes",
+			"collab.multiUser": "yes",
 			"ops.armSupport": "yes"
 		},
-		"okta-graveyard/repo-supervisor": {},
+		"okta-graveyard/repo-supervisor": {
+			"data.webhooks": "yes"
+		},
 		"okteto/okteto": {
+			"auth.rbac": "paid",
+			"auth.sso": "paid",
+			"auth.sso.oidc": "paid",
+			"collab.multiUser": "paid",
+			"collab.share.internal": "paid",
 			"data.api.graphql": "yes",
+			"data.telemetry.none": "no",
 			"ops.armSupport": "yes",
 			"ops.s3": "yes"
 		},
@@ -16675,11 +17479,25 @@
 			"ai.mcp.server": "no",
 			"data.telemetry.none": "no"
 		},
-		"ome/omero-server": {},
+		"ome/omero-server": {
+			"auth.anonymous": "yes",
+			"auth.rbac": "yes",
+			"auth.sso.ldap": "yes",
+			"auth.teams": "yes",
+			"collab.comments": "yes",
+			"collab.multiUser": "yes",
+			"collab.share.internal": "yes",
+			"collab.share.publicLink": "yes",
+			"data.export.open": "yes",
+			"data.import.fromProprietary": "yes"
+		},
 		"omegat-org/omegat": {
 			"i18n.multiLanguage": "yes"
 		},
-		"omkarcloud/google-maps-scraper": {},
+		"omkarcloud/google-maps-scraper": {
+			"data.export.open": "yes",
+			"i18n.multiLanguage": "no"
+		},
 		"omnivore-app/omnivore": {
 			"auth.local": "yes",
 			"collab.multiUser": "yes",
@@ -16696,7 +17514,9 @@
 		"onivim/oni2": {
 			"ops.healthcheck": "yes"
 		},
-		"onthegomap/planetiler": {},
+		"onthegomap/planetiler": {
+			"data.export.open": "yes"
+		},
 		"oobabooga/textgen": {
 			"ai.features": "yes",
 			"ai.mcp.server": "yes",
@@ -16706,12 +17526,29 @@
 			"i18n.multiLanguage": "no",
 			"ops.armSupport": "yes"
 		},
-		"oofem/oofem": {},
+		"oofem/oofem": {
+			"data.export.open": "yes"
+		},
 		"open-cogsci/OpenSesame": {},
-		"open-eats/OpenEats": {},
+		"open-eats/OpenEats": {
+			"auth.invite": "yes",
+			"auth.rbac": "yes",
+			"collab.comments": "yes",
+			"collab.multiUser": "yes",
+			"collab.share.internal": "yes",
+			"data.api.rest": "yes",
+			"data.backup.documented": "yes"
+		},
 		"open-formulieren/open-forms": {
+			"auth.apiTokens": "yes",
+			"auth.local": "yes",
+			"auth.sso": "yes",
+			"auth.sso.oidc": "yes",
+			"collab.notifications.email": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.healthcheck": "yes",
-			"ops.postgres": "yes"
+			"ops.postgres": "yes",
+			"ops.smtp": "yes"
 		},
 		"open-gpdb/gpdb": {
 			"ops.healthcheck": "yes",
@@ -16766,9 +17603,17 @@
 			"ops.armSupport": "yes"
 		},
 		"openNDS/openNDS": {
+			"auth.anonymous": "yes",
 			"ops.armSupport": "yes"
 		},
 		"openSUSE/osem": {
+			"auth.local": "yes",
+			"auth.rbac": "yes",
+			"auth.sso.oauth2": "yes",
+			"collab.comments": "yes",
+			"collab.multiUser": "yes",
+			"data.api.rest": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.postgres": "yes"
 		},
 		"openai/codex": {
@@ -16863,9 +17708,22 @@
 			"ops.s3": "yes"
 		},
 		"opendatalab/labelU": {
+			"ai.features": "yes",
+			"ai.localModel": "yes",
+			"data.export.open": "yes",
 			"ops.sqlite": "yes"
 		},
-		"opendocman/opendocman": {},
+		"opendocman/opendocman": {
+			"auth.local": "yes",
+			"auth.rbac": "yes",
+			"collab.comments": "yes",
+			"collab.multiUser": "yes",
+			"collab.notifications.email": "yes",
+			"collab.share.internal": "yes",
+			"data.backup.builtin": "yes",
+			"i18n.multiLanguage": "yes",
+			"ops.smtp": "yes"
+		},
 		"openedx/openedx-platform": {
 			"ai.features": "no",
 			"ai.mcp.community": "yes",
@@ -16909,6 +17767,9 @@
 			"ops.metrics": "yes"
 		},
 		"openfarmcc/OpenFarm": {
+			"auth.local": "yes",
+			"data.api.rest": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.s3": "yes"
 		},
 		"openflagr/flagr": {
@@ -16923,15 +17784,37 @@
 			"ops.subpath": "yes"
 		},
 		"openfoodfacts/openfoodfacts-server": {
+			"ai.features": "yes",
+			"ai.localModel": "yes",
+			"auth.anonymous": "yes",
+			"auth.local": "yes",
+			"collab.multiUser": "yes",
+			"data.api.rest": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.healthcheck": "yes",
 			"ops.postgres": "yes"
 		},
 		"openfoodfoundation/openfoodnetwork": {
+			"auth.apiTokens": "yes",
+			"auth.local": "yes",
+			"auth.multiTenant": "yes",
+			"auth.rbac": "yes",
+			"auth.sso": "yes",
+			"auth.sso.oidc": "yes",
+			"auth.teams": "yes",
+			"collab.multiUser": "yes",
+			"collab.notifications.email": "yes",
+			"data.api.rest": "yes",
+			"data.backup.builtin": "yes",
+			"data.export.open": "yes",
+			"data.telemetry.none": "no",
+			"i18n.multiLanguage": "yes",
 			"ops.healthcheck": "yes",
 			"ops.postgres": "yes",
 			"ops.s3": "yes"
 		},
 		"opengisch/QField": {
+			"i18n.multiLanguage": "yes",
 			"ops.armSupport": "yes",
 			"ops.healthcheck": "yes",
 			"ops.postgres": "yes"
@@ -16950,10 +17833,15 @@
 			"i18n.multiLanguage": "yes"
 		},
 		"openinterpreter/openinterpreter": {
+			"ai.byoKey": "yes",
+			"ai.features": "yes",
+			"ai.localModel": "yes",
 			"ops.armSupport": "yes",
 			"ops.healthcheck": "yes"
 		},
-		"openlayers/openlayers": {},
+		"openlayers/openlayers": {
+			"i18n.multiLanguage": "no"
+		},
 		"openlibhums/janeway": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
@@ -16973,6 +17861,15 @@
 			"ops.subpath": "yes"
 		},
 		"openlit/openlit": {
+			"ai.byoKey": "yes",
+			"ai.features": "yes",
+			"auth.apiTokens": "yes",
+			"auth.sso.oauth2": "yes",
+			"collab.multiUser": "yes",
+			"data.api.rest": "yes",
+			"data.encryption.rest": "yes",
+			"data.export.open": "yes",
+			"data.telemetry.none": "no",
 			"ops.armSupport": "yes",
 			"ops.healthcheck": "yes",
 			"ops.postgres": "yes",
@@ -17042,9 +17939,21 @@
 		},
 		"openresty/openresty": {},
 		"openreview/openreview-web": {
+			"auth.rbac": "yes",
+			"auth.teams": "yes",
+			"collab.comments": "yes",
+			"collab.multiUser": "yes",
+			"collab.notifications.email": "yes",
+			"collab.share.internal": "yes",
+			"data.telemetry.none": "no",
 			"ops.healthcheck": "yes"
 		},
-		"opensanctions/opensanctions": {},
+		"opensanctions/opensanctions": {
+			"data.api.rest": "yes",
+			"data.export.full": "yes",
+			"data.export.open": "yes",
+			"data.import.fromProprietary": "yes"
+		},
 		"openscad/openscad": {
 			"data.import.fromProprietary": "yes",
 			"i18n.multiLanguage": "yes"
@@ -17060,7 +17969,9 @@
 			"ops.s3": "yes"
 		},
 		"openshift/microshift": {},
-		"openshift/origin": {},
+		"openshift/origin": {
+			"auth.rbac": "yes"
+		},
 		"openshiporg/openship": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
@@ -17075,7 +17986,12 @@
 			"ops.smtp": "yes"
 		},
 		"opensim/opensim": {
-			"ops.healthcheck": "yes"
+			"auth.local": "yes",
+			"collab.multiUser": "yes",
+			"collab.share.external": "yes",
+			"data.backup.builtin": "yes",
+			"ops.healthcheck": "yes",
+			"ops.smtp": "yes"
 		},
 		"opensourceBIM/BIMserver": {
 			"collab.multiUser": "yes",
@@ -17090,13 +18006,32 @@
 			"ops.subpath": "yes"
 		},
 		"openssl/openssl": {
+			"i18n.multiLanguage": "no",
 			"ops.armSupport": "yes"
 		},
 		"openstatusHQ/openstatus": {
+			"ai.byoKey": "yes",
+			"ai.features": "yes",
+			"ai.localModel": "yes",
+			"auth.apiTokens": "yes",
+			"auth.sso": "yes",
+			"auth.sso.oauth2": "yes",
+			"auth.sso.oidc": "yes",
+			"collab.notifications.email": "yes",
+			"collab.share.expiring": "yes",
+			"data.webhooks": "yes",
 			"ops.healthcheck": "yes",
 			"ops.sqlite": "yes"
 		},
 		"openstf/stf": {
+			"auth.apiTokens": "yes",
+			"auth.sso": "yes",
+			"auth.sso.ldap": "yes",
+			"auth.sso.oauth2": "yes",
+			"auth.sso.saml": "yes",
+			"collab.multiUser": "yes",
+			"data.api.rest": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.s3": "yes"
 		},
 		"opensupports/opensupports": {
@@ -17113,7 +18048,9 @@
 			"ops.smtp": "yes",
 			"ops.subpath": "yes"
 		},
-		"openthc/pos": {},
+		"openthc/pos": {
+			"i18n.multiLanguage": "no"
+		},
 		"opentofu/opentofu": {
 			"ai.features": "no",
 			"ai.mcp.community": "no",
@@ -17181,6 +18118,12 @@
 			"ops.metrics": "yes"
 		},
 		"openziti/zrok": {
+			"collab.multiUser": "yes",
+			"collab.share.external": "yes",
+			"collab.share.internal": "yes",
+			"collab.share.publicLink": "yes",
+			"data.api.rest": "yes",
+			"data.encryption.e2e": "yes",
 			"ops.healthcheck": "yes",
 			"ops.metrics": "yes",
 			"ops.postgres": "yes",
@@ -17243,18 +18186,33 @@
 			"data.api.rest": "yes",
 			"i18n.multiLanguage": "yes"
 		},
-		"oras-project/oras": {},
+		"oras-project/oras": {
+			"auth.local": "yes",
+			"data.backup.builtin": "yes",
+			"data.backup.documented": "yes"
+		},
 		"orbeon/orbeon-forms": {
+			"collab.multiUser": "yes",
+			"data.encryption.rest": "paid",
+			"i18n.multiLanguage": "yes",
 			"ops.healthcheck": "yes",
 			"ops.postgres": "yes"
 		},
-		"orbitalquark/textadept": {},
+		"orbitalquark/textadept": {
+			"ai.features": "yes",
+			"ai.localModel": "yes",
+			"data.export.open": "yes",
+			"data.telemetry.none": "yes",
+			"i18n.multiLanguage": "yes"
+		},
 		"orf/gping": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
 			"ops.armSupport": "yes"
 		},
-		"orfeotoolbox/OTB": {},
+		"orfeotoolbox/OTB": {
+			"ai.features": "yes"
+		},
 		"orhun/git-cliff": {
 			"ai.features": "no",
 			"ai.mcp.server": "no",
@@ -17262,8 +18220,15 @@
 			"i18n.multiLanguage": "no",
 			"ops.armSupport": "yes"
 		},
-		"orientechnologies/orientdb": {},
-		"orpms/orpms": {},
+		"orientechnologies/orientdb": {
+			"auth.rbac": "yes",
+			"collab.multiUser": "yes",
+			"data.import.fromProprietary": "yes"
+		},
+		"orpms/orpms": {
+			"data.backup.builtin": "yes",
+			"i18n.multiLanguage": "yes"
+		},
 		"ory/hydra": {
 			"auth.local": "no",
 			"auth.provider.oidc": "yes",
@@ -17332,8 +18297,21 @@
 			"i18n.multiLanguage": "no"
 		},
 		"oss-apps/split-pro": {
+			"auth.invite": "yes",
+			"auth.local": "no",
+			"auth.mfa.email": "yes",
+			"auth.sso": "yes",
+			"auth.sso.oauth2": "yes",
+			"auth.sso.oidc": "yes",
+			"auth.teams": "yes",
+			"collab.multiUser": "yes",
+			"collab.notifications.push": "yes",
+			"collab.share.internal": "yes",
+			"data.import.fromProprietary": "partial",
+			"i18n.multiLanguage": "yes",
 			"ops.healthcheck": "yes",
-			"ops.postgres": "yes"
+			"ops.postgres": "yes",
+			"ops.smtp": "yes"
 		},
 		"oss-review-toolkit/ort": {
 			"ai.features": "yes",
@@ -17431,6 +18409,7 @@
 			"ops.armSupport": "yes"
 		},
 		"owasp-amass/amass": {
+			"data.api.rest": "yes",
 			"ops.metrics": "yes",
 			"ops.sqlite": "yes"
 		},
@@ -17494,8 +18473,12 @@
 			"i18n.multiLanguage": "no",
 			"ops.armSupport": "yes"
 		},
-		"oxsecurity/megalinter": {},
-		"oyuyue/nplayer": {},
+		"oxsecurity/megalinter": {
+			"i18n.multiLanguage": "no"
+		},
+		"oyuyue/nplayer": {
+			"i18n.multiLanguage": "yes"
+		},
 		"ozmartian/vidcutter": {},
 		"p0deje/Maccy": {
 			"ai.features": "no",
@@ -17505,6 +18488,13 @@
 			"i18n.multiLanguage": "yes"
 		},
 		"pact-foundation/pact_broker": {
+			"auth.apiTokens": "paid",
+			"auth.local": "yes",
+			"auth.rbac": "paid",
+			"auth.sso": "paid",
+			"auth.sso.saml": "paid",
+			"data.api.rest": "yes",
+			"data.webhooks": "yes",
 			"ops.armSupport": "yes",
 			"ops.sqlite": "yes"
 		},
@@ -17533,7 +18523,12 @@
 			"data.export.open": "yes",
 			"i18n.multiLanguage": "no"
 		},
-		"paolostivanin/OTPClient": {},
+		"paolostivanin/OTPClient": {
+			"data.backup.builtin": "yes",
+			"data.backup.documented": "yes",
+			"data.encryption.rest": "yes",
+			"data.import.fromProprietary": "yes"
+		},
 		"papercups-io/papercups": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
@@ -17611,11 +18606,16 @@
 			"data.import.fromProprietary": "yes"
 		},
 		"parca-dev/parca": {
+			"collab.share.internal": "yes",
 			"ops.healthcheck": "yes",
 			"ops.metrics": "yes",
-			"ops.s3": "yes"
+			"ops.s3": "yes",
+			"ops.subpath": "yes"
 		},
 		"parse-community/parse-server": {
+			"auth.local": "yes",
+			"auth.rbac": "yes",
+			"collab.notifications.push": "yes",
 			"data.api.graphql": "yes",
 			"ops.postgres": "yes"
 		},
@@ -17654,7 +18654,10 @@
 			"ops.healthcheck": "yes",
 			"ops.smtp": "yes"
 		},
-		"pattern-lab/patternlab-node": {},
+		"pattern-lab/patternlab-node": {
+			"collab.comments": "yes",
+			"data.export.open": "yes"
+		},
 		"payloadcms/payload": {
 			"ai.features": "yes",
 			"ai.mcp.community": "no",
@@ -17706,15 +18709,22 @@
 			"ops.armSupport": "yes"
 		},
 		"peak/s5cmd": {
+			"auth.anonymous": "yes",
+			"data.encryption.rest": "yes",
 			"ops.armSupport": "yes",
 			"ops.s3": "yes"
 		},
 		"peco/peco": {},
-		"peers/peerjs": {},
+		"peers/peerjs": {
+			"ops.subpath": "yes"
+		},
 		"pegasus-isi/pegasus": {
 			"ops.armSupport": "yes"
 		},
-		"pelias/pelias": {},
+		"pelias/pelias": {
+			"ai.features": "yes",
+			"data.import.fromProprietary": "yes"
+		},
 		"pelican-dev/panel": {
 			"ai.features": "yes",
 			"ai.mcp.community": "yes",
@@ -17770,6 +18780,9 @@
 			"ops.smtp": "yes"
 		},
 		"percona/percona-backup-mongodb": {
+			"auth.local": "yes",
+			"data.backup.builtin": "yes",
+			"i18n.multiLanguage": "no",
 			"ops.healthcheck": "yes",
 			"ops.s3": "yes"
 		},
@@ -17791,7 +18804,17 @@
 			"i18n.multiLanguage": "yes"
 		},
 		"pgadmin-org/pgadmin4": {
-			"ops.postgres": "yes"
+			"ai.features": "yes",
+			"auth.local": "yes",
+			"auth.sso": "yes",
+			"auth.sso.ldap": "yes",
+			"auth.sso.oauth2": "yes",
+			"auth.sso.oidc": "yes",
+			"collab.multiUser": "yes",
+			"data.backup.builtin": "yes",
+			"i18n.multiLanguage": "yes",
+			"ops.postgres": "yes",
+			"ops.smtp": "yes"
 		},
 		"pgsty/silo": {
 			"ai.features": "yes",
@@ -17831,7 +18854,12 @@
 		"phiresky/ripgrep-all": {
 			"ops.armSupport": "yes"
 		},
-		"phodal/auto-dev": {},
+		"phodal/auto-dev": {
+			"ai.byoKey": "yes",
+			"ai.features": "yes",
+			"ai.localModel": "yes",
+			"i18n.multiLanguage": "yes"
+		},
 		"phoenixframework/phoenix": {
 			"ops.postgres": "yes"
 		},
@@ -17878,7 +18906,13 @@
 		"phpList/core": {
 			"data.api.rest": "yes"
 		},
-		"phpList/phplist3": {},
+		"phpList/phplist3": {
+			"auth.local": "yes",
+			"auth.rbac": "yes",
+			"data.export.open": "yes",
+			"i18n.multiLanguage": "yes",
+			"ops.smtp": "yes"
+		},
 		"phpipam/phpipam": {
 			"ai.features": "no",
 			"ai.mcp.community": "yes",
@@ -17896,7 +18930,12 @@
 			"i18n.multiLanguage": "yes",
 			"ops.subpath": "yes"
 		},
-		"phpmyadmin/phpmyadmin": {},
+		"phpmyadmin/phpmyadmin": {
+			"auth.mfa.webauthn": "yes",
+			"data.export.open": "yes",
+			"i18n.multiLanguage": "yes",
+			"ops.subpath": "yes"
+		},
 		"phw/peek": {
 			"data.export.open": "yes",
 			"i18n.multiLanguage": "yes"
@@ -17907,7 +18946,10 @@
 			"ai.mcp.official": "no",
 			"ai.mcp.server": "yes"
 		},
-		"pieterlange/kube-backup": {},
+		"pieterlange/kube-backup": {
+			"data.backup.builtin": "yes",
+			"data.export.open": "yes"
+		},
 		"piku/piku": {},
 		"pimalaya/himalaya": {
 			"auth.anonymous": "yes",
@@ -17917,11 +18959,29 @@
 			"ops.smtp": "yes",
 			"ops.sqlite": "yes"
 		},
-		"pimcore/pimcore": {},
+		"pimcore/pimcore": {
+			"auth.mfa.totp": "yes",
+			"data.api.rest": "yes",
+			"data.export.open": "yes",
+			"data.webhooks": "yes",
+			"i18n.multiLanguage": "yes"
+		},
 		"pimutils/khal": {},
-		"pimutils/todoman": {},
-		"pimutils/vdirsyncer": {},
+		"pimutils/todoman": {
+			"data.export.open": "yes"
+		},
+		"pimutils/vdirsyncer": {
+			"i18n.multiLanguage": "no"
+		},
 		"pingcap/tidb": {
+			"ai.features": "yes",
+			"auth.local": "yes",
+			"collab.multiUser": "yes",
+			"data.api.rest": "yes",
+			"data.backup.builtin": "yes",
+			"data.backup.documented": "yes",
+			"data.export.full": "yes",
+			"data.export.open": "yes",
 			"ops.healthcheck": "yes",
 			"ops.metrics": "yes",
 			"ops.s3": "yes"
@@ -17954,18 +19014,30 @@
 			"i18n.multiLanguage": "no"
 		},
 		"pipe-cd/pipecd": {
+			"auth.local": "yes",
+			"auth.rbac": "yes",
+			"auth.sso": "yes",
+			"auth.sso.oauth2": "yes",
+			"auth.sso.oidc": "yes",
+			"collab.multiUser": "yes",
 			"ops.healthcheck": "yes",
 			"ops.metrics": "yes",
 			"ops.s3": "yes"
 		},
 		"pirsch-analytics/pirsch": {
+			"auth.sso": "paid",
+			"auth.sso.saml": "paid",
+			"auth.teams": "paid",
+			"data.export.open": "yes",
 			"ops.healthcheck": "yes",
 			"ops.sqlite": "yes"
 		},
 		"pitivi/pitivi": {},
 		"pivpn/pivpn": {},
 		"pklaus/brother_ql": {},
-		"pkp/ocs": {},
+		"pkp/ocs": {
+			"i18n.multiLanguage": "yes"
+		},
 		"pkp/ojs": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
@@ -17991,11 +19063,30 @@
 			"ops.smtp": "yes"
 		},
 		"plankanban/planka": {
+			"auth.local": "yes",
+			"auth.rbac": "paid",
+			"auth.sso": "paid",
+			"auth.sso.oidc": "paid",
+			"collab.multiUser": "yes",
+			"collab.notifications.email": "yes",
+			"collab.realtime": "yes",
+			"data.api.rest": "yes",
+			"data.backup.builtin": "yes",
+			"data.backup.documented": "yes",
+			"data.export.full": "yes",
+			"data.import.fromProprietary": "yes",
+			"data.webhooks": "yes",
+			"i18n.multiLanguage": "yes",
+			"notes.collab.realtime": "yes",
 			"ops.healthcheck": "yes",
 			"ops.postgres": "yes",
-			"ops.s3": "yes"
+			"ops.s3": "yes",
+			"ops.smtp": "yes",
+			"ops.subpath": "yes"
 		},
-		"plankes-projects/splitastic": {},
+		"plankes-projects/splitastic": {
+			"collab.multiUser": "yes"
+		},
 		"plantuml/plantuml": {
 			"ai.features": "yes",
 			"ai.mcp.community": "no",
@@ -18058,9 +19149,16 @@
 			"i18n.multiLanguage": "yes"
 		},
 		"plotly/dash": {
+			"auth.scim": "paid",
+			"auth.sso": "paid",
+			"auth.sso.ldap": "paid",
+			"auth.sso.oidc": "paid",
+			"auth.sso.saml": "paid",
 			"ops.healthcheck": "yes"
 		},
-		"plumi/plumi.app": {},
+		"plumi/plumi.app": {
+			"collab.comments": "yes"
+		},
 		"pnpm/pnpm": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
@@ -18084,7 +19182,11 @@
 			"ops.healthcheck": "yes",
 			"ops.sqlite": "yes"
 		},
-		"podStation/podStation": {},
+		"podStation/podStation": {
+			"data.export.full": "partial",
+			"data.export.open": "yes",
+			"data.import.fromProprietary": "yes"
+		},
 		"podlove/podlove-publisher": {
 			"ai.features": "no",
 			"ai.mcp.server": "no",
@@ -18126,7 +19228,17 @@
 			"ops.armSupport": "yes",
 			"ops.healthcheck": "yes"
 		},
-		"polonel/trudesk": {},
+		"polonel/trudesk": {
+			"auth.apiTokens": "yes",
+			"auth.local": "yes",
+			"auth.teams": "yes",
+			"collab.comments": "yes",
+			"collab.multiUser": "yes",
+			"collab.notifications.email": "yes",
+			"collab.notifications.push": "yes",
+			"data.api.rest": "yes",
+			"ops.smtp": "yes"
+		},
 		"polyaxon/polyaxon": {
 			"auth.rbac": "yes",
 			"auth.teams": "yes",
@@ -18134,7 +19246,9 @@
 			"data.api.rest": "yes",
 			"ops.healthcheck": "yes"
 		},
-		"polynote/polynote": {},
+		"polynote/polynote": {
+			"data.import.fromProprietary": "yes"
+		},
 		"pombadev/bropages": {},
 		"pomerium/pomerium": {
 			"ai.features": "yes",
@@ -18155,7 +19269,9 @@
 			"ops.postgres": "yes",
 			"ops.s3": "yes"
 		},
-		"popeen/Booksonic-Air": {},
+		"popeen/Booksonic-Air": {
+			"i18n.multiLanguage": "yes"
+		},
 		"portainer/portainer": {
 			"ai.features": "yes",
 			"ai.mcp.community": "no",
@@ -18178,6 +19294,7 @@
 			"ops.subpath": "yes"
 		},
 		"posit-dev/positron": {
+			"ai.features": "yes",
 			"ops.armSupport": "yes",
 			"ops.healthcheck": "yes",
 			"ops.metrics": "yes",
@@ -18206,11 +19323,14 @@
 		},
 		"posva/catimg": {},
 		"pouriyajamshidi/tcping": {
+			"data.export.open": "yes",
 			"ops.armSupport": "yes",
 			"ops.sqlite": "yes"
 		},
 		"powerline/powerline": {},
-		"pqrs-org/Karabiner-Elements": {},
+		"pqrs-org/Karabiner-Elements": {
+			"data.telemetry.none": "no"
+		},
 		"pre-commit/pre-commit": {},
 		"prebid/Prebid.js": {
 			"ai.features": "no",
@@ -18226,8 +19346,17 @@
 			"ai.mcp.server": "no"
 		},
 		"pressbooks/pressbooks": {
+			"auth.local": "yes",
+			"auth.multiTenant": "yes",
+			"auth.sso": "yes",
+			"auth.sso.enforced": "yes",
+			"auth.sso.saml": "yes",
+			"collab.multiUser": "yes",
+			"collab.share.publicLink": "yes",
+			"data.export.open": "yes",
 			"ops.healthcheck": "yes",
-			"ops.s3": "yes"
+			"ops.s3": "yes",
+			"ops.subpath": "yes"
 		},
 		"pressly/goose": {
 			"ai.features": "no",
@@ -18270,6 +19399,7 @@
 			"collab.multiUser": "yes"
 		},
 		"prncexe/chronex": {
+			"auth.sso.oauth2": "yes",
 			"ops.postgres": "yes"
 		},
 		"probot/smee.io": {
@@ -18298,7 +19428,11 @@
 			"data.telemetry.none": "no",
 			"data.webhooks": "yes"
 		},
-		"profanity-im/profanity": {},
+		"profanity-im/profanity": {
+			"auth.local": "yes",
+			"collab.multiUser": "yes",
+			"data.encryption.e2e": "yes"
+		},
 		"proginosko/LeechBlockNG": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
@@ -18344,9 +19478,14 @@
 			"ops.sqlite": "yes"
 		},
 		"prometheus/alertmanager": {
+			"collab.notifications.email": "yes",
+			"data.api.rest": "yes",
+			"data.webhooks": "yes",
 			"ops.armSupport": "yes",
 			"ops.metrics": "yes",
-			"ops.s3": "yes"
+			"ops.s3": "yes",
+			"ops.smtp": "yes",
+			"ops.subpath": "yes"
 		},
 		"prometheus/blackbox_exporter": {
 			"ai.features": "yes",
@@ -18362,14 +19501,26 @@
 			"ops.metrics": "yes",
 			"ops.s3": "yes"
 		},
-		"prompt-toolkit/pymux": {},
+		"prompt-toolkit/pymux": {
+			"collab.multiUser": "yes"
+		},
 		"promptfoo/promptfoo": {
+			"ai.byoKey": "yes",
+			"ai.features": "yes",
+			"ai.localModel": "yes",
+			"auth.rbac.granular": "paid",
+			"auth.teams": "paid",
+			"collab.multiUser": "paid",
+			"collab.share.internal": "yes",
+			"data.export.open": "yes",
 			"ops.armSupport": "yes",
 			"ops.healthcheck": "yes",
 			"ops.s3": "yes",
 			"ops.sqlite": "yes"
 		},
 		"proninyaroslav/libretrack": {
+			"collab.notifications.push": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.armSupport": "yes"
 		},
 		"protomaps/PMTiles": {
@@ -18379,7 +19530,12 @@
 			"ai.mcp.server": "yes",
 			"ops.subpath": "yes"
 		},
-		"provectus/kafka-ui": {},
+		"provectus/kafka-ui": {
+			"auth.local": "yes",
+			"auth.rbac": "yes",
+			"auth.sso.ldap": "yes",
+			"auth.sso.oauth2": "yes"
+		},
 		"prowler-cloud/prowler": {
 			"ai.features": "yes",
 			"ai.mcp.community": "no",
@@ -18396,7 +19552,13 @@
 			"ops.healthcheck": "yes",
 			"ops.postgres": "yes"
 		},
-		"proxmox/proxmox-backup": {},
+		"proxmox/proxmox-backup": {
+			"auth.apiTokens": "yes",
+			"auth.rbac": "yes",
+			"auth.sso.ldap": "yes",
+			"collab.multiUser": "yes",
+			"data.backup.builtin": "yes"
+		},
 		"psono/psono-server": {
 			"ai.features": "no",
 			"ai.mcp.server": "no",
@@ -18447,11 +19609,30 @@
 			"i18n.multiLanguage": "yes"
 		},
 		"pufferpanel/pufferpanel": {
+			"collab.multiUser": "yes",
+			"collab.share.internal": "yes",
+			"data.backup.builtin": "yes",
+			"data.import.fromProprietary": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.armSupport": "yes",
 			"ops.postgres": "yes",
 			"ops.sqlite": "yes"
 		},
-		"pulp/pulpcore": {},
+		"pulp/pulpcore": {
+			"auth.anonymous": "yes",
+			"auth.local": "yes",
+			"auth.multiTenant": "yes",
+			"auth.rbac": "yes",
+			"auth.sso": "yes",
+			"auth.sso.header": "yes",
+			"auth.sso.ldap": "yes",
+			"auth.sso.oidc": "yes",
+			"auth.sso.saml": "yes",
+			"auth.teams": "yes",
+			"data.api.rest": "yes",
+			"data.encryption.rest": "yes",
+			"data.export.open": "yes"
+		},
 		"pulsardev/vue-tour": {},
 		"pulsejet/memories": {
 			"ai.features": "yes",
@@ -18477,11 +19658,23 @@
 		},
 		"puppeteer/puppeteer": {},
 		"pushbits/server": {
+			"auth.apiTokens": "yes",
+			"auth.local": "yes",
+			"auth.mfa.email": "no",
+			"auth.mfa.enforced": "no",
+			"auth.mfa.totp": "no",
+			"auth.mfa.webauthn": "no",
+			"collab.multiUser": "yes",
+			"collab.notifications.push": "yes",
 			"ops.healthcheck": "yes",
 			"ops.postgres": "yes",
 			"ops.sqlite": "yes"
 		},
-		"pyannote/pyannote-audio": {},
+		"pyannote/pyannote-audio": {
+			"ai.byoKey": "yes",
+			"ai.features": "yes",
+			"ai.localModel": "yes"
+		},
 		"pyblish/pyblish-base": {},
 		"pydio/cells": {
 			"auth.local": "yes",
@@ -18498,16 +19691,26 @@
 		"pyinvoke/invoke": {},
 		"pypa/flit": {},
 		"pypa/hatch": {
+			"i18n.multiLanguage": "no",
 			"ops.armSupport": "yes",
 			"ops.healthcheck": "yes"
 		},
-		"pypa/pipenv": {},
+		"pypa/pipenv": {
+			"data.import.fromProprietary": "yes"
+		},
 		"pypa/pipx": {
+			"i18n.multiLanguage": "no",
 			"ops.healthcheck": "yes"
 		},
-		"pypiserver/pypiserver": {},
+		"pypiserver/pypiserver": {
+			"auth.anonymous": "yes",
+			"auth.local": "yes",
+			"ops.subpath": "yes"
+		},
 		"pyradius/pyrad": {},
-		"pyrevitlabs/pyRevit": {},
+		"pyrevitlabs/pyRevit": {
+			"i18n.multiLanguage": "yes"
+		},
 		"python-escpos/python-escpos": {},
 		"python-poetry/poetry": {
 			"ai.features": "no",
@@ -18515,6 +19718,12 @@
 			"i18n.multiLanguage": "no"
 		},
 		"pytorch/serve": {
+			"ai.byoKey": "yes",
+			"ai.features": "yes",
+			"ai.localModel": "yes",
+			"auth.apiTokens": "yes",
+			"auth.local": "no",
+			"data.api.rest": "yes",
 			"ops.armSupport": "yes",
 			"ops.healthcheck": "yes"
 		},
@@ -18522,7 +19731,10 @@
 			"collab.multiUser": "yes",
 			"i18n.multiLanguage": "yes"
 		},
-		"qarmin/czkawka": {},
+		"qarmin/czkawka": {
+			"data.telemetry.none": "yes",
+			"i18n.multiLanguage": "yes"
+		},
 		"qcad/qcad": {
 			"ai.features": "no",
 			"ai.mcp.community": "yes",
@@ -18563,6 +19775,7 @@
 			"ops.postgres": "yes"
 		},
 		"qishibo/AnotherRedisDesktopManager": {
+			"i18n.multiLanguage": "yes",
 			"ops.armSupport": "yes"
 		},
 		"qpdf/qpdf": {
@@ -18576,6 +19789,8 @@
 			"ops.armSupport": "yes"
 		},
 		"quay/clair": {
+			"data.api.rest": "yes",
+			"data.webhooks": "yes",
 			"ops.armSupport": "yes",
 			"ops.healthcheck": "yes",
 			"ops.metrics": "yes",
@@ -18610,23 +19825,52 @@
 			"ops.metrics": "yes",
 			"ops.postgres": "yes"
 		},
-		"quickwit-oss/tantivy": {},
+		"quickwit-oss/tantivy": {
+			"data.api.rest": "no"
+		},
 		"quillforms/quillforms": {},
-		"qustavo/httplab": {},
+		"qustavo/httplab": {
+			"i18n.multiLanguage": "no"
+		},
 		"r-devel/r-svn": {
 			"i18n.multiLanguage": "yes"
 		},
 		"radsecproxy/radsecproxy": {},
 		"raimohanska/ourboard": {
+			"auth.anonymous": "yes",
+			"auth.apiTokens": "yes",
+			"collab.multiUser": "yes",
+			"collab.share.external": "yes",
+			"collab.share.internal": "yes",
+			"collab.share.publicLink": "yes",
+			"data.api.rest": "partial",
+			"data.export.full": "yes",
+			"data.export.open": "yes",
+			"data.webhooks": "yes",
 			"ops.postgres": "yes"
 		},
 		"rajnandan1/kener": {
+			"auth.apiTokens": "yes",
+			"auth.invite": "yes",
+			"auth.local": "yes",
+			"auth.rbac": "yes",
+			"collab.comments": "yes",
+			"collab.multiUser": "yes",
+			"collab.notifications.email": "yes",
+			"collab.share.publicLink": "yes",
+			"data.api.rest": "yes",
+			"data.webhooks": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.healthcheck": "yes",
 			"ops.postgres": "yes",
-			"ops.sqlite": "yes"
+			"ops.smtp": "yes",
+			"ops.sqlite": "yes",
+			"ops.subpath": "yes"
 		},
 		"rakyll/hey": {},
-		"rama-io/tui": {},
+		"rama-io/tui": {
+			"data.telemetry.none": "yes"
+		},
 		"rancher-sandbox/rancher-desktop": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
@@ -18689,6 +19933,7 @@
 			"ops.armSupport": "yes"
 		},
 		"rcaelers/workrave": {
+			"i18n.multiLanguage": "yes",
 			"ops.armSupport": "yes"
 		},
 		"rclone/rclone": {
@@ -18705,7 +19950,10 @@
 		"rcoh/angle-grinder": {
 			"i18n.multiLanguage": "no"
 		},
-		"rdiff-backup/rdiff-backup": {},
+		"rdiff-backup/rdiff-backup": {
+			"data.backup.builtin": "yes",
+			"data.backup.documented": "yes"
+		},
 		"rdkit/rdkit": {
 			"ai.features": "yes",
 			"ai.mcp.server": "yes"
@@ -18719,18 +19967,34 @@
 			"ops.postgres": "yes"
 		},
 		"realodix/urlhub": {
+			"auth.local": "yes",
+			"collab.multiUser": "yes",
+			"collab.share.expiring": "yes",
+			"ops.smtp": "yes",
 			"ops.sqlite": "yes"
 		},
 		"reaper47/recipya": {
+			"auth.anonymous": "yes",
+			"collab.multiUser": "yes",
+			"collab.share.external": "yes",
+			"collab.share.publicLink": "yes",
+			"data.backup.builtin": "yes",
+			"data.export.open": "yes",
+			"data.import.fromProprietary": "yes",
 			"ops.armSupport": "yes",
 			"ops.healthcheck": "yes",
+			"ops.smtp": "yes",
 			"ops.sqlite": "yes"
 		},
 		"redis/RedisInsight": {
+			"data.telemetry.none": "no",
+			"i18n.multiLanguage": "yes",
 			"ops.armSupport": "yes",
 			"ops.healthcheck": "yes"
 		},
-		"redis/redis": {},
+		"redis/redis": {
+			"ai.features": "yes"
+		},
 		"redmine/redmine": {
 			"auth.local": "yes",
 			"auth.mfa.totp": "yes",
@@ -18763,22 +20027,38 @@
 			"ops.s3": "yes"
 		},
 		"refinedev/refine": {
-			"data.api.graphql": "yes"
+			"data.api.graphql": "yes",
+			"data.api.rest": "yes",
+			"i18n.multiLanguage": "yes"
 		},
-		"reg-viz/reg-suit": {},
+		"reg-viz/reg-suit": {
+			"collab.comments": "yes"
+		},
 		"regclient/regclient": {
 			"data.backup.builtin": "partial",
 			"data.export.open": "yes",
 			"ops.armSupport": "yes"
 		},
 		"rejourneyco/rejourney": {
+			"ai.byoKey": "yes",
+			"ai.features": "yes",
+			"auth.mfa.email": "yes",
+			"auth.sso.oauth2": "yes",
+			"data.backup.builtin": "yes",
+			"data.backup.documented": "yes",
 			"ops.postgres": "yes",
-			"ops.s3": "yes"
+			"ops.s3": "yes",
+			"ops.smtp": "yes"
 		},
 		"release-it/release-it": {},
 		"remarkjs/remark": {},
-		"remonalbear/CMMS": {},
+		"remonalbear/CMMS": {
+			"auth.local": "yes"
+		},
 		"remotion-dev/remotion": {
+			"ai.byoKey": "yes",
+			"ai.features": "yes",
+			"ai.localModel": "yes",
 			"ops.s3": "yes"
 		},
 		"renyuneyun/Easer": {
@@ -18787,6 +20067,10 @@
 			"i18n.multiLanguage": "yes"
 		},
 		"replaysMike/Binner": {
+			"auth.local": "yes",
+			"collab.multiUser": "yes",
+			"data.export.open": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.armSupport": "yes"
 		},
 		"replicate/cog": {
@@ -18811,6 +20095,23 @@
 			"ops.s3": "yes"
 		},
 		"reqcore-inc/reqcore": {
+			"ai.byoKey": "yes",
+			"ai.features": "yes",
+			"ai.localModel": "yes",
+			"auth.anonymous": "yes",
+			"auth.auditLog": "paid",
+			"auth.multiTenant": "yes",
+			"auth.scim": "paid",
+			"auth.sso": "yes",
+			"auth.sso.oidc": "yes",
+			"auth.sso.saml": "paid",
+			"collab.multiUser": "yes",
+			"collab.notifications.email": "yes",
+			"collab.share.internal": "yes",
+			"collab.share.publicLink": "yes",
+			"data.api.rest": "yes",
+			"data.telemetry.none": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.healthcheck": "yes",
 			"ops.postgres": "yes",
 			"ops.s3": "yes",
@@ -18850,6 +20151,7 @@
 			"ops.subpath": "yes"
 		},
 		"rest-sh/restish": {
+			"i18n.multiLanguage": "no",
 			"ops.armSupport": "yes",
 			"ops.healthcheck": "yes"
 		},
@@ -18884,8 +20186,12 @@
 			"ops.healthcheck": "yes"
 		},
 		"retromeet/core": {
+			"auth.local": "yes",
+			"auth.mfa.totp": "no",
+			"i18n.multiLanguage": "yes",
 			"ops.postgres": "yes",
-			"ops.s3": "yes"
+			"ops.s3": "yes",
+			"ops.smtp": "yes"
 		},
 		"reviewboard/reviewboard": {
 			"auth.apiTokens": "yes",
@@ -18916,8 +20222,17 @@
 			"i18n.multiLanguage": "yes"
 		},
 		"rgburke/grv": {},
-		"riffusion/riffusion-hobby": {},
+		"riffusion/riffusion-hobby": {
+			"ai.byoKey": "yes",
+			"ai.features": "yes",
+			"ai.localModel": "yes",
+			"data.api.rest": "yes"
+		},
 		"rilldata/rill": {
+			"auth.rbac": "yes",
+			"auth.teams": "yes",
+			"data.api.rest": "yes",
+			"data.export.open": "yes",
 			"ops.armSupport": "yes",
 			"ops.healthcheck": "yes",
 			"ops.metrics": "yes",
@@ -18926,6 +20241,11 @@
 			"ops.sqlite": "yes"
 		},
 		"risingwavelabs/risingwave": {
+			"ai.features": "yes",
+			"data.backup.builtin": "yes",
+			"data.export.open": "yes",
+			"data.telemetry.none": "no",
+			"data.webhooks": "yes",
 			"ops.armSupport": "yes",
 			"ops.healthcheck": "yes",
 			"ops.metrics": "yes",
@@ -18956,11 +20276,20 @@
 			"ops.smtp": "yes"
 		},
 		"rkitover/vimpager": {},
-		"rlidwka/sinopia": {},
+		"rlidwka/sinopia": {
+			"auth.local": "yes",
+			"auth.rbac": "yes",
+			"collab.multiUser": "yes",
+			"collab.share.internal": "yes"
+		},
 		"rmcrackan/Libation": {
+			"data.encryption.rest": "yes",
+			"data.import.fromProprietary": "yes",
 			"ops.armSupport": "yes"
 		},
-		"rncbc/qtractor": {},
+		"rncbc/qtractor": {
+			"i18n.multiLanguage": "yes"
+		},
 		"rnwood/smtp4dev": {
 			"auth.anonymous": "yes",
 			"auth.local": "yes",
@@ -18978,15 +20307,31 @@
 			"ops.metrics": "yes"
 		},
 		"rodber/chevereto-free": {
+			"i18n.multiLanguage": "no",
 			"ops.armSupport": "yes"
 		},
 		"roflcoopter/viseron": {
+			"ai.features": "yes",
+			"ai.localModel": "yes",
+			"ai.optional": "yes",
+			"auth.apiTokens": "yes",
+			"auth.local": "yes",
+			"auth.rbac": "yes",
+			"auth.rbac.granular": "yes",
+			"collab.multiUser": "yes",
+			"data.api.rest": "yes",
+			"data.webhooks": "yes",
+			"i18n.multiLanguage": "no",
 			"ops.armSupport": "yes",
 			"ops.postgres": "yes"
 		},
-		"rolinh/dfc": {},
+		"rolinh/dfc": {
+			"data.export.open": "yes"
+		},
 		"romkatv/powerlevel10k": {},
-		"romkatv/zsh4humans": {},
+		"romkatv/zsh4humans": {
+			"data.backup.builtin": "yes"
+		},
 		"rommapp/romm": {
 			"auth.apiTokens": "yes",
 			"auth.invite": "yes",
@@ -18998,7 +20343,9 @@
 			"data.export.open": "yes",
 			"ops.postgres": "yes"
 		},
-		"roskakori/pygount": {},
+		"roskakori/pygount": {
+			"data.export.open": "yes"
+		},
 		"roundcube/roundcubemail": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
@@ -19024,8 +20371,14 @@
 			"ai.features": "yes",
 			"ai.mcp.server": "no"
 		},
-		"rsc/2fa": {},
-		"rsnapshot/rsnapshot": {},
+		"rsc/2fa": {
+			"auth.mfa.totp": "yes",
+			"data.encryption.rest": "no"
+		},
+		"rsnapshot/rsnapshot": {
+			"data.backup.builtin": "yes",
+			"data.backup.documented": "yes"
+		},
 		"rspace-os/rspace-web": {
 			"auth.apiTokens": "yes",
 			"auth.auditLog": "yes",
@@ -19056,7 +20409,9 @@
 			"ai.mcp.server": "yes",
 			"collab.multiUser": "yes"
 		},
-		"rtfpessoa/diff2html-cli": {},
+		"rtfpessoa/diff2html-cli": {
+			"data.export.open": "yes"
+		},
 		"ruby/rake": {},
 		"rudderlabs/rudder-server": {
 			"ai.features": "yes",
@@ -19073,8 +20428,15 @@
 			"ops.postgres": "yes",
 			"ops.s3": "yes"
 		},
-		"rueckstiess/mtools": {},
-		"rufuspollock-okfn/bibserver": {},
+		"rueckstiess/mtools": {
+			"data.export.open": "yes"
+		},
+		"rufuspollock-okfn/bibserver": {
+			"data.api.rest": "yes",
+			"data.export.full": "yes",
+			"data.export.open": "yes",
+			"data.import.fromProprietary": "yes"
+		},
 		"runatlantis/atlantis": {
 			"ai.features": "no",
 			"ai.mcp.server": "no",
@@ -19107,7 +20469,19 @@
 			"ops.healthcheck": "yes",
 			"ops.s3": "yes"
 		},
-		"running-elephant/datart": {},
+		"running-elephant/datart": {
+			"auth.local": "yes",
+			"auth.multiTenant": "yes",
+			"auth.rbac": "yes",
+			"auth.rbac.granular": "yes",
+			"collab.multiUser": "yes",
+			"collab.notifications.email": "yes",
+			"collab.share.expiring": "yes",
+			"collab.share.internal": "yes",
+			"collab.share.publicLink": "yes",
+			"i18n.multiLanguage": "yes",
+			"ops.subpath": "yes"
+		},
 		"rupa/z": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no"
@@ -19163,9 +20537,36 @@
 			"ai.mcp.server": "no"
 		},
 		"ryanoasis/nerd-fonts": {},
-		"s0md3v/Photon": {},
-		"s2-streamstore/replaya": {},
-		"s3tools/s3cmd": {},
+		"s0md3v/Photon": {
+			"data.export.open": "yes"
+		},
+		"s2-streamstore/replaya": {
+			"auth.anonymous": "yes",
+			"auth.invite": "no",
+			"auth.local": "no",
+			"auth.mfa.email": "no",
+			"auth.mfa.enforced": "no",
+			"auth.mfa.totp": "no",
+			"auth.mfa.webauthn": "no",
+			"auth.provider.ldap": "no",
+			"auth.provider.oidc": "no",
+			"auth.provider.saml": "no",
+			"auth.rbac": "no",
+			"auth.rbac.granular": "no",
+			"auth.scim": "no",
+			"auth.sso": "no",
+			"auth.sso.enforced": "no",
+			"auth.sso.header": "no",
+			"auth.sso.ldap": "no",
+			"auth.sso.oauth2": "no",
+			"auth.sso.oidc": "no",
+			"auth.sso.saml": "no",
+			"data.api.rest": "yes"
+		},
+		"s3tools/s3cmd": {
+			"collab.share.publicLink": "yes",
+			"data.backup.builtin": "yes"
+		},
 		"sabre-io/Baikal": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
@@ -19252,7 +20653,9 @@
 			"ops.smtp": "yes",
 			"ops.sqlite": "yes"
 		},
-		"samg/timetrap": {},
+		"samg/timetrap": {
+			"data.export.open": "yes"
+		},
 		"sampotts/plyr": {
 			"ai.features": "no",
 			"ai.mcp.server": "no",
@@ -19260,10 +20663,14 @@
 		},
 		"samtools/samtools": {},
 		"samvera/hyrax": {
+			"i18n.multiLanguage": "yes",
 			"ops.healthcheck": "yes"
 		},
 		"sanger-pathogens/Artemis": {},
 		"santinic/how2": {
+			"ai.features": "yes",
+			"ai.optional": "yes",
+			"data.telemetry.none": "no",
 			"ops.armSupport": "yes"
 		},
 		"sapplica/sentrifugo": {
@@ -19319,17 +20726,33 @@
 		},
 		"schemathesis/schemathesis": {
 			"data.api.graphql": "yes",
+			"data.export.open": "yes",
 			"ops.healthcheck": "yes"
 		},
 		"scholarly-python-package/scholarly": {},
 		"schollz/croc": {
+			"collab.multiUser": "yes",
+			"collab.share.expiring": "yes",
+			"collab.share.publicLink": "yes",
+			"data.encryption.e2e": "yes",
+			"data.encryption.rest": "yes",
+			"i18n.multiLanguage": "no",
 			"ops.armSupport": "yes",
 			"ops.s3": "yes"
 		},
 		"sciapp/sampledb": {
-			"ops.postgres": "yes"
+			"auth.invite": "yes",
+			"auth.local": "yes",
+			"auth.sso": "yes",
+			"auth.sso.oidc": "yes",
+			"auth.teams": "yes",
+			"collab.multiUser": "yes",
+			"ops.postgres": "yes",
+			"ops.smtp": "yes"
 		},
-		"scikit-learn/scikit-learn": {},
+		"scikit-learn/scikit-learn": {
+			"ai.features": "yes"
+		},
 		"scinote-eln/scinote-web": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
@@ -19353,6 +20776,9 @@
 			"ai.mcp.server": "no"
 		},
 		"scoophealth/oscar": {
+			"auth.apiTokens": "yes",
+			"data.api.rest": "yes",
+			"data.backup.builtin": "yes",
 			"ops.healthcheck": "yes"
 		},
 		"scour-project/scour": {},
@@ -19360,6 +20786,7 @@
 			"data.export.open": "yes"
 		},
 		"screenlite/screenlite": {
+			"data.api.rest": "yes",
 			"ops.healthcheck": "yes",
 			"ops.postgres": "yes",
 			"ops.s3": "yes"
@@ -19374,6 +20801,12 @@
 			"i18n.multiLanguage": "yes"
 		},
 		"sct/overseerr": {
+			"auth.rbac": "yes",
+			"collab.multiUser": "yes",
+			"collab.notifications.email": "yes",
+			"collab.notifications.push": "yes",
+			"data.api.rest": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.armSupport": "yes",
 			"ops.sqlite": "yes"
 		},
@@ -19388,7 +20821,10 @@
 			"ai.mcp.server": "yes",
 			"i18n.multiLanguage": "yes"
 		},
-		"seatable/seatable": {},
+		"seatable/seatable": {
+			"collab.multiUser": "yes",
+			"data.api.rest": "yes"
+		},
 		"seaweedfs/seaweedfs": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
@@ -19400,12 +20836,19 @@
 			"ops.s3": "yes",
 			"ops.sqlite": "yes"
 		},
-		"sebadob/leptos-captcha": {},
+		"sebadob/leptos-captcha": {
+			"data.telemetry.none": "yes"
+		},
 		"sebastiencs/icons-in-terminal": {},
 		"secretlint/secretlint": {
 			"ops.armSupport": "yes"
 		},
-		"securego/gosec": {},
+		"securego/gosec": {
+			"ai.byoKey": "yes",
+			"ai.features": "yes",
+			"data.export.open": "yes",
+			"i18n.multiLanguage": "no"
+		},
 		"seemoo-lab/openhaystack": {},
 		"seerr-team/seerr": {
 			"auth.apiTokens": "yes",
@@ -19426,6 +20869,7 @@
 			"ops.sqlite": "yes"
 		},
 		"segmentio/chamber": {
+			"data.encryption.rest": "yes",
 			"ops.armSupport": "yes",
 			"ops.s3": "yes"
 		},
@@ -19454,9 +20898,18 @@
 			"data.api.rest": "yes",
 			"i18n.multiLanguage": "yes"
 		},
-		"senaite/senaite.lims": {},
+		"senaite/senaite.lims": {
+			"auth.auditLog": "yes",
+			"auth.local": "yes",
+			"auth.rbac": "yes",
+			"auth.sso.ldap": "yes",
+			"collab.multiUser": "yes",
+			"data.api.rest": "yes"
+		},
 		"sendtogeo/Seo-Panel": {
-			"ops.healthcheck": "yes"
+			"auth.local": "yes",
+			"ops.healthcheck": "yes",
+			"ops.subpath": "yes"
 		},
 		"sentriz/cliphist": {},
 		"sentriz/gonic": {
@@ -19477,9 +20930,15 @@
 			"ops.subpath": "yes"
 		},
 		"seqeralabs/tower-cli": {
+			"auth.apiTokens": "yes",
+			"auth.multiTenant": "yes",
+			"auth.teams": "yes",
+			"data.api.rest": "yes",
 			"ops.armSupport": "yes"
 		},
-		"sergiomb2/ufraw": {},
+		"sergiomb2/ufraw": {
+			"data.import.fromProprietary": "yes"
+		},
 		"sergree/matchering": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
@@ -19521,13 +20980,29 @@
 		"sharkdp/hexyl": {
 			"ops.armSupport": "yes"
 		},
-		"sharkwouter/minigalaxy": {},
+		"sharkwouter/minigalaxy": {
+			"i18n.multiLanguage": "yes"
+		},
 		"sharsil/mailcat": {},
-		"shazow/ssh-chat": {},
+		"shazow/ssh-chat": {
+			"auth.anonymous": "yes",
+			"auth.rbac": "yes"
+		},
 		"sheepla/pingu": {
 			"ops.metrics": "yes"
 		},
 		"shellhub-io/shellhub": {
+			"auth.auditLog": "yes",
+			"auth.local": "yes",
+			"auth.multiTenant": "yes",
+			"auth.provider.saml": "no",
+			"auth.rbac": "yes",
+			"auth.sso": "paid",
+			"auth.sso.saml": "paid",
+			"collab.multiUser": "yes",
+			"collab.share.internal": "yes",
+			"data.api.rest": "yes",
+			"data.telemetry.none": "no",
 			"ops.armSupport": "yes",
 			"ops.healthcheck": "yes"
 		},
@@ -19554,8 +21029,14 @@
 			"ops.sqlite": "yes"
 		},
 		"shopware/shopware": {
+			"auth.apiTokens": "yes",
+			"data.api.rest": "yes",
+			"data.export.full": "yes",
+			"data.export.open": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.armSupport": "yes",
-			"ops.healthcheck": "yes"
+			"ops.healthcheck": "yes",
+			"ops.smtp": "yes"
 		},
 		"shuding/nextra": {
 			"ai.features": "yes",
@@ -19572,7 +21053,9 @@
 			"notes.search.fulltext": "yes",
 			"notes.webClipper": "no"
 		},
-		"shundhammer/qdirstat": {},
+		"shundhammer/qdirstat": {
+			"i18n.multiLanguage": "no"
+		},
 		"siderolabs/talos": {
 			"ai.features": "no",
 			"ai.mcp.community": "yes",
@@ -19598,8 +21081,15 @@
 			"ops.armSupport": "yes"
 		},
 		"sigoden/dufs": {
+			"auth.anonymous": "yes",
+			"auth.local": "yes",
+			"auth.rbac": "yes",
+			"auth.rbac.granular": "yes",
+			"collab.multiUser": "yes",
+			"data.api.rest": "yes",
 			"ops.armSupport": "yes",
-			"ops.healthcheck": "yes"
+			"ops.healthcheck": "yes",
+			"ops.subpath": "yes"
 		},
 		"silexlabs/Silex": {
 			"auth.anonymous": "partial",
@@ -19650,14 +21140,35 @@
 			"ops.armSupport": "yes"
 		},
 		"simonoppowa/OpenNutriTracker": {
+			"auth.anonymous": "yes",
+			"auth.local": "no",
+			"collab.multiUser": "yes",
+			"data.backup.builtin": "yes",
+			"data.backup.documented": "yes",
+			"data.encryption.rest": "yes",
+			"data.export.full": "partial",
+			"data.export.open": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.healthcheck": "yes"
 		},
 		"simonw/csv-diff": {},
 		"simonw/datasette": {
+			"auth.anonymous": "yes",
+			"auth.apiTokens": "yes",
+			"auth.local": "yes",
+			"auth.rbac": "yes",
+			"auth.rbac.granular": "yes",
+			"auth.sso.enforced": "yes",
+			"auth.sso.oauth2": "yes",
+			"collab.multiUser": "yes",
+			"collab.share.internal": "yes",
+			"data.export.full": "yes",
+			"data.export.open": "yes",
 			"ops.sqlite": "yes"
 		},
 		"simonw/llm": {},
 		"simonw/sqlite-utils": {
+			"data.export.open": "yes",
 			"ops.sqlite": "yes"
 		},
 		"simple-icons/simple-icons": {
@@ -19674,13 +21185,37 @@
 			"i18n.multiLanguage": "no"
 		},
 		"simplex-chat/simplex-chat": {
+			"auth.anonymous": "yes",
+			"auth.local": "no",
+			"auth.teams": "yes",
+			"collab.multiUser": "yes",
+			"data.backup.builtin": "yes",
+			"data.backup.documented": "yes",
+			"data.encryption.e2e": "yes",
+			"data.export.full": "yes",
 			"ops.armSupport": "yes",
 			"ops.postgres": "yes",
 			"ops.sqlite": "yes"
 		},
 		"sindresorhus/pure": {},
 		"sindresorhus/trash": {},
-		"sismics/docs": {},
+		"sismics/docs": {
+			"auth.anonymous": "yes",
+			"auth.auditLog": "yes",
+			"auth.local": "yes",
+			"auth.rbac": "yes",
+			"auth.sso.ldap": "yes",
+			"auth.teams": "yes",
+			"collab.comments": "yes",
+			"collab.multiUser": "yes",
+			"collab.share.internal": "yes",
+			"collab.share.publicLink": "yes",
+			"data.api.rest": "yes",
+			"data.encryption.rest": "yes",
+			"data.webhooks": "yes",
+			"i18n.multiLanguage": "yes",
+			"ops.smtp": "yes"
+		},
 		"sissbruecker/linkding": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
@@ -19706,7 +21241,9 @@
 			"ops.subpath": "yes"
 		},
 		"sissource.ethz.ch/sispub/openbis": {},
-		"sixpack/sixpack": {},
+		"sixpack/sixpack": {
+			"data.api.rest": "yes"
+		},
 		"siyuan-note/siyuan": {
 			"ai.features": "yes",
 			"ai.mcp.community": "no",
@@ -19720,7 +21257,11 @@
 			"data.export.open": "yes",
 			"ops.armSupport": "yes"
 		},
-		"sj26/mailcatcher": {},
+		"sj26/mailcatcher": {
+			"data.api.rest": "yes",
+			"data.export.open": "yes",
+			"ops.subpath": "yes"
+		},
 		"skanaar/nomnoml": {
 			"data.export.open": "yes",
 			"i18n.multiLanguage": "no"
@@ -19777,6 +21318,9 @@
 			"data.import.fromProprietary": "yes"
 		},
 		"smallstep/certificates": {
+			"auth.rbac.granular": "paid",
+			"auth.sso": "yes",
+			"auth.sso.oidc": "yes",
 			"ops.armSupport": "yes",
 			"ops.metrics": "yes",
 			"ops.s3": "yes"
@@ -19796,8 +21340,21 @@
 			"data.api.rest": "paid",
 			"data.export.open": "yes"
 		},
-		"smol-ai/developer": {},
+		"smol-ai/developer": {
+			"ai.byoKey": "yes",
+			"ai.features": "yes",
+			"data.api.rest": "yes"
+		},
 		"smoores-dev/storyteller": {
+			"ai.features": "yes",
+			"ai.localModel": "yes",
+			"auth.invite": "yes",
+			"auth.rbac": "yes",
+			"auth.sso.oauth2": "yes",
+			"collab.multiUser": "yes",
+			"collab.share.internal": "yes",
+			"data.api.rest": "yes",
+			"data.export.open": "yes",
 			"ops.healthcheck": "yes",
 			"ops.sqlite": "yes"
 		},
@@ -19817,13 +21374,28 @@
 			"ops.postgres": "yes",
 			"ops.s3": "yes"
 		},
-		"so-fancy/diff-so-fancy": {},
-		"sobolevn/git-secret": {},
-		"socioboard/Socioboard-5.0": {},
+		"so-fancy/diff-so-fancy": {
+			"i18n.multiLanguage": "no"
+		},
+		"sobolevn/git-secret": {
+			"collab.multiUser": "yes",
+			"collab.share.internal": "yes",
+			"data.encryption.e2e": "yes",
+			"data.encryption.rest": "yes"
+		},
+		"socioboard/Socioboard-5.0": {
+			"auth.local": "yes",
+			"auth.rbac": "yes",
+			"auth.teams": "yes",
+			"collab.multiUser": "yes"
+		},
 		"socketio/socket.io": {
 			"ops.postgres": "yes"
 		},
 		"soketi/soketi": {
+			"data.api.rest": "yes",
+			"data.webhooks": "yes",
+			"i18n.multiLanguage": "no",
 			"ops.healthcheck": "yes",
 			"ops.metrics": "yes",
 			"ops.s3": "yes"
@@ -19854,8 +21426,12 @@
 			"i18n.multiLanguage": "no",
 			"ops.healthcheck": "yes"
 		},
-		"sonic-pi-net/sonic-pi": {},
-		"sonic-visualiser/sonic-visualiser": {},
+		"sonic-pi-net/sonic-pi": {
+			"i18n.multiLanguage": "yes"
+		},
+		"sonic-visualiser/sonic-visualiser": {
+			"i18n.multiLanguage": "yes"
+		},
 		"sonic2kk/steamtinkerlaunch": {},
 		"sophosia/sophosia": {},
 		"sorin-ionescu/prezto": {
@@ -19886,6 +21462,11 @@
 			"ops.armSupport": "yes"
 		},
 		"sourcegraph/cody-public-snapshot": {
+			"ai.byoKey": "yes",
+			"ai.features": "yes",
+			"ai.optional": "yes",
+			"data.api.rest": "no",
+			"data.telemetry.none": "no",
 			"ops.healthcheck": "yes"
 		},
 		"sourcegraph/zoekt": {
@@ -19896,8 +21477,15 @@
 			"ops.metrics": "yes"
 		},
 		"soxofaan/duviz": {},
-		"soxoj/maigret": {},
+		"soxoj/maigret": {
+			"ai.features": "yes",
+			"ai.optional": "yes",
+			"data.export.open": "yes"
+		},
 		"spacebarchat/server": {
+			"data.api.rest": "yes",
+			"data.webhooks": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.healthcheck": "yes",
 			"ops.metrics": "yes",
 			"ops.postgres": "yes",
@@ -19905,10 +21493,20 @@
 		},
 		"spacebarchat/spacebarchat": {},
 		"spacedeck/spacedeck-open": {
+			"auth.apiTokens": "yes",
+			"collab.multiUser": "yes",
+			"collab.realtime": "yes",
+			"collab.share.publicLink": "yes",
+			"data.export.open": "yes",
+			"i18n.multiLanguage": "yes",
+			"notes.collab.realtime": "yes",
+			"ops.smtp": "yes",
 			"ops.sqlite": "yes"
 		},
 		"spaceship-prompt/spaceship-prompt": {},
-		"spack/spack": {},
+		"spack/spack": {
+			"collab.multiUser": "yes"
+		},
 		"specklesystems/speckle-server": {
 			"ai.features": "yes",
 			"ai.mcp.community": "yes",
@@ -19933,9 +21531,16 @@
 			"ops.s3": "yes"
 		},
 		"spf-tools/spf-tools": {},
-		"sphinx-doc/sphinx": {},
-		"spider-rs/spider": {},
+		"sphinx-doc/sphinx": {
+			"data.export.open": "yes",
+			"i18n.multiLanguage": "yes"
+		},
+		"spider-rs/spider": {
+			"ai.features": "yes",
+			"data.export.open": "yes"
+		},
 		"spinframework/spin": {
+			"ai.features": "yes",
 			"ops.armSupport": "yes",
 			"ops.metrics": "yes"
 		},
@@ -19954,7 +21559,14 @@
 			"ops.healthcheck": "yes"
 		},
 		"spiral-project/ihatemoney": {
-			"ops.sqlite": "yes"
+			"auth.apiTokens": "yes",
+			"collab.multiUser": "yes",
+			"collab.share.internal": "yes",
+			"data.api.rest": "yes",
+			"i18n.multiLanguage": "yes",
+			"ops.smtp": "yes",
+			"ops.sqlite": "yes",
+			"ops.subpath": "yes"
 		},
 		"spl0k/supysonic": {
 			"ai.features": "no",
@@ -19999,6 +21611,7 @@
 			"ops.sqlite": "yes"
 		},
 		"sqldef/sqldef": {
+			"data.export.open": "yes",
 			"ops.healthcheck": "yes",
 			"ops.postgres": "yes",
 			"ops.sqlite": "yes"
@@ -20008,6 +21621,9 @@
 			"ops.sqlite": "yes"
 		},
 		"sqlitebrowser/sqlitebrowser": {
+			"data.export.full": "yes",
+			"data.export.open": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.armSupport": "yes",
 			"ops.sqlite": "yes"
 		},
@@ -20030,6 +21646,9 @@
 			"ops.subpath": "yes"
 		},
 		"square/keywhiz": {
+			"auth.teams": "yes",
+			"data.encryption.rest": "yes",
+			"i18n.multiLanguage": "no",
 			"ops.healthcheck": "yes"
 		},
 		"squid-cache/squid": {
@@ -20129,6 +21748,7 @@
 		},
 		"stashapp/stash": {
 			"data.api.graphql": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.armSupport": "yes",
 			"ops.sqlite": "yes"
 		},
@@ -20148,6 +21768,7 @@
 			"ops.postgres": "yes"
 		},
 		"static-web-server/static-web-server": {
+			"auth.local": "yes",
 			"ops.armSupport": "yes",
 			"ops.healthcheck": "yes",
 			"ops.metrics": "yes"
@@ -20170,7 +21791,9 @@
 			"data.import.fromProprietary": "partial",
 			"i18n.multiLanguage": "no"
 		},
-		"stephomi/sculptgl": {},
+		"stephomi/sculptgl": {
+			"data.export.open": "yes"
+		},
 		"stern/stern": {},
 		"stevenvachon/broken-link-checker": {
 			"ai.features": "yes",
@@ -20189,6 +21812,9 @@
 			"ops.healthcheck": "yes"
 		},
 		"stoatchat/self-hosted": {
+			"auth.invite": "yes",
+			"collab.notifications.push": "yes",
+			"data.api.rest": "yes",
 			"ops.armSupport": "yes",
 			"ops.healthcheck": "yes",
 			"ops.s3": "yes"
@@ -20212,7 +21838,20 @@
 			"ops.smtp": "partial"
 		},
 		"stonith404/pingvin-share": {
-			"ops.armSupport": "yes"
+			"auth.anonymous": "yes",
+			"auth.invite": "yes",
+			"auth.local": "yes",
+			"auth.sso": "yes",
+			"auth.sso.ldap": "yes",
+			"auth.sso.oauth2": "yes",
+			"auth.sso.oidc": "yes",
+			"collab.multiUser": "yes",
+			"collab.notifications.email": "yes",
+			"collab.share.expiring": "yes",
+			"collab.share.publicLink": "yes",
+			"i18n.multiLanguage": "yes",
+			"ops.armSupport": "yes",
+			"ops.smtp": "yes"
 		},
 		"stoplightio/elements": {
 			"ai.features": "no",
@@ -20236,6 +21875,10 @@
 			"ops.armSupport": "yes"
 		},
 		"storj/storj": {
+			"collab.share.internal": "yes",
+			"data.encryption.e2e": "yes",
+			"data.encryption.rest": "yes",
+			"i18n.multiLanguage": "no",
 			"ops.healthcheck": "yes",
 			"ops.metrics": "yes",
 			"ops.sqlite": "yes"
@@ -20321,6 +21964,8 @@
 			"ai.mcp.server": "no"
 		},
 		"stringer-rss/stringer": {
+			"ai.features": "no",
+			"i18n.multiLanguage": "yes",
 			"ops.postgres": "yes"
 		},
 		"strongbox-password-safe/Strongbox": {
@@ -20333,9 +21978,15 @@
 			"i18n.multiLanguage": "yes"
 		},
 		"strongswan/strongswan": {},
-		"structurizr/cli": {},
-		"style-dictionary/style-dictionary": {},
-		"styleguidist/react-styleguidist": {},
+		"structurizr/cli": {
+			"data.export.open": "yes"
+		},
+		"style-dictionary/style-dictionary": {
+			"data.export.open": "yes"
+		},
+		"styleguidist/react-styleguidist": {
+			"collab.share.internal": "yes"
+		},
 		"su2code/SU2": {
 			"ai.features": "no",
 			"ai.mcp.community": "yes",
@@ -20343,7 +21994,9 @@
 			"ai.mcp.server": "yes",
 			"data.export.open": "yes"
 		},
-		"sundowndev/phoneinfoga": {},
+		"sundowndev/phoneinfoga": {
+			"data.api.rest": "yes"
+		},
 		"sup-heliotrope/sup": {
 			"data.export.open": "partial"
 		},
@@ -20402,9 +22055,12 @@
 			"ops.smtp": "yes"
 		},
 		"supercollider/supercollider": {
+			"i18n.multiLanguage": "yes",
 			"ops.armSupport": "yes"
 		},
-		"superjack2050/1688-cli": {},
+		"superjack2050/1688-cli": {
+			"data.export.open": "yes"
+		},
 		"supertokens/supertokens-core": {
 			"auth.local": "yes",
 			"auth.mfa.email": "yes",
@@ -20417,7 +22073,17 @@
 			"ops.healthcheck": "yes",
 			"ops.postgres": "yes"
 		},
-		"supervisely/supervisely": {},
+		"supervisely/supervisely": {
+			"ai.byoKey": "yes",
+			"ai.features": "yes",
+			"auth.local": "yes",
+			"auth.rbac": "yes",
+			"auth.teams": "yes",
+			"collab.multiUser": "yes",
+			"data.api.rest": "yes",
+			"data.export.open": "yes",
+			"data.import.fromProprietary": "yes"
+		},
 		"surveyjs/survey-library": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
@@ -20441,7 +22107,10 @@
 			"ops.healthcheck": "yes",
 			"ops.postgres": "yes"
 		},
-		"swagger-api/swagger-editor": {},
+		"swagger-api/swagger-editor": {
+			"data.export.open": "yes",
+			"data.telemetry.none": "no"
+		},
 		"swagger-api/swagger-ui": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
@@ -20450,6 +22119,8 @@
 			"ops.subpath": "yes"
 		},
 		"sweepai/sweep": {
+			"ai.features": "yes",
+			"collab.comments": "yes",
 			"ops.healthcheck": "yes",
 			"ops.metrics": "yes"
 		},
@@ -20457,8 +22128,19 @@
 		"sxyazi/yazi": {
 			"ops.armSupport": "yes"
 		},
-		"sybrew/the-seo-framework": {},
-		"sympa-community/sympa": {},
+		"sybrew/the-seo-framework": {
+			"ai.features": "yes",
+			"data.import.fromProprietary": "yes",
+			"data.telemetry.none": "yes"
+		},
+		"sympa-community/sympa": {
+			"collab.multiUser": "yes",
+			"collab.notifications.email": "yes",
+			"collab.share.internal": "yes",
+			"i18n.multiLanguage": "yes",
+			"ops.smtp": "yes",
+			"ops.subpath": "yes"
+		},
 		"sympy/sympy": {
 			"ai.features": "yes",
 			"ai.mcp.community": "yes",
@@ -20491,6 +22173,12 @@
 			"ops.armSupport": "yes"
 		},
 		"t2bot/matrix-media-repo": {
+			"auth.anonymous": "yes",
+			"auth.apiTokens": "yes",
+			"auth.multiTenant": "yes",
+			"collab.share.external": "yes",
+			"data.api.rest": "yes",
+			"data.import.fromProprietary": "yes",
 			"ops.healthcheck": "yes",
 			"ops.metrics": "yes",
 			"ops.postgres": "yes",
@@ -20505,7 +22193,9 @@
 			"ops.healthcheck": "yes"
 		},
 		"tadfisher/pass-otp": {},
-		"tahoma2d/tahoma2d": {},
+		"tahoma2d/tahoma2d": {
+			"i18n.multiLanguage": "yes"
+		},
 		"taigaio/taiga-back": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
@@ -20541,15 +22231,28 @@
 		"tailwindlabs/heroicons": {},
 		"tajo/ladle": {},
 		"talivia-group/talivia": {
+			"auth.local": "yes",
+			"auth.rbac": "yes",
+			"collab.multiUser": "yes",
+			"collab.share.internal": "yes",
+			"data.webhooks": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.healthcheck": "yes",
 			"ops.postgres": "yes"
 		},
 		"target/goalert": {
+			"auth.apiTokens": "yes",
+			"auth.local": "yes",
+			"collab.multiUser": "yes",
+			"collab.notifications.email": "yes",
 			"data.api.graphql": "yes",
+			"data.encryption.rest": "yes",
+			"data.webhooks": "yes",
 			"ops.armSupport": "yes",
 			"ops.healthcheck": "yes",
 			"ops.metrics": "yes",
-			"ops.sqlite": "yes"
+			"ops.sqlite": "yes",
+			"ops.subpath": "yes"
 		},
 		"tarkah/karaoke-rs": {
 			"ops.armSupport": "yes"
@@ -20566,6 +22269,10 @@
 			"ops.armSupport": "yes"
 		},
 		"tatool/tatool-web": {
+			"collab.share.external": "yes",
+			"collab.share.publicLink": "yes",
+			"data.export.full": "yes",
+			"data.export.open": "yes",
 			"ops.healthcheck": "yes"
 		},
 		"tavianator/bfs": {},
@@ -20574,6 +22281,7 @@
 		},
 		"tborychowski/courier": {},
 		"tconbeer/harlequin": {
+			"data.export.open": "yes",
 			"ops.postgres": "yes"
 		},
 		"tcsh-org/tcsh": {},
@@ -20609,13 +22317,30 @@
 			"ops.armSupport": "yes"
 		},
 		"teamhanko/hanko": {
+			"auth.auditLog": "yes",
+			"auth.local": "yes",
+			"auth.mfa.email": "yes",
+			"auth.mfa.totp": "yes",
+			"auth.mfa.webauthn": "yes",
+			"auth.sso": "yes",
+			"auth.sso.oauth2": "yes",
+			"auth.sso.oidc": "yes",
+			"auth.sso.saml": "yes",
+			"data.api.rest": "yes",
+			"data.webhooks": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.healthcheck": "yes"
 		},
-		"techsneeze/dmarcts-report-viewer": {},
+		"techsneeze/dmarcts-report-viewer": {
+			"auth.anonymous": "yes",
+			"ops.subpath": "yes"
+		},
 		"tectonic-typesetting/tectonic": {
 			"ops.armSupport": "yes"
 		},
-		"tedfelix/rosegarden-official": {},
+		"tedfelix/rosegarden-official": {
+			"i18n.multiLanguage": "yes"
+		},
 		"tektoncd/pipeline": {
 			"auth.multiTenant": "partial",
 			"collab.multiUser": "yes",
@@ -20629,7 +22354,16 @@
 		"tellerops/teller": {
 			"ops.armSupport": "yes"
 		},
-		"tellform/tellform": {},
+		"tellform/tellform": {
+			"auth.anonymous": "yes",
+			"auth.apiTokens": "yes",
+			"auth.local": "yes",
+			"collab.multiUser": "yes",
+			"collab.notifications.email": "yes",
+			"data.export.open": "yes",
+			"i18n.multiLanguage": "yes",
+			"ops.smtp": "yes"
+		},
 		"temporalio/temporal": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
@@ -20645,11 +22379,16 @@
 			"ops.sqlite": "yes"
 		},
 		"tenacityteam/tenacity": {},
-		"tenacityteam/tenacity-legacy": {},
+		"tenacityteam/tenacity-legacy": {
+			"i18n.multiLanguage": "yes"
+		},
 		"tensorflow/tensorboard": {
+			"auth.anonymous": "yes",
+			"data.telemetry.none": "yes",
 			"ops.healthcheck": "yes"
 		},
 		"terraform-docs/terraform-docs": {
+			"data.export.open": "yes",
 			"ops.armSupport": "yes"
 		},
 		"terraform-linters/tflint": {
@@ -20661,8 +22400,17 @@
 			"ops.s3": "yes"
 		},
 		"testomatio/check-tests": {},
-		"texmacs/texmacs": {},
-		"texstudio-org/texstudio": {},
+		"texmacs/texmacs": {
+			"collab.multiUser": "no",
+			"collab.realtime": "no",
+			"data.export.open": "yes",
+			"data.import.fromProprietary": "yes",
+			"notes.collab.realtime": "no"
+		},
+		"texstudio-org/texstudio": {
+			"collab.multiUser": "yes",
+			"i18n.multiLanguage": "yes"
+		},
 		"teynon/ZPL-Label-Designer": {},
 		"tfutils/tfenv": {},
 		"the-djmaze/snappymail": {
@@ -20692,15 +22440,30 @@
 			"ops.healthcheck": "yes",
 			"ops.sqlite": "yes"
 		},
-		"thephpleague/glide": {},
+		"thephpleague/glide": {
+			"ops.subpath": "yes"
+		},
 		"thewh1teagle/vibe": {
+			"ai.byoKey": "yes",
+			"ai.features": "yes",
+			"ai.localModel": "yes",
+			"data.export.open": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.armSupport": "yes"
 		},
-		"thezbyg/gpick": {},
+		"thezbyg/gpick": {
+			"i18n.multiLanguage": "yes"
+		},
 		"thingsboard/thingsboard": {
+			"auth.local": "yes",
+			"collab.notifications.email": "yes",
+			"data.api.rest": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.healthcheck": "yes"
 		},
-		"thinkle/gourmet": {},
+		"thinkle/gourmet": {
+			"data.import.fromProprietary": "yes"
+		},
 		"thomaspoignant/go-feature-flag": {
 			"i18n.multiLanguage": "no",
 			"ops.healthcheck": "yes",
@@ -20712,8 +22475,14 @@
 			"ai.features": "yes",
 			"ai.mcp.server": "no"
 		},
-		"thoughtworks/talisman": {},
-		"thu-cs-lab/jieplag": {},
+		"thoughtworks/talisman": {
+			"i18n.multiLanguage": "no"
+		},
+		"thu-cs-lab/jieplag": {
+			"auth.local": "yes",
+			"collab.multiUser": "yes",
+			"ops.subpath": "yes"
+		},
 		"thumbor/thumbor": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
@@ -20738,9 +22507,15 @@
 			"i18n.multiLanguage": "yes",
 			"ops.healthcheck": "yes"
 		},
-		"tiamo/spss": {},
+		"tiamo/spss": {
+			"data.import.fromProprietary": "yes"
+		},
 		"tidalcycles/Tidal": {},
-		"tidwall/jj": {},
+		"tidwall/jj": {
+			"data.export.full": "yes",
+			"data.export.open": "yes",
+			"i18n.multiLanguage": "no"
+		},
 		"tidyverse/dplyr": {
 			"ai.features": "no",
 			"ai.mcp.server": "no"
@@ -20770,15 +22545,25 @@
 			"i18n.multiLanguage": "partial"
 		},
 		"timothymiller/cloudflare-ddns": {
+			"collab.notifications.push": "yes",
+			"data.webhooks": "yes",
 			"ops.armSupport": "yes"
 		},
-		"timsainb/noisereduce": {},
-		"tinacms/tinacms": {},
+		"timsainb/noisereduce": {
+			"i18n.multiLanguage": "no"
+		},
+		"tinacms/tinacms": {
+			"ai.features": "no"
+		},
 		"tixl3d/tixl": {},
 		"tj/n": {},
 		"tjko/jpegoptim": {},
-		"tkashkin/GameHub": {},
-		"tkrajina/gpxpy": {},
+		"tkashkin/GameHub": {
+			"i18n.multiLanguage": "yes"
+		},
+		"tkrajina/gpxpy": {
+			"data.export.open": "yes"
+		},
 		"tldr-pages/tldr": {
 			"ai.features": "yes",
 			"ai.mcp.community": "yes",
@@ -20902,7 +22687,10 @@
 			"ops.healthcheck": "yes",
 			"ops.smtp": "yes"
 		},
-		"traceloop/openllmetry": {},
+		"traceloop/openllmetry": {
+			"ai.byoKey": "yes",
+			"ai.features": "yes"
+		},
 		"traefik/traefik": {
 			"ai.features": "yes",
 			"ai.mcp.community": "yes",
@@ -20919,8 +22707,11 @@
 			"ops.subpath": "yes"
 		},
 		"traggo/server": {
+			"auth.local": "yes",
+			"collab.multiUser": "yes",
 			"ops.armSupport": "yes",
-			"ops.sqlite": "yes"
+			"ops.sqlite": "yes",
+			"ops.subpath": "yes"
 		},
 		"trailofbits/algo": {
 			"ai.features": "yes",
@@ -20944,10 +22735,20 @@
 			"ops.s3": "yes"
 		},
 		"translate/pootle": {
+			"auth.anonymous": "yes",
+			"auth.rbac": "yes",
+			"auth.rbac.granular": "yes",
+			"auth.teams": "yes",
+			"collab.comments": "yes",
+			"collab.multiUser": "yes",
+			"data.export.open": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.healthcheck": "yes",
 			"ops.postgres": "yes"
 		},
-		"translate/translate": {},
+		"translate/translate": {
+			"data.export.open": "yes"
+		},
 		"traviscross/mtr": {},
 		"treeverse/dvc": {
 			"ai.features": "yes",
@@ -21009,10 +22810,17 @@
 		},
 		"troglobit/inadyn": {},
 		"tropy/tropy": {
+			"collab.realtime": "no",
+			"data.export.full": "yes",
+			"data.export.open": "yes",
+			"i18n.multiLanguage": "yes",
+			"notes.collab.realtime": "no",
 			"ops.armSupport": "yes",
 			"ops.sqlite": "yes"
 		},
-		"truemail-rb/truemail": {},
+		"truemail-rb/truemail": {
+			"auth.apiTokens": "yes"
+		},
 		"trufflesecurity/trufflehog": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
@@ -21024,9 +22832,16 @@
 			"ops.s3": "yes"
 		},
 		"tryabby/abby": {
-			"ops.healthcheck": "yes"
+			"auth.apiTokens": "yes",
+			"auth.mfa.email": "yes",
+			"auth.sso.oauth2": "yes",
+			"i18n.multiLanguage": "no",
+			"ops.healthcheck": "yes",
+			"ops.smtp": "yes"
 		},
 		"trypear/pearai-app": {
+			"ai.features": "yes",
+			"data.telemetry.none": "no",
 			"ops.healthcheck": "yes",
 			"ops.sqlite": "yes"
 		},
@@ -21061,6 +22876,10 @@
 			"i18n.multiLanguage": "yes"
 		},
 		"tsacdop/tsacdop": {
+			"data.backup.builtin": "yes",
+			"data.export.open": "yes",
+			"data.import.fromProprietary": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.armSupport": "yes"
 		},
 		"tsenart/vegeta": {
@@ -21082,6 +22901,10 @@
 			"ops.armSupport": "yes"
 		},
 		"tsuru/tsuru": {
+			"auth.apiTokens": "yes",
+			"auth.local": "yes",
+			"auth.teams": "yes",
+			"data.api.rest": "yes",
 			"ops.healthcheck": "yes",
 			"ops.metrics": "yes"
 		},
@@ -21103,14 +22926,20 @@
 			"ops.subpath": "yes"
 		},
 		"tuist/tuist": {
+			"auth.sso.oauth2": "yes",
 			"ops.armSupport": "yes",
 			"ops.healthcheck": "yes",
 			"ops.metrics": "yes",
 			"ops.postgres": "yes",
 			"ops.s3": "yes"
 		},
-		"tummychow/git-absorb": {},
-		"turanszkij/WickedEngine": {},
+		"tummychow/git-absorb": {
+			"data.backup.builtin": "yes",
+			"data.backup.documented": "yes"
+		},
+		"turanszkij/WickedEngine": {
+			"data.telemetry.none": "yes"
+		},
 		"turboderp-org/exllamav2": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no"
@@ -21190,7 +23019,10 @@
 			"i18n.multiLanguage": "no",
 			"ops.healthcheck": "yes"
 		},
-		"typingbeaver/snake-label": {},
+		"typingbeaver/snake-label": {
+			"data.import.fromProprietary": "yes",
+			"data.telemetry.none": "yes"
+		},
 		"typst/typst": {
 			"collab.comments": "paid",
 			"data.export.open": "yes",
@@ -21203,15 +23035,21 @@
 			"ops.s3": "yes",
 			"ops.sqlite": "yes"
 		},
-		"ucraft-com/POS-Awesome": {},
+		"ucraft-com/POS-Awesome": {
+			"i18n.multiLanguage": "yes"
+		},
 		"ugeneunipro/ugene": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no"
 		},
 		"ultrastares/ultrastar-worldparty": {
+			"collab.multiUser": "yes",
 			"ops.healthcheck": "yes"
 		},
 		"ulyssa/iamb": {
+			"auth.local": "yes",
+			"collab.multiUser": "yes",
+			"data.encryption.e2e": "yes",
 			"ops.armSupport": "yes",
 			"ops.sqlite": "yes"
 		},
@@ -21266,7 +23104,9 @@
 			"ops.healthcheck": "yes"
 		},
 		"universal-ctags/ctags": {},
-		"unjs/changelogen": {},
+		"unjs/changelogen": {
+			"data.export.open": "yes"
+		},
 		"unjs/nypm": {},
 		"unrealengine.com/EpicGames/UnrealEngine": {
 			"ai.mcp.community": "no",
@@ -21276,7 +23116,15 @@
 		"unum-cloud/USearch": {
 			"ops.armSupport": "yes"
 		},
-		"upptime/upptime": {},
+		"upptime/upptime": {
+			"collab.comments": "yes",
+			"collab.multiUser": "yes",
+			"collab.notifications.email": "yes",
+			"collab.share.publicLink": "yes",
+			"data.webhooks": "yes",
+			"ops.smtp": "yes",
+			"ops.subpath": "yes"
+		},
 		"upscayl/upscayl": {
 			"ai.features": "yes",
 			"ai.mcp.community": "yes",
@@ -21387,9 +23235,23 @@
 		},
 		"userjack6880/Open-DMARC-Analyzer": {},
 		"usertour/usertour": {
+			"ai.byoKey": "yes",
+			"ai.features": "yes",
+			"ai.localModel": "yes",
+			"ai.optional": "yes",
+			"auth.apiTokens": "yes",
+			"auth.auditLog": "yes",
+			"auth.invite": "yes",
+			"auth.sso": "paid",
+			"auth.sso.oauth2": "yes",
+			"auth.sso.oidc": "paid",
+			"auth.sso.saml": "no",
 			"data.api.graphql": "yes",
+			"data.api.rest": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.healthcheck": "yes",
-			"ops.postgres": "yes"
+			"ops.postgres": "yes",
+			"ops.smtp": "yes"
 		},
 		"usetania/tania": {
 			"auth.local": "yes",
@@ -21446,7 +23308,22 @@
 			"i18n.multiLanguage": "no"
 		},
 		"vatesfr/xen-orchestra": {
-			"ops.healthcheck": "yes"
+			"auth.apiTokens": "yes",
+			"auth.local": "yes",
+			"auth.rbac": "yes",
+			"auth.teams": "yes",
+			"collab.multiUser": "yes",
+			"collab.notifications.email": "yes",
+			"collab.share.internal": "yes",
+			"data.api.rest": "yes",
+			"data.backup.builtin": "yes",
+			"data.backup.documented": "yes",
+			"data.encryption.rest": "yes",
+			"data.export.full": "yes",
+			"data.import.fromProprietary": "yes",
+			"i18n.multiLanguage": "yes",
+			"ops.healthcheck": "yes",
+			"ops.smtp": "yes"
 		},
 		"vbuch/node-signpdf": {},
 		"vectordotdev/vector": {
@@ -21503,6 +23380,13 @@
 			"ops.subpath": "yes"
 		},
 		"vernemq/vernemq": {
+			"auth.anonymous": "yes",
+			"auth.apiTokens": "yes",
+			"auth.local": "yes",
+			"auth.multiTenant": "yes",
+			"collab.multiUser": "yes",
+			"data.api.rest": "yes",
+			"data.webhooks": "yes",
 			"ops.armSupport": "yes",
 			"ops.healthcheck": "yes",
 			"ops.postgres": "yes"
@@ -21529,10 +23413,13 @@
 		},
 		"vgc/vgc": {},
 		"vi/websocat": {
+			"i18n.multiLanguage": "no",
 			"ops.armSupport": "yes",
 			"ops.metrics": "yes"
 		},
-		"vicidial/vicidial": {},
+		"vicidial/vicidial": {
+			"data.api.rest": "yes"
+		},
 		"video-dev/hls.js": {},
 		"videojs/video.js": {
 			"ai.features": "yes",
@@ -21548,7 +23435,13 @@
 			"ai.features": "yes",
 			"ai.mcp.server": "no"
 		},
-		"viliusle/miniPaint": {},
+		"viliusle/miniPaint": {
+			"auth.anonymous": "yes",
+			"data.export.full": "yes",
+			"data.export.open": "yes",
+			"data.telemetry.none": "yes",
+			"i18n.multiLanguage": "yes"
+		},
 		"vim/vim": {
 			"i18n.multiLanguage": "yes"
 		},
@@ -21565,11 +23458,18 @@
 			"ai.features": "yes",
 			"ai.mcp.server": "no"
 		},
-		"vivliostyle/vivliostyle-cli": {},
+		"vivliostyle/vivliostyle-cli": {
+			"data.export.open": "yes",
+			"i18n.multiLanguage": "no"
+		},
 		"vkohaupt/vokoscreenNG": {
 			"i18n.multiLanguage": "yes"
 		},
 		"vladimiry/ElectronMail": {
+			"collab.multiUser": "yes",
+			"data.encryption.rest": "yes",
+			"data.export.full": "partial",
+			"data.export.open": "yes",
 			"ops.armSupport": "yes"
 		},
 		"vllm-project/vllm": {
@@ -21592,14 +23492,24 @@
 			"ops.healthcheck": "yes",
 			"ops.sqlite": "yes"
 		},
-		"voila-dashboards/voila": {},
+		"voila-dashboards/voila": {
+			"collab.multiUser": "yes"
+		},
 		"volta-cli/volta": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
 			"ops.armSupport": "yes"
 		},
 		"voxel51/fiftyone": {
-			"ops.healthcheck": "yes"
+			"ai.features": "yes",
+			"auth.invite": "paid",
+			"auth.sso": "paid",
+			"auth.sso.oauth2": "paid",
+			"auth.sso.oidc": "paid",
+			"auth.sso.saml": "paid",
+			"collab.notifications.email": "paid",
+			"ops.healthcheck": "yes",
+			"ops.smtp": "paid"
 		},
 		"vrana/adminer": {
 			"auth.anonymous": "no",
@@ -21615,12 +23525,18 @@
 			"ops.sqlite": "yes"
 		},
 		"vrc-get/vrc-get": {
+			"i18n.multiLanguage": "yes",
 			"ops.armSupport": "yes"
 		},
 		"vrchatapi/vrchatapi-python": {
+			"auth.local": "yes",
+			"auth.mfa.email": "yes",
+			"auth.mfa.totp": "yes",
+			"data.api.rest": "yes",
 			"ops.healthcheck": "yes"
 		},
 		"vrcx-team/VRCX": {
+			"data.export.full": "partial",
 			"ops.armSupport": "yes"
 		},
 		"vrtmrz/obsidian-livesync": {
@@ -21656,7 +23572,9 @@
 			"data.api.rest": "yes",
 			"i18n.multiLanguage": "no"
 		},
-		"vyos/vyos-build": {},
+		"vyos/vyos-build": {
+			"i18n.multiLanguage": "no"
+		},
 		"wader/fq": {},
 		"wader/jqjq": {},
 		"wagoodman/dive": {
@@ -21716,7 +23634,9 @@
 			"data.api.graphql": "yes",
 			"i18n.multiLanguage": "no"
 		},
-		"waseefakhtar/dose-android": {},
+		"waseefakhtar/dose-android": {
+			"i18n.multiLanguage": "yes"
+		},
 		"wasmCloud/wasmCloud": {
 			"ops.armSupport": "yes",
 			"ops.healthcheck": "yes",
@@ -21725,8 +23645,18 @@
 		"watchexec/watchexec": {
 			"ops.armSupport": "yes"
 		},
-		"waycrate/swhkd": {},
-		"wazo-platform/wazo-platform": {},
+		"waycrate/swhkd": {
+			"data.import.fromProprietary": "yes"
+		},
+		"wazo-platform/wazo-platform": {
+			"auth.apiTokens": "yes",
+			"auth.local": "yes",
+			"auth.multiTenant": "yes",
+			"auth.rbac": "yes",
+			"collab.multiUser": "yes",
+			"data.api.rest": "yes",
+			"data.webhooks": "yes"
+		},
 		"wazuh/wazuh": {
 			"ai.features": "yes",
 			"ai.mcp.community": "yes",
@@ -21742,10 +23672,29 @@
 			"i18n.multiLanguage": "yes"
 		},
 		"wcpos/woocommerce-pos": {
+			"auth.apiTokens": "yes",
+			"auth.local": "yes",
+			"auth.rbac": "yes",
+			"data.api.rest": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.armSupport": "yes",
 			"ops.healthcheck": "yes"
 		},
 		"wealthfolio/wealthfolio": {
+			"ai.byoKey": "yes",
+			"ai.features": "yes",
+			"ai.localModel": "yes",
+			"auth.anonymous": "yes",
+			"auth.local": "yes",
+			"auth.sso": "yes",
+			"auth.sso.oidc": "yes",
+			"data.api.rest": "yes",
+			"data.backup.builtin": "yes",
+			"data.backup.documented": "yes",
+			"data.export.full": "yes",
+			"data.export.open": "yes",
+			"data.import.fromProprietary": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.armSupport": "yes",
 			"ops.healthcheck": "yes",
 			"ops.sqlite": "yes"
@@ -21772,12 +23721,23 @@
 			"ops.s3": "yes"
 		},
 		"webhookdb/webhookdb": {
+			"auth.multiTenant": "yes",
+			"data.api.rest": "yes",
+			"data.import.fromProprietary": "yes",
+			"data.telemetry.none": "no",
+			"data.webhooks": "yes",
 			"ops.postgres": "yes"
 		},
 		"webhookrelay/webhookrelay-operator": {
+			"auth.apiTokens": "yes",
+			"collab.multiUser": "yes",
+			"data.webhooks": "yes",
 			"ops.metrics": "yes"
 		},
 		"webiny/webiny-js": {
+			"ai.features": "yes",
+			"auth.multiTenant": "yes",
+			"auth.rbac": "yes",
 			"data.api.graphql": "yes",
 			"ops.healthcheck": "yes",
 			"ops.postgres": "yes",
@@ -21800,7 +23760,9 @@
 			"ops.healthcheck": "yes",
 			"ops.postgres": "yes"
 		},
-		"weechat/weechat": {},
+		"weechat/weechat": {
+			"i18n.multiLanguage": "yes"
+		},
 		"wekan/wekan": {
 			"ai.features": "yes",
 			"ai.mcp.community": "yes",
@@ -21909,13 +23871,28 @@
 			"i18n.multiLanguage": "no"
 		},
 		"wireapp/wire-server": {
+			"auth.anonymous": "yes",
+			"auth.apiTokens": "yes",
+			"auth.local": "yes",
+			"auth.mfa.email": "yes",
+			"auth.mfa.enforced": "yes",
+			"auth.scim": "yes",
+			"auth.teams": "yes",
+			"collab.multiUser": "yes",
+			"collab.notifications.email": "yes",
+			"collab.notifications.push": "yes",
+			"collab.share.publicLink": "yes",
+			"data.api.rest": "yes",
 			"ops.healthcheck": "yes",
 			"ops.postgres": "yes",
-			"ops.s3": "yes"
+			"ops.s3": "yes",
+			"ops.smtp": "yes"
 		},
 		"wiremock/WireMock.Net": {
 			"data.api.graphql": "yes",
-			"ops.healthcheck": "yes"
+			"data.api.rest": "yes",
+			"ops.healthcheck": "yes",
+			"ops.subpath": "yes"
 		},
 		"wiremock/wiremock": {
 			"ai.features": "no",
@@ -21928,6 +23905,8 @@
 			"ops.healthcheck": "yes"
 		},
 		"wirequery/wirequery": {
+			"auth.local": "yes",
+			"collab.multiUser": "yes",
 			"ops.healthcheck": "yes",
 			"ops.postgres": "yes"
 		},
@@ -21941,10 +23920,16 @@
 			"notes.publish.site": "yes"
 		},
 		"wix/Detox": {
+			"ai.byoKey": "yes",
+			"ai.features": "yes",
 			"ops.armSupport": "yes"
 		},
 		"wjakob/instant-meshes": {},
-		"wkentaro/labelme": {},
+		"wkentaro/labelme": {
+			"ai.features": "yes",
+			"data.export.open": "yes",
+			"i18n.multiLanguage": "yes"
+		},
 		"wojdyr/fityk": {},
 		"woocommerce/woocommerce": {
 			"ai.features": "yes",
@@ -22004,7 +23989,9 @@
 			"ai.features": "yes",
 			"ai.mcp.server": "no"
 		},
-		"wummel/linkchecker": {},
+		"wummel/linkchecker": {
+			"data.export.open": "yes"
+		},
 		"wustho/epy": {},
 		"wxMaxima-developers/wxmaxima": {
 			"ai.features": "yes",
@@ -22025,7 +24012,9 @@
 			"ai.mcp.server": "yes",
 			"i18n.multiLanguage": "yes"
 		},
-		"xbrowsersync/app": {},
+		"xbrowsersync/app": {
+			"data.api.rest": "yes"
+		},
 		"xgi/castero": {
 			"data.export.full": "partial",
 			"data.export.open": "yes",
@@ -22053,8 +24042,15 @@
 			"i18n.multiLanguage": "yes",
 			"ops.smtp": "yes"
 		},
-		"xinntao/Real-ESRGAN": {},
-		"xinntao/Real-ESRGAN-ncnn-vulkan": {},
+		"xinntao/Real-ESRGAN": {
+			"ai.features": "yes",
+			"ai.localModel": "yes"
+		},
+		"xinntao/Real-ESRGAN-ncnn-vulkan": {
+			"ai.byoKey": "yes",
+			"ai.features": "yes",
+			"ai.localModel": "yes"
+		},
 		"xiph/rnnoise": {
 			"i18n.multiLanguage": "no"
 		},
@@ -22084,10 +24080,18 @@
 			"ops.armSupport": "yes"
 		},
 		"xpipe-io/xpipe": {
+			"collab.multiUser": "yes",
+			"collab.share.internal": "yes",
+			"data.encryption.rest": "yes",
+			"i18n.multiLanguage": "yes",
 			"ops.armSupport": "yes",
 			"ops.healthcheck": "yes"
 		},
-		"xteve-project/xTeVe": {},
+		"xteve-project/xTeVe": {
+			"data.backup.builtin": "yes",
+			"data.backup.documented": "yes",
+			"data.export.open": "yes"
+		},
 		"xwax/xwax": {},
 		"xwmx/nb": {
 			"ai.features": "yes",
@@ -22095,22 +24099,35 @@
 			"data.encryption.rest": "yes",
 			"i18n.multiLanguage": "no"
 		},
-		"xyTom/Url-Shorten-Worker": {},
+		"xyTom/Url-Shorten-Worker": {
+			"collab.share.publicLink": "yes",
+			"data.api.rest": "yes"
+		},
 		"xyproto/wallutils": {},
 		"yamafaktory/jql": {
+			"data.export.open": "yes",
+			"i18n.multiLanguage": "no",
 			"ops.armSupport": "yes"
 		},
 		"yarnpkg/berry": {},
-		"yarnpkg/yarn": {},
+		"yarnpkg/yarn": {
+			"auth.mfa.webauthn": "yes"
+		},
 		"yeun/open-color": {},
 		"yhat/rodeo": {
 			"ops.postgres": "yes"
 		},
 		"yitsushi/totp-cli": {
+			"data.encryption.rest": "yes",
+			"data.export.full": "yes",
+			"data.export.open": "yes",
 			"ops.metrics": "yes"
 		},
 		"ymattw/ydiff": {},
-		"ynput/OpenPype": {},
+		"ynput/OpenPype": {
+			"collab.multiUser": "yes",
+			"i18n.multiLanguage": "yes"
+		},
 		"ynput/ayon-backend": {
 			"ai.features": "yes",
 			"ai.mcp.community": "yes",
@@ -22123,6 +24140,7 @@
 		},
 		"yonaskolb/XcodeGen": {},
 		"yorukot/superfile": {
+			"data.telemetry.none": "no",
 			"ops.armSupport": "yes"
 		},
 		"your-tools/ruplacer": {
@@ -22140,7 +24158,9 @@
 			"data.api.rest": "yes",
 			"ops.healthcheck": "yes"
 		},
-		"z-------------/CPod": {},
+		"z-------------/CPod": {
+			"i18n.multiLanguage": "yes"
+		},
 		"zabbix/zabbix": {
 			"auth.multiTenant": "yes",
 			"collab.multiUser": "yes",
@@ -22153,8 +24173,13 @@
 			"ai.features": "yes",
 			"ai.mcp.server": "no"
 		},
-		"zalando/zalenium": {},
-		"zalo/CascadeStudio": {},
+		"zalando/zalenium": {
+			"auth.local": "yes"
+		},
+		"zalo/CascadeStudio": {
+			"collab.share.publicLink": "yes",
+			"data.export.open": "yes"
+		},
 		"zammad/zammad": {
 			"ai.features": "yes",
 			"ai.mcp.community": "yes",
@@ -22185,13 +24210,28 @@
 			"ops.s3": "yes"
 		},
 		"zanata/zanata-platform": {
-			"ops.healthcheck": "yes"
+			"auth.apiTokens": "yes",
+			"auth.local": "yes",
+			"auth.rbac": "yes",
+			"auth.rbac.granular": "yes",
+			"auth.teams": "yes",
+			"collab.multiUser": "yes",
+			"collab.notifications.email": "yes",
+			"data.api.rest": "yes",
+			"data.export.open": "yes",
+			"data.import.fromProprietary": "yes",
+			"i18n.multiLanguage": "yes",
+			"ops.healthcheck": "yes",
+			"ops.smtp": "yes"
 		},
 		"zane-ops/zane-ops": {
+			"data.telemetry.none": "no",
 			"ops.healthcheck": "yes",
 			"ops.postgres": "yes"
 		},
-		"zaproxy/zaproxy": {},
+		"zaproxy/zaproxy": {
+			"i18n.multiLanguage": "yes"
+		},
 		"zauberzeug/nicegui": {
 			"collab.multiUser": "partial",
 			"ops.subpath": "yes"
@@ -22259,8 +24299,15 @@
 			"data.api.rest": "yes",
 			"data.encryption.e2e": "yes"
 		},
-		"zevv/duc": {},
+		"zevv/duc": {
+			"data.export.open": "yes"
+		},
 		"zincsearch/zincsearch": {
+			"auth.local": "yes",
+			"collab.multiUser": "yes",
+			"data.api.rest": "yes",
+			"data.telemetry.none": "no",
+			"i18n.multiLanguage": "yes",
 			"ops.healthcheck": "yes",
 			"ops.metrics": "yes"
 		},
@@ -22300,10 +24347,15 @@
 			"ops.subpath": "partial"
 		},
 		"zk-org/zk": {
+			"i18n.multiLanguage": "no",
 			"ops.armSupport": "yes",
 			"ops.sqlite": "yes"
 		},
-		"zmanda/amanda": {},
+		"zmanda/amanda": {
+			"collab.notifications.email": "yes",
+			"data.backup.builtin": "yes",
+			"data.export.open": "yes"
+		},
 		"zone-eu/wildduck": {
 			"auth.apiTokens": "yes",
 			"auth.auditLog": "yes",
@@ -22324,6 +24376,8 @@
 			"ops.metrics": "yes"
 		},
 		"zone-eu/zone-mta": {
+			"auth.anonymous": "yes",
+			"data.api.rest": "yes",
 			"ops.metrics": "yes"
 		},
 		"zotero/zotero": {
@@ -22372,7 +24426,12 @@
 			"ops.healthcheck": "yes",
 			"ops.metrics": "yes"
 		},
-		"zupzup/calories": {},
+		"zupzup/calories": {
+			"data.backup.builtin": "yes",
+			"data.backup.documented": "yes",
+			"data.export.full": "yes",
+			"data.export.open": "yes"
+		},
 		"zwave-js/zwave-js-ui": {
 			"auth.apiTokens": "yes",
 			"data.api.rest": "yes",
@@ -22384,6 +24443,7 @@
 			"ops.healthcheck": "yes"
 		},
 		"zws-im/zws": {
+			"data.api.rest": "yes",
 			"ops.healthcheck": "yes",
 			"ops.postgres": "yes"
 		},
@@ -22392,6 +24452,10 @@
 			"ops.armSupport": "yes"
 		},
 		"zylon-ai/private-gpt": {
+			"ai.byoKey": "yes",
+			"ai.features": "yes",
+			"ai.localModel": "yes",
+			"data.api.rest": "yes",
 			"ops.healthcheck": "yes"
 		}
 	},
@@ -22466,8 +24530,32 @@
 		"adobe-acrobat-pro": {
 			"ai.features": "paid"
 		},
+		"adobe-after-effects": {
+			"ai.features": "partial",
+			"auth.teams": "paid",
+			"collab.multiUser": "paid"
+		},
+		"adobe-illustrator": {
+			"auth.teams": "paid",
+			"collab.multiUser": "paid"
+		},
+		"adobe-indesign": {
+			"auth.teams": "paid",
+			"collab.multiUser": "paid"
+		},
+		"adobe-lightroom": {
+			"auth.teams": "paid",
+			"collab.share.external": "partial",
+			"data.backup.builtin": "partial"
+		},
 		"adobe-photoshop": {
 			"i18n.multiLanguage": "yes"
+		},
+		"adobe-premiere-pro": {
+			"ai.features": "paid",
+			"auth.local": "yes",
+			"auth.teams": "paid",
+			"collab.multiUser": "paid"
 		},
 		"adroll": {
 			"ai.features": "yes",
@@ -22523,6 +24611,9 @@
 			"collab.share.internal": "yes",
 			"collab.share.publicLink": "yes",
 			"data.api.rest": "yes"
+		},
+		"alfred": {
+			"collab.multiUser": "no"
 		},
 		"algolia": {
 			"ai.features": "yes",
@@ -23057,6 +25148,11 @@
 			"data.api.rest": "yes",
 			"data.encryption.rest": "yes",
 			"data.webhooks": "paid"
+		},
+		"comsol-multiphysics": {
+			"collab.multiUser": "partial",
+			"collab.share.external": "paid",
+			"collab.share.internal": "paid"
 		},
 		"confluence": {
 			"ai.features": "paid",
@@ -23833,6 +25929,12 @@
 		"hubspot": {
 			"i18n.multiLanguage": "yes"
 		},
+		"hugging-face-inference-endpoints": {
+			"ai.features": "yes",
+			"auth.local": "yes",
+			"auth.teams": "paid",
+			"collab.multiUser": "paid"
+		},
 		"hunter-io": {
 			"auth.local": "yes",
 			"auth.teams": "paid",
@@ -23909,6 +26011,9 @@
 			"data.backup.builtin": "yes",
 			"data.encryption.rest": "yes",
 			"data.import.fromProprietary": "yes"
+		},
+		"jfrog-artifactory": {
+			"ai.features": "yes"
 		},
 		"jira": {
 			"collab.multiUser": "yes",
@@ -23996,6 +26101,9 @@
 			"ai.features": "yes",
 			"data.api.rest": "yes",
 			"data.import.fromProprietary": "yes"
+		},
+		"kubectl": {
+			"i18n.multiLanguage": "yes"
 		},
 		"labarchives": {
 			"ai.features": "paid",
@@ -24400,6 +26508,9 @@
 			"data.api.rest": "yes",
 			"i18n.multiLanguage": "yes"
 		},
+		"nginx-plus": {
+			"ai.features": "paid"
+		},
 		"ngrok": {
 			"auth.apiTokens": "yes",
 			"auth.local": "yes",
@@ -24425,22 +26536,19 @@
 			"i18n.multiLanguage": "yes"
 		},
 		"notion": {
-			"ai.features": "yes",
+			"ai.features": "partial",
 			"auth.auditLog": "paid",
+			"auth.rbac": "yes",
 			"auth.rbac.granular": "paid",
-			"auth.scim": "paid",
 			"auth.sso.saml": "paid",
-			"collab.comments": "yes",
+			"auth.teams": "yes",
 			"collab.multiUser": "yes",
-			"collab.realtime": "yes",
 			"collab.share.external": "yes",
-			"collab.share.publicLink": "yes",
+			"collab.share.internal": "yes",
 			"data.api.rest": "yes",
-			"data.backup.builtin": "yes",
-			"data.backup.documented": "yes",
+			"data.backup.builtin": "partial",
 			"data.encryption.rest": "yes",
-			"data.import.fromProprietary": "yes",
-			"i18n.multiLanguage": "yes"
+			"i18n.multiLanguage": "partial"
 		},
 		"noun-project": {
 			"ai.features": "yes",
@@ -24547,6 +26655,9 @@
 		},
 		"optmyzr": {
 			"ai.features": "yes"
+		},
+		"originpro": {
+			"collab.multiUser": "paid"
 		},
 		"outreach-io": {
 			"ai.features": "paid",
@@ -24704,6 +26815,9 @@
 			"collab.share.internal": "yes",
 			"data.api.rest": "yes",
 			"data.webhooks": "paid"
+		},
+		"pocket-casts": {
+			"data.backup.builtin": "partial"
 		},
 		"popsql": {
 			"auth.apiTokens": "paid",
@@ -24913,6 +27027,11 @@
 		"recaptcha-enterprise": {
 			"data.api.rest": "paid"
 		},
+		"redcap": {
+			"collab.multiUser": "yes",
+			"collab.share.internal": "yes",
+			"i18n.multiLanguage": "yes"
+		},
 		"redis-cloud": {
 			"ai.features": "yes",
 			"data.import.fromProprietary": "yes"
@@ -24949,6 +27068,9 @@
 			"auth.teams": "paid",
 			"collab.multiUser": "paid",
 			"data.export.open": "paid"
+		},
+		"resilio-sync": {
+			"collab.share.internal": "paid"
 		},
 		"restream": {
 			"ai.features": "yes",
@@ -25071,6 +27193,9 @@
 			"auth.local": "yes",
 			"auth.sso.oauth2": "yes"
 		},
+		"sap-ariba": {
+			"ai.features": "paid"
+		},
 		"screaming-frog": {
 			"collab.multiUser": "no"
 		},
@@ -25113,6 +27238,9 @@
 			"collab.notifications.email": "paid",
 			"data.backup.builtin": "yes",
 			"data.encryption.rest": "yes"
+		},
+		"sendgrid": {
+			"i18n.multiLanguage": "partial"
 		},
 		"sentry": {
 			"ai.features": "paid",
@@ -25234,6 +27362,9 @@
 			"data.api.rest": "paid",
 			"i18n.multiLanguage": "partial"
 		},
+		"solarwinds-npm": {
+			"ai.features": "paid"
+		},
 		"solidworks": {
 			"auth.local": "paid",
 			"collab.comments": "paid",
@@ -25335,6 +27466,12 @@
 		},
 		"strava": {
 			"auth.local": "yes"
+		},
+		"streamlabs": {
+			"collab.multiUser": "partial",
+			"collab.share.external": "paid",
+			"data.api.rest": "yes",
+			"i18n.multiLanguage": "yes"
 		},
 		"streamyard": {
 			"ai.features": "paid",
@@ -25596,6 +27733,9 @@
 			"collab.multiUser": "paid",
 			"collab.realtime": "paid",
 			"collab.share.internal": "paid"
+		},
+		"unreal-engine": {
+			"data.export.full": "yes"
 		},
 		"upkeep": {
 			"ai.features": "paid",
@@ -25890,8 +28030,31 @@
 		"adobe-acrobat-pro": {
 			"ai.features": "Acrobat Studio"
 		},
+		"adobe-after-effects": {
+			"ai.features": "Creative Cloud Pro",
+			"auth.teams": "Business",
+			"collab.multiUser": "Business"
+		},
+		"adobe-illustrator": {
+			"auth.teams": "Business",
+			"collab.multiUser": "Business"
+		},
+		"adobe-indesign": {
+			"auth.teams": "Business",
+			"collab.multiUser": "Business (teams)"
+		},
+		"adobe-lightroom": {
+			"auth.teams": "Business",
+			"collab.share.external": "Lightroom US$11.99/mo",
+			"data.backup.builtin": "Photography US$19.99/mo"
+		},
 		"adobe-photoshop": {
 			"i18n.multiLanguage": "all plans"
+		},
+		"adobe-premiere-pro": {
+			"ai.features": "Creative Cloud Pro",
+			"auth.teams": "Business (Creative Cloud for teams)",
+			"collab.multiUser": "Business (Creative Cloud for teams)"
 		},
 		"aftership": {
 			"ai.features": "Premium",
@@ -25925,6 +28088,9 @@
 		},
 		"airtable": {
 			"auth.sso.saml": "Enterprise"
+		},
+		"alfred": {
+			"collab.multiUser": "Powerpack"
 		},
 		"announcekit": {
 			"ai.features": "Essentials",
@@ -26305,6 +28471,11 @@
 			"collab.multiUser": "Essential",
 			"collab.notifications.email": "Essential/Advanced/Enterprise",
 			"data.webhooks": "Essential/Advanced/Enterprise"
+		},
+		"comsol-multiphysics": {
+			"collab.multiUser": "Floating Network License (FNL)",
+			"collab.share.external": "COMSOL Server License (CSL)",
+			"collab.share.internal": "COMSOL Server License (CSL)"
 		},
 		"confluence": {
 			"ai.features": "Rovo (add-on)",
@@ -26923,6 +29094,10 @@
 		"hubspot": {
 			"i18n.multiLanguage": "free"
 		},
+		"hugging-face-inference-endpoints": {
+			"auth.teams": "Team",
+			"collab.multiUser": "Team"
+		},
 		"hunter-io": {
 			"auth.local": "Free and all plans",
 			"auth.teams": "Free and all paid plans",
@@ -27302,6 +29477,9 @@
 			"auth.sso.saml": "Standard",
 			"collab.multiUser": "Free"
 		},
+		"nginx-plus": {
+			"ai.features": "Subscription"
+		},
 		"ngrok": {
 			"auth.apiTokens": "Free",
 			"auth.local": "Free",
@@ -27320,22 +29498,10 @@
 			"data.encryption.rest": "Complete, Ultimate Max"
 		},
 		"notion": {
-			"ai.features": "Free",
+			"ai.features": "Business",
 			"auth.auditLog": "Enterprise",
 			"auth.rbac.granular": "Business",
-			"auth.scim": "Enterprise",
-			"auth.sso.saml": "Business",
-			"collab.comments": "Free",
-			"collab.multiUser": "Free",
-			"collab.realtime": "Free",
-			"collab.share.external": "Free",
-			"collab.share.publicLink": "Free",
-			"data.api.rest": "Free",
-			"data.backup.builtin": "Free",
-			"data.backup.documented": "Free",
-			"data.encryption.rest": "Free",
-			"data.import.fromProprietary": "Free",
-			"i18n.multiLanguage": "Free"
+			"auth.sso.saml": "Business"
 		},
 		"noun-project": {
 			"ai.features": "Free",
@@ -27426,6 +29592,9 @@
 			"collab.multiUser": "Standard",
 			"collab.share.internal": "Standard",
 			"data.encryption.rest": "Standard (platform-wide)"
+		},
+		"originpro": {
+			"collab.multiUser": "Commercial"
 		},
 		"outreach-io": {
 			"ai.features": "Amplify Essentials",
@@ -27550,6 +29719,9 @@
 			"collab.share.internal": "Free",
 			"data.api.rest": "Free",
 			"data.webhooks": "Plex Pass"
+		},
+		"pocket-casts": {
+			"data.backup.builtin": "Patron"
 		},
 		"popsql": {
 			"auth.apiTokens": "Enterprise",
@@ -27720,6 +29892,11 @@
 		"recaptcha-enterprise": {
 			"data.api.rest": "Essentials (free) / Premium"
 		},
+		"redcap": {
+			"collab.multiUser": "Free (consortium)",
+			"collab.share.internal": "Free (consortium)",
+			"i18n.multiLanguage": "Free (consortium)"
+		},
 		"redis-cloud": {
 			"data.import.fromProprietary": "Free"
 		},
@@ -27750,6 +29927,9 @@
 			"auth.teams": "Team / Team+",
 			"collab.multiUser": "Team / Team+",
 			"data.export.open": "Solo+ / Team+ (Timesheets)"
+		},
+		"resilio-sync": {
+			"collab.share.internal": "Sync Business"
 		},
 		"restream": {
 			"ai.features": "Free",
@@ -27842,6 +30022,9 @@
 		},
 		"salesloft": {
 			"auth.rbac": "not named (sales-led pricing)"
+		},
+		"sap-ariba": {
+			"ai.features": "Base or Premium"
 		},
 		"screencloud": {
 			"auth.auditLog": "Enterprise",
@@ -27962,6 +30145,9 @@
 			"auth.sso.saml": "Ignite or Enterprise",
 			"data.api.rest": "Enterprise"
 		},
+		"solarwinds-npm": {
+			"ai.features": "Monitoring and Observability self-hosted, starts at 8 dollars per node per month"
+		},
 		"solidworks": {
 			"auth.local": "Standard",
 			"collab.comments": "Standard",
@@ -28048,6 +30234,10 @@
 		},
 		"strava": {
 			"auth.local": "Free"
+		},
+		"streamlabs": {
+			"collab.multiUser": "Streamlabs Ultra",
+			"collab.share.external": "Streamlabs Ultra"
 		},
 		"streamyard": {
 			"ai.features": "Core",
@@ -28238,6 +30428,9 @@
 			"collab.multiUser": "Pro",
 			"collab.realtime": "Pro",
 			"collab.share.internal": "Pro"
+		},
+		"unreal-engine": {
+			"data.export.full": "Free"
 		},
 		"upkeep": {
 			"ai.features": "Essential",
