@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.0.6](https://github.com/canireplaceit/canireplaceit/compare/v0.0.5...v0.0.6) (2026-08-25)
+
+
+### chore
+
+* **release:** 0.0.6 ([a293963](https://github.com/canireplaceit/canireplaceit/commit/a293963ed9885e3745acb712afcae2c1c4140509))
+
+
+### Bug Fixes
+
+* **deploy:** fix the Markdown twin header and give HTML a cache policy ([d301d5b](https://github.com/canireplaceit/canireplaceit/commit/d301d5b88e749a93c961a13fca601a5cf0ee4caa))
+* **deploy:** restore the headers and query string the apex 302 ate ([fa1bf22](https://github.com/canireplaceit/canireplaceit/commit/fa1bf222cc5f62b28b5c24ddfb1aaf650378f721))
+* **frontend:** four accessibility defects Lighthouse and the audit found ([7916d15](https://github.com/canireplaceit/canireplaceit/commit/7916d155c6b310ea295fe6ac37fb432b775bd1ad))
+* **frontend:** stop hydration deleting the prerendered structured data ([5b03a88](https://github.com/canireplaceit/canireplaceit/commit/5b03a88b9b2767cc0eb19a4b93de5c842d6fce88))
+
 ## [0.0.5](https://github.com/canireplaceit/canireplaceit/compare/v0.0.4...v0.0.5) (2026-08-24)
 
 
