@@ -1061,7 +1061,7 @@ export type FossClass = "foss" | "not-foss" | "unknown";
  * better, "Boost" — the test file records this trap.
  */
 const NOT_FOSS_LICENSE =
-	/\b(?:BSL|BUSL|SSPL|ELv2|MRPL|EULA|MS-RSL)\b|\bFSL-1\.|\belastic\b|\bcommons\s+clause\b|\bsustainable[\s-]+use\b|\bpolyform\b|\bsource[\s-]available\b|\bnon-commercial\b|\bnot\s+OSI\b|\bnot\s+open\s+source\b|\banti-capitalist\b|\b(?:tldraw|zrythm|defold)\s+licen[cs]e\b/i;
+	/\b(?:BSL|BUSL|SSPL|ELv2|MRPL|EULA|MS-RSL)\b|\bFSL-1\.|\bFCL-1\.|\belastic\b|\bcommons\s+clause\b|\bsustainable[\s-]+use\b|\bpolyform\b|\bsource[\s-]available\b|\bnon-commercial\b|\bnot\s+OSI\b|\bnot\s+open\s+source\b|\banti-capitalist\b|\b(?:tldraw|zrythm|defold)\s+licen[cs]e\b/i;
 
 /**
  * OSI-approved licence families, as the catalogue actually spells them.
@@ -1072,7 +1072,7 @@ const NOT_FOSS_LICENSE =
  * and both name their family inside a longer phrase.
  */
 const OSI_LICENSE =
-	/\b(?:MIT|Apache-2\.0|AGPL(?:-3\.0)?|GPL-[23]\.0|LGPL(?:-[23]\.[01])?|MPL-[12]\.[01]|BSD-[234]-Clause|0BSD|BSD|ISC|EPL-[12]\.0|CDDL-1\.0|Zlib|Unlicense|CC0|OSL-3\.0|EUPL-1\.[12]|CPAL-1\.0|OFL-1\.1|PostgreSQL|PSF|Artistic-2\.0|MS-PL|NCSA|Boost|Vim|WTFPL|CECILL-2\.[01]|ECL-2\.0|AAL|ImageMagick)\b/i;
+	/\b(?:MIT|Apache-2\.0|AGPL(?:-3\.0)?|GPL-[23]\.0|LGPL(?:-[23]\.[01])?|MPL-[12]\.[01]|BSD-[234]-Clause|0BSD|BSD|ISC|EPL-[12]\.0|CDDL-1\.0|Zlib|Unlicense|CC0|OSL-3\.0|EUPL-1\.[12]|CPAL-1\.0|OFL-1\.1|PostgreSQL|PSF|Artistic-[12]\.0|MS-PL|NCSA|Boost|Vim|WTFPL|CECILL-2\.[01]|CECILL-[BC]|ECL-2\.0|AAL|ImageMagick|BlueOak|AFL-[123]\.[01]|CPL-1\.0|Lucent-PL)\b/i;
 
 /** Closed-source wording, only consulted when no OSI family is named. */
 const PROPRIETARY_LICENSE =

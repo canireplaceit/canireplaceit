@@ -276,6 +276,45 @@ test("a licence family named inside a longer phrase still counts", () => {
 	).toBe("foss");
 });
 
+/**
+ * The delayed-open licences, pinned.
+ *
+ * FSL and FCL both name the licence they CONVERT TO — "FCL-1.0-MIT" becomes MIT
+ * after two years — so the OSI pattern matched the trailing "MIT" and published
+ * Flipt as fully open while it is source-available today. FSL was already
+ * caught; FCL was not, which is the kind of gap that only shows up when the two
+ * are compared side by side.
+ */
+test("a licence that only converts to an OSI one later is not FOSS yet", () => {
+	for (const l of [
+		"FCL-1.0",
+		"FCL-1.0-MIT",
+		"FSL-1.1-MIT (converts to MIT after 2 years)",
+		"FSL-1.1-Apache-2.0 (source-available, not open source)",
+		"BSL 1.1 (converts to Apache-2.0 after 4 years)",
+	]) {
+		expect(classifyLicense(l)).toBe("not-foss");
+	}
+});
+
+/**
+ * OSI-approved families the pattern did not name. Each of these sat on
+ * `unknown`, which keeps a genuinely free project out of the FOSS collections
+ * and understates it everywhere openness is shown.
+ */
+test("less common OSI families are FOSS, not unknown", () => {
+	for (const l of [
+		"BlueOak-1.0.0",
+		"AFL-3.0",
+		"Artistic-1.0-Perl",
+		"CPL-1.0",
+		"CECILL-C",
+		"Lucent-PL-1.02",
+	]) {
+		expect(classifyLicense(l)).toBe("foss");
+	}
+});
+
 test("a dual OSI licence is FOSS on either side", () => {
 	for (const l of [
 		"Apache-2.0 / MIT",
