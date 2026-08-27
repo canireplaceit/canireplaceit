@@ -1690,6 +1690,8 @@
 		"Bachmann1234/diff_cover": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
+			"cli.output.json": "yes",
+			"cli.plugins": "yes",
 			"i18n.multiLanguage": "no"
 		},
 		"Bahmni/bahmni-core": {
@@ -1699,6 +1701,7 @@
 			"i18n.multiLanguage": "yes"
 		},
 		"Bash-it/bash-it": {
+			"cli.plugins": "yes",
 			"data.backup.builtin": "partial",
 			"i18n.multiLanguage": "no"
 		},
@@ -1855,6 +1858,7 @@
 			"cli.interactive": "yes"
 		},
 		"Canop/dysk": {
+			"cli.output.json": "yes",
 			"data.export.open": "yes"
 		},
 		"CapSoftware/Cap": {
@@ -2100,6 +2104,7 @@
 			"ops.postgres": "yes"
 		},
 		"CyberShadow/btdu": {
+			"cli.interactive": "yes",
 			"data.export.full": "yes",
 			"ops.armSupport": "yes"
 		},
@@ -2454,6 +2459,7 @@
 		"F1bonacc1/process-compose": {
 			"ai.features": "yes",
 			"auth.apiTokens": "yes",
+			"cli.interactive": "yes",
 			"collab.notifications.push": "yes",
 			"data.api.rest": "yes",
 			"ops.healthcheck": "yes"
@@ -2789,7 +2795,11 @@
 			"ai.features": "yes",
 			"ai.mcp.community": "yes",
 			"ai.mcp.official": "no",
-			"ai.mcp.server": "yes"
+			"ai.mcp.server": "yes",
+			"cli.dropIn": "yes",
+			"cli.interactive": "yes",
+			"cli.output.json": "yes",
+			"cli.pipes": "yes"
 		},
 		"GeoNode/geonode": {
 			"ai.features": "yes",
@@ -3855,6 +3865,7 @@
 			"ops.armSupport": "yes"
 		},
 		"MrRio/vtop": {
+			"cli.interactive": "yes",
 			"i18n.multiLanguage": "no"
 		},
 		"Mrmayman/quantumlauncher": {
@@ -5182,7 +5193,11 @@
 			"data.api.rest": "yes",
 			"i18n.multiLanguage": "yes"
 		},
-		"Textualize/rich-cli": {},
+		"Textualize/rich-cli": {
+			"cli.interactive": "yes",
+			"cli.output.json": "yes",
+			"cli.pipes": "yes"
+		},
 		"ThatOpen/engine_web-ifc": {},
 		"The-PR-Agent/pr-agent": {
 			"ai.features": "yes",
@@ -5239,7 +5254,9 @@
 			"notes.collab.realtime": "yes",
 			"ops.healthcheck": "yes"
 		},
-		"TomWright/dasel": {},
+		"TomWright/dasel": {
+			"cli.pipes": "yes"
+		},
 		"ToolJet/ToolJet": {
 			"ai.features": "yes",
 			"ai.mcp.community": "no",
@@ -5417,6 +5434,10 @@
 		},
 		"Unitech/pm2": {
 			"ai.features": "yes",
+			"cli.dropIn": "partial",
+			"cli.interactive": "yes",
+			"cli.output.json": "yes",
+			"cli.plugins": "yes",
 			"collab.notifications.email": "paid",
 			"i18n.multiLanguage": "no",
 			"ops.armSupport": "yes"
@@ -5581,6 +5602,7 @@
 		"XAMPPRocky/tokei": {
 			"ai.features": "no",
 			"ai.mcp.server": "no",
+			"cli.output.json": "yes",
 			"ops.armSupport": "yes"
 		},
 		"XcodesOrg/xcodes": {
@@ -5592,6 +5614,7 @@
 			"i18n.multiLanguage": "yes"
 		},
 		"Y2Z/monolith": {
+			"cli.pipes": "yes",
 			"ops.armSupport": "yes"
 		},
 		"YOURLS/YOURLS": {
@@ -5882,7 +5905,10 @@
 		"ahmetb/kubectl-tree": {
 			"i18n.multiLanguage": "no"
 		},
-		"ahmetb/kubectx": {},
+		"ahmetb/kubectx": {
+			"cli.interactive": "yes",
+			"cli.pipes": "partial"
+		},
 		"aimhubio/aim": {
 			"ai.features": "yes",
 			"ai.mcp.community": "yes",
@@ -5977,7 +6003,9 @@
 			"ops.metrics": "yes",
 			"ops.s3": "yes"
 		},
-		"alacritty/alacritty": {},
+		"alacritty/alacritty": {
+			"cli.shell.fish": "yes"
+		},
 		"alainm23/planify": {
 			"ai.features": "no",
 			"ai.mcp.community": "yes",
@@ -6119,6 +6147,8 @@
 			"ops.sqlite": "yes"
 		},
 		"amanusk/s-tui": {
+			"cli.interactive": "yes",
+			"cli.output.json": "yes",
 			"data.export.open": "yes"
 		},
 		"amark/gun": {
@@ -6133,6 +6163,7 @@
 			"ops.healthcheck": "yes"
 		},
 		"ameshkov/dnslookup": {
+			"cli.output.json": "yes",
 			"i18n.multiLanguage": "no",
 			"ops.armSupport": "yes"
 		},
@@ -6225,6 +6256,7 @@
 		"andreafrancia/trash-cli": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
+			"cli.pipes": "yes",
 			"data.backup.documented": "yes"
 		},
 		"andreasonny83/lighthouse-ci": {
@@ -6304,7 +6336,9 @@
 			"ops.postgres": "yes",
 			"ops.sqlite": "yes"
 		},
-		"antfu-collective/ni": {},
+		"antfu-collective/ni": {
+			"cli.interactive": "yes"
+		},
 		"antiwork/gumroad": {
 			"ai.features": "yes",
 			"ai.mcp.community": "yes",
@@ -6326,7 +6360,10 @@
 			"cli.interactive": "yes",
 			"i18n.multiLanguage": "no"
 		},
-		"antonmedv/walk": {},
+		"antonmedv/walk": {
+			"cli.interactive": "yes",
+			"cli.shell.fish": "yes"
+		},
 		"any1/wayvnc": {
 			"auth.local": "yes",
 			"i18n.multiLanguage": "no"
@@ -6683,6 +6720,7 @@
 			"ops.postgres": "yes"
 		},
 		"aptible/supercronic": {
+			"cli.dropIn": "yes",
 			"ops.armSupport": "yes",
 			"ops.metrics": "yes"
 		},
@@ -6820,6 +6858,7 @@
 		},
 		"aria2/aria2": {
 			"auth.apiTokens": "partial",
+			"cli.pipes": "yes",
 			"data.api.rest": "no",
 			"ops.armSupport": "yes"
 		},
@@ -6838,6 +6877,7 @@
 			"ops.sqlite": "yes"
 		},
 		"aristocratos/bashtop": {
+			"cli.interactive": "yes",
 			"i18n.multiLanguage": "no"
 		},
 		"aristocratos/bpytop": {},
@@ -6937,6 +6977,7 @@
 		"asdf-vm/asdf": {
 			"ai.features": "no",
 			"ai.mcp.server": "no",
+			"cli.plugins": "yes",
 			"collab.share.internal": "yes",
 			"data.import.fromProprietary": "yes",
 			"ops.armSupport": "yes"
@@ -6975,11 +7016,14 @@
 			"ops.armSupport": "yes"
 		},
 		"astral-sh/rye": {
+			"cli.output.json": "partial",
+			"cli.shell.fish": "yes",
 			"ops.armSupport": "yes"
 		},
 		"astral-sh/uv": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
+			"cli.dropIn": "yes",
 			"data.encryption.rest": "partial",
 			"data.export.open": "yes",
 			"data.import.fromProprietary": "yes",
@@ -7095,7 +7139,10 @@
 			"i18n.multiLanguage": "no",
 			"ops.smtp": "yes"
 		},
-		"awgn/cgrep": {},
+		"awgn/cgrep": {
+			"cli.dropIn": "no",
+			"cli.output.json": "yes"
+		},
 		"aws-solutions/dynamic-image-transformation-for-amazon-cloudfront": {
 			"data.api.rest": "yes",
 			"data.telemetry.none": "no",
@@ -7136,12 +7183,15 @@
 			"ops.subpath": "yes"
 		},
 		"axw/gocov": {
+			"cli.output.json": "yes",
+			"cli.pipes": "yes",
 			"data.export.open": "yes"
 		},
 		"azagaya/laigter": {
 			"i18n.multiLanguage": "yes"
 		},
 		"babarot/gomi": {
+			"cli.interactive": "yes",
 			"data.backup.documented": "yes",
 			"i18n.multiLanguage": "no"
 		},
@@ -7331,7 +7381,9 @@
 			"data.api.rest": "yes",
 			"i18n.multiLanguage": "no"
 		},
-		"benhoyt/goawk": {},
+		"benhoyt/goawk": {
+			"cli.pipes": "yes"
+		},
 		"bensadeh/tailspin": {
 			"cli.pipes": "yes",
 			"ops.armSupport": "yes"
@@ -7381,7 +7433,11 @@
 			"ops.healthcheck": "yes",
 			"ops.sqlite": "yes"
 		},
-		"beyondgrep/ack3": {},
+		"beyondgrep/ack3": {
+			"cli.dropIn": "yes",
+			"cli.pipes": "yes",
+			"cli.plugins": "no"
+		},
 		"bfenetworks/bfe": {
 			"auth.apiTokens": "yes",
 			"auth.local": "yes",
@@ -7510,6 +7566,9 @@
 		},
 		"blackducksoftware/ohcount": {},
 		"blacknon/hwatch": {
+			"cli.interactive": "yes",
+			"cli.output.json": "yes",
+			"cli.plugins": "yes",
 			"data.export.open": "partial",
 			"ops.armSupport": "yes"
 		},
@@ -7612,6 +7671,7 @@
 		},
 		"bpftrace/bpftrace": {},
 		"brendangregg/FlameGraph": {
+			"cli.pipes": "yes",
 			"data.import.fromProprietary": "yes"
 		},
 		"bridgecrewio/checkov": {
@@ -7776,6 +7836,9 @@
 			"ops.s3": "yes"
 		},
 		"c-bata/kube-prompt": {
+			"cli.dropIn": "partial",
+			"cli.interactive": "yes",
+			"cli.pipes": "yes",
 			"i18n.multiLanguage": "no"
 		},
 		"c3lang/c3c": {
@@ -7859,6 +7922,9 @@
 		"cantino/mcfly": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
+			"cli.dropIn": "yes",
+			"cli.interactive": "yes",
+			"cli.shell.fish": "yes",
 			"i18n.multiLanguage": "no",
 			"ops.armSupport": "yes",
 			"ops.sqlite": "yes"
@@ -7879,6 +7945,8 @@
 			"i18n.multiLanguage": "yes"
 		},
 		"carapace-sh/carapace-bin": {
+			"cli.plugins": "yes",
+			"cli.shell.fish": "yes",
 			"ops.healthcheck": "yes"
 		},
 		"caronc/apprise": {
@@ -8060,7 +8128,9 @@
 			"ai.features": "yes",
 			"ai.mcp.server": "no"
 		},
-		"chaos/pdsh": {},
+		"chaos/pdsh": {
+			"cli.plugins": "yes"
+		},
 		"charmbracelet/crush": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
@@ -8213,6 +8283,8 @@
 			"i18n.multiLanguage": "no"
 		},
 		"cjbassi/ytop": {
+			"cli.interactive": "yes",
+			"cli.output.json": "no",
 			"data.telemetry.none": "yes"
 		},
 		"ckan/ckan": {
@@ -8245,6 +8317,7 @@
 			"ops.subpath": "no"
 		},
 		"cli/cli": {
+			"cli.plugins": "yes",
 			"data.api.graphql": "yes"
 		},
 		"cline/cline": {
@@ -8258,6 +8331,7 @@
 			"ops.sqlite": "yes"
 		},
 		"cloud-carbon-footprint/cloud-carbon-footprint": {
+			"cli.interactive": "yes",
 			"data.export.open": "yes"
 		},
 		"cloudflare/cfssl": {
@@ -8313,7 +8387,10 @@
 		"cloudwu/skynet": {
 			"collab.multiUser": "yes"
 		},
-		"clvv/fasd": {},
+		"clvv/fasd": {
+			"cli.interactive": "yes",
+			"cli.pipes": "yes"
+		},
 		"cmacrae/spacebar": {},
 		"cmand/scamper": {},
 		"cmus/cmus": {},
@@ -8345,8 +8422,8 @@
 			"ai.mcp.server": "no"
 		},
 		"code.blicky.net/yorhel/ncdu": {
-			"ops.postgres": "yes",
-			"ops.sqlite": "yes"
+			"cli.dropIn": "yes",
+			"cli.interactive": "yes"
 		},
 		"code.blinkace.com/pdw/iftop": {},
 		"code.castopod.org/adaures/castopod": {
@@ -8357,7 +8434,9 @@
 		"code.ffmpeg.org/FFmpeg/FFmpeg": {
 			"ops.armSupport": "yes"
 		},
-		"codeberg.org/DNS-OARC/dnsjit": {},
+		"codeberg.org/DNS-OARC/dnsjit": {
+			"cli.plugins": "yes"
+		},
 		"codeberg.org/FitTrackee/FitTrackee": {
 			"ai.mcp.server": "no",
 			"auth.anonymous": "partial",
@@ -8585,7 +8664,9 @@
 			"ops.healthcheck": "yes",
 			"ops.s3": "yes"
 		},
-		"commitizen-tools/commitizen": {},
+		"commitizen-tools/commitizen": {
+			"cli.interactive": "yes"
+		},
 		"common-workflow-language/cwltool": {},
 		"commoncrawl/cc-pyspark": {
 			"ai.features": "yes",
@@ -8703,6 +8784,8 @@
 			"ops.armSupport": "yes"
 		},
 		"convco/convco": {
+			"cli.pipes": "yes",
+			"cli.plugins": "no",
 			"ops.armSupport": "yes"
 		},
 		"conventional-changelog/commitlint": {
@@ -8804,7 +8887,9 @@
 		},
 		"coveragepy/coveragepy": {
 			"ai.features": "no",
-			"ai.mcp.server": "no"
+			"ai.mcp.server": "no",
+			"cli.output.json": "yes",
+			"cli.plugins": "yes"
 		},
 		"cozystack/cozystack": {
 			"auth.apiTokens": "yes",
@@ -8876,7 +8961,6 @@
 			"auth.rbac": "no",
 			"auth.rbac.granular": "no",
 			"auth.scim": "no",
-			"auth.sso": "no",
 			"auth.sso.enforced": "no",
 			"auth.sso.header": "no",
 			"auth.sso.ldap": "no",
@@ -9231,7 +9315,10 @@
 			"ops.postgres": "yes"
 		},
 		"davatorium/rofi": {},
-		"daveewart/colordiff": {},
+		"daveewart/colordiff": {
+			"cli.dropIn": "yes",
+			"cli.pipes": "yes"
+		},
 		"daveshanley/vacuum": {
 			"data.telemetry.none": "no",
 			"ops.sqlite": "yes"
@@ -9344,7 +9431,9 @@
 			"ops.s3": "yes",
 			"ops.sqlite": "yes"
 		},
-		"deadpixi/mtm": {},
+		"deadpixi/mtm": {
+			"cli.interactive": "yes"
+		},
 		"dealii/dealii": {
 			"ops.armSupport": "yes",
 			"ops.healthcheck": "yes"
@@ -9411,7 +9500,11 @@
 			"collab.multiUser": "partial",
 			"i18n.multiLanguage": "no"
 		},
-		"denilsonsa/prettyping": {},
+		"denilsonsa/prettyping": {
+			"cli.dropIn": "yes",
+			"cli.interactive": "yes",
+			"cli.pipes": "yes"
+		},
 		"denisidoro/navi": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
@@ -9434,6 +9527,7 @@
 		"denoland/deno_lint": {},
 		"dependency-check/DependencyCheck": {},
 		"dephell/dephell": {
+			"cli.output.json": "yes",
 			"data.import.fromProprietary": "yes"
 		},
 		"deployphp/deployer": {},
@@ -9482,7 +9576,9 @@
 			"ops.subpath": "no"
 		},
 		"dev.yorhel.nl/yorhel/ncdu": {
-			"ai.mcp.server": "no"
+			"ai.mcp.server": "no",
+			"cli.interactive": "yes",
+			"cli.output.json": "yes"
 		},
 		"devcontainers/cli": {
 			"ai.features": "yes",
@@ -9498,6 +9594,7 @@
 		"devpi/devpi": {
 			"auth.sso.ldap": "yes",
 			"auth.teams": "yes",
+			"cli.plugins": "yes",
 			"collab.multiUser": "yes"
 		},
 		"devspace-sh/devspace": {
@@ -9576,6 +9673,8 @@
 			"ops.healthcheck": "yes"
 		},
 		"dinedal/textql": {
+			"cli.interactive": "yes",
+			"cli.pipes": "yes",
 			"i18n.multiLanguage": "no",
 			"ops.sqlite": "yes"
 		},
@@ -9784,6 +9883,8 @@
 			"ops.smtp": "yes"
 		},
 		"docker/cli": {
+			"cli.pipes": "yes",
+			"cli.plugins": "yes",
 			"i18n.multiLanguage": "no",
 			"ops.healthcheck": "yes",
 			"ops.metrics": "yes"
@@ -9926,7 +10027,10 @@
 			"ops.healthcheck": "yes"
 		},
 		"dominikbraun/timetrace": {},
-		"dominikh/go-tools": {},
+		"dominikh/go-tools": {
+			"cli.dropIn": "yes",
+			"cli.output.json": "yes"
+		},
 		"domoticz/domoticz": {
 			"auth.anonymous": "partial",
 			"auth.local": "yes",
@@ -9966,6 +10070,7 @@
 			"ops.metrics": "yes"
 		},
 		"dprint/dprint": {
+			"cli.plugins": "yes",
 			"i18n.multiLanguage": "no",
 			"ops.armSupport": "yes"
 		},
@@ -9981,6 +10086,7 @@
 			"ops.metrics": "yes"
 		},
 		"dragonflyoss/dragonfly": {
+			"cli.plugins": "yes",
 			"data.api.rest": "yes",
 			"data.telemetry.none": "no",
 			"ops.armSupport": "yes",
@@ -10180,6 +10286,7 @@
 			"auth.local": "yes"
 		},
 		"eBay/tsv-utils": {
+			"cli.pipes": "yes",
 			"data.import.fromProprietary": "yes"
 		},
 		"eLifePathways/Kotahi": {
@@ -10313,8 +10420,7 @@
 			"collab.multiUser": "yes",
 			"collab.realtime": "yes",
 			"collab.share.publicLink": "yes",
-			"data.encryption.e2e": "yes",
-			"notes.collab.realtime": "yes"
+			"data.encryption.e2e": "yes"
 		},
 		"elabftw/elabctl": {
 			"data.backup.builtin": "yes",
@@ -10530,6 +10636,7 @@
 		},
 		"eprints/eprints3.4": {},
 		"eradman/entr": {
+			"cli.pipes": "yes",
 			"i18n.multiLanguage": "no"
 		},
 		"eranif/codelite": {
@@ -10805,6 +10912,8 @@
 			"ai.mcp.community": "yes",
 			"ai.mcp.official": "no",
 			"ai.mcp.server": "yes",
+			"cli.output.json": "yes",
+			"cli.plugins": "yes",
 			"data.export.open": "yes",
 			"ops.armSupport": "yes"
 		},
@@ -11587,7 +11696,9 @@
 			"ops.armSupport": "yes"
 		},
 		"ge-ne/bibtool": {},
-		"geany/geany": {},
+		"geany/geany": {
+			"cli.plugins": "yes"
+		},
 		"geckosio/geckos.io": {
 			"collab.multiUser": "yes",
 			"i18n.multiLanguage": "no",
@@ -11802,6 +11913,8 @@
 			"data.backup.builtin": "yes"
 		},
 		"git-chglog/git-chglog": {
+			"cli.interactive": "yes",
+			"cli.pipes": "yes",
 			"data.export.open": "yes"
 		},
 		"git-cola/git-cola": {},
@@ -11871,6 +11984,8 @@
 			"ai.mcp.community": "no",
 			"ai.mcp.official": "yes",
 			"ai.mcp.server": "yes",
+			"cli.dropIn": "partial",
+			"cli.interactive": "yes",
 			"collab.comments": "yes",
 			"data.backup.builtin": "yes",
 			"data.backup.documented": "yes",
@@ -12155,6 +12270,7 @@
 		"go-task/task": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
+			"cli.interactive": "yes",
 			"ops.s3": "yes"
 		},
 		"go-vikunja/vikunja": {
@@ -12254,7 +12370,6 @@
 			"ai.mcp.server": "yes",
 			"auth.auditLog": "yes",
 			"auth.rbac": "yes",
-			"auth.sso": "yes",
 			"auth.sso.ldap": "yes",
 			"auth.sso.oidc": "yes",
 			"auth.teams": "yes",
@@ -12273,6 +12388,7 @@
 			"ops.subpath": "yes"
 		},
 		"gokcehan/lf": {
+			"cli.interactive": "yes",
 			"ops.armSupport": "yes"
 		},
 		"goksan/statusnook": {
@@ -12359,6 +12475,7 @@
 		},
 		"google/perfetto": {
 			"ai.features": "yes",
+			"cli.interactive": "yes",
 			"collab.share.publicLink": "partial",
 			"data.import.fromProprietary": "yes",
 			"ops.armSupport": "yes",
@@ -13405,6 +13522,8 @@
 			"ai.mcp.server": "no"
 		},
 		"ibara/oksh": {
+			"cli.dropIn": "yes",
+			"cli.interactive": "yes",
 			"ops.armSupport": "yes"
 		},
 		"ibericode/koko-analytics": {
@@ -13936,6 +14055,9 @@
 			"ai.mcp.community": "no",
 			"ai.mcp.official": "yes",
 			"ai.mcp.server": "yes",
+			"cli.output.json": "yes",
+			"cli.plugins": "yes",
+			"cli.shell.fish": "yes",
 			"collab.multiUser": "yes",
 			"ops.armSupport": "yes",
 			"ops.healthcheck": "yes",
@@ -14021,6 +14143,8 @@
 			"ops.armSupport": "yes"
 		},
 		"jetify-com/devbox": {
+			"cli.plugins": "yes",
+			"cli.shell.fish": "yes",
 			"data.telemetry.none": "no",
 			"ops.metrics": "yes",
 			"ops.s3": "yes"
@@ -14051,7 +14175,11 @@
 			"data.telemetry.none": "yes",
 			"ops.armSupport": "yes"
 		},
-		"jhawthorn/fzy": {},
+		"jhawthorn/fzy": {
+			"cli.dropIn": "yes",
+			"cli.interactive": "yes",
+			"cli.pipes": "yes"
+		},
 		"jhj0517/Whisper-WebUI": {
 			"data.api.rest": "yes",
 			"data.export.open": "yes",
@@ -14181,7 +14309,10 @@
 			"auth.teams": "no",
 			"data.telemetry.none": "yes"
 		},
-		"joe-editor/joe": {},
+		"joe-editor/joe": {
+			"cli.interactive": "yes",
+			"cli.pipes": "yes"
+		},
 		"joewalnes/websocketd": {},
 		"joh/when-changed": {
 			"i18n.multiLanguage": "no"
@@ -14255,6 +14386,7 @@
 			"ops.armSupport": "yes"
 		},
 		"jqlang/jq": {
+			"cli.pipes": "yes",
 			"i18n.multiLanguage": "no",
 			"ops.armSupport": "yes"
 		},
@@ -14273,7 +14405,9 @@
 			"i18n.multiLanguage": "yes"
 		},
 		"jscs-dev/node-jscs": {},
-		"jshint/jshint": {},
+		"jshint/jshint": {
+			"cli.pipes": "yes"
+		},
 		"jspm/jspm": {},
 		"jspsych/jsPsych": {
 			"ai.features": "yes",
@@ -14412,7 +14546,6 @@
 		},
 		"k0sproject/k0s": {
 			"auth.rbac": "yes",
-			"auth.sso": "yes",
 			"auth.sso.oidc": "yes",
 			"collab.multiUser": "yes",
 			"data.backup.builtin": "yes",
@@ -14455,6 +14588,7 @@
 			"ops.s3": "yes"
 		},
 		"kaelzhang/shell-safe-rm": {
+			"cli.dropIn": "yes",
 			"data.backup.documented": "yes"
 		},
 		"kaleidos-ventures/taiga": {
@@ -14551,7 +14685,9 @@
 			"ops.s3": "yes"
 		},
 		"karaoke-dev/karaoke": {},
-		"karma-runner/karma": {},
+		"karma-runner/karma": {
+			"cli.plugins": "yes"
+		},
 		"karrioapi/karrio": {
 			"ai.features": "yes",
 			"ai.mcp.community": "no",
@@ -14961,7 +15097,6 @@
 			"ai.mcp.official": "no",
 			"ai.mcp.server": "yes",
 			"auth.auditLog": "partial",
-			"auth.sso": "yes",
 			"auth.sso.oidc": "yes",
 			"auth.sso.saml": "yes",
 			"data.export.open": "partial",
@@ -15020,7 +15155,6 @@
 		"kubeshark/kubeshark": {
 			"ai.features": "yes",
 			"auth.rbac": "yes",
-			"auth.sso": "yes",
 			"auth.sso.oidc": "yes",
 			"auth.sso.saml": "yes",
 			"collab.multiUser": "yes",
@@ -15862,7 +15996,10 @@
 			"data.encryption.e2e": "yes",
 			"i18n.multiLanguage": "no"
 		},
-		"magicant/yash": {},
+		"magicant/yash": {
+			"cli.interactive": "yes",
+			"cli.pipes": "yes"
+		},
 		"magicmonty/bash-git-prompt": {},
 		"magit/magit": {
 			"cli.plugins": "yes"
@@ -15939,7 +16076,11 @@
 			"data.backup.builtin": "yes",
 			"i18n.multiLanguage": "yes"
 		},
-		"mamba-org/mamba": {},
+		"mamba-org/mamba": {
+			"cli.dropIn": "yes",
+			"cli.output.json": "yes",
+			"cli.shell.fish": "yes"
+		},
 		"manticoresoftware/manticoresearch": {
 			"ai.features": "yes",
 			"data.api.rest": "yes",
@@ -16023,8 +16164,11 @@
 		"martanne/abduco": {
 			"collab.multiUser": "yes"
 		},
-		"martanne/dvtm": {},
+		"martanne/dvtm": {
+			"cli.interactive": "yes"
+		},
 		"martanne/vis": {
+			"cli.pipes": "yes",
 			"data.encryption.e2e": "no",
 			"data.encryption.rest": "no",
 			"i18n.multiLanguage": "no"
@@ -16393,6 +16537,7 @@
 			"i18n.multiLanguage": "yes"
 		},
 		"michaelforney/samurai": {
+			"cli.dropIn": "yes",
 			"data.import.fromProprietary": "yes"
 		},
 		"michenriksen/gitrob": {
@@ -16478,6 +16623,9 @@
 		"mikefarah/yq": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
+			"cli.dropIn": "partial",
+			"cli.output.json": "yes",
+			"cli.pipes": "yes",
 			"data.export.open": "yes",
 			"i18n.multiLanguage": "no"
 		},
@@ -16766,6 +16914,7 @@
 			"i18n.multiLanguage": "yes"
 		},
 		"mookid/diffr": {
+			"cli.pipes": "yes",
 			"i18n.multiLanguage": "no"
 		},
 		"moonlight-stream/moonlight-qt": {
@@ -16864,6 +17013,7 @@
 		"mr-karan/doggo": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
+			"cli.output.json": "yes",
 			"ops.armSupport": "yes"
 		},
 		"mrdoob/three.js": {
@@ -16913,7 +17063,8 @@
 		},
 		"muesli/duf": {
 			"ai.features": "yes",
-			"ai.mcp.server": "no"
+			"ai.mcp.server": "no",
+			"cli.output.json": "yes"
 		},
 		"muety/wakapi": {
 			"auth.apiTokens": "yes",
@@ -16958,7 +17109,9 @@
 			"ops.armSupport": "yes",
 			"ops.healthcheck": "yes"
 		},
-		"mvdan/gofumpt": {},
+		"mvdan/gofumpt": {
+			"cli.dropIn": "yes"
+		},
 		"mwaskom/seaborn": {
 			"ai.features": "yes",
 			"ai.mcp.community": "yes",
@@ -17668,7 +17821,9 @@
 			"ops.metrics": "yes",
 			"ops.subpath": "yes"
 		},
-		"oberblastmeister/trashy": {},
+		"oberblastmeister/trashy": {
+			"cli.pipes": "yes"
+		},
 		"obiba/opal": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
@@ -17727,7 +17882,8 @@
 		},
 		"ogham/dog": {
 			"ai.features": "yes",
-			"ai.mcp.server": "no"
+			"ai.mcp.server": "no",
+			"cli.output.json": "yes"
 		},
 		"ogham/exa": {
 			"ops.armSupport": "yes"
@@ -18530,6 +18686,9 @@
 		"orbitalquark/textadept": {
 			"ai.features": "yes",
 			"ai.localModel": "yes",
+			"cli.interactive": "yes",
+			"cli.noTelemetry": "yes",
+			"cli.plugins": "yes",
 			"data.export.open": "yes",
 			"data.telemetry.none": "yes",
 			"i18n.multiLanguage": "yes"
@@ -19077,7 +19236,10 @@
 			"ops.armSupport": "yes",
 			"ops.s3": "yes"
 		},
-		"peco/peco": {},
+		"peco/peco": {
+			"cli.interactive": "yes",
+			"cli.pipes": "yes"
+		},
 		"peers/peerjs": {
 			"ops.subpath": "yes"
 		},
@@ -19686,6 +19848,8 @@
 		},
 		"posva/catimg": {},
 		"pouriyajamshidi/tcping": {
+			"cli.interactive": "yes",
+			"cli.output.json": "yes",
 			"data.export.open": "yes",
 			"ops.armSupport": "yes",
 			"ops.sqlite": "yes"
@@ -19805,7 +19969,6 @@
 		"project-zot/zot": {
 			"ai.features": "no",
 			"ai.mcp.server": "no",
-			"auth.sso": "yes",
 			"auth.sso.oidc": "yes",
 			"data.api.rest": "yes",
 			"ops.armSupport": "yes",
@@ -20060,11 +20223,15 @@
 			"ops.s3": "yes",
 			"ops.sqlite": "yes"
 		},
-		"pydoit/doit": {},
+		"pydoit/doit": {
+			"cli.plugins": "yes"
+		},
 		"pyinfra-dev/pyinfra": {},
 		"pyinvoke/invoke": {},
 		"pypa/flit": {},
 		"pypa/hatch": {
+			"cli.plugins": "yes",
+			"cli.shell.fish": "yes",
 			"i18n.multiLanguage": "no",
 			"ops.armSupport": "yes",
 			"ops.healthcheck": "yes"
@@ -20175,7 +20342,6 @@
 		"quay/quay": {
 			"auth.auditLog": "yes",
 			"auth.rbac": "yes",
-			"auth.sso": "yes",
 			"auth.sso.ldap": "yes",
 			"auth.sso.oauth2": "yes",
 			"auth.sso.oidc": "yes",
@@ -20432,7 +20598,10 @@
 			"ops.s3": "yes",
 			"ops.smtp": "yes"
 		},
-		"release-it/release-it": {},
+		"release-it/release-it": {
+			"cli.interactive": "yes",
+			"cli.plugins": "yes"
+		},
 		"remarkjs/remark": {},
 		"remonalbear/CMMS": {
 			"auth.local": "yes"
@@ -20668,7 +20837,9 @@
 			"i18n.multiLanguage": "no",
 			"ops.smtp": "yes"
 		},
-		"rkitover/vimpager": {},
+		"rkitover/vimpager": {
+			"cli.pipes": "yes"
+		},
 		"rlidwka/sinopia": {
 			"auth.local": "yes",
 			"auth.rbac": "yes",
@@ -20747,7 +20918,9 @@
 		"roskakori/pygount": {
 			"data.export.open": "yes"
 		},
-		"rostedt/trace-cmd": {},
+		"rostedt/trace-cmd": {
+			"cli.plugins": "yes"
+		},
 		"roundcube/roundcubemail": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
@@ -20763,7 +20936,9 @@
 			"ops.smtp": "yes"
 		},
 		"royhills/arp-scan": {},
-		"rpm-software-management/dnf": {},
+		"rpm-software-management/dnf": {
+			"cli.plugins": "yes"
+		},
 		"rpm-software-management/dnf5": {
 			"i18n.multiLanguage": "yes"
 		},
@@ -20779,7 +20954,8 @@
 		},
 		"rs/curlie": {
 			"ai.features": "yes",
-			"ai.mcp.server": "no"
+			"ai.mcp.server": "no",
+			"cli.interactive": "yes"
 		},
 		"rsc/2fa": {
 			"auth.mfa.totp": "yes",
@@ -20826,6 +21002,8 @@
 			"ops.smtp": "yes"
 		},
 		"rtfpessoa/diff2html-cli": {
+			"cli.output.json": "yes",
+			"cli.pipes": "yes",
 			"data.export.open": "yes"
 		},
 		"ruby/rake": {},
@@ -21036,7 +21214,9 @@
 			"ops.healthcheck": "yes",
 			"ops.postgres": "yes"
 		},
-		"sahib/rmlint": {},
+		"sahib/rmlint": {
+			"cli.interactive": "no"
+		},
 		"sakaiproject/sakai": {
 			"auth.rbac": "yes",
 			"i18n.multiLanguage": "yes"
@@ -21096,6 +21276,7 @@
 		"santinic/how2": {
 			"ai.features": "yes",
 			"ai.optional": "yes",
+			"cli.interactive": "yes",
 			"data.telemetry.none": "no",
 			"ops.armSupport": "yes"
 		},
@@ -21591,7 +21772,9 @@
 			"i18n.multiLanguage": "yes",
 			"ops.healthcheck": "yes"
 		},
-		"simonw/csv-diff": {},
+		"simonw/csv-diff": {
+			"cli.output.json": "yes"
+		},
 		"simonw/datasette": {
 			"auth.anonymous": "yes",
 			"auth.apiTokens": "yes",
@@ -21970,8 +22153,11 @@
 			"ops.smtp": "yes",
 			"ops.sqlite": "yes"
 		},
-		"spaceship-prompt/spaceship-prompt": {},
+		"spaceship-prompt/spaceship-prompt": {
+			"cli.plugins": "yes"
+		},
 		"spack/spack": {
+			"cli.shell.fish": "yes",
 			"collab.multiUser": "yes"
 		},
 		"specklesystems/speckle-server": {
@@ -22615,6 +22801,8 @@
 		},
 		"swsnr/mdcat": {},
 		"sxyazi/yazi": {
+			"cli.interactive": "yes",
+			"cli.plugins": "yes",
 			"ops.armSupport": "yes"
 		},
 		"sybrew/the-seo-framework": {
@@ -22815,6 +23003,7 @@
 			"ops.sqlite": "yes"
 		},
 		"tealdeer-rs/tealdeer": {
+			"cli.dropIn": "yes",
 			"ops.armSupport": "yes"
 		},
 		"teamhanko/hanko": {
@@ -23013,6 +23202,7 @@
 		},
 		"tidalcycles/Tidal": {},
 		"tidwall/jj": {
+			"cli.pipes": "yes",
 			"data.export.full": "yes",
 			"data.export.open": "yes",
 			"i18n.multiLanguage": "no"
@@ -23082,6 +23272,7 @@
 		},
 		"tldr-pages/tldr-python-client": {},
 		"tldr-pages/tlrc": {
+			"cli.plugins": "no",
 			"ops.armSupport": "yes"
 		},
 		"tldraw/tldraw": {
@@ -23098,6 +23289,7 @@
 			"ops.sqlite": "yes"
 		},
 		"tmate-io/tmate": {
+			"cli.interactive": "yes",
 			"collab.multiUser": "yes",
 			"data.webhooks": "yes",
 			"i18n.multiLanguage": "no",
@@ -23781,6 +23973,8 @@
 			"ops.armSupport": "yes"
 		},
 		"uutils/findutils": {
+			"cli.dropIn": "yes",
+			"cli.interactive": "partial",
 			"ops.armSupport": "yes"
 		},
 		"uvdesk/community-skeleton": {
@@ -23903,6 +24097,7 @@
 			"auth.rbac.granular": "yes",
 			"auth.sso.ldap": "yes",
 			"auth.teams": "yes",
+			"cli.plugins": "yes",
 			"collab.multiUser": "yes",
 			"collab.share.internal": "yes",
 			"data.webhooks": "yes",
@@ -24039,11 +24234,15 @@
 			"collab.multiUser": "yes"
 		},
 		"volitank/nala": {
+			"cli.interactive": "yes",
+			"cli.output.json": "yes",
+			"cli.plugins": "no",
 			"i18n.multiLanguage": "yes"
 		},
 		"volta-cli/volta": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
+			"cli.shell.fish": "yes",
 			"ops.armSupport": "yes"
 		},
 		"voxel51/fiftyone": {
@@ -24129,6 +24328,7 @@
 			"ai.mcp.community": "yes",
 			"ai.mcp.official": "no",
 			"ai.mcp.server": "yes",
+			"cli.interactive": "yes",
 			"i18n.multiLanguage": "no"
 		},
 		"wallabag/wallabag": {
@@ -24151,6 +24351,8 @@
 			"ops.sqlite": "yes"
 		},
 		"walles/moor": {
+			"cli.interactive": "yes",
+			"cli.pipes": "yes",
 			"ops.armSupport": "yes"
 		},
 		"wallix/awless": {
@@ -24552,7 +24754,8 @@
 		},
 		"wting/autojump": {
 			"ai.features": "yes",
-			"ai.mcp.server": "no"
+			"ai.mcp.server": "no",
+			"cli.shell.fish": "yes"
 		},
 		"wummel/linkchecker": {
 			"data.export.open": "yes"
@@ -24631,6 +24834,9 @@
 			"ops.sqlite": "yes"
 		},
 		"xonsh/xonsh": {
+			"cli.interactive": "yes",
+			"cli.pipes": "yes",
+			"cli.plugins": "yes",
 			"i18n.multiLanguage": "no"
 		},
 		"xorbitsai/inference": {
@@ -24673,11 +24879,15 @@
 		},
 		"xyproto/wallutils": {},
 		"yamafaktory/jql": {
+			"cli.output.json": "yes",
+			"cli.pipes": "yes",
 			"data.export.open": "yes",
 			"i18n.multiLanguage": "no",
 			"ops.armSupport": "yes"
 		},
-		"yarnpkg/berry": {},
+		"yarnpkg/berry": {
+			"cli.plugins": "yes"
+		},
 		"yarnpkg/yarn": {
 			"auth.mfa.webauthn": "yes"
 		},
@@ -24704,6 +24914,8 @@
 		},
 		"yonaskolb/XcodeGen": {},
 		"yorukot/superfile": {
+			"cli.interactive": "yes",
+			"cli.plugins": "yes",
 			"data.telemetry.none": "no",
 			"ops.armSupport": "yes"
 		},
@@ -24833,6 +25045,9 @@
 			"ai.mcp.community": "yes",
 			"ai.mcp.official": "no",
 			"ai.mcp.server": "yes",
+			"cli.interactive": "yes",
+			"cli.noTelemetry": "yes",
+			"cli.plugins": "yes",
 			"collab.multiUser": "yes",
 			"data.telemetry.none": "yes",
 			"i18n.multiLanguage": "no",
@@ -24868,6 +25083,8 @@
 			"data.encryption.e2e": "yes"
 		},
 		"zevv/duc": {
+			"cli.interactive": "yes",
+			"cli.output.json": "yes",
 			"data.export.open": "yes"
 		},
 		"zevv/lsofgraph": {},
