@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.0.7](https://github.com/canireplaceit/canireplaceit/compare/v0.0.6...v0.0.7) (2026-09-13)
+
+
+### chore
+
+* **release:** 0.0.7 ([7633be7](https://github.com/canireplaceit/canireplaceit/commit/7633be7a00f65f8c168906e14716882ff8f85e96))
+
+
+### Features
+
+* **site:** a submit form that emails the maintainer ([d93afdd](https://github.com/canireplaceit/canireplaceit/commit/d93afddb7944de5401cb18e5adba7e3ce9b3e0cf))
+
+
+### Bug Fixes
+
+* **deploy:** redirect the five merged product slugs ([5eb76e6](https://github.com/canireplaceit/canireplaceit/commit/5eb76e6b060b425b1ec6e1d15640de76dad132fc))
+
 ## [0.0.6](https://github.com/canireplaceit/canireplaceit/compare/v0.0.5...v0.0.6) (2026-08-25)
 
 
