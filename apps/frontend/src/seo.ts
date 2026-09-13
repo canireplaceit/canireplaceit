@@ -2103,11 +2103,11 @@ export const standingMeta = (
 		submit: {
 			en: [
 				"Submit a product or an alternative",
-				"Every entry is one JSON file in a public repo. No form, no account: open a pull request and it ships on the next deploy.",
+				"Know a free or cheaper app that replaces a paid one? Send it through a short form. No account and no GitHub needed.",
 			],
 			fr: [
 				"Proposer un produit ou une alternative",
-				"Chaque entrée est un fichier JSON dans un dépôt public. Sans formulaire ni compte : ouvrez une pull request et ça part au prochain déploiement.",
+				"Vous connaissez une appli gratuite ou moins chère qui remplace un logiciel payant ? Envoyez-la via un court formulaire, sans compte ni GitHub.",
 			],
 		},
 		// No postal address and no phone number in the markup: neither exists on

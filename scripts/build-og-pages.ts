@@ -1714,8 +1714,8 @@ async function submitCard(lang: Lang): Promise<string> {
 
 	const title = T(lang, "submit.title");
 	// Three lines, because the French blurb runs one line longer than the English
-	// and losing its last clause loses the point: no form, no account, open a
-	// pull request. The third baseline sits 16px clear of the button below it.
+	// and losing its last clause loses the point. The third baseline sits 16px
+	// clear of the button below it.
 	const blurb = wrap(T(lang, "submit.blurb"), 760, 25, 3);
 	const url = `${SITE}${alternateUrls({ name: "submit", lang })[lang]}`;
 	const cta = pill(80, 344, url, {

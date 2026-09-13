@@ -1070,8 +1070,8 @@ const Channel = ({
 const contactLink =
 	"rounded-[calc(var(--radius))] border border-border px-4 py-2 text-sm hover:border-[color-mix(in_srgb,var(--brand)_50%,var(--color-border))]";
 
-// `/{lang}/contact`. Routes to the repo and existing sponsor/submit pages
-// rather than a form — there is no message endpoint that isn't a sales lead.
+// `/{lang}/contact`. Routes to the repo and the sponsor/submit pages rather
+// than a form of its own; the submit page carries the one message form.
 export function ContactSection({ t, lang }: { t: T; lang: Lang }) {
 	return (
 		<Section
@@ -1162,8 +1162,30 @@ export function ContactSection({ t, lang }: { t: T; lang: Lang }) {
 	);
 }
 
-/** Contributions go through GitHub, so there is no moderation queue to build. */
+const label = "grid gap-1.5 text-sm font-medium";
+
+/**
+ * A plain form for readers who have never opened a pull request: it mails the
+ * maintainer through `/api/suggest`, and nothing is stored. The GitHub routes
+ * stay underneath for those who have.
+ */
 export function SubmitSection({ t, lang }: { t: T; lang: Lang }) {
+	const [state, send] = useSubmit(api.suggest);
+
+	const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+		// Trimmed, and blanks dropped, so an empty optional link is absent, not "".
+		const body: Record<string, string> = {};
+		new FormData(e.currentTarget).forEach((v, k) => {
+			const s = String(v).trim();
+			if (s) body[k] = s;
+		});
+		// "appflowy.io" is how most people write a link; the API wants a scheme.
+		if (body.link && !/^https?:\/\//i.test(body.link))
+			body.link = `https://${body.link}`;
+		void send(body);
+	};
+
 	return (
 		<Section
 			id="submit"
@@ -1176,13 +1198,119 @@ export function SubmitSection({ t, lang }: { t: T; lang: Lang }) {
 				{ label: t("nav.submit") },
 			]}
 		>
-			<div className="mt-6 flex flex-wrap gap-3">
+			{state === "done" ? (
+				<div
+					role="status"
+					className="mt-6 max-w-2xl rounded-[calc(var(--radius))] border border-border p-5 text-sm"
+					style={{
+						background: "color-mix(in srgb, var(--brand) 6%, transparent)",
+					}}
+				>
+					<p className="font-medium">{t("submit.sentTitle")}</p>
+					<p className="mt-2 text-muted">{t("submit.sentBody")}</p>
+				</div>
+			) : (
+				<form onSubmit={onSubmit} className="mt-6 grid max-w-2xl gap-4">
+					<label className={label}>
+						{t("submit.email")}
+						<input
+							name="email"
+							type="email"
+							required
+							autoComplete="email"
+							maxLength={320}
+							className={field}
+						/>
+						<span className="font-normal text-muted text-xs">
+							{t("submit.emailHint")}
+						</span>
+					</label>
+					<label className={label}>
+						{t("submit.subject")}
+						<input
+							name="title"
+							required
+							maxLength={200}
+							placeholder={t("submit.subjectPh")}
+							className={field}
+						/>
+					</label>
+					<div className="grid gap-4 sm:grid-cols-2">
+						<label className={label}>
+							{t("submit.replaces")}
+							<input
+								name="replaces"
+								required
+								maxLength={200}
+								placeholder={t("submit.replacesPh")}
+								className={field}
+							/>
+						</label>
+						<label className={label}>
+							<span>
+								{t("submit.link")}{" "}
+								<span className="font-normal text-muted">
+									({t("submit.optional")})
+								</span>
+							</span>
+							<input
+								name="link"
+								inputMode="url"
+								maxLength={2000}
+								placeholder="https://"
+								className={field}
+							/>
+						</label>
+					</div>
+					<label className={label}>
+						{t("submit.description")}
+						<textarea
+							name="description"
+							required
+							rows={6}
+							maxLength={5000}
+							placeholder={t("submit.descriptionPh")}
+							className={field}
+						/>
+					</label>
+					<button
+						type="submit"
+						disabled={state === "sending"}
+						className={`${button} justify-self-start`}
+						style={{ background: "var(--v-yes)", color: "var(--bg)" }}
+					>
+						{state === "sending" ? t("submit.sending") : t("submit.send")}
+					</button>
+					{state === "error" && (
+						<p
+							role="alert"
+							className="text-sm"
+							style={{ color: "var(--v-no)" }}
+						>
+							{t("form.error")}
+							{CONTACT_EMAIL && (
+								<>
+									{" "}
+									{t("submit.orEmail")}{" "}
+									<a href={`mailto:${CONTACT_EMAIL}`} className="underline">
+										{CONTACT_EMAIL}
+									</a>
+								</>
+							)}
+						</p>
+					)}
+				</form>
+			)}
+
+			<p className="mt-10 border-border border-t pt-6 text-muted text-sm">
+				{t("submit.githubTitle")}
+			</p>
+			<div className="mt-3 flex flex-wrap gap-3">
 				<a
 					href={`${REPO}/new/main/data/products`}
 					target="_blank"
 					rel="noopener"
-					className={button}
-					style={{ background: "var(--v-yes)", color: "var(--bg)" }}
+					className="rounded-[calc(var(--radius))] border border-border px-5 py-2.5 text-sm"
 				>
 					{t("submit.addProduct")}
 				</a>

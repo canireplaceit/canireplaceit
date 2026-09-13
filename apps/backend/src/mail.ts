@@ -12,6 +12,7 @@ export type MailMessage = {
 	html: string;
 	/** Required: an HTML-only link is invisible in a text-only client and scores as spam. */
 	text: string;
+	replyTo?: string;
 };
 
 export type Mailer = {
@@ -60,6 +61,7 @@ class SmtpMailer implements Mailer {
 				subject: m.subject,
 				html: m.html,
 				text: m.text,
+				replyTo: m.replyTo,
 			});
 			return true;
 		} catch (e) {
@@ -75,7 +77,11 @@ export const mailer: Mailer = env.smtp
 	: new ConsoleMailer();
 
 const esc = (s: string): string =>
-	s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+	s
+		.replace(/&/g, "&amp;")
+		.replace(/</g, "&lt;")
+		.replace(/>/g, "&gt;")
+		.replace(/"/g, "&quot;");
 
 const MONO =
 	"font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;";
@@ -254,4 +260,32 @@ export function invitedMail(o: {
 		`</div>`;
 
 	return { to: "", subject, html, text };
+}
+
+// To the maintainer, from the submit form. Every field is a stranger's free text, so all of it is escaped, and Reply-To is the sender so answering is one click.
+export function suggestionMail(o: {
+	email: string;
+	title: string;
+	replaces: string;
+	description: string;
+	link?: string;
+}): MailMessage {
+	const subject = `Suggestion: ${o.title.replace(/\s+/g, " ")}`;
+	const text =
+		`From: ${o.email}\nReplaces: ${o.replaces}\nLink: ${o.link ?? "none"}\n\n` +
+		`${o.description}\n\nReply to this email to answer them.\n`;
+
+	const row = (k: string, v: string) =>
+		`<p style="margin:4px 0"><span style="color:#6b6f6a">${k}</span> ${v}</p>`;
+	const html =
+		`<div style="${MONO}font-size:14px;line-height:1.6;color:#171a17;max-width:520px">` +
+		`<p style="font-weight:700;font-size:15px">${esc(o.title)}</p>` +
+		row("From", esc(o.email)) +
+		row("Replaces", esc(o.replaces)) +
+		(o.link ? row("Link", `<a href="${esc(o.link)}">${esc(o.link)}</a>`) : "") +
+		`<p style="white-space:pre-wrap">${esc(o.description)}</p>` +
+		`<p style="color:#6b6f6a">Reply to this email to answer them.</p>` +
+		`</div>`;
+
+	return { to: "", subject, html, text, replyTo: o.email };
 }

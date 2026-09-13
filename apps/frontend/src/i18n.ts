@@ -766,7 +766,26 @@ export const dict = {
 		"submit.eyebrow": "Contribute",
 		"submit.title": "Something missing?",
 		"submit.blurb":
-			"Every product is one JSON file in the repo. There is no form and no account. Open a pull request and it ships on the next deploy.",
+			"Know a free or cheaper app that replaces a paid one? Tell us about it below. No account needed, and we read every message.",
+		"submit.email": "Your email",
+		"submit.emailHint": "Only so we can reply. It is never published.",
+		"submit.subject": "Title",
+		"submit.subjectPh": "e.g. AppFlowy, a free Notion alternative",
+		"submit.replaces": "What does it replace?",
+		"submit.replacesPh": "e.g. Notion",
+		"submit.link": "Link",
+		"submit.optional": "optional",
+		"submit.description": "Description",
+		"submit.descriptionPh":
+			"What it does, why it is a good replacement, or what we got wrong. Plain words are fine.",
+		"submit.send": "Send",
+		"submit.sending": "Sending…",
+		"submit.sentTitle": "Thanks, we got it",
+		"submit.sentBody":
+			"If we have a question, we will reply to the address you gave.",
+		"submit.orEmail": "You can also write to us at",
+		"submit.githubTitle":
+			"Know your way around GitHub? You can add it yourself.",
 		"submit.addProduct": "Add a product",
 		"submit.openIssue": "Challenge a verdict",
 		"submit.contributing": "How to contribute",
@@ -1037,7 +1056,7 @@ export const dict = {
 
 		"contact.submit.title": "A product or an alternative is missing",
 		"contact.submit.body":
-			"Adding an entry has its own page, with the file format and what a good entry has to carry.",
+			"Suggesting one has its own page, with a short form that emails us. No account needed.",
 
 		"contact.sponsor.title": "Sponsorship and advertising",
 		"contact.sponsor.body":
@@ -1782,7 +1801,26 @@ export const dict = {
 		"submit.eyebrow": "Contribuer",
 		"submit.title": "Il manque quelque chose ?",
 		"submit.blurb":
-			"Chaque produit est un fichier JSON dans le dépôt. Ni formulaire ni compte. Ouvrez une pull request et c’est en ligne au prochain déploiement.",
+			"Vous connaissez une appli gratuite ou moins chère qui remplace un logiciel payant ? Dites-le-nous ci-dessous. Sans compte, et nous lisons chaque message.",
+		"submit.email": "Votre e-mail",
+		"submit.emailHint": "Uniquement pour vous répondre. Jamais publié.",
+		"submit.subject": "Titre",
+		"submit.subjectPh": "ex. AppFlowy, une alternative gratuite à Notion",
+		"submit.replaces": "Qu’est-ce que ça remplace ?",
+		"submit.replacesPh": "ex. Notion",
+		"submit.link": "Lien",
+		"submit.optional": "facultatif",
+		"submit.description": "Description",
+		"submit.descriptionPh":
+			"Ce que ça fait, pourquoi c’est un bon remplaçant, ou ce que nous avons mal noté. Pas besoin de jargon.",
+		"submit.send": "Envoyer",
+		"submit.sending": "Envoi…",
+		"submit.sentTitle": "Merci, c’est reçu",
+		"submit.sentBody":
+			"Si nous avons une question, nous répondrons à l’adresse indiquée.",
+		"submit.orEmail": "Vous pouvez aussi nous écrire à",
+		"submit.githubTitle":
+			"À l’aise avec GitHub ? Vous pouvez l’ajouter vous-même.",
 		"submit.addProduct": "Ajouter un produit",
 		"submit.openIssue": "Contester un verdict",
 		"submit.contributing": "Comment contribuer",
@@ -2061,7 +2099,7 @@ export const dict = {
 
 		"contact.submit.title": "Un produit ou une alternative manque",
 		"contact.submit.body":
-			"Ajouter une entrée a sa propre page, avec le format du fichier et ce qu’une bonne entrée doit contenir.",
+			"Proposer une entrée a sa propre page, avec un court formulaire qui nous envoie un e-mail. Aucun compte nécessaire.",
 
 		"contact.sponsor.title": "Sponsoring et publicité",
 		"contact.sponsor.body":

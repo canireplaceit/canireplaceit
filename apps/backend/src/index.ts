@@ -63,7 +63,13 @@ import {
 	readLogo,
 	storeLogo,
 } from "./logos";
-import { invitedMail, mailer, paidMail, signInMail } from "./mail";
+import {
+	invitedMail,
+	mailer,
+	paidMail,
+	signInMail,
+	suggestionMail,
+} from "./mail";
 import { conflictingSlots, occupancy, type PurchaseRow } from "./occupancy";
 import { paymentProvider } from "./payments";
 import { rebuild, rebuildState, startRebuildWorker } from "./rebuild";
@@ -1056,6 +1062,31 @@ const app = new Elysia()
 			body: t.Object({
 				email: t.String({ format: "email" }),
 				slotId: t.Optional(t.String({ maxLength: 80 })),
+			}),
+		},
+	)
+
+	/** The submit page's form, mailed to SITE_ADMIN with Reply-To set to the sender. Nothing is stored. Capped per IP like the waitlist, since every call lands in a real inbox. Awaited, unlike sign-in: there is nothing to leak, and the form offers the plain address when this fails. */
+	.post(
+		"/api/suggest",
+		async ({ body, headers, server, request, status }) => {
+			const to = env.siteAdmins.join(",");
+			if (!to) return status(503, { error: "no one to send it to" });
+			const ip = clientIp(headers, server?.requestIP(request)?.address);
+			if (await overWriteLimit("suggest", ip))
+				return status(429, { error: "too many requests, try again later" });
+			const sent = await mailer.send({ ...suggestionMail(body), to });
+			return sent ? { ok: true } : status(502, { error: "mail failed" });
+		},
+		{
+			body: t.Object({
+				email: t.String({ format: "email", maxLength: 320 }),
+				title: t.String({ minLength: 1, maxLength: 200 }),
+				replaces: t.String({ minLength: 1, maxLength: 200 }),
+				description: t.String({ minLength: 1, maxLength: 5000 }),
+				link: t.Optional(
+					t.String({ pattern: "^https?://\\S+$", maxLength: 2000 }),
+				),
 			}),
 		},
 	)

@@ -727,6 +727,9 @@ export const api = {
 	/** Always resolves, whether or not the address is a customer. */
 	requestSignIn: (email: string) =>
 		post("/api/auth/request", OkSchema, { email }),
+	/** The submit form: email, title, replaces, description, optional link. */
+	suggest: (body: Record<string, unknown>) =>
+		post("/api/suggest", OkSchema, body),
 	me: () => req("/api/me", z.object({ email: z.string() })),
 	campaigns: () =>
 		req("/api/me/campaigns", CampaignsSchema, { cache: "no-store" }),
