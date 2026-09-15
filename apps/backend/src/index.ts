@@ -1003,7 +1003,12 @@ const app = new Elysia()
 			]);
 
 			const { trust, reasons } = scoreVote({
-				humanVerified: await verifyTurnstile(body.token, ip),
+				// No vote button sends a token yet, so a missing one stays "not checked"
+				// rather than "failed": TURNSTILE_SECRET exists for the submit form, and
+				// setting it must not zero every vote on the site.
+				humanVerified: body.token
+					? await verifyTurnstile(body.token, ip)
+					: null,
 				networkVotesToday: net.n,
 				clientVotesToday: client.n,
 				datacenter: isDatacenter(headers),
@@ -1075,6 +1080,10 @@ const app = new Elysia()
 			const ip = clientIp(headers, server?.requestIP(request)?.address);
 			if (await overWriteLimit("suggest", ip))
 				return status(429, { error: "too many requests, try again later" });
+			// Enforced only once TURNSTILE_SECRET is set. `null` is Cloudflare being
+			// unreachable, which must not turn a real person away.
+			if ((await verifyTurnstile(body["cf-turnstile-response"], ip)) === false)
+				return status(403, { error: "human check failed" });
 			const sent = await mailer.send({ ...suggestionMail(body), to });
 			return sent ? { ok: true } : status(502, { error: "mail failed" });
 		},
@@ -1084,6 +1093,8 @@ const app = new Elysia()
 				title: t.String({ minLength: 1, maxLength: 200 }),
 				replaces: t.String({ minLength: 1, maxLength: 200 }),
 				description: t.String({ minLength: 1, maxLength: 5000 }),
+				/** Cloudflare Turnstile's token; see the check in the handler. */
+				"cf-turnstile-response": t.Optional(t.String({ maxLength: 4000 })),
 				link: t.Optional(
 					t.String({ pattern: "^https?://\\S+$", maxLength: 2000 }),
 				),

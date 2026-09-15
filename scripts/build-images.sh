@@ -47,6 +47,7 @@ PUBLIC_API_URL="${PUBLIC_API_URL:-}"
 # site with no analytics rather than a 404 on all 3,052 pages.
 PUBLIC_UMAMI_WEBSITE_ID="${PUBLIC_UMAMI_WEBSITE_ID:-}"
 PUBLIC_UMAMI_SRC="${PUBLIC_UMAMI_SRC:-/u/script.js}"
+PUBLIC_TURNSTILE_SITE_KEY="${PUBLIC_TURNSTILE_SITE_KEY:-}"
 
 # A same-origin tracker src is served by the edge nginx, not by this image, and
 # nothing here can see that file. Say so, because the failure is invisible: an
@@ -116,7 +117,8 @@ docker build -f apps/frontend/Dockerfile -t "$FE:fat" . \
 	--build-arg "SITE_URL=$SITE_URL" \
 	--build-arg "PUBLIC_API_URL=$PUBLIC_API_URL" \
 	--build-arg "PUBLIC_UMAMI_WEBSITE_ID=$PUBLIC_UMAMI_WEBSITE_ID" \
-	--build-arg "PUBLIC_UMAMI_SRC=$PUBLIC_UMAMI_SRC"
+	--build-arg "PUBLIC_UMAMI_SRC=$PUBLIC_UMAMI_SRC" \
+	--build-arg "PUBLIC_TURNSTILE_SITE_KEY=$PUBLIC_TURNSTILE_SITE_KEY"
 # busybox is the only thing in this image that can speak HTTP, and /usr/bin/wget
 # is a symlink to it. Slim keeps the symlink and drops the target, which leaves a
 # healthcheck that can never pass — see compose.prod.yml.

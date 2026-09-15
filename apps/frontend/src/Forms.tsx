@@ -1164,6 +1164,18 @@ export function ContactSection({ t, lang }: { t: T; lang: Lang }) {
 
 const label = "grid gap-1.5 text-sm font-medium";
 
+/** Baked in at build time. Without it the submit form shows no human check. */
+const TURNSTILE_SITE_KEY: string | undefined = import.meta.env
+	.PUBLIC_TURNSTILE_SITE_KEY;
+const TURNSTILE_SRC =
+	"https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+type Turnstile = {
+	render: (el: HTMLElement, o: { sitekey: string }) => string;
+	reset: () => void;
+};
+const turnstile = () =>
+	(window as unknown as { turnstile?: Turnstile }).turnstile;
+
 /**
  * A plain form for readers who have never opened a pull request: it mails the
  * maintainer through `/api/suggest`, and nothing is stored. The GitHub routes
@@ -1171,6 +1183,31 @@ const label = "grid gap-1.5 text-sm font-medium";
  */
 export function SubmitSection({ t, lang }: { t: T; lang: Lang }) {
 	const [state, send] = useSubmit(api.suggest);
+	const widget = useRef<HTMLDivElement>(null);
+
+	// The widget renders into `widget` and adds its token to the form as
+	// `cf-turnstile-response`, which the FormData below picks up.
+	useEffect(() => {
+		const el = widget.current;
+		if (!TURNSTILE_SITE_KEY || !el) return;
+		const sitekey = TURNSTILE_SITE_KEY;
+		const render = () => turnstile()?.render(el, { sitekey });
+		if (turnstile()) {
+			render();
+			return;
+		}
+		const script =
+			document.querySelector<HTMLScriptElement>(
+				`script[src="${TURNSTILE_SRC}"]`,
+			) ??
+			document.head.appendChild(
+				Object.assign(document.createElement("script"), {
+					src: TURNSTILE_SRC,
+					async: true,
+				}),
+			);
+		script.addEventListener("load", render, { once: true });
+	}, []);
 
 	const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
@@ -1184,6 +1221,8 @@ export function SubmitSection({ t, lang }: { t: T; lang: Lang }) {
 		if (body.link && !/^https?:\/\//i.test(body.link))
 			body.link = `https://${body.link}`;
 		void send(body);
+		// A token is single-use, so the next attempt needs a fresh one.
+		turnstile()?.reset();
 	};
 
 	return (
@@ -1273,6 +1312,7 @@ export function SubmitSection({ t, lang }: { t: T; lang: Lang }) {
 							className={field}
 						/>
 					</label>
+					{TURNSTILE_SITE_KEY && <div ref={widget} />}
 					<button
 						type="submit"
 						disabled={state === "sending"}

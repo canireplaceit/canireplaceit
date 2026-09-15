@@ -14,10 +14,12 @@ ARG PUBLIC_API_URL=""
 ARG DEV_MODE=false
 ARG PUBLIC_UMAMI_WEBSITE_ID=""
 ARG PUBLIC_UMAMI_SRC="/u/script.js"
+ARG PUBLIC_TURNSTILE_SITE_KEY=""
 ENV SITE_URL=$SITE_URL
 ENV PUBLIC_API_URL=$PUBLIC_API_URL
 ENV PUBLIC_UMAMI_WEBSITE_ID=$PUBLIC_UMAMI_WEBSITE_ID
 ENV PUBLIC_UMAMI_SRC=$PUBLIC_UMAMI_SRC
+ENV PUBLIC_TURNSTILE_SITE_KEY=$PUBLIC_TURNSTILE_SITE_KEY
 RUN if [ "$DEV_MODE" = "true" ]; then NODE_ENV=development bun run build; else bun run build; fi
 # The retired-address map front.conf includes, built from data/redirects.json.
 RUN bun scripts/nginx-redirects.ts > /app/redirects.map

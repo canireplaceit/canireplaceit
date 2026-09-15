@@ -69,6 +69,7 @@ jobs:
         env:
           SITE_URL: https://${{ vars.SITE_DOMAIN }}
           PUBLIC_UMAMI_WEBSITE_ID: ${{ vars.PUBLIC_UMAMI_WEBSITE_ID }}
+          PUBLIC_TURNSTILE_SITE_KEY: ${{ vars.PUBLIC_TURNSTILE_SITE_KEY }}
           TAG: ${{ steps.v.outputs.version }}
         run: ./scripts/build-images.sh
 
