@@ -249,3 +249,28 @@ describe("discovery", () => {
 		for (const path of advertised) expect(documented).toContain(path);
 	});
 });
+
+describe("retired addresses", () => {
+	// The same data/redirects.json the site serves as 301s, so an agent holding an
+	// old id lands on what replaced it instead of a 404.
+	const raw = (path: string) =>
+		api.handle(
+			new Request(`http://localhost/api/v1${path}`, {
+				headers: { "x-forwarded-for": "10.0.1.1" },
+			}),
+		);
+
+	test("a retired tool address redirects and keeps the query", async () => {
+		const res = await raw("/projects/plausible?lang=fr");
+		expect(res.status).toBe(301);
+		expect(res.headers.get("location")).toEndWith(
+			"/api/v1/projects/plausible-analytics?lang=fr",
+		);
+	});
+
+	test("a retired product address redirects", async () => {
+		const res = await raw("/products/man-pages");
+		expect(res.status).toBe(301);
+		expect(res.headers.get("location")).toEndWith("/api/v1/products/man");
+	});
+});

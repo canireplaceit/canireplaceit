@@ -156,7 +156,14 @@ function load() {
 		join(DATA, "project-slugs.json"),
 	).slugs;
 
-	return { categories, products, slots, projectSlugs };
+	// Retired product and tool addresses. The API answers them with a 301, as the
+	// site does; see scripts/nginx-redirects.ts.
+	const redirects = read<{
+		products: Record<string, string>;
+		projects: Record<string, string>;
+	}>(join(DATA, "redirects.json"));
+
+	return { categories, products, slots, projectSlugs, redirects };
 }
 
 export const content = load();

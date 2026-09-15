@@ -749,24 +749,34 @@ export const publicApi = new Elysia({ prefix: "/api/v1" })
 		);
 	})
 
-	.get("/products/:slug", async ({ params, query, status }) => {
-		const product = productBySlug.get(params.slug);
-		if (!product)
-			return status(404, {
-				error: "no such product",
-				slug: params.slug,
-				search: apiUrl("search"),
-			});
-		const lang = langOf(query as Query);
-		const [switched, switchedTo] = await Promise.all([
-			voteCounts(),
-			projectCounts(),
-		]);
-		return {
-			...shapeProductDetail(product, lang, switched, switchedTo),
-			license: LICENSE,
-		};
-	})
+	.get(
+		"/products/:slug",
+		async ({ params, query, status, redirect, request }) => {
+			const product = productBySlug.get(params.slug);
+			// A retired address, from the same list the site answers with a 301.
+			const moved = content.redirects.products[params.slug];
+			if (!product && moved)
+				return redirect(
+					`${apiUrl(`products/${moved}`)}${new URL(request.url).search}`,
+					301,
+				);
+			if (!product)
+				return status(404, {
+					error: "no such product",
+					slug: params.slug,
+					search: apiUrl("search"),
+				});
+			const lang = langOf(query as Query);
+			const [switched, switchedTo] = await Promise.all([
+				voteCounts(),
+				projectCounts(),
+			]);
+			return {
+				...shapeProductDetail(product, lang, switched, switchedTo),
+				license: LICENSE,
+			};
+		},
+	)
 
 	.get("/projects", async ({ query }) => {
 		const q = query as Query;
@@ -793,21 +803,30 @@ export const publicApi = new Elysia({ prefix: "/api/v1" })
 		);
 	})
 
-	.get("/projects/:slug", async ({ params, query, status }) => {
-		const project =
-			projectBySlug.get(params.slug) ?? projectByForgeId.get(params.slug);
-		if (!project)
-			return status(404, {
-				error: "no such project",
-				slug: params.slug,
-				search: apiUrl("search"),
-			});
-		const switchedTo = await projectCounts();
-		return {
-			...shapeProjectDetail(project, langOf(query as Query), switchedTo),
-			license: LICENSE,
-		};
-	})
+	.get(
+		"/projects/:slug",
+		async ({ params, query, status, redirect, request }) => {
+			const project =
+				projectBySlug.get(params.slug) ?? projectByForgeId.get(params.slug);
+			const moved = content.redirects.projects[params.slug];
+			if (!project && moved)
+				return redirect(
+					`${apiUrl(`projects/${moved}`)}${new URL(request.url).search}`,
+					301,
+				);
+			if (!project)
+				return status(404, {
+					error: "no such project",
+					slug: params.slug,
+					search: apiUrl("search"),
+				});
+			const switchedTo = await projectCounts();
+			return {
+				...shapeProjectDetail(project, langOf(query as Query), switchedTo),
+				license: LICENSE,
+			};
+		},
+	)
 
 	.get("/categories", ({ query }) => {
 		const q = query as Query;
