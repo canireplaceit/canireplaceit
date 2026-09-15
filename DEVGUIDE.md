@@ -12,7 +12,7 @@
 bun install
 bun run hooks        # lefthook git hooks
 bun run env:gen      # writes .env, secrets already generated
-bun run icons        # caches every logo locally, once
+bun run icons        # fetches any logo not committed yet
 bun run dev          # containers + schema + seed, api :3010, web :3000
 ```
 
@@ -31,9 +31,9 @@ away.
 either — so a copied example is a file that works locally and will not start on
 the server. It refuses to overwrite an existing `.env`; `--force` keeps a `.bak`.
 
-`bun run icons` is not optional. `apps/frontend/public/icons` is gitignored and
-no Dockerfile fetches it. Skipping it fails nothing — it produces a site where
-all ~1,500 logos fall back to letter tiles.
+Logos are committed under `apps/frontend/public/icons`, and no build fetches
+them. After citing a new product or repo, `bun run icons` downloads only the
+missing ones; commit them, or those entries show a letter tile.
 
 ## Signing in
 
@@ -89,7 +89,8 @@ guessed default.
 | `SMTP_HOST` | Unset prints sign-in links to stdout instead of emailing them. |
 
 **Off unless set:** `PAYMENTS_PROVIDER` + both `STRIPE_*` keys, the four
-`UMAMI_*`, `ADMIN_TOKEN`, `TURNSTILE_SECRET`.
+`UMAMI_*`, `ADMIN_TOKEN`, and `TURNSTILE_SECRET` together with the build-time
+`PUBLIC_TURNSTILE_SITE_KEY`, which puts a human check on the submit form.
 
 `NODE_ENV`, `PORT` and `DATABASE_URL` come from `compose.prod.yml`. `SITE_URL`
 and `PUBLIC_*` are build-time, passed to `scripts/build-images.sh`.
@@ -117,7 +118,7 @@ version, so a commit that does not parse is a release that is wrong.
 
 ## Deploying
 
-One environment, production. Both steps are manual GitHub Actions workflows.
+One environment, production, released and deployed by GitHub Actions.
 
 **On the box, once:** Docker, an nginx already terminating TLS, a DNS A record
 for the domain and its `www`, `$APP_DIR/.env` written by hand, and
@@ -133,29 +134,25 @@ and `packages: write`. It is a PAT rather than `GITHUB_TOKEN` because the org
 forbids Actions from creating pull requests — a PAT acts as you, so the policy
 does not apply.
 
-**Repository variables:** `APP_DIR`, `SITE_DOMAIN`, `NGINX_CONF_DIR`,
-`NGINX_CONTAINER`, `UMAMI_UPSTREAM`, `PUBLIC_UMAMI_WEBSITE_ID`.
-
-Releasing and deploying are two separate decisions.
+**Variables**, also on the `production` environment: `APP_DIR`, `SITE_DOMAIN`,
+`NGINX_CONF_DIR`, `NGINX_CONTAINER`, `PUBLIC_UMAMI_WEBSITE_ID`, and optionally
+`PUBLIC_TURNSTILE_SITE_KEY` and `UMAMI_UPSTREAM` (defaults to `umami:3000`).
 
 **Release.** Run the **Release** workflow with a version. It pushes a
 `Release-As` marker commit and release-please opens the release PR — changelog,
 `package.json` and the manifest. Merging that PR fires **Release** again (gated
 on the merged branch being a `release-please--` one), which cuts the tag and
-publishes the GitHub release. Nothing is built or deployed.
+publishes the GitHub release.
 
-**Deploy.** Run the **Deploy** workflow with that version. It checks the tag out,
-fetches the logos, builds and slims both images, pushes them to GHCR, then ssh's
-in, pulls and restarts.
+**Deploy.** Merging the release PR also deploys. release-please pushes the tag
+with `GHCR_TOKEN`, a PAT, and unlike `GITHUB_TOKEN` a PAT's push does start
+workflows, so **Deploy** runs on the new `v*` tag by itself. It checks the tag
+out, builds and slims both images, pushes them to GHCR, then ssh's in, pulls,
+restarts, and removes all but the two newest image versions. Run **Deploy** by
+hand with a version to redeploy, or to roll back to the one before.
 
-It also listens for a pushed `v*` tag. Note that a tag created by release-please
-does NOT fire it: GitHub does not start a workflow from an event made with
-`GITHUB_TOKEN`. So in practice the release is cut automatically and the deploy is
-the button you press — which is the intent anyway.
-
-A release records what the code is. A deploy decides when it goes live. Keeping
-them apart means a bad release can simply not be deployed, and a deploy can be
-repeated without cutting a version.
+So the release PR is the go-live button: leave it open until you want that
+version live.
 
 The nginx config is templated at deploy time: `SITE_DOMAIN` and `UMAMI_UPSTREAM` are
 substituted into `nginx/canireplaceit.conf`, installed into `NGINX_CONF_DIR` and

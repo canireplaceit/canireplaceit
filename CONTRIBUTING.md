@@ -1,15 +1,17 @@
 # Contributing
 
 Every product on the list is one JSON file in `data/products/<slug>.json`, added by pull
-request. There is no web form and no account — the repo is the admin panel.
+request, and the repo is the admin panel. Readers without a GitHub account can suggest one
+through the form at `/en/submit`, which emails the maintainer and writes nothing here.
 
 ```bash
 bun install
 bun run validate     # checks the whole dataset
 ```
 
-There is no CI. `bun run validate` is run by hand and again at API boot, so a dataset that
-does not pass is one the server refuses to start on.
+CI runs lint, types, tests, `bun run validate`, the full build and a link check on every pull
+request. The API validates again at boot, so a dataset that does not pass is one the server
+refuses to start on.
 
 ## Adding a product
 
@@ -87,8 +89,8 @@ is not a formality — it is the reason anyone trusts the rest of the entry.
 
 **Every `source` must be real, current and canonical.** Check it is not archived and has
 commits in the last year. If a project moved or was forked, link the live one and say so in
-the note. Archived is not a style note: if `data/health.json` already records the repo as
-archived, `bun run validate` fails, and so does the API at boot.
+the note. An archived repo is kept and shown with a badge, never hidden, and `bun run validate`
+lists every one, so citing a dead project is a decision rather than an accident.
 
 **Prices drift.** Give the typical entry-tier price and fill in `pricing` so the next person
 can re-check it rather than guess. `confidence` is not decoration — the site draws a `low`
@@ -181,8 +183,8 @@ translated field, a product with no open source alternative, an `oss` entry with
 an `openCore` other than `none` that does not say what is paywalled, `cheaper` entries
 carrying `source`/`repo`/`license`/`effort`/`facts`/`hasCompose` (or `oss` entries carrying
 `url`/`priceMonthly`/`priceOnce`), a perpetual licence written as `priceMonthly: 0`, a
-`notPublic` without a receipt, `whatYouLose` outside 2-4 bullets, and any cited repo that
-`data/health.json` records as **archived**. It checks content and nothing else: types, lint
+`notPublic` without a receipt, and `whatYouLose` outside 2-4 bullets. Archived repos are
+reported, not blocked. It checks content and nothing else: types, lint
 and tests are `bun run typecheck`, `bunx biome check apps packages scripts` and `bun test`.
 
 It also blocks on **tool addresses**. Every open source project has a permanent URL in
@@ -193,10 +195,10 @@ are never rewritten. To move an address on purpose, edit it there and add the ol
 `data/redirects.json`, which the site serves as a 301. Validation fails if a redirect hides a
 live page or points at one that does not exist.
 
-The archived check only ever fires on a positive `archived: true`. A repo with no reading —
-a brand new PR's, one on a forge whose unauthenticated API does not report the field, one on
-a host `bun run health` does not query — passes, because absence is not evidence. Failing on
-a missing reading would block every PR for the crime of being new.
+The archived report only counts a positive `archived: true`, from the entry or the forge. A
+repo with no reading (a brand new PR's, one on a forge whose unauthenticated API does not
+report the field, one on a host `bun run health` does not query) is not listed, because
+absence is not evidence.
 
 ## Project health
 
@@ -208,10 +210,10 @@ forge into `data/health.json`, which the pages render directly:
 bun run health       # needs GITHUB_TOKEN, or `gh auth token`
 ```
 
-**Nothing refreshes this file on a schedule.** A weekly job used to commit it back to main;
-that job is gone with the rest of CI, so `data/health.json` is only as current as the last
-person to run the command — check its `fetchedAt` before trusting a reading, and run it
-yourself if a PR turns on whether a repo is alive.
+The **Health** workflow re-reads every repo each Monday and commits the file, and can be run
+by hand from the Actions tab. The site hides the readings once `fetchedAt` is more than a
+month old, so a broken run shows up as missing data rather than a stale date. Run the
+command yourself if a PR turns on whether a repo is alive.
 
 It also reports archived repos, 404s, anything with no push in a year, and licences that
 disagree with what we claim. Those are content bugs — fix the entry, don't ignore the

@@ -22,13 +22,10 @@ export const REPO = "https://github.com/canireplaceit/canireplaceit";
 
 /**
  * The maintainer's public email address — the one thing on the contact page that
- * cannot be derived.
- *
- * Deliberately `null`. No address, company, postal address or social handle is
- * recorded anywhere in this repo, and inventing one so the page looks complete
- * would be the same class of lie as an unpriced slot rendering as free. Set it to
- * a real address and the contact page grows a `mailto:` row; until then it says
- * out loud that there is no published address and sends people to the tracker.
+ * cannot be derived. It shows there as a `mailto:` row, and the submit form offers
+ * it when sending fails. Set it to `null` and the contact page says out loud that
+ * there is no published address and sends people to the tracker, rather than
+ * inventing one so the page looks complete.
  */
 export const CONTACT_EMAIL: string | null = "canireplaceit@gmail.com";
 

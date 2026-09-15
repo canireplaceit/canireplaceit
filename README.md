@@ -6,7 +6,7 @@ Every entry answers one question honestly: **is the open source option actually 
 yet, and what does switching really cost?** Each product also carries a cheaper-but-still-paid
 escape route, for people who want off the expensive thing without running a server.
 
-592 products · 85 categories · 6,723 alternatives · 3,479 open source projects · English and French.
+587 products · 85 categories · 6,689 alternatives · 3,439 open source projects · English and French.
 
 ## How it works
 
@@ -52,9 +52,8 @@ Commits are conventional; scopes are in `commitlint.config.js`.
 
 ## Known gaps
 
-- **`ssoInFree` is unknown for 374 of 871 projects.** Pages say "not checked" rather than
+- **`ssoInFree` is unknown for 3,221 of 3,439 projects.** Pages say "not checked" rather than
   guessing, but it is the largest hole in the facts — PRs welcome.
-- **No CI on contributions yet.** Entries are validated by hand until that lands.
 
 ## Licence
 
