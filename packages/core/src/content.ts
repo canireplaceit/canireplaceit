@@ -216,6 +216,12 @@ export type Health = {
 	 * one as "we do not know" rather than "there is none".
 	 */
 	homepage?: string | null;
+	/**
+	 * YYYY-MM-DD this repo was last read. Lets a refresh that stopped part way skip
+	 * what it already read instead of starting over. Absent from readings taken
+	 * before the field existed.
+	 */
+	checkedOn?: string;
 };
 
 /**

@@ -1,0 +1,48 @@
+name: Health
+
+# Re-reads every cited repo from its forge into data/health.json and commits it.
+# The site hides these readings once the file is a month old, so a missed run
+# shows up as missing data rather than a stale date.
+on:
+  schedule:
+    - cron: "23 5 * * 1"
+  workflow_dispatch:
+
+concurrency:
+  group: health
+  cancel-in-progress: false
+
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    # For GHCR_TOKEN. A full pass is two GitHub calls for each of ~3,400 repos,
+    # and GITHUB_TOKEN gets 1,000 calls an hour against a PAT's 5,000: the job
+    # would outlive its six hours before it finished.
+    environment: production
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GHCR_TOKEN }}
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.14
+
+      - run: bun install --frozen-lockfile
+
+      - name: Read every repo
+        env:
+          GITHUB_TOKEN: ${{ secrets.GHCR_TOKEN }}
+          REFRESH: "1"
+          WAIT_FOR_BUDGET: "1"
+        run: bun run health
+
+      - name: Commit the readings
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/health.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "chore(content): refresh repo health"
+          git push

@@ -10,8 +10,9 @@
  * rather than to a confident wrong date.
  *
  *   bun run health            # only repos with no reading yet (resumable)
- *   REFRESH=1 bun run health  # re-read everything
+ *   REFRESH=1 bun run health  # re-read everything not read in the last 6 days
  *   ONLY=gitlab,gitea bun run health
+ *   WAIT_FOR_BUDGET=1 bun run health  # sleep through GitHub's hourly limit
  *
  * SIX FORGES, and they do not answer the same questions:
  *
@@ -150,6 +151,8 @@ const forgeHeaders: Record<string, string> = {
  * truth, and two calls per repo across 869 repos is most of an hour's budget.
  */
 let ghRemaining: number | null = null;
+/** When that budget refills, from the same response: seconds since the epoch. */
+let ghReset: number | null = null;
 
 const get = (url: string, headers: Record<string, string>) =>
 	fetch(url, { headers, signal: AbortSignal.timeout(20_000) });
@@ -166,6 +169,8 @@ async function readGithub(source: Source): Promise<Health> {
 	);
 	const left = res.headers.get("x-ratelimit-remaining");
 	if (left !== null) ghRemaining = Number(left);
+	const reset = res.headers.get("x-ratelimit-reset");
+	if (reset !== null) ghReset = Number(reset);
 	if (res.status === 404) throw GONE;
 	if (!res.ok) throw new Error(`HTTP ${res.status}`);
 	const r = (await res.json()) as {
@@ -340,7 +345,41 @@ const only = process.env.ONLY?.split(",").map((s) => s.trim());
 const all = [...repos.keys()]
 	.filter((k) => !only || only.includes(repos.get(k)?.source.host as string))
 	.sort();
-const list = process.env.REFRESH ? all : all.filter((r) => !existing[r]);
+const TODAY = new Date().toISOString().slice(0, 10);
+/**
+ * REFRESH re-reads every repo not read in the last six days. The weekly run still
+ * covers the whole catalogue, and a run stopped part way (a killed process, a
+ * job out of time) resumes where it left off instead of starting from zero.
+ */
+const REFRESH_DAYS = 6;
+const readRecently = (key: string) => {
+	const on = existing[key]?.checkedOn;
+	return (
+		on !== undefined && Date.now() - Date.parse(on) < REFRESH_DAYS * 86_400_000
+	);
+};
+const list = process.env.REFRESH
+	? all.filter((r) => !readRecently(r))
+	: all.filter((r) => !existing[r]);
+
+const previousFetchedAt: string | undefined = (() => {
+	try {
+		return JSON.parse(readFileSync(OUT, "utf8")).fetchedAt;
+	} catch {
+		return undefined;
+	}
+})();
+const writeHealth = (fetchedAt: string) => {
+	const file: HealthFile = {
+		fetchedAt,
+		repos: Object.fromEntries(
+			Object.keys(health)
+				.sort()
+				.map((k) => [k, health[k] as Health]),
+		),
+	};
+	writeFileSync(OUT, `${JSON.stringify(file, null, "\t")}\n`);
+};
 const byForge = new Map<Forge, number>();
 for (const k of list) {
 	const host = repos.get(k)?.source.host as Forge;
@@ -361,6 +400,8 @@ const PAUSE_MS = 700;
  * dataset with nothing, and it does not get to happen twice.
  */
 const GH_FLOOR = 50;
+/** Batches between saves: 50 batches of 4 is 200 repos. */
+const CHECKPOINT_EVERY = 50;
 let budgetStop = false;
 
 for (let i = 0; i < list.length; i += CONCURRENCY) {
@@ -378,7 +419,7 @@ for (let i = 0; i < list.length; i += CONCURRENCY) {
 			}
 			try {
 				const h = await read(source);
-				health[key] = h;
+				health[key] = { ...h, checkedOn: TODAY };
 				if (h.archived) archived.push(key);
 
 				if (source.host === "github") {
@@ -412,7 +453,26 @@ for (let i = 0; i < list.length; i += CONCURRENCY) {
 			}
 		}),
 	);
+	// Saved as it goes, under the file's old date: a run killed part way (it has
+	// been, twice, on a machine short of memory) loses minutes, not the pass.
+	if ((i / CONCURRENCY) % CHECKPOINT_EVERY === CHECKPOINT_EVERY - 1)
+		writeHealth(previousFetchedAt ?? TODAY);
 	if (ghRemaining !== null && ghRemaining < GH_FLOOR) {
+		// The weekly workflow sets this. A full pass is two calls for each of ~3,400
+		// repos, more than an hour's budget, so stopping would re-read the same
+		// first part every week and never reach the rest.
+		if (process.env.WAIT_FOR_BUDGET && ghReset !== null) {
+			const ms = Math.max(ghReset * 1000 - Date.now(), 0) + 5_000;
+			console.warn(
+				`\nGitHub budget down to ${ghRemaining}: waiting ${Math.ceil(ms / 60_000)} min for it to reset.`,
+			);
+			// Everything read so far goes to disk first, under the file's old date,
+			// so a run killed during the wait resumes from here.
+			writeHealth(previousFetchedAt ?? TODAY);
+			await Bun.sleep(ms);
+			ghRemaining = null;
+			continue;
+		}
 		budgetStop = true;
 		console.warn(
 			`\nGitHub budget down to ${ghRemaining} — stopping here. Everything read so far is written; re-run to continue.`,
@@ -420,15 +480,9 @@ for (let i = 0; i < list.length; i += CONCURRENCY) {
 	}
 }
 
-const file: HealthFile = {
-	fetchedAt: new Date().toISOString().slice(0, 10),
-	repos: Object.fromEntries(
-		Object.keys(health)
-			.sort()
-			.map((k) => [k, health[k] as Health]),
-	),
-};
-writeFileSync(OUT, `${JSON.stringify(file, null, "\t")}\n`);
+// A run that stopped early keeps the file's old date: the UI trusts fetchedAt
+// for every reading, and most of them were not re-read today.
+writeHealth(budgetStop ? (previousFetchedAt ?? TODAY) : TODAY);
 console.log(
 	`\nWrote ${Object.keys(health).length} entries to data/health.json`,
 );
