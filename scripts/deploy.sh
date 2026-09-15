@@ -59,6 +59,12 @@ docker exec ${NGINX_CONTAINER} nginx -t
 docker exec ${NGINX_CONTAINER} nginx -s reload
 
 docker image prune -f >/dev/null
+
+# Keep the release now running and the one before it, for a rollback, and remove
+# the rest: nothing else did, and each frontend image is 1.4 GB on a shared disk.
+for repo in \$(docker images --format '{{.Repository}}' | grep -E '/canireplaceit-(fe|be)\$' | sort -u); do
+  docker images --format '{{.Tag}}' "\$repo" | grep -vx '${TAG}' | sort -V | head -n -1 | sed "s|^|\$repo:|" | xargs -r docker rmi >/dev/null
+done
 REMOTE_SCRIPT
 
 echo "✓ ${TAG} live on ${SITE_DOMAIN}"
