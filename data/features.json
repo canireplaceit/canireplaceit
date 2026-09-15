@@ -2780,9 +2780,6 @@
 			"data.backup.builtin": "yes",
 			"i18n.multiLanguage": "no"
 		},
-		"GarageGames/Torque3D": {
-			"ops.healthcheck": "yes"
-		},
 		"GeneralMills/pytrends": {
 			"ai.features": "yes",
 			"ai.mcp.server": "no",
@@ -2940,7 +2937,9 @@
 			"data.api.rest": "yes",
 			"i18n.multiLanguage": "yes"
 		},
-		"GreycLab/gmic": {},
+		"GreycLab/gmic": {
+			"ai.mcp.server": "no"
+		},
 		"Growstuff/growstuff": {
 			"auth.local": "yes",
 			"auth.rbac": "yes",
@@ -3060,7 +3059,6 @@
 		"Homebrew/brew": {
 			"data.telemetry.none": "no"
 		},
-		"HospitalRun/hospitalrun": {},
 		"HospitalRun/hospitalrun-frontend": {
 			"i18n.multiLanguage": "yes"
 		},
@@ -3507,9 +3505,6 @@
 		"Kurento/kurento": {
 			"collab.multiUser": "yes",
 			"ops.healthcheck": "yes"
-		},
-		"Kurento/kurento-media-server": {
-			"collab.multiUser": "yes"
 		},
 		"LMMS/lmms": {
 			"ai.features": "yes",
@@ -4325,14 +4320,6 @@
 			"data.telemetry.none": "no",
 			"ops.healthcheck": "yes"
 		},
-		"Part-DB/Part-DB-legacy": {
-			"auth.rbac": "yes",
-			"collab.comments": "yes",
-			"collab.multiUser": "yes",
-			"data.export.full": "partial",
-			"data.export.open": "yes",
-			"i18n.multiLanguage": "yes"
-		},
 		"Part-DB/Part-DB-server": {
 			"auth.apiTokens": "yes",
 			"auth.auditLog": "yes",
@@ -4353,6 +4340,7 @@
 			"data.backup.builtin": "yes",
 			"data.backup.documented": "yes",
 			"data.export.full": "yes",
+			"data.export.open": "yes",
 			"i18n.multiLanguage": "yes",
 			"ops.smtp": "yes",
 			"ops.subpath": "yes"
@@ -4773,14 +4761,11 @@
 			"auth.sso.oauth2": "yes",
 			"auth.sso.oidc": "yes"
 		},
-		"SeleniumHQ/docker-selenium": {
-			"ops.healthcheck": "yes",
-			"ops.subpath": "yes"
-		},
 		"SeleniumHQ/selenium": {
 			"ai.features": "yes",
 			"ai.mcp.server": "yes",
-			"ops.healthcheck": "yes"
+			"ops.healthcheck": "yes",
+			"ops.subpath": "yes"
 		},
 		"SelfControlApp/selfcontrol": {
 			"ai.features": "yes",
@@ -5566,8 +5551,6 @@
 			"ai.mcp.server": "no",
 			"ops.armSupport": "yes"
 		},
-		"WireGuard/wireguard-linux": {},
-		"WireGuard/wireguard-tools": {},
 		"WordPress/openverse": {
 			"ai.features": "yes",
 			"ai.mcp.community": "yes",
@@ -6529,9 +6512,6 @@
 			"ai.features": "no",
 			"ai.mcp.server": "no",
 			"data.api.rest": "partial"
-		},
-		"apache/ofbiz": {
-			"auth.local": "yes"
 		},
 		"apache/ofbiz-framework": {
 			"auth.local": "yes",
@@ -8422,8 +8402,10 @@
 			"ai.mcp.server": "no"
 		},
 		"code.blicky.net/yorhel/ncdu": {
+			"ai.mcp.server": "no",
 			"cli.dropIn": "yes",
-			"cli.interactive": "yes"
+			"cli.interactive": "yes",
+			"cli.output.json": "yes"
 		},
 		"code.blinkace.com/pdw/iftop": {},
 		"code.castopod.org/adaures/castopod": {
@@ -8536,7 +8518,6 @@
 			"ops.smtp": "yes",
 			"ops.subpath": "yes"
 		},
-		"codeberg.org/busybox/busybox": {},
 		"codeberg.org/dovecot/pigeonhole": {
 			"i18n.multiLanguage": "no"
 		},
@@ -8558,7 +8539,6 @@
 			"ops.s3": "yes",
 			"ops.sqlite": "yes"
 		},
-		"codeberg.org/gnu-octave/octave": {},
 		"codeberg.org/guix/guix": {},
 		"codeberg.org/isc-projects/bind9": {},
 		"codeberg.org/meli/meli": {
@@ -8590,6 +8570,9 @@
 		"codeberg.org/redict/redict": {
 			"i18n.multiLanguage": "no",
 			"ops.armSupport": "yes"
+		},
+		"codeberg.org/tenacityteam/tenacity": {
+			"i18n.multiLanguage": "yes"
 		},
 		"codelitdev/courselit": {
 			"auth.apiTokens": "yes",
@@ -9575,11 +9558,6 @@
 			"ops.sqlite": "yes",
 			"ops.subpath": "no"
 		},
-		"dev.yorhel.nl/yorhel/ncdu": {
-			"ai.mcp.server": "no",
-			"cli.interactive": "yes",
-			"cli.output.json": "yes"
-		},
 		"devcontainers/cli": {
 			"ai.features": "yes",
 			"ai.mcp.community": "yes",
@@ -10335,9 +10313,6 @@
 			"ai.mcp.official": "yes",
 			"ai.mcp.server": "yes",
 			"collab.multiUser": "yes",
-			"data.api.rest": "yes"
-		},
-		"eclipse-che/che-server": {
 			"data.api.rest": "yes"
 		},
 		"eclipse-mosquitto/mosquitto": {
@@ -11170,7 +11145,7 @@
 			"i18n.multiLanguage": "yes",
 			"ops.armSupport": "yes"
 		},
-		"flarum/flarum": {
+		"flarum/framework": {
 			"ai.features": "no",
 			"ai.mcp.community": "yes",
 			"ai.mcp.official": "no",
@@ -11179,13 +11154,6 @@
 			"auth.rbac": "yes",
 			"auth.teams": "yes",
 			"collab.mentions": "yes",
-			"collab.multiUser": "yes",
-			"data.api.rest": "yes",
-			"i18n.multiLanguage": "yes"
-		},
-		"flarum/framework": {
-			"auth.rbac": "yes",
-			"auth.teams": "yes",
 			"collab.multiUser": "yes",
 			"data.api.rest": "yes",
 			"data.telemetry.none": "no",
@@ -11941,21 +11909,26 @@
 		"git.savannah.gnu.org/nano-editor/nano": {
 			"i18n.multiLanguage": "yes"
 		},
-		"git.sr.ht/brlcad/brlcad": {},
-		"git.sr.ht/joeyh/git-annex": {
-			"data.backup.builtin": "yes"
-		},
 		"git.sr.ht/mediagoblin/mediagoblin": {},
-		"git.sr.ht/rjarry/aerc": {},
+		"git.sr.ht/rjarry/aerc": {
+			"i18n.multiLanguage": "no",
+			"ops.smtp": "yes"
+		},
 		"git.zabbix.com/ZBX/zabbix": {
 			"ai.mcp.community": "yes",
 			"ai.mcp.official": "no",
-			"ai.mcp.server": "yes"
+			"ai.mcp.server": "yes",
+			"auth.multiTenant": "yes",
+			"collab.multiUser": "yes",
+			"collab.notifications.email": "yes",
+			"collab.notifications.push": "no",
+			"i18n.multiLanguage": "yes"
 		},
 		"git.zx2c4.com/zx2c4/password-store": {
 			"ai.mcp.server": "no",
 			"data.encryption.rest": "yes"
 		},
+		"git.zx2c4.com/zx2c4/wireguard-tools": {},
 		"gitahead/gitahead": {
 			"i18n.multiLanguage": "yes"
 		},
@@ -12023,6 +11996,13 @@
 			"ai.mcp.community": "no",
 			"ai.mcp.official": "yes",
 			"ai.mcp.server": "yes",
+			"auth.apiTokens": "yes",
+			"auth.auditLog": "paid",
+			"auth.teams": "yes",
+			"collab.multiUser": "yes",
+			"collab.share.internal": "yes",
+			"data.export.full": "partial",
+			"data.telemetry.none": "no",
 			"ops.subpath": "yes"
 		},
 		"gitlab.com/glitchtip/glitchtip-backend": {
@@ -12050,9 +12030,6 @@
 			"data.export.open": "yes",
 			"i18n.multiLanguage": "yes"
 		},
-		"gitlab.com/jgraph/drawio": {
-			"ops.healthcheck": "yes"
-		},
 		"gitlab.com/lovell/sharp": {
 			"i18n.multiLanguage": "no",
 			"ops.armSupport": "yes"
@@ -12067,7 +12044,6 @@
 			"i18n.multiLanguage": "yes"
 		},
 		"gitlab.com/ole.tange/parallel": {},
-		"gitlab.com/pfsense/pfsense": {},
 		"gitlab.com/scilab/scilab": {},
 		"gitlab.com/sequoia-pgp/sequoia": {
 			"data.import.fromProprietary": "yes"
@@ -12104,16 +12080,6 @@
 			"ai.mcp.server": "no",
 			"data.backup.builtin": "no",
 			"i18n.multiLanguage": "yes"
-		},
-		"gitlabhq/gitlabhq": {
-			"auth.apiTokens": "yes",
-			"auth.auditLog": "paid",
-			"auth.teams": "yes",
-			"collab.multiUser": "yes",
-			"collab.share.internal": "yes",
-			"data.export.full": "partial",
-			"data.telemetry.none": "no",
-			"ops.subpath": "yes"
 		},
 		"gitleaks/gitleaks": {
 			"ai.features": "yes",
@@ -12196,9 +12162,6 @@
 		"glyphr-studio/Glyphr-Studio-Desktop": {
 			"ops.armSupport": "yes"
 		},
-		"gmic.eu/greyc/gmic": {
-			"ai.mcp.server": "no"
-		},
 		"gnab/remark": {},
 		"gnebbia/kb": {
 			"i18n.multiLanguage": "no"
@@ -12207,7 +12170,6 @@
 			"i18n.multiLanguage": "no"
 		},
 		"gnome-terminator/terminator": {},
-		"gnu-octave/octave": {},
 		"gnunn1/tilix": {
 			"i18n.multiLanguage": "yes"
 		},
@@ -12777,9 +12739,6 @@
 			"ops.sqlite": "yes"
 		},
 		"greenmail-mail-test/greenmail": {},
-		"gretl-project/gretl": {
-			"i18n.multiLanguage": "yes"
-		},
 		"gristlabs/grist-core": {
 			"auth.anonymous": "yes",
 			"auth.auditLog": "paid",
@@ -13193,9 +13152,6 @@
 			"ops.healthcheck": "yes",
 			"ops.sqlite": "yes",
 			"ops.subpath": "yes"
-		},
-		"herbiehp/unicenta": {
-			"i18n.multiLanguage": "yes"
 		},
 		"heroiclabs/nakama": {
 			"ai.features": "yes",
@@ -13953,7 +13909,7 @@
 			"ops.subpath": "yes"
 		},
 		"jaeles-project/gospider": {},
-		"jambonz/jambonz-api-server": {
+		"jambonz/jambonz-feature-server": {
 			"ai.features": "yes",
 			"ai.mcp.community": "no",
 			"ai.mcp.official": "yes",
@@ -13963,11 +13919,6 @@
 			"auth.rbac": "yes",
 			"data.api.rest": "yes",
 			"data.encryption.rest": "partial",
-			"data.webhooks": "yes",
-			"ops.s3": "yes"
-		},
-		"jambonz/jambonz-feature-server": {
-			"data.api.rest": "yes",
 			"data.webhooks": "yes",
 			"ops.s3": "yes"
 		},
@@ -16155,9 +16106,6 @@
 			"ai.mcp.community": "yes",
 			"ai.mcp.official": "no",
 			"ai.mcp.server": "yes",
-			"ops.armSupport": "yes"
-		},
-		"marp-team/marp-cli": {
 			"data.export.open": "yes",
 			"ops.armSupport": "yes"
 		},
@@ -16856,10 +16804,6 @@
 		"mojocn/base64Captcha": {},
 		"moncho/dry": {
 			"ops.armSupport": "yes"
-		},
-		"moneymanagerex/android-money-manager-ex": {
-			"data.telemetry.none": "no",
-			"i18n.multiLanguage": "yes"
 		},
 		"moneymanagerex/moneymanagerex": {
 			"data.encryption.rest": "yes",
@@ -19428,12 +19372,10 @@
 			"collab.share.publicLink": "yes",
 			"i18n.multiLanguage": "yes"
 		},
-		"phpList/core": {
-			"data.api.rest": "yes"
-		},
 		"phpList/phplist3": {
 			"auth.local": "yes",
 			"auth.rbac": "yes",
+			"data.api.rest": "yes",
 			"data.export.open": "yes",
 			"i18n.multiLanguage": "yes",
 			"ops.smtp": "yes"
@@ -20374,9 +20316,6 @@
 		"qustavo/httplab": {
 			"i18n.multiLanguage": "no"
 		},
-		"r-devel/r-svn": {
-			"i18n.multiLanguage": "yes"
-		},
 		"raboof/nethogs": {
 			"cli.interactive": "yes",
 			"i18n.multiLanguage": "no"
@@ -20602,7 +20541,6 @@
 			"cli.interactive": "yes",
 			"cli.plugins": "yes"
 		},
-		"remarkjs/remark": {},
 		"remonalbear/CMMS": {
 			"auth.local": "yes"
 		},
@@ -20833,10 +20771,6 @@
 		"rizinorg/rizin": {
 			"ops.armSupport": "yes"
 		},
-		"rjarry/aerc": {
-			"i18n.multiLanguage": "no",
-			"ops.smtp": "yes"
-		},
 		"rkitover/vimpager": {
 			"cli.pipes": "yes"
 		},
@@ -20878,7 +20812,6 @@
 			"i18n.multiLanguage": "no",
 			"ops.armSupport": "yes"
 		},
-		"rofl0r/ncdu": {},
 		"roflcoopter/viseron": {
 			"ai.features": "yes",
 			"ai.localModel": "yes",
@@ -21300,7 +21233,6 @@
 			"ops.sqlite": "yes"
 		},
 		"savannah.gnu.org/gnu/datamash": {},
-		"savannah.gnu.org/gnu/mediagoblin": {},
 		"savannah.gnu.org/gnu/octave": {
 			"ai.mcp.community": "yes",
 			"ai.mcp.official": "no",
@@ -21507,20 +21439,14 @@
 		"senaite/senaite.core": {
 			"ai.features": "no",
 			"ai.mcp.server": "no",
-			"auth.local": "yes",
-			"auth.rbac": "yes",
-			"auth.sso.ldap": "yes",
-			"auth.teams": "yes",
-			"data.api.rest": "yes",
-			"i18n.multiLanguage": "yes"
-		},
-		"senaite/senaite.lims": {
 			"auth.auditLog": "yes",
 			"auth.local": "yes",
 			"auth.rbac": "yes",
 			"auth.sso.ldap": "yes",
+			"auth.teams": "yes",
 			"collab.multiUser": "yes",
-			"data.api.rest": "yes"
+			"data.api.rest": "yes",
+			"i18n.multiLanguage": "yes"
 		},
 		"sentriz/cliphist": {},
 		"sentriz/gonic": {
@@ -21556,7 +21482,6 @@
 			"data.export.open": "yes"
 		},
 		"serphacker/serposcope": {},
-		"serverless-dns/serverless-dns": {},
 		"sferik/x-cli": {},
 		"sgl-project/sglang": {
 			"ai.features": "yes",
@@ -22019,7 +21944,6 @@
 		"so-fancy/diff-so-fancy": {
 			"i18n.multiLanguage": "no"
 		},
-		"soarpenguin/iftop": {},
 		"sobolevn/git-secret": {
 			"collab.multiUser": "yes",
 			"collab.share.internal": "yes",
@@ -22100,10 +22024,14 @@
 			"ai.mcp.official": "no",
 			"ai.mcp.server": "yes"
 		},
-		"sourceforge.net/p/gretl": {},
+		"sourceforge.net/p/gretl": {
+			"i18n.multiLanguage": "yes"
+		},
 		"sourceforge.net/projects/bibdesk": {},
 		"sourceforge.net/projects/mrbs": {},
-		"sourceforge.net/projects/unicentaopos": {},
+		"sourceforge.net/projects/unicentaopos": {
+			"i18n.multiLanguage": "yes"
+		},
 		"sourceforge.net/tecnoteca/openmaint": {},
 		"sourcegit-scm/sourcegit": {
 			"ai.features": "yes",
@@ -22141,7 +22069,6 @@
 			"ops.postgres": "yes",
 			"ops.sqlite": "yes"
 		},
-		"spacebarchat/spacebarchat": {},
 		"spacedeck/spacedeck-open": {
 			"auth.apiTokens": "yes",
 			"collab.multiUser": "yes",
@@ -22779,6 +22706,9 @@
 			"ops.healthcheck": "yes",
 			"ops.postgres": "yes"
 		},
+		"svn.r-project.org/R/trunk": {
+			"i18n.multiLanguage": "yes"
+		},
 		"swagger-api/swagger-editor": {
 			"data.export.open": "yes",
 			"data.telemetry.none": "no"
@@ -23067,10 +22997,6 @@
 			"ops.postgres": "yes",
 			"ops.s3": "yes",
 			"ops.sqlite": "yes"
-		},
-		"tenacityteam/tenacity": {},
-		"tenacityteam/tenacity-legacy": {
-			"i18n.multiLanguage": "yes"
 		},
 		"tensorflow/tensorboard": {
 			"auth.anonymous": "yes",
@@ -24318,9 +24244,6 @@
 			"data.api.rest": "yes",
 			"i18n.multiLanguage": "no"
 		},
-		"vyos/vyos-build": {
-			"i18n.multiLanguage": "no"
-		},
 		"wader/fq": {},
 		"wader/jqjq": {},
 		"wagoodman/dive": {
@@ -24420,9 +24343,6 @@
 			"data.webhooks": "yes",
 			"ops.healthcheck": "yes",
 			"ops.smtp": "yes"
-		},
-		"wch/r-source": {
-			"i18n.multiLanguage": "yes"
 		},
 		"wcpos/woocommerce-pos": {
 			"auth.apiTokens": "yes",
@@ -24939,13 +24859,6 @@
 		},
 		"z4p5a9/blamer.nvim": {
 			"i18n.multiLanguage": "no"
-		},
-		"zabbix/zabbix": {
-			"auth.multiTenant": "yes",
-			"collab.multiUser": "yes",
-			"collab.notifications.email": "yes",
-			"collab.notifications.push": "no",
-			"i18n.multiLanguage": "yes"
 		},
 		"zachlatta/pyre": {},
 		"zai-org/CodeGeeX": {
