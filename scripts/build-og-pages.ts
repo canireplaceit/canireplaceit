@@ -799,7 +799,7 @@ const projects = collectProjects(products);
  */
 const projectUrlSlug = buildProjectSlugs(
 	projects,
-	products.map((p) => p.slug),
+	JSON.parse(readFileSync(join(DATA, "project-slugs.json"), "utf8")).slugs,
 );
 
 /** The products a project's `replaces` cites, for its own card. */

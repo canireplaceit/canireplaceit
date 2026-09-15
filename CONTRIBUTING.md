@@ -185,6 +185,14 @@ carrying `source`/`repo`/`license`/`effort`/`facts`/`hasCompose` (or `oss` entri
 `data/health.json` records as **archived**. It checks content and nothing else: types, lint
 and tests are `bun run typecheck`, `bunx biome check apps packages scripts` and `bun test`.
 
+It also blocks on **tool addresses**. Every open source project has a permanent URL in
+`data/project-slugs.json`, so a page never moves because a product file spells the name
+differently. Cite a repo nobody has cited before and validation asks you to run
+`bun run slugs`, which gives it an address; commit that file with your JSON. Existing entries
+are never rewritten. To move an address on purpose, edit it there and add the old one to
+`data/redirects.json`, which the site serves as a 301. Validation fails if a redirect hides a
+live page or points at one that does not exist.
+
 The archived check only ever fires on a positive `archived: true`. A repo with no reading —
 a brand new PR's, one on a forge whose unauthenticated API does not report the field, one on
 a host `bun run health` does not query — passes, because absence is not evidence. Failing on

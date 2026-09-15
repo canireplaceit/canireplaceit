@@ -151,7 +151,12 @@ function load() {
 		}
 	}
 
-	return { categories, products, slots };
+	// Every tool address ever published. See scripts/project-slugs.ts.
+	const projectSlugs = read<{ slugs: Record<string, string> }>(
+		join(DATA, "project-slugs.json"),
+	).slugs;
+
+	return { categories, products, slots, projectSlugs };
 }
 
 export const content = load();

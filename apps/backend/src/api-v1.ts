@@ -96,14 +96,11 @@ const projects = collectProjects(content.products);
  * Forge id to the slug the site actually puts in a URL.
  *
  * A Project carries `github-appflowy-io-appflowy`, but its page is at
- * `/en/tools/appflowy`. Built exactly as scripts/prerender.ts builds it, with
- * the product slugs passed in, because the two must agree: a `url` field that
+ * `/en/tools/appflowy`. Built exactly as scripts/prerender.ts builds it, from
+ * the same locked addresses, because the two must agree: a `url` field that
  * does not resolve is worse than no API at all.
  */
-const prettySlug = buildProjectSlugs(
-	projects,
-	content.products.map((p) => p.slug),
-);
+const prettySlug = buildProjectSlugs(projects, content.projectSlugs);
 
 /** The pretty slug is the public id, so `/api/v1/projects/appflowy` matches the page. */
 const projectBySlug = new Map(

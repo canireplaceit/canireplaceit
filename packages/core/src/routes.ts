@@ -440,12 +440,21 @@ const RESERVED_SLUGS: ReadonlySet<string> = new Set(
 	SupportedLangs.flatMap((lang) => Object.values(SEGMENTS[lang])),
 );
 
-/** Maps each project's forge-path id to a short, readable URL slug, appending the owner to disambiguate colliding names. */
+/**
+ * Maps each project's forge-path id to its URL slug.
+ *
+ * `locked` is data/project-slugs.json and always wins, so a published address
+ * never moves because a product file spelled the name differently or a
+ * namesake arrived. Only a project the lock has never seen gets a slug from its
+ * name, with the owner appended when another project shares that name, and
+ * never one the lock already holds. Tools and products do not compete for a
+ * slug: `/tools/ffmpeg` and `/alternatives/ffmpeg` are different folders.
+ */
 export function buildProjectSlugs(
 	projects: Project[],
-	productSlugs: Iterable<string> = [],
+	locked: Readonly<Record<string, string>> = {},
 ): Map<string, string> {
-	const taken = new Set([...productSlugs, ...RESERVED_SLUGS]);
+	const taken = new Set([...RESERVED_SLUGS, ...Object.values(locked)]);
 
 	// Sort by the already-unique forge-path id so output depends only on the set of projects, never arrival order.
 	const sorted = [...projects].sort((a, b) => (a.slug < b.slug ? -1 : 1));
@@ -460,6 +469,11 @@ export function buildProjectSlugs(
 
 	const out = new Map<string, string>();
 	for (const project of sorted) {
+		const fixed = locked[project.slug];
+		if (fixed) {
+			out.set(project.slug, fixed);
+			continue;
+		}
 		const base = bases.get(project.slug) as string;
 		let slug =
 			baseCounts.get(base) === 1 && !taken.has(base)

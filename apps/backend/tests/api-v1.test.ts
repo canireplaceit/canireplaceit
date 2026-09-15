@@ -89,7 +89,7 @@ describe("project links", () => {
 
 		const expected = buildProjectSlugs(
 			collectProjects(content.products),
-			content.products.map((p) => p.slug),
+			content.projectSlugs,
 		);
 
 		const { body } = await get("/projects?limit=50");

@@ -1234,16 +1234,13 @@ export function App() {
 	// them, so the two can never disagree about what exists or what it is called.
 	const projects = useMemo(() => collectProjects(products), [products]);
 	const projectSlugs = useMemo(() => {
-		const derived = buildProjectSlugs(
-			projects,
-			products.map((p) => p.slug),
-		);
+		const derived = buildProjectSlugs(projects);
 		// The baked map came from the whole catalogue, so it is right both before
 		// the API answers (when `derived` only saw this page's slice) and after
 		// (when the two agree anyway).
 		for (const [id, slug] of boot()?.projectSlugs ?? []) derived.set(id, slug);
 		return derived;
-	}, [projects, products]);
+	}, [projects]);
 	const projectBySlug = useMemo(
 		() =>
 			new Map(

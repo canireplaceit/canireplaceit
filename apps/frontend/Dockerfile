@@ -19,6 +19,8 @@ ENV PUBLIC_API_URL=$PUBLIC_API_URL
 ENV PUBLIC_UMAMI_WEBSITE_ID=$PUBLIC_UMAMI_WEBSITE_ID
 ENV PUBLIC_UMAMI_SRC=$PUBLIC_UMAMI_SRC
 RUN if [ "$DEV_MODE" = "true" ]; then NODE_ENV=development bun run build; else bun run build; fi
+# The retired-address map front.conf includes, built from data/redirects.json.
+RUN bun scripts/nginx-redirects.ts > /app/redirects.map
 
 # nginx has no brotli of its own — it is a third-party module, and the hardened
 # base ships no package manager to install one with. Alpine packages it, but for
@@ -58,6 +60,7 @@ COPY --from=brotli /build/nginx-${NGINX_VERSION}/objs/ngx_http_brotli_static_mod
 # the encoder has to come with it — same Alpine 3.21 and same musl as the base.
 COPY --from=brotli /usr/lib/libbrotlienc.so.1 /usr/lib/libbrotlicommon.so.1 /usr/lib/
 COPY apps/frontend/front.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /app/redirects.map /etc/nginx/redirects.map
 COPY --from=build /app/apps/frontend/dist /usr/share/nginx/html
 
 # `load_module` is a main-context directive and this base includes conf.d/

@@ -177,7 +177,7 @@ const categories: Category[] = JSON.parse(
 const projects = collectProjects(products);
 const prettySlug = buildProjectSlugs(
 	projects,
-	products.map((p) => p.slug),
+	JSON.parse(readFileSync(join(DATA, "project-slugs.json"), "utf8")).slugs,
 );
 
 /**

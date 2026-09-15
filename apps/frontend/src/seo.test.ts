@@ -247,10 +247,7 @@ describe("breadcrumbs", () => {
 			read<Product>(`products/${s}.json`),
 		);
 		const projects: Project[] = collectProjects(products);
-		const slugs = buildProjectSlugs(
-			projects,
-			products.map((p) => p.slug),
-		);
+		const slugs = buildProjectSlugs(projects);
 		const project = projects[0];
 		const slug = slugs.get(project.slug) as string;
 		const rungs = trail(projectMeta(project, "en", slug).jsonLd);
@@ -329,7 +326,7 @@ describe("licence", () => {
 	test("is a URL or a CreativeWork, never a bare string", () => {
 		const products = [read<Product>("products/notion.json")];
 		const projects = collectProjects(products);
-		const slugs = buildProjectSlugs(projects, ["notion"]);
+		const slugs = buildProjectSlugs(projects);
 		for (const project of projects) {
 			const app = typed(
 				nodes(
@@ -441,10 +438,7 @@ describe("titles", () => {
 		).toEqual(["Autodesk Flow Production Tracking (ShotGrid)", "Frame.io"]);
 
 		const projects = collectProjects(allProducts);
-		const slugs = buildProjectSlugs(
-			projects,
-			allProducts.map((p) => p.slug),
-		);
+		const slugs = buildProjectSlugs(projects);
 		for (const project of projects) {
 			for (const lang of ["en", "fr"] as const) {
 				const { title } = projectMeta(

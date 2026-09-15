@@ -219,10 +219,10 @@ test("the slug-less tools URL is the project index, and a project still wins", (
 test("no project slug can shadow a route segment", () => {
 	// `/en/tools/page` must be the paginator and never a project called Page.
 	const reserved = SupportedLangs.flatMap((l) => Object.values(SEGMENTS[l]));
-	const map = buildProjectSlugs(
-		[project("Page", "o/page"), project("Compare", "o/compare")],
-		[],
-	);
+	const map = buildProjectSlugs([
+		project("Page", "o/page"),
+		project("Compare", "o/compare"),
+	]);
 	for (const slug of map.values()) expect(reserved).not.toContain(slug);
 });
 
@@ -313,12 +313,21 @@ test("two projects with the same name both get the owner", () => {
 	expect(slugs).not.toContain("goose");
 });
 
-test("a project colliding with a product yields the bare name to the product", () => {
-	const map = buildProjectSlugs(
-		[project("Sentry", "getsentry/sentry")],
-		["sentry"],
-	);
-	expect([...map.values()]).toEqual(["sentry-getsentry"]);
+test("a tool may share a product's name, since the two live under different folders", () => {
+	const map = buildProjectSlugs([project("Sentry", "getsentry/sentry")]);
+	expect([...map.values()]).toEqual(["sentry"]);
+});
+
+test("a locked address survives a rename and a namesake arriving", () => {
+	// Plausible's page moved off /tools/plausible when a product file started
+	// calling it "Plausible Analytics". The lock is what stops that happening.
+	const renamed = project("Plausible Analytics", "plausible/analytics");
+	const namesake = project("Plausible", "someone/plausible");
+	const map = buildProjectSlugs([renamed, namesake], {
+		[renamed.slug]: "plausible",
+	});
+	expect(map.get(renamed.slug)).toBe("plausible");
+	expect(map.get(namesake.slug)).toBe("plausible-someone");
 });
 
 test("the same name and owner on two forges still gets two slugs", () => {
@@ -337,8 +346,8 @@ test("slug assignment does not depend on input order", () => {
 		project("goose", "pressly/goose"),
 		project("Tabby", "TabbyML/tabby"),
 	];
-	const forward = buildProjectSlugs(input, ["tabby"]);
-	const backward = buildProjectSlugs([...input].reverse(), ["tabby"]);
+	const forward = buildProjectSlugs(input);
+	const backward = buildProjectSlugs([...input].reverse());
 	expect([...backward]).toEqual([...forward]);
 });
 
@@ -347,10 +356,18 @@ const products: Product[] = readdirSync(DATA)
 	.filter((f) => f.endsWith(".json"))
 	.map((f) => JSON.parse(readFileSync(join(DATA, f), "utf8")) as Product);
 const projects = collectProjects(products);
-const productSlugs = products.map((p) => p.slug);
+const locked = JSON.parse(
+	readFileSync(join(DATA, "../project-slugs.json"), "utf8"),
+).slugs as Record<string, string>;
+
+test("every real project has a locked address", () => {
+	expect(projects.filter((p) => !locked[p.slug]).map((p) => p.name)).toEqual(
+		[],
+	);
+});
 
 test("every real project gets a non-empty, unique slug", () => {
-	const map = buildProjectSlugs(projects, productSlugs);
+	const map = buildProjectSlugs(projects, locked);
 	const slugs = [...map.values()];
 	expect(map.size).toBe(projects.length);
 	expect(slugs.every((s) => s.length > 0)).toBe(true);
@@ -358,21 +375,14 @@ test("every real project gets a non-empty, unique slug", () => {
 	expect(slugs.every((s) => kebab(s) === s)).toBe(true);
 });
 
-test("no real project slug shadows a product slug", () => {
-	const taken = new Set(productSlugs);
-	for (const slug of buildProjectSlugs(projects, productSlugs).values()) {
-		expect(taken.has(slug)).toBe(false);
-	}
-});
-
 test("two runs over the real data agree exactly", () => {
-	const a = buildProjectSlugs(projects, productSlugs);
-	const b = buildProjectSlugs([...projects].reverse(), productSlugs);
+	const a = buildProjectSlugs(projects, locked);
+	const b = buildProjectSlugs([...projects].reverse(), locked);
 	expect([...b].sort()).toEqual([...a].sort());
 });
 
 test("real project URLs round-trip", () => {
-	for (const [, slug] of buildProjectSlugs(projects, productSlugs)) {
+	for (const [, slug] of buildProjectSlugs(projects, locked)) {
 		expect(at(paths.project("fr", slug))).toEqual({
 			name: "project",
 			lang: "fr",

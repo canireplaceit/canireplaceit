@@ -44,7 +44,7 @@ const health = read<HealthFile>("health.json");
 const allProjects = collectProjects(products);
 const prettySlug = buildProjectSlugs(
 	allProjects,
-	products.map((p) => p.slug),
+	read<{ slugs: Record<string, string> }>("project-slugs.json").slugs,
 );
 
 /** Whole-catalogue figures, which scripts/prerender.ts puts on every page. */

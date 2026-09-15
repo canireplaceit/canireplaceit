@@ -8,6 +8,7 @@ import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { basename, join } from "node:path";
 import {
 	type Category,
+	collectProjects,
 	type HealthFile,
 	healthKey,
 	type Issue,
@@ -18,6 +19,7 @@ import {
 	validateProduct,
 } from "core/src/content";
 import { SupportedLangs } from "core/src/index";
+import { kebab, SEGMENTS } from "core/src/routes";
 
 const ROOT = join(import.meta.dir, "..");
 const DATA = join(ROOT, "data");
@@ -74,6 +76,71 @@ for (const file of files) {
 	seen.add(name);
 	report(`data/products/${file}`, issues);
 	if (issues.length === 0) products.push(value as Product);
+}
+
+/* ---- addresses ------------------------------------------------------------
+ *
+ * data/project-slugs.json is every tool address ever published, and
+ * data/redirects.json every retired address with the page that replaced it. A
+ * mistake in either is two tools on one URL or a page that 404s, and nothing
+ * else notices before production does.
+ */
+{
+	const lock =
+		(
+			readJson(join(DATA, "project-slugs.json")) as {
+				slugs?: Record<string, string>;
+			} | null
+		)?.slugs ?? {};
+	const reserved = new Set(
+		SupportedLangs.flatMap((l) => Object.values(SEGMENTS[l])),
+	);
+	const lockIssues: Issue[] = [];
+	const holder = new Map<string, string>();
+	for (const [id, slug] of Object.entries(lock)) {
+		if (kebab(slug) !== slug || reserved.has(slug))
+			lockIssues.push({ path: id, message: `"${slug}" cannot be an address` });
+		const other = holder.get(slug);
+		if (other)
+			lockIssues.push({
+				path: id,
+				message: `"${slug}" already belongs to ${other}`,
+			});
+		holder.set(slug, id);
+	}
+	const projects = collectProjects(products);
+	const unlocked = projects.filter((p) => !lock[p.slug]);
+	if (unlocked.length > 0)
+		lockIssues.push({
+			path: "slugs",
+			message: `no address yet for ${unlocked.map((p) => p.name).join(", ")}. Run \`bun run slugs\`.`,
+		});
+	report("data/project-slugs.json", lockIssues);
+
+	const redirects = readJson(join(DATA, "redirects.json")) as {
+		products?: Record<string, string>;
+		projects?: Record<string, string>;
+	} | null;
+	const live = {
+		products: new Set(products.map((p) => p.slug)),
+		projects: new Set(projects.map((p) => lock[p.slug])),
+	};
+	const redirectIssues: Issue[] = [];
+	for (const kind of ["products", "projects"] as const) {
+		for (const [from, to] of Object.entries(redirects?.[kind] ?? {})) {
+			if (live[kind].has(from))
+				redirectIssues.push({
+					path: `${kind}.${from}`,
+					message: "is a live page, and a redirect would hide it",
+				});
+			if (!live[kind].has(to))
+				redirectIssues.push({
+					path: `${kind}.${from}`,
+					message: `points at "${to}", which is not a live page`,
+				});
+		}
+	}
+	report("data/redirects.json", redirectIssues);
 }
 
 /* ---- archived repos -------------------------------------------------------

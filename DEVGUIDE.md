@@ -103,6 +103,7 @@ and `PUBLIC_*` are build-time, passed to `scripts/build-images.sh`.
 | `bun run typecheck` | all three workspaces |
 | `bunx biome check apps packages scripts` | lint and format |
 | `bun run validate` | the dataset: schema, locale coverage, dead links |
+| `bun run slugs` | give newly cited tools their permanent address |
 | `bun run build` | prerenders every page |
 | `bun run icons` | refetch logos |
 | `bun run health` | refresh `data/health.json` from the forges |

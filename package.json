@@ -10,6 +10,7 @@
 	"scripts": {
 		"env:gen": "bun scripts/gen-env.ts",
 		"validate": "bun scripts/validate-content.ts",
+		"slugs": "bun scripts/project-slugs.ts",
 		"import": "bun scripts/import-entries.ts",
 		"dev": "docker compose up -d --wait && bun --filter backend db:push && turbo run dev",
 		"dev:rm": "bun scripts/dev-rm.ts",
