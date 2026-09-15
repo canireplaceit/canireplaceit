@@ -194,16 +194,21 @@ const declaredIcon =
 		return found ? new URL(found, res.url).href : null;
 	};
 
-const faviconUrls = (domain: string): IconSource[] => [
-	`https://www.google.com/s2/favicons?domain=${encodeURIComponent(domain)}&sz=${SIZE}`,
-	`https://icons.duckduckgo.com/ip3/${domain}.ico`,
-	// Last resort: ask the site itself. Lower quality and sometimes a 16px .ico,
-	// but it is the only source for vendors neither aggregator has indexed.
-	`https://${domain}/favicon.ico`,
-	`https://www.${domain}/favicon.ico`,
-	declaredIcon(domain),
-	declaredIcon(`www.${domain}`),
-];
+const faviconUrls = (domain: string): IconSource[] => {
+	// `www.` only exists in front of a bare domain. www.git.netfilter.org does not,
+	// and every attempt at it was a DNS timeout before the next source could run.
+	const bare = domain.split(".").length === 2;
+	return [
+		`https://www.google.com/s2/favicons?domain=${encodeURIComponent(domain)}&sz=${SIZE}`,
+		`https://icons.duckduckgo.com/ip3/${domain}.ico`,
+		// Last resort: ask the site itself. Lower quality and sometimes a 16px .ico,
+		// but it is the only source for vendors neither aggregator has indexed.
+		`https://${domain}/favicon.ico`,
+		...(bare ? [`https://www.${domain}/favicon.ico`] : []),
+		declaredIcon(domain),
+		...(bare ? [declaredIcon(`www.${domain}`)] : []),
+	];
+};
 const githubAvatar = (owner: string) => [
 	`https://github.com/${owner}.png?size=${SIZE}`,
 ];
@@ -279,6 +284,11 @@ for (const p of products) {
 						// The forge's own favicon last: a shared mark under a per-project
 						// name is worse art but a truer link than someone else's logo.
 						...faviconUrls(host),
+						// A self-hosted git server (git.netfilter.org, git.ipfire.org) often
+						// has no favicon of its own, while the project's site does.
+						...(host.split(".").length > 2
+							? faviconUrls(host.split(".").slice(1).join("."))
+							: []),
 					],
 					alt.name,
 				);
